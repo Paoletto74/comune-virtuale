@@ -2066,7 +2066,11 @@ export class GameSurfaceService {
           currentGradeLabel: null,
           affinities: [],
           history: [],
-          switchRules: { minAffinityDelta: 15, minSignificantActions: 5 },
+          pendingSwitchCareerId: null,
+pendingSwitchCareerLabel: null,
+pendingSwitchStreak: 0,
+pendingSwitchRequired: 5,
+switchRules: { minAffinityDelta: 15, minSignificantActions: 5 },
         };
 
     if (!this.isEnabled()) {

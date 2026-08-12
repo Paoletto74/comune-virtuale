@@ -61,7 +61,7 @@ export class AssetCatalogService {
       if (resolved.timePhased) {
         phaseVariants = await this.scanPhaseVariants(resolved);
         for (const phase of VISUAL_TIME_PHASES) {
-          const variant = phaseVariants[phase as VisualTimePhase];
+          const variant = phaseVariants?.[phase as VisualTimePhase];
           if (variant?.presence === 'present' && variant.url) {
             presence = 'present';
             resolvedUrl = variant.url;

@@ -236,7 +236,7 @@ class InMemoryGameSurfaceRepository implements GameSurfaceRepository {
   }) {
     const existing = await this.findInventoryByIdempotencyKey(input.idempotencyKey);
     if (existing) return { record: existing, created: false };
-    this.inventory.set(input.inventoryId, input);
+    this.inventory.set(input.inventoryId, { ...input, purchasePriceMinor: input.purchasePriceMinor ?? undefined, purchasePriceIndexBps: input.purchasePriceIndexBps ?? undefined });
     return {
       record: {
         inventoryId: input.inventoryId,
