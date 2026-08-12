@@ -1,0 +1,14 @@
+# =============================================================================
+# ECONOMIC BALANCE — economy_v1
+# =============================================================================
+
+---
+EconomicBalance:
+  adminMonitor:
+  - creation
+  - destruction
+  - velocity
+  - average wealth
+  - median wealth
+  - distribution
+  status: DECISIONE APPROVATA

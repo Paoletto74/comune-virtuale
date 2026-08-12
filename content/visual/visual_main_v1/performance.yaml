@@ -1,0 +1,47 @@
+# =============================================================================
+# PERFORMANCE & IMAGE LOADING
+# =============================================================================
+
+ImageLoading:
+  status: PROPOSTA TECNICA
+  supports:
+    items:
+      - lazy_loading
+      - progressive_loading
+      - thumbnails
+      - caching
+      - preloading_for_important_popups
+
+performance:
+  status: PROPOSTA TECNICA
+  mustNot:
+    items:
+      - load_full_resolution_unnecessarily
+      - load_all_marketplace_images
+      - load_all_profile_images
+  uses:
+    items:
+      - cdn_storage_future
+      - resize
+      - cache
+      - pagination
+      - lazy_loading
+  provider: TBD
+
+mobile:
+  DECISIONE APPROVATA: attenzione a miniature, popup, profilo, composizioni, caricamento
+
+desktop:
+  status: PROPOSTA TECNICA
+  mayUse:
+    items:
+      - larger_images
+      - profile_hero
+      - showcase
+      - gazzetta_visual
+      - richer_popups
+
+events:
+  items:
+    - VisualAssetCached
+    - VisualAssetLoadFailed

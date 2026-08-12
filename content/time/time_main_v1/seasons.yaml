@@ -1,0 +1,27 @@
+# =============================================================================
+# SEASONS — compatibilità futura
+# =============================================================================
+
+Season:
+  status: PROPOSTA TECNICA — NON formule V1
+  items:
+    - seasonId: spring
+    - seasonId: summer
+    - seasonId: autumn
+    - seasonId: winter
+
+seasonEffects:
+  mayInfluence:
+    items:
+      - demand
+      - prices
+      - jobs
+      - consumption
+      - events
+      - mobility
+  rule: Economy/domini autorevoli — Time fornisce season context
+  formulas: TBD
+
+events:
+  items:
+    - SeasonChanged

@@ -1,0 +1,13 @@
+# =============================================================================
+# RESIDENTIAL — property_v1
+# =============================================================================
+
+---
+ResidentialProperty:
+  states:
+  - rented
+  - owned
+  - vacant
+  - occupied
+  - available
+  status: DECISIONE APPROVATA

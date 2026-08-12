@@ -1,0 +1,30 @@
+# =============================================================================
+# TESTING — tick, catch-up, failure, replay
+# =============================================================================
+
+RuntimeTesting:
+  unitScenarios:
+    items:
+      - single_tick
+      - multi_tick
+      - catch_up
+      - failure
+      - retry
+      - duplicate_tick
+      - event_replay
+
+integrationScenarios:
+  items:
+    - salary
+    - rent
+    - purchase
+    - task
+    - level_up
+    - election
+    - referendum
+    - criminal_consequence
+    - npc_simulation
+
+events:
+  emits: [TestScenarioCompleted]
+  consumes: []

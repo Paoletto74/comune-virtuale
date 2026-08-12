@@ -1,0 +1,13 @@
+# =============================================================================
+# IMPACT PREVIEW — before publish
+# =============================================================================
+
+ImpactPreview:
+  status: PROPOSTA TECNICA — NON analisi completa V1
+  mayShow:
+    example: "Questo cambiamento influenza 12 task e 4 notifiche."
+  rule: se possibile prima del publish
+
+events:
+  items:
+    - ImpactPreviewGenerated

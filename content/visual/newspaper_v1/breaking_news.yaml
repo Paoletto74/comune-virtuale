@@ -1,0 +1,20 @@
+# =============================================================================
+# BREAKING NEWS — specific visual grammar, do not abuse
+# =============================================================================
+
+BreakingNews:
+  DECISIONE APPROVATA: grammatica visiva specifica
+  rule: |
+    NON abusare. Notifica ordinaria NON deve sembrare catastrofe nazionale.
+  contentSeverity:
+    distinguish:
+      items:
+        - informazione_ordinaria
+        - evento_importante
+        - emergenza
+
+ref: breaking_news badge, popup.yaml NewsFlash
+
+events:
+  items:
+    - BreakingNewsDisplayed

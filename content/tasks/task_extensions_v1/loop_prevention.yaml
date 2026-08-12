@@ -1,0 +1,14 @@
+# =============================================================================
+# LOOP PREVENTION — task_extensions_v1
+# =============================================================================
+
+---
+LoopPrevention:
+  problem: Task A -> Event B -> Task A loop
+  mechanisms:
+  - causal chain
+  - loop detection
+  - max depth
+  - cancelIf
+  values: TBD
+  status: PROPOSTA TECNICA

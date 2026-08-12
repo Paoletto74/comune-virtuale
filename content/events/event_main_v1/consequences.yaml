@@ -1,0 +1,97 @@
+# =============================================================================
+# CONSEQUENCES — immediate, delayed, conditional, scheduled
+# =============================================================================
+
+ConsequenceDefinition:
+  schema:
+    definitionId: string
+    consequenceType: string
+    sourceEventType: string
+    conditionRef: string | null
+    effectSetRef: string
+    generatedEventRefs: []
+    generatedTaskRefs: []
+    visibility: visible | hidden | restricted
+    atomicityGroup: string | null
+
+ImmediateConsequence:
+  status: PROPOSTA_TECNICA — allinea task_main_v1/consequences.yaml
+  schema:
+    consequenceId: string
+    sourceEventId: string
+    effectSetRef: string
+    generatedEvents: []
+    executedAt: timestamp
+    causalChainId: string
+
+ScheduledConsequence:
+  schema:
+    consequenceId: string
+    triggerAt: timestamp
+    sourceEventId: string
+    targetRef: string | null
+    conditionRef: string | null
+    effectSetRef: string
+    status: pending | triggered | cancelled | expired
+    evaluationRulesRef: string | null
+    idempotencyKey: string
+  states:
+    items:
+      - pending
+      - triggered
+      - cancelled
+      - expired
+
+DelayedConsequence:
+  DECISIONE APPROVATA: supporto conseguenze ritardate
+  exampleTimeline:
+    items:
+      - at: today
+        note: "hai commesso un reato"
+      - at: plus_24h
+        note: "la polizia ha trovato una pista"
+      - at: plus_72h
+        note: "sei stato scoperto"
+  delivery: Time System — triggerAt, catch_up offline
+
+ConditionalConsequence:
+  DECISIONE APPROVATA: effetti condizionali
+  examples:
+    items:
+      - condition: debt_unpaid_within_48h
+        then: penalty_effect_set
+      - condition: owns_vehicle
+        then: effect_set_x
+        else: effect_set_y
+
+dynamicEvaluation:
+  DECISIONE APPROVATA: |
+    Conseguenza futura NON necessariamente completamente determinata al momento origine.
+    Al trigger: valuta stato attuale mondo → calcola conseguenza individuale.
+  exampleFireAtTrigger:
+    evaluate:
+      items:
+        - building_still_exists
+        - current_owner
+        - current_occupant
+        - current_value
+        - insured
+        - repaired
+
+EffectSet:
+  schema:
+    effectSetId: string
+    effects: []
+    atomic: boolean
+    modifierRefs: []
+  rule: |
+    Evento può produrre più effetti.
+    EffectSet applicabile atomicamente dove necessario.
+
+events:
+  items:
+    - ImmediateConsequenceApplied
+    - ScheduledConsequenceCreated
+    - ScheduledConsequenceTriggered
+    - ScheduledConsequenceCancelled
+    - ConditionalConsequenceEvaluated

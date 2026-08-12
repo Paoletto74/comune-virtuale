@@ -1,0 +1,13 @@
+# =============================================================================
+# COMPRESSION — quality without degradation
+# =============================================================================
+
+Compression:
+  rule: |
+    Compressione senza degradare eccessivamente text readability,
+    facial details, item recognition.
+  settings: DA DEFINIRE / TBD
+
+events:
+  items:
+    - VisualCompressed

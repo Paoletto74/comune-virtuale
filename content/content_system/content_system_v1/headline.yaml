@@ -1,0 +1,22 @@
+# =============================================================================
+# HEADLINE — manual, template, AI-assisted
+# =============================================================================
+
+Headline:
+  sources:
+    items:
+      - manual
+      - template_derived
+      - AI_assisted
+  rule: sempre validata prima della pubblicazione
+  importance:
+    ref: newspaper_v1/headlines.yaml
+    levels: [MINOR, STANDARD, IMPORTANT, MAJOR, BREAKING]
+
+breakingNews:
+  rule: permission speciale — evitare abuso
+  ref: admin_permissions.yaml
+
+events:
+  items:
+    - HeadlineValidated

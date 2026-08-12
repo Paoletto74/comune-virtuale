@@ -1,0 +1,84 @@
+# =============================================================================
+# BALANCE METRICS — framework analitico futuro
+# =============================================================================
+# NON implementato — solo definizioni metriche previste (Prompt 8 §18)
+# =============================================================================
+
+balanceMetricsFramework:
+  enabled: false
+  schemaVersion: 1
+
+  collection:
+    frequency: TBD
+    retention: TBD
+    privacy: aggregate_only_for_public
+
+  metrics:
+    - metricId: avg_time_per_level
+      description: Tempo medio di gioco per raggiungere ogni levelId
+      dimensions: [levelId, pathDominant, tier]
+      value: TBD
+
+    - metricId: level_distribution_players
+      description: Percentuale giocatori per livello
+      dimensions: [levelId, snapshotGameTime]
+      value: TBD
+
+    - metricId: level_distribution_npc
+      description: Percentuale NPC per livello (se tracciato)
+      dimensions: [levelId]
+      value: TBD
+
+    - metricId: wealth_mean_median
+      description: Patrimonio medio e mediano popolazione
+      dimensions: [scope_all_citizens, scope_players_only]
+      value: TBD
+
+    - metricId: income_mean
+      description: Reddito medio popolazione
+      dimensions: [scope]
+      value: TBD
+
+    - metricId: time_to_reach_milestone
+      description: Tempo medio per milestone chiave
+      dimensions: [milestoneId]
+      value: TBD
+
+    - metricId: demotion_rate
+      description: Tasso retrocessione per livello/tier
+      dimensions: [levelId, triggerId]
+      value: TBD
+
+    - metricId: churn_by_level
+      description: Tasso abbandono correlato livello/inattività
+      dimensions: [levelId, inactivityTier]
+      value: TBD
+
+    - metricId: path_usage_distribution
+      description: Percorso dominante più/meno utilizzato
+      dimensions: [trackId, levelBand]
+      value: TBD
+
+    - metricId: level_reach_rate
+      description: "Percentuale giocatori che raggiunge L05, L10, L15, L20, L25, L30"
+      dimensions: [levelId]
+      value: TBD
+
+    - metricId: path_completion_parity
+      description: Verifica anti-optimal-path — competitività tra path
+      dimensions: [trackId]
+      value: TBD
+
+  dashboards:
+    admin: TBD
+    balancing_tool: TBD
+
+  alerts:
+    - alertId: level_too_fast
+      condition: avg_time_per_level < TBD
+      levelRef: TBD
+    - alertId: path_dominance
+      condition: path_usage > TBD_percent
+      trackRef: TBD
+    - alertId: grind_detected
+      condition: anti_grind_rule_trigger_rate > TBD

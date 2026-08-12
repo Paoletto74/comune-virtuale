@@ -1,0 +1,9 @@
+# =============================================================================
+# INTEGRATIONS VISUAL — task_extensions_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  taskProvides: visualAssetId
+  visualOwns: asset composition
+  status: PROPOSTA TECNICA

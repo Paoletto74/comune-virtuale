@@ -1,0 +1,12 @@
+# =============================================================================
+# CLIENT SYNC — time_v1
+# =============================================================================
+
+---
+ClientSync:
+  maintains: server offset
+  clockFailure: block time-sensitive ops
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ClientSyncFailed

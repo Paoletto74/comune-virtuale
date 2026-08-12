@@ -1,0 +1,100 @@
+# =============================================================================
+# ACCOUNT, AUTHENTICATION & AUTHORIZATION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Account ≠ Citizen ≠ Profile ≠ Admin Identity
+# Auth autorevole su login/sessioni — Authorization server-side obbligatoria
+# Admin NON accessibile a normali giocatori — URL /admin NON sufficiente
+# V1: proposta architetturale — NO runtime authentication
+# =============================================================================
+
+catalogId: auth_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  profile: profile_main_v1
+  ui: ui_main_v1
+  adminContentStudio: admin_content_studio_v1
+  notification: notification_main_v1
+  timeSystem: time_main_v1
+
+principles:
+  - Account ≠ Citizen ≠ Profile ≠ Admin Identity
+  - Authentication autorevole — Profile NON autentica
+  - Authorization SERVER-SIDE obbligatoria — UI nascondere ≠ sicurezza
+  - Default DENY — fail closed
+  - Admin solo Owner/utenti autorizzati — normal player GAME ONLY
+  - Conoscere URL /admin NON concede accesso
+  - Login/logout NON cancella Citizen/dati gioco
+  - Provider abstraction — Google non hardcoded unico
+  - NO password in chiaro — hash TBD
+  - Sensitive ops — permission superiori, step-up futuro
+  - Audit immutabile per eventi sicurezza importanti
+
+includes:
+  account: account.yaml
+  citizenAssociation: citizen_association.yaml
+  authentication: authentication.yaml
+  providers: providers.yaml
+  google: google.yaml
+  password: password.yaml
+  sessions: sessions.yaml
+  recovery: recovery.yaml
+  identityLinking: identity_linking.yaml
+  usernames: usernames.yaml
+  adminAccess: admin_access.yaml
+  roles: roles.yaml
+  permissions: permissions.yaml
+  sensitivePermissions: sensitive_permissions.yaml
+  owner: owner.yaml
+  adminUsers: admin_users.yaml
+  invitations: invitations.yaml
+  revocation: revocation.yaml
+  authorization: authorization.yaml
+  apiSecurity: api_security.yaml
+  resourceOwnership: resource_ownership.yaml
+  audit: audit.yaml
+  securityEvents: security_events.yaml
+  rateLimits: rate_limits.yaml
+  privacy: privacy.yaml
+  retention: retention.yaml
+  environments: environments.yaml
+  secrets: secrets.yaml
+  accessibility: accessibility.yaml
+  uiTexts: ui_texts.yaml
+  integrations: integrations.yaml
+  matrix: matrix.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  auth_module: [authentication, providers, google, password, sessions, recovery]
+  identity_module: [account, citizenAssociation, identityLinking, usernames]
+  authorization_module: [authorization, permissions, roles, adminAccess, matrix]
+  admin_module: [owner, adminUsers, invitations, revocation, sensitivePermissions]
+  security_module: [apiSecurity, resourceOwnership, audit, rateLimits, secrets]
+
+responsibilitySplit:
+  authenticationDecides:
+    items:
+      - account_identity
+      - authentication
+      - sessions
+      - login
+      - logout
+      - recovery
+      - identity_linking
+  authorizationDecides:
+    items:
+      - roles
+      - permissions
+      - resource_access
+      - admin_access
+      - sensitive_actions
+  adminStudioDecides: [content_workflow, editing, validation, preview, publishing]
+  profileDecides: [public_private_citizen_data]
+  gameEnginesDecide: [gameplay_state, economy, progression, work, politics, criminal, inventory, marketplace]
+
+alignsWith:
+  note: |
+    Complementa profile_main_v1/identity.yaml, ui_main_v1/routing.yaml,
+    admin_content_studio_v1/permissions.yaml. NON modifica pack approvati.

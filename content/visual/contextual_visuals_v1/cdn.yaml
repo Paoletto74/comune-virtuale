@@ -1,0 +1,12 @@
+# =============================================================================
+# CDN — future CDN delivery
+# =============================================================================
+
+Cdn:
+  status: PROPOSTA TECNICA — future
+  provider: DA DEFINIRE / TBD
+  rule: NON implementare V1
+
+events:
+  items:
+    - VisualCdnDelivered

@@ -1,0 +1,91 @@
+# =============================================================================
+# COMPANY INSTANCES — aziende concrete
+# =============================================================================
+
+CompanyInstance:
+  schema:
+    companyId: string
+    assetId: string
+    definitionId: string
+    ownerId: string
+    foundedAt: timestamp
+    status: startup | active | struggling | suspended | bankrupt | sold | closed
+    companyValue: TBD
+    cashBalance: TBD
+    revenue: TBD
+    expenses: TBD
+    profit: TBD
+    employeeCount: TBD
+    companyReputation: TBD
+    companyPerformance: TBD
+    companyQuality: TBD
+    demand: TBD
+    locationRef: string | null
+    propertyRefs: []
+    vehicleRefs: []
+
+  rules:
+    DECISIONE APPROVATA:
+      items:
+        - companyValue != cashBalance
+        - companyValue contribuisce a netWorth proprietario
+        - azienda = asset economico (company_equity subtype)
+        - perdita NON implica fallimento automatico
+
+statusLifecycle:
+  items:
+    - startup
+    - active
+    - struggling
+    - suspended
+    - bankrupt
+    - sold
+    - closed
+  transitions: TBD
+
+cashflowConcepts:
+  separation:
+    items:
+      - revenue
+      - expenses
+      - profit
+      - cashflow
+      - companyValue
+  formula: profit = revenue - expenses
+  ledgerRef: economy_main_v1
+
+instances:
+  status: skeleton_only
+  examples:
+    items:
+      - companyId: COMP_EXAMPLE_001
+        definitionId: TYPE_RESTAURANT
+        name: Ristorante di Mario
+        ownerId: null
+        status: active
+        companyValue: TBD
+        cashBalance: TBD
+
+futureOwnership:
+  status: PROPOSTA_TECNICA
+  v1Model: ownerId
+  futureSupport:
+    items:
+      - ownershipPercent
+      - shareholders
+      - dividends
+      - stock_market
+  note: NON mercato azionario complesso in v1
+
+AssetLink:
+  economyAssetClass: ASSET
+  economyAssetSubtype: company_equity
+  moduleRef: business_main_v1
+  behaviors:
+    items:
+      - buy
+      - sell
+      - generate_income
+      - generate_costs
+      - revalue
+      - fail

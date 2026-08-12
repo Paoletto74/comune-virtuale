@@ -1,0 +1,11 @@
+# =============================================================================
+# LAZY LOAD — rare sound assets
+# =============================================================================
+
+LazyLoad:
+  rule: rare sound assets — lazy load on first use
+  ref: preload.yaml
+
+events:
+  items:
+    - SoundLazyLoaded

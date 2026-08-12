@@ -1,0 +1,22 @@
+# =============================================================================
+# LOGO — masthead-compatible, original
+# =============================================================================
+
+Logo:
+  requirements:
+    items:
+      - coerente_masthead
+      - newspaper_identity
+      - digital_game_identity
+      - responsive
+  mustNot:
+    items:
+      - sembrare_logo_giornale_reale
+      - copiare_marchi_esistenti
+  status: PROPOSTA TECNICA — NON logo definitivo
+
+ref: frontend_ui_v1/header.yaml, masthead.yaml
+
+events:
+  items:
+    - LogoRendered

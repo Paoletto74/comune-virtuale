@@ -1,0 +1,16 @@
+# =============================================================================
+# FEES — listing, transaction, rental
+# =============================================================================
+
+MarketFees:
+  status: TBD — valori in marketplace_balance_v1
+  types:
+    items:
+      - listing_fee
+      - transaction_fee
+      - rental_fee
+  rule: Economy gestisce movimento denaro — Marketplace definisce fee config
+
+events:
+  items:
+    - MarketFeeApplied

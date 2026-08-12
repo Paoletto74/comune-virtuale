@@ -1,0 +1,17 @@
+# =============================================================================
+# SPECIAL EVENTS — major game moments
+# =============================================================================
+
+SpecialEventSounds:
+  types:
+    items:
+      - seasonal_event
+      - limited_time_event
+      - community_milestone
+      - server_wide_event
+  rule: distinct from daily micro feedback — MAJOR or CRITICAL priority
+  ref: event_main_v1
+
+events:
+  items:
+    - SpecialEventSoundTriggered

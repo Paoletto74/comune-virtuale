@@ -1,0 +1,42 @@
+# =============================================================================
+# SOURCE OF TRUTH — authoritative vs derived vs cache
+# =============================================================================
+
+SourceOfTruth:
+  DECISIONE APPROVATA: ogni dato ha un unico owner — NO copie authoritative
+
+authoritative:
+  Banking:
+    items: [cash, account_balance, ledger, debt]
+  Inventory:
+    items: [owned_items, quantities, ownership]
+  Marketplace:
+    items: [listings, listing_state, seller_buyer_context]
+  Work:
+    items: [employment, jobs, contracts]
+  Progression:
+    items: [level, progression_state, milestones]
+  Political:
+    items: [candidacy, election, mayor_role]
+  Profile:
+    items: [profile_information, visibility]
+  Notification:
+    items: [notification_instances]
+  Time:
+    items: [game_time]
+
+derived:
+  items:
+    - net_worth
+    - ranking
+    - home_summary
+    - notification_unread_count
+
+cache:
+  rule: NON authoritative
+
+ref: data_architecture_v1/entities.yaml
+
+events:
+  items:
+    - SourceOfTruthViolationDetected

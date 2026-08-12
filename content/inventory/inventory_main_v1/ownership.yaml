@@ -1,0 +1,56 @@
+# =============================================================================
+# OWNERSHIP — possesso e asset references
+# =============================================================================
+
+Ownership:
+  schema:
+    ownerId: string
+    ownerType: citizen | npc | company | system
+    itemInstanceId: string
+    quantity: number
+    acquiredAt: timestamp
+    ownershipStatus: legitimate | stolen | disputed | unknown
+
+ItemValue:
+  DECISIONE APPROVATA: |
+    Separare baseValue da currentMarketValue.
+    Prezzo reale: Economy/Marketplace autorevoli.
+    Inventory conserva riferimento opzionale — NO secondo sistema prezzi.
+
+AssetReference:
+  DECISIONE APPROVATA: asset complessi — dominio autorevole, inventory reference only
+  refs:
+    items:
+      - type: vehicle
+        refField: vehicleId
+        owner: mobility_main_v1
+        inventoryStores: vehicleReference
+      - type: property
+        refField: propertyId
+        owner: property_main_v1
+        inventoryStores: propertyReference
+      - type: company_equity
+        refField: companyId
+        owner: business_main_v1
+
+InventoryMustNotDuplicate:
+  property:
+    items:
+      - rent_contracts
+      - property_value
+      - maintenance_logic
+  vehicle:
+    items:
+      - full_vehicle_state
+      - travel_logic
+
+Renting:
+  DECISIONE APPROVATA: |
+    rentable=true solo se configurato.
+    Inventory NON gestisce contratto affitto.
+    Dominio: durata, prezzo, pagamenti, restituzione.
+
+events:
+  items:
+    - OwnershipChanged
+    - AssetReferenceLinked

@@ -1,0 +1,13 @@
+# =============================================================================
+# MOBILITY DEMAND — mobility_vehicles_v1
+# =============================================================================
+
+---
+MobilityDemand:
+  indicators:
+  - trips
+  - vehicle ownership
+  - public transport demand
+  - congestion future
+  formulas: TBD
+  status: TBD

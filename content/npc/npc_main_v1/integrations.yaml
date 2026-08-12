@@ -1,0 +1,137 @@
+# =============================================================================
+# INTEGRATIONS — tutti i domini, NPC come partecipanti
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: bidirectional
+    npcProvides:
+      items:
+        - demand
+        - supply
+        - consumption_events
+        - salary_events
+        - population_segments
+    economyProvides:
+      items:
+        - prices
+        - inflation
+        - ledger
+        - transactions
+    alignsWith: economy_main_v1/npc_economy.yaml
+    rule: Economy autorevole su money/prices — NPC fornisce comportamento popolazione
+
+  work_main_v1:
+    direction: bidirectional
+    alignsWith: work_main_v1/npc_employment.yaml
+    workProvides: jobs, employment_state, salaries
+    npcProvides: labor_supply, job_applications, npc_workers
+
+  property_main_v1:
+    direction: bidirectional
+    alignsWith: property_main_v1/npc_demand.yaml
+    propertyProvides: listings, ownership, contracts
+    npcProvides: rental_demand, purchase_demand, tenants
+
+  mobility_main_v1:
+    direction: bidirectional
+    alignsWith: mobility_main_v1/npc_mobility.yaml
+    mobilityProvides: vehicles, routes, travel
+    npcProvides: aggregate_mobility, npc_vehicle_owners
+
+  business_main_v1:
+    direction: bidirectional
+    alignsWith: business_main_v1/npc.yaml
+    businessProvides: companies, payroll, performance
+    npcProvides: employees, customers, owners
+
+  family_main_v1:
+    direction: bidirectional
+    alignsWith: family_main_v1/npc.yaml
+    familyProvides: relationships, household, events
+    npcProvides: npc_families, player_child_npc_lifecycle
+
+  political_main_v1:
+    direction: bidirectional
+    alignsWith: political_main_v1/npc.yaml
+    politicalProvides: elections, laws, roles
+    npcProvides: votes, candidates, civic_participation
+
+  criminal_main_v1:
+    direction: bidirectional
+    alignsWith: criminal_main_v1/npc.yaml
+    criminalProvides: crime_rules, detection, penalties
+    npcProvides: crime_events, victims, aggregate_crime_rate
+
+  progression_main_v1:
+    direction: npc → progression (limited)
+    rule: |
+      NPC importanti possono avere level semplificato.
+      Progression autorevole — NPC System fornisce segmenti/percentili.
+
+  progression_balance_v1:
+    direction: npc → balance
+    alignsWith: progression_balance_v1/population_context.yaml
+    provides:
+      items:
+        - all_citizens_percentiles
+        - population_statistics
+        - npc_distribution
+
+  task_main_v1:
+    direction: limited
+    rule: Task interattivi principalmente per PLAYER — NPC usano DecisionDefinition
+
+  event_main_v1:
+    direction: npc → events
+    rule: |
+      NPC generano WorldEvent (actorType=npc).
+      Event System propaga conseguenze.
+      Global events: segment effects + individual quando necessario.
+
+  notification_main_v1:
+    direction: events → notification
+    rule: Notifiche player su NPC rilevanti — non ogni evento NPC
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - time_buckets
+        - lastSimulationAt
+        - catch_up
+        - scheduled_batches
+
+  admin_panel:
+    configurable:
+      items:
+        - target_population
+        - distributions
+        - segments
+        - simulation_tiers
+        - batch_schedules
+        - importance_thresholds
+        - generation_seeds
+
+  security:
+    clientCannot:
+      items:
+        - modify_npc_state
+        - force_tier_promotion
+        - inject_population
+        - bypass_domain_ownership
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    npcSystemMustNot:
+      items:
+        - own_economy_ledger
+        - own_job_definitions
+        - own_property_registry
+        - own_company_logic
+        - decide_crime_outcomes
+        - decide_election_results
+        - simulate_every_npc_every_second

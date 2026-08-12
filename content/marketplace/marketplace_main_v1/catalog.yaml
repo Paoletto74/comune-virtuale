@@ -1,0 +1,105 @@
+# =============================================================================
+# MARKETPLACE & TRADING MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: mercato dinamico — coordina, NON possiede denaro/inventory/asset
+# Separazione: CATALOGO ≠ MERCATO ≠ TRANSAZIONE
+# NON modifica: tutti i moduli già approvati
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: marketplace_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  business: business_main_v1
+  work: work_main_v1
+  criminal: criminal_main_v1
+  npcPopulation: npc_main_v1
+  eventSystem: event_main_v1
+  notification: notification_main_v1
+  timeSystem: time_main_v1
+  progressionMain: progression_main_v1
+
+principles:
+  - CATALOGO ≠ MERCATO ≠ TRANSAZIONE
+  - Marketplace coordina — Economy possiede denaro/ledger
+  - Inventory/Property/Mobility possiedono asset — Marketplace listing only
+  - Consumabili acquistabili da catalogo — NON rivendita se tradable=false
+  - Unsold listings realistiche — no guaranteed sale
+  - NO guaranteed profit — liquidity ≠ marketValue
+  - Transazioni atomiche — lock, idempotency, server authority
+  - NPC aggregate demand — non 10.000 ordini individuali obbligatori
+  - Work UI sotto MERCATO — Work System separato
+  - Content-first + Admin Content Studio compatible
+  - Client non autoritativo
+  - NO AI / LLM / API esterne
+
+includes:
+  listing_types: listing_types.yaml
+  categories: categories.yaml
+  rules: rules.yaml
+  selling: selling.yaml
+  buying: buying.yaml
+  renting: renting.yaml
+  pricing: pricing.yaml
+  liquidity: liquidity.yaml
+  npc_market: npc_market.yaml
+  search: search.yaml
+  filters: filters.yaml
+  fees: fees.yaml
+  taxes: taxes.yaml
+  history: history.yaml
+  events: events.yaml
+  privacy: privacy.yaml
+  security: security.yaml
+  offline: offline.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  listing_module: [listing_types, selling, buying, renting, rules]
+  market_module: [pricing, liquidity, npc_market, categories]
+  discovery_module: [search, filters]
+  lifecycle_module: [history, events, offline, fees, taxes]
+
+responsibilitySplit:
+  marketplaceDecides:
+    items:
+      - listing_lifecycle
+      - market_availability
+      - buyer_seller_matching
+      - market_search_filters
+      - market_liquidity_presentation
+      - rental_marketplace_coordination
+      - market_presentation
+  otherSystemsDecide:
+    economy: money_ledger_inflation_tax_fees
+    inventory: item_ownership_condition_locks
+    property: property_ownership_contracts_value
+    mobility: vehicle_state_ownership
+    business: company_assets
+    work: jobs_employment_salary
+    npcPopulation: demand_supply_behavior
+    criminal: illegal_goods_consequences
+    banking: debt_collateral_restrictions
+    time: expiry_schedules_recurring
+    eventSystem: consequences
+    notification: player_communication
+    profile: public_visibility
+
+alignsWith:
+  note: |
+    Formalizza pattern in economy_main_v1/market.yaml, inventory_main_v1,
+    property_main_v1/npc_demand, business_main_v1/market.yaml.
+    NON modifica pack approvati.
+
+uiSeparation:
+  DECISIONE APPROVATA: |
+    MERCATO UI:
+    ├── LAVORO (Work System — dominio separato)
+    └── MARKETPLACE (questo sistema)

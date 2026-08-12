@@ -1,0 +1,45 @@
+# =============================================================================
+# EVENT CONSUMERS — processing, deduplication, failure
+# =============================================================================
+
+EventConsumer:
+  declaration:
+    items:
+      - consumerId
+      - eventTypes
+      - handler
+      - retry_policy
+      - idempotency
+      - consistency
+
+processing:
+  flow:
+    items:
+      - receive
+      - validate
+      - deduplicate
+      - process
+      - mark_processed
+
+deduplication:
+  keys:
+    items: [eventId, consumerId, processing_state]
+
+failure:
+  rule: retry — se continua fallire dead letter — NON bloccare intero gioco
+
+consumers:
+  items:
+    - Notifications
+    - Gazzetta
+    - Rankings
+    - Progression
+    - Social
+    - Analytics
+    - Municipality
+    - NPC
+
+events:
+  items:
+    - EventConsumed
+    - EventConsumerFailed

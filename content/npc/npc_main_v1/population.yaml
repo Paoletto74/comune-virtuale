@@ -1,0 +1,65 @@
+# =============================================================================
+# POPULATION — target, aggregati, dinamiche
+# =============================================================================
+
+PopulationTarget:
+  status: "indicativo — TBD configurabile"
+  initialTarget:
+    playerCount: "approximately_10"
+    npcCount: "approximately_10000"
+    totalPopulation: derived
+  rule: Numeri definitivi configurabili via admin / content pack
+
+AggregatedPopulation:
+  DECISIONE APPROVATA: |
+    Per attività di massa utilizzare gruppi — NON aggiornare ogni individuo.
+  example: "8000 NPC lavoratori — distribuzione occupazionale, domanda, consumi"
+  simulatesWithoutIndividualUpdate:
+    items:
+      - occupational_distribution
+      - demand
+      - consumption
+      - mobility
+      - income
+
+PopulationDynamics:
+  status: PROPOSTA_TECNICA — valori numerici TBD
+  causes:
+    items:
+      - birth
+      - growth
+      - transfer
+      - immigration_future
+      - emigration_future
+      - npc_removal
+      - other_dynamics
+
+PopulationBatchProcessing:
+  schema:
+    jobId: string
+    jobType: string
+    segmentRefs: []
+    timeBucket: "hourly | daily | weekly | monthly"
+    status: pending | running | completed | failed
+  DECISIONE APPROVATA: "BatchSimulationJob — NON processare tutto ad ogni tick"
+
+TimeBuckets:
+  items:
+    - hourly
+    - daily
+    - weekly
+    - monthly
+  rule: "Non tutti gli NPC allo stesso intervallo — tier e segmento determinano frequenza"
+  values: TBD
+
+NoSecondBySecond:
+  DECISIONE APPROVATA: |
+    NON aggiornare 10.000 NPC ogni secondo.
+    batch | scheduled | probabilistic | aggregated | event-driven | catch-up
+
+events:
+  items:
+    - PopulationGenerated
+    - PopulationSegmentUpdated
+    - BatchSimulationCompleted
+    - PopulationDynamicsApplied

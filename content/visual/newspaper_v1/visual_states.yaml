@@ -1,0 +1,21 @@
+# =============================================================================
+# VISUAL STATES — default, breaking, unread, etc.
+# =============================================================================
+
+VisualStates:
+  states:
+    items:
+      - default
+      - hover
+      - focus
+      - active
+      - disabled
+      - breaking
+      - selected
+      - unread
+      - new
+      - expired
+
+events:
+  items:
+    - VisualStateApplied

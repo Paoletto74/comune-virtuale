@@ -1,0 +1,10 @@
+# =============================================================================
+# SALARY — work_careers_v1
+# =============================================================================
+
+---
+Salary:
+  owner: Work defines - Economy executes
+  types: see salary_types
+  currency: game currency only
+  status: DECISIONE APPROVATA

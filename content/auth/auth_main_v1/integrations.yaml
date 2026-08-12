@@ -1,0 +1,53 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  profile_main_v1:
+    direction: auth ↔ profile
+    authProvides: [accountId]
+    profileProvides: [citizenId]
+    rule: Profile NON autentica — auth fornisce accountId
+
+  ui_main_v1:
+    direction: ui ↔ auth
+    uiPresents: [login, logout, landing_entry]
+    authOwns: [authentication, session]
+
+  admin_content_studio_v1:
+    direction: auth → studio
+    rule: |
+      Studio delega a Authentication, Authorization, Audit.
+      NON copie separate regole sicurezza.
+    studioUses:
+      items:
+        - authentication
+        - authorization
+        - audit
+        - content_validation
+        - publishing_checks
+
+  notification_main_v1:
+    direction: auth → notification
+    uses: security_event_notifications
+
+  entitySeparation:
+    DECISIONE APPROVATA:
+    flow: |
+      Account → Citizen → Profile
+      Admin Identity → Admin Permissions → Admin Content Studio
+
+  adminIdentity:
+    DECISIONE APPROVATA: |
+      Admin Identity NON confuso con Citizen pubblico.
+      Collaboratori Admin: credenziali proprie + permission scope.
+
+  separationOfConcerns:
+    authMustNot:
+      items:
+        - decide_title_level_wealth
+        - own_profile_data
+        - bypass_authorization_server_side
+        - grant_admin_by_url_knowledge
+        - delete_citizen_on_logout

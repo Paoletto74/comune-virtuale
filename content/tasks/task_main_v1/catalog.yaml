@@ -1,0 +1,75 @@
+# =============================================================================
+# TASK MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Task = azione situazionale, NON missioni lineari
+# Principio gioco: "Ogni azione impatta su noi stessi e sugli altri."
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1, mobility_main_v1
+# Valori numerici: TBD
+# =============================================================================
+
+catalogId: task_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - Task ≠ missione lineale (no task → premio → prossimo task obbligatorio)
+  - Conseguenze immediate e ritardate
+  - Catene causali emergenti
+  - Effetti personalizzati per cittadino — NO "tutti -10 felicità"
+  - Task Definition ≠ Task Instance
+  - Content-first — NO if task == help_old_woman
+  - Task NON modifica cash/proprietà direttamente — delega ad altri sistemi
+  - Client non autoritativo
+  - Idempotenza e audit
+  - NO AI runtime / LLM / servizi esterni
+  - NO chat libera — azioni strutturate e template
+
+includes:
+  categories: categories.yaml
+  definitions: definitions.yaml
+  options: options.yaml
+  conditions: conditions.yaml
+  effects: effects.yaml
+  consequences: consequences.yaml
+  delayed_consequences: delayed_consequences.yaml
+  target_rules: target_rules.yaml
+  generation: generation.yaml
+  pools: pools.yaml
+  priorities: priorities.yaml
+  notifications: notifications.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  task_core: [definitions, options, conditions]
+  outcome_module: [effects, consequences, delayed_consequences]
+  generation_module: [generation, pools, target_rules]
+  lifecycle_module: [priorities, notifications]
+
+responsibilitySplit:
+  taskSystemDecides:
+    items:
+      - available_actions
+      - options
+      - outcome
+      - effect_requests
+      - event_requests
+      - delayed_consequence_scheduling
+  otherSystemsDecide:
+    economy: money
+    property: ownership
+    mobility: travel
+    work: performance
+    criminal: legal_consequences
+    political: politics
+    progression: mainLevel

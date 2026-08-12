@@ -1,0 +1,25 @@
+# =============================================================================
+# MONEY — value object, precision, display
+# =============================================================================
+
+MoneyContract:
+  DECISIONE APPROVATA: value object — mai float per denaro
+  structure:
+    amount: integer_or_decimal
+    currency: string
+
+precision:
+  status: TBD
+  rule: rounding rules centrali — NON ogni dominio inventa proprio rounding
+
+sign:
+  distinguish: [positive, negative, zero]
+
+displayVsValue:
+  domain: numeric authoritative value
+  frontend: formatted display — es. "EUR 1.250"
+  mustNot: pass formatted string as business value
+
+events:
+  items:
+    - MoneyValueValidated

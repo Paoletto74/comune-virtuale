@@ -1,0 +1,23 @@
+# =============================================================================
+# ACCESSIBILITY AUTH — keyboard, screen reader, contrast
+# =============================================================================
+
+AccessibilityAuth:
+  supports:
+    items:
+      - keyboard
+      - screen_reader
+      - focus
+      - labels
+      - errors
+      - contrast
+      - font_scaling
+  authErrors:
+    example:
+      good: "Email o password non corretti."
+      bad: "AUTH_ERR_401"
+  ref: auth_main_v1/accessibility.yaml, frontend_ui_v1
+
+events:
+  items:
+    - AccessibilityAuthApplied

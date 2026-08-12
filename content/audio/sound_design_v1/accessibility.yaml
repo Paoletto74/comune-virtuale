@@ -1,0 +1,32 @@
+# =============================================================================
+# ACCESSIBILITY — no audio-only critical info, reduced sound
+# =============================================================================
+
+Accessibility:
+  DECISIONE APPROVATA:
+  noAudioOnlyCritical:
+    rule: nessuna informazione critica esclusivamente via suono
+    required:
+      items:
+        - visual_feedback
+        - testo
+        - stato_UI_appropriato
+
+  reducedSound:
+    mode: Reduced Sound
+    reduces:
+      items:
+        - frequenza
+        - volume
+        - intensita
+        - ripetizione
+
+  userControl:
+    items:
+      - mute
+      - reduce
+      - regolare_volume
+
+events:
+  items:
+    - ReducedSoundEnabled

@@ -1,0 +1,18 @@
+# =============================================================================
+# CACHE — published content caching
+# =============================================================================
+
+Cache:
+  published: can be cached
+  draft: MUST NOT appear in public cache
+  invalidation:
+    triggers:
+      items:
+        - publish
+        - update
+        - unpublish
+        - expire
+
+events:
+  items:
+    - ContentCacheInvalidated

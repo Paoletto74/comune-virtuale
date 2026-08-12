@@ -1,0 +1,19 @@
+# =============================================================================
+# EFFECT REQUEST — task_extensions_v1
+# =============================================================================
+
+---
+EffectRequest:
+  pattern: Task Outcome -> EffectRequest -> authoritative system -> result
+  status: PROPOSTA TECNICA formalizes task_main_v1 integrations
+  domains:
+  - Economy
+  - Property
+  - Mobility TravelRequired
+  - Work
+  - Criminal
+  - Political
+  - Progression
+  - Event
+  idempotencyKey: required
+  taskMustNotModifyDirectly: DECISIONE APPROVATA inherited

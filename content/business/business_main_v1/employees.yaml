@@ -1,0 +1,72 @@
+# =============================================================================
+# EMPLOYEES — dipendenti azienda
+# =============================================================================
+# Business = datore di lavoro | Work = contratto/lavoro individuale
+# =============================================================================
+
+CompanyWorkforce:
+  schema:
+    companyId: string
+    employeeIds: []
+    npcEmployeeIds: []
+    playerEmployeeIds: []
+    openPositions: []
+    totalCount: TBD
+
+EmployeeLink:
+  schema:
+    linkId: string
+    companyId: string
+    citizenId: string
+    employeeType: player | npc
+    jobPositionRef: string
+    employmentContractRef: string
+    status: active | suspended | terminated
+
+hiring:
+  DECISIONE APPROVATA: |
+    Se nessun giocatore si candida → azienda assume NPC.
+    Azienda NON dipende da presenza altri giocatori.
+  flow: |
+    Company lists JobPosition (work_main_v1)
+    → candidates (players or NPC)
+    → Business accepts/rejects
+    → Work System creates EmploymentContract
+  ref: work_main_v1 job_positions, applications, npc_employment
+
+playerEmployees:
+  sources:
+    items:
+      - system_companies
+      - player_owned_companies
+  companyCan:
+    items:
+      - accept
+      - reject
+      - set_requirements
+      - manage_positions
+
+performanceAggregation:
+  rule: |
+    Work System fornisce: performance, hours, quality, absences.
+    Business System aggrega — NON determina performance individuale.
+  inputsFromWork:
+    items:
+      - performance
+      - hours_worked
+      - qualityOfWork
+      - absences
+      - punctuality
+  businessUses:
+    items:
+      - companyPerformance
+      - companyQuality
+      - revenue_modifier
+      - reputation_modifier
+
+events:
+  items:
+    - EmployeeHired
+    - EmployeeTerminated
+    - PositionOpened
+    - PositionFilled

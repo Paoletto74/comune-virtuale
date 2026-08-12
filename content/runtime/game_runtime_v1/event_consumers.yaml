@@ -1,0 +1,29 @@
+# =============================================================================
+# EVENT CONSUMERS — async processing by domain
+# =============================================================================
+
+EventConsumers:
+  status: PROPOSTA TECNICA
+  consumers:
+    items:
+      - Notifications
+      - Gazzetta
+      - Rankings
+      - Progression
+      - Social
+      - Analytics
+      - Municipality
+      - NPC
+
+duplicateHandling:
+  DECISIONE APPROVATA: consumers tollerano retry
+  dedup:
+    items:
+      - eventId
+      - consumerId
+      - processing_state
+
+events:
+  items:
+    - EventConsumed
+    - EventConsumerFailed

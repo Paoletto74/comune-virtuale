@@ -1,0 +1,15 @@
+# =============================================================================
+# REALTIME — future business status, event crowd
+# =============================================================================
+
+Realtime:
+  status: PROPOSTA TECNICA — NON V1
+  future:
+    items:
+      - business_status
+      - event_crowd
+      - special_NPC_event
+
+events:
+  items:
+    - RealtimeCityLifeUpdate

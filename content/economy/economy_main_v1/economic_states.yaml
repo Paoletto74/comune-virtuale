@@ -1,0 +1,52 @@
+# =============================================================================
+# MACRO ECONOMIC STATE
+# =============================================================================
+# PROPOSTA TECNICA: stati configurabili — lista esempio non vincolante
+# =============================================================================
+
+WorldEconomicState:
+  stateId: string
+  currentState: TBD
+  previousState: TBD
+  stateSinceGameTime: timestamp
+
+  configurableStates:
+    items:
+      - id: growth
+        label: Crescita
+      - id: stable
+        label: Stabile
+      - id: overheating
+        label: Surriscaldamento
+      - id: slowdown
+        label: Rallentamento
+      - id: recession
+        label: Recessione
+      - id: recovery
+        label: Ripresa
+    notes: "NON obbligatorio usare esattamente questi — configurabili"
+
+  indicators:
+    growthRate: TBD
+    unemploymentRate: TBD
+    businessConfidence: TBD
+    consumerConfidence: TBD
+    housingMarketHealth: TBD
+
+  effects:
+    onPrices: modifierRef TBD
+    onWages: modifierRef TBD
+    onDemand: modifierRef TBD
+    onEmployment: modifierRef TBD
+    onInvestments: modifierRef TBD
+    onRealEstate: modifierRef TBD
+    onConsumption: modifierRef TBD
+    onOpportunities: eventTriggerRef TBD
+
+  transitions:
+    rules: TBD
+    triggeredBy: [events, indicators, admin, political_levers_future]
+
+  differentiatedEffects:
+    enabled: true
+    note: Stesso evento macro → effetti diversi per cittadino (asset, job, location)

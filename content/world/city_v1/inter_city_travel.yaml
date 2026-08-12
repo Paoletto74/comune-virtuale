@@ -1,0 +1,11 @@
+# =============================================================================
+# INTER CITY TRAVEL — future travel between cities
+# =============================================================================
+
+InterCityTravel:
+  status: PROPOSTA TECNICA — future
+  ref: multi_city.yaml, travel.yaml
+
+events:
+  items:
+    - InterCityTravelStarted

@@ -1,0 +1,9 @@
+# =============================================================================
+# GIFTS — economy_v1
+# =============================================================================
+
+---
+Gifts:
+  authorization: Social System
+  economy: transfers money/item per domain
+  status: DECISIONE APPROVATA

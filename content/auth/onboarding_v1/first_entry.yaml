@@ -1,0 +1,19 @@
+# =============================================================================
+# FIRST ENTRY — post-creation experience
+# =============================================================================
+
+FirstEntry:
+  DECISIONE APPROVATA:
+  trigger: dopo creazione Citizen
+  creates: FIRST_ENTRY_EXPERIENCE
+  afterSuccess:
+    items:
+      - Benvenuto_in_citta
+      - visual
+      - sound
+      - transition
+
+events:
+  items:
+    - FirstEntryStarted
+    - FirstEntryCompleted

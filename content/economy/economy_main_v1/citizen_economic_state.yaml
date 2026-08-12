@@ -1,0 +1,92 @@
+# =============================================================================
+# CITIZEN ECONOMIC STATE
+# =============================================================================
+# Integrazione: Citizen Model (Prompt 3) — namespace economy separato da valori 0-100
+# =============================================================================
+
+CitizenEconomicState:
+  citizenId: string
+
+  # --- Liquidità e flussi ---
+  cash:
+    description: Denaro immediatamente disponibile
+    value: derived_from_ledger
+    mutableOnlyVia: transaction
+
+  income:
+    description: Entrate aggregate nel periodo corrente
+    period: configurable
+    value: derived
+
+  expenses:
+    description: Uscite aggregate nel periodo corrente
+    period: configurable
+    value: derived
+
+  recurringIncome:
+    description: Entrate automatiche ricorrenti (stipendi, affitti, dividendi)
+    type: RecurringFlow[]
+    fields: [flowId, sourceRef, amount, frequency, nextDueGameTime, active]
+
+  recurringExpenses:
+    description: Spese automatiche ricorrenti (affitto, tasse, rate, consumi)
+    type: RecurringFlow[]
+    fields: [flowId, targetRef, amount, frequency, nextDueGameTime, mandatory, category]
+
+  debt:
+    description: Obblighi finanziari aggregati
+    type: DebtSummary
+    fields: [totalDebt, activeLoans, activeDebts]
+
+  # --- Patrimonio ---
+  netWorth:
+    description: Valore netto complessivo — NON solo cash
+    formulaRef: NET_WORTH_FORMULA
+    formula: TBD
+    components:
+      add: [cash, assetValues, companyEquity]
+      subtract: [totalDebt]
+    recalculateOn: [transaction, asset_revaluation, debt_change]
+    notes: Formula definitiva DA_DEFINIRE
+
+  economicPosition:
+    description: Indice composito posizione economica — input progression_balance_v1
+    formulaRef: ECONOMIC_POSITION_FORMULA
+    value: TBD
+    mayInclude: [netWorth, recurringIncome, debtRatio, purchasingPowerIndex]
+    notes: DA_DEFINIRE
+
+  purchasingPower:
+    description: Potere d'acquisto vs nominale
+    nominalCash: derived
+    realValue: TBD
+    purchasingPowerIndex: TBD
+    priceIndexRef: world.economy.priceIndex
+    notes: DA_DEFINIRE — nominal vs real
+
+  # --- Riferimenti asset (non duplicati) ---
+  assetRefs:
+    type: AssetRef[]
+    note: Entità Property, Vehicle, Company in World State
+
+  # --- Periodo contabile ---
+  accountingPeriod:
+    currentPeriodStart: gameTime
+    lastSettlementGameTime: gameTime
+
+expenseCategories:
+  - housing
+  - food
+  - clothing
+  - transport
+  - taxes
+  - health
+  - debt
+  - goods
+  - services
+  - other_consumption
+
+expenseTypes:
+  one_time: { mandatory: TBD, optional: TBD }
+  recurring: { mandatory: TBD, optional: TBD }
+  unexpected: { enabled: true }

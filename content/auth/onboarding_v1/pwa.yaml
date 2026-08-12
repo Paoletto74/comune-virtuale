@@ -1,0 +1,11 @@
+# =============================================================================
+# PWA — install prompt during onboarding
+# =============================================================================
+
+Pwa:
+  rule: install prompt NON deve interrompere onboarding
+  ref: frontend_ui_v1
+
+events:
+  items:
+    - PwaPromptDeferred

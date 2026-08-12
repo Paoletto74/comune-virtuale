@@ -1,0 +1,9 @@
+# =============================================================================
+# VERSIONING — mobility_vehicles_v1
+# =============================================================================
+
+---
+Versioning:
+  vehicleDefinitionsVersioned: true
+  historicalConsistency: true
+  status: PROPOSTA TECNICA

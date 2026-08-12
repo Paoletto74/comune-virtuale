@@ -1,0 +1,35 @@
+# =============================================================================
+# SYNC VS ASYNC — operation timing
+# =============================================================================
+
+Synchronous:
+  DECISIONE APPROVATA: operazioni che richiedono risposta immediata e consistency
+  operations:
+    items:
+      - buy
+      - sell
+      - task_completion
+      - salary
+      - transfer
+      - vote
+      - gift
+
+Asynchronous:
+  status: PROPOSTA TECNICA — decisioni dettagliate TBD
+  operations:
+    items:
+      - analytics
+      - ranking_refresh
+      - news_generation
+      - non_critical_notifications
+      - npc_simulation
+
+criticalPath:
+  DECISIONE APPROVATA: |
+    Operazioni economiche e ownership privilegiano consistency + atomicity
+    rispetto a performance prematura.
+
+events:
+  items:
+    - SyncOperationCompleted
+    - AsyncJobEnqueued

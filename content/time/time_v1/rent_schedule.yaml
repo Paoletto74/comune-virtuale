@@ -1,0 +1,16 @@
+# =============================================================================
+# RENT SCHEDULE — time_v1
+# =============================================================================
+
+---
+RentSchedule:
+  owner: Property/Economy
+  fields:
+  - dueDate
+  - billingPeriod
+  - gracePeriod
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - RentDue
+  - RentPaid

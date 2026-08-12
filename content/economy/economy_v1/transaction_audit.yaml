@@ -1,0 +1,15 @@
+# =============================================================================
+# TRANSACTION AUDIT — economy_v1
+# =============================================================================
+
+---
+TransactionAudit:
+  everyImportantMovement: auditable
+  fields:
+  - transactionId
+  - sourceDomain
+  - reason
+  - actor
+  - timestamp
+  - gameTime
+  status: DECISIONE APPROVATA

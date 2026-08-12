@@ -1,0 +1,27 @@
+# =============================================================================
+# SEMANTIC AUDIO — eventType not file path
+# =============================================================================
+
+SemanticAudio:
+  DECISIONE APPROVATA:
+  pattern:
+    backend: emits "PlayerArrested" domain event
+    audio: maps to crime.arrest_siren soundAssetId
+    forbidden: backend sends "play siren.mp3"
+
+  flow:
+    items:
+      - Domain System emits semantic event
+      - Backend/API delivers event to client
+      - Audio layer resolves eventType via manifest
+      - Audio engine plays soundAssetId with priority/variant
+
+  benefits:
+    items:
+      - change asset without modifying game logic
+      - consistent mapping across platforms
+      - admin can remap sounds
+
+events:
+  items:
+    - SemanticAudioResolved

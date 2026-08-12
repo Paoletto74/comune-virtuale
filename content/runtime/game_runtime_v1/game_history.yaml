@@ -1,0 +1,24 @@
+# =============================================================================
+# GAME HISTORY — major events across domains
+# =============================================================================
+
+GameHistory:
+  tracks:
+    items:
+      - major_events
+      - progression
+      - jobs
+      - property
+      - political
+      - financial
+      - criminal
+      - social
+
+historicalContentRef:
+  rule: evento storico conserva riferimento content version utilizzata
+
+ref: data_architecture_v1/history.yaml, historical_data.yaml
+
+events:
+  emits: [GameHistoryEntryCreated]
+  consumes: [DomainEventPublished]

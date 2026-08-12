@@ -1,0 +1,32 @@
+# =============================================================================
+# PRINCIPLES — hierarchy, semantic audio, no spam
+# =============================================================================
+
+SoundPrinciples:
+  DECISIONE APPROVATA:
+  hierarchy:
+    MICRO_FEEDBACK: suono brevissimo
+    IMPORTANT_EVENT: suono riconoscibile
+    MAJOR_EVENT: sound cue piu evidente
+    CRITICAL_EVENT: sound + popup + visual treatment
+
+  noSoundPerAction: NON associare suono a ogni singola azione
+
+  semanticAudio:
+    prefer: "eventType: PLAYER_ARRESTED"
+    avoid: "soundFile: siren_03.mp3"
+    rule: backend comunica evento semantico — audio layer decide riproduzione
+
+  backendAuthority:
+    rule: frontend NON inventa eventi authoritative
+    thresholds: soglie economiche dal backend — frontend NON decide "grande guadagno"
+
+  gameplayIntegrity:
+    rule: disattivare audio NON cambia reward, outcome, timing, game state
+
+  soundVisualPair:
+    rule: ogni sound importante ha equivalente visuale + testo + stato UI
+
+events:
+  items:
+    - SoundPrincipleApplied

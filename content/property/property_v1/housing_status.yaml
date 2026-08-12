@@ -1,0 +1,17 @@
+# =============================================================================
+# HOUSING STATUS — property_v1
+# =============================================================================
+
+---
+HousingStatus:
+  categories:
+  - homeless
+  - street
+  - shelter
+  - temporary
+  - vehicle
+  - rented
+  - owned
+  - other
+  initialPossible: SENZATETTO
+  status: DECISIONE APPROVATA

@@ -1,0 +1,15 @@
+# =============================================================================
+# ANALYTICS — economy_v1
+# =============================================================================
+
+---
+Analytics:
+  metrics:
+  - volume
+  - income
+  - expense
+  - wealth
+  - supply
+  - inflation
+  privacySafe: true
+  status: PROPOSTA TECNICA

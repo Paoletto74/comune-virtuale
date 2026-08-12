@@ -1,0 +1,61 @@
+# =============================================================================
+# OFFLINE — notifiche e riepilogo assenza
+# =============================================================================
+
+OfflineDelivery:
+  schema:
+    citizenId: string
+    lastSeenAt: timestamp
+    pendingNotificationIds: []
+
+offline:
+  DECISIONE APPROVATA: |
+    Giocatore riceve notifiche per eventi avvenuti offline.
+    Eventi accumulati — presentati al ritorno.
+  delivery: catch_up via Time System
+  examples:
+    items:
+      - property_prices_changed
+      - rent_received
+      - child_grew
+      - company_loss
+      - law_approved
+
+OfflineSummary:
+  schema:
+    summaryId: string
+    citizenId: string
+    generatedAt: timestamp
+    lastSeenAt: timestamp
+    importantCount: TBD
+    items: []
+    fullFeedAvailable: true
+
+  status: PROPOSTA_TECNICA
+  example: |
+    "Durante la tua assenza sono successe 8 cose importanti."
+    1. Affitti €450
+    2. Stipendio accreditato
+    3. Valore casa aumentato
+    4. Nuova tassa
+    5. Figlio ha trovato lavoro
+  rule: NON ogni micro-evento — solo rilevanti
+
+lastSeenAt:
+  schema:
+    citizenId: string
+    lastSeenAt: timestamp
+    lastSummaryAt: "timestamp | null"
+
+summaryGeneration:
+  triggers:
+    items:
+      - player_login
+      - catch_up_complete
+  filter: importance_threshold — TBD
+  maxItemsInSummary: TBD
+
+events:
+  items:
+    - OfflineSummaryGenerated
+    - PendingNotificationsDelivered

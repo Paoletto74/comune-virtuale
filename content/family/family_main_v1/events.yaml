@@ -1,0 +1,87 @@
+# =============================================================================
+# FAMILY EVENTS — eventi familiari
+# =============================================================================
+
+FamilyEventDefinition:
+  schema:
+    eventId: string
+    label: string
+    category: birth | growth | work | economic | education | health | relationship | crisis | success | other
+    triggerConditionsRef: string
+    effectsRef: string
+    mayGenerateTask: boolean
+    visibility: PUBLIC | PRIVATE
+
+eventCatalog:
+  status: demo_only
+  indicativeExamples:
+    items:
+      - eventId: birth
+        label: Nascita
+        category: birth
+      - eventId: birthday
+        label: Compleanno
+        category: growth
+      - eventId: child_grew
+        label: Figlio che cresce
+        category: growth
+      - eventId: child_found_job
+        label: Figlio trova lavoro
+        category: work
+      - eventId: child_lost_job
+        label: Figlio perde lavoro
+        category: work
+      - eventId: economic_problem
+        label: Problema economico
+        category: economic
+      - eventId: school_problem
+        label: Problema scolastico
+        category: education
+      - eventId: incident
+        label: Incidente
+        category: health
+      - eventId: help_request
+        label: Richiesta di aiuto
+        category: economic
+      - eventId: move
+        label: Trasferimento
+        category: other
+      - eventId: relationship_event
+        label: Relazione
+        category: relationship
+      - eventId: family_crisis
+        label: Crisi familiare
+        category: crisis
+      - eventId: reconciliation
+        label: Riconciliazione
+        category: relationship
+      - eventId: personal_success
+        label: Successo personale
+        category: success
+  note: Esempi dimostrativi — catalogo definitivo DA DEFINIRE
+
+effectDelivery:
+  rule: Utilizzare sistema generico effetti Task System — NO formule duplicate
+  ref: task_main_v1/effects.yaml
+  exampleDestroyedCar:
+    note: Figlio distrugge auto — cash, stress, happiness, relationshipStrength — TBD
+  exampleFoundJob:
+    note: Figlio trova lavoro — happiness, relationshipStrength, future support — TBD
+
+delivery:
+  via: Event System
+  scheduling: scheduled | triggered | catch_up
+
+events:
+  items:
+    - FamilyEventTriggered
+    - ChildBorn
+    - ChildAgeChanged
+    - ChildBecameAdult
+    - FamilySupportRequested
+    - FamilySupportGiven
+    - RelationshipStarted
+    - RelationshipStrengthChanged
+    - TrustChanged
+    - RelationshipEnded
+    - HouseholdChanged

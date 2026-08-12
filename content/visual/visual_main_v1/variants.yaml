@@ -1,0 +1,42 @@
+# =============================================================================
+# IMAGE VARIANTS & RESPONSIVE
+# =============================================================================
+
+ImageVariant:
+  schema:
+    variantId: string
+    variantType: thumbnail | small | medium | large | hero | profile | marketplace | popup
+    width: TBD
+    height: TBD
+    storageRef: string
+    derivedFrom: "string | null"
+
+responsiveImages:
+  status: PROPOSTA TECNICA
+  targets:
+    items:
+      - mobile
+      - desktop
+      - tablet
+      - popup
+      - card
+      - profile
+      - marketplace
+  rule: NON caricare immagini enormi quando serve miniatura
+
+contextualVariants:
+  status: PROPOSTA TECNICA — struttura futura, NON tutte V1
+  futureVariants:
+    items:
+      - day_night
+      - weather
+      - season
+      - condition
+      - quality
+      - ownership_state
+      - rarity
+  rule: utilizzare trasformazioni/derivate quando possibile — NON duplicare originale
+
+events:
+  items:
+    - ImageVariantCreated

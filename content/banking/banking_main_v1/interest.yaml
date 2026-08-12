@@ -1,0 +1,38 @@
+# =============================================================================
+# INTEREST — positivo, zero, negativo
+# =============================================================================
+
+InterestRate:
+  "DECISIONE APPROVATA": "tasso può essere POSITIVO, ZERO, NEGATIVO — INTENZIONALE"
+  examples:
+    positive:
+      principal: TBD
+      rate: "+20%"
+      repayment: "€1.200 su €1.000"
+    zero:
+      principal: TBD
+      rate: "0%"
+      repayment: "€1.000"
+    negative:
+      principal: TBD
+      rate: "-20%"
+      repayment: "€800 su €1.000 prestati"
+
+NegativeInterest:
+  DECISIONE APPROVATA: |
+    Prestatore invia più di quanto riceverà indietro.
+    NON errore — beneficenza, strategia, reputazione, politica/sociale futuro.
+
+InterestCalculation:
+  status: formule TBD — banking_balance_v1
+  v1Preference: simple_interest_or_fixed_repayment
+  notInV1: complex_compound_formulas
+
+InterestPayments:
+  rule: interessi nel ledger separatamente quando necessario
+  example: principal repayment + interest entry
+
+events:
+  items:
+    - InterestAccrued
+    - InterestPaid

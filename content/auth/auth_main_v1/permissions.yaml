@@ -1,0 +1,41 @@
+# =============================================================================
+# PERMISSIONS — scopes
+# =============================================================================
+
+PermissionScopes:
+  status: PROPOSTA TECNICA — valori definitivi TBD
+  items:
+    - CONTENT_READ
+    - CONTENT_CREATE
+    - CONTENT_EDIT
+    - CONTENT_VALIDATE
+    - CONTENT_APPROVE
+    - CONTENT_PUBLISH
+    - CONTENT_DISABLE
+    - CONTENT_ROLLBACK
+    - CONTENT_EXPORT
+    - CONTENT_IMPORT
+    - MEDIA_MANAGE
+    - USER_ADMIN
+    - PERMISSIONS_MANAGE
+    - SYSTEM_ADMIN
+
+ServerSideAuthorization:
+  "DECISIONE APPROVATA": "REGOLA OBBLIGATORIA — tutte permission controllate SERVER-SIDE"
+  rule: |
+    UI nascondere pulsante ≠ sicurezza — server rifiuta se scope manca.
+
+FrontendSecurity:
+  DECISIONE APPROVATA: NON considerare sicuro
+  notSecureAlone:
+    items:
+      - hide_menu
+      - client_route_guard
+      - localStorage_variable
+      - unvalidated_cookie
+      - url_parameter
+
+events:
+  items:
+    - PermissionCheckPerformed
+    - PermissionDenied

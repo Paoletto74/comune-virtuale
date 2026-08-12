@@ -1,0 +1,12 @@
+# =============================================================================
+# ROLLBACK — visual direction change without game state impact
+# =============================================================================
+
+Rollback:
+  rule: |
+    Visual direction rollback possibile senza modificare Game State.
+    Content system NON deve rompere design system.
+
+events:
+  items:
+    - VisualDirectionRolledBack

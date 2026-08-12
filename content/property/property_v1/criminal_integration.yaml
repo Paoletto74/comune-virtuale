@@ -1,0 +1,9 @@
+# =============================================================================
+# CRIMINAL INTEGRATION — property_v1
+# =============================================================================
+
+---
+CriminalIntegration:
+  propertyCrime: Criminal System owner
+  noDuplicate: true
+  status: PROPOSTA TECNICA

@@ -1,0 +1,171 @@
+# =============================================================================
+# REQUIREMENT SCHEMA — tipi e categorie supportate
+# =============================================================================
+# PROPOSTA TECNICA: vocabolario condiviso tra balance e motore
+# =============================================================================
+
+requirementCategories:
+
+  personalValues:
+    description: Valori 0-100 del cittadino (Citizen Model)
+    fields:
+      - happiness          # felicità
+      - health             # salute
+      - culture            # cultura
+      - education          # istruzione
+      - politicalInfluence # influenza politica
+      - popularity         # popolarità
+      - experience         # esperienza generale
+      - stress             # stress (op lt per max)
+      - luck               # fortuna — SYSTEM visibility
+      - reliability        # affidabilità
+      - civicParticipation # partecipazione civica
+      - freeTime           # tempo libero
+      - reputation         # reputazione
+      - sympathy           # simpatia
+    valueType: number
+    range: [0, 100]
+    defaultOps: [gte, lte, eq, gt, lt]
+
+  economic:
+    description: Condizione economica cross-cutting — wealth NON è track
+    fields:
+      - cash
+      - netWorth
+      - recurringIncome
+      - debt
+      - economicPosition
+    valueType: currency_or_index
+    defaultOps: [gte, lte, eq, gt, lt]
+    futureModifiers:
+      - nominalValue
+      - realValue
+      - inflationAdjusted
+      - globalEconomyRatio
+      - populationPercentile
+    notes: DA_DEFINIRE — formule inflazione e potere d'acquisto
+
+  professional:
+    description: Percorso e attività lavorativa
+    fields:
+      - currentJob
+      - jobCategory
+      - workExperience
+      - professionalTrack
+    valueType: mixed
+    defaultOps: [gte, eq, exists, in]
+
+  political:
+    description: Percorso e attività politica
+    fields:
+      - politicalTrack
+      - politicalInfluence    # può duplicare personalValue — risoluzione TBD
+      - civicParticipation
+      - politicalRole
+    valueType: mixed
+    defaultOps: [gte, eq, exists]
+
+  entrepreneurial:
+    description: Percorso imprenditoriale
+    fields:
+      - entrepreneurialTrack
+      - companyOwnership
+      - companyCount
+      - companyValue
+      - businessExperience
+    valueType: mixed
+    defaultOps: [gte, eq, exists, true]
+
+  criminal:
+    description: Percorso criminale — visibility PRIVATE default
+    fields:
+      - criminalTrack
+      - criminalExperience
+      - criminalMilestones
+      - criminalReputation
+    valueType: mixed
+    defaultOps: [gte, eq, exists]
+    notes: DECISIONE APPROVATA — nessun tetto artificiale al main level
+
+  assets:
+    description: Possedimenti materiali
+    fields:
+      - propertyCount
+      - propertyValue
+      - vehicleCount
+      - luxuryAssetValue
+      - otherAssets
+    valueType: mixed
+    defaultOps: [gte, eq, exists]
+
+  milestones:
+    description: Traguardi indipendenti dal livello
+    fields:
+      - completedMilestone
+      - milestoneCount
+      - specificMilestone
+    valueType: milestoneId
+    defaultOps: [exists, eq, gte]
+
+# --- Struttura requirement atomico ---
+RequirementAtom:
+  category: personalValues | economic | professional | political | entrepreneurial | criminal | assets | milestones
+  field: string
+  op: eq | neq | gt | gte | lt | lte | exists | notExists | in | notIn
+  value: TBD | placeholderKeyRef | relativeRef
+  placeholderKey: string
+  relativeRef: string
+  optional: boolean
+  weight: TBD
+  visibility: visible | hidden | discoverable
+
+# --- Gruppi logici (DECISIONE APPROVATA: ALL / OR / NOT annidati) ---
+RequirementGroup:
+  mode: all | any | not
+  label: string
+  requirements: RequirementAtom[]
+  groups: RequirementGroup[]
+  minSatisfied: TBD
+  notes: string
+
+# --- Distinzione REQUIREMENT vs DIFFICULTY (PROPOSTA TECNICA) ---
+LevelBalanceMeta:
+  difficultyScore: TBD
+  difficultyTier: TBD
+  estimatedTimeToReach:
+    value: TBD
+    category: TBD
+    unit: TBD
+  estimatedActivityVolume: TBD
+  estimatedDecisionCount: TBD
+  grindRisk: low | medium | high | TBD
+
+# Categorie indicative tempo (Prompt 8 §9) — NON tempi reali
+estimatedTimeCategories:
+  - id: instant
+    description: Livello iniziale / assegnazione
+    indicativeLevels: [L01]
+  - id: very_short
+    description: Pochi minuti/ore di gioco attivo
+    indicativeLevels: [L02, L03]
+  - id: short
+    description: Alcune ore / primi giorni
+    indicativeLevels: [L04, L05]
+  - id: medium
+    description: Giorni / prima settimana
+    indicativeLevels: [L06, L07, L08]
+  - id: extended
+    description: Alcuni giorni / settimane
+    indicativeLevels: [L09, L10, L11, L12]
+  - id: long
+    description: Settimane
+    indicativeLevels: [L13, L14, L15, L16, L17, L18, L19]
+  - id: very_long
+    description: Settimane / mesi
+    indicativeLevels: [L20, L21, L22, L23, L24]
+  - id: epic
+    description: Percorso molto lungo
+    indicativeLevels: [L25, L26, L27]
+  - id: legendary
+    description: Endgame — mesi / long-term
+    indicativeLevels: [L28, L29, L30]

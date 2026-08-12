@@ -1,0 +1,19 @@
+# =============================================================================
+# ADMIN PREVIEW — popup + image + text + sound
+# =============================================================================
+
+AdminPreview:
+  views:
+    items:
+      - popup_with_image_text_sound
+      - mobile
+      - tablet
+      - desktop
+  eventPreview:
+    capability: Select event -> preview popup
+  rule: NON modifica game state
+  ref: content_system_v1/admin_preview.yaml
+
+events:
+  items:
+    - AdminVisualPreviewed

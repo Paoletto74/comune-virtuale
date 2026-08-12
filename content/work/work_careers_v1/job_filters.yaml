@@ -1,0 +1,16 @@
+# =============================================================================
+# JOB FILTERS — work_careers_v1
+# =============================================================================
+
+---
+JobFilters:
+  options:
+  - category
+  - salary
+  - distance
+  - level
+  - experience
+  - schedule
+  - employer
+  - status
+  status: DECISIONE APPROVATA

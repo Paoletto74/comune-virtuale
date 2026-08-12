@@ -1,0 +1,45 @@
+# =============================================================================
+# CITTADINI — directory, regali, prestiti, privacy
+# =============================================================================
+
+CitizensSection:
+  ref: profile_main_v1/directory.yaml
+  features:
+    items:
+      - search
+      - open_profile
+      - filter
+      - sort
+      - view_public_status
+
+citizenActions:
+  fromPublicProfile:
+    items:
+      - regala_denaro
+      - regala_oggetto
+      - proponi_prestito
+      - greet
+      - compliment
+  rule: |
+    REGALA DENARO → Banking
+    REGALA OGGETTO → Inventory
+    PROPONI PRESTITO → Banking
+    Social actions → Social System
+    UI lancia entry point — NO logica duplicata
+
+citizensPrivacy:
+  DECISIONE APPROVATA: lista NON mostra automaticamente
+  mustNotShow:
+    items:
+      - debts
+      - loans
+      - transactions
+      - criminal_activity
+      - full_inventory
+      - detailed_wealth_if_not_policy
+
+events:
+  items:
+    - CitizensListViewed
+    - CitizenProfileOpened
+    - CitizenActionLaunched

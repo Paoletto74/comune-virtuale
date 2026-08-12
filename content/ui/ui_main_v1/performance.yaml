@@ -1,0 +1,34 @@
+# =============================================================================
+# PERFORMANCE & REAL-TIME
+# =============================================================================
+
+Performance:
+  DECISIONE APPROVATA: Home NON carica tutto contemporaneamente
+  mustNotLoadAtOnce:
+    items:
+      - all_items
+      - all_citizens
+      - all_marketplace_listings
+      - all_news
+      - all_images
+  uses:
+    items:
+      - lazy_loading
+      - pagination
+      - snapshots
+      - caching
+      - prioritized_loading
+
+realTimeUpdates:
+  status: PROPOSTA TECNICA — tecnologia TBD
+  mayUpdateWithoutReload:
+    items:
+      - notifications
+      - balance
+      - listings
+      - rankings
+      - events
+
+events:
+  items:
+    - SectionDataRefreshed

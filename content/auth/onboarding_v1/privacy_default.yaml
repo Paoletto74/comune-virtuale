@@ -1,0 +1,16 @@
+# =============================================================================
+# PRIVACY DEFAULT — private by default
+# =============================================================================
+
+PrivacyDefault:
+  DECISIONE APPROVATA:
+  rule: info personali non necessarie al gameplay partono PRIVATE o policy esplicita
+  applies:
+    items:
+      - birthday
+      - fun_facts
+      - personal_details
+
+events:
+  items:
+    - PrivacyDefaultApplied

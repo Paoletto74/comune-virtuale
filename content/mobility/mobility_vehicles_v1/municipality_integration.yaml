@@ -1,0 +1,13 @@
+# =============================================================================
+# MUNICIPALITY INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+MunicipalityIntegration:
+  future:
+  - public transport
+  - roads
+  - parking
+  - mobility policy
+  - transport fees
+  status: PROPOSTA TECNICA FUTURE

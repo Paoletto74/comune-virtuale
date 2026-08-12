@@ -1,0 +1,101 @@
+# =============================================================================
+# MOBILITY MODES — modalità di spostamento
+# =============================================================================
+
+MobilityStatus:
+  schema:
+    citizenId: string
+    primaryMode: string
+    activeVehicleId: string | null
+    rentalVehicleId: string | null
+    usesPublicTransport: boolean
+    ownedVehicleIds: []
+    preferredMode: string | null
+    mobilityRestricted: boolean
+    restrictionReason: string | null
+
+  rule: DECISIONE APPROVATA — Mobility Status ≠ Vehicle Ownership
+
+MobilityMode:
+  schema:
+    modeId: string
+    label: string
+    requiresVehicle: boolean
+    requiresOwnership: boolean
+    baseSpeed: TBD
+    baseReliability: TBD
+    baseComfort: TBD
+    baseOperatingCost: TBD
+    availability: always | conditional | event_dependent
+
+modes:
+  items:
+    - modeId: walk
+      label: A piedi
+      requiresVehicle: false
+      requiresOwnership: false
+      baseSpeed: TBD
+      baseReliability: TBD
+      baseComfort: TBD
+      baseOperatingCost: TBD
+      notes: Gratuito, più lento, potenzialmente faticoso
+    - modeId: public_transport
+      label: Trasporto pubblico
+      requiresVehicle: false
+      requiresOwnership: false
+      baseSpeed: TBD
+      baseReliability: TBD
+      baseComfort: TBD
+      baseOperatingCost: TBD
+      moduleRef: public_transport.yaml
+    - modeId: bicycle
+      label: Bicicletta
+      requiresVehicle: true
+      requiresOwnership: true
+      categoryRef: bicycle
+    - modeId: light_vehicle
+      label: Scooter / motorino
+      requiresVehicle: true
+      requiresOwnership: true
+      categoryRef: scooter
+    - modeId: personal_vehicle
+      label: Veicolo personale
+      requiresVehicle: true
+      requiresOwnership: true
+      categoryRef: TBD
+    - modeId: rental_vehicle
+      label: Veicolo in affitto
+      requiresVehicle: true
+      requiresOwnership: false
+      moduleRef: rentals.yaml
+  notes: Altre modalità future — aggiungibili senza modificare motore
+
+modeSelection:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Se mezzo personale non disponibile → alternative quando esistono.
+    Auto guasta → TP. Nessun denaro → piedi.
+    Evitare game over da mobilità.
+  fallbackOrder: TBD
+
+economicTradeOff:
+  status: PROPOSTA_TECNICA
+  examples:
+    items:
+      - option: cheap_vehicle
+        cost: low
+        speed: slow
+        reliability: low
+      - option: expensive_vehicle
+        cost: high
+        speed: fast
+        reliability: high
+      - option: public_transport
+        cost: medium_low
+        speed: variable
+        reliability: variable
+      - option: walk
+        cost: near_zero
+        speed: slow
+        reliability: high
+  values: TBD

@@ -1,0 +1,15 @@
+# =============================================================================
+# COPYRIGHT — originality and asset licensing
+# =============================================================================
+
+Copyright:
+  DECISIONE APPROVATA:
+  rules:
+    items:
+      - non_utilizzare_asset_layout_copiati_giornali_reali
+      - ogni_asset_source_license_status
+  ref: originality.yaml
+
+events:
+  items:
+    - CopyrightCheckPassed

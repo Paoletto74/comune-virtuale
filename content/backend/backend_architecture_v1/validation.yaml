@@ -1,0 +1,31 @@
+# =============================================================================
+# VALIDATION — three levels
+# =============================================================================
+
+Validation:
+  DECISIONE APPROVATA: tre livelli — NON affidarsi a uno solo
+
+levels:
+  transport:
+    responsibility: schema, types, required fields, request size
+    layer: API
+  domain:
+    responsibility: business rules, invariants, state transitions
+    layer: Domain Services
+  persistence:
+    responsibility: constraints, foreign keys, unique constraints
+    layer: Database
+
+domainInvariants:
+  examples:
+    items:
+      - balance non negativo se policy lo vieta
+      - item non puo avere due owner contemporaneamente
+      - listing SOLD non puo essere riacquistato
+      - level non modificabile dal client
+      - Admin non puo auto-promuoversi
+
+events:
+  items:
+    - ValidationFailed
+    - ValidationPassed

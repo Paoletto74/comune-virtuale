@@ -1,0 +1,19 @@
+# =============================================================================
+# RECONCILIATION — background integrity jobs
+# =============================================================================
+
+Reconciliation:
+  jobs:
+    items:
+      - ledger
+      - ownership
+      - progression
+      - listings
+      - rankings
+      - municipality_state
+  rule: background — alert on mismatch
+  ref: data_architecture_v1/reconciliation.yaml, backend_architecture_v1/reconciliation.yaml
+
+events:
+  emits: [ReconciliationAlert, ReconciliationCompleted]
+  consumes: [ScheduledJobTriggered]

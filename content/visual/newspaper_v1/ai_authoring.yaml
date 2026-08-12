@@ -1,0 +1,31 @@
+# =============================================================================
+# AI AUTHORING — draft validation approval publish
+# =============================================================================
+
+AiAuthoring:
+  DECISIONE APPROVATA:
+  workflow:
+    items:
+      - AI_draft
+      - Validation
+      - Approval
+      - Publish
+  mustNot: AI_publish_diretto
+  futureAssists:
+    items:
+      - headline
+      - summary
+      - article_draft
+      - captions
+      - suggested_visual
+  adminExample: |
+    Admin "crea notizia da questo evento" ->
+    AI draft headline + summary + category + suggested visual ->
+    validation -> preview -> human approval -> publish
+
+ref: admin_content_studio_v1, game_runtime_v1/ai_integration.yaml
+
+events:
+  items:
+    - AiDraftCreated
+    - AiDraftApproved

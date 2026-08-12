@@ -1,0 +1,21 @@
+# =============================================================================
+# TESTING — map, access, privacy, deep links
+# =============================================================================
+
+Testing:
+  areas:
+    items:
+      - map_rendering
+      - marker
+      - responsive
+      - access
+      - privacy
+      - deep_links
+      - missing_visuals
+      - missing_locations
+      - dynamic_events
+  rule: NO runtime implementation V1
+
+events:
+  items:
+    - CityTestCompleted

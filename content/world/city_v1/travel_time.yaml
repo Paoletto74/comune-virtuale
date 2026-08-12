@@ -1,0 +1,12 @@
+# =============================================================================
+# TRAVEL TIME — Time/Travel System authoritative
+# =============================================================================
+
+TravelTime:
+  rule: se spostamenti consumano tempo — Time/Travel System — NON frontend
+  gameTime: Game Time — ref time_main_v1
+  ref: time_integration.yaml
+
+events:
+  items:
+    - TravelTimeCalculated

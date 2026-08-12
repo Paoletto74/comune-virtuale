@@ -1,0 +1,17 @@
+# =============================================================================
+# CARDS — card image format
+# =============================================================================
+
+Cards:
+  type: CARD_IMAGE
+  use:
+    items:
+      - item_card
+      - marketplace_card
+      - notification_card
+      - editorial_card
+  rule: visual non deve sacrificare leggibilita
+
+events:
+  items:
+    - CardImageLoaded

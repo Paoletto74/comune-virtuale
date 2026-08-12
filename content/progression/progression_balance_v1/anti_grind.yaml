@@ -1,0 +1,72 @@
+# =============================================================================
+# ANTI-GRIND RULES v1
+# =============================================================================
+# PROPOSTA TECNICA: progressione da combinazione, non da azione singola ripetuta
+# NON implementato nel motore — regole configurabili future
+# =============================================================================
+
+antiGrindPolicy:
+  policyId: anti_grind_v1
+  enabled: true
+
+  principles:
+    - DECISIONE APPROVATA — no level up da sola ripetizione azione banale
+    - Combinazione richiesta: tempo + decisioni + rischio + valori + economia + milestone
+    - Salvo regole esplicite future, nessuna eccezione
+
+  rules:
+    - ruleId: action_repetition_cap
+      description: Stessa actionType non può contribuire oltre N volte per periodo
+      params:
+        maxContributions: TBD
+        windowGameTime: TBD
+        placeholderKey: ANTI_GRIND_ACTION_CAP
+      status: DA_DEFINIRE
+
+    - ruleId: diminishing_returns_personal_value
+      description: Ripetizione stesso task riduce guadagno XP/valore
+      params:
+        decayFactor: TBD
+        placeholderKey: ANTI_GRIND_VALUE_DECAY
+      status: DA_DEFINIRE
+
+    - ruleId: milestone_gate
+      description: Livelli mid+ richiedono almeno una milestone o diversità attività
+      params:
+        minMilestonesFromLevel: TBD
+        minActivityCategories: TBD
+        placeholderKey: ANTI_GRIND_MILESTONE_GATE
+      status: DA_DEFINIRE
+
+    - ruleId: diversity_requirement
+      description: preferredActivities devono coprire ≥2 categorie per tier LATE+
+      params:
+        minCategories: TBD
+        applicableFromLevel: TBD
+      status: DA_DEFINIRE
+
+    - ruleId: criminal_heat_escalation
+      description: Crimini ripetuti aumentano rischio — non grind sicuro
+      params:
+        heatIncreasePerRepeat: TBD
+        placeholderKey: ANTI_GRIND_CRIMINAL_HEAT
+      status: DA_DEFINIRE
+      dependsOnSystems: [criminality]
+
+  levelSpecificAntiGrind:
+    main_L08:
+      note: Richiede formazione + lavoro + reputazione, non solo ore lavorate
+      minActivityCategories: [work, training, reputation]
+    main_L14:
+      note: Richiede impresa/patrimonio, non solo cash grind
+      minActivityCategories: [business, economy, work]
+    main_L20:
+      note: Richiede influenza/patrimonio/carriera/risultati combinati
+      minActivityCategories: [influence, wealth, career, achievements]
+    main_L30:
+      note: Endgame — milestone major obbligatorie per path
+      requiresMajorMilestone: true
+
+  monitoring:
+    futureMetric: grind_detection_rate
+    notes: Segnalare giocatori che level up solo via single-action loop

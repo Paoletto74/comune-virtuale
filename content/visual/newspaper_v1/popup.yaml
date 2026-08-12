@@ -1,0 +1,23 @@
+# =============================================================================
+# POPUP — News Flash template
+# =============================================================================
+
+PopupPresentation:
+  concept: NEWS FLASH
+  example: |
+    ULTIM'ORA / SEI STATO ASSUNTO / Direttore della Banca Comunale
+  fields:
+    items:
+      - headline
+      - breve_testo
+      - eventuale_immagine
+      - CTA
+  sourceOfTruth:
+    popupEligibility: Notification System
+    presentation: newspaper visual layer
+
+ref: frontend_ui_v1/popups.yaml, popup_audio
+
+events:
+  items:
+    - PopupNewsFlashRendered

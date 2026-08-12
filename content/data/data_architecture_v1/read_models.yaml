@@ -1,0 +1,38 @@
+# =============================================================================
+# READ MODELS — HomeSummary, ProfileSummary
+# =============================================================================
+
+ReadModels:
+  status: PROPOSTA TECNICA
+  rule: UI non assembla decine di API se read model più efficiente
+
+HomeSummary:
+  fields:
+    items:
+      - balance
+      - level
+      - title
+      - currentJob
+      - activeTasks
+      - unreadNotifications
+      - importantEvents
+      - publicHighlights
+  type: DERIVED/CACHE
+
+ProfileSummary:
+  fields:
+    items:
+      - citizen
+      - level
+      - title
+      - job
+      - cash
+      - netWorth
+      - ranking
+      - assets
+      - showcase
+  type: DERIVED/CACHE
+
+events:
+  items:
+    - ReadModelRefreshed

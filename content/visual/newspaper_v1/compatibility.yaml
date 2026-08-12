@@ -1,0 +1,12 @@
+# =============================================================================
+# COMPATIBILITY — content declares visual direction support
+# =============================================================================
+
+Compatibility:
+  rule: content dichiara compatibilita visualDirectionVersion
+  breakingChanges:
+    require: review e version bump
+
+events:
+  items:
+    - CompatibilityVerified

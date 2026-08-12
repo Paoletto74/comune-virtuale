@@ -1,0 +1,20 @@
+# =============================================================================
+# PROPERTY INTEGRATION — Property LocationId/BuildingId
+# =============================================================================
+
+PropertyIntegration:
+  property:
+    fields:
+      items:
+        - LocationId
+        - BuildingId
+  owner: Property System
+  mapDisplay:
+    rule: "tua proprieta solo quando backend conferma ownership"
+  private:
+    rule: NON esporre dettagli non autorizzati
+  ref: property_main_v1
+
+events:
+  items:
+    - PropertyAtLocation

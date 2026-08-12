@@ -1,0 +1,58 @@
+# =============================================================================
+# PROGRESSION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: catalogo configurabile, 30 livelli, nessuna regola hardcoded
+# PROPOSTA TECNICA: formato YAML modulare; il motore caricherà i file referenziati
+# DA DEFINIRE: migration tra versioni catalogo; bilanciamento numerico (TBD)
+# =============================================================================
+
+catalogId: progression_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+defaultStartLevel: 1
+defaultStartLevelId: main_L01
+maxLevel: 30
+
+# Tier boundaries — PROPOSTA TECNICA, modificabile
+tierBoundaries:
+  EARLY: { from: 1, to: 7 }
+  MID: { from: 8, to: 19 }
+  LATE: { from: 20, to: 27 }
+  LEGENDARY: { from: 28, to: 30 }
+
+# DECISIONE APPROVATA: wealth NON è track; wellbeing NON è track
+# Valori economici cross-cutting: cash, net_worth, recurring_income, asset_value, debt, economic_position
+economicCrossCuttingFields:
+  - cash
+  - net_worth
+  - recurring_income
+  - asset_value
+  - debt
+  - economic_position
+
+# File referenziati dal motore (Progression Evaluator)
+includes:
+  tracks: tracks.yaml
+  milestones: milestones.yaml
+  titles: titles.yaml
+  demotion: demotion.yaml
+  visibility: visibility.yaml
+  branchNodes: branch_nodes.yaml
+  levels: levels.yaml
+
+# DECISIONE APPROVATA: L25 label "SINDACO" ≠ ruolo sindaco automatico
+# Ruolo sindaco = entità separata (modulo politico — DA_DEFINIRE)
+roleSeparationNotes: |
+  levelLabel è narrativo/ironico.
+  contextualTitle deriva da Title Engine + track dominante.
+  activeRole deriva da lifeSituation (incarichi, elezioni).
+  Esempio: L25 + title "Magnate" + role null ≠ contraddizione.
+
+# Migration future — segnalazione esigenza, non implementata
+migration:
+  supported: false
+  futureVersions:
+    - progression_main_v2
+    - progression_main_v3
+  notes: DA_DEFINIRE — policy upgrade catalogo con giocatori attivi

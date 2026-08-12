@@ -1,0 +1,27 @@
+# =============================================================================
+# NEWSPAPER IDENTITY — newsroom, news flash, editorial
+# =============================================================================
+
+NewspaperAudioIdentity:
+  DECISIONE APPROVATA:
+  evokes:
+    items:
+      - newsroom
+      - news_flash
+      - stampa
+      - notifiche editoriali
+      - citta
+  rule: senza imitare un giornale reale specifico
+
+  newsroomSting:
+    concept: NEWSROOM STING
+    usedFor:
+      items:
+        - breaking
+        - special_report
+        - major_event
+    cue: news.breaking_sting
+
+events:
+  items:
+    - NewspaperAudioApplied

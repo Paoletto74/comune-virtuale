@@ -1,0 +1,34 @@
+# =============================================================================
+# RESPONSIVE — mobile-first, breakpoints
+# =============================================================================
+
+ResponsiveNavigation:
+  DECISIONE APPROVATA: mobile-first
+  mobile:
+    rule: bottom navigation prioritaria
+  desktop:
+    status: PROPOSTA TECNICA
+    options:
+      items:
+        - bottom_navigation
+        - side_navigation
+        - responsive_adaptation
+    rule: NON duplicare logica navigazione
+
+breakpoints:
+  status: PROPOSTA TECNICA — valori numerici TBD
+  tiers:
+    items:
+      - mobile
+      - tablet
+      - desktop
+      - wide_desktop
+
+mobileFirst:
+  DECISIONE APPROVATA: |
+    Progettazione parte da mobile.
+    Desktop estensione — NON versione completamente diversa.
+
+events:
+  items:
+    - ViewportTierChanged

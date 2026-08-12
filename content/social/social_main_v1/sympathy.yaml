@@ -1,0 +1,29 @@
+# =============================================================================
+# SYMPATHY — contributo indiretto, formula TBD
+# =============================================================================
+
+Sympathy:
+  status: PROPOSTA TECNICA — formula TBD
+  DECISIONE APPROVATA: |
+    Communication può contribuire a sympathy tramite interazioni positive.
+    NON modifica sympathy direttamente — Effects/Social/Progression decidono.
+
+positiveContributors:
+  items:
+    - compliment
+    - thank
+    - help
+    - gift
+    - negative_interest_loan
+    - support
+
+example:
+  description: |
+    Giocatore riceve molte interazioni positive
+    → sympathy può aumentare (via Effects/Event)
+
+progressionRef: progression_balance_v1/schema.yaml — sympathy in personalValues
+
+events:
+  items:
+    - SympathyInteractionRecorded

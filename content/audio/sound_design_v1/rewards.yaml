@@ -1,0 +1,30 @@
+# =============================================================================
+# REWARD SOUNDS — task reward, salary, aggregated
+# =============================================================================
+
+RewardSounds:
+  TaskCompleted:
+    cue: task.completion
+    priority: NORMAL
+    length: micro
+    description: task completato — positive completion sound
+  TaskRewardReceived:
+    cue: reward.received
+    priority: NORMAL
+    length: micro
+    description: reward ricevuta
+  SalaryReceived:
+    cue: reward.salary_cash
+    priority: NORMAL
+    length: micro
+    description: stipendio — cash reward sound
+  AggregatedReward:
+    cue: reward.aggregated
+    priority: NORMAL
+    length: normal
+    description: 3 task completati — un unico reward cue, NON 3 coin sounds
+    ref: grouping.yaml
+
+events:
+  items:
+    - RewardSoundTriggered

@@ -1,0 +1,26 @@
+# =============================================================================
+# GAZZETTA DATA — definition vs published instance
+# =============================================================================
+
+NewsDefinition:
+  type: CONTENT
+  schema:
+    newsId: string
+    contentId: string
+
+PublishedNewsInstance:
+  type: PERSISTENT
+  sourceOfTruth: Gazzetta
+  schema:
+    publishedNewsId: string
+    newsId: string
+    publishedAt: timestamp
+    visibility: TBD
+
+rule: NEWS DEFINITION/CONTENT ≠ PUBLISHED NEWS INSTANCE
+
+ref: ui_main_v1 (tab GAZZETTA)
+
+events:
+  items:
+    - NewsPublished

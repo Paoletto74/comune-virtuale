@@ -1,0 +1,12 @@
+# =============================================================================
+# VERSIONING — sound asset versions
+# =============================================================================
+
+SoundVersioning:
+  field: version on sound asset
+  rule: sound assets versionati — rollback possible via admin
+  ref: governance.yaml
+
+events:
+  items:
+    - SoundVersionUpdated

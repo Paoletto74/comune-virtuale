@@ -1,0 +1,22 @@
+# =============================================================================
+# GOVERNANCE — sound asset lifecycle
+# =============================================================================
+
+AudioGovernance:
+  lifecycle:
+    items:
+      - DRAFT
+      - REVIEW
+      - APPROVED
+      - PUBLISHED
+      - DEPRECATED
+  adminSettings:
+    configurable:
+      items:
+        - sound_mapping
+        - priority
+        - enabled_disabled
+
+events:
+  items:
+    - SoundAssetGovernanceUpdated

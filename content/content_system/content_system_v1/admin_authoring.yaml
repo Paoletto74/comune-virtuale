@@ -1,0 +1,31 @@
+# =============================================================================
+# ADMIN AUTHORING — simple and advanced modes
+# =============================================================================
+
+AdminAuthoring:
+  modes:
+    Simple:
+      rule: human-friendly — NO YAML, JSON, database, API, GitHub, coding required
+    Advanced:
+      rule: metadata and advanced config — NO dangerous technical data exposed
+  directTextInput:
+    example:
+      title: "Clamoroso aumento dei prezzi delle case"
+      body: "Il mercato immobiliare..."
+      category: CRONACA
+    transform: system transforms input into appropriate content model
+  layout:
+    desktop:
+      items:
+        - sidebar
+        - content_list
+        - editor
+        - preview_pane
+    editor:
+      left: fields_editor
+      right: live_preview
+  ref: admin_content_studio_v1
+
+events:
+  items:
+    - ContentAuthoringStarted

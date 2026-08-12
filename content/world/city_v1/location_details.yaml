@@ -1,0 +1,45 @@
+# =============================================================================
+# LOCATION DETAILS — name, category, district, description, visual
+# =============================================================================
+
+LocationDetails:
+  shows:
+    items:
+      - nome
+      - categoria
+      - distretto
+      - descrizione
+      - stato
+      - attivita_disponibili
+      - eventuale_visual
+  cards:
+    location:
+      items:
+        - visual
+        - name
+        - type
+        - district
+        - status
+        - actions
+    building:
+      items:
+        - name
+        - type
+        - locations
+        - visual
+    district:
+      items:
+        - name
+        - visual
+        - public_indicators
+        - locations
+    city:
+      items:
+        - name
+        - municipality
+        - population
+        - major_info
+
+events:
+  items:
+    - LocationDetailViewed

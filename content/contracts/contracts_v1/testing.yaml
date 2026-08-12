@@ -1,0 +1,36 @@
+# =============================================================================
+# TESTING — contract tests, security, golden events
+# =============================================================================
+
+ContractTesting:
+  types:
+    items:
+      - schema_validation
+      - consumer_contract_tests
+      - producer_contract_tests
+      - compatibility_tests
+      - version_tests
+
+securityTests:
+  items:
+    - unauthorized_command_fails
+    - private_query_hides_fields
+    - admin_only_query_protected
+    - client_cannot_inject_authoritative_values
+
+goldenEvents:
+  fixtures:
+    items:
+      - ItemPurchased
+      - TaskCompleted
+      - SalaryPaid
+      - LevelReached
+      - VoteCast
+      - PropertyPurchased
+
+testFixtures:
+  rule: conservare fixtures versionate
+
+events:
+  items:
+    - ContractTestCompleted

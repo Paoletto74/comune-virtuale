@@ -1,0 +1,21 @@
+# =============================================================================
+# DRAFT — initial state, not visible to players
+# =============================================================================
+
+Draft:
+  initialStatus: DRAFT
+  capabilities:
+    items:
+      - modify
+      - save
+      - duplicate
+      - preview
+      - validate
+  rule: NON visibile ai player
+  autosave:
+    ref: autosave.yaml
+    rule: autosave draft — MAI autosave = publish
+
+events:
+  items:
+    - DraftSaved

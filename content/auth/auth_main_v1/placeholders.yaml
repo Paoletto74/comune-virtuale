@@ -1,0 +1,79 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  PASSWORD_HASH_ALGORITHM: TBD
+  PASSWORD_POLICY_MIN_LENGTH: TBD
+  SESSION_TOKEN_TECHNOLOGY: TBD
+  SESSION_EXPIRY_PLAYER: TBD
+  SESSION_EXPIRY_ADMIN: TBD
+
+  USERNAME_ALLOWED_CHARS: TBD
+  RESERVED_USERNAMES: TBD
+
+  RATE_LIMIT_LOGIN_PER_MINUTE: TBD
+  RATE_LIMIT_PASSWORD_RESET: TBD
+  LOCKOUT_AFTER_FAILED_ATTEMPTS: TBD
+  LOCKOUT_DURATION: TBD
+
+  EMAIL_PROVIDER: TBD
+  OAUTH_GOOGLE_CLIENT_CONFIG: TBD
+  SECRETS_MANAGEMENT_PROVIDER: TBD
+
+  MFA_PROVIDER: TBD
+  STEP_UP_AUTH_TIMEOUT: TBD
+
+  AUDIT_STORAGE: TBD
+  AUDIT_RETENTION_DAYS: TBD
+
+  ADMIN_INVITE_EXPIRY_HOURS: TBD
+
+  dependsOnSystems:
+    items:
+      - profile_main_v1
+      - ui_main_v1
+      - admin_content_studio_v1
+      - notification_main_v1
+      - time_main_v1
+
+  contentPackNote: |
+    auth_main_v1 — Account, Authentication, Authorization, Access Control.
+    NO runtime V1. Pack approvati NON modificati.
+
+  dataContracts:
+    Account:
+      accountId: string
+      status: string
+      authenticationMethods: []
+    Session:
+      sessionId: string
+      accountId: string
+      expiresAt: timestamp
+      revoked: boolean
+    AuthorizationRequest:
+      identity: object
+      action: string
+      resource: string
+      context: object
+    AuthorizationResult:
+      decision: ALLOW | DENY
+      reason: string
+    AdminIdentity:
+      accountId: string
+      roles: []
+      permissions: []
+
+  approvedDecisions:
+    items:
+      - landing_introduction_page
+      - google_and_username_password_login
+      - citizen_creation_after_auth
+      - account_citizen_profile_separate
+      - normal_player_no_admin
+      - admin_owner_and_authorized_only
+      - admin_collaborators_own_credentials
+      - server_side_authorization
+      - admin_url_not_sufficient
+      - sensitive_ops_higher_permissions
+      - logout_preserves_citizen_data

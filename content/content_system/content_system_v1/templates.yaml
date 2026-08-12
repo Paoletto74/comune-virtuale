@@ -1,0 +1,22 @@
+# =============================================================================
+# TEMPLATES — News, Task, Job, Notification, Popup, etc.
+# =============================================================================
+
+ContentTemplates:
+  types:
+    items:
+      - News
+      - Task
+      - Job
+      - Notification
+      - Popup
+      - Announcement
+      - Item
+      - Event
+  variables:
+    ref: variables.yaml
+  rule: template variables must be validated
+
+events:
+  items:
+    - TemplateApplied

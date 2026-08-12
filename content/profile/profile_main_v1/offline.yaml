@@ -1,0 +1,24 @@
+# =============================================================================
+# OFFLINE — snapshot refresh al login
+# =============================================================================
+
+OfflineProfile:
+  DECISIONE APPROVATA: durante offline possono cambiare
+  mayChange:
+    items:
+      - level
+      - netWorth
+      - ranking
+      - role
+      - assets
+      - job
+  onLogin:
+    flow: Profile Snapshot Refresh → catch-up events → notifications
+
+snapshotRefresh:
+  rule: aggiorna PublicProfileSnapshot quando dati rilevanti cambiano offline
+
+events:
+  items:
+    - OfflineProfileCatchUpCompleted
+    - ProfileSnapshotRefreshed

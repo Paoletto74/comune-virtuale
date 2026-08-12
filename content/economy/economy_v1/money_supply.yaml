@@ -1,0 +1,16 @@
+# =============================================================================
+# MONEY SUPPLY — economy_v1
+# =============================================================================
+
+---
+MoneySupply:
+  calculable: authoritative
+  categories:
+  - player cash
+  - player bank
+  - NPC money
+  - business balances
+  - municipal treasury
+  - system reserves
+  definitive: TBD
+  status: DECISIONE APPROVATA

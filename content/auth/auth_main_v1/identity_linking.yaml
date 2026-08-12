@@ -1,0 +1,32 @@
+# =============================================================================
+# IDENTITY LINKING — multiple auth identities per Account
+# =============================================================================
+
+AuthIdentityLinking:
+  status: PROPOSTA TECNICA
+  schema:
+    accountId: string
+    identityId: string
+    providerId: string
+    linkedAt: timestamp
+
+example:
+  account: Account_A
+  identities:
+    items:
+      - Google
+      - UsernamePassword
+
+uniqueIdentity:
+  status: PROPOSTA TECNICA — regole TBD
+  prevent:
+    items:
+      - duplicate_account
+      - duplicate_username
+      - accidental_duplicate_citizen
+      - identity_collision
+
+events:
+  items:
+    - IdentityLinked
+    - IdentityUnlinked

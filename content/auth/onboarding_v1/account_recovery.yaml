@@ -1,0 +1,12 @@
+# =============================================================================
+# ACCOUNT RECOVERY — email recovery
+# =============================================================================
+
+AccountRecovery:
+  flow: email recovery
+  provider: DA DEFINIRE / TBD
+  ref: auth_main_v1/recovery.yaml
+
+events:
+  items:
+    - AccountRecoveryStarted

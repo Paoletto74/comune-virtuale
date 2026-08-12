@@ -1,0 +1,19 @@
+# =============================================================================
+# PROPERTY EVENTS — property_v1
+# =============================================================================
+
+---
+SemanticPropertyEvents:
+  items:
+  - PropertyListed
+  - PropertyPurchased
+  - PropertySold
+  - OwnershipTransferred
+  - TenancyStarted
+  - TenancyEnded
+  - RentPaid
+  - RentOverdue
+  - MaintenancePaid
+  - PropertyUpgraded
+  - ValuationUpdated
+  status: DECISIONE APPROVATA

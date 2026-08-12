@@ -1,0 +1,13 @@
+# =============================================================================
+# BANK ACCOUNTS — economy_v1
+# =============================================================================
+
+---
+BankAccount:
+  schema:
+    accountId: string
+    owner: CitizenId or BusinessId
+    currency: string
+    balance: integer
+    status: string
+  status: DECISIONE APPROVATA

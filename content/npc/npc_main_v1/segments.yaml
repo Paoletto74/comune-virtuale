@@ -1,0 +1,62 @@
+# =============================================================================
+# SEGMENTS — economici, demografici, comportamentali
+# =============================================================================
+
+PopulationSegmentDefinition:
+  schema:
+    segmentId: string
+    segmentType: economic | age | employment | housing | education | wealth | region | risk | consumption
+    label: string
+    criteriaRef: string | null
+    memberCount: TBD
+
+EconomicSegment:
+  status: nomi TBD — configurabili
+  items:
+    - segmentId: extreme_low
+    - segmentId: low
+    - segmentId: lower_middle
+    - segmentId: middle
+    - segmentId: upper_middle
+    - segmentId: high
+    - segmentId: wealthy
+
+PopulationSegment:
+  status: PROPOSTA TECNICA
+  types:
+    items:
+      - age
+      - employment
+      - housing
+      - education
+      - wealth
+      - region
+      - risk
+      - consumption
+  rule: Un NPC può appartenere a più segmenti contemporaneamente
+
+PopulationDistribution:
+  status: placeholder — NO percentuali definitive
+  distributions:
+    items:
+      - age
+      - income
+      - occupation
+      - property_ownership
+      - housing
+      - education
+  rule: Distribuzioni realistiche configurabili — valori TBD in npc_balance_v1
+
+segmentAggregates:
+  schema:
+    segmentId: string
+    averageCash: TBD
+    averageNetWorth: TBD
+    debtDistribution: TBD
+    consumptionProfileRef: string
+    employmentRate: TBD
+
+events:
+  items:
+    - SegmentMembershipChanged
+    - SegmentAggregateUpdated

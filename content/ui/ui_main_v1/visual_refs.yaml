@@ -1,0 +1,24 @@
+# =============================================================================
+# VISUAL REFS — UI usa Visual Content System
+# =============================================================================
+
+VisualIntegration:
+  DECISIONE APPROVATA: NO asset path hardcoded
+  ref: visual_main_v1
+  uiUsesVisualFor:
+    items:
+      - logo
+      - icons
+      - item_images
+      - avatar
+      - property
+      - vehicle
+      - profile_showcase
+      - news
+      - popup
+      - task_icons
+      - ranking_badges
+
+events:
+  items:
+    - VisualRefResolved

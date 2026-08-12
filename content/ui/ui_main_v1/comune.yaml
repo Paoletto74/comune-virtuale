@@ -1,0 +1,64 @@
+# =============================================================================
+# COMUNE — Info, Cittadini, Classifiche
+# =============================================================================
+
+ComuneSection:
+  DECISIONE APPROVATA: 3 sezioni
+  subsections:
+    items:
+      - info_comune
+      - cittadini
+      - classifiche_globali
+
+infoComune:
+  mayShow:
+    items:
+      - inflation_rate
+      - municipal_cash
+      - citizen_count
+      - mayor_if_exists
+      - inflation_graph
+      - mayor_candidacy_requirements_status
+
+inflation:
+  rule: Economy autorevole
+  mayShow:
+    items:
+      - current_inflation
+      - history
+      - graph
+      - trend
+
+municipalCash:
+  mayShow:
+    items:
+      - municipal_treasury
+      - aggregate_in_out
+      - future_trend
+  rule: NON mostrare dati sensibili
+
+mayor:
+  rule: Political System autorevole
+  ifExists:
+    items:
+      - name
+      - role
+      - mandate_per_policy
+      - public_image
+      - profile_link
+  ifNotExists: "Al momento non c'è un sindaco in carica."
+
+mayorCandidacyProgress:
+  status: PROPOSTA TECNICA
+  example:
+    items:
+      - "Livello richiesto: ✓"
+      - "Esperienza: ✓"
+      - "Requisito politico: ✗"
+      - "Reputazione: ✓"
+  rule: Political/Progression decidono — NON tutti valori sensibili
+
+events:
+  items:
+    - ComuneSectionViewed
+    - ComuneInfoViewed

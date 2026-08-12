@@ -1,0 +1,16 @@
+# =============================================================================
+# UPGRADES — property_v1
+# =============================================================================
+
+---
+Upgrades:
+  examples:
+  - kitchen
+  - security
+  - pool
+  - garage
+  - luxury interior
+  - garden
+  belongsToProperty: true
+  cost: Economy transaction
+  status: DECISIONE APPROVATA

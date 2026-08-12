@@ -1,0 +1,13 @@
+# =============================================================================
+# INTEREST — economy_v1
+# =============================================================================
+
+---
+Interest:
+  types:
+  - fixed
+  - variable
+  - period-based
+  compound: TBD explicit rules only
+  math: TBD
+  status: PROPOSTA TECNICA

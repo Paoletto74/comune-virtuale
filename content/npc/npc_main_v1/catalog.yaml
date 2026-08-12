@@ -1,0 +1,106 @@
+# =============================================================================
+# NPC & POPULATION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: mondo popolato e credibile con pochi giocatori reali
+# Target indicativo: ~10 giocatori, ~10.000 NPC — numeri TBD configurabili
+# Simulazione a livelli (LOD) — NO second-by-second per tutti gli NPC
+# NON modifica: tutti i moduli già approvati
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: npc_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  timeSystem: shared_time_service
+
+principles:
+  - PLAYER e NPC condividono Citizen Model — NON due mondi separati
+  - Simulation LOD — tier dinamico, identità persistente
+  - NO simulazione ogni NPC ogni secondo — batch, aggregate, event-driven
+  - Domain ownership — NPC System NON possiede economy/work/property/etc.
+  - Aggregate + individual — promozione/de-promotion senza perdita identità
+  - Deterministic seeded randomness — riproducibile, auditabile
+  - Content-first — NO if unemployed then hardcode
+  - Client non autoritativo
+  - NO AI / LLM / API esterne
+
+includes:
+  citizen: citizen.yaml
+  population: population.yaml
+  segments: segments.yaml
+  generation: generation.yaml
+  lifecycle: lifecycle.yaml
+  simulation_tiers: simulation_tiers.yaml
+  decisions: decisions.yaml
+  needs: needs.yaml
+  consumption: consumption.yaml
+  employment: employment.yaml
+  housing: housing.yaml
+  mobility: mobility.yaml
+  relationships: relationships.yaml
+  politics: politics.yaml
+  criminality: criminality.yaml
+  business: business.yaml
+  events: events.yaml
+  statistics: statistics.yaml
+  catchup: catchup.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  npc_core: [citizen, population, generation, lifecycle]
+  simulation_module: [simulation_tiers, decisions, catchup]
+  segment_module: [segments, statistics]
+  participation_module: [employment, housing, mobility, consumption, business]
+  social_module: [relationships, politics, criminality, needs]
+
+responsibilitySplit:
+  npcPopulationSystemDecides:
+    items:
+      - npc_lifecycle
+      - population_generation
+      - population_segmentation
+      - simulation_lod
+      - npc_decision_model
+      - aggregate_simulation
+      - npc_importance
+      - population_statistics
+      - npc_generation
+      - population_dynamics
+      - batch_processing
+      - catch_up_orchestration
+  otherSystemsDecide:
+    economy: money_prices_ledger
+    work: jobs_employment
+    property: property_ownership
+    mobility: vehicles_travel
+    business: companies
+    family: family_relationships
+    political: politics_elections
+    criminal: crime_detection
+    progression: main_level_tracks
+    task: interactive_tasks
+    eventSystem: consequences_effects
+    notification: player_information
+    time: clock_schedules
+
+unifiesConceptually:
+  note: |
+    Formalizza e centralizza pattern NPC sparsi in economy_main_v1/npc_economy,
+    work_main_v1/npc_employment, property_main_v1/npc_demand, business/family/
+    political/criminal npc files. NON modifica pack approvati.

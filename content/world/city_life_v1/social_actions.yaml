@@ -1,0 +1,29 @@
+# =============================================================================
+# SOCIAL ACTIONS — interact, gift, hire, etc.
+# =============================================================================
+
+SocialActions:
+  possible:
+    items:
+      - interact
+      - gift
+      - loan
+      - recruit
+      - hire
+      - fire
+      - report
+      - help
+      - compete
+  rule: regole restano nei rispettivi domain systems
+  playerPlayer:
+    rule: Player Citizens interagiscono — privacy, permissions, social rules
+  playerNpc:
+    rule: player interagisce con NPC dove previsto
+  block:
+    rule: block player — se Social System supporta
+  report:
+    owner: Moderation System
+
+events:
+  items:
+    - SocialActionExecuted

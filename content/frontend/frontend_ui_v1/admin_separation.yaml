@@ -1,0 +1,25 @@
+# =============================================================================
+# ADMIN SEPARATION — player vs admin UI
+# =============================================================================
+
+AdminSeparation:
+  DECISIONE APPROVATA: Admin UI area separata — NON mescolare con Player navigation
+
+adminRouting:
+  basePath: /admin
+  requires:
+    items:
+      - Admin_Authentication
+      - Authorization
+
+visualSeparation:
+  DECISIONE APPROVATA: Admin UI chiaramente distinguibile — NON sembra sezione normale gioco
+
+playerAdminMix:
+  rule: NON mescolare Player navigation con Admin navigation
+
+ref: admin_content_studio_v1, auth_main_v1
+
+events:
+  items:
+    - AdminAreaEntered

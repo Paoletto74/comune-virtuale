@@ -1,0 +1,15 @@
+# =============================================================================
+# PROPERTY CONDITION — property_v1
+# =============================================================================
+
+---
+PropertyCondition:
+  values:
+  - NEW
+  - GOOD
+  - USED
+  - WORN
+  - DAMAGED
+  - UNDER_REPAIR
+  formula: TBD
+  status: DECISIONE APPROVATA

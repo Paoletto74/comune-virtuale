@@ -1,0 +1,10 @@
+# =============================================================================
+# INTEGRATIONS SOUND — task_extensions_v1
+# =============================================================================
+
+---
+SoundIntegration:
+  taskProvides: soundCueId
+  soundOwns: audio behavior
+  respectsUserSettings: true
+  status: PROPOSTA TECNICA

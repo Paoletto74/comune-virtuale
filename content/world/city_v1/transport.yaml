@@ -1,0 +1,18 @@
+# =============================================================================
+# TRANSPORT — Mobility System influence
+# =============================================================================
+
+Transport:
+  owner: Mobility System — ref mobility_main_v1
+  influences:
+    items:
+      - travel
+      - speed
+      - cost
+      - access
+  vehicle:
+    rule: veicolo puo avere effetti se previsto — NON assumere bonus automatico
+
+events:
+  items:
+    - TransportSelected

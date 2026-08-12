@@ -1,0 +1,18 @@
+# =============================================================================
+# NPC RELATIONSHIPS — NPC-NPC relationships
+# =============================================================================
+
+NpcRelationships:
+  possible:
+    items:
+      - relationships
+      - affiliations
+      - employer
+      - household
+  rule: solo se supportato — NON simulare tutto V1
+  npcNpc:
+    rule: NPC possono avere relazioni simulate — NON necessario V1 completo
+
+events:
+  items:
+    - NpcRelationshipUpdated

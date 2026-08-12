@@ -1,0 +1,12 @@
+# =============================================================================
+# CATCH UP — time_v1
+# =============================================================================
+
+---
+CatchUp:
+  afterDowntime: recover scheduled jobs
+  alignsWith: time_main_v1/catchup.yaml
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - CatchUpCompleted

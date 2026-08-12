@@ -1,0 +1,42 @@
+# =============================================================================
+# PRIVACY — transfers private, profile rules
+# =============================================================================
+
+FinancialPrivacy:
+  DECISIONE APPROVATA: |
+    Trasferimenti finanziari tra giocatori privati salvo:
+    regole pubbliche, ranking, eventi, consenso, conseguenze sistemi autorizzati.
+
+PersonalProfile:
+  mayShow:
+    items:
+      - liquidity
+      - net_worth
+      - debts
+      - economic_indicators_configured
+  mustNotShowAutomatically:
+    items:
+      - every_transfer
+      - every_gift
+      - every_private_loan
+
+PublicProfile:
+  "DECISIONE APPROVATA": "allinea progression_main_v1/visibility.yaml"
+  mayShow:
+    items:
+      - liquidity_per_rules
+      - net_worth_per_rules
+      - prestige_assets
+      - titles
+      - levels
+  mustNotShowAutomatically:
+    items:
+      - private_debts
+      - loans_received
+      - transfers
+      - gift_recipients
+      - financial_strategies
+
+events:
+  items:
+    - PrivacyFilterApplied

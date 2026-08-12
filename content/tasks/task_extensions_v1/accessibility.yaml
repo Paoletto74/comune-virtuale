@@ -1,0 +1,14 @@
+# =============================================================================
+# ACCESSIBILITY — task_extensions_v1
+# =============================================================================
+
+---
+Accessibility:
+  requirements:
+  - keyboard
+  - screen reader
+  - readable options
+  - clear states
+  - progress alt text
+  - reduced motion
+  status: PROPOSTA TECNICA

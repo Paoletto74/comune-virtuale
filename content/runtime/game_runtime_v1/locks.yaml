@@ -1,0 +1,21 @@
+# =============================================================================
+# LOCKS — duplicate tick/job/consumer protection
+# =============================================================================
+
+RuntimeLocks:
+  status: PROPOSTA TECNICA
+  protects:
+    items:
+      - doppia_esecuzione_stesso_tick
+      - doppio_job
+      - concurrent_scheduler
+      - duplicate_event_consumer
+
+leaderSingleExecutor:
+  rule: |
+    Se piu runtime workers: solo uno processa global tick/job.
+  technology: TBD
+
+events:
+  emits: [LockAcquired, LockContentionDetected]
+  consumes: []

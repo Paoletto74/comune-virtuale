@@ -1,0 +1,20 @@
+# =============================================================================
+# ADMIN SEARCH — content search
+# =============================================================================
+
+AdminSearch:
+  fields:
+    items:
+      - contentId
+      - title
+      - category
+      - type
+      - status
+      - author
+      - publisher
+      - date
+  performance: pagination — NOT load thousands at once
+
+events:
+  items:
+    - ContentSearched

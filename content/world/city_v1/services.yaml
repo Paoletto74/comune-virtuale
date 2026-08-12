@@ -1,0 +1,29 @@
+# =============================================================================
+# SERVICES — banca, polizia, ospedale, Comune, trasporti
+# =============================================================================
+
+Services:
+  examples:
+    items:
+      - banca
+      - polizia
+      - ospedale
+      - Comune
+      - trasporti
+      - negozi
+  availability: configurabile
+  cityCenter:
+    status: PROPOSTA TECNICA
+    mayContain:
+      items:
+        - Municipio
+        - piazza
+        - servizi
+        - attivita
+        - Gazzetta
+        - luoghi_importanti
+    composition: DA DEFINIRE / TBD
+
+events:
+  items:
+    - ServiceLocated

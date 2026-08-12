@@ -1,0 +1,14 @@
+# =============================================================================
+# NEWSPAPER INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+NewspaperIntegration:
+  editorialCandidate: true
+  notAutoPublish: true
+  examples:
+  - famous promotion
+  - mass hiring
+  - mass layoffs
+  - unemployment spike
+  status: DECISIONE APPROVATA

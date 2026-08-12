@@ -1,0 +1,60 @@
+# =============================================================================
+# PROPERTY INSTANCES — istanze concrete
+# =============================================================================
+
+PropertyInstance:
+  schema:
+    propertyId: string
+    assetId: string
+    typeId: string
+    ownerId: string | null
+    zoneId: string
+    addressLabel: string
+    condition: number
+    marketValue: TBD
+    purchasePrice: TBD
+    acquisitionTime: timestamp | null
+    status: active | listed_sale | listed_rent | vacant | occupied | seized | under_maintenance
+    occupancyStatus: owner_occupied | tenant_occupied | vacant | unavailable
+    rentalStatus: not_for_rent | for_rent | rented | pending
+    currentTenantId: string | null
+    currentResidentId: string | null
+    primaryResidenceOf: string | null
+    businessOccupantRef: string | null
+    historyRef: string
+
+  rules:
+    DECISIONE APPROVATA:
+      items:
+        - marketValue != purchasePrice necessarily
+        - ogni immobile indipendente in multi-property
+        - trasferimento ownership atomico con economy
+
+instances:
+  status: skeleton_only
+  note: Lista definitiva istanze — DA DEFINIRE
+  examples:
+    items:
+      - propertyId: PROP_EXAMPLE_001
+        typeId: TYPE_STUDIO_CENTRO
+        zoneId: ZONE_CENTRO
+        addressLabel: Via Esempio 24
+        ownerId: null
+        marketValue: TBD
+        condition: TBD
+        status: listed_sale
+        occupancyStatus: vacant
+
+AssetLink:
+  economyAssetClass: ASSET
+  economyAssetSubtype: real_estate
+  moduleRef: property_main_v1
+  behaviors:
+    items:
+      - buy
+      - sell
+      - rent
+      - live_in
+      - generate_income
+      - generate_costs
+      - revalue

@@ -1,0 +1,38 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  HIRE_PROBABILITY_DEFAULT: TBD
+  APPLICATION_COOLDOWN: TBD
+  MAX_WORK_HOURS_PER_DAY: TBD
+  INACTIVITY_WARNING_DAYS: TBD
+  INACTIVITY_TERMINATION_DAYS: TBD
+  INJURY_PROBABILITY: TBD
+  INJURY_DURATION_MIN: TBD
+  INJURY_DURATION_MAX: TBD
+
+  BASE_SALARY_TIER_1: TBD
+  BASE_SALARY_TIER_2: TBD
+  QUALIFIED_SALARY_TIER_1: TBD
+
+  WORK_HOURS_FULL_TIME: TBD
+  WORK_HOURS_PART_TIME: TBD
+  WORK_SESSION_DEFAULT_HOURS: TBD
+
+  PERFORMANCE_FORMULA: TBD
+  QUALITY_EFFECT_FORMULA: TBD
+  STRESS_FROM_WORK_FORMULA: TBD
+  CAREER_PROMOTION_FORMULA: TBD
+
+  REQ_EDUCATION_JOB_QUALIFIED: TBD
+  REQ_REPUTATION_JOB_QUALIFIED: TBD
+  REQ_EXPERIENCE_JOB_QUALIFIED: TBD
+
+  dependsOnSystems:
+    - economy_main_v1
+    - progression_balance_v1
+    - business_module
+    - mobility_module
+    - task_catalog
+    - criminal_module

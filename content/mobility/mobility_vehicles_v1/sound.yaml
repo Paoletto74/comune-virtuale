@@ -1,0 +1,13 @@
+# =============================================================================
+# SOUND — mobility_vehicles_v1
+# =============================================================================
+
+---
+SoundIntegration:
+  ref: sound_design_v1
+  cues:
+  - car purchase
+  - engine start
+  - travel start
+  - repair
+  status: PROPOSTA TECNICA

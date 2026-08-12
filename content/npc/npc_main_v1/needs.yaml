@@ -1,0 +1,53 @@
+# =============================================================================
+# NPC NEEDS — bisogni aggregati/individuali
+# =============================================================================
+
+LifeSituationDefinition:
+  status: configurabile
+  items:
+    - situationId: homeless
+    - situationId: housed
+    - situationId: employed
+    - situationId: unemployed
+    - situationId: student
+    - situationId: retired
+    - situationId: entrepreneur
+    - situationId: criminal
+    - situationId: political
+    - situationId: dependent
+    - situationId: other
+
+HomelessNpc:
+  DECISIONE APPROVATA: popolazione iniziale può contenere senzatetto
+  capabilities:
+    items:
+      - find_job
+      - find_housing
+      - consume
+      - improve_situation
+      - worsen_situation
+      - remain_homeless
+      - enter_criminality
+  purpose: dinamica sociale del mondo
+
+NpcNeeds:
+  status: PROPOSTA TECNICA
+  rule: |
+    NON simulatore biologico — servono simulazione economica e sociale.
+  needTypes:
+    items:
+      - food
+      - housing
+      - transportation
+      - income
+      - safety
+      - social
+      - leisure
+  resolution:
+    tier_0: segment_average_needs
+    tier_1_plus: individual_or_simplified_needs
+
+events:
+  items:
+    - LifeSituationChanged
+    - NeedsEvaluated

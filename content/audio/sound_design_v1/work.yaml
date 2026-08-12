@@ -1,0 +1,24 @@
+# =============================================================================
+# WORK SOUNDS — promotion, job accepted, job lost
+# =============================================================================
+
+WorkSounds:
+  Promotion:
+    cue: work.promotion
+    priority: HIGH
+    length: normal
+    description: positive work sound — short office/success cue
+  JobAccepted:
+    cue: work.job_accepted
+    priority: NORMAL
+    length: micro
+    description: positive notification sound
+  JobLost:
+    cue: work.job_lost
+    priority: HIGH
+    length: normal
+    description: negative sound
+
+events:
+  items:
+    - WorkSoundTriggered

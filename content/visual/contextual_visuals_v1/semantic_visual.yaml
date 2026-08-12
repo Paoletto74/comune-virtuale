@@ -1,0 +1,19 @@
+# =============================================================================
+# SEMANTIC VISUAL — eventType not file path
+# =============================================================================
+
+SemanticVisual:
+  DECISIONE APPROVATA:
+  pattern:
+    input: PlayerArrested domain event
+    resolve: crime.arrest.scene_01 via manifest
+    forbidden: police_popup.png hardcoded
+  benefits:
+    items:
+      - change asset without game logic change
+      - consistent across popup, notification, Gazzetta, Home
+      - admin can remap visuals
+
+events:
+  items:
+    - SemanticVisualResolved

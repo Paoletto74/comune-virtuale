@@ -1,0 +1,30 @@
+# =============================================================================
+# EVENT DATA — definition vs occurrence
+# =============================================================================
+
+EventDefinition:
+  type: CONTENT
+  schema:
+    eventId: string
+    contentId: string
+    rules: object
+
+EventOccurrence:
+  type: PERSISTENT
+  sourceOfTruth: Event
+  schema:
+    occurrenceId: string
+    eventId: string
+    eventType: string
+    timestamp: timestamp
+    participants: []
+    source: string
+    effects: object
+    visibility: TBD
+    relatedEntities: []
+
+ref: event_main_v1
+
+events:
+  items:
+    - EventOccurrenceRecorded

@@ -1,0 +1,12 @@
+# =============================================================================
+# NORMALIZATION — consistent levels between assets
+# =============================================================================
+
+Normalization:
+  rule: normalizzare livelli tra asset
+  clipping: nessun asset deve produrre clipping evidente
+  ref: loudness.yaml, qa.yaml
+
+events:
+  items:
+    - AudioNormalized

@@ -1,0 +1,25 @@
+# =============================================================================
+# IDS — semantic ID types
+# =============================================================================
+
+IdTypes:
+  DECISIONE APPROVATA: distinguere semanticamente — non stringhe anonime
+  types:
+    items:
+      - CitizenId
+      - ItemId
+      - ListingId
+      - PropertyId
+      - VehicleId
+      - JobId
+      - TaskId
+      - TransactionId
+      - EventId
+      - CommandId
+      - NotificationId
+      - ContentId
+      - VisualAssetId
+
+events:
+  items:
+    - IdValidated

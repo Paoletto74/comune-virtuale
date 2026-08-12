@@ -1,0 +1,87 @@
+# =============================================================================
+# INCIDENTS — incidenti e guasti
+# =============================================================================
+
+ReliabilityModel:
+  schema:
+    modeId: string
+    vehicleId: string | null
+    reliability: TBD
+  rule: |
+    Mezzo poco affidabile → maggiore probabilità guasto/ritardo.
+    Mezzo affidabile → rischi ridotti.
+  configurable: true
+
+Incident:
+  schema:
+    incidentId: string
+    citizenId: string
+    travelId: string | null
+    vehicleId: string | null
+    incidentType: accident | breakdown | delay | other
+    severity: TBD
+    consequences: []
+    timestamp: timestamp
+
+incidentTypes:
+  items:
+    - typeId: accident
+      label: Incidente
+      deathPermanent: false
+      possibleConsequences:
+        items:
+          - vehicle_damage
+          - costs
+          - delay
+          - stress
+          - temporary_mobility_loss
+          - injury
+          - task_event
+    - typeId: breakdown
+      label: Guasto veicolo
+      eventName: VehicleBreakdown
+      possibleConsequences:
+        items:
+          - temporary_unusable
+          - repair_cost
+          - delay
+          - need_alternative_mode
+    - typeId: delay
+      label: Ritardo
+      possibleConsequences:
+        items:
+          - late_arrival
+          - stress
+          - work_punctuality_impact
+  probabilities: TBD
+
+breakdown:
+  DECISIONE APPROVATA:
+    items:
+      - impossibilità temporanea utilizzo
+      - costo riparazione
+      - ritardo
+      - necessità alternativa
+  event: VehicleBreakdown
+
+alternativesOnFailure:
+  DECISIONE APPROVATA: |
+    Auto guasta → TP se disponibile.
+    Nessun denaro → piedi.
+    Evitare game over.
+  fallbackOrder: TBD
+
+deathRule:
+  DECISIONE APPROVATA: NO morte permanente del personaggio
+
+delivery:
+  via: Event System
+  scheduling: during_travel | scheduled | tick
+
+events:
+  items:
+    - IncidentOccurred
+    - VehicleBreakdown
+    - VehicleDamaged
+    - TravelDelayedByIncident
+    - InjuryFromMobility

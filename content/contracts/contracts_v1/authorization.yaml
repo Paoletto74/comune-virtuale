@@ -1,0 +1,32 @@
+# =============================================================================
+# AUTHORIZATION — context, layers, game time, municipality
+# =============================================================================
+
+AuthorizationContext:
+  structure:
+    actorId: string
+    actorType: string
+    roles: []
+    permissions: []
+    municipality: string
+    session_context: object
+  rule: NON accettare roles arbitrari dal client
+
+commandAuthorizationLayers:
+  items:
+    - Authentication
+    - Permission
+    - Domain_eligibility
+    - State_validation
+    - Transaction
+
+gameTimeContext:
+  rule: domain commands ricevono game time dal server/runtime — NON dal client
+
+municipalityContext:
+  rule: municipalityId determinato/validato backend — NON fidarsi client
+
+events:
+  items:
+    - AuthorizationGranted
+    - AuthorizationDenied

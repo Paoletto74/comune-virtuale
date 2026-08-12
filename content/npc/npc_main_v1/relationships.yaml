@@ -1,0 +1,42 @@
+# =============================================================================
+# RELATIONSHIPS — NPC-NPC e Player-NPC
+# =============================================================================
+
+NpcRelationships:
+  DECISIONE APPROVATA: |
+    NON simulare tutte le relazioni di 10.000 NPC con profondità elevata.
+    Conservare: famiglia, partner, rapporti con giocatori, ruoli rilevanti.
+  owner: family_main_v1 autorevole su famiglia/relazioni
+
+PlayerNpcRelationships:
+  DECISIONE APPROVATA: relazioni persistenti — promuovono tier superiore
+  examples:
+    items:
+      - child
+      - partner
+      - employee
+      - employer
+      - customer
+      - criminal_contact
+      - politician
+      - friend
+  persistence: true
+  tierBoost: TIER_2_or_TIER_3
+
+NpcFamily:
+  ref: family_main_v1/npc.yaml
+  playerFamily: persistente, dettagliata, full consequences
+  npcFamily: aggregated_state, probability_events, lower_depth
+  playerChild: "TIER_3 — simulazione individuale persistente"
+
+relationshipDepth:
+  TIER_0: none_or_segment_only
+  TIER_1: household_ref_only
+  TIER_2: key_relationships
+  TIER_3: full_relationship_graph_relevant
+
+events:
+  items:
+    - NpcRelationshipCreated
+    - NpcRelationshipUpdated
+    - PlayerNpcRelationshipEstablished

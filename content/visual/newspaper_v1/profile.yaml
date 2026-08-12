@@ -1,0 +1,15 @@
+# =============================================================================
+# PROFILE — Personal Feature article concept
+# =============================================================================
+
+ProfilePresentation:
+  concept: PERSONAL FEATURE — ispirazione editoriale, NON pagina giornalistica completa
+  example: |
+    Avatar, Nome, tagline editoriale, Livello, Lavoro, Patrimonio
+  sourceOfTruth: Profile System — newspaper definisce COME raccontato
+
+ref: profile_main_v1, frontend_ui_v1/profile.yaml, templates.yaml CitizenFeature
+
+events:
+  items:
+    - ProfileFeatureRendered

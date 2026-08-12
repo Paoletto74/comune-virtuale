@@ -1,0 +1,17 @@
+# =============================================================================
+# PRINCIPLES — task_extensions_v1
+# =============================================================================
+
+---
+ExtensionPrinciples:
+  rule: extend task_main_v1 without modifying it
+  noNewApprovedWithoutExplicitSignoff: true
+  fundamentalMaintained:
+    items:
+    - Task != linear mission
+    - Definition != Instance
+    - Task does not own Economy Property Mobility Work Criminal Political
+    - consequences via EffectRequest
+    - client not authoritative
+    - idempotency audit causal chain
+    - content-first no AI runtime no free chat

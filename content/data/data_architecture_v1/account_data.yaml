@@ -1,0 +1,30 @@
+# =============================================================================
+# ACCOUNT DATA — Auth source of truth
+# =============================================================================
+
+AccountData:
+  sourceOfTruth: Auth
+  schema:
+    accountId: string
+    status: ACTIVE | PENDING | SUSPENDED | LOCKED | DISABLED | DELETED
+    authenticationIdentities: []
+    securityMetadata: object
+    createdAt: timestamp
+    updatedAt: timestamp
+    lastLoginAt: timestamp
+
+mustNotStore:
+  DECISIONE APPROVATA: NO game state in Account
+  excluded:
+    items:
+      - net_worth
+      - level
+      - inventory
+      - job
+      - political_role
+
+ref: auth_main_v1/account.yaml
+
+events:
+  items:
+    - AccountDataUpdated

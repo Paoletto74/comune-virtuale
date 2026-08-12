@@ -1,0 +1,29 @@
+# =============================================================================
+# ROLES — OWNER, ADMIN, EDITOR, REVIEWER
+# =============================================================================
+
+AdminRoles:
+  status: PROPOSTA TECNICA — ruoli definitivi TBD
+  items:
+    - OWNER
+    - ADMIN
+    - EDITOR
+    - REVIEWER
+
+AdminUiByRole:
+  status: PROPOSTA TECNICA — UX esempio, SERVER verifica comunque
+  examples:
+    EDITOR:
+      actions: [Edit, Validate]
+    ADMIN:
+      actions: [Edit, Validate, Approve, Publish]
+    OWNER:
+      actions: all_per_policy
+
+playerRole:
+  DECISIONE APPROVATA: normal player — NO Admin access
+
+events:
+  items:
+    - RoleAssigned
+    - RoleRevoked

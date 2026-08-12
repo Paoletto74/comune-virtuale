@@ -1,0 +1,18 @@
+# =============================================================================
+# INTEGRATIONS WORK CAREERS — task_extensions_v1
+# =============================================================================
+
+---
+WorkCareersIntegration:
+  workGenerates:
+  - work tasks
+  - deliveries
+  - professional activities
+  workOwns:
+  - employment
+  - salary
+  - promotion
+  - schedule
+  taskOwns:
+  - task outcome
+  status: PROPOSTA TECNICA extends work_main integration

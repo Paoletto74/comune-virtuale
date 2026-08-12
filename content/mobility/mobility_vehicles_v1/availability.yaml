@@ -1,0 +1,16 @@
+# =============================================================================
+# AVAILABILITY — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleAvailability:
+  possible:
+  - AVAILABLE
+  - IN_USE
+  - PARKED
+  - MAINTENANCE
+  - DAMAGED
+  - UNAVAILABLE
+  - SOLD
+  definitive: TBD
+  status: PROPOSTA TECNICA

@@ -1,0 +1,49 @@
+# =============================================================================
+# PRICING — prezzi azienda
+# =============================================================================
+
+PricingModel:
+  schema:
+    companyId: string
+    priceLevel: TBD
+    basePrices: {}
+    lastUpdated: timestamp
+
+pricingEffects:
+  influences:
+    items:
+      - demand
+      - revenue
+      - reputation
+      - competitiveness
+  rule: Prezzo non completamente libero senza conseguenze
+  formula: TBD
+
+ownerLever:
+  leverId: LEVER_PRICING
+  label: Regolazione prezzi
+  unlockRequirementsRef: TBD
+  ref: performance.yaml ownerLevers
+
+inflation:
+  rule: |
+    Business NON possiede inflazione.
+    Economy fornisce macro — influenza costi, prezzi, salari, domanda, margini.
+  ref: economy_main_v1/inflation.yaml
+
+tradeOff:
+  status: PROPOSTA_TECNICA
+  note: Applicabile per settore via content
+  high_price:
+    items:
+      - lower_demand_possible
+      - higher_margin_possible
+  low_price:
+    items:
+      - higher_demand_possible
+      - lower_margin
+
+events:
+  items:
+    - PriceChanged
+    - PricingDecisionApplied

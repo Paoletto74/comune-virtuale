@@ -1,0 +1,20 @@
+# =============================================================================
+# FAMILY DATA — NO duplicazione Citizen data
+# =============================================================================
+
+FamilyData:
+  sourceOfTruth: Family
+  schema:
+    citizenId: string
+    familyRelationships: []
+    household: object
+    dependents: []
+    relationshipState: TBD
+
+rule: NON duplicare Citizen data
+
+ref: family_main_v1
+
+events:
+  items:
+    - FamilyDataUpdated

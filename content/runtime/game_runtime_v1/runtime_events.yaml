@@ -1,0 +1,20 @@
+# =============================================================================
+# RUNTIME EVENTS — distinct from domain and content events
+# =============================================================================
+
+RuntimeEvents:
+  DECISIONE APPROVATA: distinguere tre tipi
+  types:
+    RUNTIME_EVENT:
+      examples: [RuntimeTick, SystemExecutionCompleted]
+    DOMAIN_EVENT:
+      examples: [ItemPurchased, SalaryPaid, LevelReached]
+    CONTENT_EVENT:
+      examples: [FestivalDefinition, TaskDefinition]
+
+rule: |
+  Runtime Tick != ItemPurchased != FestivalDefinition
+
+events:
+  items:
+    - RuntimeEventPublished

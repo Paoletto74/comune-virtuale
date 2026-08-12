@@ -1,0 +1,66 @@
+# =============================================================================
+# PRINCIPLES — game logic vs content, admin boundaries
+# =============================================================================
+
+ContentPrinciples:
+  DECISIONE APPROVATA:
+  separation:
+    gameLogic:
+      items:
+        - regole
+        - formule
+        - autorizzazioni
+        - transazioni
+        - calcoli
+        - state_machine
+    gameContent:
+      items:
+        - testi
+        - titoli
+        - descrizioni
+        - articoli
+        - task_definitions_editorial
+        - item_descriptions
+        - notification_templates
+        - headline
+        - captions
+        - labels
+        - visual_references
+
+adminBoundaries:
+  DECISIONE APPROVATA:
+  adminCan: create_and_modify_content
+  adminMustNot:
+    items:
+      - modify_balance
+      - assign_property
+      - modify_level
+      - create_money
+      - modify_ownership
+      - change_election_results
+      - alter_authoritative_ranking
+
+adminAreas:
+  CONTENT_ADMIN: authoring, validation, publish
+  GAME_OPERATIONS_ADMIN: separate future workflows — auditati, autorizzati
+
+noGithubRequired:
+  DECISIONE APPROVATA: |
+    Contenuti quotidiani NON richiedono GitHub + commit + deploy.
+    GitHub resta strumento tecnico per schema, code, initial packs, migration.
+
+mainWorkflow:
+  items:
+    - NUOVO_CONTENUTO
+    - scegli_tipo
+    - inserisci_testo_dati
+    - eventuale_AI_assist
+    - preview
+    - validation
+    - save_draft
+    - approval
+    - publish_or_schedule
+
+events:
+  items:
+    - ContentPrincipleApplied

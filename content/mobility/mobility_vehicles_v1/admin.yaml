@@ -1,0 +1,14 @@
+# =============================================================================
+# ADMIN — mobility_vehicles_v1
+# =============================================================================
+
+---
+Admin:
+  canConfigure:
+  - vehicle types
+  - categories
+  - templates
+  - maintenance
+  - mobility config
+  ownershipChangeRequires: permission reason audit
+  status: PROPOSTA TECNICA

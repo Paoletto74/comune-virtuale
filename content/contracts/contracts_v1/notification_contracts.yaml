@@ -1,0 +1,32 @@
+# =============================================================================
+# NOTIFICATION CONTRACTS — instance, popup eligibility
+# =============================================================================
+
+NotificationContract:
+  flow:
+    items:
+      - Domain_Event
+      - Notification_Service
+      - Notification_Instance
+  instance:
+    fields:
+      items:
+        - notificationId
+        - recipient
+        - type
+        - priority
+        - contentTemplateId
+        - createdAt
+        - readAt
+        - popupEligible
+  contentRef:
+    rule: referenziare contentTemplateId — NON duplicare tutto il testo
+
+popupContract:
+  rule: popup e presentation eligibility metadata — Notification resta source of truth
+
+ref: notification_main_v1
+
+events:
+  items:
+    - NotificationContractFulfilled

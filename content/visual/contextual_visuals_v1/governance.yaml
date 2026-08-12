@@ -1,0 +1,19 @@
+# =============================================================================
+# GOVERNANCE — publish, audit, versioning
+# =============================================================================
+
+Governance:
+  publish:
+    items:
+      - review
+      - approval
+      - audit
+      - versioning
+  artDirection:
+    rule: rispettare newspaper visual identity, color system, typography context
+  consistency:
+    rule: famiglie visive coerenti — ref asset_taxonomy.yaml
+
+events:
+  items:
+    - VisualGovernanceApplied

@@ -1,0 +1,47 @@
+# =============================================================================
+# RANKINGS — categories, cards, privacy, global vs municipal
+# =============================================================================
+
+Rankings:
+  categories:
+    examples:
+      items:
+        - PIU_RICCO
+        - PIU_POVERO
+        - PIU_SIMPATICO
+        - PIU_INFLUENTE
+        - USURAIO
+        - BENEFATTORE
+    configuration:
+      status: PROPOSTA TECNICA
+      rule: categorie estendibili via ranking definitions/config — NON riscrivere UI
+
+RankingCard:
+  shows:
+    items:
+      - posizione
+      - avatar
+      - nome
+      - titolo
+      - valore
+      - trend
+      - percentile
+
+RankingPrivacy:
+  levels:
+    items:
+      - PUBLIC
+      - PRIVATE
+      - DISCOVERABLE
+
+GlobalVsMunicipal:
+  DECISIONE APPROVATA: supportare GLOBAL RANKING e MUNICIPAL RANKING
+
+sourceOfTruth: Ranking Service — derived data
+
+api: ranking_api.yaml
+
+events:
+  items:
+    - RankingViewed
+    - RankingCategoryChanged

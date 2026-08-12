@@ -1,0 +1,15 @@
+# =============================================================================
+# LOAN SCHEDULE — time_v1
+# =============================================================================
+
+---
+LoanSchedule:
+  owner: Loan/Economy
+  fields:
+  - installments
+  - interestPeriods
+  - maturity
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - LoanInstallmentDue

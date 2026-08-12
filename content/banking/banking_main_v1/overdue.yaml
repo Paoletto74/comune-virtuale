@@ -1,0 +1,38 @@
+# =============================================================================
+# OVERDUE & DEFAULT
+# =============================================================================
+
+Overdue:
+  DECISIONE APPROVATA: |
+    Non pagato entro scadenza → loan OVERDUE.
+    NON arresto automatico.
+  possibleConsequences:
+    items:
+      - penalties
+      - reputation
+      - additional_interest
+      - new_loan_blocked
+      - future_legal_actions
+  values: TBD
+
+Default:
+  status: DEFAULTED
+  rule: |
+    Default NON equivale automaticamente a crimine, arresto, confisca.
+    Legal System può intervenire con regole separate.
+
+Creditworthiness:
+  status: PROPOSTA TECNICA — futuro, NON track progression
+  factors:
+    items:
+      - loans_repaid
+      - delays
+      - defaults
+      - reliability
+      - history
+
+events:
+  items:
+    - LoanOverdue
+    - LoanDefaulted
+    - CreditworthinessUpdated

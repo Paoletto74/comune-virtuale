@@ -1,0 +1,121 @@
+# =============================================================================
+# CONTENT SYSTEM MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: GAME LOGIC != GAME CONTENT
+# Admin Authoring != Admin Access Direct to Game State
+# V1: proposta architetturale — NO Admin runtime, NO database, NO API, NO AI runtime
+# Integra con admin_content_studio_v1, contracts_v1, newspaper_v1 — NON li modifica
+# =============================================================================
+
+catalogId: content_system_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  adminContentStudio: admin_content_studio_v1
+  auth: auth_main_v1
+  contracts: contracts_v1
+  newspaper: newspaper_v1
+  visual: visual_main_v1
+  dataArchitecture: data_architecture_v1
+  backend: backend_architecture_v1
+  gameRuntime: game_runtime_v1
+
+principles:
+  - GAME LOGIC != GAME CONTENT
+  - Admin Authoring != Direct Game State modification
+  - Domain Systems own game logic — Content System owns editorial content
+  - Draft -> Validation -> Preview -> Approval -> Publish
+  - GitHub NON obbligatorio per contenuti quotidiani
+  - AI Draft -> Validation -> Approval -> Publish — MAI publish diretto
+  - Player receives published content only — NO drafts
+  - publishAt/expireAt use Game Time — NOT device clock
+
+includes:
+  principles: principles.yaml
+  contentTypes: content_types.yaml
+  article: article.yaml
+  headline: headline.yaml
+  taskContent: task_content.yaml
+  itemContent: item_content.yaml
+  jobContent: job_content.yaml
+  notificationContent: notification_content.yaml
+  popupContent: popup_content.yaml
+  eventContent: event_content.yaml
+  municipalityContent: municipality_content.yaml
+  profileContent: profile_content.yaml
+  labels: labels.yaml
+  templates: templates.yaml
+  variables: variables.yaml
+  localization: localization.yaml
+  fallback: fallback.yaml
+  draft: draft.yaml
+  validation: validation.yaml
+  approval: approval.yaml
+  publishing: publishing.yaml
+  scheduling: scheduling.yaml
+  expiration: expiration.yaml
+  versioning: versioning.yaml
+  history: history.yaml
+  rollback: rollback.yaml
+  duplication: duplication.yaml
+  richText: rich_text.yaml
+  sanitization: sanitization.yaml
+  links: links.yaml
+  references: references.yaml
+  visualIntegration: visual_integration.yaml
+  contentEvents: content_events.yaml
+  cache: cache.yaml
+  delivery: delivery.yaml
+  adminAuthoring: admin_authoring.yaml
+  adminPermissions: admin_permissions.yaml
+  adminPreview: admin_preview.yaml
+  adminSearch: admin_search.yaml
+  adminFilters: admin_filters.yaml
+  adminDashboard: admin_dashboard.yaml
+  contentCalendar: content_calendar.yaml
+  bulkActions: bulk_actions.yaml
+  import: import.yaml
+  export: export.yaml
+  github: github.yaml
+  contentStore: content_store.yaml
+  sourcePriority: source_priority.yaml
+  featureFlags: feature_flags.yaml
+  targeting: targeting.yaml
+  personalization: personalization.yaml
+  aiAuthoring: ai_authoring.yaml
+  aiValidation: ai_validation.yaml
+  quickCreate: quick_create.yaml
+  articleFromEvent: article_from_event.yaml
+  articleFromText: article_from_text.yaml
+  livePreview: live_preview.yaml
+  autosave: autosave.yaml
+  conflictEditing: conflict_editing.yaml
+  audit: audit.yaml
+  analytics: analytics.yaml
+  privacy: privacy.yaml
+  moderation: moderation.yaml
+  gazzetta: gazzetta.yaml
+  archive: archive.yaml
+  imageWorkflow: image_workflow.yaml
+  environments: environments.yaml
+  staging: staging.yaml
+  production: production.yaml
+  migration: migration.yaml
+  schemaVersion: schema_version.yaml
+  performance: performance.yaml
+  testing: testing.yaml
+  governance: governance.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  contentSystem: editorial_content, templates, labels, publishing_workflow
+  domainSystems: game_logic, formulas, calculations, state_machines
+  adminContentStudio: authoring_ui, preview, validation_ui
+  visualSystem: visualAssetId, asset_metadata
+  auth: admin_permissions
+
+alignsWith:
+  note: |
+    Formalizza Content System coerente con admin_content_studio_v1 e contracts_v1.
+    NON modifica pack approvati. NON implementa runtime.

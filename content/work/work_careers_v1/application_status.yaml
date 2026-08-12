@@ -1,0 +1,15 @@
+# =============================================================================
+# APPLICATION STATUS — work_careers_v1
+# =============================================================================
+
+---
+ApplicationStatus:
+  values:
+  - DRAFT
+  - SUBMITTED
+  - UNDER_REVIEW
+  - ACCEPTED
+  - REJECTED
+  - WITHDRAWN
+  - EXPIRED
+  status: DECISIONE APPROVATA

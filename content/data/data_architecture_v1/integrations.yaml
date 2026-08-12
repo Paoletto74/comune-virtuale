@@ -1,0 +1,52 @@
+# =============================================================================
+# INTEGRATIONS — storage, media, admin, observability
+# =============================================================================
+
+Storage:
+  DECISIONE APPROVATA: separare STRUCTURED DATA da MEDIA STORAGE
+  structured: database TBD
+  media: asset storage TBD
+
+MediaReferences:
+  DECISIONE APPROVATA:
+  database: assetId + metadata + reference
+  assetStorage: file fisico
+  ref: visual_main_v1
+
+AdminIntegration:
+  DECISIONE APPROVATA: |
+    Admin Content Studio modifica CONTENT.
+    NON game state arbitrario (es. player cash).
+    Admin può modificare Task Definition — NON player cash.
+
+Observability:
+  status: PROPOSTA TECNICA
+  metrics:
+    items:
+      - db_latency
+      - query_latency
+      - transaction_failures
+      - deadlocks
+      - cache_hit_rate
+      - data_integrity_errors
+      - api_errors
+
+PerformanceTargets:
+  status: DA DEFINIRE
+  categories:
+    items:
+      - interactive
+      - background
+      - batch
+      - analytics
+
+Scalability:
+  target: 10 player + 10.000 NPC — estendibile senza overengineering prematuro
+
+reconciliation:
+  ref: ledger.yaml
+  job: Ledger balance vs Account balance — ALERT se differiscono
+
+events:
+  items:
+    - IntegrationHealthCheck

@@ -1,0 +1,11 @@
+# =============================================================================
+# BUSINESS FLEET — mobility_vehicles_v1
+# =============================================================================
+
+---
+BusinessFleet:
+  concept: vehicles associated with Business
+  businessOwner: Business System
+  mobilityState: Mobility System
+  fleetSize: TBD
+  status: PROPOSTA TECNICA

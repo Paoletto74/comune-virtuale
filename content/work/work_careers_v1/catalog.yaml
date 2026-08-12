@@ -1,0 +1,161 @@
+# =============================================================================
+# WORK CAREERS V1 CATALOG
+# =============================================================================
+# Proposta architetturale Work, Careers & Labour Market
+# Estende work_main_v1 senza modificarlo
+# =============================================================================
+
+catalogId: work_careers_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  workMain: work_main_v1
+  economyMain: economy_main_v1
+  economy: economy_v1
+  timeMain: time_main_v1
+  time: time_v1
+  city: city_v1
+  cityLife: city_life_v1
+  business: business_main_v1
+  npc: npc_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  profile: profile_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  frontend: frontend_ui_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  contracts: contracts_v1
+
+principles:
+  - WORK SYSTEM SOT per employment jobs applications career progression salary config
+  - Work != Economy != Business
+  - Work decide quanto e perche pagato - Economy esegue transazione
+  - Job Type != Job Position
+  - Level != Skill != Career Level
+  - Client non authoritative
+  - Hiring NON crea denaro automaticamente
+  - Integra work_main_v1 - NON lo modifica
+  - NO real employment NO real money
+
+includes:
+  principles: principles.yaml
+  job_types: job_types.yaml
+  job_positions: job_positions.yaml
+  jobs: jobs.yaml
+  job_requirements: job_requirements.yaml
+  job_categories: job_categories.yaml
+  employment: employment.yaml
+  employment_status: employment_status.yaml
+  applications: applications.yaml
+  application_status: application_status.yaml
+  application_privacy: application_privacy.yaml
+  employer: employer.yaml
+  employer_permissions: employer_permissions.yaml
+  salary: salary.yaml
+  salary_types: salary_types.yaml
+  salary_history: salary_history.yaml
+  payday: payday.yaml
+  bonuses: bonuses.yaml
+  commissions: commissions.yaml
+  work_schedules: work_schedules.yaml
+  work_shifts: work_shifts.yaml
+  attendance: attendance.yaml
+  absence: absence.yaml
+  resignation: resignation.yaml
+  termination: termination.yaml
+  firing: firing.yaml
+  suspension: suspension.yaml
+  career: career.yaml
+  career_tracks: career_tracks.yaml
+  career_levels: career_levels.yaml
+  career_paths: career_paths.yaml
+  promotion: promotion.yaml
+  demotion: demotion.yaml
+  experience: experience.yaml
+  skills: skills.yaml
+  qualifications: qualifications.yaml
+  certifications: certifications.yaml
+  professional_profile: professional_profile.yaml
+  candidate_profile: candidate_profile.yaml
+  cv_future: cv_future.yaml
+  education_future: education_future.yaml
+  business_staffing: business_staffing.yaml
+  staff_capacity: staff_capacity.yaml
+  payroll: payroll.yaml
+  job_search: job_search.yaml
+  job_filters: job_filters.yaml
+  job_discovery: job_discovery.yaml
+  job_expiration: job_expiration.yaml
+  application_expiration: application_expiration.yaml
+  labour_market: labour_market.yaml
+  labour_statistics: labour_statistics.yaml
+  employment_rate: employment_rate.yaml
+  unemployment: unemployment.yaml
+  salary_distribution: salary_distribution.yaml
+  npc_employment: npc_employment.yaml
+  npc_labour_market: npc_labour_market.yaml
+  career_events: career_events.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  sound_integration: sound_integration.yaml
+  visual_integration: visual_integration.yaml
+  newspaper_integration: newspaper_integration.yaml
+  economy_integration: economy_integration.yaml
+  time_integration: time_integration.yaml
+  business_integration: business_integration.yaml
+  property_integration: property_integration.yaml
+  mobility_integration: mobility_integration.yaml
+  crime_integration: crime_integration.yaml
+  political_integration: political_integration.yaml
+  municipality_integration: municipality_integration.yaml
+  organization_integration: organization_integration.yaml
+  level_integration: level_integration.yaml
+  title_integration: title_integration.yaml
+  security: security.yaml
+  rate_limiting: rate_limiting.yaml
+  race_conditions: race_conditions.yaml
+  api: api.yaml
+  cache: cache.yaml
+  offline: offline.yaml
+  realtime: realtime.yaml
+  analytics: analytics.yaml
+  localization: localization.yaml
+  accessibility: accessibility.yaml
+  performance: performance.yaml
+  admin: admin.yaml
+  permissions: permissions.yaml
+  audit: audit.yaml
+  versioning: versioning.yaml
+  testing: testing.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  workSystemDecides:
+    items:
+      - employment
+      - job_assignment
+      - applications
+      - requirements
+      - career_progression
+      - salary_configuration
+      - promotions_dismissals
+  economyExecutes:
+    items:
+      - salary_transactions
+      - bonus_transactions
+      - payroll
+  businessOwns:
+    items:
+      - business_entity
+      - staff_capacity
+      - employer_authority
+
+alignsWith:
+  note: |
+    Formalizza labour market coerente con work_main_v1 employment e jobs.
+    NON modifica pack approvati. NON implementa runtime.

@@ -1,0 +1,114 @@
+# =============================================================================
+# ADMIN CONTENT STUDIO MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: gestione CONTENT — NON editor del codice del gioco
+# Workflow: ChatGPT → YAML/JSON → validation → preview → publish → gioco
+# Riduce ciclo: file locale → Cursor → GitHub → deploy
+# V1: proposta architetturale — NO pannello runtime
+# =============================================================================
+
+catalogId: admin_content_studio_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  task: task_main_v1
+  eventSystem: event_main_v1
+  inventory: inventory_main_v1
+  marketplace: marketplace_main_v1
+  work: work_main_v1
+  notification: notification_main_v1
+  social: social_main_v1
+  profile: profile_main_v1
+  visual: visual_main_v1
+  ui: ui_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  economy: economy_main_v1
+  banking: banking_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+
+principles:
+  - CONTENT vs CODE — modifica contenuti, NON engine/schema/sicurezza
+  - contentId stabile — NON nomi file come ID logici
+  - Versioning obbligatorio — modifica non distrugge versione precedente
+  - DRAFT → VALIDATE → PREVIEW → APPROVE → PUBLISH — publish esplicito
+  - Import paste text/YAML/JSON — workflow ChatGPT friendly
+  - Simple Mode form editor default — YAML/JSON Advanced Mode
+  - Server authoritative — client non bypassa validation/permissions
+  - Hot content update — content-only senza deploy codice
+  - Code-bound content — se richiede motore nuovo, segnalare esplicitamente
+  - NO AI generation/interpretation obbligatoria V1
+  - Cross-pack validation — riferimenti tra domini
+  - Sensitive content — permessi elevati economy/political/criminal/progression
+
+includes:
+  contentTypes: content_types.yaml
+  dashboard: dashboard.yaml
+  library: library.yaml
+  editor: editor.yaml
+  import: import.yaml
+  export: export.yaml
+  validation: validation.yaml
+  preview: preview.yaml
+  workflow: workflow.yaml
+  approval: approval.yaml
+  permissions: permissions.yaml
+  publishing: publishing.yaml
+  scheduling: scheduling.yaml
+  rollback: rollback.yaml
+  versioning: versioning.yaml
+  diff: diff.yaml
+  dependencies: dependencies.yaml
+  impact: impact.yaml
+  search: search.yaml
+  filters: filters.yaml
+  bulk: bulk.yaml
+  media: media.yaml
+  localization: localization.yaml
+  humor: humor.yaml
+  security: security.yaml
+  audit: audit.yaml
+  health: health.yaml
+  usage: usage.yaml
+  featureFlags: feature_flags.yaml
+  staging: staging.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  studio_module: [editor, import, export, preview, workflow]
+  governance_module: [validation, approval, permissions, publishing, security]
+  lifecycle_module: [versioning, rollback, scheduling, staging]
+  discovery_module: [library, search, filters, dependencies, impact]
+
+responsibilitySplit:
+  adminStudioDecides:
+    items:
+      - content_editing
+      - content_import_export
+      - validation_workflow
+      - preview
+      - approval
+      - publishing
+      - versioning
+      - rollback
+      - content_library
+      - permissions_scopes
+      - content_health
+  gameEnginesDecide: runtime_behavior
+  databaseDecides: persistence
+  authenticationDecides: admin_login
+  securityDecides: authorization
+  timeDecides: scheduled_publishing
+  visualDecides: asset_storage_presentation
+  audioDecides: audio_assets
+  domainSystemsDecide: respective_runtime_rules
+
+alignsWith:
+  note: |
+    Referenzia tutti i content pack approvati come target di editing.
+    NON modifica pack approvati — definisce layer amministrativo sopra.

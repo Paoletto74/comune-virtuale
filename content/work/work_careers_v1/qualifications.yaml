@@ -1,0 +1,8 @@
+# =============================================================================
+# QUALIFICATIONS — work_careers_v1
+# =============================================================================
+
+---
+Qualifications:
+  jobMayRequire: qualificationId
+  status: PROPOSTA TECNICA

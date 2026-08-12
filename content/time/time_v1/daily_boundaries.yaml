@@ -1,0 +1,15 @@
+# =============================================================================
+# DAILY BOUNDARIES — time_v1
+# =============================================================================
+
+---
+DailyBoundaries:
+  trigger: DayStarted
+  reactors:
+  - Task System
+  - Newspaper
+  - domain limits
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DailyBoundaryCrossed

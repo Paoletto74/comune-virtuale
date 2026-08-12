@@ -1,0 +1,30 @@
+# =============================================================================
+# COMPATIBILITY — version bumps, consumer review
+# =============================================================================
+
+Compatibility:
+  breakingChanges:
+    require:
+      items:
+        - version_bump
+        - migration_strategy
+        - consumer_compatibility_review
+
+eventReplay:
+  rule: |
+    replay possibile per projection rebuild dove appropriato.
+    NON replayare eventi finanziari come nuove transazioni.
+
+projectionRebuild:
+  acceptableFor:
+    items: [rankings, gazzetta_candidates, analytics, history_projections]
+
+authoritativeRebuild:
+  mustNotBlindly:
+    items: [ledger, ownership, critical_permissions]
+  requires: specific procedures
+
+events:
+  items:
+    - CompatibilityCheckPassed
+    - CompatibilityCheckFailed

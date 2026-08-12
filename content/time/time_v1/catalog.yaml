@@ -1,0 +1,141 @@
+# =============================================================================
+# TIME V1 CATALOG
+# =============================================================================
+# Proposta architetturale Game Time, Calendar & Daily Life
+# Estende time_main_v1 senza modificarlo
+# =============================================================================
+
+catalogId: time_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  timeMain: time_main_v1
+  city: city_v1
+  cityLife: city_life_v1
+  economy: economy_main_v1
+  work: work_main_v1
+  property: property_main_v1
+  marketplace: marketplace_main_v1
+  political: political_main_v1
+  event: event_main_v1
+  npc: npc_main_v1
+  business: business_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  profile: profile_main_v1
+  frontend: frontend_ui_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  contracts: contracts_v1
+
+principles:
+  - TIME SYSTEM source of truth per Game Time
+  - REAL TIME != GAME TIME - server authoritative
+  - Time decide QUANDO - domini decidono COSA
+  - NON orologi indipendenti nei singoli sistemi
+  - Client visualizza - NON modifica Game Time
+  - NON reset giornaliero unico arbitrario
+  - Integra time_main_v1 - NON lo modifica
+
+includes:
+  principles: principles.yaml
+  gameClock: game_clock.yaml
+  gameDatetime: game_datetime.yaml
+  gameSpeed: game_speed.yaml
+  timeSync: time_sync.yaml
+  serverTime: server_time.yaml
+  clientOffset: client_offset.yaml
+  calendar: calendar.yaml
+  days: days.yaml
+  weeks: weeks.yaml
+  months: months.yaml
+  years: years.yaml
+  dayNight: day_night.yaml
+  dawn: dawn.yaml
+  dusk: dusk.yaml
+  schedules: schedules.yaml
+  deadlines: deadlines.yaml
+  countdowns: countdowns.yaml
+  cooldowns: cooldowns.yaml
+  recurrence: recurrence.yaml
+  scheduledEvents: scheduled_events.yaml
+  timeEvents: time_events.yaml
+  dailyBoundaries: daily_boundaries.yaml
+  weeklyBoundaries: weekly_boundaries.yaml
+  monthlyBoundaries: monthly_boundaries.yaml
+  yearlyBoundaries: yearly_boundaries.yaml
+  businessHours: business_hours.yaml
+  workSchedules: work_schedules.yaml
+  salarySchedule: salary_schedule.yaml
+  rentSchedule: rent_schedule.yaml
+  loanSchedule: loan_schedule.yaml
+  taskSchedule: task_schedule.yaml
+  marketplaceExpiration: marketplace_expiration.yaml
+  referendumSchedule: referendum_schedule.yaml
+  electionSchedule: election_schedule.yaml
+  candidacyWindows: candidacy_windows.yaml
+  municipalEvents: municipal_events.yaml
+  worldEvents: world_events.yaml
+  npcSchedules: npc_schedules.yaml
+  npcDailyLife: npc_daily_life.yaml
+  newspaperSchedule: newspaper_schedule.yaml
+  contentScheduling: content_scheduling.yaml
+  holidays: holidays.yaml
+  seasons: seasons.yaml
+  weatherFuture: weather_future.yaml
+  birthdays: birthdays.yaml
+  anniversaries: anniversaries.yaml
+  ageing: ageing.yaml
+  offlineBehavior: offline_behavior.yaml
+  catchUp: catch_up.yaml
+  missedEvents: missed_events.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  soundIntegration: sound_integration.yaml
+  visualIntegration: visual_integration.yaml
+  api: api.yaml
+  clientSync: client_sync.yaml
+  security: security.yaml
+  antiCheat: anti_cheat.yaml
+  audit: audit.yaml
+  adminScheduling: admin_scheduling.yaml
+  adminPreview: admin_preview.yaml
+  testingClock: testing_clock.yaml
+  productionClock: production_clock.yaml
+  analytics: analytics.yaml
+  localization: localization.yaml
+  accessibility: accessibility.yaml
+  performance: performance.yaml
+  eventQueue: event_queue.yaml
+  domainOwnership: domain_ownership.yaml
+  errorRecovery: error_recovery.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  timeSystemDecides:
+    items:
+      - game_clock
+      - calendar
+      - game_speed
+      - time_sync
+      - boundaries
+      - day_night_phases
+      - deadline_reference
+      - cooldown_reference
+  domainSystemsDecide:
+    economy: salary_rent_loan_logic
+    work: schedules_shifts
+    business: opening_hours
+    property: rent_billing
+    political: elections_referendum
+    event: world_municipal_events
+    npc: npc_schedules
+    task: tasks_cooldowns
+    content: publish_schedule
+    ranking: period_boundaries
+
+alignsWith:
+  note: |
+    Formalizza Game Time coerente con time_main_v1 WorldClock.
+    NON modifica pack approvati. NON implementa runtime.

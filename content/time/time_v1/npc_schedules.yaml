@@ -1,0 +1,15 @@
+# =============================================================================
+# NPC SCHEDULES — time_v1
+# =============================================================================
+
+---
+NpcSchedules:
+  owner: NPC System
+  tiers:
+  - ACTIVE
+  - SPECIAL
+  simulation: scheduled transitions
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - NpcScheduleTransition

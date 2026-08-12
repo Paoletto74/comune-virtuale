@@ -1,0 +1,13 @@
+# =============================================================================
+# LIABILITIES — economy_v1
+# =============================================================================
+
+---
+Liabilities:
+  types:
+  - loans
+  - unpaid rent
+  - taxes due
+  - other debts
+  rule: explicit rules required
+  status: DECISIONE APPROVATA

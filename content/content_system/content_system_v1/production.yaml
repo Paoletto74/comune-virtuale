@@ -1,0 +1,12 @@
+# =============================================================================
+# PRODUCTION — production publish safety
+# =============================================================================
+
+Production:
+  rule: production publish requires appropriate permission
+  confirmation: required for important publish
+  ref: admin_permissions.yaml, publishing.yaml
+
+events:
+  items:
+    - ProductionPublishCompleted

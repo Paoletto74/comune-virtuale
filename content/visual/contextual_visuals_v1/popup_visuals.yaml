@@ -1,0 +1,28 @@
+# =============================================================================
+# POPUP VISUALS — HIGH/CRITICAL contextual images
+# =============================================================================
+
+PopupVisuals:
+  DECISIONE APPROVATA:
+  HIGH_CRITICAL_support:
+    items:
+      - immagine
+      - illustrazione
+      - scena
+      - character_visual
+      - item_visual
+      - event_visual
+  rule: visual coerente con tipo evento
+  pairingExamples:
+    ARRESTO: polizia / sirena / scena urbana
+    GRANDE_GUADAGNO: denaro / cassaforte / celebrazione
+    PROMOZIONE: ambiente lavorativo / contratto / riconoscimento
+    ACQUISTO_VILLA: villa / piscina / proprieta
+    ACQUISTO_AUTO: veicolo specifico
+    LEVEL_UP: character + achievement visual
+    ELEZIONE: municipio / urna / campagna
+    BREAKING_NEWS: immagine editoriale coerente con notizia
+
+events:
+  items:
+    - PopupVisualResolved

@@ -1,0 +1,33 @@
+# =============================================================================
+# CAREER HISTORY — Work autorevole, Profile presenta
+# =============================================================================
+
+CareerHistory:
+  status: PROPOSTA TECNICA — retention TBD
+  schema:
+    entryId: string
+    citizenId: string
+    jobTitle: string
+    category: string
+    employer: "string | null"
+    startDate: timestamp
+    endDate: "timestamp | null"
+    visibility: PRIVATE | PUBLIC
+
+currentCareer:
+  DECISIONE APPROVATA: mostra
+  fields:
+    items:
+      - current_job
+      - category
+      - career_path
+      - professional_level
+      - employer_per_privacy
+      - private_historical_career
+
+rule: Work System autorevole — Profile presenta
+
+events:
+  items:
+    - CareerHistoryUpdated
+    - JobChanged

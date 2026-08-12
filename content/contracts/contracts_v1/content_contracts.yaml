@@ -1,0 +1,28 @@
+# =============================================================================
+# CONTENT CONTRACTS — definitions, versions, localization
+# =============================================================================
+
+ContentContracts:
+  exposes:
+    items:
+      - task_definitions
+      - item_definitions
+      - job_definitions
+      - event_definitions
+      - news
+      - notification_templates
+  versioning: contentVersion associated
+
+localization:
+  rule: content references possono risolvere locale — frontend non assume sempre italiano
+
+adminPublish:
+  produces:
+    items: [contentVersion, publish_metadata]
+  mustNot: modify_game_state_directly
+
+ref: admin_content_studio_v1
+
+events:
+  items:
+    - ContentContractResolved

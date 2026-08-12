@@ -1,0 +1,22 @@
+# =============================================================================
+# EMPTY STATES — meaningful empty messages
+# =============================================================================
+
+EmptyStates:
+  examples:
+    items:
+      - "Nessun lavoro disponibile."
+      - "Nessun annuncio."
+      - "Nessuna notifica."
+      - "Nessun Sindaco in carica."
+      - "Nessun task attivo."
+      - "Nessun referendum attivo."
+
+rule: stati vuoti significativi — NON schermata bianca
+
+contentDriven:
+  status: PROPOSTA TECNICA — labels da Content System dove possibile
+
+events:
+  items:
+    - EmptyStateShown

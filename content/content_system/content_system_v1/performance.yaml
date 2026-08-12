@@ -1,0 +1,22 @@
+# =============================================================================
+# PERFORMANCE — admin and delivery performance
+# =============================================================================
+
+Performance:
+  admin:
+    items:
+      - pagination
+      - search
+      - filters
+    rule: NOT load thousands of contents at once
+  delivery:
+    items:
+      - cached
+      - compressed
+      - lazy_load
+      - pagination
+      - CDN_future
+
+events:
+  items:
+    - ContentPerformanceMeasured

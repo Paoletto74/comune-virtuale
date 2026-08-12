@@ -1,0 +1,58 @@
+# =============================================================================
+# APP SHELL — authenticated layout, overlays, error boundaries
+# =============================================================================
+
+AppShell:
+  responsibility: auth, routing, header, bottom nav, global overlays, loading, error boundaries, responsive
+  mustNot: contain business rules directly
+
+AuthenticatedShell:
+  DECISIONE APPROVATA:
+  layout:
+    items:
+      - HEADER
+      - MAIN_CONTENT
+      - BOTTOM_NAVIGATION
+
+modules:
+  items:
+    - AuthenticationUI
+    - Navigation
+    - Home
+    - Gazzetta
+    - Attivita
+    - Mercato
+    - Profilo
+    - Notifiche
+    - Comune
+    - SharedComponents
+    - VisualAssetLayer
+    - PopupToastSystem
+    - ApiClient
+    - ClientState
+    - ClientCache
+    - Accessibility
+
+globalOverlays:
+  items:
+    - popup
+    - modal
+    - confirmation
+    - global_errors
+    - announcements
+
+zIndexHierarchy:
+  status: PROPOSTA TECNICA
+  order:
+    items:
+      - base
+      - navigation
+      - dropdown
+      - modal
+      - popup
+      - critical_alert
+
+events:
+  items:
+    - ShellMounted
+    - ShellError

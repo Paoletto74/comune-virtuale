@@ -1,0 +1,27 @@
+# =============================================================================
+# PLAYER CITIZENS — user-controlled citizens
+# =============================================================================
+
+PlayerCitizens:
+  definition: cittadino controllato da utente
+  has:
+    items:
+      - account_reference
+      - CitizenId
+      - profile
+      - level
+      - title
+      - job
+      - money
+      - assets
+      - properties
+      - social_relationships
+      - political_state
+      - criminal_state
+      - game_location
+  rule: Domain Systems restano source of truth
+  ref: profile_main_v1, auth_main_v1
+
+events:
+  items:
+    - PlayerCitizenLoaded

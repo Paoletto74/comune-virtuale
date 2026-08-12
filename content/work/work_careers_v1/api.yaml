@@ -1,0 +1,18 @@
+# =============================================================================
+# API — work_careers_v1
+# =============================================================================
+
+---
+WorkApi:
+  citizen:
+  - GET /api/v1/jobs
+  - GET /api/v1/jobs/{jobId}
+  - POST apply
+  - GET employment/me
+  - GET employment/history
+  employer:
+  - POST business/jobs
+  - POST applications/accept
+  - POST employment/terminate
+  schema: TBD
+  status: PROPOSTA TECNICA

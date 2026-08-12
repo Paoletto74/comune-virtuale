@@ -1,0 +1,8 @@
+# =============================================================================
+# PRIVACY — task_extensions_v1
+# =============================================================================
+
+---
+TargetPrivacy:
+  rule: no task revealing unauthorized private data e.g. hidden bank balance
+  status: PROPOSTA TECNICA

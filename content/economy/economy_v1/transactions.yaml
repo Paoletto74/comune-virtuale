@@ -1,0 +1,17 @@
+# =============================================================================
+# TRANSACTIONS — economy_v1
+# =============================================================================
+
+---
+Transaction:
+  transactionId: unique
+  fields:
+  - fromAccount
+  - toAccount
+  - amount
+  - currency
+  - sourceDomain
+  - reference
+  - timestamp
+  - gameTime
+  status: DECISIONE APPROVATA

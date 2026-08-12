@@ -1,0 +1,50 @@
+# =============================================================================
+# INTEGRATION — economy_v1 / banking
+# =============================================================================
+
+EconomyIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — banking_main_v1
+
+  boundary:
+    economyOwns:
+      items:
+        - money_transfer
+        - gift_transaction
+        - loan_contract
+        - balance
+        - ledger
+    socialOwns:
+      items:
+        - contextual_reactions
+        - preset_responses
+        - interaction_history
+
+  giftFlow:
+    steps:
+      - Economy processes GiftSent
+      - Event emitted
+      - Social receives context
+      - Recipient sees contextual reactions
+      - Recipient selects preset message
+      - MessageInstance created
+      - SocialEvent emitted
+      - optional sympathy or trust EffectRequest
+      - Notification if configured
+      - Popup if important threshold — TBD
+
+  loanFlow:
+    steps:
+      - Economy or Banking owns loan request
+      - Social presents interaction context
+      - Preset accept or reject messages
+      - Economy decides loan validity
+      - Social records interaction
+      - optional relationship or trust effect
+
+  socialDoesNot:
+    items:
+      - modify_balance
+      - create_unauthorized_transaction
+      - become_second_banking_system

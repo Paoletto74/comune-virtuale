@@ -1,0 +1,46 @@
+# =============================================================================
+# PLAYER COMMANDS — immediate, not necessarily waiting for tick
+# =============================================================================
+
+PlayerCommands:
+  DECISIONE APPROVATA: azioni giocatore = COMMANDS — non aspettano necessariamente tick
+  commands:
+    items:
+      - complete_task
+      - buy
+      - sell
+      - rent
+      - apply_job
+      - resign
+      - gift
+      - loan
+      - vote
+      - criminal_action
+
+immediateFlow:
+  items:
+    - Player_Command
+    - Application_Service
+    - Domain_Services
+    - Transaction
+    - Domain_Events
+    - projection_updates
+
+transactionBoundaries:
+  items:
+    - purchase
+    - sale
+    - salary
+    - rent
+    - gift
+    - loan
+    - task_reward
+    - fines
+    - taxes
+
+ref: backend_architecture_v1/commands.yaml, transactions.yaml
+
+events:
+  items:
+    - PlayerCommandReceived
+    - PlayerCommandCompleted

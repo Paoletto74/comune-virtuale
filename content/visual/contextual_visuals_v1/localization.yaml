@@ -1,0 +1,16 @@
+# =============================================================================
+# LOCALIZATION — text in images, cultural flexibility
+# =============================================================================
+
+Localization:
+  rule: preferire testo UI separato dall'immagine
+  embeddedText:
+    rule: visual con testo incorporato deve considerare localization
+  culturalFlexibility:
+    rule: future lingue/culture non richiedono rifacimento completo sistema
+  avoidImageText:
+    rule: evitare testo dentro immagini quando non necessario
+
+events:
+  items:
+    - VisualLocalizationApplied

@@ -1,0 +1,34 @@
+# =============================================================================
+# SOCIAL SOUNDS — gift, loan
+# =============================================================================
+
+SocialSounds:
+  GiftReceived:
+    cue: social.gift_warm
+    priority: NORMAL
+    length: micro
+    description: warm positive sound
+  GiftSent:
+    cue: social.gift_sent
+    priority: LOW
+    length: micro
+    description: subtle positive confirmation
+  LoanReceived:
+    cue: social.loan_credit
+    priority: NORMAL
+    length: micro
+    description: cash/credit sound
+  LoanRepayment:
+    cue: social.loan_repayment
+    priority: NORMAL
+    length: micro
+    description: economic payment sound
+  LoanDefault:
+    cue: social.loan_default
+    priority: HIGH
+    length: normal
+    description: negative/tension sound
+
+events:
+  items:
+    - SocialSoundTriggered

@@ -1,0 +1,87 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_AGE_MIN: TBD
+  DEFAULT_AGE_MAX: TBD
+  CITIZEN_STATUS_VALUES: TBD
+
+  PUBLIC_WEALTH_DISPLAY_MODE: TBD
+  PUBLIC_NET_WORTH_POLICY: TBD
+
+  RANKING_DISPLAY_MODE: TBD
+  RANKING_FORMULAS: TBD
+
+  WEALTH_SNAPSHOT_FREQUENCY: TBD
+  WEALTH_HISTORY_RETENTION_DAYS: TBD
+  CASH_HISTORY_RETENTION_DAYS: TBD
+  CAREER_HISTORY_RETENTION_DAYS: TBD
+  ROLE_HISTORY_RETENTION_DAYS: TBD
+  ACHIEVEMENT_HISTORY_RETENTION_DAYS: TBD
+
+  SNAPSHOT_CACHE_TTL: TBD
+  DIRECTORY_PAGE_SIZE: TBD
+
+  SEARCH_FILTERS_DEFINITIVE: TBD
+  SORT_OPTIONS_DEFINITIVE: TBD
+
+  MANDATORY_PUBLIC_FIELDS: TBD
+  PLAYER_EDITABLE_VISIBILITY_FIELDS: TBD
+
+  BIRTHDAY_REWARDS: TBD
+  BIRTHDAY_EVENT_RULES: TBD
+
+  ACHIEVEMENT_SYSTEM_DEFINITIVE: TBD
+  PRESTIGE_DISPLAY_FORMULA: TBD
+
+  HEADER_BALANCE_REFRESH_INTERVAL: TBD
+
+  dependsOnSystems:
+    items:
+      - progression_main_v1
+      - progression_balance_v1
+      - economy_main_v1
+      - banking_main_v1
+      - marketplace_main_v1
+      - inventory_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - work_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - business_main_v1
+      - family_main_v1
+      - social_main_v1
+      - notification_main_v1
+      - event_main_v1
+      - npc_main_v1
+      - time_main_v1
+      - task_main_v1
+
+  futurePack:
+    note: profile_balance_v1 — ranking display, wealth snapshot frequency, privacy defaults — DA DEFINIRE
+
+  contentPackNote: |
+    profile_main_v1 formalizza identità, public/private profile, snapshot, history.
+    Allinea progression_main_v1/visibility.yaml senza modificarlo.
+    Pack approvati NON modificati.
+
+  performance:
+    status: PROPOSTA TECNICA
+    uses:
+      items:
+        - public_profile_snapshot
+        - cache
+        - indexed_queries
+        - pagination
+    rule: |
+      NON eseguire ogni volta query su inventory + assets + banking +
+      marketplace + social + progression. Usare dati aggregati/snapshot.
+
+  level:
+    DECISIONE APPROVATA: mostra currentLevel, levelLabel, narrativeTier, progression progress
+    owner: Progression System autorevole
+
+  socialScore:
+    note: socialScore opzionale — ref social_main_v1, NON track progression

@@ -1,0 +1,54 @@
+# =============================================================================
+# NPC GENERATION — seed, distribuzioni, parametri
+# =============================================================================
+
+NpcDefinition:
+  schema:
+    definitionId: string
+    templateRef: string
+    generationRulesRef: string
+    defaultTier: "TIER_0 | TIER_1"
+    segmentDefaults: []
+
+GenerationConfig:
+  schema:
+    populationSeed: string
+    npcSeedPrefix: string
+    targetNpcCount: TBD
+    distributionRefs: []
+
+generationParameters:
+  status: configurabile — valori TBD
+  items:
+    - age
+    - gender_if_applicable
+    - family
+    - occupation
+    - income
+    - housing_situation
+    - assets
+    - health
+    - education
+    - culture
+    - values
+    - preferences
+    - location
+
+PopulationSeed:
+  DECISIONE APPROVATA: |
+    Generazione riproducibile.
+    populationSeed + npcSeed + configurazione → stesso NPC iniziale.
+
+Individualization:
+  DECISIONE APPROVATA: |
+    NPC da aggregated → individual quando diventa rilevante.
+    Es. assunto da giocatore: prima aggregated, dopo individual NPC.
+
+distributionRule:
+  DECISIONE APPROVATA: NON valori perfettamente uniformi — distribuzioni configurabili
+
+events:
+  items:
+    - NpcGenerated
+    - PopulationSeedApplied
+    - NpcIndividualized

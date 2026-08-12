@@ -1,0 +1,47 @@
+# =============================================================================
+# RUNTIME ORCHESTRATOR — coordination hub, NOT business rules
+# =============================================================================
+
+RuntimeOrchestrator:
+  responsibility: |
+    Ricevere clock advancement, identificare sistemi da aggiornare, ordinare execution,
+    gestire dependencies, dispatchare commands, raccogliere domain events,
+    garantire idempotency, registrare execution, gestire errori.
+  mustNot:
+    items:
+      - implement_economy_rules
+      - implement_work_rules
+      - implement_progression_rules
+      - implement_political_rules
+      - implement_criminal_rules
+
+architecture:
+  DECISIONE APPROVATA:
+  flow:
+    items:
+      - Time
+      - Runtime_Orchestrator
+      - Domain_Systems
+      - Domain_Events
+      - Derived_Async_Systems
+      - Notifications_UI_projections
+
+input:
+  items:
+    - clock_advancement
+    - player_commands
+    - scheduled_job_triggers
+    - admin_content_publish
+
+output:
+  items:
+    - system_executions
+    - domain_events
+    - tick_records
+    - projection_invalidations
+
+events:
+  items:
+    - OrchestratorTickStarted
+    - OrchestratorTickCompleted
+    - OrchestratorError

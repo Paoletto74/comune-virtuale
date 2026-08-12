@@ -1,0 +1,92 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  CONTENT_STATUS_VALUES_DEFINITIVE: TBD
+  APPROVAL_WORKFLOW_V1_SIMPLIFIED: TBD
+
+  PERMISSION_SCOPE_ECONOMY: TBD
+  PERMISSION_SCOPE_POLITICAL: TBD
+  PERMISSION_SCOPE_CRIMINAL: TBD
+  PERMISSION_SCOPE_PROGRESSION: TBD
+
+  MEDIA_STORAGE_PROVIDER: TBD
+  MAX_BULK_IMPORT_SIZE: TBD
+  MAX_MEDIA_FILE_SIZE: TBD
+
+  CACHE_INVALIDATION_STRATEGY: TBD
+  STAGING_ENVIRONMENT_CONFIG: TBD
+
+  DEFAULT_MOCK_PLAYER_PROFILE: TBD
+  PREVIEW_RENDER_MODE: TBD
+
+  CHECKSUM_ALGORITHM: TBD
+  AUDIT_LOG_RETENTION_DAYS: TBD
+
+  GLOBAL_SEARCH_INDEX: TBD
+  IMPACT_ANALYSIS_DEPTH: TBD
+
+  SCHEDULED_PUBLISH_PRECISION: TBD
+
+  dependsOnSystems:
+    items:
+      - task_main_v1
+      - event_main_v1
+      - inventory_main_v1
+      - marketplace_main_v1
+      - work_main_v1
+      - notification_main_v1
+      - social_main_v1
+      - profile_main_v1
+      - visual_main_v1
+      - ui_main_v1
+      - progression_main_v1
+      - economy_main_v1
+      - banking_main_v1
+      - political_main_v1
+      - criminal_main_v1
+      - npc_main_v1
+      - time_main_v1
+
+  contentVsCode:
+    DECISIONE APPROVATA:
+    allowed:
+      example: |
+        Nuovo task: Consegna una pizza. Ricompensa: TBD.
+    notAllowed:
+      example: Modifica il codice del Task Engine.
+
+  workflowDiagram:
+    status: esempio dimostrativo
+    flow: |
+      ChatGPT → YAML/JSON
+      → Admin Paste Import
+      → Validation (errors/warnings)
+      → Preview (mock player)
+      → Approval (if sensitive)
+      → Publish
+      → Cache Invalidation
+      → Hot Content Active in Game
+
+  contentPackNote: |
+    admin_content_studio_v1 — layer amministrativo sopra tutti i pack.
+    NO pannello runtime V1. Pack approvati NON modificati.
+
+  dataContracts:
+    ContentObject:
+      contentId: string
+      contentType: string
+      schemaVersion: number
+      version: string
+      status: string
+      payload: object
+    ValidationResult:
+      valid: boolean
+      errors: []
+      warnings: []
+    PublishResult:
+      contentId: string
+      version: string
+      publishedAt: timestamp
+      cacheInvalidated: boolean

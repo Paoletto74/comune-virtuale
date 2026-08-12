@@ -1,0 +1,49 @@
+# =============================================================================
+# JOB CATEGORIES — configurabili, estendibili
+# =============================================================================
+
+categories:
+  - categoryId: services
+    displayName: Servizi
+  - categoryId: commerce
+    displayName: Commercio
+  - categoryId: hospitality
+    displayName: Ristorazione
+  - categoryId: transport
+    displayName: Trasporti
+  - categoryId: construction
+    displayName: Edilizia
+  - categoryId: industry
+    displayName: Industria
+  - categoryId: administration
+    displayName: Amministrazione
+  - categoryId: technology
+    displayName: Tecnologia
+  - categoryId: healthcare
+    displayName: Sanità
+  - categoryId: education
+    displayName: Istruzione
+  - categoryId: finance
+    displayName: Finanza
+  - categoryId: professions
+    displayName: Professioni
+  - categoryId: management
+    displayName: Management
+  - categoryId: public_sector
+    displayName: Settore pubblico
+
+extensibility:
+  addCategoryWithoutEngineChange: true
+  notes: Lista NON definitiva — nuove categorie via content
+
+jobTiers:
+  items:
+    - id: base
+      description: Lavori base — requisiti minimi/nulli, gestiti sistema
+    - id: qualified
+      description: Lavori qualificati — requisiti + candidatura
+    - id: professional
+      description: Professioni — carriera, leve, task specializzati
+    - id: management
+      description: Ruoli manageriali
+  notes: PROPOSTA TECNICA — tier configurabili

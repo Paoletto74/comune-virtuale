@@ -1,0 +1,8 @@
+# =============================================================================
+# OPTIMISTIC UI — economy_v1
+# =============================================================================
+
+---
+OptimisticUI:
+  rule: NO optimistic authority - pending state OK
+  status: DECISIONE APPROVATA

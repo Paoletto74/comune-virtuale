@@ -1,0 +1,33 @@
+# =============================================================================
+# LOADING STATES
+# =============================================================================
+
+LoadingStates:
+  DECISIONE APPROVATA: ogni sezione prevede
+  types:
+    items:
+      - loading
+      - skeleton
+      - empty
+      - error
+      - retry
+
+rule: NON mostrare schermate vuote senza spiegazione
+
+offlineStates:
+  status: PROPOSTA TECNICA
+  modes:
+    items:
+      - ONLINE
+      - OFFLINE
+      - SYNCING
+  offlineBehavior:
+    items:
+      - show_cached_data
+      - block_unauthorized_actions
+      - sync_on_reconnect
+
+events:
+  items:
+    - LoadingStateDisplayed
+    - SyncStateChanged

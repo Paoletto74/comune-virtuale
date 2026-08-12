@@ -1,0 +1,11 @@
+# =============================================================================
+# OFFLINE — cached public metadata only
+# =============================================================================
+
+Offline:
+  cache: public metadata only
+  rule: NO authoritative social/economic operations offline
+
+events:
+  items:
+    - OfflineCityLifeViewed

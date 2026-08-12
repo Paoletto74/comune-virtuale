@@ -1,0 +1,16 @@
+# =============================================================================
+# PAPER — subtle digital paper tone
+# =============================================================================
+
+PaperConcept:
+  status: PROPOSTA TECNICA
+  rule: |
+    Paper tone digitale — subtle, digitale, leggibile.
+    NON simulare texture carta ovunque.
+
+darkMode:
+  rule: NON simplicemente "carta nera" — ref dark_mode.yaml night edition
+
+events:
+  items:
+    - PaperToneApplied

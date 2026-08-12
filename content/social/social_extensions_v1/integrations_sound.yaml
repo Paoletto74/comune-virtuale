@@ -1,0 +1,33 @@
+# =============================================================================
+# INTEGRATION — sound_design_v1
+# =============================================================================
+
+SoundIntegration:
+  status: PROPOSTA TECNICA
+
+  socialProvides:
+    items:
+      - soundCueId
+
+  soundOwns:
+    items:
+      - asset_playback
+      - volume_rules
+      - autoplay_policy
+
+  examples:
+    items:
+      - gift_received
+      - message_received
+      - positive_reaction
+      - negative_reaction
+      - important_social_event
+
+  userSettings:
+    items:
+      - master_volume
+      - notification_volume
+      - popup_volume
+      - reduced_sound_preference
+
+  rule: Social NON genera audio runtime

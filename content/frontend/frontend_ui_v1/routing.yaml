@@ -1,0 +1,70 @@
+# =============================================================================
+# ROUTING — deep links, back navigation, URL state, admin separation
+# =============================================================================
+
+Routing:
+  playerRoutes:
+    items:
+      - /
+      - /home
+      - /gazzetta
+      - /gazzetta/referendum
+      - /gazzetta/cronaca
+      - /gazzetta/cronaca/:articleId
+      - /attivita
+      - /attivita/:taskInstanceId
+      - /mercato
+      - /mercato/lavoro
+      - /mercato/lavoro/:jobId
+      - /mercato/marketplace
+      - /mercato/marketplace/:listingId
+      - /profilo
+      - /profilo/:citizenId
+      - /notifiche
+      - /comune
+      - /comune/info
+      - /comune/cittadini
+      - /comune/cittadini/:citizenId
+      - /comune/classifiche
+      - /comune/classifiche/:type
+
+  adminRoutes:
+    basePath: /admin
+    rule: Admin Authentication + Authorization required
+    ref: admin_separation.yaml
+
+navigationState:
+  distinguishes:
+    items:
+      - current_route
+      - active_tab
+      - nested_page
+      - modal
+      - popup
+
+deepLinks:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - "notification -> gazzetta article"
+      - "notification -> task"
+      - "notification -> marketplace listing"
+      - "notification -> citizen profile"
+  security: deep link NON bypassa authorization
+
+backNavigation:
+  handles:
+    items:
+      - browser_back
+      - mobile_back
+      - modal_close
+      - nested_route
+
+urlState:
+  status: PROPOSTA TECNICA
+  rule: filtri/tab in URL — NO dati sensibili in URL
+
+events:
+  items:
+    - RouteChanged
+    - DeepLinkOpened

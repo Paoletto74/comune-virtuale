@@ -1,0 +1,102 @@
+# =============================================================================
+# RENTALS — contratti di affitto
+# =============================================================================
+
+RentalContract:
+  schema:
+    contractId: string
+    propertyId: string
+    tenantId: string
+    landlordId: string
+    rent: TBD
+    paymentFrequency: TBD
+    startTime: timestamp
+    endTime: timestamp | null
+    status: draft | active | pending | terminated | expired | defaulted
+    deposit: TBD
+    conditionsRef: string
+    autoRenew: TBD
+    terminationRulesRef: string
+
+listing:
+  schema:
+    listingId: string
+    propertyId: string
+    landlordId: string
+    listedRent: TBD
+    status: open | closed | rented | unavailable
+    playerAllowed: true
+    npcAllowed: true
+
+playerToPlayer:
+  DECISIONE APPROVATA: true
+  flow:
+    items:
+      - landlord_lists_property
+      - tenant_views_market
+      - tenant_applies_or_accepts
+      - server_validates
+      - contract_created
+      - occupancy_updated
+      - housing_status_updated
+  noPlayerGuarantee: true
+
+npcRental:
+  DECISIONE APPROVATA: |
+    Se nessun giocatore prende l'immobile, sistema trova NPC compatibile.
+    Proprietario genera reddito anche con pochi giocatori online.
+  factors:
+    items:
+      - price
+      - location
+      - quality
+      - demand
+      - npc_economic_state
+      - availability
+      - npc_characteristics
+  formula: TBD
+  moduleRef: npc_demand.yaml
+
+vacantProperty:
+  DECISIONE APPROVATA:
+    items:
+      - no_rent_income
+      - costs_continue
+      - taxes_continue
+      - maintenance_may_continue
+      - value_may_change
+  risk: true
+
+rentPayment:
+  rule: DECISIONE APPROVATA — NO modifica diretta cash
+  flow: |
+    Tenant → RentalDue Event
+    → Economy Pipeline
+    → Transaction(type: rent, class: money_transfer)
+    → Ledger
+    → Landlord cash (recurring income)
+    → Tenant expense (recurring expense)
+  recurringIncomeClass: economy_main_v1.recurringIncome
+
+contractTermination:
+  triggers:
+    items:
+      - tenant_request
+      - landlord_request
+      - contract_expiry
+      - default
+      - event
+      - bankruptcy
+      - property_sale
+  rules: TBD
+
+events:
+  items:
+    - RentalListed
+    - RentalContractSigned
+    - RentDue
+    - RentPaid
+    - RentDefaulted
+    - RentalContractTerminated
+    - TenantMovedIn
+    - TenantMovedOut

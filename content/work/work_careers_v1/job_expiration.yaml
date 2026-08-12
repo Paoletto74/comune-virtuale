@@ -1,0 +1,9 @@
+# =============================================================================
+# JOB EXPIRATION — work_careers_v1
+# =============================================================================
+
+---
+JobExpiration:
+  field: expiresAt
+  timeRef: time_v1
+  status: DECISIONE APPROVATA

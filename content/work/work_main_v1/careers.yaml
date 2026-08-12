@@ -1,0 +1,49 @@
+# =============================================================================
+# CAREER SYSTEM — carriera interna al job
+# =============================================================================
+# DECISIONE APPROVATA: carriera interna ≠ 30 livelli sociali main
+# =============================================================================
+
+CareerPath:
+  careerPathId: string
+  jobId: string
+  levels:
+    - levelId: junior
+      displayName: Junior
+      requirements: TBD
+      unlocks: TBD
+    - levelId: senior
+      displayName: Senior
+      requirements: TBD
+    - levelId: supervisor
+      displayName: Supervisor
+      requirements: TBD
+    - levelId: manager
+      displayName: Manager
+      requirements: TBD
+    - levelId: director
+      displayName: Director
+      requirements: TBD
+  notes: Struttura configurabile — nomi esempio
+
+CareerProgression:
+  dependsOn:
+    - experience
+    - performance
+    - quality
+    - reputation
+    - milestones
+    - time
+    - other_requirements_TBD
+  formula: TBD
+
+  promotion:
+    trigger: evaluation | milestone | admin
+    emits: Action(CareerPromoted)
+    notification: promotion
+
+  separationFromMainLevel:
+    DECISIONE APPROVATA: careerLevel ≠ mainLevel progression
+
+careerPaths: []
+# Definitive career paths: DA_DEFINIRE

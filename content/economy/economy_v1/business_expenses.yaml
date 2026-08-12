@@ -1,0 +1,13 @@
+# =============================================================================
+# BUSINESS EXPENSES — economy_v1
+# =============================================================================
+
+---
+BusinessExpenses:
+  types:
+  - rent
+  - wages
+  - supplies
+  - fees
+  - taxes
+  status: DECISIONE APPROVATA

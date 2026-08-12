@@ -1,0 +1,19 @@
+# =============================================================================
+# NUMBERS — editorial numeric typography
+# =============================================================================
+
+NumberTypography:
+  examples:
+    items:
+      - "EUR 12.450"
+      - "+4,2%"
+      - "LIVELLO 18"
+      - "#127"
+  rule: forte leggibilita editoriale — typography numerica dedicata TBD
+  displayVsValue:
+    domain: numeric authoritative value
+    frontend: formatted display — ref contracts_v1/money.yaml
+
+events:
+  items:
+    - NumberTypographyApplied

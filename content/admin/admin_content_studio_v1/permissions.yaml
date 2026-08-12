@@ -1,0 +1,35 @@
+# =============================================================================
+# PERMISSIONS — scopes, sensitive content
+# =============================================================================
+
+PermissionScopes:
+  status: PROPOSTA TECNICA
+  rule: |
+    Non tutti admin possono: publish, contenuti sensibili,
+    politica, economia, criminal, progression.
+
+roles:
+  items:
+    - EDITOR
+    - REVIEWER
+    - ADMIN
+
+SensitiveContent:
+  DECISIONE APPROVATA: permessi più elevati
+  categories:
+    items:
+      - economy
+      - banking
+      - political
+      - criminal
+      - progression
+      - rewards
+
+bulkEditRestrictions:
+  DECISIONE APPROVATA: |
+    NON permettere bulk edit rischiosi su dati economici o formule core.
+
+events:
+  items:
+    - PermissionDenied
+    - SensitiveContentAccessAttempted

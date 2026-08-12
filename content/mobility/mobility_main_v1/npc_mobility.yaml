@@ -1,0 +1,59 @@
+# =============================================================================
+# NPC MOBILITY — NPC nel mercato e negli spostamenti
+# =============================================================================
+
+NpcMobilityService:
+  purpose: |
+    NPC possiedono veicoli, usano TP, comprano/vendono, generano domanda.
+    Mercato veicoli funziona con pochi giocatori online.
+  DECISIONE APPROVATA: true
+
+npcCapabilities:
+  items:
+    - own_vehicles
+    - use_public_transport
+    - walk
+    - buy_vehicles
+    - sell_vehicles
+    - rent_vehicles
+    - generate_market_demand
+
+npcTravel:
+  schema:
+    npcId: string
+    primaryMode: string
+    vehicleId: string | null
+  note: Semplificato — non simula ogni viaggio NPC in tempo reale
+
+purchaseDemand:
+  triggers:
+    items:
+      - listing_open_no_player_buyer
+      - market_refresh
+  factors:
+    items:
+      - price
+      - vehicle_condition
+      - npc_wealth
+      - npc_preferences
+      - market_value_gap
+  formula: TBD
+
+rentalDemand:
+  status: interface_only
+  factors:
+    items:
+      - rent_price
+      - vehicle_type
+      - npc_affordability
+  formula: TBD
+
+populationScaling:
+  status: PROPOSTA_TECNICA
+  values: TBD
+
+events:
+  items:
+    - NpcVehiclePurchased
+    - NpcVehicleSold
+    - NpcRentalAssigned

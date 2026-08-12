@@ -1,0 +1,29 @@
+# =============================================================================
+# API CLIENT — centralized access, auth, correlation ID
+# =============================================================================
+
+ApiClient:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  methods:
+    items:
+      - get
+      - post
+      - patch
+      - delete
+  features:
+    items:
+      - auth_token_handling
+      - error_handling
+      - retry
+      - correlation_id
+      - serialization
+
+correlationId:
+  rule: frontend propaga/gestisce requestId/correlationId per debugging
+
+ref: backend_architecture_v1/api.yaml
+
+events:
+  items:
+    - ApiRequestSent
+    - ApiResponseReceived

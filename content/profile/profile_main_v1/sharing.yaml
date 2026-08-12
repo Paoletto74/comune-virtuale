@@ -1,0 +1,39 @@
+# =============================================================================
+# SHARING & APP INSTALL — UI/PWA autorevole
+# =============================================================================
+
+ProfileSharing:
+  status: PROPOSTA TECNICA — futuro, NO social network integration V1
+  futureSupport:
+    items:
+      - share_game_link
+      - share_public_profile
+      - deep_link_to_public_profile
+  rule: Profile NON implementa social network integration V1
+
+AppInstall:
+  DECISIONE APPROVATA: homepage icona "Installa App" se disponibile
+  owner: UI/PWA/Platform System — Profile NON gestisce installazione
+
+HeaderBalance:
+  status: PROPOSTA TECNICA — UI definitiva TBD
+  homepageHeader:
+    items:
+      - logo
+      - money_balance
+      - profile_icon
+      - share_icon
+      - install_app_if_available
+      - logout
+  rule: |
+    Saldo da Banking/Economy autorevole.
+    Tap saldo → apre profilo/economia rapidamente.
+
+ProfileMenu:
+  status: PROPOSTA TECNICA — menu fisso inferiore
+  item: PROFILO → apre proprio profilo
+
+events:
+  items:
+    - ProfileShareRequested
+    - HeaderBalanceTapped

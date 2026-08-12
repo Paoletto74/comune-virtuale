@@ -1,0 +1,24 @@
+# =============================================================================
+# FILTERS — configurabili
+# =============================================================================
+
+MarketFilter:
+  schema:
+    filterId: string
+    filterType: string
+    field: string
+    operator: string
+    value: TBD
+  status: content-first — filtri configurabili
+
+filterExamples:
+  items:
+    - price_max
+    - category_food
+    - listing_type_rent
+    - condition_min
+    - zone_id
+
+events:
+  items:
+    - MarketFilterApplied

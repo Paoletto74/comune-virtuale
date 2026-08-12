@@ -1,0 +1,16 @@
+# =============================================================================
+# VALUATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleValuation:
+  factors:
+  - type
+  - age
+  - condition
+  - configuration
+  - demand
+  - market
+  formula: TBD
+  listingPriceNotEqual: DECISIONE APPROVATA
+  status: PROPOSTA TECNICA

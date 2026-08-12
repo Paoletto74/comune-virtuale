@@ -1,0 +1,22 @@
+# =============================================================================
+# CONSISTENCY — invariants after critical operations
+# =============================================================================
+
+Consistency:
+  afterCriticalOperation:
+    rule: verificare invariants
+  example_purchase:
+    checks:
+      items:
+        - money_transferred
+        - ownership_changed
+        - listing_updated
+
+playerState:
+  rule: runtime NON ricostruisce arbitrariamente Player State — ogni sistema aggiorna via domain rules
+
+ref: data_architecture_v1/consistency.yaml
+
+events:
+  emits: [ConsistencyViolationDetected]
+  consumes: [PlayerCommandCompleted]

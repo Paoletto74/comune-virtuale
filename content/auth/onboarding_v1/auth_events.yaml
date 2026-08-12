@@ -1,0 +1,30 @@
+# =============================================================================
+# AUTH EVENTS — semantic domain events
+# =============================================================================
+
+AuthEvents:
+  semantic:
+    items:
+      - AccountCreated
+      - LoginSucceeded
+      - LoginFailed
+      - PasswordResetRequested
+      - EmailVerified
+      - CitizenCreationStarted
+      - CitizenCreated
+      - OnboardingCompleted
+  citizenCreated:
+    feeds:
+      items:
+        - welcome_notification
+        - analytics
+        - Gazzetta_candidate
+        - onboarding_state
+    rule: NON pubblicare automaticamente notizia globale senza regola
+  securityEvents:
+    rule: audit/security logs — NON player notification per ogni security event
+  ref: contracts_v1/domain_events.yaml, auth_main_v1/security_events.yaml
+
+events:
+  items:
+    - AuthEventEmitted

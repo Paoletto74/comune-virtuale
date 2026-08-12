@@ -1,0 +1,78 @@
+# =============================================================================
+# PRIORITIES — priorità task
+# =============================================================================
+
+priorityLevels:
+  items:
+    - level: low
+      label: Bassa
+      feedWeight: TBD
+      notificationLevel: optional
+    - level: normal
+      label: Normale
+      feedWeight: TBD
+      notificationLevel: standard
+    - level: high
+      label: Alta
+      feedWeight: TBD
+      notificationLevel: prominent
+    - level: critical
+      label: Critica
+      feedWeight: TBD
+      notificationLevel: urgent
+
+priorityEffects:
+  affects:
+    items:
+      - feed_position
+      - expiration_urgency
+      - notification_style
+      - attention_hint
+  doesNot:
+    items:
+      - block_other_actions_by_default
+
+expiration:
+  schema:
+    expiresAt: timestamp | null
+    onExpire: fail | consequence | replace | silent_remove
+    expireConsequenceRef: string | null
+  example: |
+    "Hai 2 ore per consegnare il pacco."
+    Non agisce → fail → conseguenza → nuova opportunità/penalità
+  durations: TBD
+
+taskFeedFilters:
+  status: UI_future
+  suggestedFilters:
+    items:
+      - personal
+      - work
+      - economic
+      - criminal
+      - political
+      - housing
+      - mobility
+      - global
+  note: Struttura UI definitiva — DA DEFINIRE
+
+discoverability:
+  visibilityModes:
+    items:
+      - visible
+      - hidden
+      - discoverable
+      - triggered
+  rule: Permette sorprese e conseguenze nascoste
+
+repeatable:
+  schema:
+    repeatable: boolean
+    cooldown: TBD
+    maxCompletions: TBD | null
+    diminishingReturnsRef: string | null
+
+events:
+  items:
+    - TaskExpired
+    - TaskPriorityChanged

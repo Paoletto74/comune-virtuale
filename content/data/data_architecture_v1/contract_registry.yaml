@@ -1,0 +1,70 @@
+# =============================================================================
+# CONTRACT REGISTRY — data contract definitions
+# =============================================================================
+
+ContractRegistry:
+  purpose: registry principali contract dati
+
+contractSchema:
+  name: string
+  version: string
+  ownerSystem: string
+  fields: []
+  privacy: PUBLIC | PRIVATE | SENSITIVE | SYSTEM
+  sourceOfTruth: string
+  persistence: PERSISTENT | DERIVED | CONTENT | RUNTIME | CACHE
+
+contracts:
+  items:
+    - name: AccountContract
+      version: "1.0"
+      ownerSystem: Auth
+      sourceOfTruth: Auth
+      persistence: PERSISTENT
+      privacy: SENSITIVE
+    - name: CitizenContract
+      version: "1.0"
+      ownerSystem: Citizen
+      sourceOfTruth: Citizen/GameState
+      persistence: PERSISTENT
+      privacy: PRIVATE
+    - name: LedgerEntryContract
+      version: "1.0"
+      ownerSystem: Banking
+      sourceOfTruth: Banking/Economy
+      persistence: PERSISTENT
+      privacy: SYSTEM
+    - name: ItemInstanceContract
+      version: "1.0"
+      ownerSystem: Inventory
+      sourceOfTruth: Inventory
+      persistence: PERSISTENT
+      privacy: PRIVATE
+    - name: ListingContract
+      version: "1.0"
+      ownerSystem: Marketplace
+      sourceOfTruth: Marketplace
+      persistence: PERSISTENT
+      privacy: PUBLIC
+    - name: NotificationInstanceContract
+      version: "1.0"
+      ownerSystem: Notification
+      sourceOfTruth: Notification
+      persistence: PERSISTENT
+      privacy: PRIVATE
+    - name: RankingSnapshotContract
+      version: "1.0"
+      ownerSystem: Rankings
+      sourceOfTruth: Derived
+      persistence: DERIVED
+      privacy: PUBLIC
+    - name: HomeSummaryContract
+      version: "1.0"
+      ownerSystem: UI
+      sourceOfTruth: ReadModel
+      persistence: CACHE
+      privacy: PRIVATE
+
+events:
+  items:
+    - ContractRegistered

@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC LOCATIONS — LocationId association
+# =============================================================================
+
+NpcLocations:
+  field: LocationId
+  rule: NON confondere con GPS reale — GAME LOCATION
+  ref: city_v1/locations.yaml
+
+events:
+  items:
+    - NpcAtLocation

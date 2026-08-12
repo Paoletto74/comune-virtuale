@@ -1,0 +1,101 @@
+# =============================================================================
+# DEFINITIONS — content-first demo (skeleton)
+# =============================================================================
+
+EventDefinition:
+  status: skeleton_and_demo_only
+
+ModifierDefinition:
+  status: skeleton — see modifiers.yaml
+
+demoDefinitions:
+  items:
+    - definitionId: DEMO_PROPERTY_DAMAGED
+      eventType: PROPERTY_DAMAGED
+      sourceSystem: property_main_v1
+      defaultVisibility: personal
+      consequences:
+        items:
+          - conditionRef: owner_exists
+            effectSetRef: DEMO_PROPERTY_DAMAGE_OWNER_EFFECTS
+
+    - definitionId: DEMO_LAW_ACTIVATED
+      eventType: LAW_ACTIVATED
+      sourceSystem: political_main_v1
+      defaultVisibility: public
+      consequences:
+        items:
+          - conditionRef: always
+            effectSetRef: DEMO_LAW_GLOBAL_ANNOUNCE
+            generatedEventRef: null
+          - conditionRef: affected_citizens
+            effectSetRef: DEMO_LAW_PERSONAL_EFFECTS
+            evaluation: per_citizen_dynamic
+
+    - definitionId: DEMO_CRIME_COMMITTED
+      eventType: CRIME_COMMITTED
+      sourceSystem: criminal_main_v1
+      defaultVisibility: private
+      consequences:
+        items:
+          - effectSetRef: DEMO_CRIME_IMMEDIATE
+          - scheduledConsequenceRef: DEMO_CRIME_INVESTIGATION_DELAYED
+
+    - definitionId: DEMO_TASK_CHOICE
+      eventType: TASK_CHOICE_COMPLETED
+      sourceSystem: task_main_v1
+      defaultVisibility: personal
+      consequences:
+        items:
+          - effectSetRef: from_task_definition
+          - generatedEventRefs: from_task_consequence_chain
+
+demoEffectSets:
+  DEMO_PROPERTY_DAMAGE_OWNER_EFFECTS:
+    atomic: true
+    effects:
+      items:
+        - type: ASSET_CONDITION
+          operation: subtract
+          magnitude: TBD
+          domainOwner: property_main_v1
+        - type: ASSET_VALUE
+          operation: subtract
+          magnitude: TBD
+          domainOwner: property_main_v1
+        - type: MONEY
+          operation: request
+          magnitude: TBD
+          domainOwner: economy_main_v1
+        - type: STRESS
+          operation: add
+          magnitude: TBD
+          domainOwner: citizen_model
+
+  DEMO_LAW_PERSONAL_EFFECTS:
+    atomic: false
+    effects:
+      items:
+        - type: MONEY
+          operation: request
+          magnitudeFormulaRef: property_tax_formula
+          domainOwner: economy_main_v1
+        - type: HAPPINESS
+          operation: add
+          magnitude: TBD
+          modifierRefs:
+            items:
+              - citizen_poor_modifier
+              - citizen_rich_modifier
+        - type: STRESS
+          operation: add
+          magnitude: TBD
+
+contentFirst:
+  DECISIONE APPROVATA: |
+    Conseguenze in EventDefinition / ConsequenceDefinition /
+    EffectDefinition / ConditionDefinition / ModifierDefinition.
+    NO hardcode nel motore.
+
+noAi:
+  DECISIONE APPROVATA: NO AI / LLM / API esterne per generare conseguenze o testi

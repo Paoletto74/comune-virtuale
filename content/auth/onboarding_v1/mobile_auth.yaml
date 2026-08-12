@@ -1,0 +1,17 @@
+# =============================================================================
+# MOBILE AUTH — mobile-specific UX
+# =============================================================================
+
+MobileAuth:
+  features:
+    items:
+      - grandi_CTA
+      - tastiera_non_copre_campi
+      - safe_areas
+      - autofill
+      - password_manager
+  ref: frontend_ui_v1
+
+events:
+  items:
+    - MobileAuthViewed

@@ -1,0 +1,28 @@
+# =============================================================================
+# HIGHLIGHTS & PRESTIGE DISPLAY
+# =============================================================================
+
+PrestigeDisplay:
+  status: PROPOSTA TECNICA — NON necessariamente nuova statistica
+  purpose: determinare quali elementi meritano spazio nel profilo
+
+ProfileHighlights:
+  status: PROPOSTA TECNICA — evidenziazione automatica
+  mayHighlight:
+    items:
+      - most_expensive_asset
+      - best_title
+      - most_prestigious_job
+      - best_ranking
+      - recent_achievement
+      - important_milestone
+  examples:
+    items:
+      - "Hai raggiunto il Top 10% dei cittadini."
+
+autoSelection:
+  rule: Profile seleziona highlights da dati aggregati — NON ricalcola valori
+
+events:
+  items:
+    - ProfileHighlightUpdated

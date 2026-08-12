@@ -1,0 +1,63 @@
+# =============================================================================
+# VEHICLE MARKET — mercato veicoli
+# =============================================================================
+
+MarketListing:
+  schema:
+    listingId: string
+    vehicleId: string
+    sellerId: string
+    askingPrice: TBD
+    listingType: new | used | player_sale | npc_sale | rental
+    status: open | pending | sold | withdrawn | expired
+    listedAt: timestamp
+
+marketSegments:
+  items:
+    - segmentId: new_vehicles
+      label: Veicoli nuovi
+    - segmentId: used_vehicles
+      label: Veicoli usati
+    - segmentId: player_sales
+      label: Vendite giocatori
+    - segmentId: npc_sales
+      label: Vendite NPC
+    - segmentId: rental
+      label: Noleggio
+      status: interface_only
+
+pricing:
+  dynamic: true
+  factors:
+    items:
+      - baseValue
+      - condition
+      - market_demand
+      - category
+      - age
+      - events
+  formula: TBD
+
+valuation:
+  rules:
+    items:
+      - may_depreciate
+      - may_hold_value
+      - may_occasionally_appreciate
+  formula: TBD
+
+purchaseFlow:
+  atomic: true
+  buyers:
+    items:
+      - player
+      - npc
+      - system
+  ref: ownership.yaml#purchaseFlow
+
+events:
+  items:
+    - VehicleListedForSale
+    - VehicleMarketPriceUpdated
+    - VehiclePurchaseCompleted
+    - VehicleSold

@@ -1,0 +1,13 @@
+# =============================================================================
+# ACTIVITIES — Daily assignments / agenda
+# =============================================================================
+
+ActivitiesPresentation:
+  concept: AGENDA / DAILY EDITION / ASSIGNMENTS
+  rule: task devono restare chiaramente gameplay — NON solo estetica editoriale
+
+ref: frontend_ui_v1/activities.yaml
+
+events:
+  items:
+    - ActivityCardRendered

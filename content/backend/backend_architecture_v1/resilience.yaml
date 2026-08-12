@@ -1,0 +1,25 @@
+# =============================================================================
+# RESILIENCE — retries, circuit breaker, failure handling
+# =============================================================================
+
+Resilience:
+  failureHandling:
+    items:
+      - database_unavailable
+      - cache_unavailable
+      - event_bus_unavailable
+      - external_provider_unavailable
+
+criticalOps:
+  rule: fail safely — NO partial financial state
+
+retries:
+  rule: retry solo quando sicuro — MAI retry cieco su finanziario senza idempotency
+
+circuitBreaker:
+  status: PROPOSTA TECNICA — compatibilita futura — NON implementare ora
+
+events:
+  items:
+    - DependencyUnavailable
+    - RetryAttempted

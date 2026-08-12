@@ -1,0 +1,47 @@
+# =============================================================================
+# PREVIEW — live preview con mock data
+# =============================================================================
+
+Preview:
+  DECISIONE APPROVATA: preview prima della pubblicazione
+  previewTypes:
+    items:
+      - text
+      - card
+      - popup
+      - item
+      - task
+      - marketplace
+      - gazzetta
+      - profile
+      - event
+
+LivePreview:
+  DECISIONE APPROVATA: |
+    Quando possibile — contenuto come apparirebbe nel gioco.
+    NON necessariamente dati reali — mock data.
+
+MockPlayer:
+  status: PROPOSTA TECNICA — NON simulazione completa
+  example:
+    level: 5
+    cash: 500
+    job: Worker
+    property: Apartment
+  question: "Come vedrebbe questo contenuto quel giocatore?"
+
+ContentPresets:
+  status: PROPOSTA TECNICA — template velocizzano creazione
+  templates:
+    items:
+      - new_task
+      - new_popup
+      - new_item
+      - new_news
+      - new_event
+      - new_job
+
+events:
+  items:
+    - PreviewGenerated
+    - PreviewModeChanged

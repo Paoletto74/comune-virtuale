@@ -1,0 +1,51 @@
+# =============================================================================
+# NOTIFICATIONS — private vs global, priority, badges
+# =============================================================================
+
+Notifications:
+  DECISIONE APPROVATA: divisa in PRIVATE e GLOBAL
+
+PrivateNotifications:
+  examples:
+    items:
+      - promozione
+      - assunzione
+      - licenziamento
+      - perdita
+      - guadagno
+      - acquisto
+      - vendita
+      - regalo
+      - prestito
+      - evento_personale
+      - level_up
+      - demotion
+
+GlobalNotifications:
+  examples:
+    items:
+      - referendum
+      - eventi_comune
+      - breaking_news
+      - eventi_globali
+      - comunicazioni_municipali
+      - grandi_eventi
+
+Priority:
+  status: TBD
+  levels:
+    items:
+      - LOW
+      - NORMAL
+      - HIGH
+      - CRITICAL
+
+deduplication:
+  DECISIONE APPROVATA: evitare popup + toast + unread count duplicati
+
+api: notification_api.yaml
+
+events:
+  items:
+    - NotificationOpened
+    - NotificationDismissed

@@ -1,0 +1,26 @@
+# =============================================================================
+# GAZZETTA API
+# =============================================================================
+
+GazzettaApi:
+  sourceOfTruth: GazzettaService
+  endpoints:
+    items:
+      - "GET /api/v1/gazzetta/latest"
+      - "GET /api/v1/gazzetta/categories"
+      - "GET /api/v1/gazzetta/:articleId"
+      - "GET /api/v1/gazzetta/:articleId/related"
+
+response:
+  fields:
+    items:
+      - article
+      - related_event
+      - related_citizen
+      - visibility
+
+pagination: required
+
+events:
+  items:
+    - GazzettaApiRequestProcessed

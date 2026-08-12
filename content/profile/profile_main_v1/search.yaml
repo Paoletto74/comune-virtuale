@@ -1,0 +1,31 @@
+# =============================================================================
+# PROFILE SEARCH — ricerca cittadini
+# =============================================================================
+
+ProfileSearch:
+  status: PROPOSTA TECNICA — valori TBD
+  searchBy:
+    items:
+      - displayName
+      - title
+      - job
+      - ranking
+      - other_public_filters
+
+ProfileSorting:
+  status: PROPOSTA TECNICA
+  sortOptions:
+    items:
+      - level
+      - netWorth
+      - sympathy
+      - influence
+      - popularity
+      - most_recent
+      - alphabetical
+
+rule: solo dati pubblici — NO dati privati nei risultati
+
+events:
+  items:
+    - ProfileSearchPerformed

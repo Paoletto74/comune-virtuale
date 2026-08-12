@@ -1,0 +1,22 @@
+# =============================================================================
+# BUSINESS TYPES — shop, restaurant, factory, etc.
+# =============================================================================
+
+BusinessTypes:
+  examples:
+    items:
+      - shop
+      - restaurant
+      - bank
+      - factory
+      - office
+      - service
+      - entertainment
+      - media
+      - transport
+      - special
+  extensible: true
+
+events:
+  items:
+    - BusinessTypeResolved

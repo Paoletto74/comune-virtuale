@@ -1,0 +1,29 @@
+# =============================================================================
+# BUILDING TYPES — categories
+# =============================================================================
+
+BuildingTypes:
+  categories:
+    items:
+      - RESIDENTIAL
+      - COMMERCIAL
+      - INDUSTRIAL
+      - CIVIC
+      - ENTERTAINMENT
+      - SERVICE
+      - TRANSPORT
+      - SPECIAL
+  municipalExamples:
+    items:
+      - Municipio
+      - tribunale
+      - stazione_polizia
+      - ospedale
+      - uffici_pubblici
+      - stazione
+      - banca
+    note: presenza effettiva dipende dai relativi systems
+
+events:
+  items:
+    - BuildingTypeResolved

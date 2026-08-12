@@ -1,0 +1,19 @@
+# =============================================================================
+# WORK VISUALS — office, contract, promotion
+# =============================================================================
+
+WorkVisuals:
+  family:
+    items:
+      - office
+      - contract
+      - promotion
+      - employment
+  events:
+    JobAccepted: work.job_accepted.office
+    JobLost: work.job_lost.departure
+    Promotion: work.promotion.recognition
+
+events:
+  items:
+    - WorkVisualResolved

@@ -1,0 +1,32 @@
+# =============================================================================
+# PERFORMANCE — social graph V1
+# =============================================================================
+
+Performance:
+  status: PROPOSTA TECNICA — estende placeholders.yaml performance
+
+  principles:
+    items:
+      - event_driven
+      - aggregation
+      - batching
+      - no_unnecessary_npc_events
+      - lod_coherent_with_npc_system
+
+  v1Scope:
+    rule: rappresentare relazioni necessarie senza full social graph engine
+    fullGraph: FUTURE
+
+  npcLod:
+    ref: social_main_v1/npc_social.yaml
+    tiers:
+      STATIC: no significant social simulation
+      ROLE: role-necessary interactions only
+      ACTIVE: relationships/trust where required
+      SPECIAL: richer social history
+
+  antiPatterns:
+    items:
+      - simulate_every_npc_interaction
+      - infinite_history_storage
+      - polling_relationship_state

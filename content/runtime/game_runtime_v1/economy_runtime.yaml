@@ -1,0 +1,22 @@
+# =============================================================================
+# ECONOMY RUNTIME — recurring income, taxes, inflation effects
+# =============================================================================
+
+EconomyRuntime:
+  tickProcesses:
+    items:
+      - recurring_income
+      - expenses
+      - taxes
+      - interest
+      - inflation_effects
+      - municipal_economy
+  rule: valori e formule TBD nei relativi systems — NON inventare regole
+  sourceOfTruth: Economy/Banking
+  executionMode: tick-driven + event-driven
+  failurePolicy: FAIL_FAST or RETRY — critical
+  ref: economy_main_v1, banking_main_v1
+
+events:
+  emits: [SalaryPaid, PaymentCompleted, TaxApplied]
+  consumes: [JobStarted, PropertyPurchased]

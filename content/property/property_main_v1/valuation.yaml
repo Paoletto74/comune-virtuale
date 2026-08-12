@@ -1,0 +1,67 @@
+# =============================================================================
+# VALUATION — valore immobiliare dinamico
+# =============================================================================
+
+ValuationRecord:
+  schema:
+    propertyId: string
+    marketValue: TBD
+    lastRevaluationTime: timestamp
+    purchasePrice: TBD
+    valuationMethod: TBD
+    modifiers: []
+
+rules:
+  DECISIONE APPROVATA: marketValue != purchasePrice necessarily
+  noLinearRevaluation: true
+  formula: TBD
+
+factors:
+  items:
+    - inflation
+    - demand
+    - supply
+    - macro_economy
+    - zone_profile
+    - zone_dynamics
+    - property_condition
+    - property_category
+    - occupancy_status
+    - events
+    - development
+    - market_listings
+  weights: TBD
+
+revaluationSchedule:
+  trigger: scheduled_event | tick | market_event
+  frequency: TBD
+  placeholderKey: REVALUATION_INTERVAL
+
+marketIntegration:
+  provides:
+    items:
+      - marketValue
+      - suggestedListPrice
+      - suggestedRent
+  consumes:
+    items:
+      - inflation_index
+      - zone_dynamics
+      - demand_supply_index
+
+speculation:
+  status: PROPOSTA_TECNICA
+  note: Zone che cambiano creano opportunità speculative
+  enabled: true
+  risks:
+    items:
+      - devaluation
+      - vacancy
+      - maintenance_costs
+      - tax_burden
+
+events:
+  items:
+    - PropertyRevalued
+    - PropertyValueIncreased
+    - PropertyValueDecreased

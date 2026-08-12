@@ -1,0 +1,29 @@
+# =============================================================================
+# IDEMPOTENCY — critical commands, retry semantics
+# =============================================================================
+
+Idempotency:
+  DECISIONE APPROVATA: commands critici supportano idempotencyKey
+  requiredFor:
+    items:
+      - purchase
+      - task_completion
+      - salary_payment
+      - gift
+      - loan
+      - vote
+
+duplicateCommand:
+  rule: NON deve duplicare effetti — status DUPLICATE
+
+retrySemantics:
+  sameIdempotencyKey: same logical operation
+  newIdempotencyKey: new operation attempt
+
+idempotencyVsConcurrency:
+  rule: distinguere duplicate command da concurrent valid commands
+
+events:
+  items:
+    - DuplicateCommandDetected
+    - IdempotentReplayHandled

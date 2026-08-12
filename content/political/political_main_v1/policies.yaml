@@ -1,0 +1,69 @@
+# =============================================================================
+# POLICIES — decisioni politiche (Policy Decision / Political Action)
+# =============================================================================
+
+PolicyDecision:
+  schema:
+    policyId: string
+    decisionType: political_action | policy_decision
+    title: string
+    description: string
+    proposerId: string
+    roleRequired: string
+    status: draft | proposed | approved | active | reversed
+    lawRef: string | null
+    effectsRef: string
+    timestamp: timestamp
+
+decisionCategories:
+  items:
+    - taxes
+    - public_investment
+    - services
+    - transport
+    - healthcare
+    - education
+    - security
+    - regulation
+    - incentives
+    - other
+  note: Esempi concettuali — catalogo configurabile
+
+decisionFlow:
+  rule: DECISIONE APPROVATA — NON modificare valori cittadini direttamente
+  flow: |
+    Political Decision
+    → Policy Event
+    → Target System (Economy / Effect Pipeline / Property / etc.)
+    → effetti individuali per cittadino
+  examples:
+    items:
+      - increase_tax_X
+      - fund_public_service
+      - transport_subsidy
+      - security_regulation
+
+individualEvaluation:
+  ref: task_main_v1/effects.yaml
+  rule: Riutilizzare modello generico effetti — NO formule duplicate
+  perCitizen: true
+
+supportImpact:
+  impopular:
+    items:
+      - politicalSupport_decrease
+      - popularity_decrease
+      - protest_tasks
+      - reelection_risk
+  popular:
+    items:
+      - support_increase
+      - popularity_increase
+  deterministic: false
+
+events:
+  items:
+    - PolicyProposed
+    - PolicyApproved
+    - PolicyActivated
+    - PolicyReversed

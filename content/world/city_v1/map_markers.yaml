@@ -1,0 +1,24 @@
+# =============================================================================
+# MAP MARKERS — marker types, clustering
+# =============================================================================
+
+MapMarkers:
+  types:
+    items:
+      - Municipality
+      - Property
+      - Business
+      - Job
+      - Event
+      - Landmark
+      - Transport
+      - Citizen
+  citizenMarkers:
+    rule: NON posizione privata realtime senza consenso/regola
+  clutter:
+    rule: NON mostrare contemporaneamente tutti i marker
+  clustering: ref map_performance.yaml
+
+events:
+  items:
+    - MapMarkerDisplayed

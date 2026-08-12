@@ -1,0 +1,60 @@
+# =============================================================================
+# COMPANY EVENTS — eventi aziendali
+# =============================================================================
+
+CompanyEvent:
+  schema:
+    eventId: string
+    companyId: string
+    eventType: string
+    severity: TBD
+    effectsRef: string
+    timestamp: timestamp
+    mayGenerateTask: boolean
+
+eventTypes:
+  items:
+    - typeId: demand_increase
+      label: Domanda aumenta
+    - typeId: demand_decrease
+      label: Domanda diminuisce
+    - typeId: equipment_failure
+      label: Macchina guasta
+    - typeId: employee_absence
+      label: Dipendente assente
+    - typeId: competitor_pressure
+      label: Concorrente
+    - typeId: reputation_problem
+      label: Problema reputazionale
+    - typeId: opportunity
+      label: Opportunità
+    - typeId: cost_increase
+      label: Aumento costi
+    - typeId: crisis
+      label: Crisi
+    - typeId: success
+      label: Successo
+  probabilities: TBD
+
+economicCycle:
+  status: PROPOSTA_TECNICA
+  phases:
+    items:
+      - growth
+      - stability
+      - slowdown
+      - recession
+      - crisis
+  source: economy_main_v1 macro
+  businessReacts: true
+
+delivery:
+  via: Event System
+  taskGeneration: some_events → task_main_v1
+
+events:
+  items:
+    - CompanyEventTriggered
+    - DemandChanged
+    - CrisisStarted
+    - OpportunityAvailable

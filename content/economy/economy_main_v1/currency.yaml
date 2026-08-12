@@ -1,0 +1,17 @@
+# =============================================================================
+# CURRENCY v1
+# =============================================================================
+# DECISIONE APPROVATA: valuta unica iniziale; multi-valuta non implementata
+# =============================================================================
+
+currencies:
+  - currencyId: game_currency
+    displayName: TBD
+    symbol: TBD
+    decimalPlaces: TBD
+    default: true
+    notes: Nome visualizzato DA_DEFINIRE
+
+multiCurrency:
+  enabled: false
+  futureSupport: true

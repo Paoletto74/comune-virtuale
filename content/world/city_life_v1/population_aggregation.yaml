@@ -1,0 +1,12 @@
+# =============================================================================
+# POPULATION AGGREGATION — aggregate without individual simulation
+# =============================================================================
+
+PopulationAggregation:
+  DECISIONE APPROVATA:
+  rule: rappresentare popolazione aggregata senza simulare ogni individuo
+  ref: npc_lod.yaml ABSTRACT level
+
+events:
+  items:
+    - PopulationAggregated

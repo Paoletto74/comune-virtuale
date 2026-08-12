@@ -1,0 +1,18 @@
+# =============================================================================
+# ACCESSIBILITY — social UI
+# =============================================================================
+
+Accessibility:
+  status: PROPOSTA TECNICA
+
+  requirements:
+    items:
+      - keyboard_navigation
+      - screen_reader_labels
+      - readable_message_labels_via_textKey
+      - clear_sender_recipient
+      - accessible_reaction_buttons
+      - reduced_motion
+      - reduced_sound
+
+  rule: frontend_ui_v1 design system + social content metadata

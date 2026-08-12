@@ -1,0 +1,69 @@
+# =============================================================================
+# DETERIORATION & EXPIRATION
+# =============================================================================
+
+Deterioration:
+  schema:
+    condition: TBD
+    durability: TBD
+    deteriorationRate: TBD
+    deteriorationScheduleRef: "string | null"
+    currentDurability: TBD
+    maxDurability: TBD
+  rule: Non tutti gli item deteriorano — configurabile per definizione
+
+Expiration:
+  DECISIONE APPROVATA: prodotti deperibili — expiresAt
+  calculation: createdAt + shelfLife = expiresAt
+  timeOwner: time_main_v1 gestisce tempo — inventory gestisce stato item
+
+ExpiredItems:
+  status: PROPOSTA TECNICA — comportamento configurabile
+  options:
+    items:
+      - become_unusable
+      - auto_destroy
+      - emit_event
+      - lose_value
+      - require_disposal
+
+ReusableItems:
+  DECISIONE APPROVATA: non consumati ma si deteriorano
+  examples:
+    items:
+      - clothing
+      - tool
+      - equipment
+  durabilityRange: "0-100 or configurable"
+
+ItemQuality:
+  status: PROPOSTA TECNICA
+  mayInfluence:
+    items:
+      - value
+      - duration
+      - effects
+      - satisfaction
+      - performance
+  rule: NON applicare automaticamente tutti gli effetti
+
+Repair:
+  status: PROPOSTA TECNICA
+  examples:
+    items:
+      - vehicle
+      - tool
+      - equipment
+      - luxury_item
+  split:
+    inventory: registra nuovo stato
+    domain: costo, processo, durata
+
+ItemUpgrade:
+  status: futuro — non implementare V1
+
+events:
+  items:
+    - ItemDeteriorated
+    - ItemExpired
+    - ItemRepaired

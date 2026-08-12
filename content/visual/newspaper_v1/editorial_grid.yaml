@@ -1,0 +1,22 @@
+# =============================================================================
+# EDITORIAL GRID — columns, margins, gutters
+# =============================================================================
+
+EditorialGrid:
+  columns:
+    desktop: multi-column layout editoriale
+    mobile: single-column o adaptive — NON colonne illeggibili
+    tablet: 2-column adaptive
+  grid:
+    items:
+      - margins
+      - gutters
+      - column_spans
+      - section_separators
+  values: TBD — collegati a ui_main_v1
+
+ref: ui_main_v1, responsive.yaml
+
+events:
+  items:
+    - EditorialGridApplied

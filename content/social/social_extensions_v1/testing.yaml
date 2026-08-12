@@ -1,0 +1,44 @@
+# =============================================================================
+# TESTING — test matrix
+# =============================================================================
+
+TestingMatrix:
+  status: PROPOSTA TECNICA
+
+  mustTest:
+    items:
+      - preset_message_send
+      - invalid_message_rejected
+      - social_action
+      - relationship_create_update
+      - trust_change_via_effect
+      - sympathy_indirect_effect
+      - reputation_indirect_effect
+      - gift_flow
+      - loan_flow
+      - block
+      - mute
+      - report
+      - cooldown_enforcement
+      - daily_limits
+      - privacy_filter
+      - offline_catch_up
+      - notification_trigger
+      - popup_eligibility
+      - visual_cue_resolution
+      - sound_cue_resolution
+      - npc_interaction
+      - task_relationship_context
+      - event_generated_social
+      - delayed_consequence
+      - economy_integration
+      - criminal_boundary
+      - political_boundary
+      - family_boundary
+      - concurrency
+      - idempotency
+      - client_manipulation_rejected
+      - discovery_privacy
+      - gazzetta_candidate_not_auto_publish
+
+  rule: NO runtime tests in this pack — specification only

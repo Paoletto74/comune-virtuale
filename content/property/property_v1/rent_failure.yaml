@@ -1,0 +1,14 @@
+# =============================================================================
+# RENT FAILURE — property_v1
+# =============================================================================
+
+---
+RentFailure:
+  owner: Property/Tenancy System determines consequences
+  economyNotAutonomous: true
+  states:
+  - overdue
+  - grace
+  - warning
+  - termination
+  status: DECISIONE APPROVATA

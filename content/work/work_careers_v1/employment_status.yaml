@@ -1,0 +1,18 @@
+# =============================================================================
+# EMPLOYMENT STATUS — work_careers_v1
+# =============================================================================
+
+---
+EmploymentStatus:
+  values:
+  - APPLIED
+  - PENDING
+  - HIRED
+  - ACTIVE
+  - SUSPENDED
+  - ON_LEAVE
+  - TERMINATED
+  - RESIGNED
+  - EXPIRED
+  definitive: TBD
+  status: DECISIONE APPROVATA

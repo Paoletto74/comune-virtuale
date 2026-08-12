@@ -1,0 +1,36 @@
+# =============================================================================
+# SEARCH & FILTERS
+# =============================================================================
+
+AdminSearch:
+  status: PROPOSTA TECNICA
+  searchBy:
+    items:
+      - contentId
+      - name
+      - category
+      - tag
+      - status
+      - version
+
+GlobalSearch:
+  status: PROPOSTA TECNICA
+  example: |
+    query "pizza" trova: item, task, news, visual, popup
+
+AdminFilters:
+  status: PROPOSTA TECNICA
+  filterBy:
+    items:
+      - content_type
+      - status
+      - author
+      - updated
+      - published
+      - errors
+      - warnings
+
+events:
+  items:
+    - AdminSearchPerformed
+    - FilterApplied

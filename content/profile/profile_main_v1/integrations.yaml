@@ -1,0 +1,181 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  authentication_future:
+    direction: auth → profile
+    rule: Profile riceve playerId — NON gestisce login/sessione
+
+  banking_main_v1:
+    direction: banking → profile
+    provides:
+      items:
+        - cash
+        - bankBalance
+        - debt
+        - financial_history
+    profileRole: presenta
+
+  economy_main_v1:
+    direction: economy → profile
+    provides:
+      items:
+        - netWorth
+        - economic_indicators
+    rule: Profile NON calcola netWorth autonomamente
+
+  marketplace_main_v1:
+    direction: marketplace → profile
+    provides:
+      items:
+        - owned_assets
+        - asset_value
+        - most_expensive_asset
+        - necessary_history
+    profileActions:
+      items:
+        - view_public_listings_if_public
+    rule: NON mostrare automaticamente tutto ciò che possiede
+
+  inventory_main_v1:
+    direction: inventory → profile
+    provides:
+      items:
+        - item_count
+        - item_highlights
+    rule: NO inventario completo nel profilo pubblico
+
+  property_main_v1:
+    direction: property → profile
+    provides:
+      items:
+        - properties
+        - value
+        - status
+        - most_expensive_property
+
+  mobility_main_v1:
+    direction: mobility → profile
+    provides:
+      items:
+        - vehicles
+        - value
+        - status
+        - most_expensive_vehicle
+
+  work_main_v1:
+    direction: work → profile
+    provides:
+      items:
+        - job
+        - career
+        - employer
+        - experience
+
+  progression_main_v1:
+    direction: progression → profile
+    provides:
+      items:
+        - level
+        - progress
+        - titles
+        - milestones
+        - narrative_tier
+    "DECISIONE APPROVATA": "allinea visibility.yaml — L25 distinction"
+
+  social_main_v1:
+    direction: social → profile
+    provides:
+      items:
+        - sympathy
+        - popularity
+        - reputation
+        - rankings
+        - publishable_relationships
+    profileActions:
+      items:
+        - greet
+        - compliment
+        - send_gift
+        - propose_loan
+        - other_authorized_actions
+    rule: Profile lancia action — Social/Banking gestiscono, NO logica duplicata
+
+  political_main_v1:
+    direction: political → profile
+    provides:
+      items:
+        - activeRole
+        - political_history
+        - candidacy
+        - mandate
+
+  criminal_main_v1:
+    direction: criminal → profile
+    provides:
+      items:
+        - criminal_reputation
+        - notoriety
+        - discoverable_status
+    rule: Profile NON pubblica automaticamente
+
+  notification_main_v1:
+    direction: profile → notification
+    ref: notifications.yaml
+
+  event_main_v1:
+    direction: profile ↔ event
+    rule: Event per conseguenze; Profile emette eventi display-relevant
+
+  time_main_v1:
+    direction: time → profile
+    manages:
+      items:
+        - birthday_scheduling
+        - wealth_snapshot_timing
+        - history_retention
+
+  gazzetta_future:
+    direction: gazzetta ↔ profile
+    rule: |
+      Notizie possono collegare news → citizen profile.
+      Gazzetta decide cosa pubblicare — es. "X è il più ricco del Comune."
+
+  ui_pwa_future:
+    direction: ui → profile
+    owns:
+      items:
+        - app_install
+        - share_mechanics
+        - header_ui
+        - bottom_menu
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA
+    editable:
+      items:
+        - profile_facts
+        - categories
+        - achievements
+        - badges
+        - title_presentation
+        - humor
+        - ranking_descriptions
+        - public_profile_sections
+    flow: YAML/JSON → validation → preview → publish
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    profileMustNot:
+      items:
+        - own_authentication
+        - calculate_netWorth
+        - duplicate_banking_logic
+        - expose_criminal_data_automatically
+        - show_full_inventory_publicly
+        - show_asset_origin_automatically
+        - duplicate_social_actions_logic

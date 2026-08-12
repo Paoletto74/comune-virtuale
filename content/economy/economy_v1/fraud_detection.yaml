@@ -1,0 +1,12 @@
+# =============================================================================
+# FRAUD DETECTION — economy_v1
+# =============================================================================
+
+---
+FraudDetection:
+  status: PROPOSTA TECNICA future
+  signals:
+  - transfer velocity
+  - unusual amount
+  - repeated failures
+  noAutoBan: true

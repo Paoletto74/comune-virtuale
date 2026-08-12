@@ -1,0 +1,49 @@
+# =============================================================================
+# INFLATION & PRICE INDEX
+# =============================================================================
+# DECISIONE APPROVATA: inflazione da condizioni simulate/eventi, non solo % fissa giornaliera
+# =============================================================================
+
+InflationEngine:
+  enabled: true
+
+  modes:
+    - inflation
+    - disinflation
+    - deflation
+    - stable
+
+  drivers:
+    - macro_economic_state
+    - demand_supply_imbalance
+    - money_supply_policy
+    - economic_events
+    - political_modifiers
+    - configurable_rules
+
+  NOT:
+    - fixed_daily_percent_only
+
+  globalIndicators:
+    inflationRate: TBD
+    priceIndex: TBD
+    priceIndexBase: TBD
+    realVsNominalGap: TBD
+
+  categoryInflation:
+    enabled: true
+    categories: [consumables, housing, vehicles, luxury, services]
+    rates: TBD
+
+  updateModel:
+    frequency: tick | event
+    formula: TBD
+
+  purchasingPower:
+    nominalToRealFormula: TBD
+    citizenPurchasingPowerIndex: TBD
+
+  progressionImpact:
+    note: netWorth nominal vs real — progression_balance relative requirements
+
+  adminConfigurable: true

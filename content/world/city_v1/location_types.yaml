@@ -1,0 +1,24 @@
+# =============================================================================
+# LOCATION TYPES — casa, ufficio, negozio, etc.
+# =============================================================================
+
+LocationTypes:
+  examples:
+    items:
+      - casa
+      - ufficio
+      - negozio
+      - ristorante
+      - banca
+      - Comune
+      - stazione
+      - parco
+      - piazza
+      - locale
+      - fabbrica
+      - ospedale
+      - polizia
+
+events:
+  items:
+    - LocationTypeResolved

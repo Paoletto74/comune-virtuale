@@ -1,0 +1,26 @@
+# =============================================================================
+# RESPONSIVE — mobile stacked feed, desktop multi-column
+# =============================================================================
+
+Responsive:
+  mobile:
+    DECISIONE APPROVATA: |
+      NON simulare pagina A3.
+      Multi-column -> stacked editorial feed.
+    headline: compact headline — NON scalare tutto proporzionalmente
+  desktop:
+    items:
+      - multi_column
+      - hero_story
+      - sidebar
+      - secondary_stories
+      - data_blocks
+  tablet: 2-column adaptive
+  density:
+    desktop: higher editorial density
+    mobile: progressive disclosure
+  ref: ui_main_v1, frontend_ui_v1/responsive.yaml
+
+events:
+  items:
+    - ResponsiveLayoutApplied

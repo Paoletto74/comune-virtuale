@@ -1,0 +1,28 @@
+# =============================================================================
+# ERROR STATES
+# =============================================================================
+
+ErrorStates:
+  DECISIONE APPROVATA:
+  principles:
+    items:
+      - comprensibili
+      - brevi
+      - non_tecnici
+      - eventualmente_ironici
+  mustNotShow:
+    items:
+      - stack_trace
+      - internal_error_codes
+
+schema:
+  errorStateId: string
+  sectionRef: string
+  titleKey: string
+  messageKey: string
+  retryAction: boolean
+
+events:
+  items:
+    - ErrorStateDisplayed
+    - ErrorRetryRequested

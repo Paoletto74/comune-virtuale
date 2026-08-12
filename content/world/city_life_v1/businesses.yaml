@@ -1,0 +1,17 @@
+# =============================================================================
+# BUSINESSES — overview, Business != Marketplace
+# =============================================================================
+
+Businesses:
+  definition: entita economica/operativa
+  notMarketplace:
+    DECISIONE APPROVATA: |
+      Marketplace = sistema compravendita.
+      Business = entita che puo gestire attivita economica.
+      Business puo usare Marketplace ma NON e il Marketplace.
+  identifier: BusinessId
+  ref: business_main_v1
+
+events:
+  items:
+    - BusinessLoaded

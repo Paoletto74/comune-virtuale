@@ -1,0 +1,18 @@
+# =============================================================================
+# MASTHEAD — conceptual graphic element
+# =============================================================================
+
+Masthead:
+  status: PROPOSTA TECNICA
+  appearsOn:
+    items:
+      - Gazzetta
+      - Home
+      - Special_Edition
+  name: TBD definizione nome definitivo
+
+ref: front_page.yaml, edition.yaml
+
+events:
+  items:
+    - MastheadRendered

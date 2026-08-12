@@ -1,0 +1,32 @@
+# =============================================================================
+# BADGES — indicatori sezione nav
+# =============================================================================
+
+SectionBadges:
+  status: PROPOSTA TECNICA — derivati da dati reali
+  examples:
+    items:
+      - section: notifiche
+        example: "5 nuove"
+      - section: attivita
+        example: "2 task nuovi"
+      - section: gazzetta
+        example: "3 nuove notizie"
+      - section: comune
+        example: "1 referendum attivo"
+
+globalAlert:
+  status: PROPOSTA TECNICA
+  rule: eventi estremamente importanti sopra navigazione normale
+  examples:
+    items:
+      - future_crisis
+      - municipal_emergency
+      - election
+      - exceptional_economic_event
+  owner: Event/Notification
+
+events:
+  items:
+    - SectionBadgeUpdated
+    - GlobalAlertDisplayed

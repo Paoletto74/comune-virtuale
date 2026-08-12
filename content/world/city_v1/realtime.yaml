@@ -1,0 +1,16 @@
+# =============================================================================
+# REALTIME — future realtime city updates
+# =============================================================================
+
+Realtime:
+  status: PROPOSTA TECNICA — NON implementare V1
+  future:
+    items:
+      - event_started
+      - location_status
+      - major_city_event
+      - marketplace_change
+
+events:
+  items:
+    - RealtimeCityUpdate

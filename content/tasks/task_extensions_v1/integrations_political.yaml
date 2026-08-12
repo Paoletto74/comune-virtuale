@@ -1,0 +1,17 @@
+# =============================================================================
+# INTEGRATIONS POLITICAL — task_extensions_v1
+# =============================================================================
+
+---
+PoliticalIntegration:
+  politicalGenerates:
+  - campaign
+  - debate
+  - meeting
+  - civic activity
+  politicalOwns:
+  - candidacy
+  - election
+  - political role
+  - policy
+  status: PROPOSTA TECNICA boundary

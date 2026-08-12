@@ -1,0 +1,30 @@
+# =============================================================================
+# AUDIO REFS — Visual riferisce soundId, Audio System autorevole
+# =============================================================================
+
+AudioRef:
+  status: PROPOSTA TECNICA — NO file audio definitivi V1
+  schema:
+    soundId: string
+    context: popup | notification | event | ui
+    priorityLevel: INFO | IMPORTANT | MAJOR | LEGENDARY
+
+popupSoundProfiles:
+  status: esempi concettuali
+  items:
+    - priority: INFO
+      description: suono discreto
+    - priority: IMPORTANT
+      description: suono riconoscibile
+    - priority: MAJOR
+      description: suono più importante
+    - priority: LEGENDARY
+      description: suono speciale
+
+rule: |
+  Audio System futuro autorevole su file audio e playback.
+  Visual System riferisce soundId — NON gestisce volume globale.
+
+events:
+  items:
+    - AudioTriggered

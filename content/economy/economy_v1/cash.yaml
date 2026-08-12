@@ -1,0 +1,9 @@
+# =============================================================================
+# CASH — economy_v1
+# =============================================================================
+
+---
+Cash:
+  definition: immediately available money
+  accountType: cash wallet
+  status: DECISIONE APPROVATA

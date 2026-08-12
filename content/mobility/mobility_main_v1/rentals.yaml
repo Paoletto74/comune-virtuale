@@ -1,0 +1,53 @@
+# =============================================================================
+# VEHICLE RENTALS — interfaccia futura
+# =============================================================================
+# NON implementare sistema noleggio complesso in v1 — solo interfaccia
+# =============================================================================
+
+VehicleRentalContract:
+  schema:
+    contractId: string
+    vehicleId: string
+    ownerId: string
+    renterId: string
+    rent: TBD
+    paymentFrequency: TBD
+    startTime: timestamp
+    endTime: timestamp | null
+    status: draft | active | terminated | expired | defaulted
+    deposit: TBD
+
+  example: |
+    Giocatore A possiede auto.
+    Giocatore B la prende in affitto.
+    A → recurringIncome
+    B → recurringExpense
+    Veicolo resta di proprietà A.
+
+rentPayment:
+  rule: DECISIONE APPROVATA — NO modifica diretta cash
+  flow: |
+    Renter → RentalDue
+    → Economy Pipeline
+    → Transaction(rent)
+    → Ledger
+    → owner recurring income + renter recurring expense
+
+listing:
+  schema:
+    listingId: string
+    vehicleId: string
+    ownerId: string
+    listedRent: TBD
+    status: open | closed | rented | unavailable
+
+status: interface_only
+implementation: future
+formulas: TBD
+
+events:
+  items:
+    - VehicleRentalListed
+    - VehicleRentalContractSigned
+    - VehicleRentalDue
+    - VehicleRentalTerminated

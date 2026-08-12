@@ -1,0 +1,11 @@
+# =============================================================================
+# BUSINESS PROPERTY — occupy/own/rent property
+# =============================================================================
+
+BusinessProperty:
+  owner: Property System — ref property_main_v1
+  rule: business puo occupare/possedere/affittare property
+
+events:
+  items:
+    - BusinessPropertyLinked

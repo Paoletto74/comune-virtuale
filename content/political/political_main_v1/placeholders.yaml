@@ -1,0 +1,59 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  POLITICAL_EXPERIENCE_PER_ACTIVITY: TBD
+  POLITICAL_LEVEL_THRESHOLD: TBD
+  POLITICAL_INFLUENCE_GAIN: TBD
+  CIVIC_PARTICIPATION_GAIN: TBD
+
+  MAYOR_CANDIDACY_MIN_INFLUENCE: TBD
+  MAYOR_CANDIDACY_MIN_CIVIC: TBD
+  MAYOR_CANDIDACY_MIN_LEVEL: TBD
+  MAYOR_CANDIDACY_MIN_REPUTATION: TBD
+
+  MANDATE_DURATION_DAYS: TBD
+  ELECTION_CAMPAIGN_DURATION: TBD
+  VOTING_WINDOW_DURATION: TBD
+  ELECTION_CYCLE_INTERVAL: TBD
+
+  PLAYER_VOTE_WEIGHT: TBD
+  NPC_VOTE_WEIGHT: TBD
+  PARTICIPATION_RATE_NPC: TBD
+  PARTICIPATION_RATE_PLAYER: TBD
+
+  SUPPORT_THRESHOLD_REELECTION: TBD
+  SUPPORT_THRESHOLD_CRISIS: TBD
+  SUPPORT_DECAY_RATE: TBD
+
+  TAX_EFFECT_FORMULA: TBD
+  LAW_EFFECT_PER_CITIZEN: TBD
+  CAMPAIGN_SCORE_FORMULA: TBD
+
+  LEVER_UNLOCK_POLITICAL_LEVEL: TBD
+  LEVER_UNLOCK_MILESTONE: TBD
+
+  POLITICAL_TASK_TIME_COST: TBD
+  CAMPAIGN_TIME_COST: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - task_main_v1
+      - criminal_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - business_module
+      - relationship_module
+      - family_module
+      - notification_module
+
+  futurePack:
+    note: political_balance_v1 — DA DEFINIRE dopo calibrazione economy

@@ -1,0 +1,12 @@
+# =============================================================================
+# ECONOMY INTEGRATION — property_v1
+# =============================================================================
+
+---
+EconomyIntegration:
+  purchase: TRANSFER not creation
+  rent: TRANSFER
+  tax: per tax rules
+  maintenance: transaction
+  systemSeller: transfer or sink per explicit rule
+  status: DECISIONE APPROVATA

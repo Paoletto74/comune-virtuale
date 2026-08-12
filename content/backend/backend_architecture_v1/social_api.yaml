@@ -1,0 +1,23 @@
+# =============================================================================
+# SOCIAL API — financial effects via Banking
+# =============================================================================
+
+SocialApi:
+  sourceOfTruth: SocialService
+  endpoints:
+    commands:
+      items:
+        - "POST /api/v1/social/gift"
+        - "POST /api/v1/social/loan/request"
+        - "POST /api/v1/social/loan"
+        - "POST /api/v1/social/sympathy"
+    queries:
+      items:
+        - "GET /api/v1/social/relationships"
+        - "GET /api/v1/social/reputation"
+
+financialEffects: passano da Banking — NON duplicati in Social
+
+events:
+  items:
+    - SocialApiRequestProcessed

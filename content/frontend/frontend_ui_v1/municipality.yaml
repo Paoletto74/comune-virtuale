@@ -1,0 +1,46 @@
+# =============================================================================
+# MUNICIPALITY — Comune section, info, mayor, candidacy
+# =============================================================================
+
+Comune:
+  DECISIONE APPROVATA: sezione centrale — tre aree
+  areas:
+    items:
+      - INFO_COMUNE
+      - CITTADINI
+      - CLASSIFICHE
+
+InfoComune:
+  shows:
+    items:
+      - nome_comune
+      - popolazione
+      - inflazione
+      - patrimonio_cassa
+      - sindaco
+      - grafico_inflazione
+      - stato_candidabilita_sindaco
+
+Mayor:
+  DECISIONE APPROVATA: |
+    Se no Sindaco: stato appropriato.
+    Se esiste: nome Sindaco.
+    NON dedurre Sindaco dal livello L25.
+
+MayorCandidacy:
+  shows:
+    items:
+      - requisiti
+      - stato_attuale
+      - requisiti_soddisfatti
+      - requisiti_mancanti
+  sourceOfTruth: Political System — UI NON calcola requisiti autonomamente
+
+InflationGraph:
+  DECISIONE APPROVATA: grafico reale storico inflazione — source Municipality Service
+
+api: municipality_api.yaml
+
+events:
+  items:
+    - ComuneInfoViewed

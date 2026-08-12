@@ -1,0 +1,11 @@
+# =============================================================================
+# ORGANIZATION VISUALS — logo/emblem visualAssetId
+# =============================================================================
+
+OrganizationVisuals:
+  field: visualAssetId — logo/emblem
+  sourceOfTruth: Visual System
+
+events:
+  items:
+    - OrganizationVisualResolved

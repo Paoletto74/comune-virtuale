@@ -1,0 +1,13 @@
+# =============================================================================
+# AUDIO REFS — UI riceve soundId
+# =============================================================================
+
+AudioIntegration:
+  DECISIONE APPROVATA: |
+    UI NON gestisce file audio direttamente.
+    Riceve soundId — Audio System gestisce playback.
+  ref: visual_main_v1/audio_refs.yaml
+
+events:
+  items:
+    - UISoundTriggered

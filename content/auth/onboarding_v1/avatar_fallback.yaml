@@ -1,0 +1,11 @@
+# =============================================================================
+# AVATAR FALLBACK — default character
+# =============================================================================
+
+AvatarFallback:
+  rule: se giocatore non personalizza — default character coerente con Visual System
+  ref: visual_main_v1, contextual_visuals_v1
+
+events:
+  items:
+    - AvatarFallbackApplied

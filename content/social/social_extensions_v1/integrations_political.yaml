@@ -1,0 +1,33 @@
+# =============================================================================
+# INTEGRATION — political_main_v1
+# =============================================================================
+
+PoliticalIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — political_main_v1
+
+  boundary:
+    politicalOwns:
+      items:
+        - candidacy
+        - elections
+        - office
+        - policy_outcome
+    socialMay:
+      items:
+        - popularity_signals
+        - influence_related_contacts
+        - controlled_political_preset_messages
+
+  presetExamples:
+    ref: social_main_v1/integrations.yaml
+    items:
+      - vote_support
+      - vote_against
+      - candidacy_announcement
+      - proposal_support
+
+  socialDoesNotDecide: political_outcome
+
+  note: political_contact come status — TBD

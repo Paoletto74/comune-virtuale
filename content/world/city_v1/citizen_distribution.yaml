@@ -1,0 +1,12 @@
+# =============================================================================
+# CITIZEN DISTRIBUTION — future district visualization
+# =============================================================================
+
+CitizenDistribution:
+  status: PROPOSTA TECNICA — future
+  concept: cittadini per distretto
+  privacy: ref citizen_location_privacy.yaml — NON dati individuali non pubblici
+
+events:
+  items:
+    - CitizenDistributionViewed

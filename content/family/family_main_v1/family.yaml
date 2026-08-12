@@ -1,0 +1,47 @@
+# =============================================================================
+# FAMILY ENTITY
+# =============================================================================
+
+Family:
+  schema:
+    familyId: string
+    memberIds: []
+    primaryCitizenId: string
+    householdRef: string | null
+    sharedAssetsRef: string | null
+    createdAt: timestamp
+    status: active | dissolved | separated
+
+  DECISIONE APPROVATA: |
+    famiglia ≠ stessa casa obbligatoriamente.
+    Membri possono vivere in abitazioni diverse, città diverse.
+
+FamilyMember:
+  schema:
+    familyId: string
+    citizenId: string
+    roleInFamily: string
+    joinedAt: timestamp
+    status: active | departed
+
+livingArrangement:
+  rule: Registrato in Family — Property System resta proprietario immobili
+  options:
+    items:
+      - same_residence
+      - separate_residences
+      - distant_locations
+      - other
+
+familyOptional:
+  DECISIONE APPROVATA: |
+    Progressione NON richiede partner/matrimonio/figli.
+    Single può raggiungere livelli alti.
+    Famiglia = vantaggi e svantaggi diversi — non sempre vantaggiosa.
+
+events:
+  items:
+    - FamilyCreated
+    - FamilyMemberAdded
+    - FamilyMemberRemoved
+    - FamilyDissolved

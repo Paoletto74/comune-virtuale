@@ -1,0 +1,34 @@
+# =============================================================================
+# UI NAVIGATION — entry points social
+# =============================================================================
+
+SocialNavigation:
+  status: PROPOSTA TECNICA
+
+  entryPoints:
+    items:
+      - home_social_section
+      - activities_tab
+      - notification_tap
+      - popup_cta
+      - profile_social_tab
+      - gazzetta_article_link
+      - task_social_context
+      - deep_link
+
+  deepLink:
+    rule: NON bypassa authorization
+    mustValidate:
+      items:
+        - actor_session
+        - privacy
+        - block_state
+        - target_visibility
+
+  platforms:
+    items:
+      - android
+      - iphone
+      - windows
+      - macos
+    rule: mobile-first

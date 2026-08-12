@@ -1,0 +1,42 @@
+# =============================================================================
+# REPOSITORIES — data access abstraction
+# =============================================================================
+
+RepositoryLayer:
+  responsibility: persistence abstraction between domain and database
+  rule: domain services NON accedono direttamente al database
+
+repositories:
+  items:
+    - AccountRepository
+    - CitizenRepository
+    - ProfileRepository
+    - LedgerRepository
+    - BalanceRepository
+    - ItemInstanceRepository
+    - PropertyInstanceRepository
+    - VehicleInstanceRepository
+    - ListingRepository
+    - TaskInstanceRepository
+    - NotificationRepository
+    - ProgressionRepository
+    - SocialRepository
+    - PoliticalRepository
+    - CriminalRepository
+    - BusinessRepository
+    - FamilyRepository
+    - NpcRepository
+    - MunicipalityRepository
+    - PublishedNewsRepository
+    - RankingSnapshotRepository
+    - ContentRepository
+    - AuditRepository
+    - HistoryRepository
+
+testability:
+  DECISIONE APPROVATA: domain services testabili con mock repositories
+
+events:
+  items:
+    - RepositoryRead
+    - RepositoryWrite

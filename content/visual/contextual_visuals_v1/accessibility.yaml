@@ -1,0 +1,17 @@
+# =============================================================================
+# ACCESSIBILITY — alt text, decorative, screen reader
+# =============================================================================
+
+Accessibility:
+  altDescription:
+    rule: ogni visual importante puo avere accessibility description
+    rule2: NON affidarsi esclusivamente all'immagine
+  decorative:
+    field: decorative true for purely decorative images
+  screenReader:
+    rule: NON duplicare inutilmente testo gia presente
+  ref: frontend_ui_v1
+
+events:
+  items:
+    - AccessibilityDescriptionApplied

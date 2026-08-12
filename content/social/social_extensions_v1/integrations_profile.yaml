@@ -1,0 +1,26 @@
+# =============================================================================
+# INTEGRATION — profile_main_v1
+# =============================================================================
+
+ProfileIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/privacy.yaml — profilePrivacy
+
+  profileMayShow:
+    items:
+      - social_title
+      - selected_relationship_info
+      - public_social_stats
+      - social_rankings
+      - public_achievements
+
+  profileMustNotShowAutomatically:
+    items:
+      - private_messages
+      - private_relationship_history
+      - hidden_social_data
+      - gift_recipients
+      - private_loans
+
+  rule: Profile e display layer — Social resta SOT interaction data

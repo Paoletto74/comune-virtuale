@@ -1,0 +1,23 @@
+# =============================================================================
+# BULK OPERATIONS
+# =============================================================================
+
+BulkImport:
+  ref: import.yaml
+
+BulkEdit:
+  status: PROPOSTA TECNICA
+  allowedFields:
+    items:
+      - category
+      - tags
+      - visibility
+      - status
+  restricted:
+    DECISIONE APPROVATA: |
+      NON bulk edit su dati economici, formule core, rewards sensibili.
+
+events:
+  items:
+    - BulkImportCompleted
+    - BulkEditApplied

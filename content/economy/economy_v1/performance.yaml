@@ -1,0 +1,8 @@
+# =============================================================================
+# PERFORMANCE — economy_v1
+# =============================================================================
+
+---
+Performance:
+  loadTest: many simultaneous transactions
+  status: PROPOSTA TECNICA

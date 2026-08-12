@@ -1,0 +1,16 @@
+# =============================================================================
+# RECURRENCE — time_v1
+# =============================================================================
+
+---
+Recurrence:
+  types:
+  - daily
+  - weekly
+  - monthly
+  - annual
+  - custom
+  status: PROPOSTA TECNICA future
+events:
+  items:
+  - RecurrenceTriggered

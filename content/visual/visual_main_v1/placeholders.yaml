@@ -1,0 +1,71 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_VISUAL_STYLE_ID: TBD
+  CDN_STORAGE_PROVIDER: TBD
+  IMAGE_FORMAT_DEFAULT: TBD
+
+  THUMBNAIL_MAX_WIDTH: TBD
+  THUMBNAIL_MAX_HEIGHT: TBD
+  MARKETPLACE_CARD_SIZE: TBD
+  PROFILE_HERO_SIZE: TBD
+  POPUP_IMAGE_SIZE: TBD
+
+  POPUP_DURATION_INFO: TBD
+  POPUP_DURATION_IMPORTANT: TBD
+  POPUP_DURATION_MAJOR: TBD
+  POPUP_DURATION_LEGENDARY: TBD
+
+  POPUP_QUEUE_MAX_CONCURRENT: TBD
+  OFFLINE_POPUP_MAX_ON_LOGIN: TBD
+
+  CACHE_TTL_VISUAL_ASSET: TBD
+  CACHE_TTL_PROFILE_SHOWCASE: TBD
+
+  PLACEHOLDER_ITEM_ASSET_ID: TBD
+  PLACEHOLDER_VEHICLE_ASSET_ID: TBD
+  PLACEHOLDER_PROPERTY_ASSET_ID: TBD
+  PLACEHOLDER_CHARACTER_ASSET_ID: TBD
+  PLACEHOLDER_EVENT_ASSET_ID: TBD
+  PLACEHOLDER_NEWS_ASSET_ID: TBD
+  PLACEHOLDER_POPUP_ASSET_ID: TBD
+
+  COMPOSITION_DEFAULT_TEMPLATE_ID: TBD
+  LOWER_END_COMPOSITION_TEMPLATE_ID: TBD
+  PRESTIGE_COMPOSITION_TEMPLATE_ID: TBD
+
+  dependsOnSystems:
+    items:
+      - profile_main_v1
+      - inventory_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - marketplace_main_v1
+      - notification_main_v1
+      - event_main_v1
+      - progression_main_v1
+      - social_main_v1
+      - npc_main_v1
+      - time_main_v1
+
+  futurePack:
+    note: visual_balance_v1 — dimensioni, popup timing, style palette — DA DEFINIRE
+
+  contentPackNote: |
+    visual_main_v1 — metadata asset, presentation, composizioni, popup.
+    NO libreria immagini completa V1. Pack approvati NON modificati.
+
+  contentFirst:
+    DECISIONE APPROVATA: NO hardcode immagini, titoli popup, testi, suoni, animazioni, composizioni
+
+  visualEvents:
+    items:
+      - VisualAssetUpdated
+      - ProfileVisualUpdated
+      - ProfileShowcaseChanged
+      - PopupTriggered
+      - PopupDisplayed
+      - PopupDismissed
+      - AudioTriggered

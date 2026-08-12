@@ -1,0 +1,21 @@
+# =============================================================================
+# EMPLOYER — work_careers_v1
+# =============================================================================
+
+---
+Employer:
+  types:
+  - player business
+  - NPC business
+  - municipality
+  - organization
+  - institution
+  authority:
+  - publish vacancy
+  - review
+  - hire
+  - reject
+  - promote
+  - suspend
+  - terminate
+  status: DECISIONE APPROVATA

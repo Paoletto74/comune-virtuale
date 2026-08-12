@@ -1,0 +1,13 @@
+# =============================================================================
+# MAINTENANCE COST — property_v1
+# =============================================================================
+
+---
+MaintenanceCost:
+  types:
+  - periodic
+  - event-based
+  - optional
+  - required
+  payment: Economy transaction
+  status: DECISIONE APPROVATA

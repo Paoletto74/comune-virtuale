@@ -1,0 +1,40 @@
+# =============================================================================
+# PLACEHOLDERS — economy_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+    - currency name
+    - decimal places
+    - negative balance policy
+    - overdraft
+    - bankruptcy rules
+    - interest math
+    - inflation formula
+    - tax activation
+    - credit score
+    - business valuation
+    - money supply categories definitive
+    - public financial stats policy
+    - transaction status definitive
+  invariants:
+    items:
+    - no money from nothing except authorized creation
+    - no double debit
+    - no double credit
+    - no negative balance unless explicit
+    - every transaction has source
+    - every transaction has timestamp
+    - creation has reason
+    - destruction has reason
+    - ledger authoritative
+    - ownership separate
+    - client not authoritative
+  moneySupplyExamples:
+    transfer: 'A 1000 to B 300: supply unchanged'
+    reward: 'system +100: supply +100'
+    burn: 'fee -50: supply -50'
+    deposit: 'cash to bank: supply unchanged'
+    withdrawal: 'bank to cash: supply unchanged'

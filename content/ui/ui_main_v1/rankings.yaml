@@ -1,0 +1,42 @@
+# =============================================================================
+# RANKINGS — classifiche globali e locali
+# =============================================================================
+
+RankingsSection:
+  categories:
+    items:
+      - richest
+      - poorest
+      - most_sympathetic
+      - most_influential
+      - most_popular
+      - usurer
+      - benefactor
+      - most_reliable
+      - most_generous
+      - most_hated
+      - ironic_future_categories
+
+RankingCard:
+  status: PROPOSTA TECNICA
+  mayShow:
+    items:
+      - position
+      - avatar
+      - name
+      - public_statistic
+      - title
+      - badge
+
+globalVsLocal:
+  status: PROPOSTA TECNICA
+  types:
+    items:
+      - GLOBAL_RANKING
+      - MUNICIPAL_RANKING
+  rule: V1 può avere un solo Comune — struttura estendibile
+
+events:
+  items:
+    - RankingsSectionViewed
+    - RankingCategoryOpened

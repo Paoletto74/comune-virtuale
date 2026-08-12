@@ -1,0 +1,18 @@
+# =============================================================================
+# ARCHIVE — prefer archive over delete
+# =============================================================================
+
+Archive:
+  status: ARCHIVED
+  prefer: ARCHIVE over DELETE especially for published content
+  playerArchive:
+    status: PROPOSTA TECNICA — published historical content
+  unpublish:
+    rule: audited — does not necessarily delete history
+  delete:
+    rule: prefer archive — confirmation required for published
+
+events:
+  items:
+    - ContentArchived
+    - ContentUnpublished

@@ -1,0 +1,44 @@
+# =============================================================================
+# OBSERVABILITY — metrics, correlation, audit
+# =============================================================================
+
+Observability:
+  metrics:
+    items:
+      - tick_duration
+      - system_duration
+      - queue_latency
+      - events_per_sec
+      - job_success
+      - retry_count
+      - npc_simulation_time
+      - api_to_domain_latency
+
+correlation:
+  ids:
+    items:
+      - correlationId
+      - executionId
+      - eventId
+      - requestId
+
+alerting:
+  items:
+    - financial_inconsistency
+    - runtime_failure
+    - repeated_job_failure
+    - queue_overload
+    - broken_references
+    - impossible_state
+
+audit:
+  items:
+    - critical_runtime_operations
+    - admin_publish
+    - financial_corrections
+    - political_results
+    - progression_anomalies
+
+events:
+  emits: [MetricRecorded, AlertTriggered]
+  consumes: []

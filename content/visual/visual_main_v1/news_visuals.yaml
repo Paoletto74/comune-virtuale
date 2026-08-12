@@ -1,0 +1,24 @@
+# =============================================================================
+# NEWS / GAZZETTA VISUALS
+# =============================================================================
+
+NewsVisual:
+  schema:
+    articleRef: string
+    visualAssetId: string
+    variantTypes:
+      items:
+        - image
+        - thumbnail
+        - illustration
+        - event_image
+        - citizen_portrait
+        - property_asset_image
+
+rule: |
+  Gazzetta decide headline, article, publication.
+  Visual System fornisce image, illustration, thumbnail.
+
+events:
+  items:
+    - NewsVisualResolved

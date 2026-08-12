@@ -1,0 +1,19 @@
+# =============================================================================
+# CRIME — cronaca nera visual language
+# =============================================================================
+
+CrimePresentation:
+  desk: CRIME DESK / CRONACA
+  rules:
+    DECISIONE APPROVATA:
+    items:
+      - NON usare gore
+      - NON glorificare automaticamente crimine
+      - privacy e visibility rules obbligatorie
+      - coerente con policy gioco
+
+ref: criminal_main_v1, profile_main_v1/visibility.yaml
+
+events:
+  items:
+    - CrimeDeskRendered

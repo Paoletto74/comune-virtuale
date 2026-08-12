@@ -1,0 +1,17 @@
+# =============================================================================
+# LIFECYCLE — DRAFT to DEPRECATED
+# =============================================================================
+
+Lifecycle:
+  statuses:
+    items:
+      - DRAFT
+      - REVIEW
+      - APPROVED
+      - PUBLISHED
+      - DEPRECATED
+  ref: governance.yaml, approval.yaml
+
+events:
+  items:
+    - VisualLifecycleUpdated

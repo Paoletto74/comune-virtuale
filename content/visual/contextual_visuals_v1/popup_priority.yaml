@@ -1,0 +1,18 @@
+# =============================================================================
+# POPUP PRIORITY — CRITICAL, HIGH, NORMAL, LOW visual rules
+# =============================================================================
+
+PopupPriority:
+  CRITICAL:
+    visual: large visual, headline, body, CTA, sound, animation
+    rule: evitare sovraccarico interfaccia
+  HIGH:
+    visual: visual medio, headline, body, CTA, sound opzionale
+  NORMAL:
+    notification: thumbnail/icon opzionale — NON immagini grandi obbligatorie
+  LOW:
+    visual: icon o nessun visual
+
+events:
+  items:
+    - PopupPriorityResolved

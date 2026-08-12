@@ -1,0 +1,18 @@
+# =============================================================================
+# DISCOVERY — progressive place discovery
+# =============================================================================
+
+Discovery:
+  rule: Citizen scopre luoghi progressivamente
+  example: "Nuovo luogo scoperto: Municipio."
+  cityGuide:
+    purpose: elenco luoghi principali
+    vsMap: City Guide = lista/categorie — Map = spatial representation
+  bookmarks:
+    status: PROPOSTA TECNICA — future favorite locations
+  recent:
+    status: PROPOSTA TECNICA — recently visited
+
+events:
+  items:
+    - LocationDiscovered

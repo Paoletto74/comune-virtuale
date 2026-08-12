@@ -1,0 +1,22 @@
+# =============================================================================
+# ONBOARDING PROGRESS — step indicator
+# =============================================================================
+
+OnboardingProgress:
+  indicator:
+    options:
+      items:
+        - "1/4 2/4 3/4 4/4"
+        - step_names
+  rule: NON renderlo troppo lungo
+  steps:
+    approximate:
+      items:
+        - Citizen_Identity
+        - Profile_Setup
+        - Avatar
+        - Confirmation
+
+events:
+  items:
+    - OnboardingProgressUpdated

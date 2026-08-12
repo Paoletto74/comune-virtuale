@@ -1,0 +1,17 @@
+# =============================================================================
+# ORGANIZATION ROLES — founder, owner, leader, member
+# =============================================================================
+
+OrganizationRoles:
+  roles:
+    items:
+      - founder
+      - owner
+      - leader
+      - officer
+      - member
+  rules: DA DEFINIRE / TBD per tipo
+
+events:
+  items:
+    - OrganizationRoleAssigned

@@ -1,0 +1,17 @@
+# =============================================================================
+# MONEY CREATION — economy_v1
+# =============================================================================
+
+---
+MoneyCreation:
+  sources:
+  - salary
+  - task reward
+  - business revenue
+  - government spending
+  - NPC economy
+  - special events
+  - admin grant
+  mustBeExplicit: true
+  classified: MONEY CREATION
+  status: DECISIONE APPROVATA

@@ -1,0 +1,11 @@
+# =============================================================================
+# STAGING — preview before production
+# =============================================================================
+
+Staging:
+  capability: Admin verifies content in staging before production
+  ref: environments.yaml
+
+events:
+  items:
+    - StagingPreviewCompleted

@@ -1,0 +1,15 @@
+# =============================================================================
+# UI TASK DETAIL — task_extensions_v1
+# =============================================================================
+
+---
+TaskDetail:
+  displays:
+  - context
+  - target
+  - options
+  - reward
+  - deadline
+  - requirements
+  - risks if configured
+  status: PROPOSTA TECNICA

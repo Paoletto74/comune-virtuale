@@ -1,0 +1,14 @@
+# =============================================================================
+# RENTAL HISTORY — property_v1
+# =============================================================================
+
+---
+RentalHistory:
+  fields:
+  - property
+  - tenant
+  - rent
+  - start
+  - end
+  - status
+  status: DECISIONE APPROVATA

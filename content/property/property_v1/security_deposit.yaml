@@ -1,0 +1,13 @@
+# =============================================================================
+# SECURITY DEPOSIT — property_v1
+# =============================================================================
+
+---
+SecurityDeposit:
+  separateFromRent: true
+  returnRules:
+  - returned
+  - partially retained
+  - retained
+  rules: TBD
+  status: DECISIONE APPROVATA

@@ -1,0 +1,8 @@
+# =============================================================================
+# BUSINESS INTEGRATION — economy_v1
+# =============================================================================
+
+---
+BusinessIntegration:
+  separateAccounts: business vs personal
+  status: DECISIONE APPROVATA

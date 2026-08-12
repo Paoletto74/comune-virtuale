@@ -1,0 +1,13 @@
+# =============================================================================
+# SOUND INTEGRATION — city event sound cues
+# =============================================================================
+
+SoundIntegration:
+  events: city events possono avere sound cues
+  ambient:
+    status: PROPOSTA TECNICA — future district ambience — NON obbligatorio V1
+  ref: sound_design_v1
+
+events:
+  items:
+    - CitySoundPlayed

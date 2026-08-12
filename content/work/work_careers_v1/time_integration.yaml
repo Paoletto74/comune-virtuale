@@ -1,0 +1,12 @@
+# =============================================================================
+# TIME INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+TimeIntegration:
+  uses:
+  - payday
+  - schedule
+  - contract dates
+  - listing expiration
+  status: DECISIONE APPROVATA

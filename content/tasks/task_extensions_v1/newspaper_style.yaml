@@ -1,0 +1,14 @@
+# =============================================================================
+# NEWSPAPER STYLE — task_extensions_v1
+# =============================================================================
+
+---
+NewspaperStyleUI:
+  direction: giornale di cronaca
+  elements:
+  - headline
+  - newspaper-style cards
+  - contextual illustration
+  - visualAssetId
+  doesNotDuplicateDesignSystem: true
+  status: PROPOSTA TECNICA

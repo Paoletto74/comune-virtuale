@@ -1,0 +1,24 @@
+# =============================================================================
+# INTEGRATION — event_main_v1
+# =============================================================================
+
+EventIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/events.yaml
+
+  eventToSocial:
+    items:
+      - birthday
+      - gift_event
+      - dispute
+      - discovery
+      - world_event
+      - major_social_event
+
+  socialToEvent:
+    pattern: SocialEvent → EventRequest → Event System
+    rule: Event System decide conseguenze persistenti e delayed effects
+
+  delayedConsequences:
+    ref: social_main_v1/relationships.yaml — Event System autorevole

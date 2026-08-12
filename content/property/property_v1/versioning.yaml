@@ -1,0 +1,9 @@
+# =============================================================================
+# VERSIONING — property_v1
+# =============================================================================
+
+---
+Versioning:
+  propertyConfigVersioned: true
+  historicalOwnershipRetainsVersion: true
+  status: DECISIONE APPROVATA

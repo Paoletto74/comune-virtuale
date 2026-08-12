@@ -1,0 +1,291 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: business ↔ economy
+    rule: DECISIONE APPROVATA — Business NON modifica cash direttamente
+    flows:
+      startup: |
+        Create Company → Economy Transaction → Ledger → company cashBalance
+      revenue: |
+        Revenue Event → Economy Pipeline → Transaction → Ledger
+      expense: |
+        Expense Event → Economy Pipeline → Transaction → Ledger
+      purchase_sale: |
+        Company acquisition → Economy → ownership transfer
+      payroll: |
+        Payroll → Economy → salary transactions
+    dataProvided:
+      items:
+        - companyValue
+        - companyCount
+        - revenue
+        - expenses
+        - profit
+        - assetEntity
+    dataConsumed:
+      items:
+        - inflation
+        - macro_state
+        - demand_supply
+        - tax_rates
+        - lending
+    inflation:
+      rule: Business reagisce — Economy possiede inflazione
+    netWorth:
+      rule: companyValue contribuisce a netWorth proprietario
+
+  work_main_v1:
+    direction: bidirectional
+    businessToWork:
+      provides:
+        items:
+          - Company entity
+          - JobPosition creation
+          - employer context
+      interface: Company → JobPosition → Employee → WorkSession → Salary
+    workToBusiness:
+      provides:
+        items:
+          - employment_contracts
+          - employee_performance
+          - hours_worked
+          - quality
+          - absences
+    separation:
+      business: datore, performance aggregata, payroll context
+      work: contratto, orari, task, performance individuale, carriera
+
+  property_main_v1:
+    direction: business ↔ property
+    businessUses:
+      items:
+        - headquarters
+        - shop
+        - office
+        - warehouse
+    propertyProvides:
+      items:
+        - propertyId
+        - location
+        - rent
+        - value
+    ownership: Property System
+
+  mobility_main_v1:
+    direction: business ↔ mobility
+    transportSector:
+      note: Azienda consegne — Mobility fornisce costi, tempi, affidabilità
+    businessUses:
+      items:
+        - vehicleRefs
+        - transport_costs
+        - delivery_performance
+
+  task_main_v1:
+    direction: bidirectional
+    businessToTask:
+      generates: owner_tasks, opportunity_tasks
+    taskToBusiness:
+      provides: decisions, outcomes
+    businessProvides: company_context
+
+  criminal_main_v1:
+    direction: criminal → business
+    rule: NON secondo sistema criminale dentro Business
+    events:
+      items:
+        - illicit_activity_on_company
+        - company_as_victim
+        - money_laundering_future
+    criminalProvides: events — Business reagisce
+
+  political_main_v1:
+    direction: political → business
+    policyEvents:
+      items:
+        - taxes
+        - regulation
+        - transport_policy
+        - services
+        - incentives
+    businessReacts: true
+
+  progression_main_v1:
+    direction: business → progression
+    trackId: entrepreneurial
+    provides:
+      items:
+        - entrepreneurialTrack
+        - businessExperience
+        - companyCount
+        - companyValue
+        - businessMilestones
+    doesNotAssign: mainLevel
+
+  progression_balance_v1:
+    consumes:
+      items:
+        - anti_grind
+        - population_context
+
+  event_system:
+    direction: bidirectional
+    business_emits:
+      items:
+        - CompanyFounded
+        - CompanyBankruptcyDeclared
+        - RevenueGenerated
+        - EmployeeHired
+        - CompanySold
+        - CompanyEventTriggered
+        - BusinessMilestoneReached
+        - LeverActivated
+    business_consumes:
+      items:
+        - PolicyActivated
+        - EconomicCrisis
+        - InflationChanged
+        - CrimeDiscovered
+        - PropertyDamaged
+
+  notification_system:
+    direction: business → notifications
+    rule: NO UI nel Business System
+    personal:
+      items:
+        - company_founded
+        - company_struggling
+        - profit_report
+        - loss_report
+        - new_employee
+        - employee_fired
+        - acquisition_offer
+        - company_sold
+    global:
+      items:
+        - major_company_failed
+        - major_company_opened
+        - economic_event
+    privacy: respected
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - periodic_revenue_expense_calc
+        - scheduled_events
+        - catch_up
+        - offline_simulation
+    offline:
+      rule: |
+        Aziende continuano offline — NPC mantengono operatività.
+        Possibili: calo performance, costi, eventi, crisi.
+        NON immune a problemi.
+      ownerUnavailable:
+        items:
+          - offline
+          - prison
+          - busy
+        companyContinues: within_limits — NPC employees
+      prisonRule: |
+        Proprietario in carcere — NON blocca automaticamente azienda.
+        Perde alcune decisioni — dipendenti/NPC continuano.
+
+  citizen_model:
+    ownerReputation: separate_from companyReputation
+
+  admin_panel:
+    configurable:
+      items:
+        - company_types
+        - requirements
+        - costs
+        - revenue
+        - expenses
+        - employees
+        - npc
+        - pricing
+        - quality
+        - reputation
+        - performance
+        - events
+        - milestones
+        - ownership
+        - market
+        - bankruptcy
+
+  security:
+    clientCannotDecide:
+      items:
+        - companyValue
+        - revenue
+        - profit
+        - ownership
+        - employees
+        - business_outcomes
+        - prices
+        - transactions
+
+  idempotency:
+    fields:
+      items:
+        - companyId
+        - transactionId
+        - ownershipTransferId
+        - actionId
+        - idempotencyKey
+    prevents:
+      items:
+        - double_sale
+        - double_acquisition
+        - double_profit
+        - duplicate_employees
+        - duplicate_assets
+
+  audit:
+    trace:
+      items:
+        - companyId
+        - ownerId
+        - action
+        - transaction
+        - employees
+        - revenue
+        - expenses
+        - events
+        - ownership_changes
+        - causalChainId
+
+  antiExploit:
+    protections:
+      items:
+        - duplicate_money
+        - duplicate_ownership
+        - duplicate_companies
+        - duplicate_profit
+        - simultaneous_buy_sell
+        - client_manipulation
+        - requirement_bypass
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM runtime
+    futureUse: content pack authoring offline
+
+  dividends:
+    status: future_compatibility
+    v1: not_implemented
+    futureFlow: profit → distribution → owner income
+
+  separationOfConcerns:
+    businessMustNot:
+      items:
+        - modify_cash_directly
+        - determine_individual_work_performance
+        - duplicate_work_system
+        - duplicate_economy_debt
+        - duplicate_criminal_system
+        - implement_notification_ui

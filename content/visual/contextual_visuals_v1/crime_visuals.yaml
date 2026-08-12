@@ -1,0 +1,15 @@
+# =============================================================================
+# CRIME VISUALS — tension, no glorification
+# =============================================================================
+
+CrimeVisuals:
+  style: visual tension
+  rule: NON glorificare automaticamente attivita criminali
+  arrest:
+    visual: crime.arrest.scene_01
+    pairing: police visual + arrest siren
+  ref: sound_design_v1/crime.yaml
+
+events:
+  items:
+    - CrimeVisualResolved

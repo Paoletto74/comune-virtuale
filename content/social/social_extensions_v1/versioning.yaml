@@ -1,0 +1,19 @@
+# =============================================================================
+# VERSIONING — definition versioning
+# =============================================================================
+
+Versioning:
+  status: PROPOSTA TECNICA
+
+  versionedEntities:
+    items:
+      - PresetMessageDefinition
+      - SocialActionDefinition
+      - ReactionDefinition
+
+  rule: |
+    Nuova versione definition non invalida MessageInstance gia creati.
+    Instance referenzia messageDefinitionId + version used at send time.
+
+  migration:
+    rule: TBD — backward compatibility policy

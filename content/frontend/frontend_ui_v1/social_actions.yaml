@@ -1,0 +1,31 @@
+# =============================================================================
+# SOCIAL ACTIONS — gifts, loans
+# =============================================================================
+
+SocialActions:
+  GiftFlow:
+    steps:
+      items:
+        - select_recipient
+        - select_item_or_money
+        - confirm
+        - backend_command
+    mustNot: modify Inventory/Banking directly from frontend
+
+  LoanFlow:
+    steps:
+      items:
+        - request
+        - terms
+        - confirm
+        - banking_social_backend
+        - result
+
+confirmationRequired: true
+
+api: social_api.yaml, banking via backend
+
+events:
+  items:
+    - GiftRequested
+    - LoanRequested

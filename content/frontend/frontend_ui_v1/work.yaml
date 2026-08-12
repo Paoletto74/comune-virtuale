@@ -1,0 +1,34 @@
+# =============================================================================
+# WORK — lavoro section within Mercato
+# =============================================================================
+
+Work:
+  shows:
+    items:
+      - lavori_disponibili
+      - categoria
+      - requisiti
+      - compenso
+      - orari
+      - stato_candidatura
+      - lavoro_attuale
+
+actions:
+  items:
+    - visualizza
+    - candidati
+    - accetta
+    - lascia
+  rule: ogni azione passa da Work API
+
+mustNot:
+  items:
+    - hardcode_salary
+    - hardcode_requirements
+
+api: work_api.yaml
+
+events:
+  items:
+    - JobViewed
+    - JobActionRequested

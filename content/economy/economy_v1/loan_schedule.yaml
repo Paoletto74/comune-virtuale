@@ -1,0 +1,13 @@
+# =============================================================================
+# LOAN SCHEDULE — economy_v1
+# =============================================================================
+
+---
+LoanSchedule:
+  fields:
+  - start
+  - maturity
+  - installments
+  - gracePeriod
+  timeRef: time_v1
+  status: DECISIONE APPROVATA

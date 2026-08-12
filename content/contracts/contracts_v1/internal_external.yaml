@@ -1,0 +1,19 @@
+# =============================================================================
+# INTERNAL VS EXTERNAL — contract visibility
+# =============================================================================
+
+InternalExternal:
+  DECISIONE APPROVATA: distinguere Internal Domain Contract da Public API Contract
+  rule: NON esporre automaticamente tutti internal events all'esterno
+
+internal:
+  examples: [BankTransferCompleted, SystemExecutionCompleted]
+  audience: domain services, event infrastructure
+
+external:
+  examples: [GetProfile response, PurchaseListing result]
+  audience: frontend via API
+
+events:
+  items:
+    - ContractVisibilityApplied

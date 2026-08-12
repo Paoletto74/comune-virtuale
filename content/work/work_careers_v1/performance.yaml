@@ -1,0 +1,12 @@
+# =============================================================================
+# PERFORMANCE — work_careers_v1
+# =============================================================================
+
+---
+Performance:
+  marketplace:
+  - pagination
+  - lazy loading
+  - search
+  - filtering
+  status: DECISIONE APPROVATA

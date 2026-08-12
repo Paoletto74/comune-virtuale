@@ -1,0 +1,33 @@
+# =============================================================================
+# PROFILE HUMOR — content-first, tono ironico
+# =============================================================================
+
+ProfileHumor:
+  DECISIONE APPROVATA: profilo può contenere elementi ironici
+  status: content-first — NO hardcode frasi nel motore
+
+HumorTemplate:
+  schema:
+    templateId: string
+    context: career | economy | social | general
+    textKey: string
+    tone: ironic | sarcastic | playful
+    enabled: boolean
+
+examples:
+  status: esempi dimostrativi
+  items:
+    - templateId: humor_doctor_monday
+      textExample: |
+        Professione: Medico.
+        Specializzazione: sopravvivere al lunedì.
+    - templateId: humor_wealth_vs_cash
+      textExample: |
+        Patrimonio: €850.000.
+        Liquidi disponibili: €17.
+
+rule: Admin Content Studio modifica humor templates
+
+events:
+  items:
+    - ProfileHumorDisplayed

@@ -1,0 +1,20 @@
+# =============================================================================
+# ADMIN MAPPING — Event -> Sound -> Priority -> Variant -> Enabled
+# =============================================================================
+
+AdminMapping:
+  view:
+    columns:
+      items:
+        - Event
+        - Sound
+        - Priority
+        - Variant
+        - Enabled
+  config:
+    rule: Admin configura mapping — NON upload audio arbitrario senza validation
+  ref: upload_workflow.yaml
+
+events:
+  items:
+    - AdminMappingUpdated

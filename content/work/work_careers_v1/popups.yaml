@@ -1,0 +1,12 @@
+# =============================================================================
+# POPUPS — work_careers_v1
+# =============================================================================
+
+---
+WorkPopups:
+  highImportance:
+  - hired
+  - promoted
+  - fired
+  - major salary increase
+  status: DECISIONE APPROVATA

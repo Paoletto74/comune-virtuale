@@ -1,0 +1,16 @@
+# =============================================================================
+# PRIVACY — no microphone, no personal audio data
+# =============================================================================
+
+AudioPrivacy:
+  DECISIONE APPROVATA:
+  microphone: OFF / NOT REQUIRED
+  rule: gioco NON richiede accesso microfono per sound design normale
+  noCollection:
+    items:
+      - microphone_data
+      - unnecessary_personal_audio_data
+
+events:
+  items:
+    - AudioPrivacyEnforced

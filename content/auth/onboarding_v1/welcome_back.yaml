@@ -1,0 +1,16 @@
+# =============================================================================
+# WELCOME BACK — returning player
+# =============================================================================
+
+WelcomeBack:
+  secondLogin:
+    rule: NON ripetere onboarding
+  message:
+    optional: "Bentornato."
+    rule: NON popup obbligatorio ogni login
+  backend:
+    distinguish: new_citizen vs returning_citizen
+
+events:
+  items:
+    - WelcomeBackShown

@@ -1,0 +1,33 @@
+# =============================================================================
+# NPC DATA — simulated citizen, simulation levels
+# =============================================================================
+
+NpcPopulation:
+  scaleTarget: 10 giocatori + 10.000 NPC iniziali
+  DECISIONE APPROVATA: struttura compatibile con Citizen quando utile
+  rule: evitare 10.000 account reali se non necessario
+
+SimulatedCitizen:
+  type: PERSISTENT | AGGREGATED
+  schema:
+    citizenId: string
+    simulationLevel: FULL | PARTIAL | AGGREGATED
+    aggregatedStats: object
+
+simulationLevels:
+  status: PROPOSTA TECNICA — scelta dinamica TBD
+  levels:
+    items:
+      - FULL_SIMULATION
+      - PARTIAL_SIMULATION
+      - AGGREGATED_SIMULATION
+
+rule: |
+  Popolazione generabile, aggiornabile, simulabile, aggregabile.
+  NON simulare ogni dettaglio di ogni NPC ogni secondo.
+
+ref: npc_main_v1
+
+events:
+  items:
+    - NpcPopulationUpdated

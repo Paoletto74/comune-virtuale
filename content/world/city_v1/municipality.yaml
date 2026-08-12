@@ -1,0 +1,30 @@
+# =============================================================================
+# MUNICIPALITY — City vs Municipality separation
+# =============================================================================
+
+Municipality:
+  DECISIONE APPROVATA:
+  distinction:
+    City: ambiente geografico/virtuale
+    Municipality: entita amministrativa/politica
+  relationship:
+    rule: citta associata a MunicipalityId — authoritative
+    contains:
+      items:
+        - districts
+        - neighborhoods
+        - locations
+  status:
+    sourceOfTruth: Municipality/Political System — ref political_main_v1
+    fields:
+      items:
+        - population
+        - inflation
+        - treasury
+        - mayor
+        - level
+        - events
+
+events:
+  items:
+    - MunicipalityLinked

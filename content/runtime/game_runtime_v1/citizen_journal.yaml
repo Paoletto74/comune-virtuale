@@ -1,0 +1,20 @@
+# =============================================================================
+# CITIZEN JOURNAL — future personal timeline
+# =============================================================================
+
+CitizenJournal:
+  status: PROPOSTA TECNICA — NON implementare
+  concept: timeline personale Citizen
+  examples:
+    items:
+      - assunzione
+      - acquisto_casa
+      - matrimonio
+      - level_up
+      - elezione
+      - evento_criminale
+      - grandi_transazioni
+
+events:
+  emits: [JournalEntryCreated]
+  consumes: [DomainEventPublished]

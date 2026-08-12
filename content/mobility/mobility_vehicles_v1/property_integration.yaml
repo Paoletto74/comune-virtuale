@@ -1,0 +1,16 @@
+# =============================================================================
+# PROPERTY INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+PropertyIntegration:
+  propertyProvides:
+  - residence
+  - property location
+  - garage feature
+  mobilityProvides:
+  - commute
+  - travel
+  - mobility mode
+  scenario: Villa + Garage + Ferrari showcase
+  status: PROPOSTA TECNICA

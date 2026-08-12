@@ -1,0 +1,89 @@
+# =============================================================================
+# SCHEDULES & ACTIVITIES
+# =============================================================================
+
+TimedActivity:
+  schema:
+    activityId: string
+    actorId: string
+    activityType: string
+    startedAt: timestamp
+    endsAt: timestamp
+    status: scheduled | active | completed | cancelled | interrupted
+    interruptPolicy: string | null
+    sourceSystem: string
+  states:
+    items:
+      - scheduled
+      - active
+      - completed
+      - cancelled
+      - interrupted
+
+ActivityLock:
+  DECISIONE APPROVATA: |
+    Se attività blocca cittadino — Time System mantiene activityLock.
+    Dominio decide cosa è bloccato — Time gestiona solo durata.
+  example: LAVORA 8 ore — no licenziamento, no altro lavoro incompatibile
+
+ConcurrentActivities:
+  DECISIONE APPROVATA: |
+    Attività contemporanee solo se consentite.
+    Es. lavoro + rendita immobile OK.
+    NO 8h lavoro + 8h lavoro incompatibile.
+
+ActivityCompatibilityRule:
+  schema:
+    ruleId: string
+    activityTypeA: string
+    activityTypeB: string
+    compatible: boolean
+  owner: dominio definisce regole — Time valuta overlap
+
+CitizenSchedule:
+  status: PROPOSTA TECNICA
+  schema:
+    citizenId: string
+    entries: []
+  mayContain:
+    items:
+      - work
+      - sleep
+      - free_time
+      - travel
+      - family
+      - other
+  rule: NON simulazione minuto-per-minuto obbligatoria
+
+FreeTime:
+  DECISIONE APPROVATA: Time System calcola freeTime — domini NON duplicano
+  consumers:
+    items:
+      - progression
+      - work
+      - family
+      - task
+      - wellbeing
+
+Sleep:
+  status: PROPOSTA TECNICA
+  rule: NON simulatore medico — rest/sleep duration configurabile
+  effectsOn: stress, performance, happiness, health — formule TBD
+
+TravelTime:
+  rule: Mobility determina duration — Time registra start/duration/end
+  ref: mobility_main_v1
+
+WorkTime:
+  DECISIONE APPROVATA: Work usa Time per turni, durata, part/full-time, multi-job
+  ref: work_main_v1/daily_time.yaml
+  split: Time = quando/durata — Work = logica lavoro
+
+events:
+  items:
+    - TimedActivityStarted
+    - TimedActivityCompleted
+    - TimedActivityInterrupted
+    - ActivityLockApplied
+    - ActivityLockReleased
+    - FreeTimeCalculated

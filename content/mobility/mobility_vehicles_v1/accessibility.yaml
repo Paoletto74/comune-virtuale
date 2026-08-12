@@ -1,0 +1,11 @@
+# =============================================================================
+# ACCESSIBILITY — mobility_vehicles_v1
+# =============================================================================
+
+---
+Accessibility:
+  requirements:
+  - accessible controls
+  - readable duration
+  - screen reader
+  status: PROPOSTA TECNICA

@@ -1,0 +1,12 @@
+# =============================================================================
+# ECONOMY — mobility_vehicles_v1
+# =============================================================================
+
+---
+EconomyIntegration:
+  purchase: TRANSFER buyer to seller
+  maintenance: owner to service
+  publicTransport: Citizen to provider
+  valuationNoCashChange: DECISIONE APPROVATA
+  systemSeller: explicit config TBD
+  status: DECISIONE APPROVATA economic rules

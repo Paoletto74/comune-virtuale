@@ -1,0 +1,30 @@
+# =============================================================================
+# LOCKS — item temporaneamente non trasferibile
+# =============================================================================
+
+InventoryLock:
+  schema:
+    lockId: string
+    itemInstanceId: string
+    lockType: listing | loan | transfer_pending | seized | in_use | quest | task
+    lockedAt: timestamp
+    expiresAt: "timestamp | null"
+    sourceSystem: string
+    reason: string
+
+InventoryLocks:
+  DECISIONE APPROVATA: item locked non trasferibile
+  lockTypes:
+    items:
+      - in_sale_listing
+      - on_loan
+      - transfer_in_progress
+      - seized
+      - in_use
+      - quest_task_lock
+
+events:
+  items:
+    - ItemLocked
+    - ItemUnlocked
+    - LockExpired

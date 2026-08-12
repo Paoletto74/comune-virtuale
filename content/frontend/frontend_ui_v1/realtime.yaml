@@ -1,0 +1,26 @@
+# =============================================================================
+# REALTIME — updates, fallback
+# =============================================================================
+
+Realtime:
+  status: PROPOSTA TECNICA — solo quando backend supporta
+  candidates:
+    items:
+      - notification
+      - popup
+      - marketplace_changes
+      - events
+      - balance
+      - ranking
+
+fallback:
+  whenUnavailable:
+    items:
+      - polling
+      - refresh_on_focus
+      - manual_refresh
+  technology: TBD
+
+events:
+  items:
+    - RealtimeUpdateReceived

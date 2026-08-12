@@ -1,0 +1,15 @@
+# =============================================================================
+# INTEGRATIONS MOBILITY V1 — task_extensions_v1
+# =============================================================================
+
+---
+MobilityV1Integration:
+  contract: Task -> TravelRequired -> mobility_main_v1 -> TravelResult -> Task
+  mobilityDecides:
+  - duration
+  - cost
+  - travel
+  - delay
+  taskDecides: how result influences task outcome
+  noDuplicateRouteCalc: true
+  status: DECISIONE APPROVATA inherited from task_main integrations

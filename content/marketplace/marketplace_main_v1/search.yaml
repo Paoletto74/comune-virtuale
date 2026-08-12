@@ -1,0 +1,32 @@
+# =============================================================================
+# SEARCH — discovery
+# =============================================================================
+
+MarketSearch:
+  status: PROPOSTA TECNICA — no UI hardcoded
+  searchBy:
+    items:
+      - category
+      - subcategory
+      - price_range
+      - quality
+      - location
+      - seller
+      - sale_or_rent
+      - availability
+
+MarketSorting:
+  options:
+    items:
+      - price_asc
+      - price_desc
+      - most_recent
+      - cheapest
+      - most_expensive
+      - quality
+      - popularity
+      - relevance
+
+events:
+  items:
+    - MarketSearchPerformed

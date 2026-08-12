@@ -1,0 +1,10 @@
+# =============================================================================
+# VALUE HISTORY — property_v1
+# =============================================================================
+
+---
+ValueHistory:
+  historicalValuation: true
+  use: net worth graph
+  noInventedPoints: true
+  status: DECISIONE APPROVATA

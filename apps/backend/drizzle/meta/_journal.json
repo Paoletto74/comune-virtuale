@@ -1,0 +1,97 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1733680000000,
+      "tag": "0000_phase1_foundation",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1733770000000,
+      "tag": "0001_vertical_slice_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1733860000000,
+      "tag": "0002_economy_cash_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1733950000000,
+      "tag": "0003_economic_accounts_transfer_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1734040000000,
+      "tag": "0004_risk_outcomes_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1734130000000,
+      "tag": "0005_npc_relationships_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1734220000000,
+      "tag": "0006_citizen_time_life_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1734310000000,
+      "tag": "0007_flash_opportunities_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1734400000000,
+      "tag": "0008_citizen_progression_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1734490000000,
+      "tag": "0009_world_events_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1734580000000,
+      "tag": "0010_story_threads_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1734670000000,
+      "tag": "0011_game_surface_v1",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1734760000000,
+      "tag": "0012_world_event_popup_dismiss",
+      "breakpoints": true
+    }
+  ]
+}

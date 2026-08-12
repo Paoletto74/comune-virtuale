@@ -1,0 +1,292 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: task → economy
+    rule: DECISIONE APPROVATA — Task NON modifica cash direttamente
+    flow: |
+      Task Option → Effect(cash) → Action(MoneyEffectRequested)
+      → Economy Pipeline → Transaction → Ledger
+    examples:
+      items:
+        - reward
+        - fine
+        - theft_gain
+        - gift
+        - loan_request_presentation
+    dataConsumed:
+      items:
+        - cash
+        - debt
+        - netWorth
+        - economicPosition
+
+  work_main_v1:
+    direction: bidirectional
+    workToTask:
+      provides:
+        items:
+          - jobId
+          - jobCategory
+          - employerId
+          - careerLevel
+          - performance
+          - workContext
+      generates: work_tasks_from_pool
+    taskToWork:
+      provides:
+        items:
+          - task_outcome
+          - quality_choice
+          - delivery_result
+      workDecides:
+        items:
+          - performance
+          - qualityOfWork
+          - career_effects
+
+  property_main_v1:
+    direction: bidirectional
+    propertyToTask:
+      triggers:
+        items:
+          - damage
+          - tenant_problem
+          - repair_needed
+          - sale_opportunity
+          - rental_issue
+    taskToProperty:
+      requests:
+        items:
+          - repair_action
+          - ownership_transfer_request
+          - rental_decision
+
+  mobility_main_v1:
+    direction: bidirectional
+    mobilityToTask:
+      triggers:
+        items:
+          - breakdown
+          - accident
+          - delay
+          - delivery_opportunity
+    taskToMobility:
+      flow: |
+        Task richiede Travel (originRef, destinationRef)
+        → Mobility calcola mode, duration, cost
+        → Task determina risultato (on_time, late, failed)
+      rule: Mobility calcola viaggio — Task decide esito
+
+  progression_balance_v1:
+    direction: task → progression
+    rule: Task NON decide mainLevel
+    provides:
+      items:
+        - experience
+        - milestones
+        - track_progress
+        - reputation_events
+    consumes:
+      items:
+        - anti_grind_rules
+        - level_context
+
+  criminal_system:
+    status: not_implemented
+    criminalToTask:
+      provides: criminal_task_definitions, risk_context
+    taskToCriminal:
+      provides: choice, outcome
+    criminalDecides:
+      items:
+        - heat
+        - discovery
+        - sanctions
+        - criminal_progression
+
+  political_system:
+    status: not_implemented
+    politicalToTask:
+      provides: decisions, campaigns, votes, laws, crises
+    taskToPolitical:
+      provides: citizen_choice
+    effects: per_citizen_individual
+
+  event_system:
+    direction: bidirectional
+    task_emits:
+      items:
+        - TaskCompleted
+        - TaskFailed
+        - TaskExpired
+        - OptionSelected
+        - ConsequenceApplied
+        - DelayedConsequenceScheduled
+        - GlobalEventDistributed
+        - EffectRequested
+    task_consumes:
+      items:
+        - PropertyDamaged
+        - VehicleBreakdown
+        - WorkSessionCompleted
+        - EconomicCrisis
+        - LawEnacted
+        - FireEvent
+        - any_domain_event
+
+  citizen_model:
+    personalValuesAffected:
+      items:
+        - happiness
+        - health
+        - culture
+        - education
+        - politicalInfluence
+        - popularity
+        - experience
+        - stress
+        - luck
+        - reliability
+        - civicParticipation
+        - freeTime
+        - reputation
+        - sympathy
+    delivery: EffectRequested → ModifyPersonalValue via Event System
+
+  npc_system:
+    direction: bidirectional
+    rule: NPC = cittadini simulati semplificati
+    npcCan:
+      items:
+        - receive_tasks
+        - be_targets
+        - be_actors_simplified
+        - suffer_consequences
+        - generate_demand
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - timestamps
+        - expiration
+        - delayed_consequences
+        - scheduled_events
+        - catch_up
+        - offline_processing
+
+  notification_system:
+    ref: notifications.yaml
+
+  admin_panel:
+    configurable:
+      items:
+        - categories
+        - definitions
+        - options
+        - conditions
+        - probabilities
+        - effects
+        - cooldowns
+        - durations
+        - priorities
+        - visibility
+        - consequences
+        - delays
+        - target_rules
+        - pools
+        - npc_behavior
+
+  security:
+    clientCannotDecide:
+      items:
+        - task_outcome
+        - probability_result
+        - effects
+        - target_selection
+        - rewards
+        - consequences
+        - final_state
+        - delayed_trigger_result
+
+  idempotency:
+    fields:
+      items:
+        - taskInstanceId
+        - actionId
+        - idempotencyKey
+    rule: |
+      Stessa azione non genera due volte denaro, effetti, proprietà,
+      conseguenze, notifiche critiche.
+
+  audit:
+    trace:
+      items:
+        - Task
+        - OptionSelected
+        - Outcome
+        - Effects
+        - Events
+        - DelayedConsequences
+    purpose:
+      items:
+        - debug
+        - security
+        - statistics
+        - future_history
+
+  causalChain:
+    fields:
+      items:
+        - actionId
+        - taskId
+        - eventId
+        - actorId
+        - targetId
+        - timestamp
+        - causalChainId
+    purpose:
+      items:
+        - consequence_chains
+        - audit
+        - notifications
+        - dynamic_delayed_evaluation
+
+  randomness:
+    controllable: true
+    fields:
+      items:
+        - randomSeed
+        - eventId
+        - taskId
+    purpose: riproducibilità per debug e audit
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM runtime
+    futureUse: content pack authoring offline only
+
+  ui:
+    direction: read_only_display
+    section: TASK
+    displays:
+      items:
+        - active_tasks
+        - filters_by_category
+        - expiration
+        - options
+    rule: Logica task NON in UI
+
+  separationOfConcerns:
+    taskMustNot:
+      items:
+        - modify_cash_directly
+        - transfer_property_directly
+        - compute_travel_directly
+        - decide_criminal_law
+        - decide_mainLevel
+        - implement_chat_libera
+        - implement_notification_ui

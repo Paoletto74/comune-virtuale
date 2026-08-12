@@ -1,0 +1,13 @@
+# =============================================================================
+# CRIME INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+CrimeIntegration:
+  possible:
+  - theft
+  - damage
+  - illegal driving
+  criminalOwner: Criminal System
+  mobilityEffect: vehicle state
+  status: PROPOSTA TECNICA

@@ -1,0 +1,17 @@
+# =============================================================================
+# FIRST TASK — configurable tutorial task
+# =============================================================================
+
+FirstTask:
+  examples:
+    items:
+      - Leggi_la_Gazzetta
+      - Visita_il_Mercato
+  reward: se presente — Task System — NON frontend
+  content: configurabile via Content System — NON hardcoded
+  ref: task_main_v1, content_system_v1
+
+events:
+  items:
+    - FirstTaskAssigned
+    - FirstTaskCompleted

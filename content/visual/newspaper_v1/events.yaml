@@ -1,0 +1,33 @@
+# =============================================================================
+# EVENTS — Special Edition
+# =============================================================================
+
+EventsPresentation:
+  majorEvents: SPECIAL EDITION
+  examples:
+    items:
+      - ELEZIONI
+      - CRISI_ECONOMICA
+      - GRANDE_FESTIVAL
+      - SCANDALO_POLITICO
+      - EVENTO_STRAORDINARIO
+  specialEdition:
+    mayModify:
+      items:
+        - Home_hero
+        - Gazzetta
+        - banner
+        - colori_accent
+        - headline
+    mustNotModify:
+      items:
+        - design_system_fondamentale
+        - base_typography
+        - accessibility
+        - navigation_fundamentals
+
+ref: event_main_v1, special_editions.yaml
+
+events:
+  items:
+    - SpecialEditionActivated

@@ -1,0 +1,25 @@
+# =============================================================================
+# JOB CONTENT — editorial vs work system
+# =============================================================================
+
+JobContent:
+  contentDefines:
+    items:
+      - job_title
+      - description
+      - employer_presentation
+      - requirements_text
+      - schedule_description
+      - flavour
+  workSystemOwns:
+    items:
+      - salary
+      - eligibility
+      - employment_state
+      - contract_rules
+
+ref: work_main_v1
+
+events:
+  items:
+    - JobContentSaved

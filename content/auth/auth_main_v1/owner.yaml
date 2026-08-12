@@ -1,0 +1,30 @@
+# =============================================================================
+# OWNER — protezioni speciali
+# =============================================================================
+
+OwnerRole:
+  DECISIONE APPROVATA: ruolo OWNER
+  mayHave:
+    items:
+      - full_access
+      - admin_management
+      - permission_management
+      - publish
+      - rollback
+      - emergency_disable
+      - sensitive_content
+  note: modello permette limitare alcuni poteri in futuro
+
+OwnerProtection:
+  DECISIONE APPROVATA: |
+    OWNER non eliminabile accidentalmente da Admin normale.
+    Protezioni speciali.
+
+LastOwner:
+  DECISIONE APPROVATA: |
+    NON rimuovere ultimo OWNER senza procedura esplicita recovery.
+
+events:
+  items:
+    - OwnerActionPerformed
+    - LastOwnerProtectionTriggered

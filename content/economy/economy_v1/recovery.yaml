@@ -1,0 +1,9 @@
+# =============================================================================
+# RECOVERY — economy_v1
+# =============================================================================
+
+---
+Recovery:
+  rule: ledger-first - NO rebuild from frontend
+  backup: ledger backup-able
+  status: DECISIONE APPROVATA

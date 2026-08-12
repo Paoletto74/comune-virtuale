@@ -1,0 +1,35 @@
+# =============================================================================
+# GOVERNANCE — visual direction and asset lifecycle
+# =============================================================================
+
+VisualGovernance:
+  visualDirection:
+    lifecycle:
+      items:
+        - Draft
+        - Review
+        - Approved
+        - Published
+  visualAsset:
+    lifecycle:
+      items:
+        - Draft
+        - Review
+        - Approved
+        - Published
+        - Deprecated
+
+adminPreview:
+  items:
+    - headline
+    - image
+    - caption
+    - category
+    - breaking_state
+    - mobile_view
+    - desktop_view
+  ref: admin_content_studio_v1
+
+events:
+  items:
+    - GovernanceStateChanged

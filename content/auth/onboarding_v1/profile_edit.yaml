@@ -1,0 +1,16 @@
+# =============================================================================
+# PROFILE EDIT — post-onboarding edits
+# =============================================================================
+
+ProfileEdit:
+  rule: dopo onboarding giocatore modifica dati consentiti
+  immutable:
+    status: PROPOSTA TECNICA — alcuni campi identity/game rules restricted
+    policy: DA DEFINIRE / TBD
+  discovery:
+    message: "Puoi modificare il tuo profilo in qualsiasi momento."
+  ref: profile_main_v1
+
+events:
+  items:
+    - ProfileEdited

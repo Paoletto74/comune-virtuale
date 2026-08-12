@@ -1,0 +1,9 @@
+# =============================================================================
+# PROPERTY TAX — property_v1
+# =============================================================================
+
+---
+PropertyTax:
+  propertyProvides: tax base/value
+  economyExecutes: transaction
+  status: PROPOSTA TECNICA

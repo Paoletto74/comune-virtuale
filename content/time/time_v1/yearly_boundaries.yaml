@@ -1,0 +1,14 @@
+# =============================================================================
+# YEARLY BOUNDARIES — time_v1
+# =============================================================================
+
+---
+YearlyBoundaries:
+  trigger: YearStarted
+  reactors:
+  - Elections
+  - Anniversaries
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - YearlyBoundaryCrossed

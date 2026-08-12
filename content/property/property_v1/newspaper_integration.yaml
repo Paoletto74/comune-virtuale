@@ -1,0 +1,13 @@
+# =============================================================================
+# NEWSPAPER INTEGRATION — property_v1
+# =============================================================================
+
+---
+NewspaperIntegration:
+  editorialCandidate: true
+  notAutoPublish: true
+  examples:
+  - luxury purchase
+  - mass development
+  - housing crisis
+  status: DECISIONE APPROVATA

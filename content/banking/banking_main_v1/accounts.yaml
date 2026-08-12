@@ -1,0 +1,44 @@
+# =============================================================================
+# BANK ACCOUNTS
+# =============================================================================
+
+BankAccount:
+  schema:
+    accountId: string
+    ownerId: string
+    ownerType: citizen | company | system
+    currency: string
+    balance: TBD
+    status: ACTIVE | FROZEN | CLOSED | BANKRUPT_RESTRICTED
+    createdAt: timestamp
+
+accountStatus:
+  items:
+    - status: ACTIVE
+      label: Attivo
+    - status: FROZEN
+      label: Congelato
+    - status: CLOSED
+      label: Chiuso
+    - status: BANKRUPT_RESTRICTED
+      label: Restrizioni bancarotta
+
+bankruptcyAccountRule:
+  DECISIONE APPROVATA: bancarotta NON chiude necessariamente il conto
+
+simpleBankingV1:
+  functions:
+    items:
+      - account
+      - deposit
+      - withdrawal
+      - transfer
+      - history
+      - loans
+
+events:
+  items:
+    - AccountCreated
+    - AccountStatusChanged
+    - DepositCompleted
+    - WithdrawalCompleted

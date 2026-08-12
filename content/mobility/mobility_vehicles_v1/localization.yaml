@@ -1,0 +1,10 @@
+# =============================================================================
+# LOCALIZATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+Localization:
+  currency: Economy formatter
+  time: Time formatter
+  names: Content System
+  status: PROPOSTA TECNICA

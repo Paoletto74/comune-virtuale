@@ -1,0 +1,17 @@
+# =============================================================================
+# DAY NIGHT — time_v1
+# =============================================================================
+
+---
+DayNight:
+  states:
+  - DAWN
+  - DAY
+  - DUSK
+  - NIGHT
+  source: Time System
+  thresholds: TBD
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DayPhaseChanged

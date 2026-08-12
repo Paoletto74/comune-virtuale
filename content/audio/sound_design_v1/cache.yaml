@@ -1,0 +1,13 @@
+# =============================================================================
+# CACHE — frequently used sounds cacheable
+# =============================================================================
+
+AudioCache:
+  cacheable: frequently used sounds
+  offline:
+    ref: offline.yaml
+    rule: audio assets cached where appropriate in PWA context
+
+events:
+  items:
+    - SoundCached

@@ -1,0 +1,22 @@
+# =============================================================================
+# PROPERTY TYPES — property_v1
+# =============================================================================
+
+---
+PropertyTypes:
+  residential:
+  - room
+  - studio
+  - apartment
+  - house
+  - villa
+  - penthouse
+  commercial:
+  - shop
+  - office
+  - warehouse
+  - industrial
+  - commercial property
+  special:
+  - special
+  status: DECISIONE APPROVATA

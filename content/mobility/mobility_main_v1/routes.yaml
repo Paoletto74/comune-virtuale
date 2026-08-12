@@ -1,0 +1,69 @@
+# =============================================================================
+# ROUTES — distanza e stima viaggio (NO mappa geografica reale)
+# =============================================================================
+
+RouteEstimate:
+  schema:
+    routeId: string
+    originZoneId: string
+    destinationZoneId: string
+    baseDistance: TBD
+    baseTravelTimeByMode: {}
+    modifiers: []
+
+distanceModel:
+  status: PROPOSTA_TECNICA
+  rule: |
+    NO simulazione geografica reale.
+    Utilizza distance, zone, travelTimeEstimate.
+  inputs:
+    items:
+      - originZoneId
+      - destinationZoneId
+      - mode
+      - vehicleSpeed
+      - publicTransportProfile
+      - zoneModifiers
+  outputs:
+    items:
+      - distance
+      - travelTimeEstimate
+      - travelCostEstimate
+
+zonePairMatrix:
+  status: skeleton_only
+  note: Matrice zone-to-zone — DA DEFINIRE
+  examples:
+    items:
+      - originZoneId: ZONE_CENTRO
+        destinationZoneId: ZONE_PERIFERIA_SUD
+        baseDistance: TBD
+        baseTravelTime_walk: TBD
+        baseTravelTime_public_transport: TBD
+        baseTravelTime_vehicle: TBD
+
+modifiers:
+  items:
+    - traffic
+    - weather
+    - events
+    - public_transport_disruption
+    - vehicle_condition
+    - reliability
+  formulas: TBD
+
+integration:
+  propertyProvides:
+    items:
+      - homeZoneId
+      - homeLocationRef
+  workProvides:
+    items:
+      - workplaceLocationRef
+      - workZoneId
+  mobilityComputes:
+    items:
+      - distance
+      - duration
+      - cost
+      - mode

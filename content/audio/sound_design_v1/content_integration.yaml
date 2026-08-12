@@ -1,0 +1,12 @@
+# =============================================================================
+# CONTENT INTEGRATION — soundCueId in notification content
+# =============================================================================
+
+ContentIntegration:
+  field: soundCueId
+  rule: Notification Content referenzia soundCueId — NON file URL
+  ref: content_system_v1/notification_content.yaml
+
+events:
+  items:
+    - ContentSoundCueResolved

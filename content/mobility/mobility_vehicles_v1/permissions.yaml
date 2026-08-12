@@ -1,0 +1,8 @@
+# =============================================================================
+# PERMISSIONS — mobility_vehicles_v1
+# =============================================================================
+
+---
+Permissions:
+  ownershipModification: admin permission required
+  status: PROPOSTA TECNICA

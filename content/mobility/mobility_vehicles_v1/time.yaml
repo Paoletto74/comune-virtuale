@@ -1,0 +1,14 @@
+# =============================================================================
+# TIME — mobility_vehicles_v1
+# =============================================================================
+
+---
+TimeIntegration:
+  travelDuration: Game Time
+  realTimeNotEqualGameTime: DECISIONE APPROVATA
+  uses:
+  - travel
+  - commute
+  - maintenance schedule
+  - listing expiration
+  status: DECISIONE APPROVATA

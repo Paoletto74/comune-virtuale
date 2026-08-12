@@ -1,0 +1,41 @@
+# =============================================================================
+# TITLES — presentation layer, Progression autorevole
+# =============================================================================
+
+TitlePresentation:
+  DECISIONE APPROVATA: Title Engine/Progression resta autorevole
+  profileShows:
+    items:
+      - primary_title
+      - earned_titles
+      - contextual_titles
+      - prestige_titles
+      - ironic_titles
+
+L25MayorDistinction:
+  "DECISIONE APPROVATA": "allinea progression_main_v1/visibility.yaml"
+  rule: |
+    levelLabel "SINDACO" NON significa automaticamente sindaco.
+    Distinguere levelLabel da activeRole.
+  examples:
+    items:
+      - level: 25
+        levelLabel: SINDACO
+        activeRole: Nessuno
+      - level: 25
+        levelLabel: SINDACO
+        activeRole: Sindaco
+
+activeRole:
+  DECISIONE APPROVATA: distinguere JOB da ROLE
+  examples:
+    items:
+      - job: medico
+        activeRole: sindaco
+      - job: imprenditore
+        activeRole: nessuno
+
+events:
+  items:
+    - TitleChanged
+    - TitleDisplayed

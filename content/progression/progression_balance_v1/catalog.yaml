@@ -1,0 +1,42 @@
+# =============================================================================
+# PROGRESSION BALANCE FRAMEWORK v1
+# =============================================================================
+# DECISIONE APPROVATA: separato da progression_main_v1
+#   CONTENT (main) = COSA è un livello
+#   BALANCE (this) = QUANTO è difficile raggiungerlo
+# Integrazione: levelId → progression_main_v1/levels.yaml
+# Valori numerici: TBD — nessun numero inventato
+# =============================================================================
+
+balanceId: progression_balance_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedContentPack:
+  catalogId: progression_main_v1
+  contentVersion: "1.0.0"
+  linkField: levelId
+
+# CONTENT + BALANCE = PROGRESSION RULES (risoluzione a runtime dal motore)
+resolutionModel: |
+  1. Progression Evaluator carica level da progression_main_v1 (narrativa, structure)
+  2. Carica balance da progression_balance_v1 (difficulty, placeholder values)
+  3. Risolve placeholderKey → valore da placeholderRegistry (quando non TBD)
+  4. Valuta requirementGroups con Requirement Engine
+  Nessun if level == X nel codice motore.
+
+includes:
+  schema: schema.yaml
+  placeholders: placeholders.yaml
+  pathProfiles: path_profiles.yaml
+  antiGrind: anti_grind.yaml
+  relativeRequirements: relative_requirements.yaml
+  population: population_context.yaml
+  metrics: balance_metrics.yaml
+  simulation: simulation_framework.yaml
+  levels: levels_balance.yaml
+  integration: integration.yaml
+
+notes:
+  numericValues: DA_DEFINIRE — dipendono da economia, lavori, criminalità, etc.
+  migration: DA_DEFINIRE — policy upgrade balance con giocatori attivi

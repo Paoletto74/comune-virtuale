@@ -1,0 +1,98 @@
+# =============================================================================
+# DOMAIN SERVICES — ownership, boundaries
+# =============================================================================
+
+DomainServices:
+  DECISIONE APPROVATA: ogni servizio conosce il proprio ownership — NO duplicazioni arbitrarie
+
+services:
+  AuthService:
+    sourceOfTruth: Auth
+    owns: [account, identity, session, permissions]
+  CitizenService:
+    sourceOfTruth: Citizen/GameState
+    owns: [citizen, game_state_refs]
+  ProfileService:
+    sourceOfTruth: Profile
+    owns: [profile, visibility, showcase]
+  ProgressionService:
+    sourceOfTruth: Progression
+    owns: [level, unlocks, available, milestones, titles]
+  EconomyService:
+    sourceOfTruth: Economy
+    owns: [net_worth_calculation, economic_position]
+  BankingService:
+    sourceOfTruth: Banking/Economy
+    owns: [money, ledger, balance]
+  WorkService:
+    sourceOfTruth: Work
+    owns: [employment, salary]
+  TaskService:
+    sourceOfTruth: Task
+    owns: [task_instances, task_state]
+  InventoryService:
+    sourceOfTruth: Inventory
+    owns: [item_ownership, item_instances]
+  PropertyService:
+    sourceOfTruth: Property
+    owns: [property_ownership]
+  MobilityService:
+    sourceOfTruth: Mobility
+    owns: [vehicle_ownership]
+  MarketplaceService:
+    sourceOfTruth: Marketplace
+    owns: [listings]
+  EventService:
+    sourceOfTruth: Event
+    owns: [event_occurrences]
+  NotificationService:
+    sourceOfTruth: Notification
+    owns: [notification_instances]
+  SocialService:
+    sourceOfTruth: Social
+    owns: [relationships, reputation, sympathy]
+  PoliticalService:
+    sourceOfTruth: Political
+    owns: [elections, roles, mayor]
+    note: L25 != Mayor — ruolo Sindaco deriva da Political System
+  CriminalService:
+    sourceOfTruth: Criminal
+    owns: [criminal_track, heat, history]
+  BusinessService:
+    sourceOfTruth: Business
+    owns: [companies]
+  FamilyService:
+    sourceOfTruth: Family
+    owns: [family_relationships, household]
+  NpcService:
+    sourceOfTruth: NPC
+    owns: [simulated_citizens, simulation_state]
+  MunicipalityService:
+    sourceOfTruth: Municipality
+    owns: [municipal_state, inflation]
+  GazzettaService:
+    sourceOfTruth: Gazzetta
+    owns: [published_news]
+  RankingService:
+    sourceOfTruth: Derived
+    owns: [rankings, snapshots]
+  ContentService:
+    sourceOfTruth: ContentStore
+    owns: [published_content, content_versions]
+  AdminService:
+    sourceOfTruth: Admin
+    owns: [admin_operations, audit_triggers]
+
+architecturalBoundaries:
+  perDomain:
+    items:
+      - public_api
+      - internal_service_interface
+      - persistence_ownership
+      - events_emitted
+      - events_consumed
+      - dependencies
+
+events:
+  items:
+    - DomainServiceInvoked

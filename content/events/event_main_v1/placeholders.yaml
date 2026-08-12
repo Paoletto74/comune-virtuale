@@ -1,0 +1,49 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  MAX_CASCADE_DEPTH: TBD
+  EVENT_BUDGET_PER_CHAIN: TBD
+  CYCLE_DETECTION_WINDOW: TBD
+
+  EVENT_PRIORITY_DEFAULT: TBD
+  SEQUENCE_NUMBER_STRATEGY: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION_DAYS: TBD
+  MAX_RETRIES: TBD
+  RETRY_BACKOFF_MS: TBD
+
+  STACKING_MAX_DEFAULT: TBD
+  TEMPORARY_EFFECT_DEFAULT_HOURS: TBD
+
+  GLOBAL_EVENT_RELEVANCE_THRESHOLD: TBD
+  OFFLINE_CATCHUP_BATCH_SIZE: TBD
+
+  ATOMIC_TRANSACTION_TIMEOUT_MS: TBD
+
+  CAUSAL_CHAIN_PLAYER_VISIBLE_DEPTH: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - task_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - business_main_v1
+      - family_main_v1
+      - progression_main_v1
+      - notification_main_v1
+      - time_system
+
+  futurePack:
+    note: event_balance_v1 — soglie cascade, stacking, anti-spam eventi — DA DEFINIRE
+
+  contentPackNote: |
+    event_main_v1 sostituisce concettualmente il riferimento
+    prompt_4_action_pipeline nei catalog futuri.
+    Pack approvati NON modificati in V1.

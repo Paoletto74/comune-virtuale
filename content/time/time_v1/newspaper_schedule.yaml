@@ -1,0 +1,15 @@
+# =============================================================================
+# NEWSPAPER SCHEDULE — time_v1
+# =============================================================================
+
+---
+NewspaperSchedule:
+  owner: Content/Editorial
+  dailyEdition: new Game Day eligible
+  breakingNews: immediate
+  gameDateDisplay: true
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - NewspaperEditionEligible
+  - BreakingNewsPublished

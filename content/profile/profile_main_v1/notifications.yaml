@@ -1,0 +1,19 @@
+# =============================================================================
+# NOTIFICATIONS — trigger verso notification_main_v1
+# =============================================================================
+
+notificationTriggers:
+  status: PROPOSTA TECNICA — notification_main_v1 decide testo/priorità
+  items:
+    - new_title
+    - new_achievement
+    - new_ranking
+    - role_change
+    - birthday
+    - important_profile_change
+    - wealth_milestone
+    - level_up
+
+events:
+  items:
+    - ProfileNotificationRequested

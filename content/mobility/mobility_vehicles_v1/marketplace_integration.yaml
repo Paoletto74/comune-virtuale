@@ -1,0 +1,9 @@
+# =============================================================================
+# MARKETPLACE INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+MarketplaceIntegration:
+  marketplace: discovery listing purchase sale
+  vehicleSystem: identity ownership state
+  status: DECISIONE APPROVATA separation

@@ -1,0 +1,12 @@
+# =============================================================================
+# ACCESSIBILITY — property_v1
+# =============================================================================
+
+---
+Accessibility:
+  requirements:
+  - keyboard
+  - screen reader
+  - accessible price
+  - accessible status
+  status: DECISIONE APPROVATA

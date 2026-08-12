@@ -1,0 +1,25 @@
+# =============================================================================
+# POLITICAL RUNTIME — elections, referendum, mayor
+# =============================================================================
+
+PoliticalRuntime:
+  tickProcesses:
+    items:
+      - election_deadlines
+      - referendum_deadlines
+      - candidacy_windows
+      - vote_counting
+      - mayor_state
+
+mayor:
+  DECISIONE APPROVATA: |
+    Runtime NON deve L25 -> Mayor.
+    Political System determina: eligible + candidate + election result + active role.
+
+sourceOfTruth: Political
+executionMode: tick-driven + event-driven
+ref: political_main_v1
+
+events:
+  emits: [ElectionHeld, ReferendumCompleted, MayorElected]
+  consumes: [PlayerCommandVote, GameTimeAdvanced]

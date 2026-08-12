@@ -1,0 +1,93 @@
+# =============================================================================
+# CRIMINAL ACTIVITIES — definizioni attività (astratte)
+# =============================================================================
+
+CriminalActivityDefinition:
+  schema:
+    activityId: string
+    categoryId: string
+    name: string
+    description: string
+    riskProfileRef: string
+    taskDefinitionRef: string
+    requirementsRef: string
+    rewardProfileRef: string
+    heatProfileRef: string
+    discoveryProfileRef: string
+    tags: []
+
+ActivityInstance:
+  schema:
+    criminalActionId: string
+    activityId: string
+    actorId: string
+    targetId: string | null
+    taskInstanceId: string | null
+    status: initiated | in_progress | completed | failed | discovered | penalized
+    outcome: success | failure | partial
+    discoveryStatus: string
+    heatChange: TBD
+    timestamp: timestamp
+    causalChainId: string
+    idempotencyKey: string
+
+activities:
+  status: skeleton_only
+  note: Catalogo definitivo attività — DA DEFINIRE in content pack futuro
+
+  demoPatterns:
+    items:
+      - activityId: DEMO_PETTY_THEFT
+        categoryId: early
+        name: Furto minore
+        riskProfileRef: RISK_LOW
+        note: Pattern astratto — non contenuto operativo
+
+      - activityId: DEMO_FRAUD
+        categoryId: mid
+        name: Truffa
+        riskProfileRef: RISK_MEDIUM
+        note: Pattern astratto
+
+      - activityId: DEMO_MAJOR_OPERATION
+        categoryId: very_high
+        name: Grande operazione
+        riskProfileRef: RISK_VERY_HIGH
+        note: Pattern astratto
+
+outcomeMatrix:
+  status: PROPOSTA_TECNICA
+  rule: DECISIONE APPROVATA — possibilità di farla franca
+  combinations:
+    items:
+      - success: true
+        discovery: false
+        note: Reato riuscito, guadagno, nessuna scoperta
+      - success: true
+        discovery: delayed
+        note: Reato riuscito, guadagno, scoperta dopo tempo
+      - success: false
+        discovery: false
+        note: Fallito, nessun guadagno, nessuna scoperta
+      - success: false
+        discovery: immediate
+        note: Fallito, scoperta immediata
+  probabilities: TBD
+
+failureOutcomes:
+  possible:
+    items:
+      - no_gain
+      - money_loss
+      - asset_loss
+      - heat_increase
+      - discovery
+      - injury
+      - follow_up_task
+  deathPermanent: false
+
+events:
+  items:
+    - CriminalActivityInitiated
+    - CriminalActivityCompleted
+    - CriminalActivityFailed

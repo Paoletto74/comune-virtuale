@@ -1,0 +1,14 @@
+# =============================================================================
+# SOCIAL DISCOVERY — friends, social graph future
+# =============================================================================
+
+SocialDiscovery:
+  friends:
+    status: "PROPOSTA TECNICA - lista amici con privacy/discoverability"
+  socialGraph:
+    status: "PROPOSTA TECNICA - future - NON simulazione completa V1"
+  example: "Nuovo cittadino conosciuto. (non obbligatorio)"
+
+events:
+  items:
+    - SocialDiscoveryTriggered

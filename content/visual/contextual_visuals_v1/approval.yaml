@@ -1,0 +1,21 @@
+# =============================================================================
+# APPROVAL — human review for all visuals
+# =============================================================================
+
+Approval:
+  DECISIONE APPROVATA:
+  workflow:
+    items:
+      - review
+      - approval
+      - publish
+  applies:
+    items:
+      - uploaded_visuals
+      - generated_visuals
+      - AI_suggested_visuals
+  ref: lifecycle.yaml
+
+events:
+  items:
+    - VisualApproved

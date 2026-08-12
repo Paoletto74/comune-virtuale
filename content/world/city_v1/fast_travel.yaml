@@ -1,0 +1,11 @@
+# =============================================================================
+# FAST TRAVEL — future instant travel
+# =============================================================================
+
+FastTravel:
+  status: PROPOSTA TECNICA — future
+  rule: NON necessariamente disponibile sempre
+
+events:
+  items:
+    - FastTravelUsed

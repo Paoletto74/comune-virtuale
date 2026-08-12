@@ -1,0 +1,22 @@
+# =============================================================================
+# EVENT INTEGRATION — domain events for city life
+# =============================================================================
+
+EventIntegration:
+  examples:
+    CitizenMet:
+      optional: notification
+    BusinessOpened:
+      optional: city notification, editorial candidate
+    BusinessClosed: {}
+    NpcArrived: {}
+    OrganizationJoined: {}
+    OrganizationLeft: {}
+  popup: only HIGH/CRITICAL
+  sound: semantic sound cue
+  visual: semantic visual cue
+  ref: contracts_v1/domain_events.yaml, event_main_v1
+
+events:
+  items:
+    - CityLifeDomainEventEmitted

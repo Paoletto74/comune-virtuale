@@ -1,0 +1,20 @@
+# =============================================================================
+# SKILLS — work_careers_v1
+# =============================================================================
+
+---
+Skills:
+  possible:
+  - communication
+  - management
+  - finance
+  - cooking
+  - mechanics
+  - driving
+  - journalism
+  - medicine
+  - law
+  - technology
+  separateFromLevel: true
+  systemTBD: true
+  status: PROPOSTA TECNICA

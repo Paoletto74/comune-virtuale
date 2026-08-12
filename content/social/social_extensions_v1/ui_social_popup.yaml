@@ -1,0 +1,56 @@
+# =============================================================================
+# UI SOCIAL POPUP — eventi importanti
+# =============================================================================
+
+SocialPopup:
+  status: PROPOSTA TECNICA
+
+  eligibility:
+    rule: Notification System decide popup eligibility
+    importantEvents:
+      items:
+        - major_gift
+        - major_reconciliation
+        - significant_breakup
+        - rare_social_event
+        - social_milestone
+        - major_benefaction
+        - public_scandal
+
+  queue:
+    rule: max un popup alla volta
+    ref: notification_main_v1
+
+  mayContain:
+    items:
+      - title
+      - message_via_textKey
+      - visual_asset_id
+      - sound_cue_id
+      - cta
+      - sender_recipient_context
+
+  visualMapping:
+    status: PROPOSTA TECNICA
+    examples:
+      items:
+        - eventType: gift
+          visualHint: coins_or_gift
+        - eventType: friendship
+          visualHint: two_characters
+        - eventType: conflict
+          visualHint: ironic_conflict
+        - eventType: loan
+          visualHint: money_or_document
+        - eventType: social_milestone
+          visualHint: character_portrait
+
+  sound:
+    rule: rispettare user sound settings, autoplay restrictions, reduced sound
+    ref: integrations_sound.yaml
+
+  frontendDoesNotDecide:
+    items:
+      - popup_eligibility
+      - effect_application
+      - relationship_change

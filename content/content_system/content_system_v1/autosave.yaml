@@ -1,0 +1,11 @@
+# =============================================================================
+# AUTOSAVE — draft autosave
+# =============================================================================
+
+Autosave:
+  status: PROPOSTA TECNICA — evaluate autosave for drafts
+  rule: autosave draft — MAI autosave = publish
+
+events:
+  items:
+    - DraftAutosaved

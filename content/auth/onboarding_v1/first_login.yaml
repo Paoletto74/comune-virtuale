@@ -1,0 +1,15 @@
+# =============================================================================
+# FIRST LOGIN — routing logic
+# =============================================================================
+
+FirstLogin:
+  DECISIONE APPROVATA:
+  noCitizen: -> onboarding
+  citizenExists: -> Home
+  partialAccount:
+    rule: Account creato ma Citizen non completato — resume onboarding
+  ref: auth_main_v1/citizen_association.yaml
+
+events:
+  items:
+    - FirstLoginRouted

@@ -1,0 +1,73 @@
+# =============================================================================
+# SOCIAL INTERACTION — schema extensions
+# =============================================================================
+
+SocialInteraction:
+  status: PROPOSTA TECNICA — allinea Prompt 49 a schema main
+
+  schema:
+    interactionId: string
+    actorId: string
+    targetId: string
+    actionType: string
+    messageDefinitionId: "string | null"
+    source: player | npc | system | event | task | economy | marketplace | work
+    timestamp: timestamp
+    worldTime: timestamp
+    outcome: pending | completed | blocked | expired | rejected
+    idempotencyKey: string
+    causalChainId: "string | null"
+
+  resolution:
+    clientSends:
+      items:
+        - actionId
+        - messageDefinitionId
+        - targetId
+        - idempotencyKey
+    serverValidates:
+      items:
+        - actor_authorization
+        - target_validity
+        - permission
+        - cooldown
+        - daily_limit
+        - visibility
+        - block_state
+        - mute_state
+        - requirements
+        - context
+    clientDoesNotDecide:
+      items:
+        - outcome
+        - relationship_score
+        - trust
+        - sympathy
+        - reputation
+        - effects
+
+DelayedSocialConsequence:
+  status: PROPOSTA TECNICA
+  rule: valutare al trigger — NON simulare continuamente
+  examples:
+    items:
+      - trigger: insult_today
+        future: rivalry_escalation
+      - trigger: gift_today
+        future: trust_increase
+
+SocialEventTypes:
+  status: PROPOSTA TECNICA — allineare contracts_v1
+  items:
+    - PresetMessageSent
+    - SocialActionPerformed
+    - RelationshipChanged
+    - TrustChanged
+    - GiftReceived
+    - LoanRequested
+    - CitizenBlocked
+    - CitizenUnblocked
+    - SocialDiscovery
+    - SocialMilestoneReached
+    - SympathyInteractionRecorded
+    - ReputationInteractionRecorded

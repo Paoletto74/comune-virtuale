@@ -1,0 +1,35 @@
+# =============================================================================
+# UI SOCIAL DETAIL — messaggio / interazione
+# =============================================================================
+
+SocialDetail:
+  status: PROPOSTA TECNICA
+
+  mayDisplay:
+    items:
+      - preset_message_text_via_textKey
+      - sender
+      - recipient
+      - available_reactions
+      - available_social_actions
+      - relationship_summary
+      - trust_hint_if_authorized
+      - context
+      - timestamp
+      - deadline_if_any
+      - requirements
+      - risks_if_configured
+
+  mustNotInvent:
+    items:
+      - free_text
+      - unauthorized_reactions
+      - relationship_modification
+      - effect_preview_not_configured
+
+  sections:
+    items:
+      - messages
+      - actions
+      - relationship_summary
+      - notifications_link

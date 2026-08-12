@@ -1,0 +1,123 @@
+# =============================================================================
+# EVENT MAPPING — eventType to visual resolution
+# =============================================================================
+
+EventMapping:
+  PlayerArrested:
+    visual: crime.arrest.scene_01
+    fallback: crime.arrest.generic
+    sound: crime.arrest_siren
+    popup: CRITICAL
+    layout: FULL_BLEED
+  LargeMoneyEarned:
+    visual: economy.large_gain.celebration
+    fallback: economy.gain.generic
+    sound: economy.coin_cascade
+    popup: HIGH
+    layout: IMAGE_TOP
+  MajorSpend:
+    visual: economy.major_spend.weight
+    fallback: economy.spend.generic
+    sound: economy.major_spend
+    popup: HIGH
+    layout: IMAGE_TOP
+  JobAccepted:
+    visual: work.job_accepted.office
+    fallback: work.generic
+    sound: work.job_accepted
+    popup: HIGH
+    layout: IMAGE_SIDE
+  JobLost:
+    visual: work.job_lost.departure
+    fallback: work.generic_negative
+    sound: work.job_lost
+    popup: HIGH
+    layout: IMAGE_TOP
+  LevelUp:
+    visual: progression.level_up.achievement
+    fallback: progression.achievement.generic
+    sound: progression.level_up
+    popup: HIGH
+    layout: CHARACTER_OBJECT
+  NewTitle:
+    visual: progression.new_title.prestige
+    fallback: progression.prestige.generic
+    sound: progression.new_title
+    popup: HIGH
+    layout: IMAGE_TOP
+  PropertyPurchased:
+    visual: "property.{propertyId}.hero"
+    fallback: property.acquisition.generic
+    sound: property.acquisition
+    popup: HIGH
+    layout: FULL_BLEED
+  VehiclePurchased:
+    visual: "vehicle.{vehicleId}.hero"
+    fallback: vehicle.acquisition.generic
+    sound: vehicle.acquisition
+    popup: HIGH
+    layout: FULL_BLEED
+  GiftReceived:
+    visual: social.gift.warm
+    fallback: social.gift.generic
+    sound: social.gift_warm
+    popup: NORMAL
+    layout: EDITORIAL_CARD
+  LoanReceived:
+    visual: economy.loan.credit
+    fallback: economy.loan.generic
+    sound: social.loan_credit
+    popup: HIGH
+    layout: IMAGE_SIDE
+  ElectionEvent:
+    visual: political.election.campaign
+    fallback: political.election.generic
+    sound: political.election
+    popup: HIGH
+    layout: IMAGE_TOP
+  MayorElected:
+    visual: political.mayor.victory
+    fallback: political.civic.generic
+    sound: political.mayor_victory
+    popup: CRITICAL
+    layout: FULL_BLEED
+  ReferendumResult:
+    visual: political.referendum.result
+    fallback: political.referendum.generic
+    sound: political.referendum_result
+    popup: HIGH
+    layout: EDITORIAL_CARD
+  BreakingNews:
+    visual: "news.{articleId}.hero"
+    fallback: news.breaking.generic
+    sound: news.breaking_sting
+    popup: CRITICAL
+    layout: EDITORIAL_CARD
+  ImportantMunicipalEvent:
+    visual: municipality.civic.event
+    fallback: municipality.generic
+    sound: municipality.civic_cue
+    popup: HIGH
+    layout: IMAGE_TOP
+  GlobalRankOne:
+    visual: ranking.number_one.achievement
+    fallback: ranking.prestige.generic
+    sound: ranking.achievement_number_one
+    popup: CRITICAL
+    layout: CHARACTER_OBJECT
+  TaskCompleted:
+    visual: progression.task.complete
+    fallback: progression.task.generic
+    sound: task.completion
+    popup: NORMAL
+    layout: EDITORIAL_CARD
+  Unlock:
+    visual: progression.unlock.discovery
+    fallback: progression.discovery.generic
+    sound: progression.discovery
+    popup: HIGH
+    layout: IMAGE_SIDE
+
+events:
+  items:
+    - EventMappedToVisual

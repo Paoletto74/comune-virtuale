@@ -1,0 +1,66 @@
+# =============================================================================
+# HEADER — logo, balance, profile, share, install, logout
+# =============================================================================
+
+Header:
+  DECISIONE APPROVATA:
+  elements:
+    items:
+      - LOGO
+      - SALDO
+      - PROFILO
+      - CONDIVIDI
+      - INSTALLA
+      - ESCI
+  note: ordine adattabile al responsive
+
+Logo:
+  properties:
+    items:
+      - always_recognizable
+      - clickable
+      - links_to_home
+      - responsive
+  asset: Visual/Asset System configurable
+
+Saldo:
+  shows:
+    items:
+      - liquidita_disponibile
+      - eventuale_indicatore_aggiornamento
+      - accesso_rapido_profilo_economia
+  mustNot:
+    items:
+      - dati_bancari_sensibili
+      - dati_falsi_durante_optimistic_update
+  sourceOfTruth: backend — saldo autorevole
+
+Share:
+  status: PROPOSTA TECNICA — NON implementare
+  destinations:
+    items:
+      - Web_Share_API
+      - copia_link
+      - social_fallback
+  payload: configurabile — NO referral economics in questo prompt
+
+InstallApp:
+  DECISIONE APPROVATA:
+  showWhen:
+    items:
+      - browser_supports_install
+      - PWA_criteria_satisfied
+  hideWhen: not available — NON pulsante inutilizzabile
+
+Logout:
+  flow:
+    items:
+      - call_backend
+      - invalidate_session
+      - return_to_landing_login
+  mustNot: cancel_game_state
+
+events:
+  items:
+    - HeaderBalanceUpdated
+    - LogoutCompleted

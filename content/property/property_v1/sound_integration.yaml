@@ -1,0 +1,13 @@
+# =============================================================================
+# SOUND INTEGRATION — property_v1
+# =============================================================================
+
+---
+SoundIntegration:
+  ref: sound_design_v1
+  cues:
+  - purchase
+  - rent paid
+  - upgrade
+  - keys
+  status: DECISIONE APPROVATA

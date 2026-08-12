@@ -1,0 +1,52 @@
+# =============================================================================
+# CRIMINAL MILESTONES
+# =============================================================================
+
+CriminalMilestone:
+  schema:
+    milestoneId: string
+    label: string
+    description: string
+    triggerConditionsRef: string
+    visibility: PRIVATE
+    rewardsRef: string | null
+    unlocksRef: string | null
+
+milestones:
+  status: skeleton_narrative_only
+  note: Nomi definitivi TBD
+
+  indicativeExamples:
+    items:
+      - milestoneId: FIRST_OFFENSE
+        label: Primo reato
+        visibility: PRIVATE
+      - milestoneId: FIRST_SUCCESS
+        label: Primo reato riuscito
+        visibility: PRIVATE
+      - milestoneId: FIRST_BIG_REWARD
+        label: Prima grande ricompensa
+        visibility: PRIVATE
+      - milestoneId: FIRST_ARREST
+        label: Primo arresto
+        visibility: PRIVATE
+      - milestoneId: FIRST_AVOIDED_CONSEQUENCE
+        label: Prima evasione conseguenza
+        visibility: PRIVATE
+      - milestoneId: RECOGNIZED_CRIMINAL
+        label: Criminale riconosciuto
+        visibility: DISCOVERABLE
+      - milestoneId: MAJOR_OPERATION
+        label: Grande operazione
+        visibility: PRIVATE
+
+integration:
+  progression_main_v1:
+    trackId: criminal
+    milestoneVisibility: PRIVATE
+  progression_balance_v1:
+    contributesTo: criminalTrack_progression
+
+events:
+  items:
+    - CriminalMilestoneReached

@@ -1,0 +1,33 @@
+# =============================================================================
+# API CONTRACTS — data access layers, minimal responses
+# =============================================================================
+
+DataAccessLayers:
+  DECISIONE APPROVATA:
+  stack:
+    items:
+      - Repository/DataAccess
+      - DomainServices
+      - API
+      - UI
+  rule: NO UI direct database sensibili
+
+ApiContracts:
+  rule: API restituiscono solo dati necessari — evitare SELECT everything
+
+timestamps:
+  DECISIONE APPROVATA: timestamp coerenti
+  fields:
+    items:
+      - createdAt
+      - updatedAt
+      - occurredAt
+      - publishedAt
+      - expiresAt
+
+timezone:
+  DECISIONE APPROVATA: backend riferimento temporale consistente — UI localizza
+
+events:
+  items:
+    - ApiContractUpdated

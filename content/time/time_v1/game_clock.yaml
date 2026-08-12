@@ -1,0 +1,13 @@
+# =============================================================================
+# GAME CLOCK — time_v1
+# =============================================================================
+
+---
+GameClock:
+  owner: Time System
+  sot: time_main_v1 WorldClock
+  status: DECISIONE APPROVATA
+  alignsWith: time_main_v1/world_clock.yaml
+events:
+  items:
+  - GameClockUpdated

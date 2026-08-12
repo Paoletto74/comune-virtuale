@@ -1,0 +1,20 @@
+# =============================================================================
+# PRIVACY — entity privacy policies
+# =============================================================================
+
+Privacy:
+  player:
+    rule: privacy policy — ref profile_main_v1
+  npc:
+    default: public se non dati sensibili
+  business:
+    default: public data
+  organization:
+    default: policy based
+  noExcessiveTracking:
+    rule: NON raccogliere exact behavior trails o sensitive personal info
+  ref: citizen_cards.yaml, search.yaml
+
+events:
+  items:
+    - CityLifePrivacyEnforced

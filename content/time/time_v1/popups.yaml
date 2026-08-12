@@ -1,0 +1,11 @@
+# =============================================================================
+# POPUPS — time_v1
+# =============================================================================
+
+---
+TimePopups:
+  rule: HIGH/CRITICAL only
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimePopupShown

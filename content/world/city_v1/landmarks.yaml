@@ -1,0 +1,18 @@
+# =============================================================================
+# LANDMARKS — Municipio, piazza, stazione, special places
+# =============================================================================
+
+Landmarks:
+  examples:
+    items:
+      - Municipio
+      - piazza
+      - stazione
+      - luoghi_speciali
+  events:
+    rule: landmark puo essere sede di eventi, politica, feste, news
+  visual: visual dedicati — ref visual_integration.yaml
+
+events:
+  items:
+    - LandmarkLoaded

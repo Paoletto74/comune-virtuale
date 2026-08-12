@@ -1,0 +1,28 @@
+# =============================================================================
+# FALLBACKS — hierarchy chain, never break popup
+# =============================================================================
+
+Fallbacks:
+  DECISIONE APPROVATA:
+  chain:
+    items:
+      - Specific_Event_Asset
+      - Specific_Entity_Asset
+      - Category_Asset
+      - Generic_Fallback
+      - Placeholder
+  onFailure:
+    items:
+      - asset_missing
+      - asset_invalidated
+      - asset_unavailable
+      - asset_incompatible
+    rule: fallback immediato — NEVER broken image, empty space, broken URL
+  placeholder:
+    rule: coerente con Design System
+  quality:
+    rule: fallback coerente con asset mancante
+
+events:
+  items:
+    - VisualFallbackApplied

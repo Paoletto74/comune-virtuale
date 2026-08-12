@@ -1,0 +1,45 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  RETENTION_MAX_AGE_DAYS: TBD
+  RETENTION_MAX_COUNT_PERSONAL: TBD
+  RETENTION_MAX_COUNT_GLOBAL: TBD
+  ARCHIVE_AFTER_DAYS: TBD
+
+  GROUPING_WINDOW_DAYS: TBD
+  GROUPING_MAX_UNGROUPED: TBD
+  ANTI_SPAM_COOLDOWN_MS: TBD
+  MICRO_EVENT_THRESHOLD: TBD
+
+  GLOBAL_RELEVANCE_THRESHOLD: TBD
+  OFFLINE_SUMMARY_MAX_ITEMS: TBD
+  OFFLINE_IMPORTANCE_THRESHOLD: TBD
+
+  ACTION_DEFAULT_EXPIRY_HOURS: TBD
+  NOTIFICATION_DEFAULT_EXPIRY_HOURS: TBD
+
+  EFFECTS_DETAIL_LEVEL_DEFAULT: TBD
+  EDUCATIONAL_NOTIFICATION_RATE: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - task_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - business_main_v1
+      - family_main_v1
+      - progression_main_v1
+      - event_system
+      - time_system
+
+  futurePack:
+    note: notification_balance_v1 — soglie anti-spam, retention — DA DEFINIRE

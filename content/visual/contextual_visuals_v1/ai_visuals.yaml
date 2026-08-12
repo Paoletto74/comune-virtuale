@@ -1,0 +1,22 @@
+# =============================================================================
+# AI VISUALS — AI assistance, not auto-publish
+# =============================================================================
+
+AiVisuals:
+  status: PROPOSTA TECNICA — NON implementare V1
+  canSuggest:
+    items:
+      - scene
+      - composition
+      - style
+      - subject
+      - visual_prompt
+  cannot:
+    items:
+      - publish_directly
+      - bypass_human_approval
+  ref: generation.yaml, approval.yaml
+
+events:
+  items:
+    - AiVisualSuggested

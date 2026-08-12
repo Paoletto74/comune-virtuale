@@ -1,0 +1,58 @@
+# =============================================================================
+# BUSINESS — proprietari, dipendenti, clienti
+# =============================================================================
+
+NpcBusiness:
+  ref: business_main_v1/npc.yaml
+  DECISIONE APPROVATA: NPC possono possedere aziende
+  purpose:
+    items:
+      - competition
+      - jobs
+      - demand
+      - market
+      - opportunities
+
+NpcBusinessOwner:
+  tier: TIER_2_or_TIER_3
+  simulation: simplified_vs_player_companies
+
+NpcEmployeeService:
+  ref: employment.yaml
+  performance: simplified_for_npc
+
+NpcCustomerService:
+  DECISIONE APPROVATA: generano revenue senza giocatori reali
+  factors:
+    items:
+      - price
+      - quality
+      - reputation
+      - location
+      - sector
+      - macro_economy
+
+NpcBusinessSimulation:
+  aggregatedFields:
+    items:
+      - demand
+      - revenue
+      - expenses
+      - performance
+      - employees
+      - value
+  depth: lower_than_player_companies
+
+NpcBankruptcy:
+  status: PROPOSTA TECNICA
+  rule: |
+    NPC possono fallire — contribuisce a economia, mercato, opportunità.
+    NON richiede simulazione individuale per tutti.
+  event: via business_main_v1 + event_main_v1
+
+events:
+  items:
+    - NpcCompanyCreated
+    - NpcCompanyFailed
+    - NpcCustomerPurchase
+    - NpcBusinessOwnerUpdated

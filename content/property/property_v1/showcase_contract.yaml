@@ -1,0 +1,14 @@
+# =============================================================================
+# SHOWCASE CONTRACT — property_v1
+# =============================================================================
+
+---
+ShowcaseContract:
+  schema:
+    character: ref
+    property: ref
+    vehicles: array
+    items: array
+    environment: ref
+    composition: object
+  status: PROPOSTA TECNICA

@@ -1,0 +1,22 @@
+# =============================================================================
+# GENERATION — future AI audio generation
+# =============================================================================
+
+AudioGeneration:
+  status: NON implementare V1
+  future:
+    workflow:
+      items:
+        - prompt
+        - draft_audio
+        - review
+        - license_status
+        - approve
+        - publish
+  aiGenerated:
+    rule: chiaramente identificato in metadata
+  ref: licenses.yaml
+
+events:
+  items:
+    - AudioGenerationDraftCreated

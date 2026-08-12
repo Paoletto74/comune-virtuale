@@ -1,0 +1,54 @@
+# =============================================================================
+# ACCESS MATRIX
+# =============================================================================
+
+AccessMatrix:
+  status: PROPOSTA TECNICA — permission definitive TBD
+  note: "* = richiede permission scope specifico"
+  matrix:
+    - action: View game
+      citizen: YES
+      editor: YES
+      reviewer: YES
+      admin: YES
+      owner: YES
+    - action: View Admin
+      citizen: NO
+      editor: YES
+      reviewer: YES
+      admin: YES
+      owner: YES
+    - action: Edit content
+      citizen: NO
+      editor: "YES*"
+      reviewer: "YES*"
+      admin: YES
+      owner: YES
+    - action: Approve
+      citizen: NO
+      editor: NO
+      reviewer: YES
+      admin: YES
+      owner: YES
+    - action: Publish
+      citizen: NO
+      editor: NO
+      reviewer: "NO/YES*"
+      admin: YES
+      owner: YES
+    - action: Manage permissions
+      citizen: NO
+      editor: NO
+      reviewer: NO
+      admin: "NO/YES*"
+      owner: YES
+    - action: System admin
+      citizen: NO
+      editor: NO
+      reviewer: NO
+      admin: "NO/YES*"
+      owner: YES
+
+events:
+  items:
+    - AccessMatrixEvaluated

@@ -1,0 +1,49 @@
+# =============================================================================
+# VISIBILITY & PRIVACY
+# =============================================================================
+
+visibilityLevels:
+  items:
+    - level: public
+      description: Visibile nel mondo / global feed
+    - level: personal
+      description: Solo destinatario/i coinvolti
+    - level: restricted
+      description: Sottoinsieme autorizzato
+    - level: private
+      description: Solo actor e target diretti
+    - level: system
+      description: Solo audit / debug interno
+
+privacyRules:
+  DECISIONE APPROVATA: |
+    Evento può coinvolgere A e B con visibilità diversa per ciascuno.
+    Terzo giocatore può non sapere nulla.
+    NON esporre intera causal chain a tutti automaticamente.
+  integration: notification_main_v1/visibility.yaml
+
+perRecipientVisibility:
+  status: PROPOSTA_TECNICA
+  schema:
+    eventId: string
+    recipientId: string
+    visibilityLevel: public | personal | restricted | private | hidden
+    causalChainVisibleDepth: TBD
+
+notificationIntegration:
+  DECISIONE APPROVATA: |
+    Event System genera WorldEvent.
+    Notification System decide se/chi/come notificare.
+    NON duplicare notification logic in Event System.
+
+modulePrivacyRefs:
+  criminal: criminal_main_v1/visibility.yaml
+  family: family_main_v1/visibility.yaml
+  political: political_main_v1/visibility.yaml
+  progression: progression_main_v1/visibility.yaml
+
+events:
+  items:
+    - VisibilityResolved
+    - PrivacyFilterApplied
+    - CausalChainViewRequested

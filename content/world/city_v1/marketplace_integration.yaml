@@ -1,0 +1,12 @@
+# =============================================================================
+# MARKETPLACE INTEGRATION — physical store location optional
+# =============================================================================
+
+MarketplaceIntegration:
+  physicalStore: Marketplace puo avere physical/store location
+  rule: Marketplace digitale NON dipende necessariamente da presenza fisica
+  ref: marketplace_main_v1
+
+events:
+  items:
+    - MarketplaceLocationLinked

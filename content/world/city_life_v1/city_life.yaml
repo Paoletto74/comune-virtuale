@@ -1,0 +1,29 @@
+# =============================================================================
+# CITY LIFE — signs of life in the city
+# =============================================================================
+
+CityLife:
+  signals:
+    items:
+      - cittadini
+      - NPC
+      - aziende
+      - eventi
+      - jobs
+      - attivita
+      - notizie
+      - movimento
+  businessActivity:
+    states:
+      items:
+        - open
+        - closed
+        - busy
+        - event_driven
+    authoritative: backend
+  timeOfDay:
+    status: quando Day/Night definito — activity puo cambiare — NON V1 se Time non supporta
+
+events:
+  items:
+    - CityLifeUpdated

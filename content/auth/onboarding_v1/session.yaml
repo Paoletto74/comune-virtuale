@@ -1,0 +1,18 @@
+# =============================================================================
+# SESSION — creation, refresh, expiration
+# =============================================================================
+
+Session:
+  lifecycle:
+    items:
+      - creation
+      - refresh
+      - expiration
+      - logout
+      - invalidation
+  ref: auth_main_v1/sessions.yaml
+
+events:
+  items:
+    - SessionCreated
+    - SessionExpired

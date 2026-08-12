@@ -1,0 +1,58 @@
+# =============================================================================
+# ELIGIBILITY — requisiti candidatura e ruoli
+# =============================================================================
+
+EligibilityRule:
+  schema:
+    ruleId: string
+    targetRoleId: string
+    conditionsRef: string
+    blockingConditionsRef: string | null
+    visibility: PUBLIC
+
+possibleRequirements:
+  items:
+    - politicalInfluence
+    - civicParticipation
+    - reputation
+    - mainLevel
+    - politicalExperience
+    - politicalLevel
+    - clean_record
+    - residency
+  values: TBD
+
+blockingConditions:
+  status: PROPOSTA_TECNICA
+  examples:
+    items:
+      - active_incarceration
+      - disqualifying_conviction
+      - mandate_limit_reached
+  criminalIntegration:
+    rule: |
+      Criminalità NON automaticamente incompatibile.
+      Scoperta, condanna, scandalo possono influenzare eleggibilità.
+    eventsFrom: criminal_main_v1
+
+eligibilitySets:
+  status: skeleton_only
+  MAYOR_CANDIDACY:
+    ruleId: MAYOR_CANDIDACY
+    targetRoleId: mayor
+    conditionsRef: TBD
+    note: Candidatura NON garantisce elezione
+
+candidacyActions:
+  items:
+    - register
+    - withdraw
+    - be_nominated
+    - receive_endorsement
+  rule: DECISIONE APPROVATA — candidatura non garantisce elezione
+
+events:
+  items:
+    - EligibilityChecked
+    - CandidacyRegistered
+    - CandidacyWithdrawn

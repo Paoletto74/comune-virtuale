@@ -1,0 +1,12 @@
+# =============================================================================
+# OFFLINE BEHAVIOR — time_v1
+# =============================================================================
+
+---
+OfflineBehavior:
+  worldContinues: true
+  noFreeze: true
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - PlayerWentOffline

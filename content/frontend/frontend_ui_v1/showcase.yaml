@@ -1,0 +1,40 @@
+# =============================================================================
+# SHOWCASE — citizen visual composition contract
+# =============================================================================
+
+CitizenShowcase:
+  status: PROPOSTA TECNICA
+  canCombine:
+    items:
+      - avatar
+      - proprieta
+      - veicoli
+      - item
+      - altri_beni
+
+ShowcaseComposition:
+  contract:
+    character: ref
+    assets: []
+    environment: ref
+    composition: object
+  example: "character + villa + pool + Ferrari"
+  rule: |
+    NON obbligare generazione automatica immagine unica ora.
+    Definire contract per supporto futuro Visual System.
+
+GeneratedVisuals:
+  status: PROPOSTA TECNICA — NON implementare image generation runtime
+  future:
+    items:
+      - avatar
+      - proprieta
+      - veicoli
+      - item
+      - showcase
+
+ref: visual_main_v1, profile_main_v1/showcase.yaml
+
+events:
+  items:
+    - ShowcaseViewed

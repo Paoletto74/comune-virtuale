@@ -1,0 +1,14 @@
+# =============================================================================
+# DELETE ACCOUNT — future, separate from Delete Citizen
+# =============================================================================
+
+DeleteAccount:
+  status: PROPOSTA TECNICA — future
+  flow: Settings -> Account -> Delete — confirmation + policy
+  separation: Delete Account != Delete Citizen
+  policy: DA DEFINIRE / TBD
+  ref: auth_main_v1/account.yaml
+
+events:
+  items:
+    - AccountDeletionRequested

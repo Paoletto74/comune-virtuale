@@ -1,0 +1,11 @@
+# =============================================================================
+# CACHE — property_v1
+# =============================================================================
+
+---
+Cache:
+  canCache: public listings
+  cannotCache:
+  - ownership
+  - availability for purchase auth
+  status: DECISIONE APPROVATA

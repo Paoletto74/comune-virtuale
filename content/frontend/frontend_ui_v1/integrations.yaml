@@ -1,0 +1,49 @@
+# =============================================================================
+# INTEGRATIONS — cross-system map
+# =============================================================================
+
+Integrations:
+  backend:
+    ref: backend_architecture_v1
+    apis:
+      items:
+        - home
+        - profile
+        - task
+        - work
+        - marketplace
+        - notification
+        - municipality
+        - ranking
+        - gazzetta
+        - social
+        - political
+        - criminal
+        - content
+
+  uiMain:
+    ref: ui_main_v1
+    provides: [design_tokens, visual_language, navigation_structure]
+
+  visual:
+    ref: visual_main_v1
+    provides: [assets, visualAssetId, metadata]
+
+  profile:
+    ref: profile_main_v1
+    provides: [visibility, showcase, identity]
+
+  notification:
+    ref: notification_main_v1
+    provides: [instances, priority, popup_eligibility]
+
+  auth:
+    ref: auth_main_v1
+    provides: [session, permissions]
+
+reducedMotion:
+  ref: accessibility.yaml
+
+events:
+  items:
+    - IntegrationHealthCheck

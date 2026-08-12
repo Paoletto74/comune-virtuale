@@ -1,0 +1,18 @@
+# =============================================================================
+# THUMBNAILS — small preview images
+# =============================================================================
+
+Thumbnails:
+  use:
+    items:
+      - notification
+      - citizen_list
+      - ranking_list
+      - marketplace_list
+      - Gazzetta_feed
+  rule: NON immagini pesanti per ogni riga in list views
+  resolution: DA DEFINIRE / TBD
+
+events:
+  items:
+    - ThumbnailLoaded

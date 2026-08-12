@@ -1,0 +1,108 @@
+# =============================================================================
+# BANKING, MONEY TRANSFER & DEBT MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: sistema bancario inizialmente semplice
+# Gestisce: denaro, conti, trasferimenti, regali, prestiti, debiti, ledger
+# NON modifica: tutti i moduli già approvati
+# Valori numerici/formule: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: banking_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  marketplace: marketplace_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  criminal: criminal_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  timeSystem: time_main_v1
+  task: task_main_v1
+
+principles:
+  - Money Ledger centralizzato — append-only, no cash mutation senza transazione
+  - Transazioni atomiche — lock, idempotency, server authority, rollback
+  - Gift ≠ Loan — regalo senza debt record
+  - Interest rate positivo | zero | negativo — INTENZIONALE
+  - Bankruptcy ≠ crime — no arresto automatico
+  - Permanent bankruptcy possibile — no auto-resolve obbligatorio
+  - Banking registra movimenti — NON giudica legalità intento
+  - Criminal strategies permesse — conseguenze da Criminal/Legal/Tax
+  - Economy autorevole su currency/inflation/money supply
+  - Content-first + Admin Content Studio compatible
+  - Client non autoritativo
+  - NO AI / LLM / API esterne
+
+includes:
+  money: money.yaml
+  accounts: accounts.yaml
+  ledger: ledger.yaml
+  transfers: transfers.yaml
+  gifts: gifts.yaml
+  loans: loans.yaml
+  interest: interest.yaml
+  repayment: repayment.yaml
+  overdue: overdue.yaml
+  bankruptcy: bankruptcy.yaml
+  collateral: collateral.yaml
+  fees: fees.yaml
+  limits: limits.yaml
+  privacy: privacy.yaml
+  rankings: rankings.yaml
+  notifications: notifications.yaml
+  security: security.yaml
+  offline: offline.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  money_module: [money, accounts, ledger]
+  transfer_module: [transfers, gifts, fees]
+  debt_module: [loans, interest, repayment, overdue]
+  lifecycle_module: [bankruptcy, collateral, offline]
+  governance_module: [limits, privacy, rankings, security]
+
+responsibilitySplit:
+  bankingDecides:
+    items:
+      - account_state
+      - money_transfers
+      - gifts
+      - loans
+      - debt
+      - repayment
+      - interest
+      - overdue
+      - banking_ledger
+      - banking_limits
+  economyDecides:
+    items:
+      - currency
+      - inflation
+      - macroeconomics
+      - purchasing_power
+      - money_supply
+  taxDecides: taxes
+  criminalLegalDecide:
+    items:
+      - legality
+      - fraud
+      - asset_concealment
+      - criminal_consequences
+  marketplaceDecides: market_transactions
+  inventoryDecides: item_transfers
+  propertyMobilityDecide: asset_ownership
+  timeDecides: deadlines_scheduling
+  notificationDecides: communication
+  profileDecides: public_visibility
+
+alignsWith:
+  note: |
+    Formalizza pattern in economy_main_v1/ledger.yaml, lending.yaml,
+    gifts.yaml, bankruptcy.yaml. NON modifica pack approvati.

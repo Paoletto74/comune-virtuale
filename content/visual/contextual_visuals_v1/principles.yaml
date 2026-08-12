@@ -1,0 +1,29 @@
+# =============================================================================
+# PRINCIPLES — function over decoration, semantic visual
+# =============================================================================
+
+VisualPrinciples:
+  DECISIONE APPROVATA:
+  everyVisualHasFunction:
+    rule: NON decorativo quando puo spiegare, caratterizzare, immergere, comunicare tono
+  noHardcodedUrls:
+    rule: visualAssetId — Visual System source of truth
+  semanticVisual:
+    prefer: "eventType: PlayerArrested"
+    avoid: "police_popup.png"
+  domainEventResolution:
+    rule: Domain Event -> Visual Layer resolves asset — NOT Domain System decides file
+  visualSoundPairing:
+    rule: visual + sound stessa event family quando appropriato
+
+  hierarchy:
+    items:
+      - Specific_Event_Asset
+      - Specific_Entity_Asset
+      - Category_Asset
+      - Generic_Fallback
+      - Placeholder
+
+events:
+  items:
+    - VisualPrincipleApplied

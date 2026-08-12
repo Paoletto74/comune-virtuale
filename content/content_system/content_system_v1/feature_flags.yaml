@@ -1,0 +1,13 @@
+# =============================================================================
+# FEATURE FLAGS — content associated with feature flags
+# =============================================================================
+
+FeatureFlags:
+  example: new Gazzetta category behind feature flag
+  experimental:
+    status: DRAFT / EXPERIMENTAL
+    rule: not visible to normal players
+
+events:
+  items:
+    - FeatureFlagApplied

@@ -1,0 +1,12 @@
+# =============================================================================
+# ERROR RECOVERY — time_v1
+# =============================================================================
+
+---
+ErrorRecovery:
+  timeServiceUnavailable: last known state fallback
+  clientLostSync: block time-sensitive ops
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeServiceDegraded

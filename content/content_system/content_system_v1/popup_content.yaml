@@ -1,0 +1,23 @@
+# =============================================================================
+# POPUP CONTENT — templates
+# =============================================================================
+
+PopupContent:
+  templates:
+    examples:
+      items:
+        - NEWS_FLASH
+        - PROMOTION
+        - IMPORTANT_UPDATE
+  defines:
+    items:
+      - headline
+      - body
+      - CTA
+  rule: Notification System decide se deve apparire
+
+ref: newspaper_v1/popup.yaml, frontend_ui_v1/popups.yaml
+
+events:
+  items:
+    - PopupTemplateSaved

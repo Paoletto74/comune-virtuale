@@ -1,0 +1,31 @@
+# =============================================================================
+# INTEGRATION — notification_main_v1
+# =============================================================================
+
+NotificationIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/notifications.yaml
+
+  socialEmits:
+    items:
+      - message_received
+      - interaction_received
+      - gift_received
+      - loan_request
+      - social_event
+      - relationship_change
+      - report_result
+      - block_applied
+      - contextual_reaction_suggested
+      - deadline_approaching
+
+  notificationOwns:
+    items:
+      - notification_instance
+      - priority
+      - read_unread
+      - popup_eligibility
+      - delivery
+
+  rule: Social emette semantic events — NON duplica delivery

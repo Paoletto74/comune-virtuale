@@ -1,0 +1,17 @@
+# =============================================================================
+# TIME SYNC — time_v1
+# =============================================================================
+
+---
+TimeSync:
+  serverFields:
+  - serverTime
+  - gameTime
+  - offset
+  - gameSpeed
+  - dayState
+  clientRule: interpolate display only
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeSyncReceived

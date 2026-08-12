@@ -1,0 +1,17 @@
+# =============================================================================
+# ANIMATION REFS — Visual riferisce animationId
+# =============================================================================
+
+AnimationRef:
+  status: PROPOSTA TECNICA — NO animation engine V1
+  schema:
+    animationId: string
+    context: popup | notification | profile | ui | event
+
+rule: |
+  Animation System/UI autorevole.
+  Visual System riferisce animationId — NON implementa animation engine.
+
+events:
+  items:
+    - AnimationRefResolved

@@ -1,0 +1,17 @@
+# =============================================================================
+# TRANSFERS — economy_v1
+# =============================================================================
+
+---
+Transfers:
+  schema:
+    fromAccount: AccountId
+    toAccount: AccountId
+    amount: integer
+    currency: string
+    reason: string
+    reference: string
+    timestamp: real
+    gameTime: GameDateTime
+  supplyImpact: unchanged
+  status: DECISIONE APPROVATA

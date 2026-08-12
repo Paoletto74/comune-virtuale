@@ -1,0 +1,23 @@
+# =============================================================================
+# POLITICAL DATA — separato da Profile presentation
+# =============================================================================
+
+PoliticalData:
+  sourceOfTruth: Political
+  schema:
+    citizenId: string
+    politicalTrack: TBD
+    influence: TBD
+    civicParticipation: TBD
+    candidacy: TBD
+    elections: []
+    referendumParticipation: []
+    mayorHistory: []
+
+rule: Political state separato da Profile presentation
+
+ref: political_main_v1
+
+events:
+  items:
+    - PoliticalStateUpdated

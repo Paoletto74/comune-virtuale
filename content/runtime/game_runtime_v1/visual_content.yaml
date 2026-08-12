@@ -1,0 +1,14 @@
+# =============================================================================
+# VISUAL CONTENT — visualAssetId on published content
+# =============================================================================
+
+VisualContent:
+  rule: |
+    Nuovo item/task/evento pubblicato puo avere visualAssetId, image, icon, placeholder.
+    Frontend consuma senza hardcoding.
+  sourceOfTruth: Visual/Asset System
+  ref: visual_main_v1
+
+events:
+  emits: [VisualAssetLinked]
+  consumes: [ContentPublished]

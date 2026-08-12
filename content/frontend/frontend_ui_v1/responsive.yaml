@@ -1,0 +1,32 @@
+# =============================================================================
+# RESPONSIVE — mobile-first, breakpoints, touch targets, data density
+# =============================================================================
+
+Responsive:
+  DECISIONE APPROVATA: mobile-first — NON versione ridotta desktop
+  support:
+    items:
+      - desktop
+      - tablet
+      - mobile
+
+breakpoints:
+  status: TBD — definire layout behavior, non numeri arbitrari
+
+touchTargets:
+  rule: pulsanti e tab facilmente cliccabili/toccabili
+
+dataDensity:
+  desktop: piu informazioni
+  mobile:
+    items:
+      - priorita
+      - summary
+      - progressive_disclosure
+  rule: NON comprimere tutto in UI illeggibile
+
+ref: ui_main_v1
+
+events:
+  items:
+    - ViewportChanged

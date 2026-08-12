@@ -1,0 +1,26 @@
+# =============================================================================
+# MOBILITY DATA — vehicle definition vs instance
+# =============================================================================
+
+VehicleDefinition:
+  type: CONTENT
+  schema:
+    vehicleId: string
+    contentId: string
+
+VehicleInstance:
+  type: PERSISTENT
+  sourceOfTruth: Mobility
+  schema:
+    instanceId: string
+    vehicleId: string
+    ownerId: string
+    condition: TBD
+    status: TBD
+    location: TBD
+
+ref: mobility_main_v1
+
+events:
+  items:
+    - VehicleOwnershipChanged

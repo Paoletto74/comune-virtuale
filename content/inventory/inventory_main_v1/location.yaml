@@ -1,0 +1,23 @@
+# =============================================================================
+# LOCATION — dove si trova l'item
+# =============================================================================
+
+ItemLocation:
+  schema:
+    locationType: inventory | home | vehicle | business | market | escrow | other
+    locationRef: string
+    citizenId: "string | null"
+
+locationTypes:
+  items:
+    - inventory
+    - home
+    - vehicle
+    - business
+    - market
+    - escrow
+    - other
+
+events:
+  items:
+    - ItemLocationChanged

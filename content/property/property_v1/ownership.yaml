@@ -1,0 +1,16 @@
+# =============================================================================
+# OWNERSHIP — property_v1
+# =============================================================================
+
+---
+Ownership:
+  ownershipId: string
+  ownerTypes:
+  - Citizen
+  - Business
+  - Organization
+  - Municipality
+  - NPC
+  - System
+  alignsWith: property_main_v1/ownership.yaml multiProperty approved
+  status: DECISIONE APPROVATA

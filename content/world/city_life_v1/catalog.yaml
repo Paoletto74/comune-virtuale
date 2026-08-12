@@ -1,0 +1,136 @@
+# =============================================================================
+# CITY LIFE MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: separare PLAYER CITIZEN, NPC, BUSINESS, ORGANIZATION, INSTITUTION
+# Client NON simula economic/social truth — server-side authoritative
+# V1: proposta architetturale — NO NPC AI runtime, NO LLM, NO database
+# Integra con city_v1, profile, business, work, social — NON li modifica
+# =============================================================================
+
+catalogId: city_life_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  city: city_v1
+  auth: auth_main_v1
+  profile: profile_main_v1
+  onboarding: onboarding_v1
+  political: political_main_v1
+  economy: economy_main_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  marketplace: marketplace_main_v1
+  criminal: criminal_main_v1
+  event: event_main_v1
+  time: time_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+principles:
+  - citta popolata e viva — NON solo player, edifici, menu, numeri
+  - PLAYER CITIZEN != NPC != BUSINESS != ORGANIZATION != INSTITUTION
+  - NPC != BOT PLAYER — simulation LOD per ruolo
+  - client visualizza state — NON simula truth
+  - domain systems source of truth — NON duplicare Social/Economy/Work
+  - aggregation + LOD — NON simulare milioni di entities
+
+includes:
+  principles: principles.yaml
+  playerCitizens: player_citizens.yaml
+  citizenIdentity: citizen_identity.yaml
+  npcs: npcs.yaml
+  npcTypes: npc_types.yaml
+  npcTiers: npc_tiers.yaml
+  npcData: npc_data.yaml
+  npcVisuals: npc_visuals.yaml
+  npcSchedule: npc_schedule.yaml
+  npcLocations: npc_locations.yaml
+  npcMovement: npc_movement.yaml
+  npcSimulation: npc_simulation.yaml
+  npcLod: npc_lod.yaml
+  npcLifecycle: npc_lifecycle.yaml
+  npcRelationships: npc_relationships.yaml
+  playerNpcRelationships: player_npc_relationships.yaml
+  socialActions: social_actions.yaml
+  socialDiscovery: social_discovery.yaml
+  businesses: businesses.yaml
+  businessTypes: business_types.yaml
+  businessData: business_data.yaml
+  businessLocations: business_locations.yaml
+  businessOwners: business_owners.yaml
+  businessEmployees: business_employees.yaml
+  businessJobs: business_jobs.yaml
+  businessHours: business_hours.yaml
+  businessStatus: business_status.yaml
+  businessEvents: business_events.yaml
+  businessMarketplace: business_marketplace.yaml
+  businessProperty: business_property.yaml
+  organizations: organizations.yaml
+  organizationTypes: organization_types.yaml
+  organizationMembers: organization_members.yaml
+  organizationRoles: organization_roles.yaml
+  organizationVisuals: organization_visuals.yaml
+  organizationPrivacy: organization_privacy.yaml
+  households: households.yaml
+  cityPopulation: city_population.yaml
+  populationAggregation: population_aggregation.yaml
+  activityDensity: activity_density.yaml
+  districtActivity: district_activity.yaml
+  crowdVisualization: crowd_visualization.yaml
+  cityLife: city_life.yaml
+  citizenCards: citizen_cards.yaml
+  npcCards: npc_cards.yaml
+  businessCards: business_cards.yaml
+  organizationCards: organization_cards.yaml
+  search: search.yaml
+  discovery: discovery.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  soundIntegration: sound_integration.yaml
+  visualIntegration: visual_integration.yaml
+  newspaperIntegration: newspaper_integration.yaml
+  economyIntegration: economy_integration.yaml
+  workIntegration: work_integration.yaml
+  propertyIntegration: property_integration.yaml
+  mobilityIntegration: mobility_integration.yaml
+  crimeIntegration: crime_integration.yaml
+  politicalIntegration: political_integration.yaml
+  eventIntegration: event_integration.yaml
+  contentIntegration: content_integration.yaml
+  aiNpcFuture: ai_npc_future.yaml
+  dialogue: dialogue.yaml
+  npcMemory: npc_memory.yaml
+  simulation: simulation.yaml
+  persistence: persistence.yaml
+  performance: performance.yaml
+  privacy: privacy.yaml
+  moderation: moderation.yaml
+  security: security.yaml
+  admin: admin.yaml
+  audit: audit.yaml
+  featureFlags: feature_flags.yaml
+  versioning: versioning.yaml
+  cache: cache.yaml
+  realtime: realtime.yaml
+  offline: offline.yaml
+  analytics: analytics.yaml
+  testing: testing.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  playerCitizen: user-controlled — profile, progression, economy domain SOT
+  npc: non-player entity — tiered simulation LOD
+  business: economic operation — business_main_v1 SOT
+  organization: collective entity — distinct from business
+  cityLife: population presentation, activity density, discovery, cards
+
+alignsWith:
+  note: |
+    Formalizza City Life coerente con city_v1 e profile_main_v1.
+    NON modifica pack approvati. NON implementa runtime.

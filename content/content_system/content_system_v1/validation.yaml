@@ -1,0 +1,33 @@
+# =============================================================================
+# VALIDATION — schema, references, security
+# =============================================================================
+
+Validation:
+  checks:
+    items:
+      - schema_validation
+      - required_fields
+      - references
+      - localization
+      - visualAsset
+      - content_length
+      - formatting
+      - security
+      - permissions
+      - privacy
+  severity:
+    ERROR: blocks publish
+    WARNING: publish possible but verify
+  humanReadable:
+    example:
+      good: "Immagine principale mancante"
+      bad: "foreign_key_visualAssetId_constraint_failed"
+  duplication:
+    rule: signal possible duplicate — NOT necessarily block
+  brokenReferences:
+    rule: content with nonexistent reference — NON pubblicabile
+
+events:
+  items:
+    - ContentValidated
+    - ValidationFailed

@@ -1,0 +1,26 @@
+# =============================================================================
+# SPECIAL EDITIONS — temporary visual accent
+# =============================================================================
+
+SpecialEditions:
+  status: PROPOSTA TECNICA
+  mayChange:
+    items:
+      - accent
+      - hero
+      - banner
+      - illustration
+  mustNotChange:
+    items:
+      - base_typography
+      - accessibility
+      - navigation_fundamentals
+
+adminPreview:
+  options: [default, special_edition_preview]
+
+ref: events.yaml, themes.yaml
+
+events:
+  items:
+    - SpecialEditionPreviewed

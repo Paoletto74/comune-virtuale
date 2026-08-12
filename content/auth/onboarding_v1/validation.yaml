@@ -1,0 +1,22 @@
+# =============================================================================
+# VALIDATION — frontend UX + backend authority
+# =============================================================================
+
+Validation:
+  DECISIONE APPROVATA:
+  layers:
+    frontend: UX validation
+    backend: authority validation
+  rule: mai solo frontend
+  onboardingErrors:
+    items:
+      - inline
+      - comprensibili
+      - non_distruggere_dati_gia_inseriti
+  fields:
+    ref: citizen_name.yaml, age.yaml, fun_facts.yaml
+
+events:
+  items:
+    - ValidationFailed
+    - ValidationPassed

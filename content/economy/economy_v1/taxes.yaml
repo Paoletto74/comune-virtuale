@@ -1,0 +1,9 @@
+# =============================================================================
+# TAXES — economy_v1
+# =============================================================================
+
+---
+Taxes:
+  owner: Tax/Political rules define
+  economy: executes transaction
+  status: DECISIONE APPROVATA

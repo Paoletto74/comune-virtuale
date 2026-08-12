@@ -1,0 +1,16 @@
+# =============================================================================
+# WORLD SIMULATION — Gazzetta tells NPC + player + municipal stories
+# =============================================================================
+
+WorldSimulation:
+  DECISIONE APPROVATA: |
+    Gazzetta racconta NPC events + player events + municipality events + global events.
+    Rafforza illusione citta viva.
+  visualConsistency:
+    rule: stesso evento coerente tra Gazzetta, popup, notification, profile, Municipality, Home
+
+ref: npc_main_v1, gazzetta_runtime.yaml
+
+events:
+  items:
+    - WorldStoryRendered

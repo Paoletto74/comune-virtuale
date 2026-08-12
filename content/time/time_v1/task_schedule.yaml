@@ -1,0 +1,15 @@
+# =============================================================================
+# TASK SCHEDULE — time_v1
+# =============================================================================
+
+---
+TaskSchedule:
+  owner: Task System
+  uses:
+  - daily tasks
+  - deadlines
+  - cooldowns
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DailyTasksRefreshed

@@ -1,0 +1,19 @@
+# =============================================================================
+# RANKING RUNTIME — scheduled refresh, snapshots
+# =============================================================================
+
+RankingRuntime:
+  rule: NON aggiornarsi ad ogni cambio necessariamente
+  modes:
+    items:
+      - realtime_near_realtime
+      - scheduled_refresh
+      - snapshot_historico
+  sourceOfTruth: Derived
+  executionMode: LOW frequency tick + event-triggered invalidation
+  failurePolicy: SKIP or DEFER — partial failure OK
+  ref: data_architecture_v1/rankings.yaml
+
+events:
+  emits: [RankingSnapshotCreated, RankingRefreshed]
+  consumes: [LevelReached, PropertyPurchased, GiftSent]

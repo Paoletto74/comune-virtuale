@@ -1,0 +1,59 @@
+# =============================================================================
+# INACTIVITY — perdita lavoro, spirale decadimento
+# =============================================================================
+
+InactivityPolicy:
+  policyId: work_inactivity_v1
+  enabled: true
+
+  triggers:
+    items:
+      - no_work_activity_for_period
+    values: TBD
+    placeholderKey: INACTIVITY_WARNING_DAYS
+
+  stages:
+    - stage: warning
+      after: TBD
+      notification: work_inactivity_warning
+    - stage: at_risk
+      after: TBD
+      notification: job_loss_risk
+    - stage: termination
+      after: TBD
+      action: terminate_contract
+      notification: job_lost
+
+  configurable: true
+
+  decaySpiral:
+    enabled: true
+    chain:
+      - job_loss
+      - income_loss
+      - expense_difficulty
+      - stress_up
+      - happiness_down
+      - economic_worsening
+      - demotion_risk
+    recovery:
+      DECISIONE APPROVATA: sempre possibile — no spirale irreversibile
+
+jobLossCauses:
+  - inactivity
+  - performance
+  - events
+  - company_failure
+  - dismissal
+  - injuries
+  - other_TBD
+
+jobLossEffects:
+  items:
+    - income_loss
+    - stress_increase
+    - happiness_decrease
+    - economic_difficulty
+    - notifications
+    - new_opportunities
+  values: TBD

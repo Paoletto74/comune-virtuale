@@ -1,0 +1,68 @@
+# =============================================================================
+# API LAYER — transport, versioning, resource design
+# =============================================================================
+
+ApiLayer:
+  basePath: /api/v1
+  futureVersion: /api/v2
+  rule: NON rompere arbitrariamente client esistenti
+
+responsibilities:
+  items:
+    - authentication_context
+    - authorization
+    - request_validation
+    - response_serialization
+    - error_handling
+    - rate_limiting
+    - versioning
+
+resourceDesign:
+  DECISIONE APPROVATA: resource-oriented where appropriate, command endpoints for actions
+  resources:
+    items:
+      - /citizens
+      - /profiles
+      - /tasks
+      - /items
+      - /listings
+      - /notifications
+      - /rankings
+      - /municipality
+  commandExamples:
+    items:
+      - "POST /tasks/:id/complete"
+      - "POST /listings/:id/buy"
+
+authContext:
+  DECISIONE APPROVATA: ogni request autenticata ha context
+  fields:
+    items:
+      - accountId
+      - citizenId
+      - roles
+      - permissions
+  rule: client NON sceglie arbitrariamente citizenId
+
+ownershipCheck:
+  DECISIONE APPROVATA: server verifica requester -> resource owner prima di modifiche
+
+pagination:
+  DECISIONE APPROVATA: pagination/cursor per liste grandi
+
+filtering:
+  rule: filtri controllati — NO query arbitrarie database
+
+sorting:
+  rule: whitelist campi ordinabili — NO sortBy=raw_sql
+
+fieldSelection:
+  status: DA DEFINIRE — default minimal required fields
+
+contentDelivery:
+  DECISIONE APPROVATA: content pubblicato via Content Store/backend — NON import YAML nel frontend
+
+events:
+  items:
+    - ApiRequestReceived
+    - ApiResponseSent

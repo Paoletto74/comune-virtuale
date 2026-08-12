@@ -1,0 +1,25 @@
+# =============================================================================
+# HISTORICAL DATA — graph data from source of truth
+# =============================================================================
+
+HistoricalData:
+  DECISIONE APPROVATA: |
+    Runtime produce historical data per grafici.
+    NON creare dati grafici separati e incoerenti con source of truth.
+  tracks:
+    items:
+      - net_worth
+      - inflation
+      - rankings
+      - progression
+      - relevant_statistics
+
+historicalContent:
+  rule: |
+    Evento storico con content v1 -> history conserva riferimento versione utilizzata.
+
+ref: data_architecture_v1/history.yaml
+
+events:
+  emits: [HistoryPointRecorded]
+  consumes: [LevelReached, PropertyPurchased, InflationUpdated]

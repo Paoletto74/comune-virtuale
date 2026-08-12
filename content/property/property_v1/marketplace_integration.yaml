@@ -1,0 +1,9 @@
+# =============================================================================
+# MARKETPLACE INTEGRATION — property_v1
+# =============================================================================
+
+---
+MarketplaceIntegration:
+  listingTransaction: Marketplace facilitates
+  propertyAsset: Property owns
+  status: DECISIONE APPROVATA

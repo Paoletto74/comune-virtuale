@@ -1,0 +1,20 @@
+# =============================================================================
+# ARTICLE CARDS — editorial card structure
+# =============================================================================
+
+ArticleCard:
+  fields:
+    items:
+      - kicker
+      - headline
+      - image
+      - caption
+      - excerpt
+      - timestamp
+      - category
+      - relevance
+  ref: components.yaml ArticleCard
+
+events:
+  items:
+    - ArticleCardRendered

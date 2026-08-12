@@ -1,0 +1,14 @@
+# =============================================================================
+# ENVIRONMENTS — DEV, STAGING, PRODUCTION
+# =============================================================================
+
+Environments:
+  items:
+    - DEV
+    - STAGING
+    - PRODUCTION
+  rule: content publish must have environment awareness
+
+events:
+  items:
+    - EnvironmentSelected

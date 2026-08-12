@@ -1,0 +1,20 @@
+# =============================================================================
+# RECOVERY — password, account
+# =============================================================================
+
+PasswordRecovery:
+  status: PROPOSTA TECNICA
+  flow: |
+    request → verification → reset → session/security refresh
+  provider: email_TBD
+
+AccountRecovery:
+  status: PROPOSTA TECNICA — futuro
+  rule: |
+    NON recovery insicuro basato solo su username, nome Citizen, dati pubblici profilo.
+
+events:
+  items:
+    - PasswordResetRequested
+    - PasswordResetCompleted
+    - AccountRecoveryAttempted

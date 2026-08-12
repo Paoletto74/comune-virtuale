@@ -1,0 +1,60 @@
+# =============================================================================
+# MAINTENANCE — manutenzione veicoli
+# =============================================================================
+
+ConditionModel:
+  schema:
+    vehicleId: string
+    condition: number
+    lastUpdated: timestamp
+    decayRate: TBD
+  range: TBD
+
+conditionEffects:
+  affects:
+    items:
+      - reliability
+      - travelTime
+      - breakdownRisk
+      - costs
+      - marketValue
+      - comfort
+  formulas: TBD
+
+decay:
+  triggers:
+    items:
+      - time_passed
+      - usage
+      - events
+      - accidents
+  rate: TBD
+
+maintenanceTypes:
+  items:
+    - ordinary
+    - repair
+    - extraordinary
+  costs: TBD
+
+maintenanceAction:
+  flow: |
+    Owner initiates maintenance
+    → validate ownership + funds
+    → Economy Pipeline (maintenance expense)
+    → update condition
+    → emit VehicleMaintained
+
+ownerObligations:
+  items:
+    - ordinary_maintenance
+    - repairs
+    - extraordinary_if_needed
+  values: TBD
+
+events:
+  items:
+    - ConditionDecayed
+    - MaintenanceRequired
+    - VehicleMaintained
+    - VehicleRepaired

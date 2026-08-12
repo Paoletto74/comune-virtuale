@@ -1,0 +1,14 @@
+# =============================================================================
+# WEEKLY BOUNDARIES — time_v1
+# =============================================================================
+
+---
+WeeklyBoundaries:
+  trigger: WeekStarted
+  reactors:
+  - Ranking
+  - Work weekly salary
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - WeeklyBoundaryCrossed

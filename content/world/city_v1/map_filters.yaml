@@ -1,0 +1,19 @@
+# =============================================================================
+# MAP FILTERS — lavoro, marketplace, proprieta, servizi, eventi
+# =============================================================================
+
+MapFilters:
+  filters:
+    items:
+      - lavoro
+      - marketplace
+      - proprieta
+      - servizi
+      - eventi
+      - social
+      - politica
+  security: risultati rispettano authorization/privacy — ref map_search.yaml
+
+events:
+  items:
+    - MapFilterApplied

@@ -1,0 +1,28 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values
+# =============================================================================
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - rate_limit_numeric_values
+    - event_bus_technology
+    - background_worker_technology
+    - cache_technology
+    - openapi_tooling
+    - media_storage_provider
+    - circuit_breaker_implementation
+    - distributed_tracing_provider
+    - feature_flag_system
+    - secret_management_provider
+    - deployment_platform
+    - async_operation_final_list
+    - field_selection_support
+    - payment_provider_future
+
+DatabaseNote:
+  status: PROPOSTA TECNICA — PostgreSQL/Supabase da data_architecture_v1 — NON approvato
+
+events:
+  items:
+    - PlaceholderResolved

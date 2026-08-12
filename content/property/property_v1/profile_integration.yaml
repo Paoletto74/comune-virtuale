@@ -1,0 +1,12 @@
+# =============================================================================
+# PROFILE INTEGRATION — property_v1
+# =============================================================================
+
+---
+ProfileIntegration:
+  shows:
+  - owned properties
+  - primary residence
+  - showcase
+  netWorthGraph: historical valuation
+  status: DECISIONE APPROVATA

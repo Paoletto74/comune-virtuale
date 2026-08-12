@@ -1,0 +1,68 @@
+# =============================================================================
+# COMMANDS — state-modifying operations
+# =============================================================================
+
+Commands:
+  DECISIONE APPROVATA: COMMAND modifica stato — separato da QUERY
+
+commands:
+  TaskCommands:
+    items:
+      - StartTask
+      - CompleteTask
+      - AbandonTask
+  MarketplaceCommands:
+    items:
+      - CreateListing
+      - BuyItem
+      - SellItem
+      - RentProperty
+      - CancelListing
+  WorkCommands:
+    items:
+      - ApplyForJob
+      - AcceptJob
+      - ResignJob
+      - ReceiveSalary
+  BankingCommands:
+    items:
+      - TransferMoney
+      - SendGift
+      - RequestLoan
+      - RepayLoan
+  SocialCommands:
+    items:
+      - SendSympathy
+      - SendGiftSocial
+  PoliticalCommands:
+    items:
+      - RegisterCandidacy
+      - Vote
+      - VoteReferendum
+  CriminalCommands:
+    items:
+      - ExecuteCriminalActivity
+  NotificationCommands:
+    items:
+      - MarkRead
+      - DismissNotification
+  AdminCommands:
+    items:
+      - ImportContent
+      - PublishContent
+      - RollbackContent
+      - DisableContent
+
+idempotencyRequired:
+  items:
+    - payment
+    - reward
+    - purchase
+    - task_completion
+    - gift
+    - salary
+
+events:
+  items:
+    - CommandExecuted
+    - CommandRejected

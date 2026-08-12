@@ -1,0 +1,9 @@
+# =============================================================================
+# BUSINESS REVENUE — economy_v1
+# =============================================================================
+
+---
+BusinessRevenue:
+  type: transaction
+  moneySource: must be identified
+  status: DECISIONE APPROVATA

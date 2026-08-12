@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC DAILY LIFE — time_v1
+# =============================================================================
+
+---
+NpcDailyLife:
+  example: '08:00 work 18:00 home conceptual'
+  rule: configurable not hardcoded
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - NpcDailyRoutineStep

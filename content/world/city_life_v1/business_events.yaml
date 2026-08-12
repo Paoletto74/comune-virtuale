@@ -1,0 +1,22 @@
+# =============================================================================
+# BUSINESS EVENTS — opening, closing, promotion, etc.
+# =============================================================================
+
+BusinessEvents:
+  types:
+    items:
+      - opening
+      - closing
+      - promotion
+      - strike
+      - bankruptcy
+      - expansion
+      - scandal
+      - award
+  source: Business/Event Systems — ref business_main_v1, event_main_v1
+  news:
+    rule: eventi importanti — editorial candidate — NON auto articolo pubblicato
+
+events:
+  items:
+    - BusinessEventEmitted

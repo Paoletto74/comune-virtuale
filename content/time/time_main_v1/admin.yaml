@@ -1,0 +1,46 @@
+# =============================================================================
+# ADMIN TIME CONTROL
+# =============================================================================
+
+AdminTimeControl:
+  status: PROPOSTA TECNICA — pannello futuro
+  capabilities:
+    items:
+      - view_world_time
+      - view_time_scale
+      - modify_time_scale
+      - pause_for_maintenance
+      - controlled_advance_test_env
+  requirements:
+    items:
+      - authorized
+      - audited
+      - server_side_only
+
+WorldPauseAdmin:
+  triggers:
+    items:
+      - maintenance
+      - emergency
+      - migration
+      - debug
+  duringPause: quali sistemi bloccati — TBD
+
+TimeScaleAdminChange:
+  mustRecord: time_scale_history
+  mustNot: alter_arbitrary_existing_world_dates
+
+security:
+  clientCannot:
+    items:
+      - modify_world_time
+      - modify_time_scale
+      - pause_world
+      - skip_catchup
+      - forge_timestamps
+
+events:
+  items:
+    - AdminTimeScaleChanged
+    - AdminWorldPaused
+    - AdminWorldResumed

@@ -1,0 +1,16 @@
+# =============================================================================
+# SECURITY — mobility_vehicles_v1
+# =============================================================================
+
+---
+Security:
+  clientCannot:
+  - set owner
+  - set valuation
+  - transfer vehicle
+  - bypass payment
+  - create vehicles
+  - teleport
+  - complete travel arbitrarily
+  - alter duration
+  status: DECISIONE APPROVATA

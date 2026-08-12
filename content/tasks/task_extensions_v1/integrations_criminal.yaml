@@ -1,0 +1,19 @@
+# =============================================================================
+# INTEGRATIONS CRIMINAL — task_extensions_v1
+# =============================================================================
+
+---
+CriminalIntegration:
+  criminalGenerates: criminal tasks
+  criminalOwns:
+  - heat
+  - discovery
+  - crime state
+  - sanctions
+  - prison
+  taskOwns:
+  - choice
+  - outcome
+  - consequence request
+  mainStatus: not_implemented in task_main integrations
+  status: PROPOSTA TECNICA boundary

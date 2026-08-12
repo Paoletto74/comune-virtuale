@@ -1,0 +1,16 @@
+# =============================================================================
+# NEWSPAPER INTEGRATION — Gazzetta district/landmark images
+# =============================================================================
+
+NewspaperIntegration:
+  uses:
+    items:
+      - district_images
+      - city_landmarks
+      - event_scenes
+  rule: Event != Article — articolo da Content System/editorial workflow
+  ref: newspaper_v1, content_system_v1
+
+events:
+  items:
+    - CityNewsLinked

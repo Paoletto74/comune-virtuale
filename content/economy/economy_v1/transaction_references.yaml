@@ -1,0 +1,18 @@
+# =============================================================================
+# TRANSACTION REFERENCES — economy_v1
+# =============================================================================
+
+---
+TransactionReferences:
+  types:
+  - purchase
+  - salary
+  - rent
+  - loan
+  - gift
+  - tax
+  - sale
+  - reward
+  - fine
+  - refund
+  status: DECISIONE APPROVATA

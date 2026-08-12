@@ -1,0 +1,141 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: work → economy
+    rule: DECISIONE APPROVATA — Work System NON modifica cash direttamente
+    flow: |
+      WorkSessionCompleted / payPeriodDue
+      → Action(SalaryDue)
+      → Economy Pipeline
+      → Transaction(type: salary)
+      → Ledger
+      → CitizenEconomicState.cash
+    dataProvided:
+      - baseSalary
+      - payFrequency
+      - employerRef
+      - contractRef
+    dataConsumed:
+      - purchasing_power_context
+      - tax_rates
+      - macro_state
+
+  progression_balance_v1:
+    direction: work → progression
+    rule: Work NON decide mainLevel direttamente
+    fields:
+      - currentJob
+      - jobCategory
+      - workExperience
+      - professionalTrack
+      - careerLevel
+      - reputation
+      - performance
+      - employmentMilestones
+
+  event_system:
+    direction: bidirectional
+    work_emits:
+      - EmploymentStarted
+      - EmploymentTerminated
+      - WorkSessionCompleted
+      - ApplicationRejected
+      - CareerPromoted
+      - WorkInjury
+      - JobInactivityWarning
+    work_consumes:
+      - CompanyFailed
+      - EconomicCrisis
+      - PersonalValueChanged
+
+  notification_system:
+    direction: work → notifications
+    rule: DECISIONE APPROVATA — NO UI notifiche nel Work System
+    templates:
+      - hired
+      - job_lost
+      - application_rejected
+      - salary_received
+      - promotion
+      - work_injury
+      - inactivity_warning
+
+  business_system:
+    status: not_implemented
+    interface:
+      Company → JobPosition → Employee → WorkSession → Salary
+    companyCan:
+      - create_positions
+      - hire
+      - fire
+      - set_conditions
+      - pay_salaries
+      - manage
+
+  criminal_system:
+    status: not_implemented
+    rule: |
+      DECISIONE APPROVATA: lavoro legale e criminale indipendenti.
+      Medico/politico/imprenditore possono ricevere task criminali.
+      Work System NON blocca combinazioni — Criminal gestisce conseguenze.
+
+  task_system:
+    direction: work → tasks
+    jobTasks:
+      filteredBy: [jobId, categoryId, careerLevel, experience, levers, context]
+    nonJobTasks:
+      DECISIONE APPROVATA: cittadino con lavoro riceve anche task personali/globali/economici/sociali/criminali
+    taskCatalog: separate_module_TBD
+
+  mobility_system:
+    status: not_implemented
+    affects: [punctuality, performance, stress, travel_time]
+
+  citizen_model:
+    personalValuesAffected:
+      - happiness
+      - health
+      - stress
+      - reputation
+      - experience
+      - education
+      - culture
+      - freeTime
+
+  time_system:
+    shared: true
+    uses: [timestamps, sessions, tick, scheduled_events, catch_up]
+
+  admin_panel:
+    configurable:
+      - jobs
+      - categories
+      - salaries
+      - hours
+      - requirements
+      - hire_probability
+      - application_cooldown
+      - career
+      - tasks
+      - quality
+      - performance
+      - levers
+      - stress
+      - reputation
+      - injuries
+      - inactivity
+      - available_slots
+
+  security:
+    clientCannotDecide:
+      - salary
+      - application_outcome
+      - performance
+      - promotion
+      - hours_worked
+      - work_session_result
+      - job_ownership

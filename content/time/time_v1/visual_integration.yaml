@@ -1,0 +1,13 @@
+# =============================================================================
+# VISUAL INTEGRATION — time_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  ref: contextual_visuals_v1
+  effects:
+  - day/night map
+  - time event visuals
+events:
+  items:
+  - TimeVisualApplied

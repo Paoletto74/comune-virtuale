@@ -1,0 +1,18 @@
+# =============================================================================
+# JOB REQUIREMENTS — work_careers_v1
+# =============================================================================
+
+---
+JobRequirements:
+  types:
+  - minimum level
+  - experience
+  - qualification
+  - previous job
+  - title
+  - skill
+  - reputation
+  - location
+  evaluation: backend authoritative
+  frontend: required/met/not met only
+  status: DECISIONE APPROVATA

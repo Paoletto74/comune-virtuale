@@ -1,0 +1,18 @@
+# =============================================================================
+# CAREER EVENTS — work_careers_v1
+# =============================================================================
+
+---
+SemanticWorkEvents:
+  items:
+  - JobApplied
+  - JobAccepted
+  - JobRejected
+  - Hired
+  - Fired
+  - Resigned
+  - Promoted
+  - Demoted
+  - SalaryChanged
+  - WorkCompleted
+  status: DECISIONE APPROVATA

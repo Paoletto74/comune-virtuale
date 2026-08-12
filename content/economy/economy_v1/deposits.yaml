@@ -1,0 +1,9 @@
+# =============================================================================
+# DEPOSITS — economy_v1
+# =============================================================================
+
+---
+Deposits:
+  flow: Cash to Bank
+  accounting: NOT money creation
+  status: DECISIONE APPROVATA

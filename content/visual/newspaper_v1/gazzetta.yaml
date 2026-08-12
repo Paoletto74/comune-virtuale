@@ -1,0 +1,33 @@
+# =============================================================================
+# GAZZETTA — maximum expression of newspaper art direction
+# =============================================================================
+
+Gazzetta:
+  DECISIONE APPROVATA: massima espressione Newspaper Art Direction
+  sections:
+    active:
+      items:
+        - referendum
+        - cronaca
+    future:
+      items:
+        - economia
+        - politica
+        - sport
+        - societa
+  elements:
+    items:
+      - front_page
+      - headline
+      - breaking_news
+      - articoli
+      - immagini
+      - didascalie
+      - timestamp
+      - rubriche
+
+ref: frontend_ui_v1/gazzetta.yaml, templates.yaml
+
+events:
+  items:
+    - GazzettaSectionRendered

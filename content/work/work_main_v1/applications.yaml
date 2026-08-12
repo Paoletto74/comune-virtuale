@@ -1,0 +1,58 @@
+# =============================================================================
+# APPLICATION SYSTEM — candidatura
+# =============================================================================
+
+Application:
+  applicationId: string
+  citizenId: string
+  positionId: string
+  jobId: string
+  appliedAtGameTime: gameTime
+
+  status: pending | accepted | rejected | withdrawn | expired
+
+  evaluation:
+    requirementsMet: boolean
+    suitabilityScore: TBD
+    probability: TBD
+    competitionFactor: TBD
+
+ApplicationSystem:
+  qualifiedJobsRequireApplication: true
+  baseJobsPolicy: TBD
+
+  hiringProbability:
+    default: TBD
+    initialHypothesis: 0.50
+    notes: |
+      DECISIONE APPROVATA: probabilità iniziale ipotizzata 50%
+      PROPOSTA TECNICA: CONFIGURABILE — non hardcodare 50% nel motore
+    placeholderKey: HIRE_PROBABILITY_DEFAULT
+
+  rejection:
+    positionUnavailableForCitizen: true
+    cooldownPeriod: TBD
+    placeholderKey: APPLICATION_COOLDOWN
+    notification: application_rejected
+    valueEffects: TBD
+
+  competition:
+    multiplePlayersSamePosition: true
+    npcCompetitors: true
+    selectionFormula: TBD
+    dynamicSlots: true
+    notes: DECISIONE APPROVATA — posti dinamici, formula DA_DEFINIRE
+
+  evaluationInputs:
+    - requirements
+    - suitability
+    - probability
+    - competition
+    - slot_availability
+    - npc_candidates
+
+  onAccepted:
+    creates: EmploymentContract
+    emits: Action(EmploymentStarted)
+    notification: hired
+    unlocks: [job_tasks, job_levers, salary_recurring_flow]

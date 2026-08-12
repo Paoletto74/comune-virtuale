@@ -1,0 +1,11 @@
+# =============================================================================
+# AUDIT — admin changes logged
+# =============================================================================
+
+Audit:
+  rule: admin changes — audit log
+  ref: auth_main_v1/audit.yaml
+
+events:
+  items:
+    - CityLifeAuditRecorded

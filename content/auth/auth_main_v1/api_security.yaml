@@ -1,0 +1,33 @@
+# =============================================================================
+# API SECURITY — 6-step check, IDOR
+# =============================================================================
+
+ApiAuthorization:
+  DECISIONE APPROVATA: ogni API sensibile verifica
+  checks:
+    items:
+      - authenticated
+      - correct_account
+      - correct_citizen
+      - correct_permission
+      - correct_resource
+      - correct_action
+  rule: NON fidarsi dati inviati dal client
+
+IdorProtection:
+  DECISIONE APPROVATA: |
+    Proteggere /citizen/123 quando Citizen non appartiene all'utente.
+    Server verifica ownership/permission.
+
+botProtection:
+  status: PROPOSTA TECNICA — compatibilità futura bot, credential stuffing
+  note: NON anti-bot specifico V1
+
+antiAccountSharing:
+  status: PROPOSTA TECNICA — device/session analysis futuro
+  note: NON sistemi invasivi V1
+
+events:
+  items:
+    - ApiAccessDenied
+    - IdorAttemptBlocked

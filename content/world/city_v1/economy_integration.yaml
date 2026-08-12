@@ -1,0 +1,12 @@
+# =============================================================================
+# ECONOMY INTEGRATION — use existing economy, no new system
+# =============================================================================
+
+EconomyIntegration:
+  rule: NON creare nuovo Economy System — usare economy_main_v1
+  districtIndicators: property value, commercial activity — derived
+  ref: economy_main_v1
+
+events:
+  items:
+    - EconomyAtLocation

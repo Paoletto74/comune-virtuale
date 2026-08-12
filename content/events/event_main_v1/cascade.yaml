@@ -1,0 +1,61 @@
+# =============================================================================
+# CASCADE — catene causali, profondità, cicli
+# =============================================================================
+
+CausalChain:
+  schema:
+    causalChainId: string
+    rootEventId: string
+    rootSourceSystem: string
+    createdAt: timestamp
+    depth: TBD
+    status: active | completed | failed | truncated
+  DECISIONE APPROVATA: |
+    Ogni conseguenza collegabile a causalChainId.
+    Audit, debug, notifiche, spiegazione giocatore.
+
+ParentEvent:
+  schema:
+    parentEventId: string
+  example:
+    eventA: CrimeCommitted
+    eventB: InvestigationStarted
+    parentEventId: eventA
+
+CascadingEffects:
+  DECISIONE APPROVATA: conseguenza può generare nuovo evento
+  exampleChain: |
+    Player A → criminal task → FireStarted
+    → PropertyDamaged → OwnerLoss
+    → HappinessChanged → StressChanged
+    → WorkPerformanceChanged → IncomeChanged
+
+CascadeControl:
+  protections:
+    items:
+      - max_cascade_depth
+      - cycle_detection
+      - event_budget_per_chain
+      - deduplication
+  values: TBD
+
+cycleDetection:
+  status: PROPOSTA_TECNICA
+  exampleBad: A → B → C → A → B → C...
+  rule: Rileva e tronca — marca chain truncated + audit
+
+debugView:
+  status: PROPOSTA_TECNICA — modalità tecnica futura
+  example: |
+    Player lost €240.
+    Mayor Decision → Law #123 → Property Tax
+    → PropertyCount = 3 → Tax = €240 → Cash -€240
+  playerVisibility: parziale — no dump tecnico/privato altri
+
+events:
+  items:
+    - CascadeEventGenerated
+    - CascadeDepthLimitReached
+    - CascadeCycleDetected
+    - CausalChainCompleted
+    - CausalChainTruncated

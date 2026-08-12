@@ -1,0 +1,52 @@
+# =============================================================================
+# CRIMINAL REPUTATION
+# =============================================================================
+
+CriminalReputation:
+  schema:
+    citizenId: string
+    reputationValue: TBD
+    tier: TBD
+    lastUpdated: timestamp
+
+  DECISIONE APPROVATA: |
+    criminalReputation ≠ reputation generale (pubblica).
+    Alta reputazione criminale + bassa reputazione pubblica possibile.
+    Alta reputazione pubblica + criminalReputation nascosta possibile.
+
+effects:
+  influences:
+    items:
+      - criminal_opportunities
+      - task_access
+      - network_contacts
+      - circuit_access
+      - risk_context
+  doesNot:
+    items:
+      - automatically_visible_to_other_players
+
+gainSources:
+  items:
+    - successful_activities
+    - milestones
+    - network_actions
+    - major_operations
+
+lossSources:
+  items:
+    - failed_operations
+    - betrayal_events
+    - discovery_public_scandal
+
+reputationFormula: TBD
+
+publicReputationInteraction:
+  rule: |
+    Crimine segreto → nessun effetto su reputation pubblica finché non scoperto.
+    Scoperta → possibile impatto reputation, sympathy, popularity.
+  values: TBD
+
+events:
+  items:
+    - CriminalReputationChanged

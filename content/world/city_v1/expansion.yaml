@@ -1,0 +1,27 @@
+# =============================================================================
+# EXPANSION — add districts/locations without core refactor
+# =============================================================================
+
+Expansion:
+  DECISIONE APPROVATA:
+  canAdd:
+    items:
+      - nuovi_quartieri
+      - nuove_locations
+      - nuove_aziende
+      - nuove_proprieta
+      - nuovi_servizi
+  rule: aggiungere quartiere NON richiede modifiche al core frontend
+  dynamicCity:
+    examples:
+      items:
+        - nuovo_sindaco
+        - nuovo_negozio
+        - nuova_proprieta
+        - evento
+        - costruzione
+        - chiusura_attivita
+
+events:
+  items:
+    - CityExpanded

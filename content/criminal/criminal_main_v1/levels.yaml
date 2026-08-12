@@ -1,0 +1,72 @@
+# =============================================================================
+# CRIMINAL LEVELS — livelli track criminale
+# =============================================================================
+# Nomi narrativi TBD — catalogo configurabile, NON hardcoded
+# =============================================================================
+
+CriminalLevelDefinition:
+  schema:
+    levelId: string
+    levelNumber: number
+    label: string
+    description: string
+    requirementsRef: string
+    unlocksRef: string
+    visibility: PRIVATE
+
+levels:
+  status: skeleton_narrative_only
+  note: |
+    Esempi puramente narrativi — nomi definitivi DA DEFINIRE.
+    NON utilizzare necessariamente questi label in produzione.
+
+  indicativeLabels:
+    items:
+      - levelNumber: 1
+        label: Criminale alle prime armi
+        status: TBD
+      - levelNumber: 2
+        label: Piccolo delinquente
+        status: TBD
+      - levelNumber: 3
+        label: Criminale navigato
+        status: TBD
+      - levelNumber: 4
+        label: Truffatore
+        status: TBD
+      - levelNumber: 5
+        label: Professionista
+        status: TBD
+      - levelNumber: 6
+        label: Boss
+        status: TBD
+      - levelNumber: 7
+        label: Re della truffa
+        status: TBD
+      - levelNumber: 8
+        label: Re delle rapine
+        status: TBD
+      - levelNumber: 9
+        label: Figura criminale di rilievo
+        status: TBD
+  rule: Lista configurabile — aggiungibile senza modificare motore
+
+levelRequirements:
+  possibleRequirements:
+    items:
+      - criminalExperience
+      - milestone
+      - criminalReputation
+      - activity_count_by_tier
+      - network
+      - resources
+  values: TBD
+
+unlocks:
+  perLevel:
+    items:
+      - activity_categories
+      - task_pools
+      - risk_tiers
+      - network_contacts
+  values: TBD

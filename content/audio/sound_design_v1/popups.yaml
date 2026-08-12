@@ -1,0 +1,16 @@
+# =============================================================================
+# POPUP SOUNDS — HIGH/CRITICAL only
+# =============================================================================
+
+PopupSounds:
+  appliesTo:
+    items:
+      - HIGH
+      - CRITICAL
+  rule: NON ogni popup deve avere audio
+  pairing: visual + text + sound for important popups
+  ref: frontend_ui_v1/popups.yaml
+
+events:
+  items:
+    - PopupSoundPlayed

@@ -1,0 +1,12 @@
+# =============================================================================
+# CURRENCY — economy_v1
+# =============================================================================
+
+---
+Currency:
+  v1: single primary currency
+  name: TBD
+  precision: integer minor units
+  noFloat: true
+  alignsWith: economy_main_v1/currency.yaml
+  status: DECISIONE APPROVATA

@@ -1,0 +1,13 @@
+# =============================================================================
+# PERSONALIZATION — placeholders resolved at delivery
+# =============================================================================
+
+Personalization:
+  placeholders:
+    example: "Congratulazioni {playerName}!"
+  resolution: authorized system resolves — NOT admin arbitrary values for game stats
+  ref: variables.yaml
+
+events:
+  items:
+    - ContentPersonalized

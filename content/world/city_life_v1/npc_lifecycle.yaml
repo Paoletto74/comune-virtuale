@@ -1,0 +1,21 @@
+# =============================================================================
+# NPC LIFECYCLE — DRAFT to REMOVED
+# =============================================================================
+
+NpcLifecycle:
+  states:
+    items:
+      - DRAFT
+      - ACTIVE
+      - INACTIVE
+      - RETIRED
+      - REMOVED
+  persistence:
+    important: persistenti
+    decorative: gestione piu leggera/transient
+  deathRemoval:
+    status: regole TBD — NON introdurre permadeath automaticamente
+
+events:
+  items:
+    - NpcLifecycleChanged

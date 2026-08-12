@@ -1,0 +1,37 @@
+# =============================================================================
+# CRIME SOUNDS — arrest siren, criminal actions
+# =============================================================================
+
+CrimeSounds:
+  PlayerArrested:
+    cue: crime.arrest_siren
+    priority: CRITICAL
+    length: critical
+    description: |
+      SIRENA — uno dei sound piu riconoscibili del gioco.
+      Accompagnato da popup + visual alert + animation + notification.
+    pairing:
+      items:
+        - siren
+        - popup
+        - status
+        - visual_alert
+  CriminalSuccess:
+    cue: crime.tension_success
+    priority: NORMAL
+    length: micro
+    description: discreet tension/success — NON glorificare automaticamente
+  CriminalFailure:
+    cue: crime.tension_failure
+    priority: NORMAL
+    length: micro
+    description: negative/tension cue
+  PoliceEncounter:
+    cue: crime.police_tension
+    priority: HIGH
+    length: normal
+    description: tension cue
+
+events:
+  items:
+    - CrimeSoundTriggered

@@ -1,0 +1,36 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values, inflation detail
+# =============================================================================
+
+MunicipalInflation:
+  schema:
+    currentInflation: TBD
+    historicalValues: []
+    timestamp: timestamp
+    source: string
+    calculationMetadata: object
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - numeric_precision_money
+    - currency_code_final
+    - listing_state_final_enum
+    - simulation_level_selection_algorithm
+    - search_technology
+    - database_provider
+    - cache_technology
+    - realtime_technology
+    - RPO_RTO_values
+    - performance_SLA_numbers
+    - encryption_provider
+    - backup_provider
+    - gender_age_birthday_final_schema
+
+DatabaseTechnology:
+  status: PROPOSTA TECNICA — vedi proposal section DATABASE RECOMMENDATION
+  note: raccomandazione NON equivale ad approvazione
+
+events:
+  items:
+    - PlaceholderResolved

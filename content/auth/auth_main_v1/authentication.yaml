@@ -1,0 +1,59 @@
+# =============================================================================
+# AUTHENTICATION — login flow, logout
+# =============================================================================
+
+LoginFlow:
+  DECISIONE APPROVATA:
+  flow: |
+    Landing → Login → Authentication → Account
+    → Citizen exists? YES → Game : NO → Citizen Creation
+    → Profile Setup → Home
+
+Logout:
+  DECISIONE APPROVATA: |
+    Invalida/chiude sessione.
+    Impedisce accesso via sessione precedente.
+    Mantiene tutti dati persistenti.
+    NON cancella Citizen.
+
+AuthProviderAbstraction:
+  status: PROPOSTA TECNICA
+  interface: AuthenticationProvider
+  implementations:
+    items:
+      - GoogleProvider
+      - PasswordProvider
+      - FutureProvider
+
+AuthorizationService:
+  status: PROPOSTA TECNICA
+  input:
+    items:
+      - identity
+      - action
+      - resource
+      - context
+  output: ALLOW | DENY
+
+AdminPolicy:
+  status: PROPOSTA TECNICA
+  contains:
+    items:
+      - roles
+      - permissions
+      - sensitive_scopes
+      - approval_rules
+      - session_policy
+
+securityByDefault:
+  DECISIONE APPROVATA:
+  default: DENY
+  failClosed: |
+    Se authorization non disponibile → DENY operazioni sensibili.
+    Preferire DENY a ALLOW.
+
+events:
+  items:
+    - LoginSucceeded
+    - LoginFailed
+    - Logout

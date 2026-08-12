@@ -1,0 +1,77 @@
+# =============================================================================
+# PROFILE — rich section, public/private, levels, net worth
+# =============================================================================
+
+Profile:
+  DECISIONE APPROVATA: sezione ricca del gioco
+  shows:
+    items:
+      - avatar
+      - nome
+      - sesso_genere
+      - eta
+      - compleanno
+      - piatto_preferito
+      - info_baffe_configurabili
+      - titoli
+      - lavoro
+      - liquidita
+      - patrimonio
+      - livelli
+      - ranking
+      - showcase
+
+visibility:
+  DECISIONE APPROVATA: PUBLIC, PRIVATE, DISCOVERABLE
+  ref: profile_main_v1/visibility.yaml
+
+Level:
+  shows:
+    items:
+      - livello_attuale
+      - label
+      - tier
+      - progress
+      - prossimo_livello
+  rule: NON confondere level con role
+
+Title:
+  shows:
+    items:
+      - contextual_title
+      - titoli_disponibili
+      - titolo_attivo
+  sourceOfTruth: Title Engine
+
+Job:
+  shows:
+    items:
+      - lavoro_attuale
+      - track
+      - storico
+
+Liquidity:
+  shows: cash, eventuale saldo bancario secondo policy
+  privacy: NON a visitatori dati sensibili
+
+NetWorth:
+  shows: net worth — separato da liquidita e debiti
+
+GlobalPosition:
+  shows:
+    items:
+      - ranking_globale
+      - posizione
+      - percentile
+      - categoria
+  sourceOfTruth: Ranking Service — derived, NON modificabile client
+
+Mayor:
+  DECISIONE APPROVATA: L25 SINDACO != Sindaco — ruolo da Political System
+
+api: profile_api.yaml
+
+events:
+  items:
+    - ProfileViewed
+    - ProfileUpdated

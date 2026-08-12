@@ -1,0 +1,15 @@
+# =============================================================================
+# CONTENT SAFETY — unvalidated content never enters runtime
+# =============================================================================
+
+ContentSafety:
+  DECISIONE APPROVATA: contenuto non validato NON entra nel runtime
+  gates:
+    items:
+      - validation
+      - approval
+      - publish_check
+
+events:
+  emits: [ContentRejected]
+  consumes: []

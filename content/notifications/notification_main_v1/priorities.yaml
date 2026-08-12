@@ -1,0 +1,56 @@
+# =============================================================================
+# PRIORITY — urgenza
+# =============================================================================
+
+priorityLevels:
+  items:
+    - level: LOW
+      label: Bassa
+      feedWeight: TBD
+      bypassGrouping: false
+      examples:
+        items:
+          - prezzo_pane_aumentato
+    - level: NORMAL
+      label: Normale
+      feedWeight: TBD
+      bypassGrouping: false
+    - level: HIGH
+      label: Alta
+      feedWeight: TBD
+      bypassGrouping: true
+      examples:
+        items:
+          - perso_lavoro
+    - level: CRITICAL
+      label: Critica
+      feedWeight: TBD
+      bypassGrouping: true
+      bypassSomeFilters: true
+      examples:
+        items:
+          - arresto
+          - bancarotta_imminente
+          - sfratto
+          - scadenza_urgente
+
+criticalBypass:
+  DECISIONE APPROVATA: |
+    CRITICAL può bypassare grouping, alcuni filtri, ritardi.
+  examples:
+    items:
+      - arrest
+      - job_loss
+      - bankruptcy
+      - eviction
+      - urgent_deadline
+
+priorityVsSeverity:
+  rule: |
+    priority = urgenza (quanto in evidenza / ordine feed)
+    severity = gravità (INFO | WARNING | CRITICAL)
+    Separati — configurabili indipendentemente
+
+events:
+  items:
+    - NotificationPriorityAssigned

@@ -1,0 +1,19 @@
+# =============================================================================
+# SOCIAL RUNTIME — reputation, sympathy, decay/growth
+# =============================================================================
+
+SocialRuntime:
+  tickProcesses:
+    items:
+      - reputation
+      - sympathy
+      - popularity
+      - relationship_decay_growth
+  rule: solo secondo social rules
+  sourceOfTruth: Social
+  executionMode: tick-driven + event-driven
+  ref: social_main_v1
+
+events:
+  emits: [ReputationChanged, GiftSent]
+  consumes: [PlayerCommandGift, DomainEvents]

@@ -1,0 +1,18 @@
+# =============================================================================
+# AI NPC FUTURE — no autonomous LLM per NPC V1
+# =============================================================================
+
+AiNpcFuture:
+  status: NON implementare V1
+  behavior: TBD
+  forbidden:
+    items:
+      - modify_game_state_autonomously
+      - create_money
+      - assign_property
+      - bypass_permissions
+  rule: NON implementare LLM autonomo per ogni NPC
+
+events:
+  items:
+    - AiNpcBehaviorRequested

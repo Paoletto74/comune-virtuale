@@ -1,0 +1,19 @@
+# =============================================================================
+# THEMES — day edition, night edition, special edition
+# =============================================================================
+
+Themes:
+  status: PROPOSTA TECNICA — compatibile con ui_main_v1
+  options:
+    items:
+      - DAY_EDITION
+      - NIGHT_EDITION
+      - SPECIAL_EDITION
+  futureCustomization:
+    rule: edition themes senza rompere design system
+
+ref: ui_main_v1, special_editions.yaml
+
+events:
+  items:
+    - ThemeApplied

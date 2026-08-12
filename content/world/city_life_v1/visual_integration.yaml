@@ -1,0 +1,11 @@
+# =============================================================================
+# VISUAL INTEGRATION — contextual visuals for city life
+# =============================================================================
+
+VisualIntegration:
+  ref: contextual_visuals_v1
+  entities: visualAssetId per Citizen, NPC, Business, Organization
+
+events:
+  items:
+    - CityLifeVisualApplied

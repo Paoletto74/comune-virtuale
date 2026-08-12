@@ -1,0 +1,15 @@
+# =============================================================================
+# POLITICAL INTEGRATION — political orgs, NPC politics
+# =============================================================================
+
+PoliticalIntegration:
+  owner: Political System — ref political_main_v1
+  applies:
+    items:
+      - political_organizations
+      - npc_political_roles
+  rule: NON duplicate political rules
+
+events:
+  items:
+    - PoliticalCityLifeIntegrated

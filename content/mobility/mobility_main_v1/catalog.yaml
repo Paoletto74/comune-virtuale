@@ -1,0 +1,55 @@
+# =============================================================================
+# MOBILITY MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Mobility Status ≠ Vehicle Ownership
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1
+# Valori numerici: TBD
+# =============================================================================
+
+catalogId: mobility_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - Mobility Status separato da Vehicle Ownership
+  - Mezzo NON obbligatorio — piedi, TP, affitto, combinazioni
+  - NO simulatore automobilistico — "Come mi sposto e quanto costa?"
+  - Vehicle Definition ≠ Vehicle Instance
+  - Veicolo = asset economico (vehicle subtype in economy)
+  - Costi via Economy Pipeline — NO modifica diretta cash
+  - Mobility fornisce dati — Work decide conseguenze lavorative
+  - No morte permanente per incidenti
+  - Client non autoritativo
+  - Nessuna AI runtime / mappe esterne / routing esterni
+
+includes:
+  modes: modes.yaml
+  vehicle_types: vehicle_types.yaml
+  vehicles: vehicles.yaml
+  ownership: ownership.yaml
+  rentals: rentals.yaml
+  travel: travel.yaml
+  routes: routes.yaml
+  costs: costs.yaml
+  maintenance: maintenance.yaml
+  incidents: incidents.yaml
+  public_transport: public_transport.yaml
+  npc_mobility: npc_mobility.yaml
+  market: market.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  mobility_core: [modes, travel, routes]
+  vehicle_core: [vehicle_types, vehicles, ownership]
+  lifecycle_module: [maintenance, incidents, costs]
+  market_module: [market, rentals, npc_mobility, public_transport]

@@ -1,0 +1,41 @@
+# =============================================================================
+# DISTRICTS — quartieri con identita distinta
+# =============================================================================
+
+Districts:
+  identifier: DistrictId
+  conceptExamples:
+    items:
+      - Centro
+      - Zona_Residenziale
+      - Zona_Industriale
+      - Zona_Commerciale
+      - Periferia
+      - Zona_Ricca
+      - Zona_Popolare
+      - Zona_Portuale
+  names: DA DEFINIRE / TBD
+  purpose:
+    items:
+      - identita
+      - livello_economico
+      - tipo_edifici
+      - attivita
+      - rischi
+      - servizi
+      - atmosfera
+      - eventi
+  rule: NON rendere tutti i quartieri equivalenti
+  metadata:
+    fields:
+      items:
+        - DistrictId
+        - CityId
+        - name
+        - description
+        - visualAssetId
+        - status
+
+events:
+  items:
+    - DistrictLoaded

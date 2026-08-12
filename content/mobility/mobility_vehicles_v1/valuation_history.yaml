@@ -1,0 +1,12 @@
+# =============================================================================
+# VALUATION HISTORY — mobility_vehicles_v1
+# =============================================================================
+
+---
+ValuationHistory:
+  use:
+  - net worth
+  - net worth graph
+  - vehicle history
+  noInventedPoints: true
+  status: PROPOSTA TECNICA

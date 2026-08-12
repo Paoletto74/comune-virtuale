@@ -1,0 +1,54 @@
+# =============================================================================
+# ORDERING, ATOMICITY, ROLLBACK, RETRY
+# =============================================================================
+
+EventOrdering:
+  DECISIONE APPROVATA: ordinamento deterministico
+  tieBreakers:
+    items:
+      - occurredAt
+      - eventPriority
+      - sequenceNumber
+  rule: Evita risultati diversi tra simulazioni identiche
+
+Atomicity:
+  DECISIONE APPROVATA: |
+    EffectSet multiplo può richiedere transazione atomica.
+    Es. acquisto immobile: buyer cash -X + ownership transfer + seller cash +X.
+    Economy/Property restano proprietari delle rispettive transazioni.
+    Event System coordina — domini partecipano a unit of work.
+  status: PROPOSTA_TECNICA — pattern two-phase o saga TBD
+
+Rollback:
+  DECISIONE APPROVATA: |
+    Se EffectSet non applicabile completamente:
+    rollback dove necessario;
+    evento marcato failed;
+    audit;
+    nessun effetto parziale non autorizzato.
+  partialApplication: forbidden unless explicitly configured
+
+Retry:
+  schema:
+    eventId: string
+    retryCount: TBD
+    maxRetries: TBD
+    retryAt: "timestamp | null"
+    failureReason: string
+  rule: Retry NON genera duplicati — idempotencyKey obbligatorio
+
+TransactionOutcome:
+  items:
+    - success
+    - partial_failure_rolled_back
+    - failed
+    - retry_scheduled
+
+events:
+  items:
+    - EventOrderingResolved
+    - AtomicTransactionStarted
+    - AtomicTransactionCommitted
+    - AtomicTransactionRolledBack
+    - EventRetryScheduled
+    - EventProcessingFailed

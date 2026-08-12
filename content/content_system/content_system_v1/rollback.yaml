@@ -1,0 +1,12 @@
+# =============================================================================
+# ROLLBACK — content version rollback
+# =============================================================================
+
+Rollback:
+  capability: rollback to previous approved version
+  rule: content version rollback — NOT database rollback, NOT game state rollback
+  audit: required
+
+events:
+  items:
+    - ContentRolledBack

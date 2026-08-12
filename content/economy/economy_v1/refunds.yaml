@@ -1,0 +1,9 @@
+# =============================================================================
+# REFUNDS — economy_v1
+# =============================================================================
+
+---
+Refunds:
+  authorization: domain system
+  execution: Economy reversal/credit
+  status: DECISIONE APPROVATA

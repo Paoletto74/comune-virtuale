@@ -1,0 +1,26 @@
+# =============================================================================
+# SOCIAL DATA — NO duplicazione dati finanziari
+# =============================================================================
+
+SocialData:
+  sourceOfTruth: Social
+  schema:
+    citizenId: string
+    relationships: []
+    reputation: TBD
+    sympathy: TBD
+    popularity: TBD
+    influence: TBD
+    socialActions: []
+    giftRefs: []
+    loanRefs: []
+
+rule: |
+  NON duplicare dati finanziari nel social system.
+  Gift/loan = riferimenti a Banking/Ledger.
+
+ref: social_main_v1
+
+events:
+  items:
+    - SocialDataUpdated

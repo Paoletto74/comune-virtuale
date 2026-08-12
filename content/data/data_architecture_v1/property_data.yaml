@@ -1,0 +1,28 @@
+# =============================================================================
+# PROPERTY DATA — definition vs ownership
+# =============================================================================
+
+PropertyDefinition:
+  type: CONTENT
+  schema:
+    propertyId: string
+    contentId: string
+
+PropertyInstance:
+  type: PERSISTENT
+  sourceOfTruth: Property
+  schema:
+    instanceId: string
+    propertyId: string
+    ownerId: string
+    location: TBD
+    value: TBD
+    condition: TBD
+    status: TBD
+    rentalState: TBD
+
+ref: property_main_v1
+
+events:
+  items:
+    - PropertyOwnershipChanged

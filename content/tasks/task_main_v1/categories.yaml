@@ -1,0 +1,67 @@
+# =============================================================================
+# TASK CATEGORIES
+# =============================================================================
+
+categories:
+  items:
+    - categoryId: personal
+      label: Personale
+      description: Vita quotidiana del cittadino
+    - categoryId: work
+      label: Lavoro
+      description: Task generati dal Work System
+    - categoryId: economic
+      label: Economico
+      description: Investimenti, spese, opportunità
+    - categoryId: social
+      label: Sociale
+      description: Interazioni con altri cittadini/NPC
+    - categoryId: criminal
+      label: Criminale
+      description: Forniti da Criminal System — task gestisce scelta/risultato
+    - categoryId: political
+      label: Politico
+      description: Forniti da Political System
+    - categoryId: housing
+      label: Abitativo
+      description: Property System — riparazioni, affitti, danni
+    - categoryId: mobility
+      label: Mobilità
+      description: Guasti, incidenti, consegne con viaggio
+    - categoryId: global
+      label: Globale
+      description: Eventi che colpiscono molti cittadini
+    - categoryId: random
+      label: Casuale
+      description: Generazione procedurale da pool
+    - categoryId: consequence
+      label: Conseguenza
+      description: Derivato da azione/evento precedente
+    - categoryId: automatic
+      label: Automatico
+      description: Eventi/task senza richiesta giocatore
+  notes: Categorie estendibili senza modificare motore
+
+interactionTypes:
+  DECISIONE APPROVATA:
+    items:
+      - execute_ignore
+      - variant_1_2_3
+      - multiple_choice_configurable
+      - automatic_consequence
+
+taskTypes:
+  items:
+    - typeId: situational
+      label: Situazione con scelta
+    - typeId: delivery
+      label: Consegna / viaggio embedded
+    - typeId: request
+      label: Richiesta da altro cittadino
+    - typeId: global_event
+      label: Evento globale
+    - typeId: passive_notification
+      label: Conseguenza automatica da gestire
+    - typeId: work_shift
+      label: Task lavorativo embedded
+  notes: Tipi estendibili

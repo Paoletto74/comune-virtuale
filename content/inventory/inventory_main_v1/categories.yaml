@@ -1,0 +1,83 @@
+# =============================================================================
+# CATEGORIES — regole per tipo bene
+# =============================================================================
+
+ItemCategory:
+  status: configurabile — regole diverse per tipo
+
+consumables:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - food
+      - beverages
+      - clothing
+      - other_consumables
+  defaultRules:
+    consumable: true
+    tradable: false
+    rentable: false
+    resellable: false
+    mayDeteriorate: true
+    mustRepurchase: true
+  note: configurazione modificabile per casi futuri
+
+resellableAssets:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - vehicles
+      - property
+      - luxury
+      - other_configurable
+  defaultRules:
+    tradable: true
+    resellable: true
+    rentable: configurable_by_domain
+  domainOwnership:
+    vehicle: mobility_main_v1
+    property: property_main_v1
+    luxury: inventory_or_domain_TBD
+
+luxuryAssets:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - jewelry
+      - art
+      - prestigious_objects
+      - rare_items
+  uses:
+    items:
+      - public_profile
+      - prestige
+      - progression
+      - reputation
+
+usableItems:
+  status: PROPOSTA TECNICA
+  examples:
+    items:
+      - tools
+      - equipment
+      - documents
+
+resources:
+  status: PROPOSTA TECNICA — materiali futuri
+  examples:
+    items:
+      - raw_materials
+      - crafting_components
+
+consumableNonResale:
+  DECISIONE APPROVATA: |
+    Default consumable: tradable=false, rentable=false, resellable=false.
+    Configurabile per casi futuri.
+
+resellableDefault:
+  DECISIONE APPROVATA: asset rivendibili configurati tradable/resellable=true
+  specificRules: dominio competente
+
+events:
+  items:
+    - ItemCategoryRuleApplied

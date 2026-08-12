@@ -1,0 +1,68 @@
+# =============================================================================
+# PERSONAL FACTS — ProfileFact, content-first
+# =============================================================================
+
+ProfileFact:
+  DECISIONE APPROVATA: |
+    Informazioni personali NON diventano automaticamente statistiche di gioco.
+    Es. piatto preferito = pizza NON significa +5 happiness.
+  schema:
+    factId: string
+    citizenId: string
+    categoryId: string
+    value: string
+    visibility: PRIVATE | PUBLIC | HIDDEN
+    source: onboarding | player_edit | event
+
+ProfileFactDefinition:
+  status: PROPOSTA TECNICA — categorie configurabili, NO hardcode motore
+  schema:
+    categoryId: string
+    label: string
+    inputType: text | select | date
+    allowedValues: []
+    visibilityDefault: PRIVATE | PUBLIC | HIDDEN
+    enabled: boolean
+
+exampleCategories:
+  items:
+    - categoryId: favoriteFood
+      label: Piatto preferito
+      exampleValue: pizza
+    - categoryId: hobbies
+      label: Hobby
+    - categoryId: favoriteColor
+      label: Colore preferito
+    - categoryId: favoriteAnimal
+      label: Animale preferito
+    - categoryId: motto
+      label: Motto
+    - categoryId: ironicTrait
+      label: Tratto ironico
+
+contentUses:
+  DECISIONE APPROVATA: Content/Event System può usare facts per
+  uses:
+    items:
+      - flavor_text
+      - events
+      - birthdays
+      - micro_events
+      - gags
+
+birthday:
+  DECISIONE APPROVATA: compleanno può generare eventi
+  examples:
+    items:
+      - "Buon compleanno!"
+      - gift_future
+      - social_event_future
+      - message_future
+      - small_surprise_future
+      - gazzetta_event_future
+  rewards: TBD
+
+events:
+  items:
+    - ProfileFactUpdated
+    - BirthdayReached

@@ -1,0 +1,139 @@
+# =============================================================================
+# EFFECTS — sistema generico effetti
+# =============================================================================
+
+Effect:
+  schema:
+    effectId: string
+    targetType: citizen | npc | property | vehicle | economy | work | progression | world
+    targetRef: string | self | context.target | context.affected
+    effectType: string
+    magnitude: TBD
+    duration: permanent | timed | until_event
+    durationValue: TBD
+    probability: TBD
+    conditionsRef: string | null
+    mode: add | set | multiply | request
+    visibility: visible | hidden
+
+effectDomains:
+  personalValues:
+    items:
+      - happiness
+      - health
+      - culture
+      - education
+      - politicalInfluence
+      - popularity
+      - experience
+      - stress
+      - luck
+      - reliability
+      - civicParticipation
+      - freeTime
+      - reputation
+      - sympathy
+  economy:
+    items:
+      - cash
+      - debt
+      - recurringIncome
+      - netWorth
+      - economicPosition
+    rule: DECISIONE APPROVATA — Task emette request, Economy esegue
+    delivery: Action(MoneyEffectRequested) → Economy Pipeline
+  profession:
+    items:
+      - workExperience
+      - performance
+      - careerLevel
+      - employment
+    rule: Task emette request, Work System applica
+  assets:
+    items:
+      - property
+      - vehicle
+      - other_assets
+    rule: Task emette request, Property/Mobility/Economy applicano
+  progression:
+    items:
+      - milestone
+      - track
+      - unlock
+    rule: Task emette request, Progression valuta
+
+effectMagnitude:
+  fields:
+    items:
+      - value
+      - duration
+      - mode
+      - probability
+      - conditions
+  examples:
+    items:
+      - effect: happiness
+        magnitude: TBD
+        duration: permanent
+      - effect: stress
+        magnitude: TBD
+        duration: timed
+        durationValue: TBD
+      - effect: reputation
+        magnitude: TBD
+        duration: permanent
+
+conditionalModifiers:
+  status: demo_pattern
+  exampleLawX:
+    baseEffect: happiness
+    baseMagnitude: TBD
+    modifiers:
+      items:
+        - conditionRef: citizen_poor
+          magnitude: TBD
+        - conditionRef: citizen_rich
+          magnitude: TBD
+        - conditionRef: property_owner
+          magnitude: TBD
+        - conditionRef: job_doctor
+          magnitude: TBD
+        - conditionRef: job_teacher
+          magnitude: TBD
+  rule: NO "evento X → tutti -10" — valuta condizioni individuali
+
+personalizationFactors:
+  items:
+    - citizen_situation
+    - job
+    - mainLevel
+    - wealth
+    - housing
+    - zone
+    - personal_values
+    - relationships
+    - properties
+    - economic_state
+    - track
+    - previous_choices
+  formula: TBD
+
+effectSets:
+  status: demo_only
+  DEMO_HELP_ELDERLY_IMMEDIATE:
+    items:
+      - effectType: sympathy
+        magnitude: TBD
+        probability: TBD
+      - effectType: reputation
+        magnitude: TBD
+  DEMO_IGNORE_ELDERLY:
+    items: []
+  DEMO_STEAL_WALLET_IMMEDIATE:
+    items:
+      - effectType: cash
+        mode: request
+        magnitude: TBD
+        delivery: economy_pipeline
+      - effectType: reputation
+        magnitude: TBD

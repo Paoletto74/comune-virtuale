@@ -1,0 +1,19 @@
+# =============================================================================
+# CHARACTER CUSTOMIZATION — layers TBD
+# =============================================================================
+
+CharacterCustomization:
+  status: DA DEFINIRE / TBD
+  concept:
+    items:
+      - base_character
+      - hair
+      - clothing
+      - accessories
+      - future_layers
+  rule: NON implementare generazione automatica V1
+  ref: contextual_visuals_v1/character_visuals.yaml
+
+events:
+  items:
+    - CharacterCustomized

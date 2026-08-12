@@ -1,0 +1,97 @@
+# =============================================================================
+# INVENTORY / ITEMS / CONSUMABLES MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: distinguere consumabili, rivendibili, lusso, veicoli,
+#   immobili, utilizzabili, risorse — NON stesse regole per tutti
+# NON modifica: tutti i moduli già approvati
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: inventory_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  npcPopulation: npc_main_v1
+  timeSystem: time_main_v1
+
+principles:
+  - ITEM ≠ ASSET — separazione netta
+  - ItemDefinition ≠ ItemInstance
+  - Consumabili default non rivendibili/non affittabili
+  - Asset complessi — dominio autorevole (Property, Mobility, Business)
+  - Inventory NON possiede prezzi/denaro/compravendite
+  - Effetti via event_main_v1 — NO hardcode nel motore
+  - Content-first ItemDefinition — versionabile
+  - Transfer atomico con Economy + domini asset
+  - Client non autoritativo — audit + idempotency
+  - NO AI / LLM / API esterne
+
+includes:
+  types: types.yaml
+  categories: categories.yaml
+  definitions: definitions.yaml
+  instances: instances.yaml
+  consumption: consumption.yaml
+  deterioration: deterioration.yaml
+  transfer: transfer.yaml
+  ownership: ownership.yaml
+  visibility: visibility.yaml
+  tags: tags.yaml
+  legal: legal.yaml
+  history: history.yaml
+  locks: locks.yaml
+  capacity: capacity.yaml
+  location: location.yaml
+  effects: effects.yaml
+  events: events.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  catalog_module: [definitions, categories, tags]
+  instance_module: [instances, stacking, location]
+  lifecycle_module: [consumption, deterioration, locks]
+  transfer_module: [transfer, ownership, history]
+
+responsibilitySplit:
+  inventorySystemDecides:
+    items:
+      - item_catalog
+      - item_definition
+      - item_instance
+      - possession_quantity_state
+      - consumption_use_flow
+      - deterioration_state
+      - transfer_possession
+      - asset_references
+      - inventory_locks
+      - item_metadata
+  otherSystemsDecide:
+    economy: prices_money_transactions
+    property: property_ownership_rent_contracts
+    mobility: vehicle_ownership_travel
+    business: company_equity
+    criminal: illegality_detection_consequences
+    eventSystem: effects_consequences
+    timeSystem: expiresAt_schedules
+    progression: requirements_levels
+    notification: player_messaging
+
+alignsWith:
+  note: |
+    Formalizza e unifica pattern in economy_main_v1/assets.yaml (CONSUMABLE vs ASSET).
+    NON modifica pack approvati.

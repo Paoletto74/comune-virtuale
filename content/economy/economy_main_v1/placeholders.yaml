@@ -1,0 +1,69 @@
+# =============================================================================
+# PLACEHOLDERS — tutti i valori numerici TBD
+# =============================================================================
+
+placeholders:
+
+  # Currency display
+  CURRENCY_DISPLAY_NAME: TBD
+  CURRENCY_SYMBOL: TBD
+
+  # Net worth & position
+  NET_WORTH_FORMULA: TBD
+  ECONOMIC_POSITION_FORMULA: TBD
+  PURCHASING_POWER_FORMULA: TBD
+
+  # Pricing
+  DYNAMIC_PRICE_FORMULA: TBD
+  PRICE_CLAMP_MIN: TBD
+  PRICE_CLAMP_MAX: TBD
+
+  # Inflation
+  INFLATION_RATE_DEFAULT: TBD
+  PRICE_INDEX_BASE: TBD
+  CATEGORY_INFLATION_RATES: TBD
+
+  # Macro
+  MACRO_INDICATOR_VALUES: TBD
+  STATE_TRANSITION_RULES: TBD
+
+  # Taxes
+  TAX_INCOME_RATE: TBD
+  TAX_PURCHASE_RATE: TBD
+  TAX_PROPERTY_RATE: TBD
+  TAX_BUSINESS_RATE: TBD
+  TAX_TRANSACTION_RATE: TBD
+
+  # NPC
+  NPC_POPULATION_DEFAULT: TBD
+  NPC_VACANCY_FILL_DAYS: TBD
+  NPC_DEMAND_WEIGHT: TBD
+
+  # Recurring
+  RECURRING_TICK_INTERVAL: TBD
+
+  # Bankruptcy
+  BANKRUPTCY_NET_WORTH_THRESHOLD: TBD
+  BANKRUPTCY_DEBT_RATIO_THRESHOLD: TBD
+
+  # Loans
+  LOAN_MAX_AMOUNT: TBD
+  LOAN_DEFAULT_GRACE_PERIOD: TBD
+
+  # Starter
+  STARTER_CASH: TBD
+  STARTER_CASH_VARIANCE: TBD
+
+  # Product base prices (examples — all TBD)
+  FOOD_BASE_PRICE_TIER_1: TBD
+  HOUSING_BASE_PRICE_TIER_1: TBD
+  VEHICLE_BASE_PRICE_TIER_1: TBD
+
+  dependsOnSystems:
+    - work_module
+    - housing_module
+    - business_module
+    - politics_module
+    - criminal_module
+    - inflation_calibration
+    - playtest_simulation

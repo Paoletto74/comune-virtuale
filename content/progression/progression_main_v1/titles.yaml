@@ -1,0 +1,137 @@
+# =============================================================================
+# TITLE CANDIDATES v1 — contestuali, separati da levelLabel e role
+# =============================================================================
+# PROPOSTA TECNICA: Title Engine seleziona per priority + requirementGroup + track dominante
+# Titoli criminali: default PRIVATE
+# =============================================================================
+
+titleResolution:
+  strategy: highest_priority_eligible
+  fallbackToLevelLabel: true
+  separateFromRole: true
+
+titles:
+  # --- EARLY tier contextual titles (PROPOSTA TECNICA) ---
+  - titleId: title_professional_L08
+    displayName: Professionista qualificato
+    priority: 50
+    dominantTrackHint: professional
+    visibility: PUBLIC
+    overridesLevelLabel: false
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 8, placeholderKey: TBD }
+        - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_entrepreneurial_L14
+    displayName: Imprenditore
+    priority: 60
+    dominantTrackHint: entrepreneurial
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 14, placeholderKey: TBD }
+        - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_political_L21
+    displayName: Politico
+    priority: 70
+    dominantTrackHint: political
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 21, placeholderKey: TBD }
+        - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: TBD }
+
+  # --- L20 canonical examples (PROMPT 6) ---
+  - titleId: title_professional_L20
+    displayName: Professionista di riferimento
+    priority: 80
+    dominantTrackHint: professional
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 20, placeholderKey: TBD }
+        - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_entrepreneurial_L20
+    displayName: Magnate
+    priority: 85
+    dominantTrackHint: entrepreneurial
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 20, placeholderKey: TBD }
+        - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_political_L20
+    displayName: Politico di rilievo
+    priority: 85
+    dominantTrackHint: political
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 20, placeholderKey: TBD }
+        - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_criminal_L20
+    displayName: Figura temuta
+    priority: 75
+    dominantTrackHint: criminal
+    visibility: PRIVATE
+    overridesLevelLabel: false
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 20, placeholderKey: TBD }
+        - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: TBD }
+    notes: PROPOSTA_TECNICA — non mostrato in profilo pubblico di default
+
+  # --- LATE tier ---
+  - titleId: title_political_L25_public
+    displayName: Figura politica di rilievo
+    priority: 90
+    dominantTrackHint: political
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 25, placeholderKey: TBD }
+        - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: TBD }
+    notes: |
+      DECISIONE APPROVATA: L25 levelLabel "SINDACO" ≠ questo title ≠ role sindaco.
+      Ruolo Sindaco richiede elezione (modulo politico TBD).
+
+  - titleId: title_entrepreneurial_L25
+    displayName: Magnate
+    priority: 92
+    dominantTrackHint: entrepreneurial
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 25, placeholderKey: TBD }
+        - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: TBD }
+
+  - titleId: title_legend_L30
+    displayName: Leggenda vivente
+    priority: 100
+    visibility: PUBLIC
+    overridesLevelLabel: true
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 30, placeholderKey: TBD }

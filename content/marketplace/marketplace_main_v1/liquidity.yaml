@@ -1,0 +1,31 @@
+# =============================================================================
+# LIQUIDITY — marketValue ≠ guaranteed cash
+# =============================================================================
+
+LiquidityScore:
+  status: PROPOSTA TECNICA
+  schema:
+    liquidityScore: TBD
+    factors:
+      items:
+        - demand
+        - asking_price
+        - category
+        - rarity
+        - condition
+        - market_state
+  values: TBD
+
+LiquidityConcept:
+  DECISIONE APPROVATA: |
+    marketValue != guaranteedCash.
+    Es. casa €500.000 — nessun acquirente → alto valore, bassa liquidità.
+
+assetLiquidity:
+  example: |
+    Alto valore + bassa liquidità = difficile convertire in cash rapidamente
+
+events:
+  items:
+    - LiquidityScoreUpdated
+    - MarketDemandChanged

@@ -1,0 +1,12 @@
+# =============================================================================
+# PRODUCTION CLOCK — time_v1
+# =============================================================================
+
+---
+ProductionClock:
+  noPlayerManipulation: true
+  maintenancePause: admin only
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - MaintenancePauseStarted

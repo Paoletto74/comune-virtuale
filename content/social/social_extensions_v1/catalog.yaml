@@ -1,0 +1,87 @@
+# =============================================================================
+# SOCIAL EXTENSIONS V1 CATALOG
+# =============================================================================
+# Estensioni e chiarimenti al pack APPROVATO social_main_v1
+# NON modifica social_main_v1 (18 YAML approvati)
+# =============================================================================
+
+catalogId: social_extensions_v1
+version: "1.0.0"
+schemaVersion: 1
+
+extendsPack:
+  approved: social_main_v1
+  path: content/social/social_main_v1
+  rule: NON modificare il pack approvato
+
+linkedSystems:
+  socialMain: social_main_v1
+  economyMain: economy_main_v1
+  economy: economy_v1
+  banking: banking_main_v1
+  workMain: work_main_v1
+  workCareers: work_careers_v1
+  propertyMain: property_main_v1
+  property: property_v1
+  marketplace: marketplace_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  family: family_main_v1
+  npc: npc_main_v1
+  task: task_main_v1
+  event: event_main_v1
+  notification: notification_main_v1
+  profile: profile_main_v1
+  progression: progression_main_v1
+  time: time_v1
+  cityLife: city_life_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+purpose: |
+  Review, gap analysis, integration clarifications, UI contracts,
+  discovery, popup/visual/sound boundaries for Prompt 49. NO runtime.
+
+includes:
+  principles: principles.yaml
+  effect_request: effect_request.yaml
+  social_interaction_extensions: social_interaction_extensions.yaml
+  discovery: discovery.yaml
+  ui_social_card: ui_social_card.yaml
+  ui_social_detail: ui_social_detail.yaml
+  ui_social_popup: ui_social_popup.yaml
+  ui_navigation: ui_navigation.yaml
+  newspaper_style: newspaper_style.yaml
+  integrations_economy_v1: integrations_economy_v1.yaml
+  integrations_property_v1: integrations_property_v1.yaml
+  integrations_work_careers: integrations_work_careers.yaml
+  integrations_task: integrations_task.yaml
+  integrations_city_life: integrations_city_life.yaml
+  integrations_criminal: integrations_criminal.yaml
+  integrations_political: integrations_political.yaml
+  integrations_event: integrations_event.yaml
+  integrations_profile: integrations_profile.yaml
+  integrations_notification: integrations_notification.yaml
+  integrations_visual: integrations_visual.yaml
+  integrations_sound: integrations_sound.yaml
+  integrations_newspaper: integrations_newspaper.yaml
+  integrations_time_v1: integrations_time_v1.yaml
+  integrations_marketplace: integrations_marketplace.yaml
+  integrations_family: integrations_family.yaml
+  security: security.yaml
+  privacy_extensions: privacy_extensions.yaml
+  cache: cache.yaml
+  offline: offline.yaml
+  api: api.yaml
+  admin: admin.yaml
+  versioning: versioning.yaml
+  testing: testing.yaml
+  accessibility: accessibility.yaml
+  localization: localization.yaml
+  performance: performance.yaml
+  gaps_review: gaps_review.yaml
+  placeholders: placeholders.yaml

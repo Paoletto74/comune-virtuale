@@ -1,0 +1,47 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_SHELF_LIFE_HOURS: TBD
+  DEFAULT_DURABILITY_MAX: TBD
+  DETERIORATION_RATE_DEFAULT: TBD
+
+  INVENTORY_CAPACITY_DEFAULT: TBD
+  STACK_MAX_QUANTITY: TBD
+
+  FOOD_SATIETY_DEFAULT: TBD
+  FOOD_EFFECT_MAGNITUDE: TBD
+  PREMIUM_FOOD_BONUS: TBD
+
+  CLOTHING_RESELL_ALLOWED: TBD
+  LUXURY_RENT_ALLOWED: TBD
+
+  TRANSFER_COOLDOWN_MS: TBD
+  GIFT_TAX_THRESHOLD: TBD
+
+  HISTORY_RETENTION_DAYS: TBD
+  PROVENANCE_MIN_TIER: TBD
+
+  LOCK_DEFAULT_EXPIRY_HOURS: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - business_main_v1
+      - criminal_main_v1
+      - event_main_v1
+      - time_main_v1
+      - npc_main_v1
+      - progression_main_v1
+      - notification_main_v1
+      - task_main_v1
+
+  futurePack:
+    note: inventory_balance_v1 — prezzi riferimento, shelf life, capacity — DA DEFINIRE
+
+  contentPackNote: |
+    inventory_main_v1 unifica catalogo oggetti senza modificare economy_main_v1/assets.yaml.
+    Pack approvati NON modificati.

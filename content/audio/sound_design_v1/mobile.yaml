@@ -1,0 +1,30 @@
+# =============================================================================
+# MOBILE — Android, iOS audio behavior
+# =============================================================================
+
+MobileAudio:
+  platforms:
+    items:
+      - Android
+      - iPhone
+      - iPad
+  considerations:
+    items:
+      - autoplay_restrictions
+      - muted_state
+      - media_session
+      - background_behavior
+      - audio_focus
+  haptics:
+    status: PROPOSTA TECNICA — future integration
+    examples:
+      items:
+        - arresto
+        - acquisto
+        - level_up
+        - critical_alert
+    v1: NON implementare
+
+events:
+  items:
+    - MobileAudioInitialized

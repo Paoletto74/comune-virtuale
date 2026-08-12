@@ -1,0 +1,17 @@
+# =============================================================================
+# BUSINESS HOURS — time_v1
+# =============================================================================
+
+---
+BusinessHours:
+  owner: Business + Time
+  closedUI: CLOSED
+  exceptions:
+  - holiday
+  - event
+  - temporary
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - BusinessOpened
+  - BusinessClosed

@@ -1,0 +1,13 @@
+# =============================================================================
+# CITY INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+CityIntegration:
+  provides:
+  - locations
+  - districts
+  - topology
+  - travel relationships
+  mobilityNoDuplicateMap: DECISIONE APPROVATA
+  status: DECISIONE APPROVATA

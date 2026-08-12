@@ -1,0 +1,25 @@
+# =============================================================================
+# SHOWCASE — character + property + vehicle + items composition
+# =============================================================================
+
+Showcase:
+  DECISIONE APPROVATA:
+  concept:
+    character: player character visual
+    environment: villa, city, etc.
+    assets: pool, luxury car, items
+    composition: layout rules
+  v1:
+    rule: asset composition configurata — NON generazione automatica obbligatoria
+  example:
+    character: player foreground
+    environment: villa background
+    assets:
+      items:
+        - pool
+        - luxury_car
+  ref: profile_main_v1
+
+events:
+  items:
+    - ShowcaseComposed

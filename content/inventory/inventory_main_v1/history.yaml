@@ -1,0 +1,45 @@
+# =============================================================================
+# HISTORY — provenance per item/asset importanti
+# =============================================================================
+
+ItemHistory:
+  status: PROPOSTA TECNICA
+  granularity: dipende da tipo item
+  rule: NON storia completa per ogni consumabile consumato
+
+ProvenanceRecord:
+  schema:
+    recordId: string
+    entityRef: string
+    entityType: item_instance | asset
+    eventType: acquired | transferred | sold | consumed | destroyed
+    fromRef: "string | null"
+    toRef: "string | null"
+    timestamp: timestamp
+    sourceSystem: string
+
+AssetHistory:
+  DECISIONE APPROVATA: storia persistente per asset importanti
+  appliesTo:
+    items:
+      - property
+      - vehicles
+      - luxury
+      - important_assets
+  uses:
+    items:
+      - audit
+      - market
+      - criminal
+      - prestige
+      - profile
+      - economy
+
+demoChain:
+  example: |
+    Player A acquista → Player B vende → NPC C → Player D
+
+events:
+  items:
+    - ProvenanceRecorded
+    - AssetHistoryUpdated

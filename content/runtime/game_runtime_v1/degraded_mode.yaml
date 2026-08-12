@@ -1,0 +1,14 @@
+# =============================================================================
+# DEGRADED MODE — partial system unavailability
+# =============================================================================
+
+DegradedMode:
+  examples:
+    ranking_unavailable:
+      rule: gioco continua — ranking precedente valido
+    banking_unavailable:
+      rule: acquisti bloccati
+
+events:
+  emits: [DegradedModeActivated]
+  consumes: [PartialFailureHandled]

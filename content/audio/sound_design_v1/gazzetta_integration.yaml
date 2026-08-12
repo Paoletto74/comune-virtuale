@@ -1,0 +1,13 @@
+# =============================================================================
+# GAZZETTA INTEGRATION — breakingSoundCueId
+# =============================================================================
+
+GazzettaIntegration:
+  field: breakingSoundCueId
+  rule: Gazzetta breaking referenzia soundCueId
+  motif: newsroom — ref newspaper_identity.yaml
+  ref: content_system_v1/gazzetta.yaml, newspaper_v1
+
+events:
+  items:
+    - GazzettaSoundCueResolved

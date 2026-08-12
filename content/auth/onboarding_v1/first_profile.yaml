@@ -1,0 +1,22 @@
+# =============================================================================
+# FIRST PROFILE — immediate profile view
+# =============================================================================
+
+FirstProfile:
+  shows:
+    items:
+      - nome
+      - avatar
+      - livello
+      - liquidita
+      - patrimonio
+      - eventuale_lavoro
+      - eventuale_titolo
+  rule: solo dati realmente esistenti — NO fake data
+  preview:
+    duringOnboarding: avatar, name, selected info
+  ref: profile_main_v1
+
+events:
+  items:
+    - FirstProfileViewed

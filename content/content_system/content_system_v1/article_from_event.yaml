@@ -1,0 +1,19 @@
+# =============================================================================
+# ARTICLE FROM EVENT — Select Game Event -> Create Article Draft
+# =============================================================================
+
+ArticleFromEvent:
+  workflow:
+    items:
+      - Select_Game_Event
+      - Create_Article_Draft
+      - optional_AI_assist
+      - preview
+      - validation
+      - save_draft
+  importance: one of the most important workflows
+  sourceBacked: traceable to source event
+
+events:
+  items:
+    - ArticleFromEventCreated

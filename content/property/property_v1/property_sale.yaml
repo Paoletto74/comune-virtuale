@@ -1,0 +1,14 @@
+# =============================================================================
+# PROPERTY SALE — property_v1
+# =============================================================================
+
+---
+PropertySale:
+  flow:
+  - listing
+  - offer
+  - acceptance
+  - payment
+  - ownership transfer
+  atomic: true
+  status: DECISIONE APPROVATA

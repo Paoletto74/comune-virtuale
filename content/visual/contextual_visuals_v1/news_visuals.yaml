@@ -1,0 +1,23 @@
+# =============================================================================
+# NEWS VISUALS — Gazzetta feed and article
+# =============================================================================
+
+NewsVisuals:
+  feed:
+    items:
+      - thumbnail
+      - headline
+      - category
+      - timestamp
+  article:
+    hero: hero image
+  breaking:
+    specific_image: true
+    newsroom_treatment: true
+    sound: news.breaking_sting
+    banner: CRITICAL
+  ref: content_system_v1/gazzetta.yaml
+
+events:
+  items:
+    - NewsVisualResolved

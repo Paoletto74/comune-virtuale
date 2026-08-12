@@ -1,0 +1,23 @@
+# =============================================================================
+# DESIGN TOKENS — centralized, ref ui_main_v1
+# =============================================================================
+
+DesignTokens:
+  status: PROPOSTA TECNICA — ui_main_v1 resta source of truth
+  tokens:
+    items:
+      - color_tokens
+      - spacing
+      - typography
+      - radius
+      - shadows
+      - z_index
+      - motion
+
+rule: NON duplicare — referenziare ui_main_v1
+
+ref: ui_main_v1
+
+events:
+  items:
+    - DesignTokenUpdated

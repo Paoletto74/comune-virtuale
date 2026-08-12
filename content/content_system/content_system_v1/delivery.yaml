@@ -1,0 +1,42 @@
+# =============================================================================
+# DELIVERY — player content API read model
+# =============================================================================
+
+Delivery:
+  rule: frontend receives published content only — NO drafts
+  readModel:
+    fields:
+      items:
+        - contentId
+        - version
+        - locale
+        - title
+        - body
+        - metadata
+        - visualAssetId
+        - publishAt
+        - expireAt
+  apis:
+    conceptual:
+      items:
+        - GetArticle
+        - GetGazzetta
+        - GetTaskDefinitions
+        - GetJobDefinitions
+        - GetItemDefinitions
+        - GetNotificationTemplates
+    note: NON implementare API runtime in V1
+  dto:
+    adminAuthoringDto: != playerDeliveryDto
+  optimization:
+    items:
+      - cached
+      - compressed
+      - localized
+      - responsive
+      - lazy_load
+      - pagination
+
+events:
+  items:
+    - ContentDelivered

@@ -1,0 +1,29 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values
+# =============================================================================
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - framework_choice
+    - breakpoint_numeric_values
+    - theme_palette_final
+    - notification_priority_final_enum
+    - graph_periods_final
+    - share_technology
+    - realtime_technology
+    - image_cdn_provider
+    - analytics_provider
+    - error_telemetry_provider
+    - PWA_service_worker_strategy
+    - avatar_generation_policy
+    - ranking_category_full_list
+    - sound_assets
+    - security_header_values
+
+Cronaca:
+  note: gazzetta cronaca section defined in gazzetta.yaml — no separate file needed
+
+events:
+  items:
+    - PlaceholderResolved

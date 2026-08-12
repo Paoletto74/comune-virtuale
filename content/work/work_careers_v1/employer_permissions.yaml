@@ -1,0 +1,10 @@
+# =============================================================================
+# EMPLOYER PERMISSIONS — work_careers_v1
+# =============================================================================
+
+---
+EmployerPermissions:
+  rule: actions only per permissions
+  playerEmployer: Citizen owning Business
+  businessOwnership: Business System
+  status: DECISIONE APPROVATA

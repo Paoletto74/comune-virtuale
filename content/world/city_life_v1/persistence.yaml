@@ -1,0 +1,22 @@
+# =============================================================================
+# PERSISTENCE — what persists vs transient
+# =============================================================================
+
+Persistence:
+  persistent:
+    items:
+      - Player_Citizens
+      - important_NPCs
+      - Businesses
+      - Organizations
+  transient:
+    items:
+      - decorative_NPCs
+  cityReset:
+    rule: NON reset arbitrario citta — policy TBD
+  npcGeneration:
+    rule: seeded/configured — NON client-random
+
+events:
+  items:
+    - EntityPersisted

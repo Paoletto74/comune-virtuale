@@ -1,0 +1,20 @@
+# =============================================================================
+# ANIMATION — image transitions, reduced motion
+# =============================================================================
+
+Animation:
+  popup:
+    items:
+      - image_transition
+      - subtle_zoom
+      - fade
+      - slide
+  reducedMotion:
+    rule: ridurre/disable con prefers-reduced-motion
+  rule: NON eccessiva — immagini non devono diventare distrazione
+  critical:
+    example: PlayerArrested — subtle alert animation
+
+events:
+  items:
+    - VisualAnimationApplied

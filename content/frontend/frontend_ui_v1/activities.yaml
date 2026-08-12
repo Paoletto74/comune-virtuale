@@ -1,0 +1,44 @@
+# =============================================================================
+# ATTIVITÀ — task UI, states, task cards
+# =============================================================================
+
+Attivita:
+  DECISIONE APPROVATA: contiene i Task
+  states:
+    items:
+      - disponibili
+      - attivi
+      - completati
+      - cooldown
+      - bloccati
+      - suggeriti
+
+TaskCard:
+  shows:
+    items:
+      - titolo
+      - descrizione_breve
+      - reward
+      - durata
+      - difficolta
+      - requisiti
+      - stato
+      - progress
+      - CTA
+  mustNot: inventare reward lato frontend
+
+TaskState:
+  DECISIONE APPROVATA: stato da Task Service
+  frontendMustNot:
+    items:
+      - decidere_completamento
+      - decidere_reward
+      - decidere_cooldown
+      - decidere_requisiti
+
+api: task_api.yaml
+
+events:
+  items:
+    - TaskCardOpened
+    - TaskActionRequested

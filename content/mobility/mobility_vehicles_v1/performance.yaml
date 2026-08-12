@@ -1,0 +1,12 @@
+# =============================================================================
+# PERFORMANCE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Performance:
+  marketplace:
+  - pagination
+  - lazy loading
+  - thumbnails
+  travelUI: avoid excessive realtime updates
+  status: PROPOSTA TECNICA

@@ -1,0 +1,52 @@
+# =============================================================================
+# OBSERVABILITY — logging, metrics, tracing, health
+# =============================================================================
+
+Observability:
+  correlationId:
+    DECISIONE APPROVATA: requestId/correlationId per ogni request importante
+
+logging:
+  structured: true
+  mustNotLog:
+    items:
+      - password
+      - tokens
+      - secrets
+      - unnecessary_private_data
+
+metrics:
+  items:
+    - request_latency
+    - error_rate
+    - domain_operation_failures
+    - transaction_failures
+    - queue_latency
+    - cache_hit_rate
+    - background_job_failures
+
+tracing:
+  status: PROPOSTA TECNICA — distributed tracing futuro
+  example: "API -> TaskService -> BankingService -> NotificationService"
+
+healthChecks:
+  items:
+    - liveness
+    - readiness
+    - dependency_health
+  rule: NON esporre informazioni sensibili
+
+adminObservability:
+  perPermission:
+    items:
+      - content_health
+      - publish_status
+      - errors
+      - background_jobs
+      - system_health
+  rule: NON mostrare secrets
+
+events:
+  items:
+    - RequestCorrelated
+    - HealthCheckPerformed

@@ -1,0 +1,14 @@
+# =============================================================================
+# INSTALL APP — PWA/Platform autorevole
+# =============================================================================
+
+InstallApp:
+  DECISIONE APPROVATA: |
+    Header icona "Installa App" quando tecnicamente disponibile.
+    Se non disponibile — NON mostrare icona inutilmente.
+  owner: UI/PWA/Platform System — UI presenta solo se disponibile
+
+events:
+  items:
+    - InstallAppPromptShown
+    - InstallAppRequested

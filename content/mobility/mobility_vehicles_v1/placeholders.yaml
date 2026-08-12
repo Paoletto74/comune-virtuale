@@ -1,0 +1,50 @@
+# =============================================================================
+# PLACEHOLDERS — mobility_vehicles_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+    - vehicle types definitive
+    - availability states definitive
+    - max vehicles
+    - primary vehicle rule
+    - valuation formula
+    - running costs definitive
+    - commute cost rules
+    - parking detail
+    - fuel energy system
+    - insurance
+    - vehicle tax
+    - fleet rules
+    - public transport detail
+    - mobility demand formulas
+  approvedFromMobilityMain:
+    items:
+    - Mobility Status != Vehicle Ownership
+    - vehicle not required
+    - no auto simulator
+    - multiVehicle
+    - atomic purchase sale
+    - travel occupies time
+    - costs Economy Pipeline
+    - Mobility data Work consequences
+    - walk mode
+  economicPrinciples:
+    A: P2P sale TRANSFER not creation
+    B: Purchase atomic no money without vehicle
+    C: System seller explicit model TBD
+    D: Valuation change NOT cash
+    E: Listing != ownership
+  authorityPrinciples:
+    Mobility: travel mobility state
+    Vehicle: vehicle state ownership ref
+    Property: residence garage
+    City: geography
+    Work: workplace
+    Time: Game Time
+    Economy: money
+    Marketplace: listing discovery
+    Profile: presentation privacy
+    Visual: assets showcase

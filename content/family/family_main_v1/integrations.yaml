@@ -1,0 +1,239 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: family → economy
+    rule: DECISIONE APPROVATA — Family NON modifica cash direttamente
+    flows:
+      support: |
+        Family Decision → Economy Transaction (gift/loan/payment)
+        → Ledger
+      expense: |
+        Family Expense Need → Marketplace/Economy → Transaction
+    ref: gifts.yaml, lending.yaml
+    aggregatedIncome:
+      note: household income display — NOT auto-merge netWorth
+
+  task_main_v1:
+    direction: bidirectional
+    familyToTask:
+      provides: family_task_context, event_definitions
+    taskToFamily:
+      provides: option_selected, outcome
+    effects:
+      ref: task_main_v1/effects.yaml
+      rule: Riutilizzare effetti generici — NO duplicate formulas
+
+  property_main_v1:
+    direction: family ↔ property
+    familyProvides: householdRef, livingArrangement
+    propertyOwns: property, housing
+    rule: NON duplicare proprietà
+
+  mobility_main_v1:
+    direction: family → mobility
+    familyGenerates:
+      items:
+        - accompany_child
+        - family_trip_need
+        - relocation_need
+    mobilityOwns: vehicles, travel
+
+  work_main_v1:
+    direction: family ↔ work
+    workOwns: employment per member
+    familyReacts:
+      items:
+        - job_loss
+        - job_found
+        - unemployment
+    membersCanHave: job, business, criminal, other
+
+  business_main_v1:
+    direction: family ↔ business
+    businessOwns: company
+    familyReacts:
+      items:
+        - family_member_owns_company
+        - family_member_works_in_company
+        - family_help_business
+
+  criminal_main_v1:
+    direction: criminal → family
+    flow: |
+      Child arrested → Criminal Event
+      → Family receives event → possible parent task
+    criminalOwns: criminality
+    familyOwns: relationship_consequences
+
+  political_main_v1:
+    direction: political → family
+    familyReacts:
+      items:
+        - family_member_elected
+        - scandal
+        - success
+        - role_lost
+    politicalOwns: political_role
+
+  progression_main_v1:
+    direction: family → progression
+    rule: |
+      Famiglia NON obbligatoria per mainLevel.
+      Single può raggiungere livelli alti.
+    provides: family_milestones, wellbeing_context
+    doesNotAssign: mainLevel
+
+  progression_balance_v1:
+    consumes: population_context
+
+  citizen_model:
+    personalValuesAffected:
+      items:
+        - happiness
+        - health
+        - stress
+        - freeTime
+        - reputation
+        - sympathy
+    delivery: Effect Pipeline
+
+  event_system:
+    direction: bidirectional
+    family_emits:
+      items:
+        - RelationshipStarted
+        - RelationshipEnded
+        - ChildBorn
+        - ChildAgeChanged
+        - ChildBecameAdult
+        - HouseholdChanged
+        - FamilyEventTriggered
+        - FamilySupportRequested
+        - FamilySupportGiven
+        - FamilyMilestoneReached
+    family_consumes:
+      items:
+        - WorkSessionCompleted
+        - EmploymentTerminated
+        - CrimeDiscovered
+        - MayorElected
+        - CompanyBankruptcyDeclared
+        - PropertyDamaged
+
+  notification_system:
+    direction: family → notifications
+    rule: NO UI nel Family System
+    personal:
+      items:
+        - child_found_job
+        - child_needs_help
+        - partner_lost_job
+        - relationship_improved
+    global:
+      items: []
+      rule: Solo eventi realmente pubblici — default none
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - scheduled_events
+        - age_milestones
+        - periodic_updates
+        - catch_up
+    offline:
+      items:
+        - children_grow
+        - job_changes
+        - events
+        - requests
+        - relationship_changes
+    longTerm: true
+
+  admin_panel:
+    configurable:
+      items:
+        - relationship_types
+        - family_events
+        - age_stages
+        - finance_models
+        - support_rules
+        - milestones
+        - visibility
+        - npc_simulation
+
+  security:
+    clientCannotDecide:
+      items:
+        - relationship
+        - children
+        - age
+        - status
+        - transfers
+        - support
+        - outcome
+
+  idempotency:
+    fields:
+      items:
+        - relationshipId
+        - familyEventId
+        - actionId
+        - transactionId
+        - idempotencyKey
+    prevents:
+      items:
+        - duplicate_children
+        - double_transactions
+        - double_support
+        - duplicate_events
+        - duplicate_state_changes
+
+  audit:
+    trace:
+      items:
+        - relationshipId
+        - familyId
+        - actorId
+        - targetId
+        - eventId
+        - actionId
+        - timestamp
+        - outcome
+        - effects
+        - causalChainId
+
+  antiExploit:
+    protections:
+      items:
+        - duplicate_money
+        - duplicate_family_members
+        - duplicate_relationships
+        - age_manipulation
+        - duplicate_events
+        - cooldown_bypass
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM runtime
+    futureUse: content pack authoring offline
+
+  balance:
+    DECISIONE APPROVATA: |
+      Famiglia NON sempre vantaggiosa NOR sempre penalizzante.
+      Crea: costi, supporto, rischi, opportunità, tempo, benefici, conseguenze.
+
+  separationOfConcerns:
+    familyMustNot:
+      items:
+        - modify_cash_directly
+        - own_property
+        - own_vehicles
+        - own_employment
+        - own_criminality
+        - own_political_role
+        - duplicate_task_system
+        - implement_notification_ui

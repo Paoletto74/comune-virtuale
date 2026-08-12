@@ -1,0 +1,16 @@
+# =============================================================================
+# SHARING — header share icon
+# =============================================================================
+
+Sharing:
+  status: PROPOSTA TECNICA — NO social network integration V1
+  ref: profile_main_v1/sharing.yaml
+  futureFunctions:
+    items:
+      - share_game
+      - share_public_profile
+      - share_deep_link
+
+events:
+  items:
+    - ShareRequested

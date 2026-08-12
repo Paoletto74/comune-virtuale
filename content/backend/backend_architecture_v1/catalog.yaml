@@ -1,0 +1,114 @@
+# =============================================================================
+# BACKEND ARCHITECTURE MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: UI -> API -> Domain Services -> Data Access -> DB
+# V1: proposta architetturale — NO backend runtime, NO API runtime
+# Server authoritative, domain-oriented, content-driven compatible
+# =============================================================================
+
+catalogId: backend_architecture_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  dataArchitecture: data_architecture_v1
+  auth: auth_main_v1
+  profile: profile_main_v1
+  economy: economy_main_v1
+  banking: banking_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  marketplace: marketplace_main_v1
+  task: task_main_v1
+  eventSystem: event_main_v1
+  notification: notification_main_v1
+  progressionMain: progression_main_v1
+  social: social_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+  visual: visual_main_v1
+  ui: ui_main_v1
+  adminContentStudio: admin_content_studio_v1
+
+principles:
+  - Server authoritative — client NON autorevole
+  - Account != Citizen != Profile != Admin Identity
+  - Default authorization = DENY
+  - Content != Game State — Definition != Instance
+  - Ogni dominio mantiene Source of Truth
+  - Operazioni multi-dominio critiche = atomiche
+  - Admin Content Studio modifica CONTENT — NON game state arbitrario
+  - CODE DEPLOY != CONTENT PUBLISH != DATA MIGRATION
+  - DEV/STAGING/PRODUCTION separati
+  - Frontend = UNTRUSTED CLIENT
+
+includes:
+  layers: layers.yaml
+  api: api.yaml
+  application: application.yaml
+  domainServices: domain_services.yaml
+  repositories: repositories.yaml
+  commands: commands.yaml
+  queries: queries.yaml
+  domainEvents: domain_events.yaml
+  eventBus: event_bus.yaml
+  syncAsync: sync_async.yaml
+  transactions: transactions.yaml
+  idempotency: idempotency.yaml
+  authorization: authorization.yaml
+  validation: validation.yaml
+  errors: errors.yaml
+  rateLimits: rate_limits.yaml
+  caching: caching.yaml
+  readModels: read_models.yaml
+  adminApi: admin_api.yaml
+  contentApi: content_api.yaml
+  taskApi: task_api.yaml
+  workApi: work_api.yaml
+  marketplaceApi: marketplace_api.yaml
+  notificationApi: notification_api.yaml
+  profileApi: profile_api.yaml
+  municipalityApi: municipality_api.yaml
+  rankingApi: ranking_api.yaml
+  gazzettaApi: gazzetta_api.yaml
+  socialApi: social_api.yaml
+  politicalApi: political_api.yaml
+  criminalApi: criminal_api.yaml
+  backgroundJobs: background_jobs.yaml
+  scheduler: scheduler.yaml
+  npcSimulation: npc_simulation.yaml
+  reconciliation: reconciliation.yaml
+  observability: observability.yaml
+  resilience: resilience.yaml
+  externalServices: external_services.yaml
+  aiIntegration: ai_integration.yaml
+  mediaApi: media_api.yaml
+  testing: testing.yaml
+  environments: environments.yaml
+  deployment: deployment.yaml
+  compatibility: compatibility.yaml
+  openapi: openapi.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  transport: [api, errors, rateLimits]
+  application: [application, commands, queries, transactions, idempotency]
+  domain: [domainServices, domainEvents, validation]
+  infrastructure: [repositories, caching, eventBus, backgroundJobs, observability]
+
+responsibilitySplit:
+  apiLayer: [authentication_context, authorization, validation, serialization, errors, rate_limiting, versioning]
+  applicationLayer: [use_case_orchestration, transaction_boundaries]
+  domainLayer: [business_rules, domain_invariants, source_of_truth_ownership]
+  dataAccess: [persistence, repositories]
+
+alignsWith:
+  note: |
+    Formalizza architettura backend coerente con data_architecture_v1.
+    NON modifica pack approvati. NON implementa runtime.

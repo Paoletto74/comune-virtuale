@@ -1,0 +1,79 @@
+# =============================================================================
+# RECURRING SCHEDULES & PERIODIC TICKS
+# =============================================================================
+
+RecurringSchedule:
+  schema:
+    scheduleId: string
+    sourceSystem: string
+    recurrenceRule: string
+    nextEvaluationAt: timestamp
+    lastEvaluatedAt: "timestamp | null"
+    targetRef: string
+    status: active | paused | cancelled
+    idempotencyKey: string
+
+RecurringScheduleRule:
+  DECISIONE APPROVATA: |
+    Time gestisce QUANDO valutare — dominio decide COSA fare.
+    NON decide logica business al tick.
+  examples:
+    items:
+      - salary_payment
+      - rent_payment
+      - loan_installment
+      - tax_period
+      - consumption_batch
+      - maintenance_check
+
+domainRecurringExamples:
+  salary:
+    nextPaymentAt: Time
+    paymentLogic: work_main_v1 + economy_main_v1
+  rent:
+    nextPaymentAt: Time
+    paymentLogic: property_main_v1 + economy_main_v1
+  debt:
+    dueAt: Time
+    logic: economy_main_v1
+
+PeriodicTicks:
+  status: PROPOSTA TECNICA
+  items:
+    - hourly
+    - daily
+    - weekly
+    - monthly
+    - yearly
+  rule: Non tutti i sistemi usano tutti i tick
+  primaryUse:
+    items:
+      - aggregations
+      - statistics
+      - periodic_npc_batches
+      - macro_economy
+
+EventDrivenVsTickDriven:
+  DECISIONE APPROVATA: |
+    Preferire EVENT-DRIVEN — scheduler/queue per "tra 72 ore X".
+    NON if now >= eventTime ogni secondo.
+    Tick per aggregazioni, statistiche, simulazioni periodiche, NPC batches.
+
+ScheduledEvents:
+  ref: event_main_v1
+  split:
+    time: quando
+    event: cosa
+  examples:
+    items:
+      - consequence_in_24h
+      - rent_in_7_days
+      - election_in_30_days
+      - child_growth_in_X
+
+events:
+  items:
+    - RecurringScheduleTriggered
+    - PeriodicTickFired
+    - ScheduledEventTriggered
+    - HourChanged

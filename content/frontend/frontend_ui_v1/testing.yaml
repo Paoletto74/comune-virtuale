@@ -1,0 +1,32 @@
+# =============================================================================
+# TESTING — unit, component, integration, E2E, a11y
+# =============================================================================
+
+FrontendTesting:
+  types:
+    items:
+      - UNIT
+      - COMPONENT
+      - INTEGRATION
+      - E2E
+      - ACCESSIBILITY_TESTS
+
+e2eScenarios:
+  status: PROPOSTA TECNICA — NON implementare
+  items:
+    items:
+      - signup
+      - login
+      - citizen_creation
+      - task
+      - job
+      - marketplace
+      - profile
+      - admin_content_publish
+
+contractTests:
+  rule: frontend <-> backend API contract tests
+
+events:
+  items:
+    - TestSuiteCompleted

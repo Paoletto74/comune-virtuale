@@ -1,0 +1,8 @@
+# =============================================================================
+# CACHE — economy_v1
+# =============================================================================
+
+---
+Cache:
+  rule: NO stale cache for purchase authorization
+  status: DECISIONE APPROVATA

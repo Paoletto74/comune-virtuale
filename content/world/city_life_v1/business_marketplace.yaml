@@ -1,0 +1,11 @@
+# =============================================================================
+# BUSINESS MARKETPLACE — sells via Marketplace System
+# =============================================================================
+
+BusinessMarketplace:
+  rule: business puo vendere items/services — Marketplace System owner transazioni
+  ref: marketplace_main_v1
+
+events:
+  items:
+    - BusinessMarketplaceSale

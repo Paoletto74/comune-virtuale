@@ -1,0 +1,22 @@
+# =============================================================================
+# FEES — transfer, loan, withdrawal, account
+# =============================================================================
+
+BankFees:
+  status: TBD — valori banking_balance_v1
+  types:
+    items:
+      - transfer_fee
+      - loan_fee
+      - withdrawal_fee
+      - account_fee
+  rule: Economy/Banking muove denaro — fee config in content pack
+
+TaxCompatibility:
+  DECISIONE APPROVATA: compatibile con tasse reddito, transazioni, regali, interessi, profitti
+  owner: Tax System autorevole — Banking segnala transaction
+
+events:
+  items:
+    - FeeApplied
+    - TaxableTransactionReported

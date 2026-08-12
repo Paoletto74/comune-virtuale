@@ -1,0 +1,11 @@
+# =============================================================================
+# STORAGE — storage technology TBD
+# =============================================================================
+
+Storage:
+  technology: DA DEFINIRE / TBD
+  rule: NON definire provider definitivo V1
+
+events:
+  items:
+    - VisualStored

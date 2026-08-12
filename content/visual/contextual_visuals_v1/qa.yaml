@@ -1,0 +1,21 @@
+# =============================================================================
+# QA — crop, focal point, contrast, quality
+# =============================================================================
+
+VisualQa:
+  verify:
+    items:
+      - crop
+      - focal_point
+      - contrast
+      - text_readability
+      - image_quality
+      - asset_relevance
+      - style_consistency
+  minimumQuality:
+    rule: asset principali devono avere minimum quality threshold
+  ref: newspaper_v1, visual_main_v1
+
+events:
+  items:
+    - VisualQaCompleted

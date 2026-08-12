@@ -1,0 +1,9 @@
+# =============================================================================
+# PRIMARY RESIDENCE — property_v1
+# =============================================================================
+
+---
+PrimaryResidence:
+  citizenMayHave: true
+  notEqualToOwnership: can own without living or live without owning
+  status: DECISIONE APPROVATA

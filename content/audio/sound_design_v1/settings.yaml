@@ -1,0 +1,32 @@
+# =============================================================================
+# SETTINGS — volume controls, persistence
+# =============================================================================
+
+AudioSettings:
+  v1Controls:
+    items:
+      - Master_Volume
+      - SFX_Volume
+      - Notification_Volume
+      - Popup_Volume
+  futureControls:
+    items:
+      - Ambient_Volume
+      - Music_Volume
+
+  audioOnOff:
+    DECISIONE APPROVATA: utente puo disattivare completamente — gioco pienamente utilizzabile
+
+  default:
+    rule: ON se consentito da browser/OS — rispettare previous user preference
+
+  persistence:
+    rule: preferenze persistono per utente/device secondo policy
+
+  access:
+    path: Profile -> Settings -> Audio
+    ref: profile_integration.yaml
+
+events:
+  items:
+    - AudioSettingsChanged

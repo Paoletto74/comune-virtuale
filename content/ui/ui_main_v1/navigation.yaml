@@ -1,0 +1,39 @@
+# =============================================================================
+# NAVIGATION — entry flow, game shell
+# =============================================================================
+
+GameEntryFlow:
+  DECISIONE APPROVATA:
+  flow: |
+    LANDING PAGE → LOGIN/REGISTRATION → AUTHENTICATION
+    → CITIZEN CREATION → PROFILE SETUP → HOME/GAME
+
+fundamentalQuestions:
+  DECISIONE APPROVATA: il giocatore deve capire rapidamente
+  items:
+    - Dove sono?
+    - Cosa posso fare?
+    - Quanto denaro ho?
+    - È successo qualcosa?
+    - Come sta andando la mia vita?
+
+uiPrinciples:
+  items:
+    - semplice
+    - immediata
+    - leggibile
+    - ironica
+    - moderna
+    - veloce
+    - mobile_first
+    - facilmente_espandibile
+
+shellStructure:
+  DECISIONE APPROVATA:
+  layout: |
+    HEADER + MAIN CONTENT AREA + BOTTOM NAVIGATION
+
+events:
+  items:
+    - NavigationChanged
+    - SectionOpened

@@ -1,0 +1,16 @@
+# =============================================================================
+# ADMIN CONTRACTS — content publish, no game state mutation
+# =============================================================================
+
+AdminContracts:
+  publish:
+    produces: [contentVersion, publish_metadata]
+    mustNot: modify_player_state
+  audit:
+    fields: [who, what, version, approval, publish_time]
+
+ref: admin_content_studio_v1, auth_main_v1
+
+events:
+  items:
+    - AdminContractExecuted

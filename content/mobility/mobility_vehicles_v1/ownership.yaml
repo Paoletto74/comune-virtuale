@@ -1,0 +1,18 @@
+# =============================================================================
+# OWNERSHIP — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleOwnership:
+  vehicleOwnershipId: string
+  separateFromMobilityState: true
+  ownerTypes:
+  - Citizen
+  - Business
+  - Organization
+  - NPC
+  - Municipality
+  - System
+  multiVehicle: DECISIONE APPROVATA inherited mobility_main
+  maxCount: TBD
+  status: DECISIONE APPROVATA separation PROPOSTA owner types

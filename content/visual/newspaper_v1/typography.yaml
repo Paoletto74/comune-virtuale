@@ -1,0 +1,27 @@
+# =============================================================================
+# TYPOGRAPHY — editorial display + UI readability
+# =============================================================================
+
+Typography:
+  status: PROPOSTA TECNICA — NON font definitivi senza verifica licenza/performance
+  combination:
+    editorialDisplay: serif per headline/editorial content — TBD
+    uiFont: sans-serif per UI/data — TBD
+  verifyBeforeChoice:
+    items:
+      - licenza
+      - web_performance
+      - leggibilita
+      - supporto_linguistico
+      - mobile
+  responsive:
+    rule: headline sizes adattivi — NON font-size fissi non responsivi
+  accessibility:
+    ref: accessibility.yaml
+    rule: serif/sans deve rimanere leggibile
+
+ref: ui_main_v1 design tokens — NON duplicare base tokens
+
+events:
+  items:
+    - TypographyApplied

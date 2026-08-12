@@ -1,0 +1,38 @@
+# =============================================================================
+# PLACEHOLDERS — TBD items and open decisions
+# =============================================================================
+
+Placeholders:
+  TBD:
+    items:
+      - content_store_technology
+      - gazzetta_feed_algorithm
+      - CDN_strategy
+      - two_person_approval_mandatory_or_optional
+      - rich_text_editor_choice
+      - markdown_internal_format
+      - content_calendar_implementation
+      - content_graph
+      - editorial_collections
+      - image_generation_workflow
+      - player_content_archive
+      - analytics_implementation
+      - autosave_interval
+      - soft_lock_presence
+      - external_link_policy_details
+      - staging_to_production_promotion_flow
+      - content_targeting_rules
+      - AI_provider_and_model
+  approvedPrinciples:
+    items:
+      - GAME LOGIC != GAME CONTENT
+      - Admin Authoring != Direct Game State
+      - Draft -> Validation -> Preview -> Approval -> Publish
+      - GitHub NOT required for daily content
+      - YAML packs remain importable
+      - Player sees published only
+      - publishAt/expireAt use Game Time
+
+events:
+  items:
+    - PlaceholderResolved

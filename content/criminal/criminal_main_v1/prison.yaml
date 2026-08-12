@@ -1,0 +1,66 @@
+# =============================================================================
+# PRISON — stato carcerario temporale
+# =============================================================================
+
+PrisonStatus:
+  schema:
+    citizenId: string
+    prisonStatus: free | arrested | incarcerated | parole
+    prisonStart: timestamp | null
+    prisonEnd: timestamp | null
+    reason: string
+    sentence: TBD
+    relatedPenaltyId: string | null
+
+  DECISIONE APPROVATA: |
+    Carcere = stato temporale.
+    Cittadino rimane fermo per periodo TBD.
+    NON eliminare il cittadino.
+    NO morte permanente.
+
+duringIncarceration:
+  blockedActions:
+    items:
+      - most_work_actions
+      - most_travel
+      - most_criminal_activities
+      - property_management
+      - business_management
+  allowed:
+    items:
+      - compatible_events
+      - time_passes
+      - world_continues
+      - limited_tasks_TBD
+  rule: Tempo continua — mondo continua
+
+release:
+  triggers:
+    items:
+      - sentence_completed
+      - event
+      - appeal_future
+  onRelease:
+    items:
+      - status_free
+      - possible_restrictions
+      - notification
+
+antiExploit:
+  items:
+    - bypass_prison_blocked
+    - duplicate_release
+    - client_sentence_manipulation
+  protection: server_authoritative
+
+duration:
+  values: TBD
+  placeholderKey: PRISON_SENTENCE_DEFAULT
+
+events:
+  items:
+    - Arrested
+    - Incarcerated
+    - PrisonSentenceStarted
+    - PrisonSentenceCompleted
+    - Released

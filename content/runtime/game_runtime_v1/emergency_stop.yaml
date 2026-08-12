@@ -1,0 +1,17 @@
+# =============================================================================
+# EMERGENCY STOP — block writes by severity
+# =============================================================================
+
+EmergencyStop:
+  status: PROPOSTA TECNICA — possibilita futura
+  mayBlock:
+    items:
+      - financial_commands
+      - marketplace
+      - progression_changes
+      - all_writes
+  rule: secondo severity
+
+events:
+  emits: [EmergencyStopActivated, EmergencyStopLifted]
+  consumes: [CriticalFailureDetected]

@@ -1,0 +1,112 @@
+# =============================================================================
+# CORE TYPES — EVENT ≠ CONSEQUENCE ≠ EFFECT
+# =============================================================================
+
+EventConsequenceEffectSeparation:
+  DECISIONE APPROVATA: |
+    EVENT = qualcosa che accade.
+    CONSEQUENCE = risultato causale di evento/azione.
+    EFFECT = modifica concreta applicata a entità/stato.
+  example:
+    task: "Appicchi un incendio."
+    event: FireStarted
+    consequence: BuildingDamaged
+    effects:
+      items:
+        - PropertyCondition -40
+        - PropertyValue -X
+        - OwnerCash -Y
+        - OwnerStress +Z
+    notification: generata da notification_main_v1
+
+WorldEvent:
+  schema:
+    eventId: string
+    eventType: string
+    sourceSystem: string
+    sourceEntityId: string
+    actorId: string | null
+    actorType: citizen | npc | system | market | politics | economy | natural
+    targetIds: []
+    affectedEntityRefs: []
+    createdAt: timestamp
+    occurredAt: timestamp
+    causalChainId: string
+    parentEventId: string | null
+    visibility: public | personal | restricted | private | system
+    payload: {}
+    metadata: {}
+    idempotencyKey: string
+    sequenceNumber: TBD
+    eventPriority: TBD
+  status: schema_conceptual — valori definitivi TBD
+
+Consequence:
+  schema:
+    consequenceId: string
+    sourceEventId: string
+    consequenceType: string
+    targetRef: string | null
+    affectedRefs: []
+    effectSetRef: string | null
+    generatedEventRefs: []
+    scheduledConsequenceRef: string | null
+    conditionRef: string | null
+    status: pending | applied | failed | cancelled
+    causalChainId: string
+    createdAt: timestamp
+    appliedAt: "timestamp | null"
+
+Effect:
+  schema:
+    effectId: string
+    effectType: string
+    targetType: string
+    targetId: string
+    magnitude: TBD
+    unit: TBD
+    operation: add | subtract | set | multiply | request
+    duration: instant | temporary | permanent | recurring
+    durationValue: TBD
+    sourceEventId: string
+    sourceConsequenceId: string
+    causalChainId: string
+    createdAt: timestamp
+    expiresAt: "timestamp | null"
+    status: pending | applied | failed | expired | cancelled
+    domainOwner: string
+
+EffectCommand:
+  schema:
+    commandId: string
+    targetType: string
+    targetId: string
+    effectType: string
+    magnitude: TBD
+    operation: add | subtract | set | multiply | request
+    sourceEventId: string
+    sourceConsequenceId: string
+    causalChainId: string
+    duration: instant | temporary | permanent | recurring
+    durationValue: TBD
+    conditionsRef: string | null
+    modifierRefs: []
+    idempotencyKey: string
+  DECISIONE APPROVATA: |
+    Interfaccia comune. Sistema competente valida ed esegue.
+    Effects System NON modifica direttamente ogni campo di dominio.
+
+ConsequenceGraph:
+  status: PROPOSTA_TECNICA
+  flow: |
+    EVENT → CONSEQUENCE → EFFECT → NEW EVENT → NEW CONSEQUENCE → ...
+  storage: relazionale o documentale — NO graph DB obbligatorio
+
+events:
+  items:
+    - WorldEventPublished
+    - ConsequenceEvaluated
+    - EffectCommandIssued
+    - EffectApplied
+    - EffectFailed
+    - CascadeEventGenerated

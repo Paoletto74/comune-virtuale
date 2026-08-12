@@ -1,0 +1,35 @@
+# =============================================================================
+# ERRORS — structured error model
+# =============================================================================
+
+ErrorModel:
+  DECISIONE APPROVATA: errori strutturati — NO stack trace al client
+
+errorCodes:
+  items:
+    - AUTH_REQUIRED
+    - FORBIDDEN
+    - VALIDATION_ERROR
+    - NOT_FOUND
+    - CONFLICT
+    - INVALID_STATE
+    - INSUFFICIENT_FUNDS
+    - DUPLICATE_ACTION
+    - RATE_LIMITED
+    - INTERNAL_ERROR
+
+categories:
+  USER_ERROR: validation, invalid input
+  DOMAIN_ERROR: insufficient funds, invalid state, conflict
+  AUTH_ERROR: auth required, forbidden
+  SYSTEM_ERROR: internal — user-friendly message only
+
+userFacing:
+  DECISIONE APPROVATA: |
+    Errore tecnico NON diventa "Database connection failed at 10.0.0.5."
+    Mostrare "Si e verificato un problema. Riprova."
+    Dettaglio tecnico solo nei log.
+
+events:
+  items:
+    - ErrorReturned

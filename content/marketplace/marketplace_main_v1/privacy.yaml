@@ -1,0 +1,30 @@
+# =============================================================================
+# PRIVACY & PUBLIC PROFILE
+# =============================================================================
+
+ListingPrivacy:
+  DECISIONE APPROVATA: listing mostra item, prezzo, condizioni, info necessarie
+  mustNotShowByDefault:
+    items:
+      - seller_total_wealth
+      - money_origin
+      - other_assets
+      - full_inventory
+
+PublicProfile:
+  "DECISIONE APPROVATA": "allinea progression_main_v1/visibility.yaml"
+  marketplaceProvides:
+    items:
+      - most_expensive_home
+      - most_expensive_vehicle
+      - most_expensive_luxury
+  mustNotExpose:
+    items:
+      - all_listings
+      - all_assets
+      - all_transactions
+  profileDecides: public visibility
+
+events:
+  items:
+    - ListingVisibilitySet

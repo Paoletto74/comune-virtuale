@@ -1,0 +1,24 @@
+# =============================================================================
+# TASK API
+# =============================================================================
+
+TaskApi:
+  sourceOfTruth: TaskService
+  endpoints:
+    queries:
+      items:
+        - "GET /api/v1/tasks/available"
+        - "GET /api/v1/tasks/active"
+        - "GET /api/v1/tasks/:taskInstanceId"
+    commands:
+      items:
+        - "POST /api/v1/tasks/:taskId/start"
+        - "PATCH /api/v1/tasks/:taskInstanceId/progress"
+        - "POST /api/v1/tasks/:taskInstanceId/complete"
+
+authorization: ownership check + task eligibility
+idempotency: complete requires idempotencyKey
+
+events:
+  items:
+    - TaskApiRequestProcessed

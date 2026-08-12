@@ -1,0 +1,11 @@
+# =============================================================================
+# ECONOMY INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+EconomyIntegration:
+  salary: Work to Economy
+  bonus: Work to Economy
+  penalty: Work/domain to Economy
+  hiringNoMoneyCreation: true
+  status: DECISIONE APPROVATA

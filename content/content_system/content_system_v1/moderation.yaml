@@ -1,0 +1,21 @@
+# =============================================================================
+# MODERATION — flag, reject, edit admin content
+# =============================================================================
+
+Moderation:
+  capabilities:
+    items:
+      - flagged
+      - rejected
+      - edited
+  contentSafety:
+    items:
+      - malicious_content
+      - unsafe_HTML
+      - unsafe_links
+      - abusive_content
+      - sensitive_information
+
+events:
+  items:
+    - ContentModerated

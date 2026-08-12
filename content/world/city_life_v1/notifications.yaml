@@ -1,0 +1,17 @@
+# =============================================================================
+# NOTIFICATIONS — city life notifications
+# =============================================================================
+
+Notifications:
+  possible:
+    items:
+      - new_business
+      - event
+      - citizen_discovery
+      - organization_activity
+  owner: Notification System — ref notification_main_v1
+  rule: optional — NON obbligatorio per ogni interazione
+
+events:
+  items:
+    - CityLifeNotificationSent

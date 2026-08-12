@@ -1,0 +1,47 @@
+# =============================================================================
+# ASSET TYPES — categorie estendibili
+# =============================================================================
+
+AssetTypeDefinition:
+  schema:
+    typeId: string
+    label: string
+    description: string
+
+assetTypes:
+  items:
+    - typeId: ITEM
+      label: Item
+    - typeId: CHARACTER
+      label: Character
+    - typeId: NPC
+      label: NPC
+    - typeId: PROPERTY
+      label: Property
+    - typeId: VEHICLE
+      label: Vehicle
+    - typeId: LUXURY
+      label: Luxury
+    - typeId: BACKGROUND
+      label: Background
+    - typeId: ICON
+      label: Icon
+    - typeId: BADGE
+      label: Badge
+    - typeId: ACHIEVEMENT
+      label: Achievement
+    - typeId: NEWS
+      label: News
+    - typeId: EVENT
+      label: Event
+    - typeId: NOTIFICATION
+      label: Notification
+    - typeId: UI
+      label: UI
+    - typeId: OTHER
+      label: Other
+  status: estendibili via Admin Content Studio
+
+events:
+  items:
+    - AssetTypeAdded

@@ -1,0 +1,48 @@
+# =============================================================================
+# ECONOMIC EVENTS
+# =============================================================================
+# Integrazione Event System (Prompt 4)
+# =============================================================================
+
+EconomicEvent:
+  eventId: string
+  eventType: string
+  scope: global | local | sector | personal_derived
+  duration: temporary | permanent | TBD
+  gameTimeStart: timestamp
+  gameTimeEnd: TBD
+
+  examples:
+    - economic_crisis
+    - boom
+    - demand_spike
+    - product_shortage
+    - housing_crisis
+    - cost_increase
+    - new_opportunity
+    - recession
+    - recovery
+
+  modifiers:
+    prices: TBD
+    demand: TBD
+    supply: TBD
+    macro_state: TBD
+    wages: TBD
+
+  differentiatedEffects:
+    enabled: true
+    example:
+      event: fuel_cost_increase
+      citizen_a: { owns_vehicle: true, impact: high }
+      citizen_b: { lives_near_work: true, impact: low }
+      citizen_c: { owns_transport_company: true, impact: very_high }
+
+  integration:
+    source: Event System Action Pipeline
+    publishes: DomainEvent
+    schedules: ScheduledItem
+
+  contentPack:
+    definitions: TBD
+    not_hardcoded: true

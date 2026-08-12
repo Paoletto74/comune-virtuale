@@ -1,0 +1,45 @@
+# =============================================================================
+# GOLDEN PATHS — end-to-end contract flows
+# =============================================================================
+
+GoldenPaths:
+  paths:
+    items:
+      - Purchase
+      - Task
+      - Salary
+      - Job
+      - Property
+      - Vote
+      - Gift
+      - Loan
+      - Criminal
+      - LevelUp
+
+securityGoldenPaths:
+  items:
+    - unauthorized_purchase
+    - fake_price
+    - fake_reward
+    - fake_level
+    - fake_ownership
+    - fake_mayor
+    - private_profile_access
+
+consistencyGoldenPaths:
+  Purchase:
+    checks:
+      items:
+        - money_decreases
+        - ownership_changes
+        - listing_changes
+  Salary:
+    checks:
+      items:
+        - work_state
+        - banking
+        - notification
+
+events:
+  items:
+    - GoldenPathValidated

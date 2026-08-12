@@ -1,0 +1,19 @@
+# =============================================================================
+# DISCOVERY EVENTS — LocationDiscovered triggers
+# =============================================================================
+
+DiscoveryEvents:
+  LocationDiscovered:
+    mayTrigger:
+      items:
+        - notification
+        - popup
+        - sound
+        - achievement
+    rule: solo se previsto — NON automatico sempre
+  reward:
+    owner: Task/Progression System — se presente
+
+events:
+  items:
+    - DiscoveryEventEmitted

@@ -1,0 +1,143 @@
+# =============================================================================
+# PATH PROFILES — rischio/ricompensa e competitività (concettuale)
+# =============================================================================
+# PROPOSTA TECNICA: analisi anti-optimal-path; nessuna formula numerica
+# DECISIONE APPROVATA: tutti i path devono poter essere competitivi in modi diversi
+# =============================================================================
+
+pathProfiles:
+
+  PATH_A_PROFESSIONAL:
+    trackId: professional
+    label: Percorso professionale
+    riskReward:
+      rewardPotential: stable_moderate
+      rewardStability: high
+      riskLevel: low
+      riskTypes: [job_loss, stress, reputation]
+    advantages:
+      - Reddito ricorrente stabile
+      - Reputazione e competenza
+      - Accesso lavori e leve settoriali
+    disadvantages:
+      - Crescita patrimonio più lenta
+      - Influenza politica limitata senza track parallelo
+      - Dipendenza da mercato del lavoro
+    competitiveDimensions: [stability, reputation, expertise]
+    grindRisk: medium
+    antiOptimalPathNotes: |
+      Non deve dominare solo grind lavoro ripetitivo.
+      Richiede combinazione esperienza + reputazione + milestone carriera.
+
+  PATH_B_ENTREPRENEURIAL:
+    trackId: entrepreneurial
+    label: Percorso imprenditoriale
+    riskReward:
+      rewardPotential: high
+      rewardStability: low
+      riskLevel: high
+      riskTypes: [bankruptcy, market, debt, competition]
+    advantages:
+      - Scalabilità patrimonio
+      - Controllo azienda e leve business
+      - Reddito passivo potenziale
+    disadvantages:
+      - Capitale iniziale e debiti
+      - Fallimento possibile
+      - Complessità gestionale
+    competitiveDimensions: [wealth, scaling, market_impact]
+    grindRisk: medium
+    antiOptimalPathNotes: |
+      Non solo accumulo cash — richiede companyOwnership, risultati, track level.
+
+  PATH_C_POLITICAL:
+    trackId: political
+    label: Percorso politico
+    riskReward:
+      rewardPotential: moderate_economic_high_influence
+      rewardStability: medium
+      riskLevel: medium
+      riskTypes: [reputation, scandal, election_loss, unpopularity]
+    advantages:
+      - Influenza e leve pubbliche
+      - Peso votazioni
+      - Ruoli e visibilità
+    disadvantages:
+      - Reddito economico spesso moderato
+      - Dipendenza consenso
+      - Sindaco ≠ automatico (elezione TBD)
+    competitiveDimensions: [influence, public_role, civic_impact]
+    grindRisk: low
+    antiOptimalPathNotes: |
+      Non grind partecipazione civica infinita — milestone elettorali e incarichi.
+
+  PATH_D_CRIMINAL:
+    trackId: criminal
+    label: Percorso criminale
+    riskReward:
+      rewardPotential: high
+      rewardStability: very_low
+      riskLevel: very_high
+      riskTypes: [arrest, asset_seizure, reputation, investigation, prison]
+    advantages:
+      - Guadagni rapidi potenziali
+      - Nessun tetto artificiale main level
+      - Track PRIVATE — privacy strategica
+    disadvantages:
+      - Conseguenze legali e sociali
+      - Perdita beni/reputazione
+      - Ostacola politica (TBD tension rules)
+    competitiveDimensions: [fast_wealth, underground_influence, risk_tolerance]
+    grindRisk: high
+    antiOptimalPathNotes: |
+      NON grind crimine ripetuto identico — criminalMilestones, rischio crescente, anti-grind rules.
+    notes: DECISIONE APPROVATA — non penalizzato artificialmente in progressione main
+
+# Template strutturale PATH alternativi (Prompt 8 §6) — valori TBD
+alternativePathTemplates:
+
+  PATH_A_PROFESSIONAL_TEMPLATE:
+    mode: all
+    label: PATH A — PROFESSIONAL
+    requirements:
+      - { category: personalValues, field: education, op: gte, placeholderKey: REQ_ISTRUZIONE_MIN }
+      - { category: professional, field: professionalTrack, op: gte, placeholderKey: REQ_TRACK_PROFESSIONAL_MIN }
+      - { category: personalValues, field: reputation, op: gte, placeholderKey: REQ_REPUTAZIONE_MIN }
+
+  PATH_B_ENTREPRENEURIAL_TEMPLATE:
+    mode: all
+    label: PATH B — ENTREPRENEURIAL
+    requirements:
+      - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_NET_WORTH_MIN }
+      - { category: entrepreneurial, field: entrepreneurialTrack, op: gte, placeholderKey: REQ_TRACK_ENTREPRENEURIAL_MIN }
+      - { category: entrepreneurial, field: companyOwnership, op: eq, value: true }
+
+  PATH_C_POLITICAL_TEMPLATE:
+    mode: all
+    label: PATH C — POLITICAL
+    requirements:
+      - { category: political, field: politicalTrack, op: gte, placeholderKey: REQ_TRACK_POLITICAL_MIN }
+      - { category: personalValues, field: politicalInfluence, op: gte, placeholderKey: REQ_INFLUENZA_MIN }
+      - { category: personalValues, field: civicParticipation, op: gte, placeholderKey: REQ_CIVICA_MIN }
+
+  PATH_D_CRIMINAL_TEMPLATE:
+    mode: all
+    label: PATH D — CRIMINAL
+    requirements:
+      - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_TRACK_CRIMINAL_MIN }
+      - { category: criminal, field: criminalExperience, op: gte, placeholderKey: TBD_CRIMINAL_EXPERIENCE_MIN }
+      - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_NET_WORTH_MIN }
+
+  FOUR_PATH_OR_TEMPLATE:
+    mode: any
+    label: Qualsiasi percorso equivalente
+    groups:
+      - $ref: PATH_A_PROFESSIONAL_TEMPLATE
+      - $ref: PATH_B_ENTREPRENEURIAL_TEMPLATE
+      - $ref: PATH_C_POLITICAL_TEMPLATE
+      - $ref: PATH_D_CRIMINAL_TEMPLATE
+
+pathCompetitivenessAnalysis:
+  enabled: false
+  notes: DA_DEFINIRE — tool futuro per verificare nessun path matematicamente dominante
+  metricsToCompare: [timeToLevel, riskAdjustedReward, failureRate, playerDistribution]

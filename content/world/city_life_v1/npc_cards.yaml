@@ -1,0 +1,15 @@
+# =============================================================================
+# NPC CARDS — visual, name/role, workplace
+# =============================================================================
+
+NpcCards:
+  fields:
+    items:
+      - visual
+      - name_or_role
+      - workplace
+      - public_description
+
+events:
+  items:
+    - NpcCardViewed

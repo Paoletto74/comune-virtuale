@@ -1,0 +1,15 @@
+# =============================================================================
+# ERROR RECOVERY — citizen creation failure
+# =============================================================================
+
+ErrorRecovery:
+  citizenCreationFailed:
+    rule: NON creare stato parziale inconsistente
+    retry: possibile retry
+  partialAccount:
+    rule: Account creato ma Citizen non completato — stato valido — resume onboarding
+  ref: resume_onboarding.yaml, idempotency.yaml
+
+events:
+  items:
+    - ErrorRecoveryTriggered

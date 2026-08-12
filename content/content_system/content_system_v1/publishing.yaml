@@ -1,0 +1,25 @@
+# =============================================================================
+# PUBLISHING — publish model
+# =============================================================================
+
+Publishing:
+  publishRecords:
+    items:
+      - contentVersion
+      - publish_timestamp
+      - publisher
+      - status
+  checklist:
+    items:
+      - schema
+      - references
+      - image
+      - locale
+      - preview
+      - permissions
+  confirmation: important publish requires confirmation modal
+  rule: dopo publish contenuto disponibile secondo Content System rules
+
+events:
+  items:
+    - ContentPublished

@@ -1,0 +1,16 @@
+# =============================================================================
+# TESTING — economy_v1
+# =============================================================================
+
+---
+Testing:
+  types:
+  - unit
+  - integration
+  - ledger
+  - concurrency
+  - idempotency
+  - reconciliation
+  - exploit
+  - load
+  status: DECISIONE APPROVATA

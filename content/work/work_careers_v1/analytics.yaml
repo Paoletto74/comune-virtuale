@@ -1,0 +1,15 @@
+# =============================================================================
+# ANALYTICS — work_careers_v1
+# =============================================================================
+
+---
+Analytics:
+  metrics:
+  - applications
+  - hiring rate
+  - unemployment
+  - salary distribution
+  - job popularity
+  - career transitions
+  privacySafe: true
+  status: PROPOSTA TECNICA

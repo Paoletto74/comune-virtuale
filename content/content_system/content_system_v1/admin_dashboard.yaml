@@ -1,0 +1,27 @@
+# =============================================================================
+# ADMIN DASHBOARD — drafts, pending, scheduled, expiring
+# =============================================================================
+
+AdminDashboard:
+  widgets:
+    items:
+      - Draft
+      - Pending_approval
+      - Scheduled
+      - Published
+      - Expiring_soon
+      - Validation_errors
+      - Broken_references
+      - Missing_translations
+  monitors:
+    expiration: "5 contenuti scadono entro 24 ore"
+    broken:
+      items:
+        - broken_visual_references
+        - invalid_links
+        - missing_translations
+        - expired_references
+
+events:
+  items:
+    - DashboardViewed

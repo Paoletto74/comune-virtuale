@@ -1,0 +1,17 @@
+# =============================================================================
+# INTEGRATIONS PROPERTY V1 — task_extensions_v1
+# =============================================================================
+
+---
+PropertyV1Integration:
+  examples:
+  - property visit
+  - key delivery
+  - maintenance
+  - rental management
+  propertyOwns:
+  - ownership
+  - residence
+  - property state
+  taskRequests: authorized effects only
+  status: PROPOSTA TECNICA

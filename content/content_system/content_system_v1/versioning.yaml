@@ -1,0 +1,14 @@
+# =============================================================================
+# VERSIONING — contentVersion, immutability
+# =============================================================================
+
+Versioning:
+  field: contentVersion
+  rule: ogni contenuto pubblicato ha contentVersion
+  edit: modifica successiva -> nuova versione
+  immutability: versione pubblicata storicizzabile — NO silent modification
+  schemaVersion: ref schema_version.yaml
+
+events:
+  items:
+    - ContentVersionCreated

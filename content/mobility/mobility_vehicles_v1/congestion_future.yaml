@@ -1,0 +1,9 @@
+# =============================================================================
+# CONGESTION FUTURE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Congestion:
+  status: PROPOSTA TECNICA FUTURE
+  mayAffect: travel duration
+  notAutomatic: true

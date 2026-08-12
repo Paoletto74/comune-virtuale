@@ -1,0 +1,14 @@
+# =============================================================================
+# DISTRICT ACTIVITY — derived activity level per district
+# =============================================================================
+
+DistrictActivity:
+  shows: activity level per distretto
+  derived: true — ref city_v1/district_types.yaml
+  examples:
+    high: district con alta attivita
+    low: district con bassa attivita
+
+events:
+  items:
+    - DistrictActivityDisplayed

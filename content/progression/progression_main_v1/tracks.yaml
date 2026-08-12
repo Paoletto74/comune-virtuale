@@ -1,0 +1,67 @@
+# =============================================================================
+# TRACK PRINCIPALI v1
+# =============================================================================
+# DECISIONE APPROVATA: 4 track indipendenti dal Main Level
+# DECISIONE APPROVATA: wealth NON è track; wellbeing NON è track
+# =============================================================================
+
+tracks:
+  - trackId: professional
+    displayName: Percorso professionale
+    description: >
+      Carriera, lavoro, esperienza, qualità del lavoro, responsabilità manageriali.
+    defaultVisibility: PUBLIC
+    interactsWith:
+      - trackId: political
+        relation: facilitates
+        note: PROPOSTA_TECNICA — reputazione e competenza possono aprire politica
+      - trackId: criminal
+        relation: hinders
+        note: PROPOSTA_TECNICA — tensione opzionale, non blocco automatico (TBD)
+    levelDefinitions: DA_DEFINIRE — catalogo track levels in content pack futuro
+
+  - trackId: entrepreneurial
+    displayName: Percorso imprenditoriale
+    description: >
+      Apertura e gestione aziende, risultati economici, scaling, mercato.
+    defaultVisibility: PUBLIC
+    interactsWith:
+      - trackId: political
+        relation: facilitates
+        note: PROPOSTA_TECNICA — patrimonio e visibilità aprono politica
+      - trackId: criminal
+        relation: facilitates
+        note: PROPOSTA_TECNICA — business front / riciclaggio (modulo criminalità TBD)
+    levelDefinitions: DA_DEFINIRE
+
+  - trackId: political
+    displayName: Percorso politico
+    description: >
+      Partecipazione civica, influenza, incarichi, candidature, leve pubbliche.
+    defaultVisibility: PUBLIC
+    interactsWith:
+      - trackId: professional
+        relation: facilitates
+      - trackId: entrepreneurial
+        relation: facilitates
+      - trackId: criminal
+        relation: hinders
+        note: PROPOSTA_TECNICA — scoperta crimini impatta politica (modulo TBD)
+    levelDefinitions: DA_DEFINIRE
+
+  - trackId: criminal
+    displayName: Percorso criminale
+    description: >
+      Carriera criminale alternativa; rischio e ricompensa; nessun tetto artificiale al main level.
+    defaultVisibility: PRIVATE
+    interactsWith:
+      - trackId: entrepreneurial
+        relation: facilitates
+      - trackId: political
+        relation: hinders
+      - trackId: professional
+        relation: hinders
+    levelDefinitions: DA_DEFINIRE
+    notes: |
+      DECISIONE APPROVATA: non penalizzato artificialmente nella progressione main.
+      Conseguenze legali/sociali gestite da moduli criminalità/giustizia (TBD).

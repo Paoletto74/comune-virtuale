@@ -1,0 +1,35 @@
+# =============================================================================
+# SECURITY EVENTS
+# =============================================================================
+
+SecurityEvents:
+  items:
+    - AccountCreated
+    - LoginSucceeded
+    - LoginFailed
+    - Logout
+    - PasswordReset
+    - IdentityLinked
+    - AdminLogin
+    - AdminCreated
+    - AdminRevoked
+    - PermissionChanged
+    - AccountLocked
+    - AccountSuspended
+    - SensitiveActionPerformed
+
+notificationIntegration:
+  status: PROPOSTA TECNICA
+  examples:
+    items:
+      - "Nuovo accesso al tuo account."
+  rule: NON mostrare dettagli eccessivi
+
+emailSecurity:
+  status: PROPOSTA TECNICA — provider TBD
+  futureEmails:
+    items:
+      - suspicious_login
+      - password_reset
+      - admin_invitation
+      - permission_change

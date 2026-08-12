@@ -1,0 +1,12 @@
+# =============================================================================
+# OFFLINE — auth requires connectivity
+# =============================================================================
+
+Offline:
+  DECISIONE APPROVATA:
+  authentication: richiede connettivita
+  citizenCreation: NON creare Citizen offline
+
+events:
+  items:
+    - OfflineBlocked

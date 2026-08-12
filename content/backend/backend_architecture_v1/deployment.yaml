@@ -1,0 +1,27 @@
+# =============================================================================
+# DEPLOYMENT — separate operations
+# =============================================================================
+
+Deployment:
+  DECISIONE APPROVATA: operazioni distinte
+  operations:
+    items:
+      - frontend_deploy
+      - backend_deploy
+      - content_publish
+      - database_migration
+
+zeroDowntime:
+  status: PROPOSTA TECNICA
+  rule: compatibilita old API / new API / old data / new data — migration graduali
+
+secrets:
+  DECISIONE APPROVATA: secret management — NON nel repository
+
+featureFlags:
+  status: PROPOSTA TECNICA
+  rule: content feature flags != code feature flags — concettualmente distinti
+
+events:
+  items:
+    - DeploymentCompleted

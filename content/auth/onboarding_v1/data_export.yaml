@@ -1,0 +1,11 @@
+# =============================================================================
+# DATA EXPORT — future personal data export
+# =============================================================================
+
+DataExport:
+  status: PROPOSTA TECNICA — future
+  purpose: export personal data
+
+events:
+  items:
+    - DataExportRequested

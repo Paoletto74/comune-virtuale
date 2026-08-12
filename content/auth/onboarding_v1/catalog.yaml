@@ -1,0 +1,134 @@
+# =============================================================================
+# ONBOARDING MAIN CATALOG v1
+# =============================================================================
+# Player Entry: Landing -> Auth -> Account -> Citizen Creation -> Home
+# DECISIONE APPROVATA: Account != Citizen != Profile
+# Frontend raccoglie dati — Backend crea Citizen authoritative
+# V1: proposta architetturale — NO OAuth runtime, NO database, NO frontend runtime
+# Estende auth_main_v1 — NON lo modifica
+# =============================================================================
+
+catalogId: onboarding_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  auth: auth_main_v1
+  profile: profile_main_v1
+  frontend: frontend_ui_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  soundDesign: sound_design_v1
+  contextualVisuals: contextual_visuals_v1
+  contracts: contracts_v1
+  progression: progression_main_v1
+  economy: economy_main_v1
+  work: work_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  political: political_main_v1
+  task: task_main_v1
+  notification: notification_main_v1
+
+principles:
+  - Landing -> Authentication -> Account -> Citizen Creation -> Personalization -> Introduction -> First Game Experience -> Home
+  - Account != Citizen — frontend NON decide CitizenId, money, level, ownership
+  - onboarding resume — NON perdere dati gia salvati
+  - tutorial breve — NON interminabile — skippabile
+  - privacy by default — info personali PRIVATE
+  - content-driven texts — NON hardcodare editoriali
+  - Game Time per date mostrate
+
+includes:
+  principles: principles.yaml
+  landing: landing.yaml
+  authentication: authentication.yaml
+  googleLogin: google_login.yaml
+  emailPassword: email_password.yaml
+  accountCitizen: account_citizen.yaml
+  firstLogin: first_login.yaml
+  onboardingState: onboarding_state.yaml
+  resumeOnboarding: resume_onboarding.yaml
+  citizenCreation: citizen_creation.yaml
+  citizenName: citizen_name.yaml
+  gender: gender.yaml
+  age: age.yaml
+  birthday: birthday.yaml
+  funFacts: fun_facts.yaml
+  profilePersonalization: profile_personalization.yaml
+  profileVisibility: profile_visibility.yaml
+  privacyDefault: privacy_default.yaml
+  avatar: avatar.yaml
+  characterVisual: character_visual.yaml
+  characterCustomization: character_customization.yaml
+  avatarFallback: avatar_fallback.yaml
+  initialState: initial_state.yaml
+  firstEntry: first_entry.yaml
+  cityIntroduction: city_introduction.yaml
+  firstNewspaper: first_newspaper.yaml
+  firstNotification: first_notification.yaml
+  firstPopup: first_popup.yaml
+  firstSound: first_sound.yaml
+  tutorial: tutorial.yaml
+  guidedTour: guided_tour.yaml
+  firstTask: first_task.yaml
+  firstJob: first_job.yaml
+  firstEconomic: first_economic.yaml
+  firstProfile: first_profile.yaml
+  firstHome: first_home.yaml
+  accountSecurity: account_security.yaml
+  passwordReset: password_reset.yaml
+  emailVerification: email_verification.yaml
+  accountLinking: account_linking.yaml
+  session: session.yaml
+  logout: logout.yaml
+  multiDevice: multi_device.yaml
+  responsiveAuth: responsive_auth.yaml
+  mobileAuth: mobile_auth.yaml
+  desktopAuth: desktop_auth.yaml
+  accessibilityAuth: accessibility_auth.yaml
+  validation: validation.yaml
+  moderation: moderation.yaml
+  profileEdit: profile_edit.yaml
+  onboardingProgress: onboarding_progress.yaml
+  skipLater: skip_later.yaml
+  welcomeBack: welcome_back.yaml
+  analytics: analytics.yaml
+  antiAbuse: anti_abuse.yaml
+  rateLimiting: rate_limiting.yaml
+  captcha: captcha.yaml
+  accountRecovery: account_recovery.yaml
+  deleteAccount: delete_account.yaml
+  dataExport: data_export.yaml
+  privacySettings: privacy_settings.yaml
+  profileConfirmation: profile_confirmation.yaml
+  errorRecovery: error_recovery.yaml
+  idempotency: idempotency.yaml
+  deepLinks: deep_links.yaml
+  localStorage: local_storage.yaml
+  offline: offline.yaml
+  pwa: pwa.yaml
+  contentIntegration: content_integration.yaml
+  visualIntegration: visual_integration.yaml
+  soundIntegration: sound_integration.yaml
+  municipalityAssignment: municipality_assignment.yaml
+  authEvents: auth_events.yaml
+  firstNews: first_news.yaml
+  settings: settings.yaml
+  progressiveDisclosure: progressive_disclosure.yaml
+  help: help.yaml
+  localization: localization.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  authModule: authentication, session, password, OAuth — ref auth_main_v1
+  onboardingModule: landing, onboarding state, citizen creation flow, first entry
+  profileModule: citizen data, visibility, fun facts — ref profile_main_v1
+  backend: Citizen creation authoritative, initial state, validation
+  frontend: UX, form collection — NOT authority
+
+alignsWith:
+  note: |
+    Formalizza Player Entry coerente con auth_main_v1 e profile_main_v1.
+    NON modifica pack approvati. NON implementa runtime.

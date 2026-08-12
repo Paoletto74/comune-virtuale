@@ -1,0 +1,15 @@
+# =============================================================================
+# JOB POSITIONS — work_careers_v1
+# =============================================================================
+
+---
+JobPosition:
+  definition: specific instance e.g. Barista Cafe Centrale
+  schema:
+    jobPositionId: string
+    jobTypeId: string
+    employerId: string
+    businessId: optional
+    title: string
+    status: OPEN|FILLED|CLOSED
+  status: DECISIONE APPROVATA

@@ -1,0 +1,14 @@
+# =============================================================================
+# AUTOPLAY — browser/OS policy compliance
+# =============================================================================
+
+Autoplay:
+  DECISIONE APPROVATA:
+  rule: NON assumere audio automatico — rispettare browser/OS policies
+  firstInteraction:
+    rule: audio engine inizializzato al primo user interaction se necessario
+  default: ON se consentito — rispettare user preference
+
+events:
+  items:
+    - AudioEngineInitialized

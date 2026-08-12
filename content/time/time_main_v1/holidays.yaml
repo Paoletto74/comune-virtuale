@@ -1,0 +1,26 @@
+# =============================================================================
+# HOLIDAYS — calendario festività configurabile
+# =============================================================================
+
+HolidayDefinition:
+  schema:
+    holidayId: string
+    label: string
+    dateRule: string
+    recurring: boolean
+    effectsRef: string | null
+
+HolidayCalendar:
+  status: PROPOSTA TECNICA — definizioni TBD
+  mayInfluence:
+    items:
+      - work
+      - demand
+      - consumption
+      - task
+      - events
+
+events:
+  items:
+    - HolidayStarted
+    - HolidayEnded

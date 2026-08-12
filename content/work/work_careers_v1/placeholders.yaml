@@ -1,0 +1,36 @@
+# =============================================================================
+# PLACEHOLDERS — work_careers_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+    - multi-job policy final vs work_main multi-job
+    - employment status definitive
+    - demotion rules
+    - skills system scope
+    - performance system
+    - payroll failure consequences
+    - unemployment definition
+    - labour statistics formulas
+    - single vs multiple active jobs UI
+    - career switching cooldown
+    - employer reputation
+    - employment ratings
+  economicPrinciples:
+    A: Hiring does NOT auto create money
+    B: Salary TRANSFER or MONEY_CREATION per employer nature
+    C: Promotion no auto money - salary change only
+    D: Firing does NOT cancel received money
+    E: Resignation no arbitrary balance change
+    F: Payroll respects business balance rules
+    G: Employment does NOT assign ownership
+  authorityPrinciples:
+    Work: employment truth
+    Economy: money truth
+    Business: business truth
+    Time: time truth
+    Profile: presentation truth
+    Title: title truth
+    Level: level truth

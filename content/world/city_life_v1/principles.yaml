@@ -1,0 +1,30 @@
+# =============================================================================
+# PRINCIPLES — entity separation, city alive
+# =============================================================================
+
+CityLifePrinciples:
+  DECISIONE APPROVATA:
+  cityAlive:
+    population:
+      items:
+        - Player_Citizens
+        - NPC
+        - aziende
+        - organizzazioni
+        - istituzioni
+  entitySeparation:
+    items:
+      - PLAYER_CITIZEN
+      - NPC
+      - BUSINESS
+      - ORGANIZATION
+      - INSTITUTION
+    rule: nessuno sottotipo degli altri senza ragione architetturale
+  clientRule:
+    rule: frontend visualizza state — NON simula economic/social truth
+  noDuplicateSystems:
+    rule: NON duplicare Social/Economy/Work — integrare domain esistenti
+
+events:
+  items:
+    - CityLifePrincipleApplied

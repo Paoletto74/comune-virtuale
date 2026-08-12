@@ -1,0 +1,39 @@
+# =============================================================================
+# VISIBILITY — profilo pubblico, hidden assets
+# =============================================================================
+
+ItemVisibility:
+  schema:
+    visibility: "public | private | restricted | hidden"
+  rule: Inventory conserva metadata — Profile System decide cosa mostrare
+
+PublicProfile:
+  "DECISIONE APPROVATA": "allinea progression_main_v1/visibility.yaml"
+  showPrimarily:
+    items:
+      - most_expensive_home
+      - most_expensive_vehicle
+      - most_expensive_luxury
+      - other_configured_prestige_assets
+  neverShowByDefault:
+    items:
+      - full_inventory
+      - cheap_goods
+      - food
+      - clothing
+      - hidden_assets
+      - financial_details
+      - acquisition_origin
+  inventoryRole: fornisce dati aggregati — Profile decide pubblicazione
+
+HiddenAssets:
+  visibilityLevels:
+    items:
+      - public
+      - private
+      - restricted
+      - hidden
+
+events:
+  items:
+    - VisibilityMetadataUpdated

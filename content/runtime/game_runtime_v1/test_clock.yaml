@@ -1,0 +1,15 @@
+# =============================================================================
+# TEST CLOCK — dev/test only, deterministic
+# =============================================================================
+
+TestClock:
+  status: PROPOSTA TECNICA — development/test only — NON production
+  modes:
+    items:
+      - fake_clock
+      - deterministic_clock
+      - accelerated_clock
+
+events:
+  emits: [TestClockAdvanced]
+  consumes: []

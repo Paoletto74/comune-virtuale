@@ -1,0 +1,9 @@
+# =============================================================================
+# PERMISSIONS — work_careers_v1
+# =============================================================================
+
+---
+Permissions:
+  employerActions: per role
+  adminEmployment: specific permission required
+  status: DECISIONE APPROVATA

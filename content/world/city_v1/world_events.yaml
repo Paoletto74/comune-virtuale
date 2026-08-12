@@ -1,0 +1,23 @@
+# =============================================================================
+# WORLD EVENTS — CITY-WIDE events
+# =============================================================================
+
+WorldEvents:
+  scope: CITY-WIDE
+  sourceOfTruth: Event System — ref event_main_v1
+  types:
+    items:
+      - manifestazioni
+      - incidenti
+      - feste
+      - elezioni
+      - crisi
+      - emergenze
+  visual: ref contextual_visuals_v1
+  sound: ref sound_design_v1
+  news:
+    rule: evento importante puo generare Gazzetta article — Event != Article
+
+events:
+  items:
+    - WorldEventStarted

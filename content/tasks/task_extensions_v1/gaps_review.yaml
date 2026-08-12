@@ -1,0 +1,20 @@
+# =============================================================================
+# GAPS REVIEW — task_extensions_v1
+# =============================================================================
+
+---
+GapsReview:
+  gaps:
+    items:
+    - maxActiveTasks value TBD
+    - loop prevention values TBD
+    - criminal political integration runtime not implemented
+    - UI section TASK UI_future
+    - outcome enum prompt48 vs approved pending/active/completed
+    - API schema TBD
+    - relationship module referenced placeholders not integrated
+  conflicts:
+    items:
+    - prompt48 states AVAILABLE OFFERED IN_PROGRESS - approved uses pending active
+      completed failed expired cancelled - resolve before runtime
+  noConflictWithApprovedPrinciples: true

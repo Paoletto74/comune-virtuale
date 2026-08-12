@@ -1,0 +1,18 @@
+# =============================================================================
+# GITHUB — role in content workflow
+# =============================================================================
+
+GitHub:
+  NOT_required: daily editorial content changes
+  remains_useful:
+    items:
+      - schema
+      - code
+      - initial_content_packs
+      - migration
+      - technical_version_control
+  rule: GitHub != mandatory for every editorial modification
+
+events:
+  items:
+    - GitHubSyncOptional

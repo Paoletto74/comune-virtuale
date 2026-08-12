@@ -1,0 +1,100 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  authentication_future:
+    direction: auth ↔ ui
+    uiPresents: [login, logout, registration_entry]
+    authOwns: [session, credentials]
+
+  profile_main_v1:
+    direction: profile → ui
+    uiPresents: profile_sections, global_position, showcase
+
+  banking_main_v1:
+    direction: banking → ui
+    uiPresents: header_balance, economy_section
+
+  economy_main_v1:
+    direction: economy → ui
+    uiPresents: inflation, municipal_cash, comune_info
+
+  progression_main_v1:
+    direction: progression → ui
+    uiPresents: level, titles, progression_section
+
+  work_main_v1:
+    direction: work → ui
+    uiPresents: mercato_lavoro_section
+
+  task_main_v1:
+    direction: task → ui
+    uiPresents: attivita_section, task_cards
+
+  marketplace_main_v1:
+    direction: marketplace → ui
+    uiPresents: mercato_marketplace_section, listing_cards
+
+  notification_main_v1:
+    direction: notification → ui
+    uiPresents: notifiche_section, badges
+
+  visual_main_v1:
+    direction: visual → ui
+    uiPresents: all_visual_refs, popups
+
+  social_main_v1:
+    direction: social → ui
+    uiPresents: social_section, citizen_actions_entry
+
+  political_main_v1:
+    direction: political → ui
+    uiPresents: referendum, mayor, candidacy_progress
+
+  gazzetta_future:
+    direction: gazzetta → ui
+    uiPresents: gazzetta_news_content
+
+  event_main_v1:
+    direction: event → ui
+    uiPresents: global_alerts, home_events
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA
+    editable:
+      items:
+        - labels
+        - texts
+        - menu_descriptions
+        - empty_states
+        - popup_content
+        - badges
+        - ranking_names
+        - gazzetta_categories
+        - task_presentation
+        - visual_references
+    flow: YAML/JSON → validation → preview → publish
+
+  separationOfConcerns:
+    uiMustNot:
+      items:
+        - duplicate_banking_logic
+        - duplicate_task_logic
+        - duplicate_marketplace_logic
+        - hardcode_asset_paths
+        - own_authentication
+        - decide_editorial_content
+        - calculate_net_worth
+
+  dataContracts:
+    status: PROPOSTA TECNICA
+    examples:
+      - HomeSummary
+      - HeaderBalance
+      - SectionBadgeCounts
+      - TaskCardData
+      - ListingCardData
+      - RankingCardData
+      - NotificationItemData

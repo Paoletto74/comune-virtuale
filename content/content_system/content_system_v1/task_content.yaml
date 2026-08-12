@@ -1,0 +1,28 @@
+# =============================================================================
+# TASK CONTENT — editorial vs logic separation
+# =============================================================================
+
+TaskContent:
+  DECISIONE APPROVATA: TASK LOGIC != TASK CONTENT
+  contentDefines:
+    items:
+      - title
+      - description
+      - instructions
+      - category
+      - flavour_text
+  domainOwns:
+    items:
+      - reward_authoritative
+      - requirements_logic
+      - cooldown
+      - completion_rules
+  rule: |
+    Content Editor NON inventa parametri gameplay.
+    Se servono parametri: definition esistenti o workflow dedicato.
+
+ref: task_main_v1, contracts_v1
+
+events:
+  items:
+    - TaskContentSaved

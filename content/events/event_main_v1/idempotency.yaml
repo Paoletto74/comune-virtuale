@@ -1,0 +1,75 @@
+# =============================================================================
+# IDEMPOTENCY & AUDIT
+# =============================================================================
+
+Idempotency:
+  DECISIONE APPROVATA: |
+    Stesso evento non deve applicare due volte lo stesso effetto.
+  keys:
+    items:
+      - eventId
+      - effectId
+      - consequenceId
+      - recipientId
+      - idempotencyKey
+  policy:
+    default: one_effect_per_event_target_key
+    explicitRepeatAllowed: configurable via EventDefinition
+
+IdempotencyRecord:
+  schema:
+    idempotencyKey: string
+    eventId: string
+    effectId: string | null
+    consequenceId: string | null
+    targetId: string
+    status: applied | skipped_duplicate
+    createdAt: timestamp
+    ttl: TBD
+
+Audit:
+  DECISIONE APPROVATA: tracciare catena completa
+  fields:
+    items:
+      - eventId
+      - parentEventId
+      - causalChainId
+      - sourceSystem
+      - sourceEntityId
+      - actorId
+      - actorType
+      - targets
+      - affectedEntities
+      - consequences
+      - effects
+      - effectCommands
+      - timestamps
+      - outcome
+      - failureReason
+      - retryCount
+
+AuditEntry:
+  schema:
+    auditId: string
+    eventId: string
+    causalChainId: string
+    sourceSystem: string
+    outcome: success | failed | rolled_back | truncated
+    createdAt: timestamp
+    detailRef: string
+
+security:
+  clientCannot:
+    items:
+      - publish_world_events
+      - apply_effects_directly
+      - bypass_domain_ownership
+      - forge_causal_chain
+      - replay_idempotent_events
+      - extend_cascade_beyond_limits
+
+events:
+  items:
+    - IdempotencyDuplicateDetected
+    - AuditEntryCreated
+    - SecurityViolationBlocked

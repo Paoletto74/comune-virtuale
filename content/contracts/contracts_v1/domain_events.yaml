@@ -1,0 +1,40 @@
+# =============================================================================
+# DOMAIN EVENTS — catalog, structure, immutability
+# =============================================================================
+
+DomainEvent:
+  DECISIONE APPROVATA: rappresenta "qualcosa e successo" — NON "voglio che succeda"
+
+structure:
+  ref: event_envelopes.yaml
+
+naming:
+  rule: past tense — ItemPurchased, TaskCompleted, JobStarted, SalaryPaid, VoteCast, ElectionHeld
+
+immutability:
+  DECISIONE APPROVATA: evento pubblicato immutabile — correzione via nuovo event/correction event
+
+catalog:
+  categories:
+    ECONOMY: [SalaryPaid, RentPaid, TaxApplied]
+    WORK: [JobStarted, JobEnded, JobApplicationSubmitted]
+    PROPERTY: [PropertyPurchased, RentPaid]
+    MOBILITY: [VehiclePurchased]
+    TASK: [TaskCompleted, TaskStarted]
+    PROGRESSION: [LevelReached, LevelLost, MilestoneReached]
+    POLITICAL: [VoteCast, ElectionHeld, MayorElected]
+    CRIMINAL: [CriminalActionCompleted]
+    BUSINESS: [BusinessRevenueRecorded]
+    FAMILY: [FamilyEventOccurred]
+    SOCIAL: [GiftCompleted, LoanCreated]
+    INVENTORY: [ItemTransferred, OwnershipChanged]
+    MARKETPLACE: [ListingCreated, ListingSold, ItemPurchased]
+    BANKING: [BankTransferCompleted, LoanGranted]
+    PROFILE: [ProfileUpdated]
+    NOTIFICATION: [NotificationCreated]
+    MUNICIPALITY: [InflationUpdated, MunicipalityStateChanged]
+    NPC: [NpcSimulationBatchCompleted]
+
+events:
+  items:
+    - DomainEventPublished

@@ -1,0 +1,12 @@
+# =============================================================================
+# HELP — How to Play, content-driven
+# =============================================================================
+
+Help:
+  howToPlay: content-driven — ref content_integration.yaml
+  reopenTour: Help -> Tour
+  ref: tutorial.yaml, guided_tour.yaml
+
+events:
+  items:
+    - HelpViewed

@@ -1,0 +1,11 @@
+# =============================================================================
+# TRAVEL COST — Economy/Travel rules
+# =============================================================================
+
+TravelCost:
+  rule: se esiste costo — Economy/Travel rules — NON hardcoded frontend
+  ref: economy_integration.yaml, mobility_integration.yaml
+
+events:
+  items:
+    - TravelCostCalculated

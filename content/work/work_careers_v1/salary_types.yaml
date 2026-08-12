@@ -1,0 +1,15 @@
+# =============================================================================
+# SALARY TYPES — work_careers_v1
+# =============================================================================
+
+---
+SalaryTypes:
+  values:
+  - fixed
+  - hourly
+  - daily
+  - weekly
+  - monthly
+  - commission
+  - performance-based
+  status: DECISIONE APPROVATA

@@ -1,0 +1,53 @@
+# =============================================================================
+# SIMULATION FRAMEWORK — bilanciamento futuro senza account reale
+# =============================================================================
+# NON implementato (Prompt 8 §19)
+# =============================================================================
+
+simulationFramework:
+  enabled: false
+  schemaVersion: 1
+
+  simulatedCitizen:
+    description: Cittadino virtuale per stress-test progressione
+    configurableFields:
+      initialPersonalValues: TBD
+      initialCash: TBD
+      initialNetWorth: TBD
+      recurringIncome: TBD
+      recurringExpenses: TBD
+      job: TBD
+      dominantPath: professional | entrepreneurial | political | criminal
+      decisionProfile: conservative | aggressive | mixed
+      luckModifier: TBD
+
+  simulationRun:
+    inputs:
+      - contentPackRef: progression_main_v1
+      - balancePackRef: progression_balance_v1
+      - simulatedCitizenProfile
+      - worldEconomicSnapshot: TBD
+      - populationSnapshot: TBD
+      - randomSeed
+    outputs:
+      - estimatedTimeToReach: [L05, L10, L15, L20, L25, L30]
+      - pathTaken
+      - milestoneSequence
+      - failureEvents: [demotion, bankruptcy, arrest]
+      - grindRiskFlags
+
+  targetLevelsForBenchmark:
+    - main_L05
+    - main_L10
+    - main_L15
+    - main_L20
+    - main_L25
+    - main_L30
+
+  useCases:
+    - Calibrare placeholderRegistry quando economia/lavori definiti
+    - Verificare anti-grind e path parity
+    - Stimare difficultyScore vs estimatedTimeToReach coerenza
+    - Testare impatto inflazione su requisiti nominali
+
+  implementation: DA_DEFINIRE

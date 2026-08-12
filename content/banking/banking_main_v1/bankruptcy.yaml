@@ -1,0 +1,52 @@
+# =============================================================================
+# BANKRUPTCY — not a crime, can be permanent
+# =============================================================================
+
+Bankruptcy:
+  "DECISIONE APPROVATA": "allinea economy_main_v1/bankruptcy.yaml"
+  definition: |
+    Cittadino non può sostenere obblighi secondo regole economiche.
+    Formula definitiva TBD — NON solo netWorth < 0.
+
+BankruptcyNotCrime:
+  DECISIONE APPROVATA: |
+    Bancarotta da sola NON è reato.
+    NO arresto, criminal record, criminal heat automatici.
+    Conseguenze economiche/civili possibili.
+
+PermanentBankruptcy:
+  DECISIONE APPROVATA: |
+    Giocatore può rimanere in bancarotta a lungo.
+    NO auto-resolve obbligatorio.
+    Può: guadagnare, spendere, ricevere regali/prestiti se concessi,
+    trasferire beni secondo regole, rimanere povero.
+
+NOT:
+  items:
+    - automatic_arrest
+    - permanent_game_over
+
+consequences:
+  status: TBD
+  mayInclude:
+    items:
+      - asset_loss
+      - access_restrictions
+      - financial_reputation
+      - progression_demotion_possible
+      - account BANKRUPT_RESTRICTED
+
+criminalStrategies:
+  DECISIONE APPROVATA: |
+    Giocatore può tentare: trasferire denaro, regalare beni, spostare patrimonio,
+    prestanome/NPC futuri, acquistare beni, distribuire patrimonio.
+    Conseguenze: detection, criminal, tax, legal — NON rimuovere possibilità.
+
+assetProtection:
+  rule: Banking registra movimenti — NON giudica legalità intento
+
+events:
+  items:
+    - BankruptcyDeclared
+    - BankruptcyWarning
+    - BankruptcyDischarged

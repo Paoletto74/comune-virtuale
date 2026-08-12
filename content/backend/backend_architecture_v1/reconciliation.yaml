@@ -1,0 +1,22 @@
+# =============================================================================
+# RECONCILIATION — integrity jobs
+# =============================================================================
+
+ReconciliationJobs:
+  status: PROPOSTA TECNICA
+  jobs:
+    items:
+      - ledger_vs_balances
+      - ownership_consistency
+      - broken_references
+      - impossible_progression
+      - marketplace_inconsistencies
+
+ledgerVsBalance:
+  rule: se differiscono — ALERT
+  ref: data_architecture_v1/ledger.yaml
+
+events:
+  items:
+    - ReconciliationAlert
+    - ReconciliationCompleted

@@ -1,0 +1,42 @@
+# =============================================================================
+# RELATIONSHIP ENTITY
+# =============================================================================
+
+Relationship:
+  schema:
+    relationshipId: string
+    actorA: string
+    actorB: string
+    typeId: string
+    status: active | distant | strained | broken | ended | unknown
+    strength: TBD
+    trust: TBD
+    affinity: TBD
+    createdAt: timestamp
+    updatedAt: timestamp
+    isFamilyLink: boolean
+    householdRef: string | null
+
+  rule: DECISIONE APPROVATA — RELATIONSHIP ≠ FAMILY
+  note: Non tutte le relazioni diventano membri famiglia
+
+RelationshipPair:
+  rule: Relazione bidirezionale — actorA/actorB identificano i due cittadini
+  uniqueness: pair + type — TBD
+
+progression:
+  status: PROPOSTA_TECNICA
+  examples:
+    items:
+      - path: acquaintance → friend → close_friend
+      - path: acquaintance → partner → household
+      - path: partner → strained → ended
+  rule: NON percorsi obbligatori — configurabile
+
+events:
+  items:
+    - RelationshipStarted
+    - RelationshipStrengthChanged
+    - TrustChanged
+    - AffinityChanged
+    - RelationshipEnded

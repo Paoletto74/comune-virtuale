@@ -1,0 +1,14 @@
+# =============================================================================
+# NPC VISUALS — visualAssetId
+# =============================================================================
+
+NpcVisuals:
+  field: visualAssetId
+  sourceOfTruth: Visual System — ref visual_main_v1, contextual_visuals_v1
+  name:
+    display: display name per SPECIAL/ACTIVE
+    anonymous: ruolo/titolo per anonimi
+
+events:
+  items:
+    - NpcVisualResolved

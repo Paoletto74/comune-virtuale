@@ -1,0 +1,48 @@
+# =============================================================================
+# MARKETPLACE CATEGORIES
+# =============================================================================
+
+MarketplaceCategory:
+  status: content-first — compatibile inventory_main_v1
+  items:
+    - categoryId: food
+      source: inventory consumables
+      resellSection: false
+      buyFromCatalog: true
+    - categoryId: clothing
+      source: inventory consumables
+      resellSection: false
+      buyFromCatalog: true
+    - categoryId: luxury
+      source: inventory assets
+      resellSection: true
+    - categoryId: tools
+      source: inventory usable
+      resellSection: configurable
+    - categoryId: vehicles
+      source: mobility_main_v1
+      resellSection: true
+      domainOwner: mobility_main_v1
+    - categoryId: property
+      source: property_main_v1
+      resellSection: true
+      domainOwner: property_main_v1
+    - categoryId: other_assets
+      resellSection: configurable
+
+consumablesRule:
+  DECISIONE APPROVATA: |
+    tradable=false, resellable=false → NON sezione rivendita.
+    Possono essere acquistati dal catalogo Marketplace (NPC/shop supply).
+
+assetMarket:
+  DECISIONE APPROVATA: veicoli, immobili, lusso, altri asset configurati
+
+jobSeparation:
+  DECISIONE APPROVATA: |
+    UI MERCATO include LAVORO — Work System completamente separato.
+    Marketplace NON gestisce candidatura, assunzione, stipendio, performance.
+
+events:
+  items:
+    - CategoryBrowsed

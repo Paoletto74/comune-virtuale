@@ -1,0 +1,13 @@
+# =============================================================================
+# WORK INTEGRATION — Job LocationId
+# =============================================================================
+
+WorkIntegration:
+  job:
+    field: LocationId
+  owner: Work System decide accessibility, employment, schedule
+  ref: work_main_v1
+
+events:
+  items:
+    - JobAtLocation

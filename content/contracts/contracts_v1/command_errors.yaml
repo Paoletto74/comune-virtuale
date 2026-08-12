@@ -1,0 +1,45 @@
+# =============================================================================
+# COMMAND ERRORS — structured errors, business codes
+# =============================================================================
+
+CommandError:
+  structure:
+    code: string
+    messageKey: string
+    details: object
+    retryable: boolean
+  rule: NON restituire stack trace al client
+
+businessErrors:
+  examples:
+    items:
+      - INSUFFICIENT_FUNDS
+      - REQUIREMENT_NOT_MET
+      - ITEM_UNAVAILABLE
+      - LISTING_EXPIRED
+      - JOB_NOT_AVAILABLE
+      - TASK_COOLDOWN
+      - NOT_ELIGIBLE
+      - ALREADY_VOTED
+      - LOAN_NOT_ALLOWED
+  note: codici estendibili
+
+errorCatalog:
+  categories:
+    items:
+      - AUTH
+      - PERMISSION
+      - VALIDATION
+      - BUSINESS
+      - CONFLICT
+      - NOT_FOUND
+      - RATE_LIMIT
+      - TECHNICAL
+      - TEMPORARY
+
+errorCorrelation:
+  rule: error code + correlationId — NON dettagli interni
+
+events:
+  items:
+    - CommandErrorReturned

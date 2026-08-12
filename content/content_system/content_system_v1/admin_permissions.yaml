@@ -1,0 +1,19 @@
+# =============================================================================
+# ADMIN PERMISSIONS — CONTENT_AUTHOR, REVIEWER, PUBLISHER
+# =============================================================================
+
+AdminPermissions:
+  roles:
+    items:
+      - CONTENT_AUTHOR
+      - CONTENT_REVIEWER
+      - CONTENT_PUBLISHER
+      - SUPER_ADMIN
+  rule: NOT all admins can publish
+  breakingNews: special permission
+  productionPublish: appropriate permission required
+  ref: auth_main_v1
+
+events:
+  items:
+    - AdminPermissionChecked

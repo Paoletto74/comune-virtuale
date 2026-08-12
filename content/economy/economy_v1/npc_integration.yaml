@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC INTEGRATION — economy_v1
+# =============================================================================
+
+---
+NpcIntegration:
+  simulation:
+  - full
+  - aggregated
+  - abstracted
+  dependsOn: NPC tier
+  status: PROPOSTA TECNICA

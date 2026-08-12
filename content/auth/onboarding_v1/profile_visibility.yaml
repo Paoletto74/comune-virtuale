@@ -1,0 +1,17 @@
+# =============================================================================
+# PROFILE VISIBILITY — PUBLIC, PRIVATE, DISCOVERABLE
+# =============================================================================
+
+ProfileVisibility:
+  levels:
+    items:
+      - PUBLIC
+      - PRIVATE
+      - DISCOVERABLE
+  ref: profile_main_v1
+  rule: ogni informazione pubblicabile rispetta visibility policy
+  centralized: impostazioni centralizzate — NON duplicare regole nel frontend
+
+events:
+  items:
+    - ProfileVisibilitySet

@@ -1,0 +1,17 @@
+# =============================================================================
+# APPLICATIONS — work_careers_v1
+# =============================================================================
+
+---
+Application:
+  applicationId: string
+  citizenId: string
+  jobId: string
+  data:
+  - experience
+  - level
+  - skills
+  - applicationText
+  - submittedAt
+  - status
+  status: DECISIONE APPROVATA

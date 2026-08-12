@@ -1,0 +1,18 @@
+# =============================================================================
+# LICENSES — source, license, status per asset
+# =============================================================================
+
+SoundLicenses:
+  DECISIONE APPROVATA:
+  required:
+    items:
+      - source
+      - license
+      - status
+  rule: NON utilizzare asset senza diritti appropriati
+  aiGenerated:
+    rule: chiaramente identificato — ref generation.yaml
+
+events:
+  items:
+    - SoundLicenseVerified

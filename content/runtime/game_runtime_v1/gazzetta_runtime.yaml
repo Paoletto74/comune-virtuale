@@ -1,0 +1,23 @@
+# =============================================================================
+# GAZZETTA RUNTIME — news candidates from major events
+# =============================================================================
+
+GazzettaRuntime:
+  reactsTo:
+    items:
+      - major_events
+      - elections
+      - criminal_incidents
+      - economic_changes
+      - citizen_milestones
+  rule: |
+    NON trasformare ogni domain event in articolo.
+    Eventi importanti -> candidate news -> editor/rule engine decide pubblicazione.
+
+sourceOfTruth: Gazzetta
+executionMode: event-driven async
+ref: event_main_v1
+
+events:
+  emits: [NewsCandidateCreated, NewsPublished]
+  consumes: [ElectionHeld, CriminalActivityExecuted, LevelReached]

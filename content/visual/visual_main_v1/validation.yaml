@@ -1,0 +1,48 @@
+# =============================================================================
+# CONTENT VALIDATION & PREVIEW
+# =============================================================================
+
+ContentValidation:
+  DECISIONE APPROVATA: prima della pubblicazione
+  checks:
+    items:
+      - valid_asset_id
+      - file_present
+      - valid_format
+      - valid_dimensions
+      - complete_metadata
+      - visibility_defined
+      - fallback_present
+      - valid_version
+
+contentPreview:
+  status: PROPOSTA TECNICA — Admin Content Studio
+  previewTargets:
+    items:
+      - item
+      - marketplace
+      - profile
+      - popup
+      - gazzetta
+      - event
+
+imageFallback:
+  DECISIONE APPROVATA: ogni asset può avere image, placeholder, fallbackIcon
+  rule: se manca immagine — NON rompere UI
+
+placeholders:
+  status: PROPOSTA TECNICA
+  categories:
+    items:
+      - item
+      - vehicle
+      - property
+      - character
+      - event
+      - news
+      - popup
+
+events:
+  items:
+    - VisualAssetValidationFailed
+    - VisualAssetValidationPassed

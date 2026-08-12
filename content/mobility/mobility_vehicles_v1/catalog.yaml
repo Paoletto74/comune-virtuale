@@ -1,0 +1,124 @@
+# =============================================================================
+# MOBILITY VEHICLES V1 CATALOG
+# =============================================================================
+# Proposta architetturale Mobility, Vehicles & Transport
+# Estende mobility_main_v1 senza modificarlo
+# =============================================================================
+
+catalogId: mobility_vehicles_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  mobilityMain: mobility_main_v1
+  propertyMain: property_main_v1
+  property: property_v1
+  economyMain: economy_main_v1
+  economy: economy_v1
+  workMain: work_main_v1
+  workCareers: work_careers_v1
+  city: city_v1
+  cityLife: city_life_v1
+  marketplace: marketplace_main_v1
+  business: business_main_v1
+  npc: npc_main_v1
+  profile: profile_main_v1
+  time: time_v1
+  criminal: criminal_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+principles:
+  - MOBILITY SYSTEM SOT per travel mobility state vehicle state commute
+  - Mobility != Vehicle Ownership != Marketplace
+  - Vehicle is asset - Mobility decides how Citizen moves
+  - NO traffic/road simulator V1
+  - Travel consumes Game Time
+  - P2P vehicle sale TRANSFER not money creation
+  - Purchase atomic - mai denaro senza vehicle
+  - Integra mobility_main_v1 - NON lo modifica
+
+includes:
+  principles: principles.yaml
+  vehicle: vehicle.yaml
+  vehicle_types: vehicle_types.yaml
+  vehicle_categories: vehicle_categories.yaml
+  ownership: ownership.yaml
+  ownership_history: ownership_history.yaml
+  availability: availability.yaml
+  locations: locations.yaml
+  parking: parking.yaml
+  garage: garage.yaml
+  purchase: purchase.yaml
+  sale: sale.yaml
+  listings: listings.yaml
+  valuation: valuation.yaml
+  valuation_history: valuation_history.yaml
+  condition: condition.yaml
+  maintenance: maintenance.yaml
+  repairs: repairs.yaml
+  running_costs: running_costs.yaml
+  mobility_modes: mobility_modes.yaml
+  public_transport: public_transport.yaml
+  travel: travel.yaml
+  travel_states: travel_states.yaml
+  commute: commute.yaml
+  business_fleet: business_fleet.yaml
+  commercial_vehicles: commercial_vehicles.yaml
+  npc_mobility: npc_mobility.yaml
+  npc_vehicle_demand: npc_vehicle_demand.yaml
+  mobility_demand: mobility_demand.yaml
+  traffic_future: traffic_future.yaml
+  congestion_future: congestion_future.yaml
+  parking_future: parking_future.yaml
+  accidents_future: accidents_future.yaml
+  damage_future: damage_future.yaml
+  crime_integration: crime_integration.yaml
+  municipality_integration: municipality_integration.yaml
+  city_integration: city_integration.yaml
+  property_integration: property_integration.yaml
+  work_integration: work_integration.yaml
+  business_integration: business_integration.yaml
+  marketplace_integration: marketplace_integration.yaml
+  profile_integration: profile_integration.yaml
+  showcase_integration: showcase_integration.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  sound: sound.yaml
+  visuals: visuals.yaml
+  newspaper: newspaper.yaml
+  economy: economy.yaml
+  time: time.yaml
+  security: security.yaml
+  admin: admin.yaml
+  permissions: permissions.yaml
+  audit: audit.yaml
+  versioning: versioning.yaml
+  api: api.yaml
+  cache: cache.yaml
+  offline: offline.yaml
+  realtime: realtime.yaml
+  analytics: analytics.yaml
+  accessibility: accessibility.yaml
+  localization: localization.yaml
+  performance: performance.yaml
+  testing: testing.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  mobilitySystemDecides:
+    items:
+      - mobility state travel state vehicle state commute duration modes
+  vehicleSystemDecides:
+    items:
+      - vehicle identity ownership reference condition availability
+  economyExecutes:
+    items:
+      - purchase maintenance public transport payments
+
+alignsWith:
+  note: Formalizza mobilita coerente con mobility_main_v1. NON modifica pack approvati.

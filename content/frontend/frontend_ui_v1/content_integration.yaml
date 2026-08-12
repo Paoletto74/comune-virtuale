@@ -1,0 +1,44 @@
+# =============================================================================
+# CONTENT INTEGRATION — published content only, no YAML in frontend
+# =============================================================================
+
+ContentIntegration:
+  DECISIONE APPROVATA:
+  rules:
+    items:
+      - frontend consuma published content via backend/API
+      - NON legge file YAML dal filesystem
+      - DRAFT non mostrato
+      - PUBLISHED + VISIBLE mostrabile
+
+contentDrivenUi:
+  fromContentSystem:
+    items:
+      - labels
+      - descriptions
+      - task_text
+      - news
+      - event_content
+      - item_names
+      - notifications
+
+mustNotHardcode:
+  items:
+    - task_rewards
+    - item_prices
+    - job_salary
+    - progression_thresholds
+    - political_requirements
+    - criminal_requirements
+
+separation:
+  items:
+    - UI_CODE
+    - UI_CONFIG
+    - GAME_CONTENT
+
+ref: admin_content_studio_v1, backend_architecture_v1/content_api.yaml
+
+events:
+  items:
+    - ContentLoaded

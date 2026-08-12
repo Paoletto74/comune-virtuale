@@ -1,0 +1,21 @@
+# =============================================================================
+# ASSET RELATIONSHIPS — entity references
+# =============================================================================
+
+AssetRelationships:
+  linkedTo:
+    items:
+      - ItemId
+      - PropertyId
+      - VehicleId
+      - EventId
+      - ArticleId
+      - CitizenId
+  entityVisual:
+    pattern: entity -> visualAssetId
+  integrity:
+    rule: entita rimossa/archiviata — gestire reference — NO broken asset
+
+events:
+  items:
+    - AssetRelationshipValidated

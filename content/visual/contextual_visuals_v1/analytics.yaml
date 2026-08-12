@@ -1,0 +1,16 @@
+# =============================================================================
+# ANALYTICS — future visual metrics
+# =============================================================================
+
+Analytics:
+  status: PROPOSTA TECNICA — future
+  metrics:
+    items:
+      - asset_usage
+      - popup_visual_impressions
+      - asset_load_failure
+  privacy: NO unnecessary personal data
+
+events:
+  items:
+    - VisualAnalyticsRecorded

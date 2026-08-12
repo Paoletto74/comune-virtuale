@@ -1,0 +1,22 @@
+# =============================================================================
+# RESPONSE ENVELOPES — standard API envelopes
+# =============================================================================
+
+ResponseEnvelope:
+  standard:
+    requestId: string
+    success: boolean
+    data: object
+    error: object
+    meta: object
+  rule: NON duplicare error format tra API
+
+mutationResponse:
+  ref: command_results.yaml mutationResponse
+
+listResponse:
+  ref: pagination.yaml listResponse
+
+events:
+  items:
+    - ResponseEnvelopeSent

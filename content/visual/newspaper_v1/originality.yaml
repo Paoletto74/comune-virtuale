@@ -1,0 +1,22 @@
+# =============================================================================
+# ORIGINALITY — no real newspaper imitation
+# =============================================================================
+
+Originality:
+  DECISIONE APPROVATA: identita visiva ORIGINALE del gioco
+  mustNotImitate:
+    items:
+      - layout_giornali_reali
+      - logo_proprietari
+      - font_proprietari
+      - palette_marchi
+      - elementi_distintivi_giornali_reali
+  category: NEWSPAPER_INSPIRED
+
+copyright:
+  ref: copyright.yaml
+  rule: ogni asset deve avere source, license, status
+
+events:
+  items:
+    - OriginalityCheckPassed

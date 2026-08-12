@@ -1,0 +1,45 @@
+# =============================================================================
+# POPUPS — important event popup layer
+# =============================================================================
+
+ImportantPopups:
+  DECISIONE APPROVATA: |
+    Notifiche personali importanti → popup audiovisivi.
+    Notification/Visual gestiscono logica — UI presenta.
+  ref: visual_main_v1/popup_definitions.yaml
+
+popupStructure:
+  mayContain:
+    items:
+      - icon
+      - title
+      - message
+      - image
+      - animation
+      - sound
+      - action_button
+      - deep_link
+
+priorities:
+  items:
+    - INFO
+    - IMPORTANT
+    - MAJOR
+    - LEGENDARY
+
+popupBehavior:
+  DECISIONE APPROVATA: |
+    NON sovrapporre popup.
+    Queue, priority, deduplication, offline catch-up.
+    Giocatore non bombardato.
+
+popupLayer:
+  status: PROPOSTA TECNICA
+  position: above_main_content
+  rule: layer dedicato sopra shell — sotto global alert se presente
+
+events:
+  items:
+    - PopupDisplayed
+    - PopupDismissed
+    - PopupActionTaken

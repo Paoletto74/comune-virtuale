@@ -1,0 +1,12 @@
+# =============================================================================
+# AUDIT — time_v1
+# =============================================================================
+
+---
+Audit:
+  realTimestamp: true
+  gameTimeReference: true
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeAuditRecorded

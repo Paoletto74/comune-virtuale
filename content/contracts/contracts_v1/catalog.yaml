@@ -1,0 +1,110 @@
+# =============================================================================
+# CONTRACTS MAIN CATALOG v1
+# =============================================================================
+# GAME STATE + COMMANDS + QUERIES + DOMAIN EVENTS contracts
+# V1: proposta architetturale — NO runtime, NO API, NO database, NO event bus
+# Evita chiamate caotiche cross-domain — contract espliciti
+# =============================================================================
+
+catalogId: contracts_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  dataArchitecture: data_architecture_v1
+  backend: backend_architecture_v1
+  frontend: frontend_ui_v1
+  gameRuntime: game_runtime_v1
+  auth: auth_main_v1
+  banking: banking_main_v1
+  economy: economy_main_v1
+  inventory: inventory_main_v1
+  marketplace: marketplace_main_v1
+  work: work_main_v1
+  task: task_main_v1
+  progressionMain: progression_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  social: social_main_v1
+  profile: profile_main_v1
+  notification: notification_main_v1
+  visual: visual_main_v1
+  adminContentStudio: admin_content_studio_v1
+  timeSystem: time_main_v1
+
+principles:
+  - Ogni dato ha un unico owner autorevole
+  - AUTHORITATIVE != DERIVED != CACHE
+  - Domain A NON accede DB di Domain B — Command/Query/Event/Application Contract
+  - Command = imperative — Event = past tense — Query = read only
+  - Client NON autorevole per price/reward/level/ownership/role
+  - Idempotency su commands critici
+  - Events immutabili — correzione via nuovo event
+  - Data minimization — NO secrets in payloads
+
+includes:
+  principles: principles.yaml
+  sourceOfTruth: source_of_truth.yaml
+  aggregates: aggregates.yaml
+  commands: commands.yaml
+  commandResults: command_results.yaml
+  commandErrors: command_errors.yaml
+  queries: queries.yaml
+  readModels: read_models.yaml
+  freshness: freshness.yaml
+  domainEvents: domain_events.yaml
+  eventEnvelopes: event_envelopes.yaml
+  eventVersions: event_versions.yaml
+  eventConsumers: event_consumers.yaml
+  eventOrdering: event_ordering.yaml
+  idempotency: idempotency.yaml
+  concurrency: concurrency.yaml
+  authorization: authorization.yaml
+  privacy: privacy.yaml
+  audit: audit.yaml
+  money: money.yaml
+  ids: ids.yaml
+  timeTypes: time_types.yaml
+  pagination: pagination.yaml
+  sorting: sorting.yaml
+  filtering: filtering.yaml
+  search: search.yaml
+  rateLimits: rate_limits.yaml
+  responseEnvelopes: response_envelopes.yaml
+  invalidation: invalidation.yaml
+  apiBoundary: api_boundary.yaml
+  internalExternal: internal_external.yaml
+  contentContracts: content_contracts.yaml
+  visualContracts: visual_contracts.yaml
+  profileContracts: profile_contracts.yaml
+  notificationContracts: notification_contracts.yaml
+  adminContracts: admin_contracts.yaml
+  sagas: sagas.yaml
+  contractRegistry: contract_registry.yaml
+  contractGovernance: contract_governance.yaml
+  deprecation: deprecation.yaml
+  compatibility: compatibility.yaml
+  testing: testing.yaml
+  fixtures: fixtures.yaml
+  goldenPaths: golden_paths.yaml
+  crossDomainMatrix: cross_domain_matrix.yaml
+  dependencyGraph: dependency_graph.yaml
+  antiPatterns: anti_patterns.yaml
+  examples: examples.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  domainSystems: [authoritative_state, domain_rules, aggregates, commands, domain_events]
+  applicationLayer: [orchestration, authorization, transaction_boundaries, cross_domain_workflows]
+  queryReadModelLayer: [projections, summaries, historical_data, cache]
+  eventInfrastructure: [delivery, retry, ordering, deduplication]
+  api: [external_dto, auth, request_response_mapping]
+  frontend: [consumes_api, presentation, interaction]
+  contentSystem: [content_definitions, versions]
+  visualSystem: [asset_references]
+  admin: [content_authoring, approval, publication]
+
+alignsWith:
+  note: |
+    Formalizza contratti coerenti con data_architecture_v1, backend_architecture_v1,
+    game_runtime_v1. NON modifica pack approvati. NON implementa runtime.

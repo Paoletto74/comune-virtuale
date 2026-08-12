@@ -1,0 +1,18 @@
+# =============================================================================
+# ADMIN SEARCH — search assets by ID, category, subject, type, status
+# =============================================================================
+
+AdminSearch:
+  fields:
+    items:
+      - visualAssetId
+      - category
+      - subject
+      - type
+      - status
+      - tags
+  ref: admin_tags.yaml
+
+events:
+  items:
+    - AdminVisualSearched

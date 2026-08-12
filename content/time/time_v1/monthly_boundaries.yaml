@@ -1,0 +1,14 @@
+# =============================================================================
+# MONTHLY BOUNDARIES — time_v1
+# =============================================================================
+
+---
+MonthlyBoundaries:
+  trigger: MonthStarted
+  reactors:
+  - Rent
+  - Inflation graph
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - MonthlyBoundaryCrossed

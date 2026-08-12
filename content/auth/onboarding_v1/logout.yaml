@@ -1,0 +1,17 @@
+# =============================================================================
+# LOGOUT — session invalidation, preserve game state
+# =============================================================================
+
+Logout:
+  DECISIONE APPROVATA:
+  flow: session invalidation -> landing
+  preserves:
+    items:
+      - Citizen
+      - Game_State
+  duringOnboarding: salva stato — resume al login
+  ref: auth_main_v1
+
+events:
+  items:
+    - LogoutCompleted

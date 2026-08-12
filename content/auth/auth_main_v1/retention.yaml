@@ -1,0 +1,18 @@
+# =============================================================================
+# DATA RETENTION
+# =============================================================================
+
+DataRetention:
+  status: PROPOSTA TECNICA — policy definitiva TBD
+  mustNotAutoDelete:
+    items:
+      - transactions
+      - audit
+      - game_consistency_data
+
+deleteAccount:
+  status: PROPOSTA TECNICA — account deletion request concettuale, NON V1
+
+events:
+  items:
+    - RetentionPolicyApplied

@@ -1,0 +1,14 @@
+# =============================================================================
+# PROPERTY MARKET — property_v1
+# =============================================================================
+
+---
+PropertyMarket:
+  marketplaceSupports:
+  - buy
+  - rent
+  - sell
+  - search
+  - filters
+  propertyRemainsAssetOwner: true
+  status: DECISIONE APPROVATA

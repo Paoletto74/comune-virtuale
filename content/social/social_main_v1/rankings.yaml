@@ -1,0 +1,27 @@
+# =============================================================================
+# GLOBAL RANKINGS — classifiche sociali ironiche
+# =============================================================================
+
+GlobalRankings:
+  status: PROPOSTA TECNICA — formule TBD, dati aggregati
+  rule: policy pubbliche — NO singole interazioni esposte
+  categories:
+    items:
+      - most_sympathetic
+      - most_influential
+      - benefactor
+      - usurer
+      - most_popular
+      - most_reliable
+      - most_hated
+      - most_generous
+      - most_snubbed
+      - ironic_future_categories
+
+crossRef:
+  note: benefactor/usurer possono allinearsi a banking_main_v1/rankings.yaml
+  bankingRankings: banking_main_v1/rankings.yaml
+
+events:
+  items:
+    - SocialRankingUpdated

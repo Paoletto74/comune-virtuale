@@ -1,0 +1,18 @@
+# =============================================================================
+# FAMILY RUNTIME — household, relationships
+# =============================================================================
+
+FamilyRuntime:
+  tickProcesses:
+    items:
+      - household_effects
+      - relationships
+      - scheduled_family_events
+  rule: NON simulare tutto ogni tick se non necessario
+  sourceOfTruth: Family
+  executionMode: tick-driven low frequency
+  ref: family_main_v1
+
+events:
+  emits: [FamilyEventOccurred]
+  consumes: [GameTimeAdvanced]

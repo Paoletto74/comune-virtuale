@@ -1,0 +1,18 @@
+# =============================================================================
+# ROLLBACK & BACKUP
+# =============================================================================
+
+Rollback:
+  DECISIONE APPROVATA: |
+    Se versione crea problemi → rollback versione precedente.
+
+Backup:
+  status: PROPOSTA TECNICA
+  rule: |
+    Recuperare versioni precedenti — NON solo backup manuali GitHub.
+    Git resta backup/version control complementare.
+
+events:
+  items:
+    - ContentRolledBack
+    - ContentVersionRestored

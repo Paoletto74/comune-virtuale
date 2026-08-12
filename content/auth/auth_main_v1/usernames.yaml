@@ -1,0 +1,24 @@
+# =============================================================================
+# USERNAMES & DISPLAY NAME
+# =============================================================================
+
+Username:
+  status: PROPOSTA TECNICA
+  rules:
+    items:
+      - unique_username
+      - validation
+      - allowed_characters_TBD
+      - reserved_names
+      - rename_policy_TBD
+
+DisplayName:
+  DECISIONE APPROVATA: distinguere username da Citizen name
+  rule: |
+    username = autenticazione Account
+    Citizen name/display name = Profile/Citizen System — pubblico
+
+events:
+  items:
+    - UsernameRegistered
+    - UsernameChanged

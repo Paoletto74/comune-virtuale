@@ -1,0 +1,44 @@
+# =============================================================================
+# PRINCIPLES — player entry, no complex dashboard
+# =============================================================================
+
+OnboardingPrinciples:
+  DECISIONE APPROVATA:
+  flow:
+    items:
+      - Landing
+      - Authentication
+      - Account
+      - Citizen_Creation
+      - Personalization
+      - Introduction
+      - First_Game_Experience
+      - Home
+
+  firstEntryExplains:
+    items:
+      - cos_e_il_gioco
+      - cosa_puo_fare_il_giocatore
+      - citta_viva
+      - vita_economica_sociale_politica
+      - lavorare_guadagnare_acquistare
+      - partecipare_eventi
+      - interagire_con_altri_cittadini
+
+  noEndlessTutorial: NON tutorial interminabile
+  noComplexDashboard: giocatore NON trova dashboard complessa senza contesto
+
+  clientAuthority:
+    forbidden:
+      items:
+        - CitizenId
+        - starting_money
+        - level
+        - ownership
+        - job
+        - political_role
+        - rewards
+
+events:
+  items:
+    - OnboardingPrincipleApplied

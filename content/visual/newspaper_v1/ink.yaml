@@ -1,0 +1,16 @@
+# =============================================================================
+# INK — visual language for text, borders, titles
+# =============================================================================
+
+InkConcept:
+  usage:
+    items:
+      - testo
+      - bordi
+      - titoli
+      - separatori
+      - iconografia
+
+events:
+  items:
+    - InkStyleApplied

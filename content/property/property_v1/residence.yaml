@@ -1,0 +1,9 @@
+# =============================================================================
+# RESIDENCE — property_v1
+# =============================================================================
+
+---
+Residence:
+  primaryResidence: true
+  housingStatus: where citizen lives
+  status: DECISIONE APPROVATA

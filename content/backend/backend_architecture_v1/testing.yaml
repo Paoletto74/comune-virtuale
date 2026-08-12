@@ -1,0 +1,44 @@
+# =============================================================================
+# TESTING — unit, integration, contract, E2E
+# =============================================================================
+
+Testing:
+  testability:
+    DECISIONE APPROVATA: domain services testabili senza UI
+    useCases: testabili con mock repositories
+
+unitTests:
+  items:
+    - domain_invariants
+    - permissions
+    - calculations
+    - state_transitions
+
+integrationTests:
+  items:
+    - purchase
+    - salary
+    - task_reward
+    - listing
+    - login
+    - admin_publish
+
+contractTests:
+  rule: API contract tests frontend <-> backend
+
+e2e:
+  status: PROPOSTA TECNICA — NON implementare ora
+  scenarios:
+    items:
+      - signup
+      - login
+      - citizen_creation
+      - task
+      - job
+      - marketplace
+      - profile
+      - admin_content_publish
+
+events:
+  items:
+    - TestSuiteCompleted

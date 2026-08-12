@@ -1,0 +1,11 @@
+# =============================================================================
+# FILTERING — declared filters only
+# =============================================================================
+
+FilteringContract:
+  rule: filtri dichiarati — NON query arbitrary database
+  filterOperators: defined per query type
+
+events:
+  items:
+    - FilterApplied

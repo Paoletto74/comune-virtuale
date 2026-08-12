@@ -1,0 +1,40 @@
+# =============================================================================
+# ARTICLE — News Article content model
+# =============================================================================
+
+Article:
+  model:
+    contentId: string
+    contentVersionId: string
+    schemaVersion: number
+    title: string
+    kicker: string
+    subhead: string
+    body: string
+    category: string
+    severity: string
+    visualAssetId: string
+    caption: string
+    author: string
+    relatedEntities: []
+    publishAt: timestamp
+    expireAt: timestamp
+    locale: string
+    status: string
+    version: number
+
+quickCreate:
+  minimalFields:
+    items:
+      - Titolo
+      - Categoria
+      - Testo
+      - Immagine_opzionale
+      - Publish_time
+
+ref: newspaper_v1/article_page.yaml, gazzetta.yaml
+
+events:
+  items:
+    - ArticleDraftSaved
+    - ArticlePublished

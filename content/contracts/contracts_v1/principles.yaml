@@ -1,0 +1,36 @@
+# =============================================================================
+# PRINCIPLES — command/query/event distinction, cross-domain rules
+# =============================================================================
+
+ContractPrinciples:
+  crossDomainRule:
+    DECISIONE APPROVATA: |
+      DOMAIN A NON accede direttamente al database di DOMAIN B.
+      Usare: Command, Query, Event, o Application Contract esplicito.
+
+  commandVsQueryVsEvent:
+    Command: imperative — "voglio cambiare qualcosa"
+    Query: read only — NON modifica game state
+    Event: past tense — "qualcosa e successo" — NON RPC mascherato
+
+  noEventAbuse: NON usare events come RPC sincrono
+  noCommandAbuse: NON creare command per ogni semplice read
+
+  dataMinimization: commands, queries, events, read models — solo cio che serve
+
+  serverAuthority:
+    DECISIONE APPROVATA: mai fidarsi client per
+    items:
+      - price
+      - reward
+      - salary
+      - tax
+      - interest
+      - level
+      - ownership
+      - political_role
+      - inventory_quantity
+
+events:
+  items:
+    - ContractPrincipleApplied

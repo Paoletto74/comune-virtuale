@@ -1,0 +1,15 @@
+# =============================================================================
+# TESTING CLOCK — time_v1
+# =============================================================================
+
+---
+TestingClock:
+  devOnly: true
+  features:
+  - acceleration
+  - freeze
+  - travel
+  status: DECISIONE APPROVATA dev only
+events:
+  items:
+  - TestClockAdjusted

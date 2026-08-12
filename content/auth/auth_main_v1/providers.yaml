@@ -1,0 +1,28 @@
+# =============================================================================
+# AUTH PROVIDERS — abstraction, extensible
+# =============================================================================
+
+AuthenticationProvider:
+  status: PROPOSTA TECNICA — interfaccia astratta
+  schema:
+    providerId: string
+    type: oauth | password | future
+    enabled: boolean
+
+supportedProviders:
+  DECISIONE APPROVATA: architettura estendibile
+  v1:
+    items:
+      - google
+      - username_password
+  future:
+    items:
+      - additional_oauth_providers
+
+futureAuthProviders:
+  status: PROPOSTA TECNICA — NON implementare provider aggiuntivi V1
+
+events:
+  items:
+    - ProviderRegistered
+    - ProviderAuthenticationAttempted

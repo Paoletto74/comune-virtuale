@@ -1,0 +1,26 @@
+# =============================================================================
+# ASSET TAXONOMY — category families
+# =============================================================================
+
+AssetTaxonomy:
+  categories:
+    items:
+      - economy
+      - crime
+      - political
+      - news
+      - work
+      - property
+      - vehicle
+      - social
+      - progression
+      - municipality
+      - ui
+      - special
+  consistency:
+    rule: NON mescolare arbitrariamente photorealism, cartoon, 3D, illustration
+    ref: visual_main_v1, newspaper_v1
+
+events:
+  items:
+    - AssetTaxonomyApplied

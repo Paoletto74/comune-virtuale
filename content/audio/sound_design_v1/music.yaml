@@ -1,0 +1,14 @@
+# =============================================================================
+# MUSIC — future, not required V1
+# =============================================================================
+
+Music:
+  v1: NON obbligatoria
+  future:
+    control: Music Volume — separato da SFX
+    ducking: ref ducking.yaml
+  status: PROPOSTA TECNICA — future
+
+events:
+  items:
+    - MusicPlayed

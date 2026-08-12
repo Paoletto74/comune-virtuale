@@ -1,0 +1,18 @@
+# =============================================================================
+# TESTING — mobility_vehicles_v1
+# =============================================================================
+
+---
+Testing:
+  cases:
+  - purchase
+  - sale
+  - transfer
+  - concurrency
+  - travel
+  - Game Time
+  - commute
+  - garage
+  - teleport exploit
+  - duplicate purchase
+  status: PROPOSTA TECNICA

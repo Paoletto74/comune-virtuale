@@ -1,0 +1,13 @@
+# =============================================================================
+# MAINTENANCE — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleMaintenance:
+  types:
+  - maintenance
+  - repair
+  - service
+  payment: Mobility/Vehicle to Economy
+  alignsWith: mobility_main_v1/maintenance.yaml
+  status: PROPOSTA TECNICA

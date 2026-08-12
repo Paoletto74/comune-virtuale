@@ -1,0 +1,32 @@
+# =============================================================================
+# TESTING — design QA, visual regression
+# =============================================================================
+
+Testing:
+  designQA:
+    items:
+      - desktop
+      - tablet
+      - mobile
+      - dark
+      - accessibility
+      - reduced_motion
+  visualRegression:
+    status: PROPOSTA TECNICA - future visual regression tests
+  emptyStates:
+    examples:
+      items:
+        - "NESSUNA NOTIZIA OGGI"
+        - "NESSUN ANNUNCIO DISPONIBILE"
+        - "NESSUNA OFFERTA DI LAVORO"
+    rule: tono editoriale - chiarezza over gag
+  errorStates:
+    example: "EDIZIONE SOSPESA with explanation and user action"
+    rule: NON humor per errori critici
+  loading:
+    example: "PREPARAZIONE DELL EDIZIONE"
+    rule: solo dove appropriato - NON ogni loading una gag
+
+events:
+  items:
+    - DesignQAPassed

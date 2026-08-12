@@ -1,0 +1,18 @@
+# =============================================================================
+# TARGETING — future content targeting
+# =============================================================================
+
+Targeting:
+  status: PROPOSTA TECNICA — future
+  possible:
+    items:
+      - municipality
+      - level
+      - player_state
+      - event
+      - date
+  rule: targeting must NOT bypass authorization
+
+events:
+  items:
+    - ContentTargeted

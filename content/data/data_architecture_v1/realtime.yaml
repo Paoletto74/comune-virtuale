@@ -1,0 +1,19 @@
+# =============================================================================
+# REALTIME — selective updates
+# =============================================================================
+
+RealtimeStrategy:
+  status: PROPOSTA TECNICA — NON ogni dato real-time per forza
+  candidates:
+    items:
+      - notifications
+      - balance
+      - marketplace
+      - events
+      - rankings
+
+rule: possibilità real-time, non obbligatorietà universale
+
+events:
+  items:
+    - RealtimeUpdatePushed

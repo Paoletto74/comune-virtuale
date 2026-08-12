@@ -1,0 +1,20 @@
+# =============================================================================
+# GUIDED TOUR — optional path
+# =============================================================================
+
+GuidedTour:
+  steps:
+    items:
+      - Gazzetta
+      - Attivita
+      - Mercato
+      - Profilo
+      - Notifiche
+      - Comune
+  noForcedTour: giocatore puo uscire dal tour
+  ref: progressive_disclosure.yaml
+
+events:
+  items:
+    - GuidedTourStarted
+    - GuidedTourExited

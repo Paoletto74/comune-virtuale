@@ -1,0 +1,12 @@
+# =============================================================================
+# COOLDOWNS — time_v1
+# =============================================================================
+
+---
+Cooldowns:
+  field: cooldownUntil
+  serverAuthoritative: true
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - CooldownEnded

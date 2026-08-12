@@ -1,0 +1,30 @@
+# =============================================================================
+# INTEGRATION — property_v1
+# =============================================================================
+
+PropertyIntegration:
+  status: PROPOSTA TECNICA
+
+  boundary:
+    propertyOwns:
+      items:
+        - ownership
+        - residence
+        - tenancy
+        - property_state
+    socialProvides:
+      items:
+        - congratulation_preset
+        - help_request_preset
+        - loan_context_preset
+        - social_reactions_to_property_events
+
+  propertyEventsMayTrigger:
+    items:
+      - congratulation
+      - help_request
+      - loan_request
+      - maintenance_social_context
+      - visit_social_context
+
+  rule: Property events generano social context — NON negoziazione libera

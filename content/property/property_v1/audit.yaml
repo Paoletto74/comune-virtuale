@@ -1,0 +1,13 @@
+# =============================================================================
+# AUDIT — property_v1
+# =============================================================================
+
+---
+Audit:
+  important:
+  - purchase
+  - sale
+  - ownership transfer
+  - rental start/end
+  - admin intervention
+  status: DECISIONE APPROVATA

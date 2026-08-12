@@ -1,0 +1,44 @@
+# =============================================================================
+# HEADLINES — editorial hierarchy
+# =============================================================================
+
+HeadlineSystem:
+  hierarchy:
+    items:
+      - KICKER_EYEBROW
+      - HEADLINE
+      - SUBHEAD
+      - BODY
+      - CAPTION
+      - META
+      - BYLINE
+  terminology: TBD valori definitivi
+
+importance:
+  levels:
+    items:
+      - MINOR
+      - STANDARD
+      - IMPORTANT
+      - MAJOR
+      - BREAKING
+  affects:
+    items:
+      - dimensione
+      - posizione
+      - immagine
+      - badge
+      - eventuale_popup
+
+headlineTone:
+  canBe:
+    items:
+      - informative
+      - ironiche
+      - sensazionalistiche_quando_coerente
+      - neutre_per_info_tecniche
+  mustNot: manipolare giocatore con falsi breaking
+
+events:
+  items:
+    - HeadlineRendered

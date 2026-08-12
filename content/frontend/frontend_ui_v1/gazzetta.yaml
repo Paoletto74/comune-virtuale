@@ -1,0 +1,29 @@
+# =============================================================================
+# GAZZETTA — sezione primaria, referendum + cronaca
+# =============================================================================
+
+Gazzetta:
+  DECISIONE APPROVATA: sezione primaria con due aree
+  areas:
+    items:
+      - REFERENDUM
+      - CRONACA
+
+visual:
+  cardElements:
+    items:
+      - image
+      - headline
+      - timestamp
+      - category_badge
+      - breaking_indicator
+  assets: Visual/Content System
+
+contentRule: solo content PUBLISHED + VISIBLE
+
+ref: gazzetta.yaml areas, ui_main_v1 tab GAZZETTA
+
+events:
+  items:
+    - GazzettaArticleOpened
+    - GazzettaCategoryChanged

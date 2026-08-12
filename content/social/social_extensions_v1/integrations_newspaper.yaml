@@ -1,0 +1,29 @@
+# =============================================================================
+# INTEGRATION — newspaper_v1 / Gazzetta
+# =============================================================================
+
+GazzettaIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/events.yaml — gazzettaIntegration
+
+  pattern: SocialEvent → EditorialCandidate → Newspaper decides
+
+  candidateExamples:
+    items:
+      - record_donation
+      - public_dispute
+      - marriage_future
+      - scandal
+      - major_benefaction
+      - famous_rivalry
+      - relationship_with_important_character
+
+  socialDoesNot:
+    items:
+      - publish_automatically
+      - decide_headline
+      - decide_privacy_override
+
+  privacy:
+    rule: PRIVATE interactions NON diventano Gazzetta senza regola esplicita

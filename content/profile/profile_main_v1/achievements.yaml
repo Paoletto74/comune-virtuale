@@ -1,0 +1,44 @@
+# =============================================================================
+# ACHIEVEMENTS — presentation, Milestones/Progression autorevoli
+# =============================================================================
+
+Achievement:
+  status: PROPOSTA TECNICA — sistema achievement definitivo TBD
+  schema:
+    achievementId: string
+    label: string
+    descriptionKey: string
+    category: career | economic | social | political | criminal | milestone
+    visibility: PUBLIC | PRIVATE | DISCOVERABLE
+    unlockedAt: timestamp
+    publicProfileEligible: boolean
+
+exampleAchievements:
+  status: esempi dimostrativi — content-first
+  items:
+    - achievementId: first_job
+      label: Primo lavoro
+    - achievementId: first_home
+      label: Prima casa
+    - achievementId: first_business
+      label: Prima azienda
+    - achievementId: first_million
+      label: Primo milione
+    - achievementId: first_loan
+      label: Primo prestito
+    - achievementId: first_gift
+      label: Primo regalo
+    - achievementId: election
+      label: Elezione
+    - achievementId: criminal_milestone
+      label: Milestone criminale
+      visibility: PRIVATE
+    - achievementId: social_milestone
+      label: Milestone sociale
+
+rule: Milestones/Progression autorevoli — Profile presenta
+
+events:
+  items:
+    - AchievementUnlocked
+    - AchievementDisplayed

@@ -1,0 +1,13 @@
+# =============================================================================
+# PROPERTY PURCHASE — property_v1
+# =============================================================================
+
+---
+PropertyPurchase:
+  flow:
+  - validate
+  - authorize
+  - payment
+  - ownership transfer
+  - commit
+  status: DECISIONE APPROVATA

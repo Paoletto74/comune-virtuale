@@ -1,0 +1,18 @@
+# =============================================================================
+# FORMATTING — currency, numbers, dates centralized
+# =============================================================================
+
+Formatting:
+  centralized:
+    items:
+      - currency
+      - numbers
+      - dates
+      - percentages
+      - large_numbers
+  example: "EUR 12.450"
+  rule: NON duplicare formatter in ogni componente
+
+events:
+  items:
+    - FormatApplied

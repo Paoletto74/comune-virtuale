@@ -1,0 +1,24 @@
+# =============================================================================
+# RANKING SOUNDS — top position, #1, drop
+# =============================================================================
+
+RankingSounds:
+  TopPositionEntered:
+    cue: ranking.prestige
+    priority: HIGH
+    length: normal
+    description: positive prestige sound
+  GlobalRankOne:
+    cue: ranking.achievement_number_one
+    priority: CRITICAL
+    length: major
+    description: special achievement sound — raggiungere numero 1 globale
+  SignificantRankDrop:
+    cue: ranking.drop_subtle
+    priority: NORMAL
+    length: micro
+    description: subtle negative cue
+
+events:
+  items:
+    - RankingSoundTriggered

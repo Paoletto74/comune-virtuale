@@ -1,0 +1,14 @@
+# =============================================================================
+# ADMIN — work_careers_v1
+# =============================================================================
+
+---
+Admin:
+  canManage:
+  - job types
+  - career paths
+  - job config
+  - public job content
+  cannotArbitraryHireFire: without permission reason audit
+  contentAdminSeparate: from economic admin
+  status: DECISIONE APPROVATA

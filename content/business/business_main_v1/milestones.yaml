@@ -1,0 +1,57 @@
+# =============================================================================
+# BUSINESS MILESTONES
+# =============================================================================
+
+BusinessMilestone:
+  schema:
+    milestoneId: string
+    label: string
+    description: string
+    triggerConditionsRef: string
+    visibility: PUBLIC | PRIVATE
+    unlocksRef: string | null
+
+milestones:
+  status: skeleton_narrative_only
+  indicativeExamples:
+    items:
+      - milestoneId: FIRST_COMPANY
+        label: Prima azienda
+        visibility: PUBLIC
+      - milestoneId: FIRST_PROFITABLE
+        label: Prima azienda profittevole
+        visibility: PUBLIC
+      - milestoneId: FIRST_EMPLOYEE
+        label: Primo dipendente
+        visibility: PUBLIC
+      - milestoneId: FIRST_EXPANSION
+        label: Prima espansione
+        visibility: PUBLIC
+      - milestoneId: FIRST_MAJOR_SALE
+        label: Prima grande vendita
+        visibility: PUBLIC
+      - milestoneId: FIRST_CRISIS
+        label: Prima crisi
+        visibility: PRIVATE
+      - milestoneId: FIRST_COMPANY_SOLD
+        label: Prima azienda venduta
+        visibility: PUBLIC
+      - milestoneId: MAJOR_WEALTH
+        label: Grande patrimonio aziendale
+        visibility: PUBLIC
+  names: TBD
+
+entrepreneurialTrack:
+  ref: progression_main_v1 tracks.yaml entrepreneurial
+  contributes:
+    items:
+      - entrepreneurialLevel
+      - businessExperience
+      - companyCount
+      - companyValue
+      - businessMilestones
+  doesNotAssign: mainLevel
+
+events:
+  items:
+    - BusinessMilestoneReached

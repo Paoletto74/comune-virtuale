@@ -1,0 +1,48 @@
+# =============================================================================
+# TRANSFERS — player-to-player, atomic
+# =============================================================================
+
+Transfer:
+  schema:
+    transferId: string
+    fromAccountId: string
+    toAccountId: string
+    amount: TBD
+    currency: string
+    transferType: gift | loan | generic | other
+    status: pending | completed | failed | rolled_back
+    idempotencyKey: string
+
+PlayerToPlayer:
+  DECISIONE APPROVATA: Player A → €X → Player B
+  types:
+    items:
+      - gift
+      - loan_disbursement
+      - generic_transfer
+
+AtomicTransactions:
+  DECISIONE APPROVATA: |
+    A -€1000, B +€1000 — atomico.
+    NO A perde e B non riceve. NO B riceve e A non perde.
+  mechanisms:
+    items:
+      - transaction_lock
+      - idempotency
+      - server_authority
+      - rollback
+
+validation:
+  checks:
+    items:
+      - account_valid
+      - sufficient_available_balance
+      - not_locked
+      - restrictions_clear
+
+events:
+  items:
+    - TransferInitiated
+    - TransferCompleted
+    - TransferFailed
+    - TransferRolledBack

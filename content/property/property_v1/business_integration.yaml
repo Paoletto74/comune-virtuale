@@ -1,0 +1,9 @@
+# =============================================================================
+# BUSINESS INTEGRATION — property_v1
+# =============================================================================
+
+---
+BusinessIntegration:
+  commercialLinked: true
+  businessNotPropertyOwner: Business System owner of activity
+  status: DECISIONE APPROVATA

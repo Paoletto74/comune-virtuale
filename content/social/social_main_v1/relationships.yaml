@@ -1,0 +1,58 @@
+# =============================================================================
+# PLAYER RELATIONSHIPS — modello semplice, non simulatore sociale complesso
+# =============================================================================
+
+Relationship:
+  DECISIONE APPROVATA: modello semplice player-player
+  note: family_main_v1 autorevole su relazioni familiari
+  schema:
+    relationshipId: string
+    actorId: string
+    targetId: string
+    status: unknown | acquaintance | friendly | trusted | hostile | rival | business_contact | creditor | debtor
+    relationshipScore: TBD
+    lastInteractionAt: timestamp
+    metadata: object
+
+relationshipStatus:
+  items:
+    - unknown
+    - acquaintance
+    - friendly
+    - trusted
+    - hostile
+    - rival
+    - business_contact
+    - creditor
+    - debtor
+
+relationshipScore:
+  status: PROPOSTA TECNICA — range e formula TBD
+  influencedBy:
+    items:
+      - interactions
+      - loans
+      - gifts
+      - betrayals
+      - help
+      - deals
+      - events
+
+socialConsequences:
+  DECISIONE APPROVATA: |
+    Interazioni possono avere conseguenze immediate o ritardate.
+    Event System gestisce le conseguenze — Communication registra.
+
+delayedConsequences:
+  status: PROPOSTA TECNICA — esempio emergente
+  example: |
+    Oggi A aiuta B. Tra 20 giorni B diventa imprenditore.
+    Evento: B offre lavoro ad A. Event + NPC/Player systems gestiscono logica.
+
+events:
+  items:
+    - RelationshipCreated
+    - RelationshipUpdated
+    - RelationshipStatusChanged
+    - FriendshipFormed
+    - RivalryFormed

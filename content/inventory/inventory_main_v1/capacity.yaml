@@ -1,0 +1,25 @@
+# =============================================================================
+# CAPACITY & CONTAINERS — futuro
+# =============================================================================
+
+InventoryCapacity:
+  status: PROPOSTA TECNICA
+  rule: |
+    NON imporre necessariamente "10 slot per giocatore".
+    Capacità può dipendere da contenitore, abitazione, veicolo, condizioni.
+  values: TBD
+
+Containers:
+  status: futuro — non gerarchia complessa V1
+  plannedTypes:
+    items:
+      - backpack
+      - home_storage
+      - vehicle_storage
+      - business_storage
+      - other
+
+events:
+  items:
+    - CapacityExceeded
+    - ContainerAssigned

@@ -1,0 +1,73 @@
+# =============================================================================
+# CITIZEN MODEL — PLAYER vs NPC
+# =============================================================================
+
+PlayerVsNpc:
+  DECISIONE APPROVATA: |
+    PLAYER CITIZEN e NPC CITIZEN condividono modello concettuale.
+    NON due mondi separati.
+  player:
+    items:
+      - user_controlled
+      - higher_simulation_depth
+      - interactive_tasks
+      - manual_decisions
+  npc:
+    items:
+      - simulated_behavior
+      - aggregate_decisions_where_possible
+      - variable_simulation_depth
+
+Citizen:
+  schema:
+    citizenId: string
+    citizenType: player | npc
+    stableId: string
+    seed: string
+    age: TBD
+    lifeSituation: string
+    economicState: {}
+    employmentState: {}
+    householdRef: string | null
+    locationRef: string | null
+    attributesRef: string | null
+    simulationTier: "TIER_0 | TIER_1 | TIER_2 | TIER_3"
+    importanceScore: TBD
+    status: CREATED | ACTIVE | INACTIVE | RETIRED | ARCHIVED
+    createdAt: timestamp
+    updatedAt: timestamp
+  status: schema_conceptual — valori definitivi TBD
+
+NpcIdentity:
+  DECISIONE APPROVATA: ID stabili e persistenti
+  fields:
+    items:
+      - citizenId
+      - stableId
+      - seed
+      - createdAt
+  rule: Stesso seed + config → stesso NPC iniziale (riproducibile)
+
+NpcPersistence:
+  DECISIONE APPROVATA: |
+    NPC importanti persistenti — identità, lavoro, relazioni, patrimonio semplificato,
+    storia essenziale. NON distruggere/ricreare casualmente.
+  example: NPC assunto da giocatore mantiene identità e situazione
+
+compactState:
+  status: PROPOSTA_TECNICA
+  rule: Tier bassi usano stato compatto — lazy load per tier alti
+  fields:
+    items:
+      - segmentRefs
+      - lifeSituation
+      - economicSegment
+      - employmentTemplate
+      - householdSize
+
+events:
+  items:
+    - CitizenCreated
+    - CitizenUpdated
+    - CitizenPromoted
+    - CitizenDemoted

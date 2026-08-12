@@ -1,0 +1,15 @@
+# =============================================================================
+# SEASONS — time_v1
+# =============================================================================
+
+---
+Seasons:
+  values:
+  - spring
+  - summer
+  - autumn
+  - winter
+  status: PROPOSTA TECNICA TBD
+events:
+  items:
+  - SeasonChanged

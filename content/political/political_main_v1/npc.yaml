@@ -1,0 +1,52 @@
+# =============================================================================
+# NPC — politica e popolazione
+# =============================================================================
+
+NpcPoliticalRole:
+  schema:
+    npcId: string
+    canVote: boolean
+    canCandidate: boolean
+    canHoldOffice: boolean
+    simulationDepth: simplified
+
+npcCapabilities:
+  DECISIONE APPROVATA: |
+    NPC partecipano — giocatori NON rappresentano tutta la popolazione.
+    Impedisce che 5-10 giocatori controllino automaticamente la città.
+  items:
+    - vote
+    - candidacy
+    - hold_office
+    - propose_decisions
+    - generate_competition
+    - populate_electorate
+
+populationModel:
+  ref: progression_balance_v1/population_context.yaml
+  electorate: all_citizens
+  composition:
+    players: variable
+    npcs: variable
+    total: derived
+  rule: Risultato elettorale dipende da popolazione complessiva configurata
+
+npcVoting:
+  simplified: true
+  factors: ref voting.yaml voteDetermination
+  formula: TBD
+
+npcMayor:
+  rule: NPC possono essere eletti sindaco se regole lo permettono
+  note: Concorrenza reale per giocatori
+
+npcPoliticians:
+  canPropose: simplified_decisions
+  depth: reduced_vs_players
+
+events:
+  items:
+    - NpcVoteCast
+    - NpcCandidateRegistered
+    - NpcElected
+    - NpcMayorTerm

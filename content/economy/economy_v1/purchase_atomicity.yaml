@@ -1,0 +1,14 @@
+# =============================================================================
+# PURCHASE ATOMICITY — economy_v1
+# =============================================================================
+
+---
+PurchaseAtomicity:
+  flow:
+  - validate
+  - reserve/charge
+  - transfer ownership
+  - commit
+  failure: rollback/compensation
+  economyNotOwnership: true
+  status: DECISIONE APPROVATA

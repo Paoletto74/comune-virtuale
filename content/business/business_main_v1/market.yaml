@@ -1,0 +1,51 @@
+# =============================================================================
+# COMPANY MARKET — mercato aziendale
+# =============================================================================
+
+MarketListing:
+  schema:
+    listingId: string
+    companyId: string
+    sellerId: string
+    askingPrice: TBD
+    listingType: new | existing | distressed | bankrupt_asset
+    status: open | pending | sold | withdrawn
+    listedAt: timestamp
+
+marketSegments:
+  items:
+    - new_companies
+    - existing_companies
+    - companies_for_sale
+    - failed_companies
+    - opportunities
+
+purchaseFlow:
+  DECISIONE APPROVATA: atomico
+  flow: |
+    Buyer → Purchase Request → validate → Economy Transaction
+    → Ownership Transfer → Company Owner Updated
+  buyers:
+    items:
+      - player
+      - npc
+      - system
+
+saleFlow:
+  sellers:
+    items:
+      - owner_player
+      - owner_npc
+      - forced_sale_bankruptcy
+  priceBasis: market_value — TBD
+
+npcMarket:
+  rule: NPC possono comprare e vendere aziende
+  ref: npc.yaml
+
+events:
+  items:
+    - CompanyListedForSale
+    - CompanyMarketPriceUpdated
+    - CompanyAcquisitionCompleted
+    - CompanyOpportunityListed

@@ -1,0 +1,10 @@
+# =============================================================================
+# MORTGAGE FUTURE — property_v1
+# =============================================================================
+
+---
+Mortgage:
+  status: PROPOSTA TECNICA future NON V1
+  concept: debt secured by property
+  integration: Loan/Economy + Property
+  foreclosure: NOT without decision

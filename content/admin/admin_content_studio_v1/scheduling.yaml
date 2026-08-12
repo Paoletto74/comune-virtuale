@@ -1,0 +1,18 @@
+# =============================================================================
+# SCHEDULING — publishAt futuro
+# =============================================================================
+
+ScheduledPublish:
+  status: PROPOSTA TECNICA — futuro
+  schema:
+    publishAt: timestamp
+    contentId: string
+    version: string
+  example: |
+    evento speciale → pubblicazione domani alle 18:00
+  rule: Time System autorevole su scheduling
+
+events:
+  items:
+    - ContentScheduled
+    - ScheduledPublishExecuted

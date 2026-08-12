@@ -1,0 +1,16 @@
+# =============================================================================
+# PERFORMANCE — task_extensions_v1
+# =============================================================================
+
+---
+Performance:
+  prevent:
+  - task explosion
+  - infinite causal chains
+  - excessive polling
+  use:
+  - pools
+  - cooldown
+  - max active
+  - event-driven evaluation
+  status: PROPOSTA TECNICA extends generation.yaml

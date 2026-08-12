@@ -1,0 +1,173 @@
+# =============================================================================
+# EDITORS — per content type, engines autorevoli su runtime
+# =============================================================================
+
+EditorModes:
+  simpleMode:
+    DECISIONE APPROVATA: default FORM EDITOR — campi leggibili, non tecnico
+  advancedMode:
+    DECISIONE APPROVATA: RAW YAML/JSON per utenti esperti
+
+TaskEditor:
+  status: PROPOSTA TECNICA — Task Engine autorevole runtime
+  fields:
+    items:
+      - title
+      - description
+      - category
+      - requirements
+      - reward
+      - duration
+      - cooldown
+      - images
+      - events
+      - notifications
+      - conditions
+
+EventEditor:
+  status: PROPOSTA TECNICA — Event Engine autorevole
+  fields:
+    items:
+      - eventId
+      - type
+      - trigger
+      - conditions
+      - participants
+      - effects_refs
+      - notification
+      - visual
+      - audio
+      - scheduling
+
+ItemEditor:
+  status: PROPOSTA TECNICA — Economy/Inventory/Marketplace autorevoli
+  fields:
+    items:
+      - itemId
+      - name
+      - category
+      - description
+      - value
+      - visualRef
+      - rarity
+      - condition
+      - marketplace_eligibility
+      - rental_eligibility
+      - tags
+
+MarketplaceContentEditor:
+  status: PROPOSTA TECNICA
+  mayConfigure:
+    items:
+      - categories
+      - item_presentation
+      - listing_rules
+      - labels
+      - visual_refs
+      - description
+      - sale_rent_labels
+  mustNot: modify_transactions_directly
+
+JobContentEditor:
+  status: PROPOSTA TECNICA — Work Engine autorevole
+  fields:
+    items:
+      - job_name
+      - description
+      - category
+      - requirements
+      - salary_presentation
+      - visual
+      - humor
+      - availability
+
+NewsEditor:
+  status: PROPOSTA TECNICA — Gazzetta autorevole
+  fields:
+    items:
+      - headline
+      - article
+      - category
+      - image
+      - related_citizen
+      - related_event
+      - publication_date
+      - visibility
+
+NotificationEditor:
+  ref: notification_main_v1
+  fields:
+    items:
+      - title
+      - message
+      - category
+      - priority
+      - icon
+      - image
+      - sound
+      - animation
+      - deepLink
+
+PopupEditor:
+  ref: visual_main_v1/popup_definitions.yaml
+  fields:
+    items:
+      - popupId
+      - priority
+      - title
+      - message
+      - image
+      - animation
+      - sound
+      - duration
+      - cta
+      - deepLink
+  priorities:
+    items:
+      - INFO
+      - IMPORTANT
+      - MAJOR
+      - LEGENDARY
+
+SocialContentEditor:
+  ref: social_main_v1
+  mayConfigure:
+    items:
+      - preset_messages
+      - social_actions
+      - reactions
+      - relationship_labels
+      - humor
+      - ranking_descriptions
+  mustNot: allow_free_chat
+
+ProfileContentEditor:
+  ref: profile_main_v1
+  mayConfigure:
+    items:
+      - profile_facts
+      - achievements
+      - badges
+      - title_descriptions
+      - ranking_descriptions
+      - humor
+      - showcase_labels
+
+VisualContentEditor:
+  ref: visual_main_v1
+  mayManageMetadata:
+    items:
+      - item_image
+      - vehicle_image
+      - property_image
+      - character_image
+      - profile_showcase
+      - popup_image
+      - news_image
+      - event_image
+  rule: binary file via future Asset/Storage system
+
+events:
+  items:
+    - ContentEdited
+    - ContentSavedAsDraft

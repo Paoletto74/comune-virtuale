@@ -1,0 +1,33 @@
+# =============================================================================
+# REPAYMENT — schedule, partial, single payment V1
+# =============================================================================
+
+RepaymentSchedule:
+  schema:
+    scheduleId: string
+    loanId: string
+    scheduleType: single_payment | installments
+    dueAt: timestamp
+    amountDue: TBD
+    status: pending | paid | partial | overdue
+
+v1Preference:
+  DECISIONE APPROVATA: single payment at due date
+  future: recurring installments
+
+PartialRepayment:
+  status: PROPOSTA TECNICA — V1 configurabile
+  example: |
+    debito €10.000 → paga €2.000 → residuo €8.000
+  rule: non assumere obbligatorio automaticamente
+
+LoanDuration:
+  rule: prestatore specifica durata, due date, eventuali rate
+  timeOwner: time_main_v1 — scadenza, reminder, overdue
+  bankingOwner: importo dovuto, debt state
+
+events:
+  items:
+    - RepaymentScheduled
+    - RepaymentReceived
+    - PartialRepaymentApplied

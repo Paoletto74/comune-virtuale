@@ -1,0 +1,13 @@
+# =============================================================================
+# CONTENT INTEGRATION — visualAssetId in content
+# =============================================================================
+
+ContentIntegration:
+  field: visualAssetId
+  rule: Content referenzia visualAssetId — NON URL arbitrari
+  adminSelect: Admin Content Studio seleziona visualAssetId
+  ref: content_system_v1
+
+events:
+  items:
+    - ContentVisualResolved

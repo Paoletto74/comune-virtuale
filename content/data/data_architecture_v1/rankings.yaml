@@ -1,0 +1,28 @@
+# =============================================================================
+# RANKINGS — derived data / projection
+# =============================================================================
+
+Rankings:
+  type: DERIVED
+  sourceOfTruth: calcolato da dati autorevoli — NON campo manuale "player X è #1"
+
+rankingTypes:
+  items:
+    - net_worth
+    - level
+    - influence
+    - popularity
+
+rankingSnapshots:
+  status: PROPOSTA TECNICA
+  example: ranking_daily_2026_08_08
+  purpose: performance e storico
+
+globalPosition:
+  DECISIONE APPROVATA: |
+    Posizione globale Profile deriva da ranking system.
+    NON campo modificabile dal client.
+
+events:
+  items:
+    - RankingSnapshotCreated

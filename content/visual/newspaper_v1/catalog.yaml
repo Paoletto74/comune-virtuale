@@ -1,0 +1,121 @@
+# =============================================================================
+# NEWSPAPER VISUAL IDENTITY & ART DIRECTION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: linguaggio editoriale quotidiano come grammatica visiva comune
+# NEWSPAPER-INSPIRED — NON copiare giornali reali — identita originale
+# V1: proposta artistica — NO frontend runtime, NO asset definitivi, NO font/palette finali
+# Integra con ui_main_v1 (design system) e visual_main_v1 (assets) — NON li modifica
+# =============================================================================
+
+catalogId: newspaper_v1
+version: "1.0.0"
+schemaVersion: 1
+visualDirectionVersion: newspaper_v1
+
+linkedSystems:
+  uiMain: ui_main_v1
+  visualMain: visual_main_v1
+  frontend: frontend_ui_v1
+  profile: profile_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  adminContentStudio: admin_content_studio_v1
+  timeSystem: time_main_v1
+  gazzetta: frontend_ui_v1/gazzetta.yaml
+
+principles:
+  - Newspaper-inspired visual language — NON simulazione fisica cartacea
+  - NO skeuomorphism — VISUAL LANGUAGE not PHYSICAL SIMULATION
+  - NO copia layout/logo/font/palette/marchi giornali reali
+  - Classic Newspaper + Modern Digital Product + Game UI
+  - Editorial content vs Game action — devono convivere senza confondersi
+  - Gameplay NON dipende da immagini specifiche
+  - ui_main_v1 = source of truth component primitives e base tokens
+  - visual_main_v1 = source of truth assets e visualAssetId
+  - Content system = source of truth testi headline/article
+  - AI Draft -> Validation -> Approval -> Publish — MAI publish diretto
+
+includes:
+  artDirection: art_direction.yaml
+  creativePrinciples: creative_principles.yaml
+  visualPersonality: visual_personality.yaml
+  originality: originality.yaml
+  frontPage: front_page.yaml
+  personalEdition: personal_edition.yaml
+  gazzetta: gazzetta.yaml
+  headlines: headlines.yaml
+  breakingNews: breaking_news.yaml
+  articleCards: article_cards.yaml
+  articlePage: article_page.yaml
+  editorialGrid: editorial_grid.yaml
+  typography: typography.yaml
+  numbers: numbers.yaml
+  colors: colors.yaml
+  paper: paper.yaml
+  ink: ink.yaml
+  rules: rules.yaml
+  cards: cards.yaml
+  profile: profile.yaml
+  citizenAvatar: citizen_avatar.yaml
+  showcase: showcase.yaml
+  classifieds: classifieds.yaml
+  jobs: jobs.yaml
+  activities: activities.yaml
+  notifications: notifications.yaml
+  popup: popup.yaml
+  municipality: municipality.yaml
+  rankings: rankings.yaml
+  politics: politics.yaml
+  crime: crime.yaml
+  economy: economy.yaml
+  events: events.yaml
+  specialEditions: special_editions.yaml
+  humor: humor.yaml
+  proceduralHeadlines: procedural_headlines.yaml
+  aiAuthoring: ai_authoring.yaml
+  assetTaxonomy: asset_taxonomy.yaml
+  imageTreatment: image_treatment.yaml
+  iconography: iconography.yaml
+  logo: logo.yaml
+  masthead: masthead.yaml
+  edition: edition.yaml
+  responsive: responsive.yaml
+  accessibility: accessibility.yaml
+  darkMode: dark_mode.yaml
+  themes: themes.yaml
+  editorialTokens: editorial_tokens.yaml
+  components: components.yaml
+  templates: templates.yaml
+  visualStates: visual_states.yaml
+  motion: motion.yaml
+  soundDirection: sound_direction.yaml
+  categorySystem: category_system.yaml
+  metadata: metadata.yaml
+  relatedEntities: related_entities.yaml
+  personalization: personalization.yaml
+  worldSimulation: world_simulation.yaml
+  eventVisuals: event_visuals.yaml
+  governance: governance.yaml
+  copyright: copyright.yaml
+  validation: validation.yaml
+  fallback: fallback.yaml
+  versioning: versioning.yaml
+  compatibility: compatibility.yaml
+  rollback: rollback.yaml
+  archive: archive.yaml
+  performance: performance.yaml
+  testing: testing.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  newspaperV1: editorial_art_direction, visual_grammar, presentation_layer
+  uiMainV1: component_primitives, base_tokens, accessibility, responsive_rules
+  visualMainV1: assets, visualAssetId, asset_metadata, generation_pipeline_future
+  contentSystem: headline, article, labels, captions, task_content
+  frontend: applies_presentation — NON business_rules
+
+alignsWith:
+  note: |
+    Definisce DIREZIONE VISIVA EDITORIALE trasversale.
+    NON modifica visual_main_v1, ui_main_v1, frontend_ui_v1.
+    NON implementa runtime o asset definitivi.

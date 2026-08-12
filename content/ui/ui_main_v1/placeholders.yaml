@@ -1,0 +1,78 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  HEADER_LAYOUT_DEFINITIVE: TBD
+  MAIN_CONTENT_LAYOUT: TBD
+
+  BALANCE_DISPLAY_FORMAT: TBD
+  GLOBAL_POSITION_FORMAT: TBD
+
+  BADGE_MAX_DISPLAY: TBD
+  POPUP_MAX_CONCURRENT: TBD
+  OFFLINE_POPUP_MAX_ON_LOGIN: TBD
+
+  ROUTE_PREFIX: TBD
+  DEEP_LINK_SCHEME: TBD
+
+  BREAKPOINT_MOBILE: TBD
+  BREAKPOINT_TABLET: TBD
+  BREAKPOINT_DESKTOP: TBD
+  BREAKPOINT_WIDE: TBD
+
+  HOME_CONTENT_PRIORITY_ORDER: TBD
+  SECTION_PAGINATION_SIZE: TBD
+  CACHE_TTL_HOME_SUMMARY: TBD
+
+  REALTIME_UPDATE_TECHNOLOGY: TBD
+
+  UI_STYLE_PROFILE_ID: TBD
+  LOGO_VISUAL_ASSET_ID: TBD
+
+  dependsOnSystems:
+    items:
+      - profile_main_v1
+      - visual_main_v1
+      - banking_main_v1
+      - economy_main_v1
+      - progression_main_v1
+      - work_main_v1
+      - task_main_v1
+      - marketplace_main_v1
+      - notification_main_v1
+      - event_main_v1
+      - social_main_v1
+      - political_main_v1
+      - inventory_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - time_main_v1
+
+  futurePack:
+    note: ui_balance_v1 — layout tokens, breakpoint values, badge rules — DA DEFINIRE
+
+  contentPackNote: |
+    ui_main_v1 — shell navigazione, sezioni, stati UI, routing concettuale.
+    NO frontend runtime V1. Pack approvati NON modificati.
+
+  navigationMap:
+    status: PROPOSTA TECNICA — schema schermate
+    root: home
+    tabs:
+      gazzetta: [referendum, news]
+      attivita: [tasks]
+      mercato: [lavoro, marketplace]
+      profilo: [overview, economy, career, assets, progression, social]
+      notifiche: [private, global]
+      comune: [info, cittadini, classifiche]
+
+  screenStates:
+    items:
+      - loading
+      - skeleton
+      - content
+      - empty
+      - error
+      - offline
+      - syncing

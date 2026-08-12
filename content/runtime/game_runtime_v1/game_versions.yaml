@@ -1,0 +1,20 @@
+# =============================================================================
+# GAME VERSIONS — game, content, schema, runtime version
+# =============================================================================
+
+GameVersions:
+  separate:
+    items:
+      - game_version
+      - content_version
+      - schema_version
+      - runtime_version
+
+runtimeVersion:
+  purpose: debugging, replay
+
+ref: data_architecture_v1/migrations.yaml, content_runtime.yaml
+
+events:
+  emits: [VersionMismatchDetected]
+  consumes: []

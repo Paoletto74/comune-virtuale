@@ -1,0 +1,18 @@
+# =============================================================================
+# HUMOR — irony and satire within limits
+# =============================================================================
+
+Humor:
+  allowed:
+    items:
+      - ironia
+      - satira
+      - giochi_di_parole
+      - headline_divertenti
+  rule: NON rendere tutto una battuta
+  errorStates:
+    rule: NON usare humor per errori critici
+
+events:
+  items:
+    - HumorToneApplied

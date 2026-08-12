@@ -1,0 +1,116 @@
+# =============================================================================
+# CORE GAME UI, NAVIGATION & HOME SHELL MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: UI semplice, mobile-first, ironica, espandibile
+# Definisce: landing, header, bottom nav, sezioni, routing, stati UI
+# NON modifica: tutti i moduli già approvati
+# V1: proposta architetturale — NO UI definitiva, NO pixel/colori/font finali
+# =============================================================================
+
+catalogId: ui_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  profile: profile_main_v1
+  visual: visual_main_v1
+  banking: banking_main_v1
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  work: work_main_v1
+  task: task_main_v1
+  marketplace: marketplace_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  social: social_main_v1
+  political: political_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  timeSystem: time_main_v1
+
+principles:
+  - UI presenta — NON è fonte autorevole su dati di gioco
+  - Authentication separata — UI presenta login, Auth autorevole
+  - Mobile-first — desktop estensione, non versione diversa
+  - Bottom navigation 6 sezioni — GAZZETTA, ATTIVITÀ, MERCATO, PROFILO, NOTIFICHE, COMUNE
+  - Header — logo, saldo, profilo, share, install app, esci
+  - Content-first — NO hardcode testi, label, empty states
+  - Visual/Audio refs — NO asset path hardcoded
+  - Server authoritative — client non modifica saldo, livello, ranking, ecc.
+  - Lazy loading, pagination, snapshots — performance
+  - Humor configurabile — eventi importanti restano leggibili
+  - Admin Content Studio compatible
+  - NO frontend runtime V1
+
+includes:
+  navigation: navigation.yaml
+  home: home.yaml
+  header: header.yaml
+  bottomNavigation: bottom_navigation.yaml
+  gazzetta: gazzetta.yaml
+  activities: activities.yaml
+  market: market.yaml
+  profile: profile.yaml
+  notifications: notifications.yaml
+  comune: comune.yaml
+  rankings: rankings.yaml
+  citizens: citizens.yaml
+  popups: popups.yaml
+  badges: badges.yaml
+  emptyStates: empty_states.yaml
+  errorStates: error_states.yaml
+  loadingStates: loading_states.yaml
+  routing: routing.yaml
+  responsive: responsive.yaml
+  accessibility: accessibility.yaml
+  humor: humor.yaml
+  sharing: sharing.yaml
+  installApp: install_app.yaml
+  visualRefs: visual_refs.yaml
+  audioRefs: audio_refs.yaml
+  privacy: privacy.yaml
+  security: security.yaml
+  performance: performance.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  shell_module: [home, header, bottomNavigation, navigation]
+  sections_module: [gazzetta, activities, market, profile, notifications, comune]
+  states_module: [emptyStates, errorStates, loadingStates, popups, badges]
+  governance_module: [routing, responsive, accessibility, security, performance]
+
+responsibilitySplit:
+  uiDecides:
+    items:
+      - navigation
+      - screen_structure
+      - presentation_hierarchy
+      - routing
+      - loading_error_empty_states
+      - responsive_behavior
+      - interaction_entry_points
+  authenticationDecides: login
+  profileDecides: profile_data
+  bankingDecides: money
+  progressionDecides: level
+  workDecides: jobs
+  taskDecides: activities
+  marketplaceDecides: market
+  gazzettaDecides: news
+  politicalDecides: referendum
+  notificationDecides: notifications
+  eventDecides: events
+  socialDecides: social_stats
+  visualDecides: images
+  audioDecides: sound
+  economyDecides: inflation
+  propertyDecides: properties
+  mobilityDecides: vehicles
+  inventoryDecides: items
+
+alignsWith:
+  note: |
+    Integra profile_main_v1/sharing.yaml, visual_main_v1/popup_definitions.yaml,
+    notification_main_v1, marketplace_main_v1. NON modifica pack approvati.

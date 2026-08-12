@@ -1,0 +1,17 @@
+# =============================================================================
+# CONTENT CALENDAR — future scheduled content view
+# =============================================================================
+
+ContentCalendar:
+  status: PROPOSTA TECNICA — future
+  views:
+    items:
+      - oggi
+      - domani
+      - settimana
+      - mese
+  shows: scheduled content
+
+events:
+  items:
+    - CalendarViewed

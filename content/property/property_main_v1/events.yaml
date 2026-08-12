@@ -1,0 +1,65 @@
+# =============================================================================
+# PROPERTY EVENTS — eventi immobiliari
+# =============================================================================
+# Catalogo completo — DA DEFINIRE. Solo skeleton tipi evento.
+# =============================================================================
+
+eventTypes:
+  items:
+    - eventId: damage
+      label: Danno
+      consequences: TBD
+    - eventId: fire
+      label: Incendio
+      consequences: TBD
+    - eventId: flood
+      label: Allagamento
+      consequences: TBD
+    - eventId: malfunction
+      label: Guasto impianti
+      consequences: TBD
+    - eventId: renovation
+      label: Ristrutturazione
+      consequences: TBD
+    - eventId: value_increase
+      label: Aumento valore
+      consequences: TBD
+    - eventId: value_decrease
+      label: Diminuzione valore
+      consequences: TBD
+    - eventId: tenant_problem
+      label: Problemi con affittuario
+      consequences: TBD
+    - eventId: zone_upgrade
+      label: Miglioramento zona
+      consequences: TBD
+    - eventId: zone_decline
+      label: Degrado zona
+      consequences: TBD
+
+delivery:
+  via: Event System
+  rule: Conseguenze via Action Pipeline — NO mutazioni dirette
+  probability: TBD
+  scheduling: scheduled_events | tick | trigger_based
+
+consequences:
+  possible:
+    items:
+      - condition_change
+      - value_change
+      - expense
+      - income_loss
+      - contract_termination
+      - personal_value_effects
+      - tasks
+      - notifications
+  values: TBD
+
+marketEvents:
+  items:
+    - demand_spike
+    - demand_drop
+    - supply_increase
+    - economic_crisis_local
+  formulas: TBD

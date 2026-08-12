@@ -1,0 +1,9 @@
+# =============================================================================
+# LOCALIZATION — property_v1
+# =============================================================================
+
+---
+Localization:
+  descriptions: Content System
+  currency: Economy formatter
+  status: DECISIONE APPROVATA

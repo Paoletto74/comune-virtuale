@@ -1,0 +1,26 @@
+# =============================================================================
+# API BOUNDARY — frontend via API, DTO mapping
+# =============================================================================
+
+ApiBoundary:
+  DECISIONE APPROVATA:
+  frontend: comunica via API/Application contracts — NON domain services diretti
+
+contractMapping:
+  apiRequest: Command
+  apiResponse: ReadModel or CommandResult
+  domainEvent: internal event infrastructure
+
+externalDto:
+  rule: API DTO possono differire da domain objects — NON esporre aggregate interni
+
+bffComposition:
+  status: PROPOSTA TECNICA — valutare BFF per Home/Profile — NON microservice BFF automatico
+  compositions:
+    GetHome: [BalanceSummary, LevelSummary, JobSummary, TaskSummary, NotificationSummary, MunicipalitySummary, GazzettaHighlights]
+    GetProfile: [Profile, Progression, Work, BankingSummary, NetWorth, Ranking, Showcase]
+    GetMunicipality: [Municipality, Political, Economy, RankingHighlights]
+
+events:
+  items:
+    - ApiBoundaryCrossed

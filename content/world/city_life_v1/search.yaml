@@ -1,0 +1,18 @@
+# =============================================================================
+# SEARCH — global search with privacy
+# =============================================================================
+
+Search:
+  includes:
+    items:
+      - Player_Citizen
+      - NPC_speciali
+      - Business
+      - Organization
+      - Location
+  ranking: relevance — NON mostrare dati privati
+  privacy: respected — authorization server-side
+
+events:
+  items:
+    - CityLifeSearchExecuted

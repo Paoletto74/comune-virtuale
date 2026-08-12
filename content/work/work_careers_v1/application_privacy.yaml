@@ -1,0 +1,14 @@
+# =============================================================================
+# APPLICATION PRIVACY — work_careers_v1
+# =============================================================================
+
+---
+ApplicationPrivacy:
+  employerSees: application-relevant info only
+  notAutomatic:
+  - bank balance
+  - private profile
+  - private relationships
+  - hidden criminal data
+  - private transactions
+  status: DECISIONE APPROVATA

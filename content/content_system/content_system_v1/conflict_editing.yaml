@@ -1,0 +1,14 @@
+# =============================================================================
+# CONFLICT EDITING — concurrent admin edits
+# =============================================================================
+
+ConflictEditing:
+  detection: if two Admins edit same content — detect conflict
+  rule: do NOT silently overwrite
+  locking:
+    status: PROPOSTA TECNICA — soft lock, presence, last edited by
+    v1: not mandatory
+
+events:
+  items:
+    - EditConflictDetected

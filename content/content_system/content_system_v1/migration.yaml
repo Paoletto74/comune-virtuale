@@ -1,0 +1,13 @@
+# =============================================================================
+# MIGRATION — schema migration
+# =============================================================================
+
+Migration:
+  when: schema changes
+  field: migration version
+  import: YAML pack import supports migration path
+  ref: schema_version.yaml
+
+events:
+  items:
+    - ContentMigrated

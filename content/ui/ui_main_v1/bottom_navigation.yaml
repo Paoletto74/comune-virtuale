@@ -1,0 +1,38 @@
+# =============================================================================
+# BOTTOM NAVIGATION — 6 sezioni principali
+# =============================================================================
+
+BottomNavigation:
+  DECISIONE APPROVATA: menu fisso orizzontale parte inferiore
+  sections:
+    items:
+      - id: gazzetta
+        labelKey: nav_gazzetta
+        order: 1
+      - id: attivita
+        labelKey: nav_attivita
+        order: 2
+      - id: mercato
+        labelKey: nav_mercato
+        order: 3
+      - id: profilo
+        labelKey: nav_profilo
+        order: 4
+      - id: notifiche
+        labelKey: nav_notifiche
+        order: 5
+      - id: comune
+        labelKey: nav_comune
+        order: 6
+
+activeTab:
+  status: PROPOSTA TECNICA
+  rule: sezione attiva chiaramente riconoscibile — es. GAZZETTA evidenziata
+
+badges:
+  ref: badges.yaml
+  rule: badge derivati da dati reali
+
+events:
+  items:
+    - BottomNavTabSelected

@@ -1,0 +1,127 @@
+# =============================================================================
+# CITY / WORLD STRUCTURE MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: City != Municipality — City = ambiente, Municipality = amministrativo
+# Client NON authority su access, travel, ownership — backend authoritative
+# V1: proposta architetturale — NO map runtime, NO GPS, NO routing engine
+# Integra con political, property, mobility, work, event, npc — NON li modifica
+# =============================================================================
+
+catalogId: city_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  political: political_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  work: work_main_v1
+  business: business_main_v1
+  marketplace: marketplace_main_v1
+  criminal: criminal_main_v1
+  economy: economy_main_v1
+  event: event_main_v1
+  npc: npc_main_v1
+  time: time_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+principles:
+  - City = ambiente persistente significativo — NON decorazione grafica
+  - City != Municipality
+  - client NON authority — access, travel, ownership backend
+  - Game Location != GPS reale
+  - domain systems own logic — city world does NOT duplicate Economy/Political/Crime
+  - content-driven descriptions — visualAssetId — NO hardcoded URLs
+  - map accessible via list/search/cards — NOT map-only
+
+includes:
+  principles: principles.yaml
+  city: city.yaml
+  municipality: municipality.yaml
+  districts: districts.yaml
+  districtTypes: district_types.yaml
+  buildings: buildings.yaml
+  buildingTypes: building_types.yaml
+  locations: locations.yaml
+  locationTypes: location_types.yaml
+  landmarks: landmarks.yaml
+  services: services.yaml
+  map: map.yaml
+  mapLayers: map_layers.yaml
+  mapMarkers: map_markers.yaml
+  mapFilters: map_filters.yaml
+  mapSearch: map_search.yaml
+  mapAccessibility: map_accessibility.yaml
+  mapResponsive: map_responsive.yaml
+  mapPerformance: map_performance.yaml
+  locationDetails: location_details.yaml
+  locationActions: location_actions.yaml
+  locationVisibility: location_visibility.yaml
+  accessRules: access_rules.yaml
+  discovery: discovery.yaml
+  discoveryEvents: discovery_events.yaml
+  cityGuide: city_guide.yaml
+  travel: travel.yaml
+  travelTime: travel_time.yaml
+  travelCost: travel_cost.yaml
+  transport: transport.yaml
+  walking: walking.yaml
+  publicTransport: public_transport.yaml
+  fastTravel: fast_travel.yaml
+  routing: routing.yaml
+  cityClock: city_clock.yaml
+  dayNight: day_night.yaml
+  weather: weather.yaml
+  worldEvents: world_events.yaml
+  districtEvents: district_events.yaml
+  locationEvents: location_events.yaml
+  population: population.yaml
+  citizenDistribution: citizen_distribution.yaml
+  npcIntegration: npc_integration.yaml
+  businessIntegration: business_integration.yaml
+  marketplaceIntegration: marketplace_integration.yaml
+  workIntegration: work_integration.yaml
+  propertyIntegration: property_integration.yaml
+  mobilityIntegration: mobility_integration.yaml
+  politicsIntegration: politics_integration.yaml
+  crimeIntegration: crime_integration.yaml
+  economyIntegration: economy_integration.yaml
+  timeIntegration: time_integration.yaml
+  eventIntegration: event_integration.yaml
+  contentIntegration: content_integration.yaml
+  visualIntegration: visual_integration.yaml
+  soundIntegration: sound_integration.yaml
+  newspaperIntegration: newspaper_integration.yaml
+  popupIntegration: popup_integration.yaml
+  privacy: privacy.yaml
+  citizenLocationPrivacy: citizen_location_privacy.yaml
+  adminCityContent: admin_city_content.yaml
+  adminCityOperations: admin_city_operations.yaml
+  versioning: versioning.yaml
+  featureFlags: feature_flags.yaml
+  expansion: expansion.yaml
+  multiCity: multi_city.yaml
+  interCityTravel: inter_city_travel.yaml
+  cache: cache.yaml
+  realtime: realtime.yaml
+  offline: offline.yaml
+  testing: testing.yaml
+  performance: performance.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  cityWorld: geography, districts, locations, map presentation, discovery
+  municipalitySystem: administrative/political entity, population, mayor, treasury
+  domainSystems: economy, work, property, crime, events — authoritative logic
+  backend: access, travel time/cost, ownership, dynamic state
+  frontend: map UI, location cards — NOT authority
+
+alignsWith:
+  note: |
+    Formalizza City/World Structure coerente con political e property systems.
+    NON modifica pack approvati. NON implementa runtime.

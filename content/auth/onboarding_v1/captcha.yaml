@@ -1,0 +1,11 @@
+# =============================================================================
+# CAPTCHA — when necessary only
+# =============================================================================
+
+Captcha:
+  status: PROPOSTA TECNICA — provider TBD
+  rule: solo quando necessario — NON obbligatorio ogni login
+
+events:
+  items:
+    - CaptchaRequired

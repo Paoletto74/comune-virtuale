@@ -1,0 +1,12 @@
+# =============================================================================
+# PROFILE INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+ProfileIntegration:
+  shows:
+  - owned vehicles
+  - selected vehicle
+  - showcase
+  privacyRules: true
+  status: PROPOSTA TECNICA

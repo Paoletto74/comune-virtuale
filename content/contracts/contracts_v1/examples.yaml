@@ -1,0 +1,184 @@
+# =============================================================================
+# EXAMPLES — complete command and event examples
+# =============================================================================
+
+CommandExamples:
+  PurchaseListing:
+    commandType: PurchaseListing
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      listingId: "listing_84721"
+      idempotencyKey: "purchase-listing-84721-20260808"
+    clientProvides: [listingId]
+    serverDetermines: [price, seller, availability, ownership_transfer]
+    crossDomain:
+      items: [Marketplace, Banking, Inventory, Notification]
+    emits: [ItemPurchased.v1]
+    invalidates: [balance, inventory, marketplace, profile]
+
+  CompleteTask:
+    commandType: CompleteTask
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      taskInstanceId: "task_inst_123"
+      idempotencyKey: "complete-task-123"
+    serverDetermines: [reward, progression_effects]
+    emits: [TaskCompleted.v1]
+    invalidates: [home, profile, tasks, balance]
+
+  ProcessSalary:
+    commandType: ProcessSalary
+    schemaVersion: 1
+    actorType: SCHEDULER
+    payload:
+      employmentId: "emp_456"
+      idempotencyKey: "salary-emp456-20260808"
+    emits: [SalaryPaid.v1]
+
+  CastVote:
+    commandType: CastVote
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      electionId: "election_2026"
+      optionId: "option_a"
+      idempotencyKey: "vote-election2026-citizen001"
+    emits: [VoteCast.v1]
+
+  CreateGift:
+    commandType: CreateGift
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      recipientId: "citizen_002"
+      giftType: money
+      amount: requested_amount
+      idempotencyKey: "gift-c001-c002-001"
+    note: amount validated server-side — NOT authoritative from client
+
+  ApplyForJob:
+    commandType: ApplyForJob
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      jobId: "job_789"
+    emits: [JobApplicationSubmitted.v1]
+
+  ExecuteCriminalAction:
+    commandType: ExecuteCriminalAction
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      activityId: "activity_smuggle"
+    serverDetermines: [outcome, risk, economic_effects, randomness]
+
+  UpdateProfile:
+    commandType: UpdateProfile
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      name: "Paolo"
+      favouriteFood: "Pizza"
+    emits: [ProfileUpdated.v1]
+
+  PurchaseProperty:
+    commandType: PurchaseProperty
+    schemaVersion: 1
+    actorId: "citizen_001"
+    payload:
+      propertyId: "prop_100"
+      idempotencyKey: "purchase-prop100"
+    emits: [PropertyPurchased.v1]
+
+EventExamples:
+  ItemPurchased.v1:
+    eventType: ItemPurchased
+    eventVersion: 1
+    aggregateType: MarketplaceListing
+    aggregateId: "listing_84721"
+    payload:
+      buyerId: "citizen_001"
+      sellerId: "citizen_002"
+      itemInstanceId: "inst_84721"
+      transactionId: "txn_99001"
+      amount: { amount: 1250000, currency: "EUR" }
+
+  TaskCompleted.v1:
+    eventType: TaskCompleted
+    payload:
+      taskInstanceId: "task_inst_123"
+      citizenId: "citizen_001"
+      rewardTransactionId: "txn_99002"
+
+  SalaryPaid.v1:
+    eventType: SalaryPaid
+    payload:
+      employmentId: "emp_456"
+      citizenId: "citizen_001"
+      transactionId: "txn_99003"
+      amount: { amount: 50000, currency: "EUR" }
+
+  PropertyPurchased.v1:
+    eventType: PropertyPurchased
+    payload:
+      propertyInstanceId: "prop_inst_100"
+      buyerId: "citizen_001"
+      transactionId: "txn_99004"
+
+  VoteCast.v1:
+    eventType: VoteCast
+    payload:
+      electionId: "election_2026"
+      citizenId: "citizen_001"
+
+  GiftCompleted.v1:
+    eventType: GiftCompleted
+    payload:
+      senderId: "citizen_001"
+      recipientId: "citizen_002"
+      transactionId: "txn_99005"
+
+  JobStarted.v1:
+    eventType: JobStarted
+    payload:
+      employmentId: "emp_456"
+      citizenId: "citizen_001"
+      jobId: "job_789"
+
+  LevelReached.v1:
+    eventType: LevelReached
+    payload:
+      citizenId: "citizen_001"
+      newLevel: 10
+      previousLevel: 9
+
+  CriminalActionCompleted.v1:
+    eventType: CriminalActionCompleted
+    payload:
+      citizenId: "citizen_001"
+      activityId: "activity_smuggle"
+      heatDelta: 5
+
+  ProfileUpdated.v1:
+    eventType: ProfileUpdated
+    payload:
+      citizenId: "citizen_001"
+      changedFields: [name, favouriteFood]
+
+DomainContractExamples:
+  Rent:
+    flow: [Property determines amount, Banking transaction, Property state, RentPaid event]
+  Loan:
+    flow: [eligibility, terms, Banking/Loan state, LoanCreated event]
+  Notification:
+    flow: [Domain Event, Notification Service, Notification Instance]
+  Gazzetta:
+    flow: [Major Domain Event, Gazzetta Candidate, editor decides publication]
+  Ranking:
+    flow: [Authoritative data, Ranking projection, RankingSnapshot]
+
+events:
+  items:
+    - ExampleContractValidated

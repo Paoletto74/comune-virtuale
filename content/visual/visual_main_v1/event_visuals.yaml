@@ -1,0 +1,25 @@
+# =============================================================================
+# EVENT VISUALS
+# =============================================================================
+
+EventVisual:
+  schema:
+    eventTypeRef: string
+    visualAssetId: string
+    variantTypes:
+      items:
+        - icon
+        - illustration
+        - background
+        - character
+        - property
+        - vehicle
+        - special_composition
+
+rule: |
+  Event System decide l'evento.
+  Visual System decide la rappresentazione.
+
+events:
+  items:
+    - EventVisualResolved

@@ -1,0 +1,96 @@
+# =============================================================================
+# BRANCH NODES v1 — ramificazioni progressive
+# =============================================================================
+# PROPOSTA TECNICA: nodi aprono track relevance; non obbligano percorso unico
+# =============================================================================
+
+branchNodes:
+  - nodeId: branch_L05_professional
+    label: Ingresso carriera professionale
+    opensAtLevel: 5
+    relevantTrack: professional
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 5, placeholderKey: TBD }
+    note: PROPOSTA_TECNICA — accesso visibilità contenuti professional
+
+  - nodeId: branch_L05_entrepreneurial
+    label: Ingresso imprenditoria
+    opensAtLevel: 5
+    relevantTrack: entrepreneurial
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 5, placeholderKey: TBD }
+
+  - nodeId: branch_L05_political
+    label: Ingresso partecipazione civica/politica
+    opensAtLevel: 5
+    relevantTrack: political
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 5, placeholderKey: TBD }
+
+  - nodeId: branch_L05_criminal
+    label: Ingresso attività criminali iniziali
+    opensAtLevel: 5
+    relevantTrack: criminal
+    visibility: PRIVATE
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 5, placeholderKey: TBD }
+
+  - nodeId: branch_L10_management
+    label: Responsabilità manageriali
+    opensAtLevel: 10
+    relevantTracks: [professional, entrepreneurial]
+    requirementGroup:
+      mode: any
+      requirements:
+        - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: TBD }
+        - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: TBD }
+
+  - nodeId: branch_L14_company_creation
+    label: Creazione e gestione aziende
+    opensAtLevel: 14
+    relevantTrack: entrepreneurial
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 14, placeholderKey: TBD }
+
+  - nodeId: branch_L21_political_consolidated
+    label: Identità politica consolidata
+    opensAtLevel: 21
+    relevantTrack: political
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 21, placeholderKey: TBD }
+
+  - nodeId: branch_L24_candidacy
+    label: Candidatura di rilievo (non elezione automatica)
+    opensAtLevel: 24
+    relevantTrack: political
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 24, placeholderKey: TBD }
+    notes: |
+      DECISIONE APPROVATA: sblocca possibilità candidatura sindaco (TBD modulo politico).
+      NON concede ruolo sindaco.
+
+  - nodeId: branch_L25_mayor_tier_levers
+    label: Pool leve tier-sindaco (eleggibili, non automatiche)
+    opensAtLevel: 25
+    relevantTrack: political
+    requirementGroup:
+      mode: all
+      requirements:
+        - { type: main_level, op: gte, value: 25, placeholderKey: TBD }
+    notes: |
+      Leve "mayor-tier" eleggibili con ruolo + requisiti.
+      levelLabel "SINDACO" ≠ attivazione leve senza ruolo (TBD).

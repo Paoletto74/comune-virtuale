@@ -1,0 +1,13 @@
+# =============================================================================
+# ADMIN PREVIEW — time_v1
+# =============================================================================
+
+---
+AdminPreview:
+  canView:
+  - current Game Time
+  - scheduled items
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - AdminTimePreviewOpened

@@ -1,0 +1,13 @@
+# =============================================================================
+# SCHEMA VERSION — content schemaVersion
+# =============================================================================
+
+SchemaVersion:
+  field: schemaVersion
+  current: 1
+  rule: content contract compatible with contracts_v1
+  migration: ref migration.yaml
+
+events:
+  items:
+    - SchemaVersionChecked

@@ -1,0 +1,25 @@
+# =============================================================================
+# MODERATION — UGC names, reporting
+# =============================================================================
+
+Moderation:
+  applies:
+    items:
+      - player_generated_names_descriptions
+      - business_names
+      - organization_names
+  report:
+    targets:
+      items:
+        - citizen
+        - business
+        - organization
+        - content
+  owner: Moderation System
+  duplicateNames:
+    player: policy diversa da business — TBD
+    businessOrg: unique rules TBD
+
+events:
+  items:
+    - CityLifeModerated

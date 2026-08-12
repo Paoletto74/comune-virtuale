@@ -1,0 +1,13 @@
+# =============================================================================
+# ANTI-GRIND — apply rules from respective systems
+# =============================================================================
+
+AntiGrind:
+  rule: |
+    Runtime applica anti-grind rules definite nei rispettivi sistemi.
+    NON inventare formule.
+  ref: task_main_v1, progression_main_v1
+
+events:
+  emits: [AntiGrindRuleApplied]
+  consumes: [TaskCompleted, PlayerCommandReceived]

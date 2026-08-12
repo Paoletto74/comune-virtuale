@@ -1,0 +1,24 @@
+# =============================================================================
+# ERRORS — user-friendly, recovery, global errors
+# =============================================================================
+
+Errors:
+  userFacing:
+    rule: errore comprensibile — NON stack trace, NON dettagli DB
+  recovery:
+    items:
+      - mostrare_errore
+      - permettere_retry
+      - mantenere_ui_consistente
+
+globalErrors:
+  toast: errori normali
+  banner: errori persistenti
+  modal: errori critici
+
+ref: backend_architecture_v1/errors.yaml
+
+events:
+  items:
+    - ErrorDisplayed
+    - ErrorRetryRequested

@@ -1,0 +1,32 @@
+# =============================================================================
+# ADMIN PREVIEW — desktop, tablet, mobile, game context
+# =============================================================================
+
+AdminPreview:
+  viewports:
+    items:
+      - Desktop
+      - Tablet
+      - Mobile
+  newspaper:
+    items:
+      - FrontPage
+      - Article
+      - Card
+  gameContext:
+    items:
+      - Home
+      - Gazzetta
+      - Notification
+      - Popup
+      - Marketplace_card
+      - Profile_card
+  rule: preview does NOT modify real Game State
+  security:
+    previewUrl: requires authorization — NO public unprotected draft URLs
+  livePreview:
+    ref: live_preview.yaml
+
+events:
+  items:
+    - ContentPreviewed

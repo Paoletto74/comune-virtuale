@@ -1,0 +1,61 @@
+# =============================================================================
+# CROSS-DOMAIN MATRIX — command vs domain coupling
+# =============================================================================
+
+CrossDomainMatrix:
+  status: PROPOSTA TECNICA
+  legend:
+    READ: query/read access
+    WRITE: command/modify
+    EVENT: consumes/emits event
+    QUERY: read model
+    NONE: no direct coupling
+
+  PurchaseListing:
+    Marketplace: WRITE
+    Banking: WRITE
+    Inventory: WRITE
+    Notification: EVENT
+    Progression: EVENT
+    Ranking: EVENT
+    Gazzetta: EVENT
+
+  CompleteTask:
+    Task: WRITE
+    Banking: WRITE
+    Progression: EVENT
+    Notification: EVENT
+
+  ProcessSalary:
+    Work: READ
+    Banking: WRITE
+    Notification: EVENT
+    Progression: EVENT
+
+  CastVote:
+    Political: WRITE
+    Notification: EVENT
+
+  CreateGift:
+    Social: WRITE
+    Banking: WRITE
+    Inventory: EVENT
+    Notification: EVENT
+
+  CreateListing:
+    Marketplace: WRITE
+    Inventory: READ
+
+  UpdateProfile:
+    Profile: WRITE
+
+  ExecuteCriminalAction:
+    Criminal: WRITE
+    Banking: EVENT
+    Notification: EVENT
+
+goal: individuare coupling eccessivo — preferire EVENT over direct WRITE cross-domain
+
+events:
+  items:
+    - CrossDomainCouplingReviewed

@@ -1,0 +1,13 @@
+# =============================================================================
+# API — task_extensions_v1
+# =============================================================================
+
+---
+TaskApi:
+  possible:
+  - GET tasks
+  - GET taskInstance
+  - POST option select
+  - POST cancel
+  schema: TBD
+  status: PROPOSTA TECNICA

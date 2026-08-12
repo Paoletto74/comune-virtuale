@@ -1,0 +1,26 @@
+# =============================================================================
+# ITEM CONTENT — editorial vs definition
+# =============================================================================
+
+ItemContent:
+  DECISIONE APPROVATA: ITEM DEFINITION != ITEM CONTENT
+  contentDefines:
+    items:
+      - name
+      - description
+      - category_label
+      - marketing_description
+      - visualAssetId
+      - flavour_text
+  mustNotEdit:
+    items:
+      - prezzo_authoritative
+      - ownership
+      - durability_logic
+      - economic_formula
+
+ref: inventory_main_v1, visual_main_v1
+
+events:
+  items:
+    - ItemContentSaved

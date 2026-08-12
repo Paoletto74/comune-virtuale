@@ -1,0 +1,34 @@
+# =============================================================================
+# IDEMPOTENCY — anti-duplication, retry safety
+# =============================================================================
+
+Idempotency:
+  DECISIONE APPROVATA: commands ripetibili supportano idempotencyKey
+
+requiredFor:
+  items:
+    - payment
+    - reward
+    - purchase
+    - task_completion
+    - gift
+    - salary
+
+antiDuplication:
+  protects:
+    items:
+      - double_click
+      - network_retry
+      - duplicate_request
+      - replay
+
+rule: |
+  Mai retry cieco su operazioni finanziarie senza idempotency.
+  UI puo ritentare — backend protegge idempotency.
+
+ref: data_architecture_v1/ledger.yaml, banking_main_v1
+
+events:
+  items:
+    - DuplicateRequestDetected
+    - IdempotentReplayHandled

@@ -1,0 +1,27 @@
+# =============================================================================
+# TAGS — classificazione estendibile
+# =============================================================================
+
+ItemTag:
+  status: estendibile via content pack
+  items:
+    - tagId: food
+    - tagId: clothing
+    - tagId: luxury
+    - tagId: tool
+    - tagId: consumable
+    - tagId: vehicle
+    - tagId: property
+    - tagId: rare
+    - tagId: illegal
+    - tagId: quest
+    - tagId: collectible
+    - tagId: resource
+    - tagId: other
+
+tagUsage:
+  rule: Tags per filtri, regole, marketplace, criminal, task — configurabili
+
+events:
+  items:
+    - ItemTagAssigned

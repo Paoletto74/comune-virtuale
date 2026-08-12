@@ -1,0 +1,138 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: bidirectional
+    alignsWith: economy_main_v1/market.yaml
+    economyOwns:
+      items:
+        - cash
+        - ledger
+        - transaction
+        - inflation_context
+        - tax_calculation
+        - fee_movement
+        - debt_restrictions
+    marketplaceOwns:
+      items:
+        - listing
+        - matching
+        - market_presentation
+
+  inventory_main_v1:
+    direction: bidirectional
+    inventoryOwns:
+      items:
+        - item
+        - quantity
+        - condition
+        - ownership_metadata
+        - locks
+    marketplaceOwns:
+      items:
+        - listing_creation
+        - catalog_presentation
+
+  property_main_v1:
+    direction: coordinate
+    propertyOwns:
+      items:
+        - property_entity
+        - ownership
+        - value
+        - rent_contract
+        - property_state
+    marketplaceOwns:
+      items:
+        - property_listing
+        - demand_supply_meeting
+
+  mobility_main_v1:
+    direction: coordinate
+    mobilityOwns:
+      items:
+        - vehicle
+        - state
+        - ownership
+        - maintenance
+    marketplaceOwns:
+      items:
+        - vehicle_listing
+
+  business_main_v1:
+    alignsWith: business_main_v1/market.yaml
+    businessOwns: company_assets
+    marketplaceOwns: company_listings
+
+  work_main_v1:
+    direction: ui_only_separation
+    rule: |
+      Work UI under MERCATO screen — Work System autorevole.
+      NO job applications, hiring, salary via Marketplace.
+
+  npc_main_v1:
+    direction: npc → marketplace
+    provides:
+      items:
+        - demand
+        - supply
+        - budget
+        - preferences
+    marketplaceRecords: outcomes
+
+  criminal_main_v1:
+    direction: criminal → marketplace policy
+    rule: illegal goods, stolen items, black market future — Criminal autorevole
+
+  event_main_v1:
+    direction: marketplace → events
+    events:
+      items:
+        - sale
+        - purchase
+        - rental
+        - listing_lifecycle
+        - market_demand_price
+
+  notification_main_v1:
+    examples:
+      items:
+        - sale_completed
+        - purchase_completed
+        - listing_expired
+        - rental_started
+        - rental_ended
+        - npc_bought_your_item
+
+  time_main_v1:
+    uses:
+      items:
+        - listing_expiry
+        - rental_schedules
+        - recurring_payments_trigger
+
+  progression_main_v1:
+    direction: data for profile
+    rule: prestige assets — Profile decides display
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA — future runtime
+    compatible: true
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    marketplaceMustNot:
+      items:
+        - own_money
+        - own_inventory_state
+        - own_property_registry
+        - own_vehicle_registry
+        - own_companies
+        - calculate_inflation
+        - duplicate_tax_system
+        - manage_employment

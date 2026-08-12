@@ -1,0 +1,41 @@
+# =============================================================================
+# AUTHORIZATION — publish, rollback, permission changes
+# =============================================================================
+
+ContentPublishAuthorization:
+  status: PROPOSTA TECNICA
+  checks:
+    items:
+      - authenticated
+      - is_admin
+      - has_permission
+      - content_valid
+      - approval_state
+      - environment
+      - sensitive_permission_if_required
+
+RollbackAuthorization:
+  status: PROPOSTA TECNICA
+  rule: permission specifica — step-up per contenuti sensibili
+
+PermissionChanges:
+  DECISIONE APPROVATA: altamente sensibile
+  requires:
+    items:
+      - owner_or_equivalent
+      - audit
+      - re_authentication_optional
+
+AdminContentOwnership:
+  DECISIONE APPROVATA: Editor modifica per scope — NON può
+  editorCannot:
+    items:
+      - change_permissions
+      - become_owner
+      - access_unauthorized_data
+      - bypass_approval
+
+events:
+  items:
+    - AuthorizationGranted
+    - AuthorizationDenied

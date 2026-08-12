@@ -1,0 +1,23 @@
+# =============================================================================
+# CONTRACT GOVERNANCE — draft to publish lifecycle
+# =============================================================================
+
+ContractGovernance:
+  lifecycle:
+    items:
+      - Draft
+      - Review
+      - Domain_owner_approval
+      - Compatibility_review
+      - Approved
+      - Published
+      - Deprecated
+
+noSilentBreaking:
+  DECISIONE APPROVATA: |
+    Mai cambiare silenziosamente field meaning, enum meaning,
+    required field, authorization behavior.
+
+events:
+  items:
+    - ContractGovernanceStateChanged

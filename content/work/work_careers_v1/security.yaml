@@ -1,0 +1,14 @@
+# =============================================================================
+# SECURITY — work_careers_v1
+# =============================================================================
+
+---
+Security:
+  clientCannot:
+  - set salary
+  - hire self
+  - fire others
+  - bypass requirements
+  - alter employment
+  - alter job ownership
+  status: DECISIONE APPROVATA

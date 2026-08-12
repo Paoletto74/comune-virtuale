@@ -1,0 +1,46 @@
+# =============================================================================
+# SECURITY & PRIVACY SECURITY
+# =============================================================================
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: server authoritative su dati profilo
+
+clientCannot:
+  items:
+    - modify_netWorth
+    - modify_cash
+    - modify_level
+    - modify_title
+    - modify_asset
+    - modify_ranking
+    - modify_role
+    - falsify_profile_data
+    - modify_public_snapshot
+
+privacySecurity:
+  DECISIONE APPROVATA: proteggere contro
+  threats:
+    items:
+      - IDOR
+      - access_to_private_profiles
+      - hidden_data_enumeration
+      - debt_exposure
+      - transaction_exposure
+      - criminal_data_exposure
+      - hidden_personal_info_exposure
+
+audit:
+  DECISIONE APPROVATA: operazioni sensibili
+  logTypes:
+    items:
+      - profileView
+      - privacyChange
+      - publicSnapshotUpdate
+      - roleChange
+      - titleChange
+  rule: NON loggare inutilmente dati personali sensibili
+
+events:
+  items:
+    - ProfileSecurityViolationBlocked
+    - UnauthorizedProfileAccessDenied

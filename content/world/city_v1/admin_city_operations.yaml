@@ -1,0 +1,17 @@
+# =============================================================================
+# ADMIN CITY OPERATIONS — authoritative game operations separate
+# =============================================================================
+
+AdminCityOperations:
+  rule: operazioni authoritative separate da Content Admin
+  examples:
+    items:
+      - municipality_assignment
+      - event_trigger
+      - ownership_change
+  requires: strumenti separati, auditati, autorizzati
+  ref: auth_main_v1 admin boundaries
+
+events:
+  items:
+    - AdminCityOperationExecuted

@@ -1,0 +1,25 @@
+# =============================================================================
+# INTEGRATION — time_v1
+# =============================================================================
+
+TimeIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/cooldowns.yaml — timeIntegration
+
+  timeOwns:
+    items:
+      - cooldown_expiration
+      - message_retention_expiration
+      - scheduled_social_events
+      - world_time
+      - offline_catch_up
+
+  socialDoesNot:
+    items:
+      - create_own_clock
+      - client_time_authoritative
+
+  offlineCatchUp:
+    pattern: login → Time catch-up → Social/Event resolution → Notifications → Popup queue
+    ref: social_main_v1/placeholders.yaml — offline DECISIONE APPROVATA

@@ -1,0 +1,18 @@
+# =============================================================================
+# TASK RUNTIME — cooldown, expiry, recurring tasks
+# =============================================================================
+
+TaskRuntime:
+  tickProcesses:
+    items:
+      - cooldown
+      - expiry
+      - recurring_tasks
+      - scheduled_tasks
+  sourceOfTruth: Task
+  executionMode: tick-driven + event-driven
+  ref: task_main_v1
+
+events:
+  emits: [TaskCompleted, TaskExpired]
+  consumes: [PlayerCommandCompleteTask]

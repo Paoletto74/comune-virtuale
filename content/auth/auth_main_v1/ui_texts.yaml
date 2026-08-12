@@ -1,0 +1,19 @@
+# =============================================================================
+# UI TEXTS — content-configurable auth messages
+# =============================================================================
+
+AuthContentTexts:
+  status: PROPOSTA TECNICA
+  editableVia: admin_content_studio_v1
+  categories:
+    items:
+      - login_labels
+      - login_errors
+      - recovery_messages
+      - unauthorized_messages
+      - suspended_messages
+      - admin_access_denied
+
+events:
+  items:
+    - AuthTextUpdated

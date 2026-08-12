@@ -1,0 +1,9 @@
+# =============================================================================
+# OVERDRAFT — economy_v1
+# =============================================================================
+
+---
+Overdraft:
+  status: TBD future - NOT without rules
+  negativeBalance: TBD
+  statusLabel: DA DEFINIRE

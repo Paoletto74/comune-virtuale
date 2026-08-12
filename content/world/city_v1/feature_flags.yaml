@@ -1,0 +1,13 @@
+# =============================================================================
+# FEATURE FLAGS — experimental districts/locations
+# =============================================================================
+
+FeatureFlags:
+  newDistricts: possono usare feature flags
+  experimental:
+    status: DRAFT / EXPERIMENTAL
+    rule: non visibili a player normali
+
+events:
+  items:
+    - CityFeatureFlagApplied

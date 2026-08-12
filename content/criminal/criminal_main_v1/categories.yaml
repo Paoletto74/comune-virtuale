@@ -1,0 +1,65 @@
+# =============================================================================
+# CRIMINAL CATEGORIES — categorie attività (astratte)
+# =============================================================================
+# Contenuti concettuali — NON catalogo operativo dettagliato
+# =============================================================================
+
+categories:
+  items:
+    - categoryId: early
+      tier: EARLY
+      label: Attività di basso livello
+      abstractExamples:
+        items:
+          - piccoli_furti
+          - borseggi
+          - piccoli_raggiri
+          - vandalismo
+          - piccoli_traffici
+      note: Meccaniche astratte — scelta, rischio, conseguenza
+
+    - categoryId: mid
+      tier: MID
+      label: Attività intermedie
+      abstractExamples:
+        items:
+          - truffe
+          - frodi
+          - ricettazione
+          - traffici
+          - rapine_complesse
+          - criminalita_organizzata_base
+
+    - categoryId: late
+      tier: LATE
+      label: Attività avanzate
+      abstractExamples:
+        items:
+          - grandi_frodi
+          - riciclaggio
+          - traffici_internazionali
+          - corruzione
+          - manipolazioni_finanziarie
+          - criminalita_organizzata_avanzata
+
+    - categoryId: very_high
+      tier: VERY_HIGH
+      label: Attività di altissimo livello
+      abstractExamples:
+        items:
+          - grandi_operazioni
+          - reti_criminali
+          - frodi_internazionali
+          - attivita_legate_al_potere
+      unlockRequirements: TBD
+
+tierProgression:
+  rule: |
+    Categorie sbloccate da criminalLevel, milestones, reputation.
+    NON implementare contenuti dettagliati in v1.
+  values: TBD
+
+contentSafety:
+  DECISIONE APPROVATA: |
+    Task rappresentano scelta, rischio, probabilità, conseguenza, risultato.
+    NON istruzioni pratiche dettagliate per reati reali.

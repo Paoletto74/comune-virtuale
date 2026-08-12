@@ -1,0 +1,16 @@
+# =============================================================================
+# BUSINESS OWNERS — Player, NPC, organization
+# =============================================================================
+
+BusinessOwners:
+  ownerTypes:
+    items:
+      - Player_Citizen
+      - NPC
+      - organization
+  rule: ownership authoritative — backend
+  ref: business_main_v1
+
+events:
+  items:
+    - BusinessOwnershipResolved

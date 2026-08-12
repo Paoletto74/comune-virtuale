@@ -1,0 +1,10 @@
+# =============================================================================
+# INTEGRATIONS NEWSPAPER — task_extensions_v1
+# =============================================================================
+
+---
+NewspaperIntegration:
+  taskProduces: EditorialCandidate
+  newspaperDecides: publication
+  notAutoPublish: true
+  status: PROPOSTA TECNICA

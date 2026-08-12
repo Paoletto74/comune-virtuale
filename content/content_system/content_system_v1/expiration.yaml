@@ -1,0 +1,20 @@
+# =============================================================================
+# EXPIRATION — expireAt
+# =============================================================================
+
+Expiration:
+  field: expireAt
+  useCases:
+    items:
+      - eventi
+      - offerte
+      - referendum
+      - annunci
+      - special_editions
+  timeSource: Game Time
+  status: EXPIRED
+  monitor: dashboard "5 contenuti scadono entro 24 ore"
+
+events:
+  items:
+    - ContentExpired

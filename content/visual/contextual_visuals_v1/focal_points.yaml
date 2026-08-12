@@ -1,0 +1,12 @@
+# =============================================================================
+# FOCAL POINTS — subject visibility across crops
+# =============================================================================
+
+FocalPoints:
+  field: focalPoint
+  purpose: mantenere soggetto visibile quando container cambia proporzione
+  ref: cropping.yaml
+
+events:
+  items:
+    - FocalPointApplied

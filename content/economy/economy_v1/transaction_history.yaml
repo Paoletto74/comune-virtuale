@@ -1,0 +1,23 @@
+# =============================================================================
+# TRANSACTION HISTORY — economy_v1
+# =============================================================================
+
+---
+TransactionHistory:
+  ownerView: own transactions only
+  fields:
+  - date
+  - amount
+  - type
+  - status
+  - reference
+  filters:
+  - income
+  - expense
+  - transfer
+  - tax
+  - salary
+  - purchase
+  - sale
+  - loan
+  status: DECISIONE APPROVATA

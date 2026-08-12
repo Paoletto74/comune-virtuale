@@ -1,0 +1,23 @@
+# =============================================================================
+# STAGING & TEST CONTENT
+# =============================================================================
+
+Staging:
+  status: PROPOSTA TECNICA — valori definitivi TBD
+  environments:
+    items:
+      - DRAFT
+      - STAGING
+      - PRODUCTION
+
+ContentTesting:
+  status: PROPOSTA TECNICA
+  rule: |
+    TEST CONTENT — sandbox/test environment.
+    NON pubblicare accidentalmente in produzione.
+
+events:
+  items:
+    - ContentPromotedToStaging
+    - ContentPromotedToProduction
+    - TestContentCreated

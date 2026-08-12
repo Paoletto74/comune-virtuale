@@ -1,0 +1,41 @@
+# =============================================================================
+# SECURITY — credentials, encryption, secrets
+# =============================================================================
+
+SecurityStrategy:
+  protect:
+    items:
+      - database_credentials
+      - connection_strings
+      - backups
+      - exports
+      - admin_data
+      - secrets
+
+encryption:
+  status: DA DEFINIRE — provider TBD
+  evaluate:
+    items:
+      - encryption_in_transit
+      - encryption_at_rest
+      - sensitive_fields
+
+serverAuthority:
+  DECISIONE APPROVATA: client NON può scrivere direttamente
+  forbiddenClientWrites:
+    items:
+      - balance
+      - net_worth
+      - level
+      - ranking
+      - inventory_ownership
+      - political_role
+      - criminal_milestones
+      - admin_permissions
+
+softDelete:
+  status: PROPOSTA TECNICA
+  rule: DISABLED/ARCHIVED preferibile dove appropriato — NON automatico su tutto
+
+hardDelete:
+  rule: rare, autorizzate, con audit

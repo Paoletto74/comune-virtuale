@@ -1,0 +1,14 @@
+# =============================================================================
+# TAXES — segnalazione, non duplicazione fiscalità
+# =============================================================================
+
+MarketTaxes:
+  DECISIONE APPROVATA: |
+    Compravendite possono generare tasse.
+    Marketplace segnala transaction.
+    Tax/Economy calcolano imposta, commissione, costi.
+    NON duplicare fiscalità in Marketplace.
+
+events:
+  items:
+    - TaxableTransactionReported

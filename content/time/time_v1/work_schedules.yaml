@@ -1,0 +1,17 @@
+# =============================================================================
+# WORK SCHEDULES — time_v1
+# =============================================================================
+
+---
+WorkSchedules:
+  owner: Work System
+  fields:
+  - workingDays
+  - startTime
+  - endTime
+  - shifts
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - WorkShiftStarted
+  - WorkShiftEnded

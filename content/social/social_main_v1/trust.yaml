@@ -1,0 +1,26 @@
+# =============================================================================
+# TRUST — concetto semplice V1
+# =============================================================================
+
+Trust:
+  status: PROPOSTA TECNICA — NO algoritmo complesso V1
+  schema:
+    trustValue: TBD
+    betweenActorAndTarget: boolean
+  usedFor:
+    items:
+      - loans
+      - deals
+      - partnerships
+      - politics
+      - business
+      - future_relationships
+
+rule: |
+  Communication può esporre trust come dato relazionale.
+  Banking/Political/Business possono consultarlo.
+  Modifiche effettive via Effects/Event — NON direttamente da Communication.
+
+events:
+  items:
+    - TrustChanged

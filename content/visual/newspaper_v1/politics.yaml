@@ -1,0 +1,19 @@
+# =============================================================================
+# POLITICS — editorial grammar
+# =============================================================================
+
+PoliticsPresentation:
+  sections:
+    items:
+      - ELEZIONI
+      - REFERENDUM
+      - CANDIDATI
+      - RISULTATI
+  future: SONDAGGI — solo se approvati — NON inventare sondaggi
+  rule: NON alterare political logic
+
+ref: political_main_v1, frontend_ui_v1/referendum.yaml
+
+events:
+  items:
+    - PoliticalDeskRendered

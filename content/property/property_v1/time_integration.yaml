@@ -1,0 +1,12 @@
+# =============================================================================
+# TIME INTEGRATION — property_v1
+# =============================================================================
+
+---
+TimeIntegration:
+  uses:
+  - rent due dates
+  - contract start/end
+  - listing expiration
+  - maintenance schedule
+  status: DECISIONE APPROVATA

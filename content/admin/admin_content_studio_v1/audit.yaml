@@ -1,0 +1,22 @@
+# =============================================================================
+# AUDIT LOG
+# =============================================================================
+
+AuditLog:
+  DECISIONE APPROVATA: registrare
+  fields:
+    items:
+      - created_by
+      - modified_by
+      - validated_by
+      - approved_by
+      - published_by
+      - timestamp
+      - version
+      - action
+      - contentId
+      - contentType
+
+events:
+  items:
+    - AuditLogEntryCreated

@@ -1,0 +1,27 @@
+# =============================================================================
+# AI AUTHORING — draft only, never direct publish
+# =============================================================================
+
+AiAuthoring:
+  capability: Admin can request AI transform e.g. text to Gazzetta article
+  output:
+    items:
+      - headline
+      - subhead
+      - summary
+      - article_draft
+      - category_suggestion
+      - visual_suggestion
+  input:
+    allowed:
+      items:
+        - admin_text
+        - selected_event
+        - authorized_public_data
+        - template
+    forbidden: unnecessary secret data
+  rule: AI produces DRAFT — NEVER publish directly
+
+events:
+  items:
+    - AiDraftGenerated

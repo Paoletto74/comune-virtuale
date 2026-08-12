@@ -1,0 +1,16 @@
+# =============================================================================
+# LOCALIZATION — time_v1
+# =============================================================================
+
+---
+Localization:
+  dateFormatting: locale-aware centralized
+  variables:
+  - gameDate
+  - gameTime
+  - timeRemaining
+  - dayName
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeFormatted

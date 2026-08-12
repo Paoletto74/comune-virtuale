@@ -1,0 +1,26 @@
+# =============================================================================
+# ASSET TYPES — taxonomy of visual asset types
+# =============================================================================
+
+AssetTypes:
+  catalog:
+    items:
+      - ICON
+      - THUMBNAIL
+      - CARD_IMAGE
+      - POPUP_IMAGE
+      - HERO_IMAGE
+      - CHARACTER
+      - ITEM
+      - PROPERTY
+      - VEHICLE
+      - ENVIRONMENT
+      - NEWS_IMAGE
+      - EVENT_SCENE
+      - ILLUSTRATION
+      - BACKGROUND
+      - SHOWCASE_COMPOSITE
+
+events:
+  items:
+    - AssetTypeSelected

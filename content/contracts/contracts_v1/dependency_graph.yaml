@@ -1,0 +1,68 @@
+# =============================================================================
+# DEPENDENCY GRAPH — critical flow chains
+# =============================================================================
+
+DependencyGraph:
+  PurchaseListing:
+    chain:
+      items:
+        - "Command: PurchaseListing"
+        - "Domain: Marketplace validation"
+        - "Command: Banking CreateTransfer"
+        - "Domain: Inventory ownership"
+        - "Domain: Marketplace listing state"
+        - "Event: ItemPurchased"
+        - "Consumer: Notification"
+        - "Consumer: Progression evaluation"
+        - "Consumer: Ranking invalidation"
+        - "ReadModel: BalanceSummary, InventorySummary, ListingSummary"
+
+  CompleteTask:
+    chain:
+      items:
+        - "Command: CompleteTask"
+        - "Domain: Task validation + completion"
+        - "Domain: Reward calculation"
+        - "Command: Banking credit"
+        - "Event: TaskCompleted"
+        - "Consumer: Progression"
+        - "Consumer: Notification"
+        - "Invalidation: profile, home, tasks"
+
+  ProcessSalary:
+    chain:
+      items:
+        - "Scheduled: ProcessSalary"
+        - "Domain: Work validates employment"
+        - "Command: Banking pay"
+        - "Event: SalaryPaid"
+        - "Consumer: Progression, Notification"
+
+  CastVote:
+    chain:
+      items:
+        - "Command: CastVote"
+        - "Domain: Political auth + eligibility"
+        - "Event: VoteCast"
+        - "Consumer: Notification"
+
+  LevelUp:
+    chain:
+      items:
+        - "Event: LevelReached"
+        - "Domain: Progression milestone/title"
+        - "Consumer: Notification popup candidate"
+        - "Consumer: Ranking invalidation"
+
+  PropertyPurchased:
+    chain:
+      items:
+        - "Event: PropertyPurchased (internal)"
+        - "Consumer: Progression evaluation"
+        - "Consumer: Notification candidate"
+        - "Consumer: Gazzetta candidate"
+        - "Consumer: Ranking invalidation"
+
+events:
+  items:
+    - DependencyGraphTraversed

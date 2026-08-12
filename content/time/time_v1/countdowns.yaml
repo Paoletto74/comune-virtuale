@@ -1,0 +1,12 @@
+# =============================================================================
+# COUNTDOWNS — time_v1
+# =============================================================================
+
+---
+Countdowns:
+  source: server
+  accessibility: low update frequency
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - CountdownUpdated

@@ -1,0 +1,14 @@
+# =============================================================================
+# GAME SPEED — time_v1
+# =============================================================================
+
+---
+GameSpeed:
+  concept: real time to game time ratio
+  value: TBD
+  owner: Time System
+  status: DECISIONE APPROVATA server authoritative
+  alignsWith: time_main_v1/time_scale.yaml
+events:
+  items:
+  - GameSpeedChanged

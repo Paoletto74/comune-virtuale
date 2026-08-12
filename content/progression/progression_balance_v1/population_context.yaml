@@ -1,0 +1,52 @@
+# =============================================================================
+# POPULATION & NPC CONTEXT
+# =============================================================================
+# DECISIONE APPROVATA: bilanciamento considera giocatori + NPC
+# Popolazione dinamica — no solo valori assoluti come unica misura
+# =============================================================================
+
+populationContext:
+  enabled: true
+
+  scopes:
+    all_citizens:
+      description: Giocatori + NPC nella simulazione comune
+      useFor: [percentile, mean, rank, job_market, housing, politics]
+
+    players_only:
+      description: Solo giocatori reali
+      useFor: [leaderboards, optional_competition]
+      notes: Non unica fonte per progressione main
+
+    npc_only:
+      description: NPC simulati
+      useFor: [market_fill, economy_baseline]
+
+  dynamicPopulation:
+    playerCount: variable
+    npcCount: variable
+    totalPopulation: derived
+    notes: |
+      Con 10 giocatori e 10.000 NPC, posizione sociale valutabile vs popolazione simulata.
+      Framework compatibile con crescita/shrink popolazione.
+
+  npcProgression:
+    simplified: true
+    notes: |
+      NPC possono avere level/track semplificati per distribuzione statistica.
+      Bilanciamento percentile usa distribuzione aggregata.
+    npcLevelDistribution: TBD
+    npcWealthDistribution: TBD
+
+  systemsAffected:
+    - economy
+    - work
+    - housing
+    - companies
+    - politics
+    - market
+
+  balanceImplications:
+    - Preferire misure relative per LATE+ quando appropriato
+    - Valori assoluti TBD validi solo con economia calibrata
+    - Metriche admin devono segmentare players vs all_citizens

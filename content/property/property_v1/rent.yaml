@@ -1,0 +1,10 @@
+# =============================================================================
+# RENT — property_v1
+# =============================================================================
+
+---
+Rent:
+  owner: Property defines obligation
+  economy: executes payment
+  timeRef: deadline via time_v1
+  status: DECISIONE APPROVATA

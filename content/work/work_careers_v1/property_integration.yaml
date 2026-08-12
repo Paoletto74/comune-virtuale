@@ -1,0 +1,9 @@
+# =============================================================================
+# PROPERTY INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+PropertyIntegration:
+  jobMayInfluence: work location commute
+  propertySeparate: true
+  status: DECISIONE APPROVATA

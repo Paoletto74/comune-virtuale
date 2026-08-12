@@ -1,0 +1,24 @@
+# =============================================================================
+# MUNICIPALITY DATA — Comune
+# =============================================================================
+
+MunicipalityData:
+  sourceOfTruth: Municipality/Time
+  schema:
+    municipalityId: string
+    name: string
+    population: number
+    cash: TBD
+    inflation: TBD
+    mayor: string
+    politicalState: object
+    municipalityStatistics: object
+
+municipalEconomy:
+  DECISIONE APPROVATA: wallet separato da player economy
+
+ref: time_main_v1, political_main_v1
+
+events:
+  items:
+    - MunicipalityStateUpdated

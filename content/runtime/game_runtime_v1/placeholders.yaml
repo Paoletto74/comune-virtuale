@@ -1,0 +1,25 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values
+# =============================================================================
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - game_time_acceleration_ratio
+    - tick_frequency_per_system
+    - snapshot_frequencies
+    - queue_technology
+    - event_bus_technology
+    - leader_election_technology
+    - maintenance_pause_policy
+    - simulation_speed_implementation
+    - random_seed_strategy
+    - npc_fidelity_selection_algorithm
+    - gazzetta_auto_publish_rules
+    - popup_generation_thresholds
+    - load_test_SLA_targets
+    - partition_strategy
+
+events:
+  emits: [PlaceholderResolved]
+  consumes: []

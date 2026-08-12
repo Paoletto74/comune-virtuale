@@ -1,0 +1,23 @@
+# =============================================================================
+# ACCESSIBILITY
+# =============================================================================
+
+Accessibility:
+  DECISIONE APPROVATA:
+  features:
+    items:
+      - keyboard_navigation
+      - screen_reader_labels
+      - contrast
+      - reduced_motion
+      - no_audio_mode
+      - adequate_touch_targets
+      - focus_states
+
+popupAccessibility:
+  ref: visual_main_v1/accessibility.yaml
+  rule: popup MAJOR/LEGENDARY con fallback visivo
+
+events:
+  items:
+    - AccessibilityPreferenceChanged

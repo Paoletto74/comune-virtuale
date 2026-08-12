@@ -1,0 +1,28 @@
+# =============================================================================
+# MARKETPLACE API
+# =============================================================================
+
+MarketplaceApi:
+  sourceOfTruth: MarketplaceService
+  endpoints:
+    queries:
+      items:
+        - "GET /api/v1/marketplace"
+        - "GET /api/v1/marketplace/search"
+        - "GET /api/v1/marketplace/:listingId"
+    commands:
+      items:
+        - "POST /api/v1/marketplace/listings"
+        - "POST /api/v1/marketplace/listings/:listingId/buy"
+        - "POST /api/v1/marketplace/listings/:listingId/rent"
+        - "POST /api/v1/marketplace/listings/:listingId/cancel"
+        - "POST /api/v1/marketplace/listings/:listingId/sell"
+
+financialOps: passano da Banking/Economy — NON bypass
+
+pagination: required for list/search
+filtering: controlled filters only
+
+events:
+  items:
+    - MarketplaceApiRequestProcessed

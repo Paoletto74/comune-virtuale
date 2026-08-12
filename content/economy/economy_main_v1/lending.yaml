@@ -1,0 +1,66 @@
+# =============================================================================
+# LENDING — prestiti tra giocatori
+# =============================================================================
+# DECISIONE APPROVATA: tasso può essere positivo, zero, negativo (es. -20%)
+# =============================================================================
+
+Loan:
+  loanId: string
+  idempotencyKey: string
+
+  lenderRef: citizenId
+  borrowerRef: citizenId
+
+  principal: TBD
+  interestRate: TBD
+  interestType: positive | zero | negative
+  duration: TBD
+  conditions: TBD
+
+  status: proposed | accepted | refused | active | repaid | defaulted | cancelled
+
+  schedule:
+    installments: TBD
+    dueDates: []
+    nextPaymentGameTime: TBD
+
+  tracking:
+    capitalRemaining: TBD
+    interestAccrued: TBD
+    totalRepaid: TBD
+    payments: PaymentRecord[]
+
+  borrowerActions:
+    - ACCEPT
+    - REFUSE
+    - REPAY
+    - SETTLE
+
+  transactions:
+    disbursement: transaction_type_loan
+    repayment: transaction_type_loanRepayment
+
+  debtIntegration:
+    addsTo: citizen.economy.debt
+    onRepay: reduces_debt
+
+  futureRules:
+    limits: TBD
+    taxes: TBD
+    controls: TBD
+    consequences: TBD
+
+  atomicity: true
+  idempotency: true
+
+  negativeInterestExample:
+    description: A presta 1000 a B, interesse -20%, B restituisce 800
+    enabled: true
+    formula: TBD
+
+BankingSystem:
+  v1Scope: simple
+  products: [player_to_player_loan]
+  NOT_in_v1: [complex_derivatives, credit_cards, multi_product]
+  bankDebtType: TBD
+  notes: Sistema bancario iniziale semplice — DA_DEFINIRE

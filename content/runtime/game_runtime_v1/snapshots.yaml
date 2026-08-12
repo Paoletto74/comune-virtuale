@@ -1,0 +1,18 @@
+# =============================================================================
+# SNAPSHOTS — daily, weekly, monthly
+# =============================================================================
+
+Snapshots:
+  types:
+    items:
+      - daily
+      - weekly
+      - monthly
+      - municipality_game_state
+  frequencies: TBD
+  rule: NON necessariamente snapshot completo ogni player ad ogni tick
+  ref: data_architecture_v1/snapshots.yaml
+
+events:
+  emits: [SnapshotCreated]
+  consumes: [GameTimeAdvanced, DayBoundaryCrossed]

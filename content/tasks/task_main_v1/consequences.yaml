@@ -1,0 +1,70 @@
+# =============================================================================
+# IMMEDIATE CONSEQUENCES
+# =============================================================================
+
+ImmediateConsequence:
+  schema:
+    consequenceId: string
+    sourceTaskInstanceId: string
+    sourceOptionId: string
+    actorId: string
+    targetId: string | null
+    effectsRef: string
+    generatedEvents: []
+    generatedTasks: []
+    probabilityBranchRef: string | null
+    executedAt: timestamp
+    causalChainId: string
+    visibility: visible | hidden
+
+probabilityBranches:
+  status: demo_pattern
+  exampleStealWallet:
+    note: Rubi portafoglio — valori TBD
+    branches:
+      items:
+        - branchId: unseen
+          probability: TBD
+          label: Nessuno ti vede
+          effectsRef: TBD
+        - branchId: witnessed
+          probability: TBD
+          label: Qualcuno ti vede
+          effectsRef: TBD
+        - branchId: identified
+          probability: TBD
+          label: Identificato immediatamente
+          effectsRef: TBD
+  rule: DECISIONE APPROVATA — risultato determinato dal motore autorevole
+
+consequenceVisibility:
+  DECISIONE APPROVATA: |
+    Giocatore NON vede necessariamente tutte le conseguenze immediate.
+    Es. rubi → mostra "Hai ottenuto €500" ma NON "Tra 3 giorni polizia..."
+  hiddenUntilTrigger: true
+
+chainGeneration:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Conseguenza può generare nuovo evento/task.
+    Es. incendio → immobile danneggiato → B notificato → task riparazione
+    → domanda riparazioni → opportunità lavoro altro cittadino.
+  notRigidSequence: true
+
+multiCitizenImpact:
+  roles:
+    items:
+      - actor
+      - target
+      - observers
+      - affectedCitizens
+  rule: |
+    Evento può colpire giocatore, NPC, più giocatori, più NPC, combinazione.
+    10 giocatori ≠ intera popolazione — mondo include NPC.
+
+events:
+  items:
+    - ImmediateConsequenceApplied
+    - EffectRequested
+    - TaskGeneratedFromConsequence
+    - EventGeneratedFromConsequence

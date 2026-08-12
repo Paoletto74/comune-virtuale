@@ -1,0 +1,24 @@
+# =============================================================================
+# WORK API
+# =============================================================================
+
+WorkApi:
+  sourceOfTruth: WorkService
+  endpoints:
+    queries:
+      items:
+        - "GET /api/v1/work/jobs"
+        - "GET /api/v1/work/jobs/:jobId"
+        - "GET /api/v1/work/current"
+        - "GET /api/v1/work/salary-status"
+    commands:
+      items:
+        - "POST /api/v1/work/jobs/:jobId/apply"
+        - "POST /api/v1/work/jobs/:jobId/accept"
+        - "POST /api/v1/work/resign"
+
+salary: via ReceiveSalary use case — Banking ledger — idempotency required
+
+events:
+  items:
+    - WorkApiRequestProcessed

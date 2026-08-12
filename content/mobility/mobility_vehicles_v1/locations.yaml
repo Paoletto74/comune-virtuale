@@ -1,0 +1,9 @@
+# =============================================================================
+# LOCATIONS — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleLocation:
+  field: LocationId
+  citySOT: true
+  status: DECISIONE APPROVATA

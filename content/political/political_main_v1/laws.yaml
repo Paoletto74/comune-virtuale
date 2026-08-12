@@ -1,0 +1,79 @@
+# =============================================================================
+# LAWS — Law / Policy Registry
+# =============================================================================
+
+Law:
+  schema:
+    lawId: string
+    title: string
+    description: string
+    status: proposed | pending_approval | passed | rejected | active | expired | revoked
+    effectiveAt: timestamp | null
+    expirationAt: timestamp | null
+    proposerId: string
+    policyRef: string
+    effectsRef: string
+    affectedGroupsRef: string
+    visibility: PUBLIC | PRIVATE | DISCOVERABLE
+    idempotencyKey: string
+
+lawLifecycle:
+  items:
+    - proposed
+    - pending_approval
+    - passed
+    - rejected
+    - active
+    - expired
+    - revoked
+    - replaced
+  durationTypes:
+    items:
+      - permanent
+      - temporary
+      - expiring
+      - replaceable
+
+approvalRules:
+  status: PROPOSTA_TECNICA
+  v1_simple: true
+  possibleRequirements:
+    items:
+      - council_vote
+      - citizen_vote
+      - mayor_approval
+      - automatic_on_pass
+  rules: TBD
+
+differentiatedEffects:
+  DECISIONE APPROVATA: |
+    Effetti calcolati dinamicamente per cittadino.
+    Es. tassa proprietà: 0 immobili = nessun effetto;
+    1 immobile = basso; 10 = alto; commerciali = diverso.
+  evaluationInputs:
+    items:
+      - propertyCount
+      - propertyType
+      - cash
+      - income
+      - job
+      - zone
+      - economicPosition
+  ref: task_main_v1 effects model
+
+revocation:
+  supported:
+    items:
+      - revoke
+      - modify
+      - replace
+  future: true
+
+events:
+  items:
+    - LawProposed
+    - LawPassed
+    - LawRejected
+    - LawActivated
+    - LawExpired
+    - LawRevoked

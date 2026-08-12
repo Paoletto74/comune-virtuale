@@ -1,0 +1,13 @@
+# =============================================================================
+# FIRST NEWSPAPER — special edition concept
+# =============================================================================
+
+FirstNewspaper:
+  concept: "EDIZIONE SPECIALE — NUOVO CITTADINO IN CITTA"
+  personalization: nome del nuovo Citizen
+  ref: newspaper_v1, content_system_v1
+  privacy: ref first_news.yaml — NON dati privati
+
+events:
+  items:
+    - FirstNewspaperShown

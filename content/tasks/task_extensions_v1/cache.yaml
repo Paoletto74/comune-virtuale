@@ -1,0 +1,17 @@
+# =============================================================================
+# CACHE — task_extensions_v1
+# =============================================================================
+
+---
+Cache:
+  canCache:
+  - published definitions
+  - content
+  - visual
+  - non-authoritative metadata
+  cannotCache:
+  - task state
+  - completion
+  - reward result
+  - eligibility
+  status: PROPOSTA TECNICA

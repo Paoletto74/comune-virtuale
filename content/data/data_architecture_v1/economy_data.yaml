@@ -1,0 +1,27 @@
+# =============================================================================
+# ECONOMY DATA — separare componenti, NO singolo wealth
+# =============================================================================
+
+EconomyData:
+  sourceOfTruth: Economy/Banking
+  components:
+    items:
+      - cash
+      - bank_balance
+      - recurring_income
+      - debt
+      - net_worth
+      - economic_position
+
+rule: |
+  NON utilizzare singolo campo "wealth".
+  net_worth = DERIVED dove possibile — projection se necessario.
+
+playerVsMunicipal:
+  DECISIONE APPROVATA: PLAYER ECONOMY ≠ MUNICIPAL ECONOMY — wallet separati
+
+ref: economy_main_v1, banking_main_v1
+
+events:
+  items:
+    - EconomyDataUpdated

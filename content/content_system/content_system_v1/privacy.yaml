@@ -1,0 +1,23 @@
+# =============================================================================
+# PRIVACY — citizen visibility, private data checks
+# =============================================================================
+
+Privacy:
+  prePublishChecks:
+    items:
+      - citizen_visibility
+      - private_data
+      - financial_privacy
+      - criminal_privacy
+      - political_privacy
+  editorialEthics:
+    items:
+      - NON inventare eventi
+      - NON falsificare risultati
+      - NON manipolare statistiche
+      - NON esporre dati privati
+      - NON pubblicare informazioni non autorizzate
+
+events:
+  items:
+    - PrivacyCheckCompleted

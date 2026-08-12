@@ -1,0 +1,16 @@
+# =============================================================================
+# MULTI CITY — future City A, B, C
+# =============================================================================
+
+MultiCity:
+  status: PROPOSTA TECNICA — future
+  rule: NON assumere V1 single city only — architettura supporta crescita
+  examples:
+    items:
+      - City_A
+      - City_B
+      - City_C
+
+events:
+  items:
+    - MultiCityLoaded

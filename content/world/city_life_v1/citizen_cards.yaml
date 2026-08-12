@@ -1,0 +1,26 @@
+# =============================================================================
+# CITIZEN CARDS — public profile card
+# =============================================================================
+
+CitizenCards:
+  fields:
+    items:
+      - avatar
+      - name
+      - level
+      - title
+      - job_se_pubblico
+      - public_stats
+  accessFrom:
+    items:
+      - map
+      - rankings
+      - citizen_list
+      - Gazzetta
+      - notifications
+      - social_actions
+  authorization: sempre server-side
+
+events:
+  items:
+    - CitizenCardViewed

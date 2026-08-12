@@ -1,0 +1,19 @@
+# =============================================================================
+# VISUAL INTEGRATION — visualAssetId
+# =============================================================================
+
+VisualIntegration:
+  field: visualAssetId
+  rule: NO hardcoded image URLs
+  sourceOfTruth: Visual System
+  adminSelect: Admin Content Studio selects existing assets
+  metadata:
+    items:
+      - source
+      - license
+      - status
+  ref: visual_main_v1, newspaper_v1
+
+events:
+  items:
+    - VisualReferenceValidated

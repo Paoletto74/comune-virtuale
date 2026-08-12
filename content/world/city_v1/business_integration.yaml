@@ -1,0 +1,12 @@
+# =============================================================================
+# BUSINESS INTEGRATION — businesses in buildings/locations
+# =============================================================================
+
+BusinessIntegration:
+  rule: aziende occupano buildings, locations, districts
+  owner: Business System — business logic
+  ref: business_main_v1
+
+events:
+  items:
+    - BusinessAtLocation

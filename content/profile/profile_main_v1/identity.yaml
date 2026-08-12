@@ -1,0 +1,53 @@
+# =============================================================================
+# IDENTITY — Account vs Citizen
+# =============================================================================
+
+PlayerAccount:
+  DECISIONE APPROVATA: Profile NON proprietario autenticazione
+  owner: Authentication System futuro
+  authoritativeOn:
+    items:
+      - account
+      - login
+      - google
+      - username_password
+      - session
+      - security
+  profileReceives: playerId
+
+CitizenIdentity:
+  schema:
+    citizenId: string
+    playerId: string
+    displayName: string
+    age: TBD
+    gender: TBD
+    birthday: "date | null"
+    creationDate: timestamp
+    citizenStatus: TBD
+  status: schema_conceptual — valori definitivi TBD
+
+onboarding:
+  DECISIONE APPROVATA: |
+    Landing → Login/Registration → Citizen Creation → Profile Setup → Game
+  required:
+    items:
+      - name
+      - gender
+      - age
+  optional:
+    items:
+      - birthday
+      - favoriteFood
+      - hobbies
+      - favoriteColor
+      - favoriteAnimal
+      - motto
+      - ironicTrait
+      - future_fields
+
+events:
+  items:
+    - CitizenCreated
+    - ProfileCreated
+    - OnboardingCompleted

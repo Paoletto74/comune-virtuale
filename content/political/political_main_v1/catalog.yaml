@@ -1,0 +1,87 @@
+# =============================================================================
+# POLITICAL MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: mainLevel ≠ politicalRole — L25 SINDACO ≠ activeRole=Mayor
+# Politica locale v1 — focus sindaco, elezioni, leggi, leve
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1, mobility_main_v1,
+#               task_main_v1, criminal_main_v1
+# Valori numerici: TBD
+# =============================================================================
+
+catalogId: political_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - mainLevel ≠ activePoliticalRole — L25 label narrativo ≠ sindaco automatico
+  - politicalTrack ≠ mainLevel — track distinto da criminal/professional/entrepreneurial
+  - Politica = strada possibile, NON obiettivo obbligatorio
+  - Popolazione = players + NPC — giocatori NON rappresentano tutta la città
+  - Effetti per-cittadino — NO "tutti -10 happiness"
+  - Decisioni → Policy Event → sistemi competenti — NO mutazione diretta cash/valori
+  - Leve = decisioni, non semplici "+10%"
+  - Client non autoritativo — audit + idempotenza
+  - NO AI runtime / servizi esterni
+  - Content-first — NO if level == 25 then mayor
+
+includes:
+  tracks: tracks.yaml
+  roles: roles.yaml
+  eligibility: eligibility.yaml
+  elections: elections.yaml
+  voting: voting.yaml
+  candidates: candidates.yaml
+  campaigns: campaigns.yaml
+  laws: laws.yaml
+  policies: policies.yaml
+  levers: levers.yaml
+  support: support.yaml
+  milestones: milestones.yaml
+  npc: npc.yaml
+  visibility: visibility.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  political_core: [tracks, roles, eligibility]
+  electoral_module: [elections, voting, candidates, campaigns]
+  governance_module: [laws, policies, levers, support]
+  population_module: [npc, voting]
+
+responsibilitySplit:
+  politicalSystemDecides:
+    items:
+      - political_progression
+      - eligibility
+      - candidacy
+      - elections
+      - voting
+      - political_roles
+      - mandates
+      - laws
+      - political_levers
+      - support
+      - political_milestones
+  otherSystemsDecide:
+    economy: money_macro_economy
+    property: immobili
+    mobility: mobilita
+    work: lavoro_leve_professionali
+    criminal: criminalita
+    task: scelta_outcome
+    progression: mainLevel
+    time: tempo
+    notification: visualizzazione

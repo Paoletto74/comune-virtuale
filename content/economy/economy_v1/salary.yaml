@@ -1,0 +1,9 @@
+# =============================================================================
+# SALARY — economy_v1
+# =============================================================================
+
+---
+Salary:
+  owner: Work System defines compensation
+  economy: executes payment
+  status: DECISIONE APPROVATA

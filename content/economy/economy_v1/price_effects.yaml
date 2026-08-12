@@ -1,0 +1,13 @@
+# =============================================================================
+# PRICE EFFECTS — economy_v1
+# =============================================================================
+
+---
+PriceEffects:
+  mayAffect:
+  - items
+  - wages
+  - rent
+  - services
+  owner: respective domain systems
+  status: PROPOSTA TECNICA

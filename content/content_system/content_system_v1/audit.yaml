@@ -1,0 +1,20 @@
+# =============================================================================
+# AUDIT — publish and admin actions audit trail
+# =============================================================================
+
+Audit:
+  publishRecords:
+    items:
+      - who
+      - what
+      - version
+      - when
+      - approval
+      - source
+  unpublish: audited
+  archive: audited when published content
+  security: admin authoring requires auth + authorization + audit
+
+events:
+  items:
+    - ContentAuditRecorded

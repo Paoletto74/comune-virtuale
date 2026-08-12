@@ -1,0 +1,9 @@
+# =============================================================================
+# TITLE INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+TitleIntegration:
+  promotionMayUnlock: Profile Title via Title Engine
+  jobTitleNotProfileTitle: true
+  status: DECISIONE APPROVATA

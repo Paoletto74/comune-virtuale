@@ -1,0 +1,24 @@
+# =============================================================================
+# EXPORT — content object e content pack
+# =============================================================================
+
+ContentExport:
+  DECISIONE APPROVATA: ogni content object esportabile
+  formats:
+    items:
+      - yaml
+      - json
+
+ContentPackExport:
+  status: PROPOSTA TECNICA — futuro, non uso quotidiano
+  example: social_main_v2
+
+DuplicateContent:
+  DECISIONE APPROVATA: |
+    DUPLICATE — es. Task A → Task B.
+    Nuovo contentId obbligatorio.
+
+events:
+  items:
+    - ContentExported
+    - ContentDuplicated

@@ -1,0 +1,27 @@
+# =============================================================================
+# GAME STATE — CitizenGameState, non monolitico
+# =============================================================================
+
+CitizenGameState:
+  status: PROPOSTA TECNICA — collegamento domini, evitare mega-oggetto monolitico
+  links:
+    items:
+      - progression
+      - economy
+      - work
+      - inventory
+      - social
+      - political
+      - criminal
+      - family
+      - business
+      - property
+      - mobility
+
+rule: |
+  Ogni dominio mantiene proprio state autorevole.
+  CitizenGameState = riferimenti/aggregazione, non duplicazione.
+
+events:
+  items:
+    - GameStateUpdated

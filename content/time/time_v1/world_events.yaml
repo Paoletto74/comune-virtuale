@@ -1,0 +1,11 @@
+# =============================================================================
+# WORLD EVENTS — time_v1
+# =============================================================================
+
+---
+WorldEvents:
+  owner: Event System WHEN - Time System current
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - WorldEventStarted

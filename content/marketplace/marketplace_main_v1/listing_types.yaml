@@ -1,0 +1,62 @@
+# =============================================================================
+# CATALOGO ≠ MERCATO ≠ TRANSAZIONE
+# =============================================================================
+
+CatalogMarketTransaction:
+  DECISIONE APPROVATA: |
+    CATALOGO = cosa esiste (ItemDefinition, asset types, categories).
+    MERCATO = cosa è attualmente disponibile (listings attivi).
+    TRANSAZIONE = cosa è stato effettivamente comprato/venduto (record completati).
+
+Catalog:
+  source:
+    items:
+      - inventory_main_v1/definitions
+      - economy_main_v1/market categories
+      - property/mobility/business catalogs
+  role: riferimento — cosa può esistere nel mondo
+
+Market:
+  role: listings attivi — disponibilità corrente
+  schema: MarketListing
+
+Transaction:
+  role: esito commerciale completato
+  owner: economy_main_v1 ledger + domini asset
+  marketplaceRole: coordina e registra outcome
+
+MarketListing:
+  schema:
+    listingId: string
+    assetRef: string
+    itemRef: "string | null"
+    sellerId: string
+    sellerType: citizen | npc | company | system
+    listingType: SALE | RENT
+    quantity: number
+    askingPrice: TBD
+    currency: string
+    status: active | pending | sold | rented | expired | cancelled | withdrawn
+    createdAt: timestamp
+    expiresAt: "timestamp | null"
+    conditions: {}
+    visibility: public | restricted | private
+    liquidityScore: TBD
+    idempotencyKey: string
+  status: schema_conceptual — valori TBD
+
+ListingTypes:
+  v1:
+    items:
+      - SALE
+      - RENT
+  future:
+    items:
+      - AUCTION
+      - DIRECT_TRANSFER
+  note: AUCTION e negoziazione avanzata — NON V1
+
+events:
+  items:
+    - ListingCreated
+    - ListingUpdated

@@ -1,0 +1,17 @@
+# =============================================================================
+# TESTING — property_v1
+# =============================================================================
+
+---
+Testing:
+  cases:
+  - purchase
+  - sale
+  - rent
+  - rent failure
+  - atomicity
+  - race conditions
+  - valuation
+  - ownership transfer
+  - permission bypass
+  status: DECISIONE APPROVATA

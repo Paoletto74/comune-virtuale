@@ -1,0 +1,53 @@
+# =============================================================================
+# QUALITY SYSTEM — WORK PERFORMANCE / QUALITY LEVER
+# =============================================================================
+# Modello medico = template configurabile per job, NON regola universale hardcoded
+# =============================================================================
+
+QualitySystem:
+  parameter: qualityOfWork
+  scope: per_contract | per_job_definition
+
+QualityLever:
+  leverId: string
+  jobId: string
+  displayName: string
+  range: [min, max]
+  default: TBD
+  unlockRequirements: TBD
+
+  effects:
+    high_quality:
+      example_medic:
+        - patient_satisfaction_up
+        - reputation_up
+        - better_outcomes
+        - fewer_patients_treatable
+        - possible_lower_short_term_income
+      notes: Esempio configurabile — non hardcoded
+
+    low_quality:
+      example_medic:
+        - more_patients
+        - possible_higher_immediate_income
+        - dissatisfied_patients
+        - reputation_down
+        - patient_consequences
+        - possible_serious_events
+
+  configurablePerJob: true
+  noUniversalRule: true
+
+qualityProfiles:
+  - profileId: quality_care_lever
+    jobId: example_medic
+    leverId: quality_of_care
+    displayName: Qualità dell'operato
+  - profileId: quality_teaching
+    jobId: example_teacher
+    leverId: teaching_quality
+  - profileId: quality_driving
+    jobId: example_driver
+    leverId: safety_speed_balance
+
+catalogQualityProfiles: []

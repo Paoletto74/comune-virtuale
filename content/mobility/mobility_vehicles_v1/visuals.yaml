@@ -1,0 +1,14 @@
+# =============================================================================
+# VISUALS — mobility_vehicles_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  ref: contextual_visuals_v1
+  examples:
+  - car
+  - motorcycle
+  - luxury vehicle
+  - garage
+  fallback: placeholder if asset missing
+  status: PROPOSTA TECNICA

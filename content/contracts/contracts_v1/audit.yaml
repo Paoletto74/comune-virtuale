@@ -1,0 +1,29 @@
+# =============================================================================
+# AUDIT — critical commands, financial, political, profile, admin
+# =============================================================================
+
+Audit:
+  criticalCommands:
+    example: PurchaseListing
+    fields:
+      items: [actor, listing, amount, result, timestamp, correlationId]
+
+  chain:
+    DECISIONE APPROVATA: Command -> Result -> Event -> Audit — ricostruibile
+
+financialAudit:
+  items: [command, transactionId, ledger_reference, eventId]
+
+politicalAudit:
+  items: [voteId, citizen, election, result_audit]
+  rule: NON esporre dati segreti voto quando non consentito
+
+profileAudit:
+  items: [old_state_ref, new_state_ref, actor, timestamp]
+
+adminAudit:
+  items: [who, what, version, approval, publish_time]
+
+events:
+  items:
+    - AuditEntryCreated

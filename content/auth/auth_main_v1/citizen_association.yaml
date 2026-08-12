@@ -1,0 +1,41 @@
+# =============================================================================
+# CITIZEN ASSOCIATION — Account → Citizen
+# =============================================================================
+
+CitizenAssociation:
+  DECISIONE APPROVATA: Account e Citizen restano distinti
+  schema:
+    accountId: string
+    citizenId: string
+    associatedAt: timestamp
+
+CitizenData:
+  ref: profile_main_v1/identity.yaml
+  contains:
+    items:
+      - displayName
+      - gender
+      - age
+      - configurable_personal_facts
+      - game_state
+
+ProfileAssociation:
+  DECISIONE APPROVATA: |
+    Profile riceve accountId/citizenId.
+    Profile autorevole su dati profilo.
+    Authentication NON decide: titolo, livello, patrimonio, lavoro, ranking.
+
+firstLogin:
+  DECISIONE APPROVATA: |
+    Account senza Citizen → Citizen Creation → Profile Setup.
+    NON creare automaticamente dati gioco senza flusso previsto.
+
+returningPlayer:
+  DECISIONE APPROVATA: |
+    Citizen esiste → Login → Auth → Citizen → Game Home.
+    NON ricreare Citizen.
+
+events:
+  items:
+    - CitizenAssociated
+    - CitizenCreationRequired

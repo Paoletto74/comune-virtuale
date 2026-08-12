@@ -1,0 +1,27 @@
+# =============================================================================
+# ANALYTICS — UI events, no sensitive data
+# =============================================================================
+
+Analytics:
+  status: PROPOSTA TECNICA — NON implementare
+  futureEvents:
+    items:
+      - page_view
+      - task_open
+      - item_open
+      - purchase_click
+      - notification_open
+      - profile_view
+
+mustNotTrack:
+  items:
+    - password
+    - token
+    - private_data_non_necessario
+
+errorTelemetry:
+  rule: anonimizzata/controllata — NON password, token, private data
+
+events:
+  items:
+    - AnalyticsEventSent

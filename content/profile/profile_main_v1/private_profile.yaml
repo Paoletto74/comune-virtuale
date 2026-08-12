@@ -1,0 +1,61 @@
+# =============================================================================
+# PRIVATE PROFILE — vista completa proprietario
+# =============================================================================
+
+PrivateProfile:
+  DECISIONE APPROVATA: |
+    Proprietario vede molto più del pubblico.
+
+selfView:
+  status: PROPOSTA TECNICA — struttura UI TBD
+  sections:
+    items:
+      - OVERVIEW
+      - ECONOMY
+      - CAREER
+      - ASSETS
+      - PROGRESSION
+      - SOCIAL
+      - HISTORY
+      - PERSONAL
+
+privateFields:
+  items:
+    - all_own_assets
+    - liquidity
+    - debts
+    - netWorth
+    - wealth_graph
+    - cash_graph
+    - income_indicators
+    - work_details
+    - progression_full
+    - statistics
+    - inventory
+    - loans
+    - transactions
+    - personal_facts
+    - private_career_history
+    - criminal_data_if_authorized
+
+money:
+  DECISIONE APPROVATA: profilo personale mostra
+  fields:
+    items:
+      - liquidity
+      - netWorth
+      - income_if_available
+      - debts
+      - economic_indicators
+  rule: Banking/Economy autorevoli — Profile aggrega
+
+netWorth:
+  DECISIONE APPROVATA: |
+    Profile può mostrare netWorth.
+    NON calcola autonomamente con formule duplicate.
+    Economy/Asset systems forniscono valori autorevoli.
+
+events:
+  items:
+    - PrivateProfileViewed
+    - ProfileUpdated

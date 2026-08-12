@@ -1,0 +1,69 @@
+# =============================================================================
+# PROFILE COMPOSITIONS — regole layout, NO editor grafico V1
+# =============================================================================
+
+ProfileCompositionDefinition:
+  status: PROPOSTA TECNICA — NO editor grafico complesso V1
+  schema:
+    compositionId: string
+    backgroundAssetId: "string | null"
+    layers:
+      items:
+        - layerId: character
+          position: TBD
+          scale: TBD
+          zIndex: TBD
+        - layerId: property
+          position: TBD
+          scale: TBD
+          zIndex: TBD
+        - layerId: vehicle
+          position: TBD
+          scale: TBD
+          zIndex: TBD
+        - layerId: luxury
+          position: TBD
+          scale: TBD
+          zIndex: TBD
+    framing: TBD
+    textOverlays: []
+    badges: []
+
+compositionRules:
+  mayDefine:
+    items:
+      - background
+      - character_position
+      - property_position
+      - vehicle_position
+      - luxury_position
+      - scale
+      - layering
+      - framing
+      - text_overlays
+      - badges
+
+privateProfileVisuals:
+  ownerMaySee:
+    items:
+      - avatar
+      - main_assets
+      - item_images
+      - graphs
+      - compositions
+      - configurable_personal_images
+
+publicProfileVisuals:
+  othersMaySee:
+    items:
+      - public_avatar
+      - hero_image
+      - prestige_assets
+      - titles
+      - badges
+      - rankings
+      - showcase_composition
+
+events:
+  items:
+    - ProfileCompositionRendered

@@ -1,0 +1,90 @@
+# =============================================================================
+# FAMILY SUPPORT — supporto familiare
+# =============================================================================
+
+FamilySupport:
+  schema:
+    supportId: string
+    fromCitizenId: string
+    toCitizenId: string
+    supportType: economic | housing | practical | social | opportunity
+    amount: TBD
+    status: requested | given | refused | pending
+    transactionRef: string | null
+
+supportTypes:
+  items:
+    - economic
+    - housing
+    - practical
+    - social
+    - opportunity
+  examples:
+    items:
+      - parent_npc_helps_citizen
+      - adult_child_helps_parent
+      - partner_support
+
+economicSupport:
+  DECISIONE APPROVATA: Family NON modifica cash direttamente
+  flow: |
+    Family Decision
+    → Economy Transaction (gift | loan | payment | support)
+    → Ledger
+  ref: economy_main_v1/gifts.yaml, lending.yaml
+
+householdFinanceModel:
+  schema:
+    householdId: string
+    model: separate | shared | mixed
+  v1Default: separate_plus_shared_household_expenses
+  modes:
+    items:
+      - separate
+      - shared
+      - mixed
+  rule: Partner patrimonio separato per default — spese household condivise configurabili
+
+familyExpenses:
+  rule: Family genera bisogno/evento — Economy/Marketplace gestisce spesa
+  categories:
+    items:
+      - food
+      - housing
+      - education
+      - health
+      - transport
+      - goods
+      - other
+  doesNotDuplicate: marketplace_economy
+
+relationshipMetrics:
+  strength:
+    schema:
+      value: TBD
+    influences:
+      items:
+        - time_together
+        - help_given
+        - conflicts
+        - events
+        - promises_kept
+        - betrayals
+    formula: TBD
+  trust:
+    schema:
+      value: TBD
+    rule: Separato da relationshipStrength
+    note: Relazione forte + poco trust possibile
+  affinity:
+    schema:
+      value: TBD
+    status: optional_v1
+    rule: Separato da trust e strength se incluso
+
+events:
+  items:
+    - FamilySupportRequested
+    - FamilySupportGiven
+    - FamilySupportRefused
+    - FamilyExpenseDue

@@ -1,0 +1,82 @@
+# =============================================================================
+# WORLD CLOCK — server authoritative
+# =============================================================================
+
+WorldClock:
+  schema:
+    worldTime: timestamp
+    worldDate: date
+    realTime: timestamp
+    timezone: string
+    timeScale: number
+    simulationMode: REAL_TIME | ACCELERATED | PAUSED | MAINTENANCE
+    lastPersistedAt: timestamp
+    lastSimulationAt: timestamp
+    worldSeed: string
+  status: schema_conceptual — valori definitivi TBD
+
+RealTimeVsWorldTime:
+  DECISIONE APPROVATA: |
+    REAL TIMESTAMP ≠ WORLD TIMESTAMP.
+    Server registra entrambi — audit, catch-up, debug, future timeScale changes.
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: |
+    Tempo autorevole lato server.
+    Client visualizza, richiede — NON modifica.
+    NON fidarsi orologio dispositivo giocatore.
+
+ClockSynchronization:
+  status: PROPOSTA TECNICA
+  clientSyncFields:
+    items:
+      - serverTime
+      - worldTime
+      - worldDate
+      - timeScale
+  rule: UI interpola localmente — logica di gioco usa tempo server
+
+TimeApiContract:
+  status: PROPOSTA TECNICA — nomi definitivi TBD
+  read:
+    items:
+      - getWorldTime
+      - getWorldDate
+      - getTimeScale
+      - getCurrentDay
+      - getCurrentWeek
+      - getCurrentMonth
+      - getCurrentYear
+  write:
+    items:
+      - scheduleEvent
+      - scheduleRecurring
+      - createCooldown
+      - createDeadline
+      - startTimedActivity
+
+Persistence:
+  DECISIONE APPROVATA: persistire almeno
+  fields:
+    items:
+      - worldTime
+      - realTime
+      - timeScale
+      - lastSimulationAt
+      - scheduleState
+      - scaleHistory
+
+CrashRecovery:
+  DECISIONE APPROVATA: |
+    Al riavvio: read persisted state → calculate elapsed → catch-up → resume.
+    Non perdere eventi, cooldown, deadline, attività, pagamenti.
+
+MultiServerFuture:
+  status: PROPOSTA TECNICA
+  rule: WorldClock concettualmente centralizzato — evitare clock indipendenti
+
+events:
+  items:
+    - WorldClockUpdated
+    - WorldClockPersisted
+    - ServerRestartCatchUpStarted

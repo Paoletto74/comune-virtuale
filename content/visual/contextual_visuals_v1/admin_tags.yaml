@@ -1,0 +1,12 @@
+# =============================================================================
+# ADMIN TAGS — tag management for assets
+# =============================================================================
+
+AdminTags:
+  support: tags for search and filtering
+  examples:
+    ref: asset_tags.yaml
+
+events:
+  items:
+    - AdminTagApplied

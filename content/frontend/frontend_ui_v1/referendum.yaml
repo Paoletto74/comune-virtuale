@@ -1,0 +1,30 @@
+# =============================================================================
+# REFERENDUM — political data from Political System
+# =============================================================================
+
+Referendum:
+  shows:
+    items:
+      - referendum_attivi
+      - stato
+      - tempo_residuo
+      - partecipazione
+      - accesso_al_voto
+
+sourceOfTruth: Political System — frontend NON calcola requisiti
+
+voteUx:
+  flow:
+    items:
+      - mostra_scelta
+      - mostra_conferma
+      - invia_political_api
+      - mostra_risultato
+  rule: NON permettere doppio voto lato UI — backend autorevole
+
+api: political_api.yaml
+
+events:
+  items:
+    - ReferendumViewed
+    - VoteSubmitted

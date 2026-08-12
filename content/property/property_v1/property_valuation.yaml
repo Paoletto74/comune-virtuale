@@ -1,0 +1,17 @@
+# =============================================================================
+# PROPERTY VALUATION — property_v1
+# =============================================================================
+
+---
+PropertyValuation:
+  factors:
+  - location
+  - type
+  - size
+  - features
+  - condition
+  - market
+  formula: TBD
+  owner: Property System
+  alignsWith: property_main_v1/valuation.yaml
+  status: DECISIONE APPROVATA

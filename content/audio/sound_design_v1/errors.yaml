@@ -1,0 +1,34 @@
+# =============================================================================
+# ERROR SOUNDS — error, rejection, destructive
+# =============================================================================
+
+ErrorSounds:
+  Error:
+    cue: ui.error_short
+    priority: NORMAL
+    length: micro
+    description: short negative cue — NON allarmante per errori banali
+  Success:
+    cue: ui.success_short
+    priority: LOW
+    length: micro
+    description: short positive cue
+  Confirmation:
+    cue: ui.confirmation_subtle
+    priority: LOW
+    length: micro
+    description: subtle
+  DestructiveAction:
+    cue: ui.destructive_warning
+    priority: NORMAL
+    length: micro
+    description: warning cue
+  OperationRejected:
+    cue: ui.operation_rejected
+    priority: NORMAL
+    length: micro
+    description: operazione rifiutata — short negative feedback
+
+events:
+  items:
+    - ErrorSoundTriggered

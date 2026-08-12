@@ -1,0 +1,11 @@
+# =============================================================================
+# REALTIME — economy_v1
+# =============================================================================
+
+---
+Realtime:
+  future:
+  - balance updates
+  - transaction events
+  fallback: polling
+  status: PROPOSTA TECNICA future

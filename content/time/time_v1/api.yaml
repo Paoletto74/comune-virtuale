@@ -1,0 +1,16 @@
+# =============================================================================
+# API — time_v1
+# =============================================================================
+
+---
+TimeApi:
+  endpoint: GET /api/v1/time
+  response:
+  - serverTime
+  - gameTime
+  - gameSpeed
+  - dayState
+  status: PROPOSTA TECNICA schema TBD
+events:
+  items:
+  - TimeApiCalled

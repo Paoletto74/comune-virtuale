@@ -1,0 +1,49 @@
+# =============================================================================
+# SECURITY — high privilege area
+# =============================================================================
+
+AdminSecurity:
+  DECISIONE APPROVATA: area ad alto privilegio
+  threats:
+    items:
+      - unauthorized_access
+      - privilege_escalation
+      - csrf
+      - xss
+      - injection
+      - malicious_media
+      - content_poisoning
+      - accidental_production_publish
+
+ContentSafety:
+  DECISIONE APPROVATA: impedire
+  blocks:
+    items:
+      - unauthorized_content
+      - broken_references
+      - private_accidentally_public
+      - text_outside_schema
+      - unauthorized_assets
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: |
+    UI Admin NON autorevole.
+    Tutte operazioni validate server-side.
+    Client non bypassa: permissions, validation, approval, publish rules.
+
+mustNotModify:
+  "DECISIONE APPROVATA": "Admin NON può modificare direttamente"
+  items:
+    - database_schema
+    - game_code
+    - core_formulas
+    - security
+    - authentication
+    - server_logic
+    - engine
+    - authoritative_systems
+
+events:
+  items:
+    - SecurityViolationBlocked
+    - UnauthorizedAdminActionDenied

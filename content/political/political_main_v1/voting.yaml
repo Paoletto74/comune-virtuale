@@ -1,0 +1,73 @@
+# =============================================================================
+# VOTING — regole voto configurabili
+# =============================================================================
+
+Vote:
+  schema:
+    voteId: string
+    electionId: string
+    voterId: string
+    voterType: player | npc
+    candidateId: string | null
+    abstained: boolean
+    weight: TBD
+    timestamp: timestamp
+    idempotencyKey: string
+
+votingRules:
+  status: PROPOSTA_TECNICA
+  rule: Architettura configurabile — modello definitivo TBD
+  supportedModels:
+    items:
+      - individual_vote
+      - weighted_vote
+      - abstention
+      - variable_participation
+      - configurable_electorate
+
+playerVoteWeight:
+  DECISIONE APPROVATA: |
+    NON assumere 1 giocatore = 1/10 popolazione.
+    Peso determinato da regole elettorali configurabili.
+  weightFormula: TBD
+
+voteDetermination:
+  inputs:
+    items:
+      - sympathy
+      - reputation
+      - popularity
+      - influence
+      - satisfaction
+      - economic_interests
+      - personal_situation
+      - prior_decisions
+      - candidate_support
+  rule: |
+    NON tutti i cittadini votano allo stesso modo.
+    Voto può cambiare nel tempo — NO preferenza rigida permanente obbligatoria.
+  formula: TBD
+
+population:
+  DECISIONE APPROVATA: |
+    Bacino elettorale = allCitizens (players + NPC).
+    Compatibile con progression_balance_v1 population_context.yaml.
+  electorateRef: all_citizens
+  playerShare: configurable — NOT fixed_ratio
+
+participation:
+  variable: true
+  npcParticipation: TBD
+  playerParticipation: TBD
+
+antiExploit:
+  items:
+    - double_vote
+    - client_result_manipulation
+  protection: idempotencyKey + server_authoritative
+
+events:
+  items:
+    - VoteCast
+    - VoteRejected
+    - AbstentionRecorded

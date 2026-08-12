@@ -1,0 +1,32 @@
+# =============================================================================
+# MEDIA — upload futuro, validation
+# =============================================================================
+
+MediaUpload:
+  status: PROPOSTA TECNICA — provider TBD
+  futureSupport:
+    items:
+      - upload_images
+      - upload_audio
+      - upload_other_media
+
+MediaValidation:
+  status: PROPOSTA TECNICA
+  checks:
+    items:
+      - format
+      - size
+      - mime_type
+      - resolution
+      - aspect_ratio
+      - transparency_optional
+      - asset_metadata
+
+rule: |
+  Binary gestito da future Asset/Storage system.
+  Admin gestisce metadata via Visual Content Editor.
+
+events:
+  items:
+    - MediaUploaded
+    - MediaValidationFailed

@@ -1,0 +1,16 @@
+# =============================================================================
+# MANIFEST — eventType -> soundAssetId mapping
+# =============================================================================
+
+SoundManifest:
+  structure:
+    eventType: string
+    soundAssetId: string
+    variant: string
+    priority: string
+    settingsGroup: string
+  ref: event_mapping.yaml
+
+events:
+  items:
+    - ManifestLoaded

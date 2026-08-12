@@ -1,0 +1,46 @@
+# =============================================================================
+# TIME INTEGRATION
+# =============================================================================
+# DECISIONE APPROVATA: mondo continua offline; no simulazione ogni secondo
+# =============================================================================
+
+TimeIntegration:
+  model: real_time_default
+  accelerationFuture: supported
+
+  offlineProcessing:
+    continues:
+      - rents
+      - recurring_costs
+      - recurring_income
+      - economic_variations
+      - price_changes
+      - events
+      - business_activity
+      - debts
+      - loan_schedules
+    onReturnMessage: "Il mondo è cambiato."
+
+  processingStrategy:
+    prefer:
+      - timestamps
+      - intervals
+      - tick
+      - scheduled_events
+    avoid:
+      - per_second_full_simulation
+
+  catchUp:
+    onLogin: process_due_scheduled_items
+    onTick: batch_recurring_flows
+    maxCatchUpPerCycle: TBD
+
+  recurringFlowProcessor:
+    inputs: [recurringIncome, recurringExpenses]
+    dueCheck: executeAtGameTime <= now
+    idempotency: per_flow_per_period
+
+  idempotencyKeys:
+    salary: "{citizenId}_{employerId}_{periodId}"
+    rent: "{leaseId}_{periodId}"
+    tax: "{citizenId}_{taxType}_{periodId}"

@@ -1,0 +1,10 @@
+# =============================================================================
+# MONEY — economy_v1
+# =============================================================================
+
+---
+Money:
+  schema:
+    currency: string
+    amount: integer minor units
+  status: DECISIONE APPROVATA

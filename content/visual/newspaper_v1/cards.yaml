@@ -1,0 +1,24 @@
+# =============================================================================
+# CARDS — editorial cards not generic material
+# =============================================================================
+
+EditorialCards:
+  prefer: editorial cards — NON material cards generiche
+  types:
+    items:
+      - headline_card
+      - stat_card
+      - notice_card
+      - citizen_card
+      - marketplace_card
+      - event_card
+  dataBlocks:
+    example: |
+      INFLAZIONE / 4,2% / trend up 0,4%
+    structure: STAT + TREND + HEADLINE
+
+ref: components.yaml, ui_main_v1 Card primitive
+
+events:
+  items:
+    - EditorialCardRendered

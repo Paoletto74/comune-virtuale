@@ -1,0 +1,15 @@
+# =============================================================================
+# API — mobility_vehicles_v1
+# =============================================================================
+
+---
+MobilityApi:
+  possible:
+  - GET vehicles
+  - GET vehicles/me
+  - POST buy
+  - POST sell
+  - POST maintenance
+  - POST travel
+  schema: TBD
+  status: PROPOSTA TECNICA

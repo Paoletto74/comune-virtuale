@@ -1,0 +1,29 @@
+# =============================================================================
+# INTEGRATION — criminal_main_v1
+# =============================================================================
+
+CriminalIntegration:
+  status: PROPOSTA TECNICA — runtime TBD
+
+  extends: social_main_v1/integrations.yaml — compatibilita futura
+
+  boundary:
+    criminalOwns:
+      items:
+        - crime_state
+        - heat
+        - discovery
+        - arrest
+        - prison
+        - criminal_progression
+    socialMay:
+      items:
+        - criminal_contact_representation
+        - controlled_preset_threats
+        - controlled_agreements
+        - trust_in_criminal_context
+
+  rule: |
+    Criminal System decide conseguenze.
+    Social fornisce comunicazione controllata — NO chat libera.
+    criminal_contact come status enum — TBD se aggiungere a relationshipStatus approvato.

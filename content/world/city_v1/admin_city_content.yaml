@@ -1,0 +1,19 @@
+# =============================================================================
+# ADMIN CITY CONTENT — Content Studio city editorial
+# =============================================================================
+
+AdminCityContent:
+  canModify:
+    items:
+      - descriptions
+      - labels
+      - editorial_content
+      - location_presentation
+      - visual_references
+  cannotModify:
+    rule: NON modificare Game State direttamente — ref admin_city_operations.yaml
+  ref: content_system_v1, admin_content_studio_v1
+
+events:
+  items:
+    - AdminCityContentUpdated

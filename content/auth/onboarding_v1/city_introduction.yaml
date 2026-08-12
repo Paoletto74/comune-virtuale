@@ -1,0 +1,19 @@
+# =============================================================================
+# CITY INTRODUCTION — brief overview
+# =============================================================================
+
+CityIntroduction:
+  presents:
+    items:
+      - Comune
+      - Gazzetta
+      - Attivita
+      - Mercato
+      - Profilo
+      - Notifiche
+  rule: NON spiegare ogni funzione in modo prolisso
+  ref: guided_tour.yaml
+
+events:
+  items:
+    - CityIntroductionViewed

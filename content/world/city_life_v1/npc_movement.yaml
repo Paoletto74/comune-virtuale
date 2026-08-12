@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC MOVEMENT — future movement between locations
+# =============================================================================
+
+NpcMovement:
+  future: NPC puo spostarsi tra locations
+  v1: static/preset location
+  status: PROPOSTA TECNICA — future
+
+events:
+  items:
+    - NpcMoved

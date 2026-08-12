@@ -1,0 +1,62 @@
+# =============================================================================
+# CRIMINAL HEAT — attenzione/pressione autorità
+# =============================================================================
+
+CriminalHeat:
+  schema:
+    citizenId: string
+    heatValue: TBD
+    lastUpdated: timestamp
+    modifiers: []
+    decayRate: TBD
+
+  DECISIONE APPROVATA: |
+    criminalHeat ≠ colpevolezza automatica.
+    Heat = rischio/attenzione nei confronti del cittadino è aumentato.
+    Scoperta = sistema separato (discovery.yaml).
+
+heatIncrease:
+  triggers:
+    items:
+      - criminal_activity
+      - suspicious_activity
+      - evidence_found
+      - witnesses
+      - recidivism
+      - events
+      - failed_crimes
+      - transfers_suspicion
+  formula: TBD
+
+heatDecrease:
+  triggers:
+    items:
+      - time_decay
+      - low_activity_period
+      - events
+      - legal_actions
+      - bribes_future
+  formula: TBD
+
+heatEffects:
+  affects:
+    items:
+      - discovery_probability
+      - investigation_likelihood
+      - penalty_severity_modifier
+      - opportunity_access
+  doesNot:
+    items:
+      - automatically_mean_discovered
+      - automatically_mean_guilty
+
+timeIntegration:
+  rule: Heat cambia nel tempo — decadimento, eventi, nuove prove, recidiva
+  delivery: scheduled_events | tick | catch_up
+  offline: true
+
+events:
+  items:
+    - CriminalHeatIncreased
+    - CriminalHeatDecreased
+    - CriminalHeatThresholdCrossed

@@ -1,0 +1,82 @@
+# =============================================================================
+# PRIVACY & VISIBILITY
+# =============================================================================
+
+VisibilityLevels:
+  items:
+    - PRIVATE
+    - FRIENDS_RELATIONSHIP
+    - PUBLIC
+    - GLOBAL
+
+MessageVisibility:
+  DECISIONE APPROVATA: ogni messaggio ha visibility esplicita
+  schema:
+    senderId: string
+    recipientId: string
+    messageId: string
+    messageDefinitionId: string
+    timestamp: timestamp
+    worldTime: timestamp
+    context: object
+    visibility: PRIVATE | PUBLIC | GLOBAL
+    status: sent | delivered | read | expired
+
+PrivateMessages:
+  DECISIONE APPROVATA: |
+    Preset message Player A → Player B.
+    Solo B lo vede, salvo regole esplicite.
+    NON diventa chat libera.
+
+GlobalMessages:
+  status: PROPOSTA TECNICA
+  rule: comunicazioni generate dal sistema, NON scritte dai giocatori
+  examples:
+    items:
+      - "Il Comune ha un nuovo sindaco!"
+      - "È stato approvato un referendum."
+      - "Una crisi economica sta colpendo il Comune."
+
+PublicAnnouncements:
+  DECISIONE APPROVATA: |
+    Event/Political/Gazzetta producono contenuti.
+    Communication System li presenta — NON proprietario dei contenuti di cronaca.
+
+profilePrivacy:
+  personalProfile:
+    mayShow:
+      items:
+        - title
+        - reputation
+        - sympathy
+        - popularity
+        - ranking
+        - social_recognitions
+    mustNotShowAutomatically:
+      items:
+        - private_messages
+        - private_relationships
+        - gift_recipients
+        - private_loans
+        - private_interactions
+  publicProfile:
+    "DECISIONE APPROVATA": "allinea progression_main_v1/visibility.yaml"
+    mustNotShowAutomatically:
+      items:
+        - private_messages
+        - private_relationships
+        - interaction_history
+
+messageHistory:
+  status: PROPOSTA TECNICA — retention TBD
+  policy:
+    items:
+      - limited_history
+      - expiration
+      - archive_policy
+  rule: NON conservare dati infiniti
+
+events:
+  items:
+    - PrivacyFilterApplied
+    - MessageExpired

@@ -1,0 +1,11 @@
+# =============================================================================
+# SALARY DISTRIBUTION — work_careers_v1
+# =============================================================================
+
+---
+SalaryDistribution:
+  metrics:
+  - average
+  - median
+  - percentiles
+  status: PROPOSTA TECNICA

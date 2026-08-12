@@ -1,0 +1,29 @@
+# =============================================================================
+# OFFLINE — mercato continua
+# =============================================================================
+
+OfflineMarket:
+  DECISIONE APPROVATA: durante offline giocatore
+  mayOccur:
+    items:
+      - listing_sold
+      - rental_started
+      - rental_ended
+      - listing_expired
+      - market_price_changed
+      - npc_purchase
+  onLogin: notification_main_v1 eventi rilevanti
+
+timeIntegration:
+  ref: time_main_v1
+  uses:
+    items:
+      - listing_expiry
+      - rental_deadlines
+      - recurring_rent
+      - scheduled_market_events
+
+events:
+  items:
+    - OfflineMarketEventProcessed
+    - OfflineSaleNotificationPending

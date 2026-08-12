@@ -1,0 +1,61 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  MAX_COMPANIES_PER_CITIZEN: TBD
+  STARTUP_COST_BASE: TBD
+  STARTUP_COST_BY_CATEGORY: TBD
+
+  REVENUE_FORMULA: TBD
+  EXPENSE_FORMULA: TBD
+  PROFIT_THRESHOLD_STRUGGLING: TBD
+  DEMAND_FORMULA: TBD
+  PRICING_EFFECT_FORMULA: TBD
+
+  COMPANY_VALUE_FORMULA: TBD
+  PERFORMANCE_FORMULA: TBD
+  QUALITY_EFFECT_FORMULA: TBD
+  REPUTATION_GAIN_LOSS: TBD
+
+  NPC_CUSTOMER_DEMAND_RATE: TBD
+  NPC_EMPLOYEE_FILL_DELAY: TBD
+  NPC_COMPANY_COUNT: TBD
+
+  BANKRUPTCY_TRIGGER_DEBT_RATIO: TBD
+  BANKRUPTCY_TRIGGER_CASH_MIN: TBD
+  SUSTAINED_LOSS_PERIODS: TBD
+
+  REQ_CASH_STARTUP: TBD
+  REQ_NET_WORTH_STARTUP: TBD
+  REQ_ENTREPRENEURIAL_LEVEL: TBD
+  REQ_BUSINESS_EXPERIENCE: TBD
+
+  LEVER_UNLOCK_LEVEL: TBD
+  DIVIDEND_RATE_FUTURE: TBD
+  OWNER_SALARY_VS_PROFIT: TBD
+
+  PERIOD_REVENUE_CYCLE: TBD
+  PERIOD_EXPENSE_CYCLE: TBD
+
+  MARKET_VALUATION_MULTIPLIER: TBD
+  DISTRESSED_SALE_DISCOUNT: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - task_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - notification_module
+
+  futurePack:
+    note: business_balance_v1 — DA DEFINIRE dopo calibrazione economy

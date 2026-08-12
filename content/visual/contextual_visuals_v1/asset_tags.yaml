@@ -1,0 +1,20 @@
+# =============================================================================
+# ASSET TAGS — searchable tags
+# =============================================================================
+
+AssetTags:
+  examples:
+    items:
+      - villa
+      - pool
+      - luxury
+      - police
+      - arrest
+      - ferrari
+      - office
+      - mayor
+  adminSearch: ref admin_search.yaml, admin_tags.yaml
+
+events:
+  items:
+    - AssetTagged

@@ -1,0 +1,56 @@
+# =============================================================================
+# APPLICATION LAYER — use cases, orchestration
+# =============================================================================
+
+ApplicationLayer:
+  responsibility: coordinate domain services for use cases
+  rule: domain services NON devono conoscersi tutti direttamente — orchestrator coordina
+
+orchestration:
+  status: PROPOSTA TECNICA
+  rule: Application Service / Use Case coordina operazioni cross-domain
+
+useCaseSchema:
+  input: object
+  process: ordered steps with authorization and validation
+  output: result DTO with relevant state changes
+
+exampleUseCases:
+  CompleteTaskUseCase:
+    input:
+      items: [citizenId, taskInstanceId]
+    process:
+      items:
+        - authorization
+        - validate_task
+        - evaluate_conditions
+        - complete_task
+        - apply_rewards
+        - generate_events
+        - notifications
+    output:
+      items: [updated_task_state, rewards_summary, notifications, state_changes]
+
+  PurchaseItemUseCase:
+    process:
+      items:
+        - authenticate
+        - authorize
+        - load_listing
+        - validate_listing
+        - validate_price
+        - validate_buyer
+        - banking_transaction
+        - inventory_ownership
+        - marketplace_state
+        - notification_event
+        - commit
+        - return_result
+
+domainDependencyRule:
+  DECISIONE APPROVATA: evitare cicli — usare Domain Event / Application Orchestrator
+
+events:
+  items:
+    - UseCaseExecuted
+    - UseCaseFailed

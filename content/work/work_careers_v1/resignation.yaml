@@ -1,0 +1,10 @@
+# =============================================================================
+# RESIGNATION — work_careers_v1
+# =============================================================================
+
+---
+Resignation:
+  owner: Work System
+  noticePeriod: TBD
+  noArbitraryBalanceChange: true
+  status: DECISIONE APPROVATA

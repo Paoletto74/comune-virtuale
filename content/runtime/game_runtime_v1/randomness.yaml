@@ -1,0 +1,16 @@
+# =============================================================================
+# RANDOMNESS — controlled, seeded, auditable
+# =============================================================================
+
+Randomness:
+  DECISIONE APPROVATA:
+  rules:
+    items:
+      - controlled_randomness
+      - seed_when_necessary
+      - auditability
+  mustNot: random non controllabile per critical financial outcomes
+
+events:
+  emits: [RandomEventGenerated]
+  consumes: []

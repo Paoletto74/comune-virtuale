@@ -1,0 +1,19 @@
+# =============================================================================
+# AVATAR — preset, generated, customization
+# =============================================================================
+
+Avatar:
+  modes:
+    status: DA DEFINIRE / TBD
+    options:
+      items:
+        - preset
+        - generated
+        - customization
+  duringOnboarding: giocatore deve poter avere immagine/personaggio
+  noFakeAssets: NON mostrare proprieta/auto/items non posseduti nel profilo reale
+  ref: contextual_visuals_v1/avatar.yaml
+
+events:
+  items:
+    - AvatarSelected

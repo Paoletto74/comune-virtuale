@@ -1,0 +1,20 @@
+# =============================================================================
+# FEATURE FLAGS — runtime and system enable/disable
+# =============================================================================
+
+FeatureFlags:
+  status: PROPOSTA TECNICA
+  runtimeChecks:
+    examples:
+      items:
+        - new_task_engine
+        - new_ranking
+        - new_event
+
+systemFlags:
+  status: PROPOSTA TECNICA
+  example: "ranking system OFF — resto continua"
+
+events:
+  emits: [FeatureFlagEvaluated]
+  consumes: []

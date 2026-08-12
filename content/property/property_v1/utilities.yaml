@@ -1,0 +1,11 @@
+# =============================================================================
+# UTILITIES — property_v1
+# =============================================================================
+
+---
+Utilities:
+  costTypes:
+  - utilities
+  partOf: housing costs
+  payment: Economy transaction
+  status: PROPOSTA TECNICA

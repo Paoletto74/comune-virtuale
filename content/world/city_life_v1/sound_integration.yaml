@@ -1,0 +1,14 @@
+# =============================================================================
+# SOUND INTEGRATION — semantic sound for significant events
+# =============================================================================
+
+SoundIntegration:
+  rule: sound solo per eventi significativi
+  semantic: soundCueId — ref sound_design_v1
+  examples:
+    BusinessOpened: economy or civic cue
+    CitizenMet: social subtle cue
+
+events:
+  items:
+    - CityLifeSoundPlayed

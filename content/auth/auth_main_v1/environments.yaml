@@ -1,0 +1,27 @@
+# =============================================================================
+# ENVIRONMENTS & PRODUCTION SAFETY
+# =============================================================================
+
+Environments:
+  status: PROPOSTA TECNICA
+  items:
+    - DEVELOPMENT
+    - STAGING
+    - PRODUCTION
+
+productionSafety:
+  DECISIONE APPROVATA: in PRODUCTION
+  requirements:
+    items:
+      - permission_checks_obbligatori
+      - audit_obbligatorio
+      - sensitive_operations_protette
+      - no_debug_bypass
+      - no_development_credentials
+
+adminAccessByEnvironment:
+  rule: Admin access configurabile per ambiente
+
+events:
+  items:
+    - EnvironmentPolicyEnforced

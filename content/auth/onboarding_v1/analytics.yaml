@@ -1,0 +1,27 @@
+# =============================================================================
+# ANALYTICS — onboarding and auth metrics
+# =============================================================================
+
+Analytics:
+  status: PROPOSTA TECNICA — future
+  onboarding:
+    items:
+      - onboarding_started
+      - completed
+      - skipped
+      - abandoned
+      - first_task
+      - first_market_visit
+  auth:
+    items:
+      - login_success
+      - login_failure
+      - registration_completion
+      - provider_usage
+      - onboarding_completion
+  privacy: rispettare privacy policy — NON dati non necessari
+  provider: DA DEFINIRE / TBD
+
+events:
+  items:
+    - OnboardingAnalyticsRecorded

@@ -1,0 +1,31 @@
+# =============================================================================
+# MIGRATIONS — schema versioning, v1 to v2
+# =============================================================================
+
+SchemaVersioning:
+  DECISIONE APPROVATA: tutte le strutture importanti possono avere schemaVersion
+
+DataMigrations:
+  status: PROPOSTA TECNICA — NON implementare migration runtime ora
+  process:
+    items:
+      - migration_script
+      - validation
+      - backup
+      - rollback_strategy
+
+contentReferences:
+  DECISIONE APPROVATA: contentId + schemaVersion — NON copiare intero contenuto ovunque
+
+deploymentSeparation:
+  DECISIONE APPROVATA:
+  items:
+    - CODE_DEPLOY
+    - CONTENT_PUBLISH
+    - DATA_MIGRATION
+  rule: content update non richiede migration se non cambia schema
+
+events:
+  items:
+    - MigrationCompleted
+    - MigrationFailed

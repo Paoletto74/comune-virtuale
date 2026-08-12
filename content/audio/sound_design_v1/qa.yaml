@@ -1,0 +1,20 @@
+# =============================================================================
+# QA — volume, clipping, latency, overlap
+# =============================================================================
+
+AudioQa:
+  verify:
+    items:
+      - volume
+      - clipping
+      - distortion
+      - latency
+      - looping
+      - priority
+      - overlap
+      - accessibility
+  criticalLatency: critical cues devono avere bassa latenza
+
+events:
+  items:
+    - AudioQaCompleted

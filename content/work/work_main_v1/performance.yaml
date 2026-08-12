@@ -1,0 +1,41 @@
+# =============================================================================
+# PERFORMANCE SYSTEM
+# =============================================================================
+
+PerformanceSystem:
+  scoreRange: TBD
+
+  inputs:
+    - quality
+    - experience
+    - tasks_completed
+    - health
+    - stress
+    - punctuality
+    - mobility_factor
+    - other_factors_TBD
+
+  formula: TBD
+  updateFrequency: per_work_session | periodic | TBD
+
+  effects:
+    - career_progression
+    - bonus_malus_salary
+    - reputation
+    - task_generation
+    - dismissal_risk
+
+  punctualityAndMobility:
+    moduleRef: mobility_system
+    status: not_implemented
+    effects:
+      no_vehicle:
+        - harder_to_reach_job
+        - possible_delay
+        - fatigue
+        - lower_performance
+      better_vehicle:
+        - reduced_travel_time
+        - reduced_stress
+        - increased_reliability
+    formulas: TBD

@@ -1,0 +1,49 @@
+# =============================================================================
+# PROFILE SHOWCASE — vetrina elementi prestigiosi
+# =============================================================================
+
+ProfileShowcase:
+  DECISIONE APPROVATA: |
+    Profilo pubblico deve poter mostrare vetrina elementi più prestigiosi.
+    Es. PERSONAGGIO + VILLA CON PISCINA + FERRARI — composizione visuale.
+
+ProfileSceneDefinition:
+  status: PROPOSTA TECNICA
+  schema:
+    sceneId: string
+    characterRef: player_avatar
+    propertyRef: most_expensive_property
+    vehicleRef: most_expensive_vehicle
+    luxuryRef: most_expensive_luxury
+    outputType: showcase | hero | thumbnail
+
+automaticBestAssets:
+  DECISIONE APPROVATA: |
+    Profile fornisce bestProperty, bestVehicle, bestLuxuryAsset.
+    Profile decide quali sono i migliori.
+    Visual System decide come presentarli.
+
+noFullInventoryVisualization:
+  DECISIONE APPROVATA: |
+    Scena pubblica NON mostra tutti gli oggetti del giocatore.
+    Solo elementi selezionati — rispetta privacy profile_main_v1.
+
+lowerEndProfileExample:
+  DECISIONE APPROVATA: |
+    Avatar + piccolo appartamento + bicicletta = composizione comunque bella.
+    Tono ironico, NON umiliante. NO gerarchia grafica che renda povero "brutto".
+
+profileShowcaseExample:
+  status: esempio concettuale — NON implementare generazione finale V1
+  input:
+    items:
+      - avatar
+      - villa_con_piscina
+      - ferrari
+      - orologio_lusso
+  output: cittadino davanti villa con Ferrari — compose, non render engine
+
+events:
+  items:
+    - ProfileShowcaseChanged
+    - ProfileVisualUpdated

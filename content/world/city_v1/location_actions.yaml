@@ -1,0 +1,26 @@
+# =============================================================================
+# LOCATION ACTIONS — entra, visita, lavora, compra, etc.
+# =============================================================================
+
+LocationActions:
+  possible:
+    items:
+      - entra
+      - visita
+      - lavora
+      - compra
+      - affitta
+      - socializza
+      - partecipa
+      - consulta
+  rule: solo azioni supportate dal Domain System — backend authoritative
+  closed:
+    display: "Chiuso."
+    rule: NON inventare orari — source Business/Work/Location rules
+  navigation:
+    display: "Vai qui."
+    routing: ref routing.yaml, travel.yaml
+
+events:
+  items:
+    - LocationActionRequested

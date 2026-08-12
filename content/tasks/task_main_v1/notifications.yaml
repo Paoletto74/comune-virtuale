@@ -1,0 +1,74 @@
+# =============================================================================
+# NOTIFICATIONS — integrazione Notification System
+# =============================================================================
+
+notificationIntegration:
+  direction: task → notifications
+  rule: DECISIONE APPROVATA — NO UI notifiche nel Task System
+
+personalNotifications:
+  items:
+    - templateId: new_task
+      label: Nuovo task
+      trigger: TaskInstanceCreated
+    - templateId: task_completed
+      label: Task completato
+      trigger: TaskCompleted
+    - templateId: task_failed
+      label: Task fallito
+      trigger: TaskFailed
+    - templateId: task_expired
+      label: Task scaduto
+      trigger: TaskExpired
+    - templateId: consequence_received
+      label: Conseguenza
+      trigger: ConsequenceApplied
+    - templateId: delayed_consequence
+      label: Conseguenza ritardata
+      trigger: DelayedConsequenceTriggered
+      visibility: may_be_hidden_until_trigger
+    - templateId: event_received
+      label: Evento ricevuto
+      trigger: EventFromTask
+
+globalNotifications:
+  items:
+    - templateId: global_event
+      label: Evento importante
+      trigger: GlobalTaskDistributed
+    - templateId: new_law
+      label: Legge / crisi / cambiamento
+      trigger: GlobalEventApplied
+    - templateId: city_crisis
+      label: Crisi generale
+      trigger: GlobalCrisisEvent
+
+communication:
+  DECISIONE APPROVATA: NO chat libera
+  allowed:
+    items:
+      - preset_messages
+      - notifications
+      - structured_actions
+      - templates
+  examples:
+    items:
+      - loan_request_from_player
+      - gift_offer
+      - collaboration_request
+  delivery: task_as_structured_action → other_systems
+
+playerInteractionTasks:
+  examples:
+    items:
+      - gift
+      - loan_request
+      - sale_offer
+      - purchase_offer
+      - help_request
+      - collaboration
+  rule: Task presenta — Money/Lending/Economy esegue transazione
+
+offlineNotifications:
+  rule: Notifiche accumulate al ritorno via catch-up
+  batchOnLogin: true

@@ -1,0 +1,30 @@
+# =============================================================================
+# PRIVACY EXTENSIONS
+# =============================================================================
+
+PrivacyExtensions:
+  status: PROPOSTA TECNICA — estende social_main_v1/privacy.yaml
+
+  visibilityLevels:
+    approved:
+      items:
+        - PRIVATE
+        - FRIENDS_RELATIONSHIP
+        - PUBLIC
+        - GLOBAL
+
+  rules:
+    items:
+      - private_interactions_do_not_auto_publish
+      - profile_privacy_controls_display
+      - gazzetta_respects_privacy
+      - discovery_respects_discoverability
+      - target_privacy_no_hidden_bank_data
+
+  blockEffect:
+    approved: block impedisce interazioni configurate
+    rulesDefinitive: TBD
+
+  muteEffect:
+    status: PROPOSTA TECNICA
+    rule: nasconde comunicazioni senza necessariamente modificare relationship

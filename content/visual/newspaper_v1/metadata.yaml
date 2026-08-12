@@ -1,0 +1,23 @@
+# =============================================================================
+# METADATA — editorial content metadata
+# =============================================================================
+
+EditorialMetadata:
+  fields:
+    items:
+      - category
+      - timestamp
+      - relevance
+      - severity
+      - visual
+      - related_entities
+  contentPriority:
+    rule: NON confondere con notification priority
+  editorialProminence:
+    rule: NON modifica ranking del gioco
+
+ref: headlines.yaml importance levels
+
+events:
+  items:
+    - MetadataAttached

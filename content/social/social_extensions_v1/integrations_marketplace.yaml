@@ -1,0 +1,28 @@
+# =============================================================================
+# INTEGRATION — marketplace_main_v1
+# =============================================================================
+
+MarketplaceIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — marketplace_main_v1
+
+  boundary:
+    marketplaceOwns:
+      items:
+        - trade
+        - purchase
+        - rental
+        - listing
+    socialProvides:
+      items:
+        - contextual_trade_messages
+        - preset_reactions_after_sale
+
+  rule: NO negoziazione libera in chat
+
+  events:
+    items:
+      - sale
+      - purchase
+      - rental

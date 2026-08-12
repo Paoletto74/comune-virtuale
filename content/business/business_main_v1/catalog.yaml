@@ -1,0 +1,89 @@
+# =============================================================================
+# BUSINESS MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: azienda ≠ asset passivo — situazione economica/operativa propria
+# COMPANY ≠ JOB — separazione netta
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1, mobility_main_v1,
+#               task_main_v1, criminal_main_v1, political_main_v1
+# Valori numerici: TBD — simulazione semplificata, NON gestionale estremo
+# =============================================================================
+
+catalogId: business_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - CompanyDefinition ≠ CompanyInstance
+  - COMPANY ≠ JOB — Work gestisce lavoratore, Business gestisce datore
+  - companyValue ≠ cashBalance ≠ owner cash
+  - NO profitto garantito — rischio reale
+  - NPC dipendenti + clienti — non dipende da altri giocatori
+  - Transazioni via Economy Pipeline — NO modifica diretta cash
+  - Company bankruptcy ≠ personal bankruptcy automatica
+  - Content-first — NO if companyType == restaurant
+  - Client non autoritativo — audit + idempotenza
+  - NO AI runtime / servizi esterni
+
+includes:
+  company_types: company_types.yaml
+  companies: companies.yaml
+  ownership: ownership.yaml
+  eligibility: eligibility.yaml
+  employees: employees.yaml
+  npc: npc.yaml
+  revenue: revenue.yaml
+  expenses: expenses.yaml
+  pricing: pricing.yaml
+  performance: performance.yaml
+  reputation: reputation.yaml
+  events: events.yaml
+  tasks: tasks.yaml
+  market: market.yaml
+  milestones: milestones.yaml
+  bankruptcy: bankruptcy.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  business_core: [company_types, companies, ownership, eligibility]
+  operations_module: [revenue, expenses, pricing, performance]
+  workforce_module: [employees, npc]
+  lifecycle_module: [events, bankruptcy, market, milestones]
+
+responsibilitySplit:
+  businessSystemDecides:
+    items:
+      - company_state
+      - company_performance
+      - revenue_model
+      - expense_model
+      - company_value
+      - ownership
+      - business_progression
+      - business_opportunities
+      - business_milestones
+  otherSystemsDecide:
+    economy: money_ledger_macro
+    work: individual_employment
+    property: immobili
+    mobility: trasporti
+    task: scelta_outcome
+    criminal: criminalita
+    political: politica
+    progression: mainLevel
+    time: tempo
+    notification: ui_notifiche

@@ -1,0 +1,11 @@
+# =============================================================================
+# WEATHER — future weather system
+# =============================================================================
+
+Weather:
+  status: PROPOSTA TECNICA — NON implementare V1 se non necessario
+  visual: future weather visual
+
+events:
+  items:
+    - WeatherStateChanged

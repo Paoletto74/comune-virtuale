@@ -1,0 +1,15 @@
+# =============================================================================
+# CRIME INTEGRATION — NPC crime, criminal orgs
+# =============================================================================
+
+CrimeIntegration:
+  owner: Criminal System — ref criminal_main_v1
+  applies:
+    items:
+      - npc_crime
+      - criminal_organizations
+  rule: NON duplicate criminal rules
+
+events:
+  items:
+    - CrimeCityLifeIntegrated

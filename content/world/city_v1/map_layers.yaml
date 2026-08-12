@@ -1,0 +1,22 @@
+# =============================================================================
+# MAP LAYERS — streets, districts, buildings, landmarks
+# =============================================================================
+
+MapLayers:
+  elements:
+    items:
+      - strade
+      - quartieri
+      - edifici
+      - landmarks
+      - fiumi
+      - parchi
+      - trasporti
+  style: DA DEFINIRE / TBD
+  levelOfDetail:
+    zoomOut: districts
+    zoomIn: locations
+
+events:
+  items:
+    - MapLayerRendered

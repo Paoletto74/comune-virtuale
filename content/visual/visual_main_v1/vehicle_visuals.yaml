@@ -1,0 +1,27 @@
+# =============================================================================
+# VEHICLE VISUALS
+# =============================================================================
+
+VehicleVisual:
+  schema:
+    contentRef: string
+    visualAssetId: string
+    variants:
+      items:
+        - thumbnail
+        - marketplace
+        - profile
+        - hero
+
+exampleMappings:
+  status: esempi dimostrativi
+  items:
+    - contentRef: vehicle_ferrari
+      visualAssetId: vehicle_ferrari_001_v1
+      note: NON obbligatorio immagine al primo rilascio
+
+rule: ogni veicolo configurabile PUÒ avere immagini — non obbligatorio day-one
+
+events:
+  items:
+    - VehicleVisualResolved

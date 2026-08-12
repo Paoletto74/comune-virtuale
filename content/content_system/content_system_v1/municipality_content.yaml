@@ -1,0 +1,16 @@
+# =============================================================================
+# MUNICIPALITY CONTENT — local editorial content
+# =============================================================================
+
+MunicipalityContent:
+  types:
+    items:
+      - municipality_announcement
+      - civic_information
+      - local_editorial
+
+ref: newspaper_v1/municipality.yaml
+
+events:
+  items:
+    - MunicipalityContentSaved

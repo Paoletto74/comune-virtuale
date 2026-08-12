@@ -1,0 +1,37 @@
+# =============================================================================
+# SIMULATION MODES
+# =============================================================================
+
+SimulationMode:
+  items:
+    - modeId: REAL_TIME
+      label: Tempo reale
+      default: true
+    - modeId: ACCELERATED
+      label: Accelerato
+      note: via timeScale > 1.0
+    - modeId: PAUSED
+      label: Pausa
+      useFor:
+        items:
+          - maintenance
+          - debug
+          - administration
+    - modeId: MAINTENANCE
+      label: Manutenzione
+      note: sottoinsieme controllato di PAUSED
+
+WorldPause:
+  DECISIONE APPROVATA: |
+    Mondo NON normalmente pausabile da singolo giocatore.
+    Admin può impostare PAUSED per manutenzione/emergenza/migrazione/debug.
+  duringPause: definire quali sistemi bloccati — TBD
+
+PlayerCannotPauseWorld:
+  DECISIONE APPROVATA: singolo giocatore NON mette in pausa mondo globale
+
+events:
+  items:
+    - WorldPaused
+    - WorldResumed
+    - SimulationModeChanged

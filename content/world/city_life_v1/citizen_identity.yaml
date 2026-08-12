@@ -1,0 +1,23 @@
+# =============================================================================
+# CITIZEN IDENTITY — CitizenId, display, privacy
+# =============================================================================
+
+CitizenIdentity:
+  fields:
+    items:
+      - CitizenId
+      - display_name
+      - visual
+      - profile
+      - municipality
+      - city
+  rule: NON esporre automaticamente dati privati
+  distinctFrom:
+    items:
+      - NpcId
+      - BusinessId
+      - OrganizationId
+
+events:
+  items:
+    - CitizenIdentityResolved

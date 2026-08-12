@@ -1,0 +1,42 @@
+# =============================================================================
+# COOLDOWNS — dominio definisce, Time gestisce tempo
+# =============================================================================
+
+CooldownDefinition:
+  schema:
+    cooldownId: string
+    targetId: string
+    targetType: citizen | entity | system
+    sourceSystem: string
+    startedAt: timestamp
+    expiresAt: timestamp
+    durationRef: string
+    status: active | expired | cancelled
+    idempotencyKey: string
+
+Cooldown:
+  DECISIONE APPROVATA: |
+    Dominio definisce cooldown — Time System ne gestisce il tempo.
+  examples:
+    items:
+      - job_application_retry
+      - task_repeat
+      - criminal_activity
+      - political_action
+      - market_action
+
+CriminalTiming:
+  ref: criminal_main_v1
+  fields:
+    items:
+      - retryAt
+      - heatDecayAt
+      - investigationDeadline
+      - sentenceEndAt
+  rule: Criminal autorevole — Time gestisce calendario
+
+events:
+  items:
+    - CooldownCreated
+    - CooldownExpired
+    - CooldownCancelled

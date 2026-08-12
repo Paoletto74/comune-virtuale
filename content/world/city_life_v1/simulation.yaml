@@ -1,0 +1,15 @@
+# =============================================================================
+# SIMULATION — server-side, aggregation, tick frequency TBD
+# =============================================================================
+
+Simulation:
+  DECISIONE APPROVATA:
+  serverSide: authoritative
+  client: visualizza state only
+  tickFrequency: DA DEFINIRE / TBD — NON obbligatorio real-time
+  aggregation: quando dettaglio non necessario — aggregate state
+  ref: npc_simulation.yaml, npc_lod.yaml
+
+events:
+  items:
+    - CitySimulationTick

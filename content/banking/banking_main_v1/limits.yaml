@@ -1,0 +1,34 @@
+# =============================================================================
+# LIMITS — content-first, future anti-abuse
+# =============================================================================
+
+BankingLimits:
+  status: content-first — valori TBD
+  configurable:
+    items:
+      - loan_limits
+      - interest_limits
+      - transfer_limits
+      - gift_daily_limits
+      - gift_account_limits
+      - bankruptcy_thresholds
+      - fee_caps
+
+adminContentStudio:
+  status: PROPOSTA TECNICA — future runtime
+  configurableVia:
+    items:
+      - loan_templates
+      - transfer_rules
+      - fees
+      - limits
+      - banking_rules
+      - ranking_definitions
+
+contentFirst:
+  DECISIONE APPROVATA: NO hardcode limits/fees/thresholds nel motore
+
+events:
+  items:
+    - LimitExceeded
+    - LimitCheckPassed

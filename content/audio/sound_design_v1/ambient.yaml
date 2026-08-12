@@ -1,0 +1,20 @@
+# =============================================================================
+# AMBIENT — future ambient audio
+# =============================================================================
+
+Ambient:
+  v1: NON implementare automaticamente
+  future:
+    examples:
+      items:
+        - newsroom
+        - citta
+        - mercato
+        - ufficio
+        - eventi
+  control: Ambient Volume — future
+  status: PROPOSTA TECNICA — future
+
+events:
+  items:
+    - AmbientPlayed

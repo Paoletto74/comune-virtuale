@@ -1,0 +1,13 @@
+# =============================================================================
+# SECURITY — time_v1
+# =============================================================================
+
+---
+Security:
+  serverAuthoritative: true
+  clientUntrusted: true
+  noClientScheduling: true
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeSecurityViolationDetected

@@ -1,0 +1,12 @@
+# =============================================================================
+# SECURITY — property_v1
+# =============================================================================
+
+---
+Security:
+  clientCannot:
+  - set ownership
+  - bypass payment
+  - alter valuation
+  - self-assign property
+  status: DECISIONE APPROVATA

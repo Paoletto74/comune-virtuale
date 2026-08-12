@@ -1,0 +1,12 @@
+# =============================================================================
+# POPUPS — HIGH/CRITICAL city life events only
+# =============================================================================
+
+Popups:
+  rule: solo eventi importanti — NON popup per ogni NPC movement
+  applies: HIGH/CRITICAL only
+  ref: frontend_ui_v1, contextual_visuals_v1
+
+events:
+  items:
+    - CityLifePopupShown

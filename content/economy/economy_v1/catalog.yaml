@@ -1,0 +1,161 @@
+# =============================================================================
+# ECONOMY V1 CATALOG
+# =============================================================================
+# Proposta architetturale Economy, Money, Banking & Financial System
+# Estende economy_main_v1 senza modificarlo
+# =============================================================================
+
+catalogId: economy_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economyMain: economy_main_v1
+  timeMain: time_main_v1
+  time: time_v1
+  work: work_main_v1
+  property: property_main_v1
+  marketplace: marketplace_main_v1
+  mobility: mobility_main_v1
+  business: business_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  event: event_main_v1
+  npc: npc_main_v1
+  profile: profile_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+principles:
+  - ECONOMY SYSTEM SOT per saldi transazioni emissione distruzione debiti
+  - Nessun altro sistema modifica direttamente un saldo
+  - Economy != Marketplace != Bank
+  - Ogni mutazione via Transaction + Ledger
+  - Money transfer != money creation
+  - Double-entry ledger PROPOSTA TECNICA fortemente raccomandata
+  - Integer minor units - NO floating point authoritative
+  - Client non authoritative - NO POST set-balance
+  - Integra economy_main_v1 - NON lo modifica
+  - V1 NO real money
+
+includes:
+  principles: principles.yaml
+  currency: currency.yaml
+  money: money.yaml
+  accounts: accounts.yaml
+  cash: cash.yaml
+  banking: banking.yaml
+  bank_accounts: bank_accounts.yaml
+  deposits: deposits.yaml
+  withdrawals: withdrawals.yaml
+  transfers: transfers.yaml
+  ledger: ledger.yaml
+  double_entry: double_entry.yaml
+  transactions: transactions.yaml
+  transaction_status: transaction_status.yaml
+  transaction_idempotency: transaction_idempotency.yaml
+  transaction_references: transaction_references.yaml
+  transaction_audit: transaction_audit.yaml
+  liquidity: liquidity.yaml
+  assets: assets.yaml
+  liabilities: liabilities.yaml
+  net_worth: net_worth.yaml
+  valuations: valuations.yaml
+  property_valuation: property_valuation.yaml
+  vehicle_valuation: vehicle_valuation.yaml
+  item_valuation: item_valuation.yaml
+  business_valuation: business_valuation.yaml
+  debt: debt.yaml
+  loans: loans.yaml
+  loan_principal: loan_principal.yaml
+  interest: interest.yaml
+  loan_schedule: loan_schedule.yaml
+  loan_payment: loan_payment.yaml
+  loan_default: loan_default.yaml
+  player_loans: player_loans.yaml
+  salary: salary.yaml
+  salary_payment: salary_payment.yaml
+  business_revenue: business_revenue.yaml
+  business_expenses: business_expenses.yaml
+  profit: profit.yaml
+  taxes: taxes.yaml
+  tax_types: tax_types.yaml
+  tax_rates: tax_rates.yaml
+  tax_calculation: tax_calculation.yaml
+  inflation: inflation.yaml
+  price_effects: price_effects.yaml
+  price_history: price_history.yaml
+  money_supply: money_supply.yaml
+  money_creation: money_creation.yaml
+  money_destruction: money_destruction.yaml
+  economic_sources: economic_sources.yaml
+  economic_sinks: economic_sinks.yaml
+  municipal_treasury: municipal_treasury.yaml
+  system_accounts: system_accounts.yaml
+  financial_privacy: financial_privacy.yaml
+  transaction_history: transaction_history.yaml
+  refunds: refunds.yaml
+  purchase_atomicity: purchase_atomicity.yaml
+  gifts: gifts.yaml
+  bankruptcy: bankruptcy.yaml
+  overdraft: overdraft.yaml
+  economic_balance: economic_balance.yaml
+  admin_dashboard: admin_dashboard.yaml
+  admin_adjustments: admin_adjustments.yaml
+  economic_events: economic_events.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  sound_integration: sound_integration.yaml
+  visual_integration: visual_integration.yaml
+  newspaper_integration: newspaper_integration.yaml
+  security: security.yaml
+  rate_limiting: rate_limiting.yaml
+  concurrency: concurrency.yaml
+  reconciliation: reconciliation.yaml
+  fraud_detection: fraud_detection.yaml
+  exploit_testing: exploit_testing.yaml
+  api: api.yaml
+  offline: offline.yaml
+  cache: cache.yaml
+  optimistic_ui: optimistic_ui.yaml
+  realtime: realtime.yaml
+  analytics: analytics.yaml
+  rankings: rankings.yaml
+  profile_integration: profile_integration.yaml
+  municipality_integration: municipality_integration.yaml
+  npc_integration: npc_integration.yaml
+  business_integration: business_integration.yaml
+  versioning: versioning.yaml
+  permissions: permissions.yaml
+  audit: audit.yaml
+  testing: testing.yaml
+  performance: performance.yaml
+  recovery: recovery.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  economySystemDecides:
+    items:
+      - balances
+      - transactions
+      - ledger
+      - money_creation_destruction
+      - liquidity
+      - net_worth_derivation
+  domainSystemsDecide:
+    work: salary_compensation_rules
+    property: rent_property_valuation
+    marketplace: listing_purchase_authorization
+    business: revenue_expense_logic
+    political: tax_rules_elections
+    loan: debt_status_default_consequences
+    profile: display_privacy
+
+alignsWith:
+  note: |
+    Formalizza economia coerente con economy_main_v1 ledger e currency.
+    NON modifica pack approvati. NON implementa runtime.

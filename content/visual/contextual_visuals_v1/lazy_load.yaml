@@ -1,0 +1,11 @@
+# =============================================================================
+# LAZY LOAD — rare assets on demand
+# =============================================================================
+
+LazyLoad:
+  rule: rare visual assets — lazy load on first use
+  ref: preload.yaml
+
+events:
+  items:
+    - VisualLazyLoaded

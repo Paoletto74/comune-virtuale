@@ -1,0 +1,9 @@
+# =============================================================================
+# WITHDRAWALS — economy_v1
+# =============================================================================
+
+---
+Withdrawals:
+  flow: Bank to Cash
+  accounting: NOT money creation
+  status: DECISIONE APPROVATA

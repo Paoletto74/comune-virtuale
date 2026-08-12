@@ -1,0 +1,33 @@
+# =============================================================================
+# INJURIES — no morte permanente
+# =============================================================================
+
+InjurySystem:
+  enabled: true
+
+  DECISIONE APPROVATA:
+    - NO morte permanente personaggio
+    - Infortuni sul lavoro possibili
+    - Conseguenze giocabili, non game over
+
+  consequences:
+    - temporary_unable_to_work
+    - reduced_income
+    - increased_expenses
+    - health_modification
+    - stress_modification
+    - tasks_events
+    - other_TBD
+
+  probability: TBD
+  duration: TBD
+  placeholderKeys:
+    - INJURY_PROBABILITY
+    - INJURY_DURATION_MIN
+    - INJURY_DURATION_MAX
+
+  perJobConfigurable: true
+
+  emits:
+    - Action(WorkInjury)
+    - notification: work_injury

@@ -1,0 +1,11 @@
+# =============================================================================
+# SYSTEM ACCOUNTS — economy_v1
+# =============================================================================
+
+---
+SystemAccounts:
+  types:
+  - System Treasury
+  - Reserve
+  caution: extreme caution
+  status: PROPOSTA TECNICA

@@ -1,0 +1,18 @@
+# =============================================================================
+# CITIZEN NAME — name validation
+# =============================================================================
+
+CitizenName:
+  required: Nome
+  optional: Cognome — policy DA DEFINIRE / TBD
+  validation:
+    items:
+      - length
+      - allowed_characters
+      - prohibited_content
+      - uniqueness_se_richiesta
+  moderation: ref moderation.yaml — profanity/abuse
+
+events:
+  items:
+    - CitizenNameValidated

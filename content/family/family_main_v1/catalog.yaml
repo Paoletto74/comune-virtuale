@@ -1,0 +1,88 @@
+# =============================================================================
+# FAMILY & RELATIONSHIP MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: cittadino non vive isolato — famiglia NON obbligatoria
+# RELATIONSHIP ≠ FAMILY — FAMILY ≠ HOUSEHOLD
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1, mobility_main_v1,
+#               task_main_v1, criminal_main_v1, political_main_v1, business_main_v1
+# Valori numerici: TBD — simulazione semplificata, NON simulatore sociale estremo
+# =============================================================================
+
+catalogId: family_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  business: business_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - RELATIONSHIP ≠ FAMILY ≠ HOUSEHOLD
+  - Famiglia NON obbligatoria — single può raggiungere livelli alti
+  - Figli = NPC persistenti che evolvono — non semplici numeri
+  - NO morte permanente player — già deciso
+  - Supporto economico via Economy Pipeline — NO cash diretto
+  - Effetti via Task System generic effects — NO formule duplicate
+  - Famiglia = costi + supporto + rischi + opportunità — non sempre vantaggiosa
+  - Content-first — NO if hasChild then ...
+  - Client non autoritativo — audit + idempotenza
+  - NO AI runtime / servizi esterni
+
+includes:
+  relationships: relationships.yaml
+  relationship_types: relationship_types.yaml
+  family: family.yaml
+  household: household.yaml
+  partners: partners.yaml
+  children: children.yaml
+  age: age.yaml
+  events: events.yaml
+  tasks: tasks.yaml
+  support: support.yaml
+  milestones: milestones.yaml
+  visibility: visibility.yaml
+  npc: npc.yaml
+  inheritance: inheritance.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  relationship_core: [relationships, relationship_types]
+  family_core: [family, household, partners, children]
+  lifecycle_module: [age, events, milestones]
+  support_module: [support, tasks]
+
+responsibilitySplit:
+  familySystemDecides:
+    items:
+      - relationship_state
+      - family_state
+      - household_relationships
+      - family_events
+      - relationship_progression
+      - family_milestones
+      - family_support_context
+      - age_progression
+  otherSystemsDecide:
+    economy: money_ledger
+    work: lavoro
+    property: immobili
+    mobility: veicoli
+    business: aziende
+    criminal: criminalita
+    political: politica
+    progression: mainLevel
+    task: scelta_outcome
+    time: tempo
+    notification: notifiche

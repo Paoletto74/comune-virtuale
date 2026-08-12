@@ -1,0 +1,23 @@
+# =============================================================================
+# APPROVAL — EDITOR, REVIEWER, ADMIN
+# =============================================================================
+
+ApprovalWorkflow:
+  status: PROPOSTA TECNICA — V1 può essere semplificato
+  roles:
+    items:
+      - EDITOR
+      - REVIEWER
+      - ADMIN
+  flow:
+    items:
+      - EDITOR
+      - REVIEWER
+      - ADMIN
+      - PUBLISH
+
+events:
+  items:
+    - ContentSubmittedForApproval
+    - ContentApproved
+    - ContentRejected

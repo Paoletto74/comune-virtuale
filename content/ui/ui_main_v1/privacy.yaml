@@ -1,0 +1,19 @@
+# =============================================================================
+# UI PRIVACY — presentation layer
+# =============================================================================
+
+UIPrivacy:
+  rule: UI rispetta policy dei domini autorevoli
+  alignsWith:
+    items:
+      - profile_main_v1/privacy.yaml
+      - social_main_v1/privacy.yaml
+      - banking_main_v1/privacy.yaml
+      - marketplace_main_v1/privacy.yaml
+
+citizensListPrivacy:
+  ref: citizens.yaml
+
+events:
+  items:
+    - UIPrivacyFilterApplied

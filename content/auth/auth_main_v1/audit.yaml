@@ -1,0 +1,36 @@
+# =============================================================================
+# AUDIT — authentication & security
+# =============================================================================
+
+AuthenticationAudit:
+  DECISIONE APPROVATA: registrare eventi importanti
+  events:
+    items:
+      - login
+      - logout
+      - failed_login
+      - password_reset
+      - google_authentication
+      - identity_linking
+      - admin_login
+      - permission_change
+      - admin_creation
+      - admin_revocation
+      - sensitive_action
+
+AuditPrivacy:
+  DECISIONE APPROVATA: audit NON espone inutilmente
+  mustNotLog:
+    items:
+      - password
+      - token
+      - secret
+      - sensitive_personal_data
+
+AuditImmutability:
+  DECISIONE APPROVATA: audit sicurezza importanti difficili da alterare/cancellare
+  storage: TBD
+
+events:
+  items:
+    - AuditLogEntryCreated

@@ -1,0 +1,17 @@
+# =============================================================================
+# PROCEDURAL HEADLINES — future generation
+# =============================================================================
+
+ProceduralHeadlines:
+  status: PROPOSTA TECNICA — NON generare testo arbitrario lato frontend
+  futureInputs:
+    items:
+      - event_type
+      - citizen_context
+      - municipality_context
+  example: "IMPENNATA DEL MERCATO IMMOBILIARE: NUOVO ACQUISTO NEL QUARTIERE NORD"
+  sourceOfTruth: Content System / backend — NON frontend
+
+events:
+  items:
+    - ProceduralHeadlineGenerated

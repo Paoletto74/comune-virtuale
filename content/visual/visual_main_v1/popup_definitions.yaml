@@ -1,0 +1,83 @@
+# =============================================================================
+# IMPORTANT POPUP DEFINITIONS
+# =============================================================================
+
+ImportantPopup:
+  DECISIONE APPROVATA: |
+    Notifiche personali più importanti possono apparire come POPUP audiovisivi.
+  examples:
+    items:
+      - promotion
+      - hired
+      - fired
+      - major_loss
+      - major_gain
+      - new_level
+      - election
+      - important_purchase
+      - important_sale
+      - bankruptcy
+      - exceptional_event
+
+PopupDefinition:
+  schema:
+    popupId: string
+    priority: INFO | IMPORTANT | MAJOR | LEGENDARY
+    iconAssetId: "string | null"
+    titleKey: string
+    messageKey: string
+    imageAssetId: "string | null"
+    animationId: "string | null"
+    soundId: "string | null"
+    duration: TBD
+    actionButton: object
+    deepLink: "string | null"
+    idempotencyKey: string
+
+popupStructureExample:
+  status: esempio concettuale
+  title: "PROMOZIONE!"
+  message: "Sei stato promosso a Responsabile."
+  elements:
+    items:
+      - icon
+      - title
+      - message
+      - image
+      - action_button
+      - deep_link
+
+popupPriorities:
+  status: PROPOSTA TECNICA — comportamento TBD
+  levels:
+    items:
+      - INFO
+      - IMPORTANT
+      - MAJOR
+      - LEGENDARY
+
+popupQueue:
+  status: PROPOSTA TECNICA
+  rule: NON mostrare 5 popup sovrapposti
+  behaviors:
+    items:
+      - priority
+      - queue
+      - merge
+      - collapse
+      - discard_duplicate
+
+popupDuplication:
+  DECISIONE APPROVATA: proteggere con eventId, notificationId, idempotency
+
+offlinePopups:
+  DECISIONE APPROVATA: |
+    Eventi offline al login: recupera, determina priorità,
+    popup solo rilevanti — NON bombardare con 30 popup.
+
+events:
+  items:
+    - PopupTriggered
+    - PopupDisplayed
+    - PopupDismissed
+    - PopupQueued

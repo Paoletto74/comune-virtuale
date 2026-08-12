@@ -1,0 +1,17 @@
+# =============================================================================
+# FINANCIAL PRIVACY — economy_v1
+# =============================================================================
+
+---
+FinancialPrivacy:
+  notPublic:
+  - bank balance
+  - transaction history
+  - debt details
+  - account numbers
+  possiblePublic:
+  - wealth ranking
+  - net worth
+  - liquidity category
+  policy: TBD
+  status: DECISIONE APPROVATA

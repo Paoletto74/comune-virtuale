@@ -1,0 +1,69 @@
+# =============================================================================
+# INTEGRATION — progression_main_v1 + progression_balance_v1
+# =============================================================================
+# PROPOSTA TECNICA: come il motore combina CONTENT + BALANCE
+# NON implementato — documentazione architetturale
+# =============================================================================
+
+integration:
+  model: CONTENT_PLUS_BALANCE
+
+  contentPack:
+    path: ../progression_main_v1
+    catalogId: progression_main_v1
+    provides:
+      - levelId, level, defaultLabel
+      - narrativeTier, narrativeFunction
+      - unlockCategories (narrative)
+      - branchNodes, titleCandidates, milestoneContributors
+      - requirementStructure (placeholderKey references)
+
+  balancePack:
+    path: ./progression_balance_v1
+    balanceId: progression_balance_v1
+    provides:
+      - difficultyScore, estimatedTimeToReach
+      - requirementGroups (resolved values via placeholderRegistry)
+      - preferredActivities, alternativePaths (balance perspective)
+      - antiGrindNotes, relativeRequirements (future)
+
+  linkKey: levelId
+
+  resolutionPipeline:
+    - step: load_level_from_content
+      source: progression_main_v1/levels.yaml
+      key: levelId
+    - step: load_balance_from_balance
+      source: progression_balance_v1/levels_balance.yaml
+      key: levelId
+    - step: merge_requirements
+      rule: |
+        Content definisce struttura e placeholderKey.
+        Balance fornisce requirementGroups dettagliati e valori TBD.
+        Motore unisce: stesso levelId → single evaluation set.
+        Se conflitto: balance override su valori numerici; content override su narrativa.
+    - step: resolve_placeholders
+      source: progression_balance_v1/placeholders.yaml
+      rule: placeholderKey → value (TBD finché non calibrato)
+    - step: evaluate
+      engine: Requirement Engine
+    - step: apply_unlocks
+      source: content unlockCategories → future unlock catalog
+
+  rules:
+    - NON duplicare defaultLabel, narrativeFunction in balance
+    - NON inserire valori numerici definitivi in content pack
+    - NON hardcodare if level == X nel motore
+    - Mayor role: mai in balance levelUp; modulo politico separato
+
+  missingBalanceEntry:
+    behavior: TBD
+    options: [reject_load, use_content_only, warn_admin]
+
+  missingContentEntry:
+    behavior: reject_load
+
+  versionMismatch:
+    contentVersion: progression_main_v1@1.0.0
+    balanceVersion: progression_balance_v1@1.0.0
+    policy: TBD

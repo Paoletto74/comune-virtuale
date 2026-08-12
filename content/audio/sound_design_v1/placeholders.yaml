@@ -1,0 +1,34 @@
+# =============================================================================
+# PLACEHOLDERS — TBD items and open decisions
+# =============================================================================
+
+Placeholders:
+  TBD:
+    items:
+      - priority_definitive_values
+      - sound_length_definitive_values
+      - audio_format_technology
+      - loudness_standard
+      - compression_settings
+      - cooldown_intervals_per_category
+      - max_simultaneous_sounds_count
+      - haptic_integration
+      - music_implementation
+      - ambient_implementation
+      - AI_audio_provider
+      - CDN_audio_delivery
+  approvedPrinciples:
+    items:
+      - audio significativo non decorativo
+      - gerarchia sonora — NON suono per ogni azione
+      - semantic audio — eventType not file path
+      - backend authority for thresholds
+      - accessibility — no audio-only critical info
+      - gameplay integrity — mute does not change outcomes
+      - anti-spam — queue, cooldown, grouping
+      - soundAssetId — no hardcoded URLs
+      - microphone OFF / NOT REQUIRED
+
+events:
+  items:
+    - PlaceholderResolved

@@ -1,0 +1,24 @@
+# =============================================================================
+# AVATAR — avatar policy
+# =============================================================================
+
+Avatar:
+  uses:
+    items:
+      - citizen_list
+      - ranking_list
+      - profile_header
+      - social_interaction
+  policy:
+    status: DA DEFINIRE / TBD
+    options:
+      items:
+        - custom_avatar
+        - generated_avatar
+        - preset_character
+  playerGenerated:
+    status: workflow separato — NON assumere V1
+
+events:
+  items:
+    - AvatarResolved

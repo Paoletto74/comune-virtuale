@@ -1,0 +1,79 @@
+# =============================================================================
+# COSTS — costi di utilizzo (separati dal valore veicolo)
+# =============================================================================
+
+CostTypes:
+  items:
+    - costId: fuel_energy
+      label: Carburante / energia
+      appliesTo: vehicle_use
+      recurring: per_trip
+    - costId: toll
+      label: Pedaggi
+      appliesTo: vehicle_use
+      recurring: per_trip
+    - costId: parking
+      label: Parcheggio
+      appliesTo: destination
+      recurring: per_trip
+    - costId: public_transport_fare
+      label: Biglietto trasporto pubblico
+      appliesTo: public_transport
+      recurring: per_trip
+    - costId: wear
+      label: Usura
+      appliesTo: vehicle_use
+      recurring: per_trip
+    - costId: maintenance_triggered
+      label: Manutenzione da utilizzo
+      appliesTo: vehicle
+      recurring: conditional
+  values: TBD
+
+operatingCostModel:
+  DECISIONE APPROVATA: |
+    Possedere veicolo ≠ unico costo.
+    Utilizzo genera costi aggiuntivi configurabili.
+  factors:
+    items:
+      - mode
+      - vehicleType
+      - distance
+      - fuelType
+      - zone
+      - condition
+  formula: TBD
+
+paymentFlow:
+  rule: DECISIONE APPROVATA — NO modifica diretta cash
+  examples:
+    fuel: |
+      Travel → FuelCost Event
+      → Economy Pipeline
+      → Transaction
+      → Ledger
+    public_transport: |
+      Travel → PublicTransportFare Event
+      → Economy Pipeline
+      → Transaction
+      → Ledger
+
+recurringVsPerTrip:
+  perTrip:
+    items:
+      - fuel
+      - tolls
+      - parking
+      - public_transport_fare
+      - wear
+  recurring:
+    items:
+      - maintenance_scheduled
+      - insurance_future
+
+events:
+  items:
+    - TravelCostIncurred
+    - FuelCostDue
+    - ParkingCostDue
+    - PublicTransportFarePaid

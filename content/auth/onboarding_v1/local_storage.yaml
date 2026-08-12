@@ -1,0 +1,18 @@
+# =============================================================================
+# LOCAL STORAGE — UI cache only, not authority
+# =============================================================================
+
+LocalStorage:
+  allowed:
+    items:
+      - UI_preferences
+      - onboarding_UI_progress_cache
+  forbidden:
+    items:
+      - game_state_authoritative
+      - session_secrets
+  security: ref account_security.yaml
+
+events:
+  items:
+    - LocalStorageUsed

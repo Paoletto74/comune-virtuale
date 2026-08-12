@@ -1,0 +1,27 @@
+# =============================================================================
+# RANKING API — derived data
+# =============================================================================
+
+RankingApi:
+  sourceOfTruth: RankingService — DERIVED
+  endpoints:
+    items:
+      - "GET /api/v1/rankings"
+      - "GET /api/v1/rankings/:type"
+      - "GET /api/v1/rankings/:type/position/:citizenId"
+      - "GET /api/v1/rankings/:type/snapshots"
+
+response:
+  fields:
+    items:
+      - ranking_type
+      - current_ranking
+      - position
+      - percentile
+      - historical_snapshots
+
+rule: ranking e derived — NON campo manuale
+
+events:
+  items:
+    - RankingApiRequestProcessed

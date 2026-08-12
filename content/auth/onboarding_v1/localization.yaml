@@ -1,0 +1,12 @@
+# =============================================================================
+# LOCALIZATION — it-IT default, multi-locale ready
+# =============================================================================
+
+Localization:
+  defaultLocale: it-IT
+  rule: architettura pronta per altre lingue
+  ref: content_system_v1/localization.yaml
+
+events:
+  items:
+    - OnboardingLocalized

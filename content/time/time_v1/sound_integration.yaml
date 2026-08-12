@@ -1,0 +1,11 @@
+# =============================================================================
+# SOUND INTEGRATION — time_v1
+# =============================================================================
+
+---
+SoundIntegration:
+  ref: sound_design_v1
+  rule: soundCueId if significant
+events:
+  items:
+  - TimeSoundPlayed

@@ -1,0 +1,19 @@
+# =============================================================================
+# HUMOR CONTENT — tono ironico configurabile
+# =============================================================================
+
+HumorContent:
+  DECISIONE APPROVATA: tono ironico configurabile via Admin
+  editableIn:
+    items:
+      - empty_states
+      - popup
+      - task_descriptions
+      - news_headlines
+      - ranking_names
+      - flavor_text
+      - ui_humor
+
+events:
+  items:
+    - HumorContentUpdated

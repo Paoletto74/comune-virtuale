@@ -1,0 +1,15 @@
+# =============================================================================
+# RATE LIMITS — per actor, command, endpoint
+# =============================================================================
+
+RateLimitContract:
+  status: TBD valori
+  scope:
+    items:
+      - actor
+      - endpoint_or_command
+      - ip_or_device_if_appropriate
+
+events:
+  items:
+    - RateLimitExceeded

@@ -1,0 +1,71 @@
+# =============================================================================
+# INTEGRATIONS — tutti i pack e engine
+# =============================================================================
+
+integrations:
+
+  contentPacks:
+    status: target di editing — pack approvati NON modificati da questo pack
+    items:
+      - task_main_v1
+      - event_main_v1
+      - inventory_main_v1
+      - marketplace_main_v1
+      - work_main_v1
+      - notification_main_v1
+      - social_main_v1
+      - profile_main_v1
+      - visual_main_v1
+      - ui_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - economy_main_v1
+      - banking_main_v1
+      - political_main_v1
+      - criminal_main_v1
+      - npc_main_v1
+      - time_main_v1
+
+  gameEngines:
+    rule: Admin edita content — Engines autorevoli su runtime behavior
+    items:
+      - task_engine
+      - event_engine
+      - economy_engine
+      - banking_engine
+      - work_engine
+      - marketplace_engine
+      - notification_engine
+      - progression_engine
+
+  authentication_future:
+    direction: auth → admin studio
+    owns: admin_login
+
+  time_main_v1:
+    direction: time → studio
+    owns: scheduled_publish_execution
+
+  visual_main_v1:
+    direction: bidirectional
+    studioEdits: metadata
+    visualOwns: storage_presentation
+
+  adminUx:
+    DECISIONE APPROVATA: |
+      Pannello semplice, chiaro, veloce, orientato contenuto, non tecnico.
+      Admin non deve conoscere YAML — YAML/JSON modalità avanzata/import.
+
+  chatGptIntegration:
+    DECISIONE APPROVATA: workflow ideale documentato in import.yaml
+    noAiRuntime: NO AI generation/interpretation obbligatoria V1
+
+  separationOfConcerns:
+    studioMustNot:
+      items:
+        - modify_game_code
+        - modify_database_schema
+        - bypass_engine_rules
+        - auto_publish_on_save
+        - allow_free_chat_via_social_editor
+        - modify_core_formulas_directly

@@ -1,0 +1,16 @@
+# =============================================================================
+# SIMULATION SPEED — REALTIME, FAST, PAUSED, SIMULATION
+# =============================================================================
+
+SimulationSpeed:
+  status: PROPOSTA TECNICA — NON implementare
+  modes:
+    items:
+      - REALTIME
+      - FAST
+      - PAUSED
+      - SIMULATION
+
+events:
+  emits: [SimulationSpeedChanged]
+  consumes: []

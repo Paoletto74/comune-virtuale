@@ -1,0 +1,62 @@
+# =============================================================================
+# NPC DECISION MODEL — rule-based, seeded, NO AI
+# =============================================================================
+
+DecisionDefinition:
+  schema:
+    decisionId: string
+    decisionType: string
+    conditionRefs: []
+    probabilityRef: string | null
+    outcomeRefs: []
+    tierMinimum: "TIER_0 | TIER_1 | TIER_2 | TIER_3"
+
+NPCDecisionContext:
+  schema:
+    citizenId: string
+    economicSegment: string
+    lifeSituation: string
+    jobRef: string | null
+    householdRef: string | null
+    needsRef: string
+    riskTolerance: TBD
+    preferences: {}
+    currentEvents: []
+    seed: string
+
+DeterministicDecisions:
+  DECISIONE APPROVATA: |
+    rule-based + probabilistic + seeded + riproducibile.
+    NO AI / LLM.
+  example: |
+    lowCash + unemployed + highNeed
+    → maggiore probabilità cercare lavoro
+
+NpcRandomness:
+  DECISIONE APPROVATA: |
+    Deterministico dove necessario.
+    Auditabile — separabile per NPC/evento.
+    NO random globale non tracciabile.
+  fields:
+    items:
+      - populationSeed
+      - npcSeed
+      - eventSeed
+      - decisionSeed
+
+decisionTypes:
+  status: skeleton
+  items:
+    - seek_employment
+    - accept_job_offer
+    - consume_goods
+    - seek_housing
+    - save_or_spend
+    - vote
+    - criminal_opportunity
+    - business_action
+
+events:
+  items:
+    - NpcDecisionEvaluated
+    - NpcDecisionOutcomeApplied

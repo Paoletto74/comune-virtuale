@@ -1,0 +1,73 @@
+# =============================================================================
+# VEHICLE TYPES — definizioni (Vehicle Definition)
+# =============================================================================
+# Esempio: "Auto economica" = definizione
+#          "Fiat X vehicleId Y di Mario" = istanza (vehicles.yaml)
+# =============================================================================
+
+VehicleDefinition:
+  schema:
+    typeId: string
+    name: string
+    categoryId: string
+    description: string
+    baseValue: TBD
+    baseSpeed: TBD
+    reliability: TBD
+    comfort: TBD
+    operatingCost: TBD
+    maintenanceCost: TBD
+    fuelType: TBD
+    capacity: TBD
+    tags: []
+
+categories:
+  items:
+    - categoryId: bicycle
+      label: Bicicletta
+    - categoryId: scooter
+      label: Scooter / motorino
+    - categoryId: motorcycle
+      label: Moto
+    - categoryId: compact_car
+      label: Auto compatta
+    - categoryId: sedan
+      label: Berlina
+    - categoryId: suv
+      label: SUV
+    - categoryId: luxury_car
+      label: Auto di lusso
+    - categoryId: van
+      label: Furgone
+    - categoryId: commercial_vehicle
+      label: Veicolo commerciale
+    - categoryId: special_vehicle
+      label: Veicolo speciale
+  notes: Lista non definitiva — nuove categorie senza modificare motore
+
+definitions:
+  status: skeleton_only
+  note: Catalogo definitivo veicoli — DA DEFINIRE
+  examples:
+    items:
+      - typeId: TYPE_BIKE_BASIC
+        categoryId: bicycle
+        name: Bicicletta base
+        baseValue: TBD
+        baseSpeed: TBD
+        reliability: TBD
+      - typeId: TYPE_CAR_ECONOMY
+        categoryId: compact_car
+        name: Auto economica
+        baseValue: TBD
+        baseSpeed: TBD
+        reliability: TBD
+
+valueSeparation:
+  DECISIONE APPROVATA:
+    items:
+      - purchasePrice
+      - marketValue
+      - operatingCost
+      - maintenanceCost
+  note: Valore veicolo ≠ costo utilizzo

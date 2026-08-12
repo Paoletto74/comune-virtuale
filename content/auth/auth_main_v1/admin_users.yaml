@@ -1,0 +1,24 @@
+# =============================================================================
+# ADMIN USER MANAGEMENT
+# =============================================================================
+
+AdminUserManagement:
+  status: PROPOSTA TECNICA
+  rule: |
+    Solo OWNER o permission equivalente può:
+    creare/modificare/revocare Admin, assegnare permission, sospendere Admin.
+  mustNot: Admin auto-promuoversi
+
+AdminSuspension:
+  DECISIONE APPROVATA: |
+    Admin sospeso da funzioni Admin — Citizen associato può restare.
+
+playerSuspension:
+  DECISIONE APPROVATA: |
+    Citizen sospeso dal gioco — Account può restare distinto.
+
+events:
+  items:
+    - AdminUserCreated
+    - AdminUserModified
+    - AdminUserSuspended

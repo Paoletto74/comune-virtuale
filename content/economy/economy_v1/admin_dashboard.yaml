@@ -1,0 +1,17 @@
+# =============================================================================
+# ADMIN DASHBOARD — economy_v1
+# =============================================================================
+
+---
+AdminDashboard:
+  metrics:
+  - total supply
+  - player money
+  - NPC money
+  - business money
+  - treasury
+  - daily creation/destruction
+  - inflation
+  - wealth stats
+  - transaction volume
+  status: DECISIONE APPROVATA

@@ -1,0 +1,35 @@
+# =============================================================================
+# PROGRESSION RUNTIME — event-triggered evaluation, demotion
+# =============================================================================
+
+ProgressionRuntime:
+  activation:
+    items:
+      - domain_events
+      - scheduled_evaluation
+      - player_actions
+  rule: NON ricalcolare tutti i 30 livelli ogni tick
+
+evaluationTriggers:
+  examples:
+    items:
+      - income_changed
+      - education_changed
+      - milestone_completed
+      - influence_changed
+      - net_worth_changed
+
+demotion:
+  modes:
+    items:
+      - event_triggered
+      - scheduled
+      - inactivity_based
+  rule: secondo demotion rules — ref progression_main_v1
+
+sourceOfTruth: Progression
+executionMode: event-driven primarily
+
+events:
+  emits: [LevelReached, LevelLost, MilestoneReached]
+  consumes: [TaskCompleted, SalaryPaid, PropertyPurchased]

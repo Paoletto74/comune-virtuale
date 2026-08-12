@@ -1,0 +1,14 @@
+# =============================================================================
+# CAUSAL CHAIN — task_extensions_v1
+# =============================================================================
+
+---
+CausalChainExtensions:
+  approvedInMain: true
+  purpose:
+  - audit
+  - debugging
+  - story explanation
+  - delayed evaluation
+  exampleChain: Task A -> Event B -> Task C -> Economy -> Notification
+  status: DECISIONE APPROVATA inherited clarifies usage

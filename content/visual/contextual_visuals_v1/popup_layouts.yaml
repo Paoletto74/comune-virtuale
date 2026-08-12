@@ -1,0 +1,23 @@
+# =============================================================================
+# POPUP LAYOUTS — composition types
+# =============================================================================
+
+PopupLayouts:
+  types:
+    IMAGE_TOP: image above headline and body
+    IMAGE_SIDE: image beside text — tablet/desktop
+    IMAGE_BACKGROUND: image as background with overlay text
+    CHARACTER_OBJECT: character + object composition
+    FULL_BLEED: large visual edge-to-edge — CRITICAL events
+    EDITORIAL_CARD: newspaper-style card — news, articles
+  selection:
+    factors:
+      items:
+        - popup_type
+        - severity
+        - device
+        - asset_metadata
+
+events:
+  items:
+    - PopupLayoutSelected

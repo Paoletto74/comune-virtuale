@@ -1,0 +1,61 @@
+# =============================================================================
+# VISIBILITY — privacy percorso criminale
+# =============================================================================
+# Coerente con progression_main_v1/visibility.yaml e task_main_v1
+# =============================================================================
+
+visibilityLevels:
+  items:
+    - level: PUBLIC
+      description: Visibile nel profilo pubblico
+    - level: PRIVATE
+      description: Solo al cittadino / sistema
+    - level: HIDDEN
+      description: Non mostrato — conseguenze nascoste
+    - level: DISCOVERABLE
+      description: Scopribile tramite eventi/indagini
+
+defaults:
+  criminalTrack: PRIVATE
+  criminalLevel: PRIVATE
+  criminalExperience: PRIVATE
+  criminalReputation: PRIVATE
+  criminalHeat: PRIVATE
+  criminalMilestones: PRIVATE
+  discoveryStatus: PRIVATE
+  prisonStatus: DISCOVERABLE
+  note: Coerente con progression_main_v1 tracks.yaml criminal defaultVisibility PRIVATE
+
+publicProfile:
+  shows:
+    items:
+      - wealth_indicators
+      - prestige_assets
+      - mainLevel
+      - public_tracks
+  doesNotShow:
+    items:
+      - criminal_track_level
+      - criminal_milestones
+      - criminal_reputation
+      - heat
+      - undiscovered_crimes
+      - asset_origin
+      - income_streams_detail
+  example: |
+    "Questo cittadino è molto ricco" — NON "ricco grazie alla criminalità"
+
+notifications:
+  rule: |
+    NON rivelare informazioni private a cittadini che non dovrebbero conoscerle.
+  personalOnly:
+    items:
+      - fine_received
+      - arrest
+      - seizure
+      - investigation_against_you
+  globalWhenAppropriate:
+    items:
+      - major_arrest_public_figure
+      - new_anti_crime_law
+    filter: role_based_TBD

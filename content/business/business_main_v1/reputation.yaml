@@ -1,0 +1,37 @@
+# =============================================================================
+# REPUTATION — reputazione aziendale
+# =============================================================================
+
+CompanyReputation:
+  schema:
+    companyId: string
+    reputationValue: TBD
+    tier: TBD
+    lastUpdated: timestamp
+
+  DECISIONE APPROVATA: |
+    companyReputation ≠ ownerReputation (reputazione pubblica proprietario).
+    Alta rep. azienda + proprietario poco stimato — possibile.
+    Bassa rep. azienda + proprietario rispettato — possibile.
+
+influences:
+  items:
+    - quality
+    - customers_satisfaction
+    - tasks
+    - events
+    - incidents
+    - owner_decisions
+    - employee_behavior
+    - pricing
+  formula: TBD
+
+demandLink:
+  ref: revenue.yaml
+  note: Reputazione influenza domanda
+
+events:
+  items:
+    - CompanyReputationChanged
+    - ReputationIncident
+    - ReputationBoost

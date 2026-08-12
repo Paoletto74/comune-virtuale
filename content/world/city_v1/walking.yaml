@@ -1,0 +1,12 @@
+# =============================================================================
+# WALKING — pedestrian movement
+# =============================================================================
+
+Walking:
+  status: PROPOSTA TECNICA
+  rule: Citizen puo eventualmente muoversi a piedi
+  rules: DA DEFINIRE / TBD
+
+events:
+  items:
+    - WalkingTravelStarted

@@ -1,0 +1,150 @@
+# =============================================================================
+# PROPERTY V1 CATALOG
+# =============================================================================
+# Proposta architetturale Property, Real Estate & Housing
+# Estende property_main_v1 senza modificarlo
+# =============================================================================
+
+catalogId: property_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  propertyMain: property_main_v1
+  economyMain: economy_main_v1
+  economy: economy_v1
+  timeMain: time_main_v1
+  time: time_v1
+  city: city_v1
+  cityLife: city_life_v1
+  marketplace: marketplace_main_v1
+  business: business_main_v1
+  mobility: mobility_main_v1
+  work: work_main_v1
+  workCareers: work_careers_v1
+  criminal: criminal_main_v1
+  profile: profile_main_v1
+  npc: npc_main_v1
+  newspaper: newspaper_v1
+  contentSystem: content_system_v1
+  contextualVisuals: contextual_visuals_v1
+  soundDesign: sound_design_v1
+  frontend: frontend_ui_v1
+  contracts: contracts_v1
+
+principles:
+  - PROPERTY SYSTEM SOT per identity ownership occupancy rental valuation
+  - Property != Economy != Marketplace != City
+  - Housing != Ownership - primary residence separate
+  - Purchase/rent atomic - mai denaro senza property o viceversa
+  - Property NON e liquidita
+  - Economy esegue pagamenti - Property decide condizioni
+  - Integra property_main_v1 - NON lo modifica
+  - Mortgage/eviction NON V1 senza regole esplicite
+
+includes:
+  principles: principles.yaml
+  property_types: property_types.yaml
+  properties: properties.yaml
+  residential: residential.yaml
+  commercial: commercial.yaml
+  location: location.yaml
+  address: address.yaml
+  property_status: property_status.yaml
+  ownership: ownership.yaml
+  ownership_history: ownership_history.yaml
+  co_ownership_future: co_ownership_future.yaml
+  primary_residence: primary_residence.yaml
+  multiple_properties: multiple_properties.yaml
+  occupancy: occupancy.yaml
+  tenancy: tenancy.yaml
+  rental_contract: rental_contract.yaml
+  rent: rent.yaml
+  rent_payment: rent_payment.yaml
+  rent_failure: rent_failure.yaml
+  grace_period: grace_period.yaml
+  eviction_future: eviction_future.yaml
+  rental_history: rental_history.yaml
+  security_deposit: security_deposit.yaml
+  property_sale: property_sale.yaml
+  property_purchase: property_purchase.yaml
+  purchase_atomicity: purchase_atomicity.yaml
+  property_listing: property_listing.yaml
+  property_market: property_market.yaml
+  property_price: property_price.yaml
+  property_valuation: property_valuation.yaml
+  value_types: value_types.yaml
+  value_history: value_history.yaml
+  net_worth_integration: net_worth_integration.yaml
+  liquidity: liquidity.yaml
+  mortgage_future: mortgage_future.yaml
+  property_tax: property_tax.yaml
+  municipal_property_tax: municipal_property_tax.yaml
+  maintenance: maintenance.yaml
+  property_condition: property_condition.yaml
+  maintenance_cost: maintenance_cost.yaml
+  maintenance_failure: maintenance_failure.yaml
+  upgrades: upgrades.yaml
+  property_features: property_features.yaml
+  property_stats: property_stats.yaml
+  comfort_future: comfort_future.yaml
+  prestige: prestige.yaml
+  social_effect: social_effect.yaml
+  property_showcase: property_showcase.yaml
+  showcase_contract: showcase_contract.yaml
+  utilities: utilities.yaml
+  residence: residence.yaml
+  housing: housing.yaml
+  housing_status: housing_status.yaml
+  property_history: property_history.yaml
+  property_events: property_events.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  sound_integration: sound_integration.yaml
+  visual_integration: visual_integration.yaml
+  newspaper_integration: newspaper_integration.yaml
+  economy_integration: economy_integration.yaml
+  time_integration: time_integration.yaml
+  city_integration: city_integration.yaml
+  marketplace_integration: marketplace_integration.yaml
+  business_integration: business_integration.yaml
+  mobility_integration: mobility_integration.yaml
+  profile_integration: profile_integration.yaml
+  criminal_integration: criminal_integration.yaml
+  npc_integration: npc_integration.yaml
+  security: security.yaml
+  rate_limiting: rate_limiting.yaml
+  race_conditions: race_conditions.yaml
+  api: api.yaml
+  cache: cache.yaml
+  offline: offline.yaml
+  realtime: realtime.yaml
+  analytics: analytics.yaml
+  localization: localization.yaml
+  accessibility: accessibility.yaml
+  performance: performance.yaml
+  admin: admin.yaml
+  permissions: permissions.yaml
+  audit: audit.yaml
+  versioning: versioning.yaml
+  testing: testing.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  propertySystemDecides:
+    items:
+      - property identity type ownership occupancy rental status features valuation
+  economyExecutes:
+    items:
+      - purchase payment rent tax maintenance fees
+  cityOwns:
+    items:
+      - location geography district
+  housingOwns:
+    items:
+      - where citizen lives sleeps residence status
+
+alignsWith:
+  note: |
+    Formalizza real estate coerente con property_main_v1 housing e ownership.
+    NON modifica pack approvati. NON implementa runtime.

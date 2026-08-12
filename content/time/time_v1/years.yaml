@@ -1,0 +1,16 @@
+# =============================================================================
+# YEARS — time_v1
+# =============================================================================
+
+---
+GameYear:
+  uses:
+  - elections
+  - anniversaries
+  - economic cycles
+  gameAge: TBD
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - YearStarted
+  - YearEnded

@@ -1,0 +1,24 @@
+# =============================================================================
+# LINKS — internal and external
+# =============================================================================
+
+Links:
+  validation: required
+  classification: required
+  internal:
+    targets:
+      items:
+        - article
+        - citizen
+        - item
+        - marketplace_listing
+        - job
+        - task
+        - municipality
+        - referendum
+  external:
+    rule: require policy — NO arbitrary links without control
+
+events:
+  items:
+    - LinkValidated

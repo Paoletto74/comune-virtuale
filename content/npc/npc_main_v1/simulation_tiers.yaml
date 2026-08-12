@@ -1,0 +1,77 @@
+# =============================================================================
+# SIMULATION TIERS & LOD
+# =============================================================================
+
+SimulationTier:
+  status: PROPOSTA TECNICA — nomenclatura modificabile
+  items:
+    - tierId: TIER_0
+      label: AGGREGATED
+      description: Parte della popolazione aggregata — no stato individuale completo
+    - tierId: TIER_1
+      label: SIMPLIFIED
+      description: Stato individuale — simulazione leggera
+    - tierId: TIER_2
+      label: ACTIVE
+      description: Coinvolto in eventi/interazioni recenti
+    - tierId: TIER_3
+      label: IMPORTANT
+      description: Relazione diretta con giocatore o ruolo rilevante
+
+tierExamples:
+  items:
+    - npc: anonimo
+      tier: TIER_0
+    - npc: entra nel mercato del lavoro
+      tier: TIER_1
+    - npc: assunto dal giocatore
+      tier: TIER_2
+    - npc: figlio del giocatore
+      tier: TIER_3
+    - npc: sindaco NPC
+      tier: TIER_3
+    - npc: proprietario grande azienda
+      tier: TIER_3
+
+SimulationLOD:
+  DECISIONE APPROVATA: livello dettaglio cambia dinamicamente
+  promotion:
+    triggers:
+      items:
+        - hired_by_player
+        - player_relationship
+        - political_role
+        - business_owner_relevant
+        - criminal_event
+        - property_transaction
+        - family_link_to_player
+  dePromotion:
+    DECISIONE APPROVATA: |
+      Quando non più rilevante → tier inferiore.
+      NON perdere identità, dati fondamentali, continuità.
+      NO cambiamenti arbitrari.
+
+NpcImportanceScore:
+  status: PROPOSTA TECNICA
+  factors:
+    items:
+      - player_relationship
+      - political_role
+      - company_ownership
+      - wealth
+      - criminality
+      - recent_events
+      - notoriety
+  rule: Score più alto → tier simulativo più alto
+
+PromotionToImportant:
+  example: |
+    NPC anonimo → assunto dal giocatore → dipendente importante
+    → relazione persistente → promuovere simulation tier
+
+events:
+  items:
+    - SimulationTierChanged
+    - NpcPromoted
+    - NpcDemoted
+    - ImportanceScoreUpdated

@@ -1,0 +1,20 @@
+# =============================================================================
+# ADMIN MAPPING — eventType to visual mapping
+# =============================================================================
+
+AdminMapping:
+  view:
+    columns:
+      items:
+        - Event
+        - Visual
+        - Fallback
+        - Layout
+        - Animation
+        - Sound
+        - Enabled
+  ref: event_mapping.yaml, visual_manifest.yaml
+
+events:
+  items:
+    - AdminVisualMappingUpdated

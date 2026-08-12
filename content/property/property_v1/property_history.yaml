@@ -1,0 +1,12 @@
+# =============================================================================
+# PROPERTY HISTORY — property_v1
+# =============================================================================
+
+---
+PropertyHistory:
+  includes:
+  - ownership
+  - rental
+  - maintenance
+  - valuation
+  status: DECISIONE APPROVATA

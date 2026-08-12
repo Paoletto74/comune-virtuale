@@ -1,0 +1,87 @@
+# =============================================================================
+# TASK OPTIONS — opzioni per definizione
+# =============================================================================
+
+TaskOption:
+  schema:
+    optionId: string
+    taskId: string
+    label: string
+    requirementsRef: string | null
+    probability: TBD
+    immediateEffectsRef: string
+    delayedEffectsRef: string | null
+    generatedEventsRef: string | null
+    generatedTasksRef: string | null
+    visibility: visible | hidden
+    requiresTravel: boolean
+    travelSpecRef: string | null
+
+interactionPatterns:
+  execute_ignore:
+    minOptions: 1
+    maxOptions: 2
+    typicalLabels:
+      items:
+        - Esegui
+        - Ignora
+  variant_n:
+    minOptions: 2
+    maxOptions: TBD
+    configurable: true
+  multiple_choice:
+    minOptions: 2
+    maxOptions: TBD
+    configurable: true
+
+optionSets:
+  status: demo_only
+
+  DEMO_ELDERLY_CROSSING_OPTIONS:
+    taskId: DEMO_ELDERLY_CROSSING
+    pattern: variant_n
+    options:
+      items:
+        - optionId: help
+          label: La aiuti
+          immediateEffectsRef: DEMO_HELP_ELDERLY_IMMEDIATE
+          delayedEffectsRef: DEMO_HELP_ELDERLY_DELAYED
+          note: Ricompensa possibile, reputazione/simpatia, effetti su vittima NPC
+        - optionId: ignore
+          label: La ignori
+          immediateEffectsRef: DEMO_IGNORE_ELDERLY
+          note: Nessun effetto importante o effetti minori
+        - optionId: steal_wallet
+          label: Le rubi il portafoglio
+          immediateEffectsRef: DEMO_STEAL_WALLET_IMMEDIATE
+          delayedEffectsRef: DEMO_STEAL_WALLET_DELAYED
+          note: Guadagno, rischio scoperta, reputazione, criminale, vittima
+
+  DEMO_SUITCASE_OPTIONS:
+    taskId: DEMO_SUITCASE_OFFER
+    pattern: variant_n
+    options:
+      items:
+        - optionId: accept
+          label: Accetta
+          requiresTravel: true
+          immediateEffectsRef: TBD
+          delayedEffectsRef: TBD
+        - optionId: refuse
+          label: Rifiuta
+          immediateEffectsRef: TBD
+        - optionId: ask_contents
+          label: Chiedi cosa contiene
+          immediateEffectsRef: TBD
+          note: Informazioni, rischio modificato
+
+partialOutcomes:
+  status: PROPOSTA_TECNICA
+  example: |
+    Consegna pacco: puntuale | in ritardo | danneggiata | fallita
+  outcomeIds:
+    items:
+      - on_time
+      - late
+      - damaged
+      - failed

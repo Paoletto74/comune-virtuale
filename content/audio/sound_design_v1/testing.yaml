@@ -1,0 +1,26 @@
+# =============================================================================
+# TESTING — cross-platform audio testing
+# =============================================================================
+
+AudioTesting:
+  platforms:
+    items:
+      - Chrome
+      - Edge
+      - Safari
+      - Android
+      - iOS
+      - Windows
+      - macOS
+  scenarios:
+    items:
+      - mute
+      - reduced_sound
+      - autoplay_restrictions
+      - background_tab
+      - low_bandwidth
+  rule: NO runtime implementation V1 — define test strategy
+
+events:
+  items:
+    - AudioTestCompleted

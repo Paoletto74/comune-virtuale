@@ -1,0 +1,14 @@
+# =============================================================================
+# WORK SCHEDULES — work_careers_v1
+# =============================================================================
+
+---
+WorkSchedules:
+  fields:
+  - days
+  - start
+  - end
+  - shifts
+  - breaks
+  timeRef: time_v1
+  status: DECISIONE APPROVATA

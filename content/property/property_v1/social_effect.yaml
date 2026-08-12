@@ -1,0 +1,12 @@
+# =============================================================================
+# SOCIAL EFFECT — property_v1
+# =============================================================================
+
+---
+SocialEffect:
+  luxuryMayInfluence:
+  - profile showcase
+  - social perception
+  - newspaper candidate
+  notAutomaticInfluence: true
+  status: PROPOSTA TECNICA

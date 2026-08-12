@@ -1,0 +1,31 @@
+# =============================================================================
+# LANDING — game landing page
+# =============================================================================
+
+Landing:
+  DECISIONE APPROVATA:
+  type: GAME_LANDING_PAGE
+  communicates:
+    items:
+      - brand
+      - newspaper_identity
+      - citta
+      - atmosfera
+      - concetto_del_gioco
+  elements:
+    items:
+      - logo_masthead
+      - headline
+      - immagine_illustrazione_principale
+      - breve_descrizione
+      - CTA_ENTRA_NELLA_CITTA
+      - Login
+      - Registrazione
+  newspaperIdentity:
+    concept: "prima edizione del quotidiano della citta"
+    rule: coerente con newspaper_v1 — NON pagina giornale complicata
+  ref: newspaper_v1, frontend_ui_v1
+
+events:
+  items:
+    - LandingViewed

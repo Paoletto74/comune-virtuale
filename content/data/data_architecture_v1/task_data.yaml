@@ -1,0 +1,31 @@
+# =============================================================================
+# TASK DATA — definition vs instance
+# =============================================================================
+
+TaskDefinition:
+  type: CONTENT
+  schema:
+    taskId: string
+    contentId: string
+    schemaVersion: number
+
+TaskInstance:
+  type: PERSISTENT
+  sourceOfTruth: Task
+  schema:
+    taskInstanceId: string
+    taskId: string
+    citizenId: string
+    state: TBD
+    startedAt: timestamp
+    completedAt: timestamp
+    progress: object
+    cooldown: TBD
+    outcome: TBD
+
+ref: task_main_v1
+
+events:
+  items:
+    - TaskInstanceStarted
+    - TaskInstanceCompleted

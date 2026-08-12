@@ -1,0 +1,35 @@
+# =============================================================================
+# DATA FETCHING — API client strategy, invalidation
+# =============================================================================
+
+DataFetching:
+  strategy:
+    items:
+      - api_client_centralized
+      - loading_states
+      - cache
+      - invalidation
+      - retry
+      - stale_data_handling
+  rule: NON fetch diretto da ogni componente senza strategia
+
+stateInvalidation:
+  after:
+    items:
+      - purchase
+      - salary
+      - task_completion
+      - gift
+      - loan
+      - vote
+  action: invalidate/revalidate query interessate
+
+globalRefresh:
+  rule: sezione NON mostra dati vecchi dopo mutazione critica
+
+ref: api_client.yaml, client_cache.yaml
+
+events:
+  items:
+    - DataFetched
+    - DataFetchFailed

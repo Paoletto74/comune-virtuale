@@ -1,0 +1,28 @@
+# =============================================================================
+# PAGINATION — cursor standard
+# =============================================================================
+
+PaginationContract:
+  DECISIONE APPROVATA: cursor pagination preferita dove utile
+  standard:
+    cursor: string
+    pageSize: number
+    nextCursor: string
+    hasMore: boolean
+
+listResponse:
+  structure:
+    items: []
+    nextCursor: string
+    hasMore: boolean
+    asOf: timestamp
+
+paginatedQueries:
+  items:
+    - GetCitizens
+    - GetMarketplace
+    - GetNotifications
+
+events:
+  items:
+    - PaginatedQueryExecuted

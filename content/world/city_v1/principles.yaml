@@ -1,0 +1,46 @@
+# =============================================================================
+# PRINCIPLES — city as game world, not decoration
+# =============================================================================
+
+CityPrinciples:
+  DECISIONE APPROVATA:
+  cityAsWorld:
+    contains:
+      items:
+        - cittadini
+        - abitazioni
+        - lavori
+        - aziende
+        - marketplace
+        - Comune
+        - servizi
+        - eventi
+        - attivita
+        - criminalita
+        - politica
+        - luoghi_sociali
+        - infrastrutture
+  qualities:
+    items:
+      - coerente
+      - leggibile
+      - riconoscibile
+      - viva
+      - economicamente_socialmente_politicamente_significativa
+      - espandibile
+  noClientAuthority:
+    forbidden:
+      items:
+        - location_accessible
+        - can_enter
+        - can_purchase
+        - can_work
+        - can_perform_activity
+  gameLocation:
+    rule: posizione Citizen = GAME LOCATION — NON GPS reale
+  noDuplicateDomain:
+    rule: NON creare nuovi Economy/Political/Crime systems — usare domain esistenti
+
+events:
+  items:
+    - CityPrincipleApplied

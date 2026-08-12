@@ -1,0 +1,12 @@
+# =============================================================================
+# DUCKING — future music/ambience lowering
+# =============================================================================
+
+Ducking:
+  status: PROPOSTA TECNICA — future
+  rule: critical sound puo abbassare temporaneamente musica/ambience
+  ref: music.yaml, ambient.yaml
+
+events:
+  items:
+    - AudioDucked

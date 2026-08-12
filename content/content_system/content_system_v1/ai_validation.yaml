@@ -1,0 +1,26 @@
+# =============================================================================
+# AI VALIDATION — prevent hallucination
+# =============================================================================
+
+AiValidation:
+  always:
+    items:
+      - schema_validation
+      - content_safety
+      - reference_validation
+      - human_approval
+  preventHallucination:
+    items:
+      - prezzi
+      - reward
+      - livelli
+      - statistiche
+      - risultati_politici
+      - ownership
+      - eventi_non_esistenti
+  sourceBacked:
+    rule: when AI creates from event, traceable to source event/content
+
+events:
+  items:
+    - AiOutputValidated

@@ -1,0 +1,29 @@
+# =============================================================================
+# PROGRESSION SOUNDS — level up, title, unlock, demotion
+# =============================================================================
+
+ProgressionSounds:
+  LevelUp:
+    cue: progression.level_up
+    priority: HIGH
+    length: major
+    description: immediatamente riconoscibile — achievement motif
+  NewTitle:
+    cue: progression.new_title
+    priority: HIGH
+    length: major
+    description: prestige sound
+  Unlock:
+    cue: progression.discovery
+    priority: NORMAL
+    length: normal
+    description: discovery sound
+  Demotion:
+    cue: progression.demotion
+    priority: HIGH
+    length: normal
+    description: negative progression sound
+
+events:
+  items:
+    - ProgressionSoundTriggered

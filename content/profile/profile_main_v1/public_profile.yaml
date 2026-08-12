@@ -1,0 +1,102 @@
+# =============================================================================
+# PUBLIC PROFILE — consultabile, prestigioso, non investigativo
+# =============================================================================
+
+PublicProfile:
+  DECISIONE APPROVATA: |
+    Consultabile da altri cittadini.
+    Mostra cose interessanti, prestigiose, divertenti.
+    NON scheda investigativa.
+
+publicCore:
+  "DECISIONE APPROVATA": "mostra pubblicamente"
+  fields:
+    items:
+      - displayName
+      - age_if_policy_allows
+      - currentLevel
+      - levelLabel
+      - contextualTitle
+      - job_career_per_policy
+      - activeRole
+      - rankings
+      - recognitions
+      - public_statistics
+      - prestigeAssets
+
+mostExpensiveAssets:
+  DECISIONE APPROVATA: |
+    Mostra soprattutto asset più costosi/prestigiosi.
+    NON tutto il patrimonio composto da ogni singolo bene.
+  examples:
+    items:
+      - most_expensive_home
+      - most_expensive_vehicle
+      - most_expensive_luxury
+      - other_prestige_asset
+
+noFullInventory:
+  "DECISIONE APPROVATA": "profilo pubblico NON mostra"
+  excluded:
+    items:
+      - full_inventory
+      - consumables
+      - all_items
+      - all_vehicles
+      - all_properties
+      - all_assets
+      - all_accounts
+
+publicWealth:
+  status: PROPOSTA TECNICA — policy definitiva TBD
+  mayShow:
+    items:
+      - netWorth
+      - global_position
+      - economic_category
+  displayModes:
+    items:
+      - exact_value
+      - range
+      - ranking_only
+      - anonymized
+
+publicJob:
+  status: PROPOSTA TECNICA
+  example:
+    public: "Medico"
+    notNecessarilyPublic: "Guadagna €X all'anno presso Azienda Y"
+
+publicViewSections:
+  status: PROPOSTA TECNICA
+  sections:
+    items:
+      - OVERVIEW
+      - ACHIEVEMENTS
+      - PUBLIC_CAREER
+      - PUBLIC_ASSETS
+      - PUBLIC_RANKINGS
+      - PUBLIC_SOCIAL
+      - PUBLIC_TITLES
+
+PublicProfileSnapshot:
+  status: PROPOSTA TECNICA — performance, evita query complesse
+  schema:
+    citizenId: string
+    displayName: string
+    currentLevel: number
+    levelLabel: string
+    contextualTitle: string
+    activeRole: string
+    bestAsset: object
+    bestVehicle: object
+    bestProperty: object
+    publicRankings: object
+    publicSocialStats: object
+    publicFacts: object
+    lastUpdatedAt: timestamp
+
+events:
+  items:
+    - PublicProfileUpdated
+    - PublicProfileViewed

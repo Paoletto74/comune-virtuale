@@ -1,0 +1,19 @@
+# =============================================================================
+# PRIVACY — no private data in visuals
+# =============================================================================
+
+Privacy:
+  noAutoPublish:
+    items:
+      - dati_privati
+      - immagini_private
+      - informazioni_finanziarie
+      - informazioni_criminali_private
+  publicProfile:
+    rule: visualizzazione limitata secondo privacy
+  characterPrivacy:
+    ref: character_visuals.yaml
+
+events:
+  items:
+    - VisualPrivacyEnforced

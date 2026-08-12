@@ -1,0 +1,11 @@
+# =============================================================================
+# RACE CONDITIONS — work_careers_v1
+# =============================================================================
+
+---
+RaceConditions:
+  atomicHiring: validate create employment update position emit event
+  doubleHiring: prevent inconsistent states
+  singleJobPolicy: TBD if one active job
+  alignsWith: work_main_v1 multi-job approved
+  status: DECISIONE APPROVATA

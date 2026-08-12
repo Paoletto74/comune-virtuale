@@ -1,0 +1,12 @@
+# =============================================================================
+# MOBILITY INTEGRATION — travel, transport, vehicles
+# =============================================================================
+
+MobilityIntegration:
+  owner: Mobility System — ref mobility_main_v1
+  influences: travel, speed, cost, access, vehicles
+  rule: NON creare nuovo Mobility System
+
+events:
+  items:
+    - MobilityAtLocation

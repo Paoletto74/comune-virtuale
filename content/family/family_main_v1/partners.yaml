@@ -1,0 +1,52 @@
+# =============================================================================
+# PARTNERS — partner e convivenza
+# =============================================================================
+
+PartnerRelationship:
+  schema:
+    relationshipId: string
+    citizenId: string
+    partnerId: string
+    status: dating | cohabiting | married_partnership | separated | ended
+    cohabitingSince: timestamp | null
+    financeModel: separate | shared | mixed
+
+partnerRules:
+  DECISIONE APPROVATA:
+    items:
+      - nessun partner | un partner | regole future configurabili
+      - matrimonio NON obbligatorio
+      - partner ≠ patrimonio condiviso automatico
+
+lifecycle:
+  actions:
+    items:
+      - relationship_start
+      - evolution
+      - cohabitation
+      - marriage_partnership_optional
+      - separation
+      - breakup
+  allOptional: true
+
+partnerEconomy:
+  rule: |
+    Partner può avere lavoro, azienda, immobili, cash, debiti, valori propri.
+    NON assumere partner = patrimonio condiviso.
+  financeModes:
+    items:
+      - financesSeparate
+      - financesShared
+      - mixed
+  v1: separate_plus_shared_household_expenses
+
+partnerWorkBusiness:
+  note: Work/Business gestiscono situazione partner — Family reagisce a eventi
+
+events:
+  items:
+    - PartnerRelationshipStarted
+    - CohabitationStarted
+    - MarriagePartnershipRegistered
+    - SeparationStarted
+    - PartnerRelationshipEnded

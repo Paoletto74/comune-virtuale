@@ -1,0 +1,64 @@
+# =============================================================================
+# CRIMINAL TRACK — percorso criminale
+# =============================================================================
+# Collegato a progression_main_v1 trackId: criminal (defaultVisibility: PRIVATE)
+# =============================================================================
+
+CriminalTrack:
+  schema:
+    citizenId: string
+    trackId: criminal
+    criminalLevel: number
+    criminalExperience: TBD
+    criminalReputation: TBD
+    criminalHeat: TBD
+    milestoneIds: []
+    status: active | dormant | incarcerated | under_investigation
+
+  DECISIONE APPROVATA: |
+    criminalTrack NON sostituisce mainLevel.
+    Sovrapposizione: Main L5 + Criminal L4, Main L25 + Criminal L15 + Political Role.
+
+progressionInputs:
+  items:
+    - criminalExperience
+    - completed_activities
+    - milestones
+    - criminalReputation
+    - network
+    - resources
+    - activity_quality_complexity
+  rule: |
+    NON basarsi solo sul numero di crimini.
+    Qualità e complessità attività contano.
+  formula: TBD
+
+progressionOutputs:
+  provides:
+    items:
+      - criminalLevel
+      - unlocked_categories
+      - unlocked_activities
+      - risk_tolerance_context
+  consumes:
+    items:
+      - progression_balance_v1 thresholds
+      - anti_grind rules
+
+pathFlexibility:
+  DECISIONE APPROVATA: |
+    Giocatore può cambiare strada: senzatetto → lavoro → piccolo crimine
+    → imprenditore → criminale → politico → torna legale.
+    Conseguenze passate possono rimanere.
+
+integration:
+  progression_main_v1:
+    trackId: criminal
+    defaultVisibility: PRIVATE
+    note: Level definitions collegati — catalogo livelli in levels.yaml
+
+events:
+  items:
+    - CriminalLevelChanged
+    - CriminalExperienceGained
+    - CriminalTrackUnlocked

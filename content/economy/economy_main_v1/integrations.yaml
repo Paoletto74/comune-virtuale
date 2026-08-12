@@ -1,0 +1,85 @@
+# =============================================================================
+# INTEGRATIONS — moduli esterni e progression
+# =============================================================================
+
+integrations:
+
+  progression_balance_v1:
+    type: data_provider
+    direction: economy → progression
+    fields:
+      - cash
+      - netWorth
+      - recurringIncome
+      - recurringExpenses
+      - debt
+      - economicPosition
+      - assetValue
+      - propertyCount
+      - companyOwnership
+    rule: DECISIONE APPROVATA — progression NON incorporata in economy; sistemi separati
+
+  citizen_model:
+    namespace: citizen.economy
+    personalValues: separate
+    bridge: economic_events → ModifyPersonalValue via Event System
+
+  event_system:
+    direction: bidirectional
+    economy_emits: [TransactionCompleted, PriceChanged, BankruptcyDeclared, LoanDefaulted]
+    economy_consumes: [TaxIncreased, EconomicCrisis, SalaryPaid, RentDue]
+
+  work_module:
+    status: not_implemented
+    interface:
+      provides: [salary_amount, job_ref, pay_schedule]
+      consumes: [macro_state, purchasing_power, tax_rates]
+
+  housing_module:
+    status: not_implemented
+    interface:
+      provides: [property_entity, lease_contract, rent_amount, vacancy]
+      consumes: [market_prices, npc_renters, inflation]
+
+  business_module:
+    status: not_implemented
+    interface:
+      provides: [company_entity, payroll, revenue, expenses]
+      consumes: [macro_state, taxes, market_demand]
+
+  politics_module:
+    status: not_implemented
+    interface:
+      provides: [tax_modifiers, economic_levers, law_effects]
+      consumes: [economic_indicators, citizen_impact_data]
+
+  criminal_module:
+    status: not_implemented
+    interface:
+      provides: [illicit_rules, discovery, consequences]
+      consumes: [transactions, transfers, asset_ownership, gift_history]
+    rule: DECISIONE APPROVATA — economy NON blocca strategie; criminal decide legalità/scoperta
+
+  admin_panel:
+    configurable:
+      - base_prices
+      - categories
+      - taxes
+      - costs
+      - formulas
+      - modifiers
+      - events
+      - duration
+      - demand_supply
+      - inflation
+      - economic_states
+      - asset_categories
+      - rent_rules
+      - sale_rules
+      - loan_rules
+      - npc_population
+
+  ui:
+    direction: read_only_display
+    displays: [balance, netWorth, transactions, prices, market, debts, loans, income]
+    rule: DECISIONE APPROVATA — logica economica NON in UI

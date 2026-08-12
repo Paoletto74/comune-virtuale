@@ -1,0 +1,123 @@
+# =============================================================================
+# EFFECTS — tipi, comandi, domain ownership, personalizzazione
+# =============================================================================
+
+EffectDefinition:
+  schema:
+    definitionId: string
+    effectType: string
+    targetType: string
+    operation: add | subtract | set | multiply | request
+    magnitude: TBD
+    magnitudeFormulaRef: string | null
+    unit: TBD
+    domainOwner: string
+    duration: instant | temporary | permanent | recurring
+    conditionsRef: string | null
+    modifierRefs: []
+    capRef: string | null
+
+effectTypes:
+  status: estendibile via content pack
+  items:
+    - typeId: MONEY
+      domainOwner: economy_main_v1
+      delivery: EffectCommand → Economy Pipeline → Ledger
+    - typeId: HAPPINESS
+      domainOwner: citizen_model
+    - typeId: HEALTH
+      domainOwner: citizen_model
+    - typeId: STRESS
+      domainOwner: citizen_model
+    - typeId: FREE_TIME
+      domainOwner: citizen_model
+    - typeId: EDUCATION
+      domainOwner: citizen_model
+    - typeId: CULTURE
+      domainOwner: citizen_model
+    - typeId: REPUTATION
+      domainOwner: citizen_model
+    - typeId: POPULARITY
+      domainOwner: citizen_model
+    - typeId: POLITICAL_INFLUENCE
+      domainOwner: political_main_v1
+    - typeId: CIVIC_PARTICIPATION
+      domainOwner: citizen_model
+    - typeId: LUCK
+      domainOwner: citizen_model
+    - typeId: RELIABILITY
+      domainOwner: citizen_model
+    - typeId: SYMPATHY
+      domainOwner: citizen_model
+    - typeId: EXPERIENCE
+      domainOwner: progression_main_v1
+    - typeId: ASSET_VALUE
+      domainOwner: property_main_v1
+    - typeId: ASSET_CONDITION
+      domainOwner: property_main_v1
+    - typeId: JOB_STATUS
+      domainOwner: work_main_v1
+    - typeId: RELATIONSHIP
+      domainOwner: family_main_v1
+    - typeId: COMPANY_PERFORMANCE
+      domainOwner: business_main_v1
+    - typeId: CRIMINAL_HEAT
+      domainOwner: criminal_main_v1
+    - typeId: OTHER
+      domainOwner: TBD
+
+domainOwnership:
+  DECISIONE APPROVATA: |
+    Effects System NON modifica direttamente ogni campo.
+    Emette EffectCommand — dominio autorevole valida ed esegue.
+  examples:
+    items:
+      - effect: cash -100
+        owner: economy_main_v1
+      - effect: happiness -5
+        owner: citizen_model
+      - effect: propertyCondition -30
+        owner: property_main_v1
+
+personalizedEffects:
+  DECISIONE APPROVATA: |
+    Stesso evento NON produce necessariamente stesso effetto per tutti.
+    Calcolo via contesto individuale + conditions + modifiers.
+  examplePropertyTax:
+    citizenA:
+      propertyCount: 0
+      cash: 0
+    citizenB:
+      propertyCount: 1
+      cash: -100
+    citizenC:
+      propertyCount: 10
+      cash: -1000
+
+immediateEffect:
+  DECISIONE APPROVATA: supporto effetti immediati
+  example: Task completato → cash +100 via Economy Pipeline
+
+recurringEffect:
+  IMPORTANT: |
+    Effects System NON è proprietario dei pagamenti ricorrenti.
+    Property/Economy generano l'evento; Effects rappresenta l'effetto quando necessario.
+  example: Affitto — dominio genera RentDue event → EffectCommand cash
+
+valueRanges:
+  DECISIONE APPROVATA: |
+    Valori cittadino generalmente 0–100.
+    Rispettare range definito dal dominio — NON assumere tutto 0–100.
+  caps:
+    schema:
+      minValue: TBD
+      maxValue: TBD
+    example: happiness 0–100 — no happiness = 130
+    owner: dominio autorevole definisce range
+
+events:
+  items:
+    - EffectCommandIssued
+    - EffectApplied
+    - EffectRejected
+    - EffectExpired

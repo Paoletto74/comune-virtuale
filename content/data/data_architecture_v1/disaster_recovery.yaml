@@ -1,0 +1,13 @@
+# =============================================================================
+# DISASTER RECOVERY — RPO, RTO
+# =============================================================================
+
+DisasterRecovery:
+  status: DA DEFINIRE
+  concepts:
+    RPO: Recovery Point Objective — TBD
+    RTO: Recovery Time Objective — TBD
+
+events:
+  items:
+    - DisasterRecoveryActivated

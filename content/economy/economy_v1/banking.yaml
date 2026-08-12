@@ -1,0 +1,14 @@
+# =============================================================================
+# BANKING — economy_v1
+# =============================================================================
+
+---
+Banking:
+  definition: economic service entity
+  notSOT: Economy maintains monetary truth
+  services:
+  - deposits
+  - withdrawals
+  - transfers
+  - loans future
+  status: DECISIONE APPROVATA

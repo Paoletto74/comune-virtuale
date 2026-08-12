@@ -1,0 +1,43 @@
+# =============================================================================
+# VISUAL STYLE — UNO stile coerente V1
+# =============================================================================
+
+VisualStyleProfile:
+  status: PROPOSTA TECNICA — valori definitivi TBD
+  schema:
+    styleId: string
+    style: string
+    palette: object
+    lighting: string
+    perspective: string
+    renderingStyle: string
+    characterStyle: string
+    backgroundStyle: string
+
+styleConsistency:
+  DECISIONE APPROVATA: |
+    Tutti gli asset devono mantenere coerenza visiva.
+    NO mix: pizza fotorealistica + personaggio anime + villa 3D + Ferrari foto.
+    Direzione artistica uniforme.
+
+humorVisual:
+  status: PROPOSTA TECNICA
+  maySupport:
+    items:
+      - poses
+      - badges
+      - small_details
+      - popup_visuals
+      - compositions
+  rule: contenuto testuale resta Content System
+
+aiGenerationCompatibility:
+  status: PROPOSTA TECNICA — NON dipendenza obbligatoria
+  rule: |
+    Compatibilità futura AI generation.
+    Asset generato: approvato, versionato, archiviato, sostituibile.
+    Gioco funziona anche con asset statici tradizionali.
+
+events:
+  items:
+    - VisualStyleUpdated

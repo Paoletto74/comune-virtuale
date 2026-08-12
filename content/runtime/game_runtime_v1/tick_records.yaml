@@ -1,0 +1,23 @@
+# =============================================================================
+# TICK RECORDS — RuntimeTick audit trail
+# =============================================================================
+
+RuntimeTickRecord:
+  status: PROPOSTA TECNICA
+  schema:
+    tickId: string
+    gameTimeBefore: timestamp
+    gameTimeAfter: timestamp
+    systemsExecuted: []
+    status: string
+    duration: number
+    errors: []
+    correlationId: string
+
+idempotency:
+  DECISIONE APPROVATA: ogni tick/job ha executionId — retry NON duplica effetti
+
+events:
+  items:
+    - TickRecordCreated
+    - TickRecordFailed

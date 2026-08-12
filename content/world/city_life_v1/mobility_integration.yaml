@@ -1,0 +1,11 @@
+# =============================================================================
+# MOBILITY INTEGRATION — NPC movement future
+# =============================================================================
+
+MobilityIntegration:
+  ref: mobility_main_v1
+  applies: travel, transport — future NPC movement
+
+events:
+  items:
+    - MobilityCityLifeIntegrated

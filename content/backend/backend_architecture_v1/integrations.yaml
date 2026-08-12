@@ -1,0 +1,49 @@
+# =============================================================================
+# INTEGRATIONS — security, concurrency, cross-system
+# =============================================================================
+
+ApiSecurity:
+  protect:
+    items:
+      - authentication
+      - authorization
+      - input_validation
+      - rate_limits
+      - CSRF_where_applicable
+      - XSS
+      - injection
+      - CORS
+      - request_size
+      - file_upload
+
+concurrency:
+  protect:
+    items:
+      - concurrent_purchases
+      - simultaneous_listing_changes
+      - duplicate_task_completion
+      - simultaneous_financial_operations
+
+frontendTrustModel:
+  can:
+    items: [ask, display, send_action_requests]
+  cannot:
+    items:
+      - decide_reward
+      - decide_price
+      - decide_ownership
+      - decide_level
+      - decide_permissions
+
+integrations:
+  items:
+    - Auth (auth_main_v1)
+    - Content Studio (admin_content_studio_v1)
+    - Data Architecture (data_architecture_v1)
+    - Visual/Asset (visual_main_v1)
+    - Event System (event_main_v1)
+    - Time System (time_main_v1)
+
+events:
+  items:
+    - IntegrationHealthCheck

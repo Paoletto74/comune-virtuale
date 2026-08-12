@@ -1,0 +1,14 @@
+# =============================================================================
+# LICENSING — asset license management
+# =============================================================================
+
+Licensing:
+  ref: rights.yaml
+  aiGenerated:
+    rule: chiaramente identificato — ref ai_visuals.yaml
+  production:
+    rule: license verified before PUBLISHED status
+
+events:
+  items:
+    - VisualLicenseVerified

@@ -1,0 +1,26 @@
+# =============================================================================
+# CONTENT INTEGRATION — content-driven onboarding texts
+# =============================================================================
+
+ContentIntegration:
+  DECISIONE APPROVATA:
+  rule: testi onboarding content-driven — NON hardcodare editoriali
+  sources:
+    items:
+      - welcome_notification
+      - welcome_popup
+      - first_task
+      - city_introduction
+      - first_newspaper
+      - help_how_to_play
+  variables:
+    items:
+      - playerName
+      - municipalityName
+      - gameDate
+  validation: Content System — ref content_system_v1/variables.yaml
+  gameDate: Game Time — ref time_main_v1
+
+events:
+  items:
+    - OnboardingContentResolved

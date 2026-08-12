@@ -1,0 +1,22 @@
+# =============================================================================
+# RICH TEXT — approved formatting only
+# =============================================================================
+
+RichText:
+  editor: PROPOSTA TECNICA — rich text editor in Admin
+  allowed:
+    items:
+      - bold
+      - italic
+      - headings
+      - lists
+      - links
+      - quotes
+  forbidden: arbitrary HTML
+  markdown:
+    status: PROPOSTA TECNICA — internal or advanced mode
+    rule: NEVER render without sanitization
+
+events:
+  items:
+    - RichTextSanitized

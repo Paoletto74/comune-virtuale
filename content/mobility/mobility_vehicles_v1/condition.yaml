@@ -1,0 +1,15 @@
+# =============================================================================
+# CONDITION — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleCondition:
+  possible:
+  - NEW
+  - GOOD
+  - USED
+  - WORN
+  - DAMAGED
+  - UNDER_REPAIR
+  definitive: TBD
+  status: PROPOSTA TECNICA

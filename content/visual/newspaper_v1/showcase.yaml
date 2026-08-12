@@ -1,0 +1,12 @@
+# =============================================================================
+# SHOWCASE — cover photo editorial concept
+# =============================================================================
+
+ShowcaseEditorial:
+  concept: "foto di copertina - Citizen plus villa plus piscina plus Ferrari"
+  status: PROPOSTA TECNICA - NON implementare image generation
+  ref: visual_main_v1, frontend_ui_v1/showcase.yaml
+
+events:
+  items:
+    - ShowcaseCompositionRendered

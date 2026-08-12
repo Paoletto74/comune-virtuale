@@ -1,0 +1,10 @@
+# =============================================================================
+# LOCALIZATION — work_careers_v1
+# =============================================================================
+
+---
+Localization:
+  jobNames: Content System
+  currency: Economy formatter
+  dates: Time formatter
+  status: DECISIONE APPROVATA

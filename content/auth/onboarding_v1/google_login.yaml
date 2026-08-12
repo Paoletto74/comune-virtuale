@@ -1,0 +1,20 @@
+# =============================================================================
+# GOOGLE LOGIN — OAuth/OIDC flow (conceptual)
+# =============================================================================
+
+GoogleLogin:
+  flow:
+    items:
+      - redirect
+      - callback
+      - account_linking
+      - session_creation
+      - logout
+  provider: DA DEFINIRE / TBD — runtime NON implementare V1
+  ref: auth_main_v1/google.yaml, identity_linking.yaml
+
+events:
+  items:
+    - GoogleLoginStarted
+    - GoogleLoginSucceeded
+    - GoogleLoginFailed

@@ -1,0 +1,24 @@
+# =============================================================================
+# PRIVACY & EMAIL
+# =============================================================================
+
+AuthPrivacy:
+  DECISIONE APPROVATA: Authentication NON rende pubblici
+  privateData:
+    items:
+      - email
+      - auth_provider
+      - login_history
+      - session_data
+      - security_metadata
+  rule: Profile decide cosa è pubblico
+
+Email:
+  status: PROPOSTA TECNICA
+  rule: |
+    Se usata per auth/recovery — email è dato Account.
+    NON diventa automaticamente info pubblica Citizen.
+
+events:
+  items:
+    - PrivacyPolicyApplied

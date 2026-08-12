@@ -1,0 +1,11 @@
+# =============================================================================
+# RATE LIMITING — property_v1
+# =============================================================================
+
+---
+RateLimiting:
+  protect:
+  - listing
+  - purchase
+  - rent application
+  status: DECISIONE APPROVATA

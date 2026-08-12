@@ -1,0 +1,28 @@
+# =============================================================================
+# SEVERITY — gravità
+# =============================================================================
+
+severityLevels:
+  items:
+    - level: INFO
+      label: Informativo
+      defaultPriority: NORMAL
+    - level: WARNING
+      label: Attenzione
+      defaultPriority: HIGH
+    - level: CRITICAL
+      label: Critico
+      defaultPriority: CRITICAL
+
+severityVsPriority:
+  DECISIONE APPROVATA: severity ≠ priority — entrambi configurabili
+  severity: gravità dell'evento
+  priority: urgenza di attenzione nel feed
+
+mapping:
+  status: configurable
+  defaultRules: TBD
+
+events:
+  items:
+    - NotificationSeverityAssigned

@@ -1,0 +1,15 @@
+# =============================================================================
+# ANTI CHEAT — time_v1
+# =============================================================================
+
+---
+AntiCheat:
+  protect:
+  - cooldown
+  - deadlines
+  - salary
+  - events
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeCheatAttemptBlocked

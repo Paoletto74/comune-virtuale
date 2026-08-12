@@ -1,0 +1,10 @@
+# =============================================================================
+# INTEGRATIONS EVENT — task_extensions_v1
+# =============================================================================
+
+---
+EventIntegration:
+  eventToTask: Event -> Task opportunity -> TaskInstance
+  taskToEvent: Task Outcome -> EventRequest
+  eventOwns: persistent event
+  status: DECISIONE APPROVATA inherited bidirectional

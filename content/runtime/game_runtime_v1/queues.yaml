@@ -1,0 +1,32 @@
+# =============================================================================
+# QUEUES — async processing, priority, backpressure
+# =============================================================================
+
+Queues:
+  status: PROPOSTA TECNICA — tecnologia TBD — NON implementare
+  uses:
+    items:
+      - async_domain_events
+      - notifications
+      - npc_jobs
+      - analytics
+
+priorityLevels:
+  items:
+    - CRITICAL
+    - HIGH
+    - NORMAL
+    - LOW
+
+backpressure:
+  whenQueueGrows:
+    items:
+      - throttle
+      - defer
+      - aggregate
+      - drop_non_critical_work
+  rule: NON perdere critical financial events
+
+events:
+  emits: [QueueBackpressureActivated]
+  consumes: []

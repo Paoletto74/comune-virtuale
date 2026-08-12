@@ -1,0 +1,23 @@
+# =============================================================================
+# BUSINESS DATA — V1 senza accounting completo
+# =============================================================================
+
+BusinessData:
+  sourceOfTruth: Business
+  schema:
+    companyId: string
+    ownerId: string
+    shareholders: []
+    value: TBD
+    employees: []
+    revenue: TBD
+    expenses: TBD
+    status: TBD
+
+note: NON implementare ancora business accounting completo
+
+ref: business_main_v1
+
+events:
+  items:
+    - BusinessDataUpdated

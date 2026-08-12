@@ -1,0 +1,15 @@
+# =============================================================================
+# PRELOAD — frequent, critical, short sounds only
+# =============================================================================
+
+Preload:
+  preload:
+    items:
+      - frequent_sounds
+      - critical_sounds
+      - short_sounds
+  rule: NON precaricare tutto
+
+events:
+  items:
+    - SoundPreloaded

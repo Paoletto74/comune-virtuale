@@ -1,0 +1,54 @@
+# =============================================================================
+# TAXES — tasse immobiliari (integrazione economy)
+# =============================================================================
+
+PropertyTax:
+  schema:
+    taxId: string
+    propertyId: string
+    ownerId: string
+    taxType: property_tax | transfer_tax | rental_income_tax | other
+    amount: TBD
+    frequency: TBD
+    dueDate: timestamp
+    status: pending | paid | overdue | waived
+
+rules:
+  DECISIONE APPROVATA: |
+    Property System genera eventi tasse.
+    Movimento monetario via Economy Pipeline.
+    NO modifica diretta cash.
+
+taxTypes:
+  items:
+    - typeId: property_tax
+      label: Imposta immobiliare
+      appliesTo: owner
+      recurring: true
+    - typeId: transfer_tax
+      label: Imposta di trasferimento
+      appliesTo: purchase
+      recurring: false
+    - typeId: rental_income_tax
+      label: Tassa su reddito da affitto
+      appliesTo: landlord
+      recurring: true
+  rates: TBD
+
+paymentFlow:
+  flow: |
+    TaxDue Event
+    → Economy Pipeline
+    → Transaction(type: tax, class: money_transfer or configured)
+    → Ledger
+    → owner cash reduced
+
+integration:
+  economyRef: economy_main_v1.taxes
+  politicsRef: future_politics_module
+
+events:
+  items:
+    - PropertyTaxDue
+    - PropertyTaxPaid
+    - PropertyTaxOverdue

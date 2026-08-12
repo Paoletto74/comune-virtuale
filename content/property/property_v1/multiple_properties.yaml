@@ -1,0 +1,10 @@
+# =============================================================================
+# MULTIPLE PROPERTIES — property_v1
+# =============================================================================
+
+---
+MultipleProperties:
+  allowed: true
+  maxCount: TBD
+  alignsWith: property_main_v1 multiProperty DECISIONE APPROVATA
+  status: DECISIONE APPROVATA

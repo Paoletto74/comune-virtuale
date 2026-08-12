@@ -1,0 +1,48 @@
+# =============================================================================
+# COOLDOWNS & DAILY LIMITS
+# =============================================================================
+
+SocialCooldowns:
+  status: PROPOSTA TECNICA — valori TBD
+  schema:
+    cooldownGroup: string
+    durationGameTime: TBD
+    durationRealTime: TBD
+  examples:
+    items:
+      - cooldownGroup: compliment_same_player
+        description: "Complimentarsi con lo stesso giocatore — una volta ogni X tempo"
+
+DailySocialLimits:
+  status: PROPOSTA TECNICA — valori TBD
+  limitTypes:
+    items:
+      - messages_per_day
+      - interactions_per_day
+      - requests_per_day
+      - social_actions_per_day
+
+SpamProtection:
+  DECISIONE APPROVATA: proteggere contro
+  threats:
+    items:
+      - repetitive_sending
+      - flood
+      - bot_abuse
+      - automatic_interactions
+      - ranking_abuse
+  mechanisms:
+    items:
+      - cooldown
+      - rate_limits
+      - daily_limits
+      - server_validation
+
+timeIntegration:
+  rule: Time System gestisce cooldown, expiration, retention, scheduled social events
+
+events:
+  items:
+    - SocialCooldownActive
+    - SocialLimitReached
+    - SpamBlocked

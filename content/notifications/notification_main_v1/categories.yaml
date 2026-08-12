@@ -1,0 +1,58 @@
+# =============================================================================
+# NOTIFICATION CATEGORIES
+# =============================================================================
+
+categories:
+  items:
+    - categoryId: INFORMATION
+      label: Informazione
+    - categoryId: WARNING
+      label: Avviso
+    - categoryId: SUCCESS
+      label: Successo
+    - categoryId: FAILURE
+      label: Fallimento
+    - categoryId: OPPORTUNITY
+      label: Opportunità
+    - categoryId: ACTION_REQUIRED
+      label: Azione richiesta
+    - categoryId: SYSTEM
+      label: Sistema
+    - categoryId: SOCIAL
+      label: Sociale
+    - categoryId: ECONOMIC
+      label: Economico
+    - categoryId: POLITICAL
+      label: Politico
+    - categoryId: CRIMINAL
+      label: Criminale
+    - categoryId: WORK
+      label: Lavoro
+    - categoryId: FAMILY
+      label: Famiglia
+    - categoryId: BUSINESS
+      label: Azienda
+    - categoryId: PROPERTY
+      label: Immobili
+    - categoryId: MOBILITY
+      label: Mobilità
+  notes: Classificazione estendibile senza modificare motore
+
+feedTypes:
+  personalNotifications:
+    schema:
+      citizenId: string
+      notificationIds: []
+    rule: DECISIONE APPROVATA — eventi rilevanti per quel cittadino
+    note: Due cittadini possono ricevere notifiche diverse per stesso evento
+
+  globalNotifications:
+    schema:
+      notificationIds: []
+    rule: DECISIONE APPROVATA — eventi pubblici rilevanti per mondo/città
+    filter: relevance_threshold — TBD
+    notDuplicate: personal feed
+
+personalVsGlobal:
+  personal: informazioni relative direttamente al cittadino
+  global: informazioni pubbliche rilevanti — NON duplicato del personal feed

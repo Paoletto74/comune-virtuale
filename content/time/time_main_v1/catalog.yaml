@@ -1,0 +1,99 @@
+# =============================================================================
+# TIME & WORLD SIMULATION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: tempo persistente e coerente — mondo continua offline
+# Clock centralizzato — NON clock separato per ogni sistema
+# Modalità iniziale preferita: REAL TIME (timeScale configurabile)
+# NON modifica: tutti i moduli già approvati
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: time_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  npcPopulation: npc_main_v1
+
+principles:
+  - WorldClock centralizzato — server authoritative
+  - REAL TIMESTAMP ≠ WORLD TIMESTAMP — entrambi registrati
+  - Time decide QUANDO — domini decidono COSA
+  - Event-driven preferred — tick per aggregazioni/batch NPC
+  - NO pausa mondo globale per singolo giocatore
+  - Offline catch-up — NON replay ogni secondo
+  - timeScale configurabile — non hardcodare 1:1
+  - Content-first — NO if now == hardcode
+  - Client visualizza — non modifica tempo autorevole
+  - NO AI / LLM / API esterne
+
+includes:
+  world_clock: world_clock.yaml
+  calendar: calendar.yaml
+  time_scale: time_scale.yaml
+  simulation_modes: simulation_modes.yaml
+  schedules: schedules.yaml
+  durations: durations.yaml
+  cooldowns: cooldowns.yaml
+  deadlines: deadlines.yaml
+  recurring: recurring.yaml
+  day_phases: day_phases.yaml
+  seasons: seasons.yaml
+  holidays: holidays.yaml
+  offline: offline.yaml
+  catchup: catchup.yaml
+  admin: admin.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  clock_module: [world_clock, calendar, time_scale, simulation_modes]
+  scheduling_module: [schedules, durations, cooldowns, deadlines, recurring]
+  world_module: [day_phases, seasons, holidays]
+  lifecycle_module: [offline, catchup, admin]
+
+responsibilitySplit:
+  timeSystemDecides:
+    items:
+      - world_clock
+      - calendar
+      - time_scale
+      - schedules
+      - durations
+      - cooldowns
+      - deadlines
+      - recurring_schedules
+      - offline_catch_up_timing
+      - simulation_timing
+      - world_time_persistence
+  otherSystemsDecide:
+    economy: economic_logic_and_ledger
+    work: employment_and_shifts
+    property: rent_maintenance_ownership
+    mobility: travel_duration
+    business: payroll_and_company_logic
+    family: family_events_and_age_consequences
+    political: elections_and_terms
+    criminal: crime_heat_investigation
+    progression: level_rules_and_inactivity
+    npcPopulation: npc_behavior_and_batches
+    eventSystem: events_and_consequences
+    notification: player_messaging
+
+replacesConceptually:
+  note: |
+    Formalizza shared_time_service referenziato da tutti i pack approvati.
+    NON modifica pack approvati — time_main_v1 è layer centralizzato.

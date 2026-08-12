@@ -1,0 +1,9 @@
+# =============================================================================
+# NET WORTH INTEGRATION — property_v1
+# =============================================================================
+
+---
+NetWorthIntegration:
+  propertyContributes: Assets
+  economyUses: valuation from Property System
+  status: DECISIONE APPROVATA

@@ -1,0 +1,19 @@
+# =============================================================================
+# PROFILE CONFIRMATION — before citizen creation
+# =============================================================================
+
+ProfileConfirmation:
+  preview:
+    shows:
+      items:
+        - avatar
+        - name
+        - selected_info
+  message: "Questo sara il tuo cittadino."
+  cta: CREA IL CITTADINO
+  afterSuccess: "Benvenuto in citta."
+
+events:
+  items:
+    - ProfileConfirmationViewed
+    - ProfileConfirmationAccepted

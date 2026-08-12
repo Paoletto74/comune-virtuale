@@ -1,0 +1,21 @@
+# =============================================================================
+# ITEM VISUALS — thumbnail, marketplace
+# =============================================================================
+
+ItemVisuals:
+  thumbnail: ogni item importante puo mostrare thumbnail
+  marketplace:
+    rule: thumbnail obbligatoria quando disponibile
+  card:
+    fields:
+      items:
+        - image
+        - name
+        - category
+        - price
+        - status
+  ref: inventory_main_v1, marketplace_main_v1
+
+events:
+  items:
+    - ItemVisualResolved

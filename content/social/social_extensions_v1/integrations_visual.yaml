@@ -1,0 +1,31 @@
+# =============================================================================
+# INTEGRATION — contextual_visuals_v1
+# =============================================================================
+
+VisualIntegration:
+  status: PROPOSTA TECNICA
+
+  socialProvides:
+    items:
+      - visualAssetId
+      - visual_context_type
+
+  visualOwns:
+    items:
+      - asset_resolution
+      - composition
+      - popup_image
+      - illustration
+
+  rule: NO URL hardcoded — content-driven visualAssetId
+
+  mappingExamples:
+    items:
+      - context: gift
+        visualType: gift_or_coins
+      - context: friendship
+        visualType: characters
+      - context: insult
+        visualType: ironic_conflict
+      - context: loan
+        visualType: money_document

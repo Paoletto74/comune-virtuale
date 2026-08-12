@@ -1,0 +1,18 @@
+# =============================================================================
+# DESKTOP — Windows, macOS audio behavior
+# =============================================================================
+
+DesktopAudio:
+  platforms:
+    items:
+      - Windows
+      - macOS
+  considerations:
+    items:
+      - browser_tab_focus
+      - system_volume
+      - background_tab_behavior
+
+events:
+  items:
+    - DesktopAudioInitialized

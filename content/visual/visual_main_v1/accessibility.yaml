@@ -1,0 +1,23 @@
+# =============================================================================
+# ACCESSIBILITY — alt text, reduced motion, audio fallback
+# =============================================================================
+
+Accessibility:
+  schema:
+    visualAssetId: string
+    altTextKey: string
+    semanticLabel: string
+    reducedMotionFallback: "string | null"
+    visualOnlyFallback: boolean
+
+audioAccessibility:
+  DECISIONE APPROVATA: |
+    Prevedere mute, volume, reduced motion, visual-only fallback.
+    Gioco deve funzionare anche senza audio.
+
+popupAccessibility:
+  rule: popup MAJOR/LEGENDARY devono avere fallback visivo senza animazione/suono
+
+events:
+  items:
+    - AccessibilityMetadataUpdated

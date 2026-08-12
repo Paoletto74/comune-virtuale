@@ -1,0 +1,17 @@
+# =============================================================================
+# TIME EVENTS — time_v1
+# =============================================================================
+
+---
+SemanticTimeEvents:
+  boundaries:
+  - DayStarted
+  - WeekStarted
+  - MonthStarted
+  - YearStarted
+  phases:
+  - DayPhaseChanged
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DayStarted

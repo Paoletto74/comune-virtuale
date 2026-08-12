@@ -1,0 +1,18 @@
+# =============================================================================
+# LOCALIZATION — i18n-ready architecture
+# =============================================================================
+
+Localization:
+  status: PROPOSTA TECNICA — NON implementare traduzioni ora
+  compatible:
+    items:
+      - italiano
+      - future_languages
+  rule: NON hardcodare stringhe in componenti quando appartengono a localizzazione
+
+contentDrivenLabels:
+  rule: labels gameplay da Content System — NON frontend hardcode
+
+events:
+  items:
+    - LocaleChanged

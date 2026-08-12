@@ -1,0 +1,16 @@
+# =============================================================================
+# SYNCHRONIZATION — sound + animation + popup
+# =============================================================================
+
+Synchronization:
+  DECISIONE APPROVATA:
+  pairs:
+    sound_animation: sincronizzati
+    sound_popup: visual + text + sound for important popups
+  haptic:
+    status: PROPOSTA TECNICA — future sound + haptic
+    v1: NON implementare
+
+events:
+  items:
+    - AudioSynchronized

@@ -1,0 +1,53 @@
+# =============================================================================
+# EFFECT MODIFIERS — contesto modifica magnitudine
+# =============================================================================
+
+EffectModifier:
+  schema:
+    modifierId: string
+    modifierType: multiplier | additive | conditional | cap | floor | resistance | vulnerability
+    magnitude: TBD
+    conditionRef: string | null
+    targetEffectType: string | all
+    priority: TBD
+    stackBehavior: stack | refresh | replace | ignore | merge
+
+modifierTypes:
+  items:
+    - typeId: multiplier
+      description: Moltiplica magnitudine base
+    - typeId: additive
+      description: Aggiunge a magnitudine base
+    - typeId: conditional
+      description: Applica solo se conditionRef true
+    - typeId: cap
+      description: Limite superiore risultato
+    - typeId: floor
+      description: Limite inferiore risultato
+    - typeId: resistance
+      description: Riduce impatto negativo
+    - typeId: vulnerability
+      description: Amplifica impatto negativo
+
+personalizationViaModifiers:
+  DECISIONE APPROVATA: |
+    Magnitudine base NON hardcoded per ricco/povero nell'effetto.
+    Utilizzare EffectModifier + ConditionDefinition.
+  examplePropertyTax:
+    baseMagnitude: TBD
+    modifiers:
+      items:
+        - conditionRef: citizen_poor
+          modifierType: additive
+          magnitude: TBD
+        - conditionRef: citizen_rich
+          modifierType: multiplier
+          magnitude: TBD
+        - conditionRef: property_owner_high_count
+          modifierType: multiplier
+          magnitude: TBD
+
+events:
+  items:
+    - ModifierApplied
+    - ModifierSkipped

@@ -1,0 +1,57 @@
+# =============================================================================
+# PRIVACY — criminal, social, profile facts
+# =============================================================================
+
+CriminalPrivacy:
+  DECISIONE APPROVATA: percorso criminale sensibile
+  publicMustNotShowAutomatically:
+    items:
+      - criminal_track
+      - crimes
+      - heat
+      - illegal_activities
+      - criminal_milestones
+      - criminal_origin_of_wealth
+
+criminalReputation:
+  status: PROPOSTA TECNICA
+  visibilityOptions:
+    items:
+      - PRIVATE
+      - DISCOVERABLE
+  rule: NON automaticamente pubblica
+
+SocialProfilePrivacy:
+  "DECISIONE APPROVATA": "allinea social_main_v1/privacy.yaml"
+  mayShow:
+    items:
+      - sympathy
+      - popularity
+      - reputation
+      - social_rankings
+      - recognitions
+  mustNotShowAutomatically:
+    items:
+      - private_messages
+      - private_relationships
+      - gift_recipients
+      - private_loans
+
+profileFactsPrivacy:
+  DECISIONE APPROVATA: ogni ProfileFact ha visibility
+  levels:
+    items:
+      - PRIVATE
+      - PUBLIC
+      - HIDDEN
+
+mandatoryPublic:
+  DECISIONE APPROVATA: alcune info non nascondibili
+  examples:
+    items:
+      - activeRole_mayor
+      - elected_official_status
+
+events:
+  items:
+    - ProfilePrivacyViolationBlocked

@@ -1,0 +1,32 @@
+# =============================================================================
+# VISUAL PERSONALITY
+# =============================================================================
+
+VisualPersonality:
+  traits:
+    items:
+      - autorevole
+      - ironico_quando_appropriato
+      - urbano
+      - sociale
+      - dinamico
+      - informativo
+      - leggermente_satirico
+      - leggibile
+  rule: NON rendere tutto caricaturale
+
+brandVoice:
+  status: TBD
+  direction:
+    items:
+      - diretto
+      - intelligente
+      - ironico
+      - urbano
+      - a_volte_sarcastico
+      - mai_infantile
+      - mai_eccessivamente_serio
+
+events:
+  items:
+    - PersonalityToneApplied

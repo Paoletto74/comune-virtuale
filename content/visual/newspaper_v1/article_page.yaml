@@ -1,0 +1,31 @@
+# =============================================================================
+# ARTICLE PAGE — full article layout
+# =============================================================================
+
+ArticlePage:
+  fields:
+    items:
+      - titolo
+      - sottotitolo
+      - immagine_principale
+      - didascalia
+      - testo
+      - timestamp
+      - autore_redazione
+      - eventi_correlati
+      - cittadini_coinvolti_per_privacy
+      - link_altre_sezioni
+  cta:
+    examples:
+      items:
+        - Vedi_proprieta
+        - Apri_profilo
+        - Partecipa_referendum
+        - Vai_al_task
+  rule: editorial content puo essere ingresso al gameplay
+
+ref: related_entities.yaml, templates.yaml ArticlePage
+
+events:
+  items:
+    - ArticlePageOpened

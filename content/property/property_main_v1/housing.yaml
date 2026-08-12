@@ -1,0 +1,121 @@
+# =============================================================================
+# HOUSING — situazione abitativa (dove vivo/dormo)
+# =============================================================================
+# DECISIONE APPROVATA: Housing Status ≠ Property Ownership
+# =============================================================================
+
+HousingStatus:
+  schema:
+    citizenId: string
+    statusId: string
+    statusCategory: homeless | street | shelter | temporary | vehicle | rented | owned | other
+    residenceRef: string | null
+    residenceType: none | property | vehicle | informal | shelter
+    propertyId: string | null
+    rentalContractId: string | null
+    vehicleRef: string | null
+    since: timestamp
+    isPrimary: boolean
+
+statusCategories:
+  items:
+    - statusId: homeless
+      label: Senza alloggio fisso
+      description: SENZATETTO — stato iniziale possibile
+    - statusId: street
+      label: Per strada
+    - statusId: shelter
+      label: Rifugio / struttura di accoglienza
+    - statusId: temporary
+      label: Soluzione temporanea
+    - statusId: vehicle
+      label: Veicolo (auto, camper, ecc.)
+    - statusId: rented
+      label: In affitto
+    - statusId: owned
+      label: Proprietario occupante
+    - statusId: other
+      label: Altre soluzioni future
+  notes: Lista definitiva — DA DEFINIRE
+
+livingOptions:
+  DECISIONE APPROVATA: giocatore sceglie come vivere
+  examples:
+    items:
+      - sleep_on_street
+      - sleep_under_bridge
+      - precarious_structure
+      - sleep_in_car
+      - sleep_in_camper
+      - rent_room
+      - rent_apartment
+      - buy_property
+  noForcedHousing: true
+
+personalValueEffects:
+  status: configurable
+  rule: Effetti moderati — casa costosa != enorme bonus automatico
+  targets:
+    items:
+      - happiness
+      - health
+      - stress
+      - safety
+      - freeTime
+      - wellbeing
+      - reputation
+  examples:
+    street:
+      effects:
+        items:
+          - stress_increase
+          - health_decrease
+          - safety_decrease
+          - happiness_decrease
+      values: TBD
+    quality_housing:
+      effects:
+        items:
+          - stress_decrease
+          - comfort_increase
+          - happiness_increase
+          - health_moderate_improvement
+      values: TBD
+  formulas: TBD
+
+housingCosts:
+  status: configurable
+  costTypes:
+    items:
+      - rent
+      - utilities
+      - maintenance
+      - taxes
+      - extraordinary_expenses
+  rule: Proprietà NON gratuita — manutenzione/tasse/utenze possibili
+  values: TBD
+
+recoveryInterface:
+  status: PROPOSTA_TECNICA
+  note: Sistema sonno dettagliato — DA DEFINIRE
+  provides:
+    items:
+      - sleepLocationRef
+      - recoveryQualityModifier
+      - restAvailability
+  consumes:
+    items:
+      - housingStatus
+      - propertyCondition
+      - timeSlot
+
+progressionRelation:
+  DECISIONE APPROVATA: |
+    Casa costosa != mainLevel obbligatorio.
+    wealth != role != mainLevel.
+  contributesTo:
+    items:
+      - economic_position
+      - wellbeing_context
+      - prestige_assets_public_profile
+  doesNotDirectlySet: mainLevel

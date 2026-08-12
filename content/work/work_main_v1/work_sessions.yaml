@@ -1,0 +1,66 @@
+# =============================================================================
+# WORK SESSION — azione LAVORA
+# =============================================================================
+
+WorkSession:
+  sessionId: string
+  idempotencyKey: string
+  contractId: string
+  citizenId: string
+  jobId: string
+
+  status: planned | active | completed | cancelled | failed
+
+  startTime: gameTime
+  endTime: gameTime
+  plannedHours: TBD
+  actualHours: TBD
+
+  result: success | partial | failure | injury | TBD
+  performance: TBD
+
+  generatedTasks: taskId[]
+  generatedEffects: effectRef[]
+
+  salaryReference:
+    amount: TBD
+    transactionId: string
+    notes: Pagamento via Economy — NON cash diretto
+
+WorkAction:
+  actionType: WORK_START | WORK_COMPLETE | WORK_CANCEL
+  pipeline: Action Pipeline
+
+  onStart:
+    status: ACTIVE
+    blocks:
+      - other_work_sessions
+      - resignation
+      - incompatible_actions
+    occupiesTime: true
+    notes: DECISIONE APPROVATA — blocco durante turno ACTIVE
+
+  onComplete:
+    produces:
+      - salary_event → Economy Pipeline → Transaction(salary) → Ledger
+      - tasks
+      - personal_value_effects
+      - performance_update
+      - experience_gain
+    emits: Action(WorkSessionCompleted)
+
+  incompatibleDuringActive:
+    items:
+      - concurrent_work
+      - resignation
+      - incompatible_actions_list_TBD
+    resolvedBy: Action/Time system
+
+offlineWork:
+  consequencesPossible:
+    - salary_accrual
+    - job_loss_warning
+    - promotion
+    - company_events
+  processing: scheduled_events | tick_catchup
+  notes: DECISIONE APPROVATA — no simulazione ogni secondo

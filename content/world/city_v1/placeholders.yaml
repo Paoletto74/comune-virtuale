@@ -1,0 +1,54 @@
+# =============================================================================
+# PLACEHOLDERS — TBD and WorldEntity model
+# =============================================================================
+
+WorldEntity:
+  concept:
+    fields:
+      items:
+        - id
+        - type
+        - cityId
+        - districtId
+        - locationId
+        - visualAssetId
+        - status
+  rule: NON sostituire domain entities — modello concettuale per map presentation
+
+Placeholders:
+  TBD:
+    items:
+      - district_definitive_names
+      - city_scale_decision
+      - city_center_composition
+      - map_provider_technology
+      - map_style_definitive
+      - geo_data_format
+      - walking_rules
+      - public_transport_presence
+      - day_night_implementation
+      - weather_system
+      - multi_municipality_onboarding_rule
+      - route_calculation_V1
+      - location_bookmarks
+      - citizen_distribution_visualization
+      - district_ambience_audio
+      - map_provider_costs
+  approvedPrinciples:
+    items:
+      - City != Municipality
+      - CityId distinct from MunicipalityId, DistrictId, LocationId
+      - client NON authority on access/travel/ownership
+      - Game Location != GPS reale
+      - map editorial style — NOT Google Maps required
+      - domain systems own logic — no duplicate systems
+      - location visibility PUBLIC/PRIVATE/RESTRICTED/HIDDEN/DISCOVERABLE
+      - progressive discovery
+      - map accessible via list/search/cards
+      - dynamic city state server-side authoritative
+      - expansion without core frontend refactor
+      - Content Admin != Game Operations Admin
+
+events:
+  items:
+    - PlaceholderResolved

@@ -1,0 +1,15 @@
+# =============================================================================
+# MODERATION — visual content safety
+# =============================================================================
+
+Moderation:
+  checks:
+    items:
+      - content_safety
+      - rights_validation
+      - metadata_validation
+  ref: content_system_v1/moderation.yaml
+
+events:
+  items:
+    - VisualModerated

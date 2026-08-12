@@ -1,0 +1,12 @@
+# =============================================================================
+# DISTRICT EVENTS — district-scoped events
+# =============================================================================
+
+DistrictEvents:
+  scope: DISTRICT
+  sourceOfTruth: Event System
+  ref: world_events.yaml, event_integration.yaml
+
+events:
+  items:
+    - DistrictEventStarted

@@ -1,0 +1,53 @@
+# =============================================================================
+# ECONOMY SOUNDS — gain, spend, loss, debt, failure
+# =============================================================================
+
+EconomySounds:
+  MoneyEarned:
+    cue: economy.coin_gain
+    motif: cash
+    priority: NORMAL
+    length: micro
+    description: monete/cash — "hai guadagnato"
+  LargeMoneyEarned:
+    cue: economy.coin_cascade
+    motif: cash
+    priority: HIGH
+    length: normal
+    description: coin cascade / cash register — soglia dal backend
+    threshold: backend_authoritative
+  MoneySpent:
+    cue: economy.spend_discrete
+    motif: cash
+    priority: LOW
+    length: micro
+    description: spesa normale — discreto
+  MajorSpend:
+    cue: economy.major_spend
+    motif: cash
+    priority: HIGH
+    length: normal
+    description: spesa importante — piu pesante, NON umiliante
+    threshold: backend_authoritative
+  SignificantLoss:
+    cue: economy.loss_negative
+    motif: cash
+    priority: HIGH
+    length: normal
+    description: perdita economica significativa
+  DebtPayment:
+    cue: economy.debt_warning
+    motif: cash
+    priority: NORMAL
+    length: normal
+    description: debito/rata — tensione o warning
+  InsufficientFunds:
+    cue: economy.operation_failed
+    motif: cash
+    priority: NORMAL
+    length: micro
+    description: operazione fallita — short negative feedback
+
+events:
+  items:
+    - EconomySoundTriggered

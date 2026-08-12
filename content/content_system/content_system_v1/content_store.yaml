@@ -1,0 +1,16 @@
+# =============================================================================
+# CONTENT STORE — persistent authoring storage
+# =============================================================================
+
+ContentStore:
+  purpose: persistent content authoring storage
+  technology: DA DEFINIRE / TBD
+  rule: NOT define definitive technology in V1
+  separation:
+    CODE: schema and rules
+    CONTENT_STORE: published content
+    DOMAIN_SYSTEM: game state and rules
+
+events:
+  items:
+    - ContentStored

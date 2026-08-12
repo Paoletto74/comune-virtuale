@@ -1,0 +1,39 @@
+# =============================================================================
+# IDENTITY — newspaper + modern digital game + social simulation
+# =============================================================================
+
+AudioIdentity:
+  DECISIONE APPROVATA:
+  blend:
+    items:
+      - NEWSPAPER
+      - MODERN_DIGITAL_GAME
+      - SOCIAL_SIMULATION
+
+  qualities:
+    items:
+      - riconoscibile
+      - moderno
+      - discreto quando necessario
+      - soddisfacente nelle azioni positive
+      - piu teso negli eventi negativi
+      - ironico quando appropriato
+    forbidden:
+      items:
+        - infantile
+        - eccessivamente rumoroso
+
+  contributes:
+    items:
+      - feedback
+      - immersione
+      - riconoscibilita eventi
+      - soddisfazione
+      - tensione
+      - humor
+      - identita editoriale
+      - percezione citta viva
+
+events:
+  items:
+    - AudioIdentityApplied

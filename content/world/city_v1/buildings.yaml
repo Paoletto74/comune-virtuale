@@ -1,0 +1,27 @@
+# =============================================================================
+# BUILDINGS — BuildingId model
+# =============================================================================
+
+Buildings:
+  identifier: BuildingId
+  belongsTo:
+    items:
+      - DistrictId
+      - LocationId
+      - PropertyId
+      - BusinessId
+      - Municipality
+  metadata:
+    fields:
+      items:
+        - BuildingId
+        - CityId
+        - DistrictId
+        - type
+        - visualAssetId
+        - status
+  contains: una o piu Location — ref locations.yaml
+
+events:
+  items:
+    - BuildingLoaded

@@ -1,0 +1,54 @@
+# =============================================================================
+# NOTIFICHE — private + globali, popup layer
+# =============================================================================
+
+NotificationsSection:
+  DECISIONE APPROVATA: divisa in
+  areas:
+    items:
+      - private
+      - global
+
+privateNotifications:
+  examples:
+    items:
+      - promotion
+      - hired
+      - fired
+      - payment
+      - gift
+      - loan
+      - sale
+      - purchase
+      - loss
+      - new_level
+      - achievement
+      - message
+      - personal_event
+
+globalNotifications:
+  examples:
+    items:
+      - election
+      - referendum
+      - crisis
+      - municipal_event
+      - new_law
+      - economic_event
+      - major_social_event
+      - gazzetta_news
+
+importantPopups:
+  DECISIONE APPROVATA: |
+    Notifiche personali più importanti → popup audiovisivi.
+    Notification/Visual gestiscono logica — UI presenta.
+  ref: popups.yaml
+
+notificationLayer:
+  status: PROPOSTA TECNICA
+  rule: layer sopra main content — popup queue, deduplication
+
+events:
+  items:
+    - NotificationsSectionViewed
+    - NotificationItemOpened

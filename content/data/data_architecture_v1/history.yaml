@@ -1,0 +1,32 @@
+# =============================================================================
+# HISTORY — historical data per grafici e ricostruzione
+# =============================================================================
+
+HistoricalData:
+  purpose: ricostruire patrimonio, livello, lavoro, eventi, classifiche, inflazione nel tempo
+
+tracks:
+  items:
+    - net_worth_over_time
+    - level_over_time
+    - job_over_time
+    - major_events
+    - ranking_history
+    - inflation_history
+
+graphData:
+  DECISIONE APPROVATA: |
+    Grafici Profile devono derivare da historical data.
+    NON dati inventati o hardcoded.
+
+schema:
+  historyId: string
+  citizenId: string
+  metricType: string
+  value: TBD
+  occurredAt: timestamp
+  source: string
+
+events:
+  items:
+    - HistoryPointRecorded

@@ -1,0 +1,54 @@
+# =============================================================================
+# SECURITY & FRAUD PROTECTION
+# =============================================================================
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: server authoritative su transazioni marketplace
+
+clientCannot:
+  items:
+    - create_money
+    - modify_server_prices
+    - change_owner
+    - sell_unowned_assets
+    - bypass_listing_locks
+    - purchase_without_funds
+    - modify_transaction_result
+
+fraudProtection:
+  DECISIONE APPROVATA: proteggere contro
+  threats:
+    items:
+      - duplicate_sale
+      - duplicate_purchase
+      - fake_price
+      - race_condition
+      - ownership_spoofing
+      - listing_manipulation
+      - transaction_replay
+  mechanisms:
+    items:
+      - idempotency
+      - server_validation
+      - atomic_transactions
+      - locks
+
+performance:
+  status: PROPOSTA TECNICA
+  supports:
+    items:
+      - thousands_of_npc
+      - few_initial_players
+      - many_future_listings
+  uses:
+    items:
+      - indexes
+      - pagination
+      - caching
+      - aggregated_demand
+      - expiry_batch_processing
+
+events:
+  items:
+    - SecurityViolationBlocked
+    - FraudAttemptRejected

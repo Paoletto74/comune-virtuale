@@ -1,0 +1,14 @@
+# =============================================================================
+# INFLATION — economy_v1
+# =============================================================================
+
+---
+Inflation:
+  owner: Municipality/Economy
+  math: TBD
+  source: economic model not frontend random
+  historical:
+  - timestamp
+  - gameTime
+  - value
+  status: DECISIONE APPROVATA

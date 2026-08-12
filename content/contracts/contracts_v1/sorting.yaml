@@ -1,0 +1,15 @@
+# =============================================================================
+# SORTING — whitelist, deterministic
+# =============================================================================
+
+SortingContract:
+  rules:
+    items:
+      - whitelistato
+      - deterministic
+      - autorizzato
+  mustNot: arbitrary SQL-like sort
+
+events:
+  items:
+    - SortApplied

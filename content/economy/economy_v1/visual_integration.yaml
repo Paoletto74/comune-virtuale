@@ -1,0 +1,14 @@
+# =============================================================================
+# VISUAL INTEGRATION — economy_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  ref: contextual_visuals_v1
+  examples:
+  - coins
+  - wallet
+  - bank
+  - luxury purchase
+  - loss
+  status: DECISIONE APPROVATA

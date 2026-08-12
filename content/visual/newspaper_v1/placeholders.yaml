@@ -1,0 +1,40 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values, classifieds future
+# =============================================================================
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - font_families_definitive
+    - palette_HEX_definitive
+    - logo_definitivo
+    - masthead_name_definitivo
+    - headline_terminology_final
+    - grid_numeric_values
+    - payload_size_limits
+    - audio_assets
+    - animation_specifications
+    - category_full_list_approved
+    - brand_voice_final
+    - procedural_headline_templates
+
+ClassifiedsFuture:
+  status: PROPOSTA TECNICA — NON implementare
+  mayInclude:
+    items:
+      - pubblicita
+      - annunci
+      - sponsorizzazioni_interne
+      - offerte_commerciali
+  rule: chiaramente distinguibili da contenuto editoriale
+
+GraphPresentation:
+  ref: economy.yaml, frontend_ui_v1/profile_graphs.yaml
+  rule: grammatica editoriale — NON software finanziario generico
+
+TablePresentation:
+  inspiration: financial pages + league tables + newspaper data tables
+
+events:
+  items:
+    - PlaceholderResolved

@@ -1,0 +1,13 @@
+# =============================================================================
+# MAINTENANCE FAILURE — property_v1
+# =============================================================================
+
+---
+MaintenanceFailure:
+  consequences:
+  - lower value
+  - reduced comfort
+  - unavailable features
+  - repair event
+  rules: TBD future
+  status: PROPOSTA TECNICA

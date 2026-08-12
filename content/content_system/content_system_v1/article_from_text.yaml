@@ -1,0 +1,27 @@
+# =============================================================================
+# ARTICLE FROM TEXT — Paste Text workflow
+# =============================================================================
+
+ArticleFromText:
+  workflow:
+    items:
+      - Paste_Text
+      - choose_content_type
+      - optional_AI_transform
+      - preview
+      - validation
+      - save_draft
+  importance: particularly important for daily admin use
+  simpleTextWorkflow:
+    items:
+      - PASTE_TEXT
+      - AI_Parser_optional
+      - structure_recognition
+      - preview
+      - modify
+      - validation
+      - publish
+
+events:
+  items:
+    - ArticleFromTextCreated

@@ -1,0 +1,12 @@
+# =============================================================================
+# VARIANTS — A/B/C with consistency
+# =============================================================================
+
+VisualVariants:
+  support: variant A/B/C
+  rule: mantenere coerenza — NON random chaos
+  selection: controlled rules per event type
+
+events:
+  items:
+    - VisualVariantSelected

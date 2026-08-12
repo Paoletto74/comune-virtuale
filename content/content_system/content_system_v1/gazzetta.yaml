@@ -1,0 +1,29 @@
+# =============================================================================
+# GAZZETTA — feed, special edition, breaking
+# =============================================================================
+
+Gazzetta:
+  publishRules:
+    items:
+      - category
+      - publishAt
+      - expiration
+      - visual
+      - visibility
+      - edition
+  feed:
+    shows: published only
+    order:
+      factors:
+        items:
+          - publication_time
+          - editorial_prominence
+          - relevance
+      algorithm: DA DEFINIRE / TBD
+  specialEdition:
+    rule: accent/theme validated by Visual System
+  ref: newspaper_v1, newspaper_v1/gazzetta.yaml
+
+events:
+  items:
+    - GazzettaContentPublished

@@ -1,0 +1,18 @@
+# =============================================================================
+# CLASSIFIEDS — Marketplace as annunci economici
+# =============================================================================
+
+Classifieds:
+  DECISIONE APPROVATA: Marketplace ispirato ad ANNUNCI ECONOMICI
+  examples:
+    items:
+      - "VENDESI Villa con piscina EUR 850.000"
+      - "AFFITTASI Appartamento EUR 1.400/mese"
+  mustNot: copiare grafica annunci reali
+  rule: NON alterare marketplace logic — solo presentation
+
+ref: frontend_ui_v1/marketplace.yaml, templates.yaml MarketplaceClassifieds
+
+events:
+  items:
+    - ClassifiedCardRendered

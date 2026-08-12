@@ -1,0 +1,12 @@
+# =============================================================================
+# CITY GUIDE — list/categories alternative to map
+# =============================================================================
+
+CityGuide:
+  purpose: elenco luoghi principali per categoria
+  coexistsWith: map spatial representation
+  ref: map_accessibility.yaml, discovery.yaml
+
+events:
+  items:
+    - CityGuideViewed

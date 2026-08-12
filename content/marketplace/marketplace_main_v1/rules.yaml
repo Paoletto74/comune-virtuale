@@ -1,0 +1,66 @@
+# =============================================================================
+# MARKETPLACE RULES — content-first
+# =============================================================================
+
+MarketplaceRule:
+  schema:
+    ruleId: string
+    ruleType: string
+    conditionRef: "string | null"
+    actionRef: string
+    priority: TBD
+
+contentFirst:
+  DECISIONE APPROVATA: |
+    NO hardcode categorie, fee, regole, filtri, listing types.
+    Configurazioni in content pack — Admin Content Studio compatible.
+
+adminContentStudio:
+  status: PROPOSTA TECNICA — runtime futuro
+  flow: |
+    YAML/JSON → Admin Content Studio → validation → preview → publish
+    → Marketplace Content
+  note: |
+    NON richiedere Cursor/GitHub/deploy manuale per ogni contenuto.
+    Compatibile con import strutturato validato.
+
+listingExpiration:
+  schema:
+    expiresAt: "timestamp | null"
+  onExpire:
+    status: configurable
+    options:
+      items:
+        - remain_available
+        - remove_listing
+        - auto_renew
+        - notify_seller
+        - other_rule
+
+unsoldItems:
+  DECISIONE APPROVATA: |
+    Bene in vendita NON deve necessariamente essere venduto.
+    Può restare invenduto, sul mercato a lungo, ritirato, riprezzato, scadere.
+
+stolenGoodsPolicy:
+  status: PROPOSTA TECNICA
+  rule: |
+    Bene rubato può apparire — Criminal determina rischio/legalità/detection.
+    Marketplace blocca o permette listing per policy configurabile.
+  blackMarket: futuro — NON V1
+
+bankruptcyRestrictions:
+  rule: |
+    Bancarotta → restrizioni configurabili.
+    NON bloccare automaticamente tutte le transazioni.
+    Criminal/Banking/Legal/Economy decidono.
+
+debtCollateral:
+  rule: |
+    Asset libero | collateral | locked | seized — Banking/Legal decide.
+    Marketplace rispetta lock.
+
+events:
+  items:
+    - MarketplaceRuleApplied
+    - ListingExpired

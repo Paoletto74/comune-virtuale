@@ -1,0 +1,21 @@
+# =============================================================================
+# EVENT BUS — conceptual, technology TBD
+# =============================================================================
+
+EventBus:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  purpose: distribuire Domain Events ai consumer
+
+properties:
+  atLeastOnce: TBD
+  ordering: TBD per aggregate
+  deadLetter: TBD
+
+technology: TBD
+
+rule: evitare dipendenze circolari tra domain services via event bus
+
+events:
+  items:
+    - EventBusMessagePublished
+    - EventBusMessageFailed

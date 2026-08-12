@@ -1,0 +1,36 @@
+# =============================================================================
+# DEADLINES — scadenze task, azioni, obblighi
+# =============================================================================
+
+DeadlineDefinition:
+  schema:
+    deadlineId: string
+    targetId: string
+    targetType: string
+    sourceSystem: string
+    expiresAt: timestamp
+    status: pending | met | expired | cancelled
+    label: string
+    actionOnExpireRef: string | null
+
+Deadline:
+  DECISIONE APPROVATA: |
+    Es. "Completa task entro 12 ore."
+    Dominio definisce conseguenza scadenza — Time gestisce expiresAt.
+  examples:
+    items:
+      - task_completion
+      - loan_acceptance
+      - family_support
+      - political_petition
+      - business_contract
+
+NotificationLink:
+  ref: notification_main_v1 — expiresAt su notifiche actionable
+
+events:
+  items:
+    - DeadlineCreated
+    - DeadlineMet
+    - DeadlineExpired
+    - DeadlineCancelled

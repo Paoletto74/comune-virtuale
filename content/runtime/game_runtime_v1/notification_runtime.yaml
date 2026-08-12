@@ -1,0 +1,26 @@
+# =============================================================================
+# NOTIFICATION RUNTIME — domain event consumer
+# =============================================================================
+
+NotificationRuntime:
+  consumes: domain events
+  determines:
+    items:
+      - create_notification
+      - priority
+      - visibility
+      - popup_eligibility
+
+popupDelivery:
+  DECISIONE APPROVATA: |
+    Backend mantiene Notification Instance.
+    Frontend riceve popup candidate — client decide solo presentazione.
+
+sourceOfTruth: Notification
+executionMode: event-driven
+
+ref: notification_main_v1, frontend_ui_v1/popups.yaml
+
+events:
+  emits: [NotificationCreated]
+  consumes: [LevelReached, ItemPurchased, SalaryPaid, ElectionHeld]

@@ -1,0 +1,10 @@
+# =============================================================================
+# CAREER PATHS — work_careers_v1
+# =============================================================================
+
+---
+CareerPaths:
+  concept: Job A to Job B to Job C
+  branches: true
+  deadEnds: some jobs no auto progression
+  status: PROPOSTA TECNICA

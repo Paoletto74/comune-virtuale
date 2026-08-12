@@ -1,0 +1,14 @@
+# =============================================================================
+# DARK MODE — night edition metaphor
+# =============================================================================
+
+DarkMode:
+  status: PROPOSTA TECNICA
+  concept: NIGHT EDITION — NON simplicemente carta nera
+  rule: newspaper concept deve funzionare in dark mode
+
+ref: ui_main_v1 themes, frontend_ui_v1/themes.yaml
+
+events:
+  items:
+    - NightEditionApplied

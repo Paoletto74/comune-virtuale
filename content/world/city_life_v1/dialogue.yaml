@@ -1,0 +1,13 @@
+# =============================================================================
+# DIALOGUE — Content System, AI future
+# =============================================================================
+
+Dialogue:
+  source: Content System
+  aiGenerated:
+    status: PROPOSTA TECNICA — future AI-generated dialogue
+  applies: SPECIAL NPC primarily
+
+events:
+  items:
+    - NpcDialogueShown

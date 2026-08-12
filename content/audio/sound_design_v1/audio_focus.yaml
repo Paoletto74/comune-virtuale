@@ -1,0 +1,15 @@
+# =============================================================================
+# AUDIO FOCUS — tab, background, device focus
+# =============================================================================
+
+AudioFocus:
+  manages:
+    items:
+      - browser_tab
+      - device_audio_focus
+      - app_background
+  rule: comportamento definito per ogni piattaforma
+
+events:
+  items:
+    - AudioFocusChanged

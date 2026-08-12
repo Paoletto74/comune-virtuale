@@ -1,0 +1,31 @@
+# =============================================================================
+# MOBILITY — veicoli e trasporti NPC
+# =============================================================================
+
+NpcMobility:
+  ref: mobility_main_v1/npc_mobility.yaml
+  capabilities:
+    items:
+      - own_vehicle
+      - use_transport
+      - buy_vehicle
+      - sell_vehicle
+      - replace_vehicle
+  owner: mobility_main_v1 autorevole
+  simulation:
+    tier_0: aggregate_mobility_patterns
+    tier_1_plus: simplified_individual
+
+aggregateMobility:
+  simulates:
+    items:
+      - commute_patterns
+      - vehicle_ownership_rate
+      - public_transport_usage
+  values: TBD
+
+events:
+  items:
+    - NpcVehicleAcquired
+    - NpcVehicleSold
+    - NpcTravelRecorded

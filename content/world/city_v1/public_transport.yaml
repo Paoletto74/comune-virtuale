@@ -1,0 +1,17 @@
+# =============================================================================
+# PUBLIC TRANSPORT — bus, metro, taxi, train
+# =============================================================================
+
+PublicTransport:
+  status: PROPOSTA TECNICA
+  examples:
+    items:
+      - bus
+      - metro
+      - taxi
+      - train
+  presence: DA DEFINIRE / TBD
+
+events:
+  items:
+    - PublicTransportUsed

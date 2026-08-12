@@ -1,0 +1,16 @@
+# =============================================================================
+# ADMIN REVOCATION
+# =============================================================================
+
+AdminRevocation:
+  DECISIONE APPROVATA: quando Admin revocato
+  effects:
+    items:
+      - nuove_richieste_rifiutate
+      - sessioni_admin_attive_revocabili
+      - permission_cache_invalidata
+
+events:
+  items:
+    - AdminRevoked
+    - AdminSessionForceRevoked

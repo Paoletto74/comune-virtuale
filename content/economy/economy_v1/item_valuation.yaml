@@ -1,0 +1,9 @@
+# =============================================================================
+# ITEM VALUATION — economy_v1
+# =============================================================================
+
+---
+ItemValuation:
+  owner: Marketplace may provide market info
+  rule: no automatic patrimonial value for every item
+  status: DECISIONE APPROVATA

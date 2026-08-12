@@ -1,0 +1,19 @@
+# =============================================================================
+# BUSINESS RUNTIME — revenue, expenses, contracts
+# =============================================================================
+
+BusinessRuntime:
+  tickProcesses:
+    items:
+      - recurring_revenue
+      - expenses
+      - contracts
+      - employee_state
+  rule: solo secondo business rules
+  sourceOfTruth: Business
+  executionMode: tick-driven
+  ref: business_main_v1
+
+events:
+  emits: [BusinessRevenueRecorded]
+  consumes: [GameTimeAdvanced]

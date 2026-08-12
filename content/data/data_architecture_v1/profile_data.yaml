@@ -1,0 +1,31 @@
+# =============================================================================
+# PROFILE DATA — public/private/discoverable
+# =============================================================================
+
+ProfileData:
+  sourceOfTruth: Profile
+  schema:
+    citizenId: string
+    publicVisibility: object
+    avatarRef: string
+    displayInformation: object
+    titles: []
+    showcase: object
+    publicStatistics: object
+    publicFacts: []
+
+visibility:
+  DECISIONE APPROVATA: PUBLIC, PRIVATE, DISCOVERABLE
+  ref: profile_main_v1/visibility.yaml
+
+derivedFields:
+  status: PROPOSTA TECNICA — alcuni campi derivati, non scrivibili client
+  examples:
+    items:
+      - global_position
+      - net_worth_display
+      - ranking_summary
+
+events:
+  items:
+    - ProfileDataUpdated

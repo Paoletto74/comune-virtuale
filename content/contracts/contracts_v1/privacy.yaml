@@ -1,0 +1,27 @@
+# =============================================================================
+# PRIVACY — profile, financial, criminal, event redaction
+# =============================================================================
+
+Privacy:
+  contractsMustRespect:
+    items:
+      - public_private_profile
+      - sensitive_fields
+      - notification_privacy
+      - financial_privacy
+      - criminal_privacy
+      - admin_privacy
+
+eventRedaction:
+  rule: |
+    Se consumer non deve conoscere campo — non inserirlo in payload.
+    NON affidarsi solo al frontend per nasconderlo.
+
+profileVisibility:
+  perField:
+    items: [PUBLIC, PRIVATE, DISCOVERABLE]
+  rule: backend enforces
+
+events:
+  items:
+    - PrivacyViolationDetected

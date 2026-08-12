@@ -1,0 +1,9 @@
+# =============================================================================
+# BUSINESS INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+BusinessIntegration:
+  fleet: true
+  commercialVehicles: true
+  status: PROPOSTA TECNICA

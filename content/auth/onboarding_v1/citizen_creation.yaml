@@ -1,0 +1,22 @@
+# =============================================================================
+# CITIZEN CREATION — authoritative backend operation
+# =============================================================================
+
+CitizenCreation:
+  DECISIONE APPROVATA:
+  flow:
+    items:
+      - frontend_raccoglie_dati
+      - backend_valida
+      - backend_crea_Citizen
+  authority: "backend — frontend NON crea CitizenId"
+  idempotent: "ref idempotency.yaml — doppio click NON crea due Citizen"
+  confirmation:
+    before: "Questo sara il tuo cittadino. CTA: CREA IL CITTADINO"
+    after: "Benvenuto in citta. visual + sound + transition"
+  ref: auth_main_v1/citizen_association.yaml, contracts_v1
+
+events:
+  items:
+    - CitizenCreationStarted
+    - CitizenCreated

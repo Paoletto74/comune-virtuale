@@ -1,0 +1,19 @@
+# =============================================================================
+# PROPERTY FEATURES — property_v1
+# =============================================================================
+
+---
+PropertyFeatures:
+  items:
+  - bedrooms
+  - bathrooms
+  - garage
+  - garden
+  - pool
+  - balcony
+  - view
+  - security
+  - luxury
+  - office
+  - storage
+  status: DECISIONE APPROVATA

@@ -1,0 +1,32 @@
+# =============================================================================
+# ADMIN CONTENT PUBLISH — runtime integration
+# =============================================================================
+
+AdminContentPublish:
+  flow:
+    items:
+      - validate
+      - approve
+      - publish
+      - invalidate_content_cache
+      - notify_affected_runtime_components
+  mustNot: modify_player_state_directly
+
+futureAiWorkflow:
+  status: PROPOSTA TECNICA — NON implementare AI runtime
+  flow:
+    items:
+      - Admin_Content_Studio
+      - text_import
+      - AI_assisted_parsing_future
+      - validation
+      - preview
+      - approval
+      - publish
+  rule: AI NON modifica Game State
+
+ref: admin_content_studio_v1, backend_architecture_v1/ai_integration.yaml
+
+events:
+  emits: [ContentPublished]
+  consumes: []

@@ -1,0 +1,12 @@
+# =============================================================================
+# FALLBACK LOCALE — requested -> default
+# =============================================================================
+
+FallbackLocale:
+  policy: requested locale -> default locale (it-IT)
+  rule: NON mostrare stringhe tecniche
+  missingTranslation: fallback — NON bloccare necessariamente contenuti italiani
+
+events:
+  items:
+    - LocaleFallbackApplied

@@ -1,0 +1,17 @@
+# =============================================================================
+# EVENTS — domain event sound triggers
+# =============================================================================
+
+EventSounds:
+  triggers:
+    items:
+      - Domain_Event
+      - Notification
+      - UI_Action
+      - System_State
+  rule: trigger deriva da evento semantico — NON da file path
+  ref: event_mapping.yaml, contracts_v1/domain_events.yaml
+
+events:
+  items:
+    - EventSoundTriggered

@@ -1,0 +1,12 @@
+# =============================================================================
+# CLIENT OFFSET — time_v1
+# =============================================================================
+
+---
+ClientOffset:
+  maintains: server offset
+  rule: no device clock for game logic
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ClientOffsetUpdated

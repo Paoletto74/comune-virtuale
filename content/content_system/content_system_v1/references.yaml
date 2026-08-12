@@ -1,0 +1,20 @@
+# =============================================================================
+# REFERENCES — entity references validation
+# =============================================================================
+
+References:
+  allowed:
+    items:
+      - CitizenId
+      - ItemId
+      - PropertyId
+      - JobId
+      - MunicipalityId
+      - EventId
+  validation: references must exist
+  broken: NON pubblicabile
+  monitor: broken content monitor in dashboard
+
+events:
+  items:
+    - ReferenceValidated

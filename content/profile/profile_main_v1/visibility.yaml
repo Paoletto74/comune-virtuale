@@ -1,0 +1,62 @@
+# =============================================================================
+# VISIBILITY — PRIVATE, PUBLIC, DISCOVERABLE, SYSTEM_ONLY
+# =============================================================================
+
+VisibilityLevels:
+  DECISIONE APPROVATA:
+  items:
+    - PRIVATE
+    - PUBLIC
+    - DISCOVERABLE
+    - SYSTEM_ONLY
+
+examples:
+  PRIVATE:
+    items:
+      - debts
+      - full_inventory
+      - transactions
+      - criminal_track
+  PUBLIC:
+    items:
+      - displayName
+      - level
+      - contextualTitle
+      - activeRole
+      - prestigeAssets
+  DISCOVERABLE:
+    items:
+      - criminal_reputation_if_discovered
+  SYSTEM_ONLY:
+    items:
+      - audit_logs
+
+profileVisibility:
+  DECISIONE APPROVATA: |
+    Proprietario decide visibilità campi consentiti.
+    NON può nascondere info obbligatoriamente pubbliche (es. ruolo sindaco).
+    allinea progression_main_v1/visibility.yaml
+
+profileViewer:
+  schema:
+    viewerId: string
+    targetId: string
+  rule: policy determinano cosa mostrare
+
+privacyPrinciple:
+  DECISIONE APPROVATA: |
+    Profilo pubblico mostra COSA possiede, NON COME l'ha ottenuto.
+  mustNotShowAutomatically:
+    items:
+      - actual_price_paid
+      - seller
+      - loan_used
+      - gift_received
+      - profit_realized
+      - money_origin
+      - previous_transactions
+
+events:
+  items:
+    - PrivacyChanged
+    - VisibilityPolicyApplied

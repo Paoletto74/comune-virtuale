@@ -1,0 +1,45 @@
+# =============================================================================
+# SCHEDULED JOBS — salary, rent, rankings, reconciliation
+# =============================================================================
+
+ScheduledJobs:
+  status: PROPOSTA TECNICA — NON implementare scheduler
+  jobs:
+    items:
+      - salary
+      - rent
+      - recurring_income
+      - debt_interest
+      - taxes
+      - events
+      - cleanup
+      - rankings
+      - reconciliation
+
+jobSchema:
+  items:
+    - jobId
+    - schedule
+    - execution_policy
+    - idempotency
+    - retry
+    - audit
+
+scheduledEvents:
+  examples:
+    items:
+      - referendum
+      - election
+      - municipal_event
+      - festival
+      - market_event
+      - special_task
+      - deadline
+  rule: Time System determina quando — Event System determina cosa
+
+ref: time_main_v1, event_main_v1
+
+events:
+  items:
+    - ScheduledJobTriggered
+    - ScheduledJobCompleted

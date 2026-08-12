@@ -1,0 +1,33 @@
+# =============================================================================
+# NPC — criminalità e NPC
+# =============================================================================
+
+NpcCriminalRole:
+  schema:
+    npcId: string
+    role: victim | criminal | witness | investigator_abstract | fence_abstract | contact
+    simulationDepth: simplified
+
+npcCapabilities:
+  items:
+    - be_victim
+    - be_criminal_simplified
+    - be_witness
+    - be_investigator_abstract
+    - buy_goods
+    - suffer_damage
+    - generate_opportunities
+    - populate_criminal_tasks
+  rule: Simulazione semplificata — stesso modello cittadino, depth ridotta
+
+criminalMarket:
+  DECISIONE APPROVATA: |
+    NO marketplace criminale separato obbligatorio.
+    Usare Marketplace, Economy, Task, Event System quando possibile.
+  criminalProvides: rules_and_risk_context
+
+events:
+  items:
+    - NpcVictimized
+    - NpcWitnessReport
+    - NpcCriminalActivity

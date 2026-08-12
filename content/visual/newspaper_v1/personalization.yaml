@@ -1,0 +1,20 @@
+# =============================================================================
+# PERSONALIZATION — Home content selection
+# =============================================================================
+
+Personalization:
+  status: PROPOSTA TECNICA
+  homeMaySelectBy:
+    items:
+      - relevance
+      - municipality
+      - player_state
+      - recent_events
+  ranking:
+    rule: ranking personalizzazione definito separatamente — NON editorial prominence
+  noFilterBubble:
+    ref: personal_edition.yaml
+
+events:
+  items:
+    - PersonalizationApplied

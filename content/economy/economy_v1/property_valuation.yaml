@@ -1,0 +1,9 @@
+# =============================================================================
+# PROPERTY VALUATION — economy_v1
+# =============================================================================
+
+---
+PropertyValuation:
+  owner: Property System
+  economyUses: data only
+  status: DECISIONE APPROVATA

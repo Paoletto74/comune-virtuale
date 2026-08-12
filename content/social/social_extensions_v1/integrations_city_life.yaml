@@ -1,0 +1,19 @@
+# =============================================================================
+# INTEGRATION — city_life_v1
+# =============================================================================
+
+CityLifeIntegration:
+  status: PROPOSTA TECNICA — future situational social
+
+  boundary:
+    cityLifeMay:
+      items:
+        - situational_encounters
+        - public_social_context
+        - discoverability_rules
+    socialMay:
+      items:
+        - discovery_from_encounter
+        - preset_interaction_in_city_context
+
+  rule: NON simulare social graph completo — event-driven

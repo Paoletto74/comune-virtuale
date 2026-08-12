@@ -1,0 +1,91 @@
+# =============================================================================
+# TASK POOLS — pool configurabili per generazione
+# =============================================================================
+
+TaskPool:
+  schema:
+    poolId: string
+    label: string
+    categoryId: string
+    definitionIds: []
+    drawRules:
+      maxActiveFromPool: TBD
+      drawProbability: TBD
+      cooldown: TBD
+      conditionsRef: string | null
+      weightByDefinition: {}
+
+pools:
+  status: skeleton_only
+
+  POOL_PERSONAL_DAILY:
+    poolId: POOL_PERSONAL_DAILY
+    categoryId: personal
+    label: Task personali giornalieri
+    definitionIds:
+      items: []
+    drawRules:
+      maxActiveFromPool: TBD
+      drawProbability: TBD
+      cooldown: TBD
+
+  POOL_WORK_BY_JOB:
+    poolId: POOL_WORK_BY_JOB
+    categoryId: work
+    label: Task lavorativi per jobId
+    note: Filtrati da jobId, categoryId, careerLevel — work_main_v1 taskPoolRef
+    definitionIds:
+      items: []
+    drawRules:
+      maxActiveFromPool: TBD
+
+  POOL_SOCIAL_RANDOM:
+    poolId: POOL_SOCIAL_RANDOM
+    categoryId: social
+    label: Situazioni sociali casuali
+    definitionIds:
+      items:
+        - DEMO_ELDERLY_CROSSING
+    drawRules:
+      maxActiveFromPool: TBD
+      drawProbability: TBD
+
+  POOL_ECONOMIC_OPPORTUNITY:
+    poolId: POOL_ECONOMIC_OPPORTUNITY
+    categoryId: economic
+    definitionIds:
+      items: []
+    drawRules:
+      maxActiveFromPool: TBD
+
+  POOL_GLOBAL_EVENTS:
+    poolId: POOL_GLOBAL_EVENTS
+    categoryId: global
+    definitionIds:
+      items:
+        - DEMO_GLOBAL_LAW
+    drawRules:
+      maxActiveFromPool: TBD
+
+  POOL_CONSEQUENCE:
+    poolId: POOL_CONSEQUENCE
+    categoryId: consequence
+    label: Task generati da conseguenze
+    definitionIds:
+      items: []
+    drawRules:
+      triggeredOnly: true
+
+antiSpam:
+  integration: progression_balance_v1.anti_grind
+  mechanisms:
+    items:
+      - max_active_tasks_per_citizen
+      - pool_cooldown
+      - diminishing_returns
+      - priority_filtering
+  values: TBD
+
+npcPools:
+  rule: NPC usano pool semplificati — stessa struttura, depth ridotta
+  maxActive: TBD

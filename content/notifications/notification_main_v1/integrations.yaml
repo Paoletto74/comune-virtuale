@@ -1,0 +1,198 @@
+# =============================================================================
+# INTEGRATIONS — tutti i moduli emettono eventi, Notification consuma
+# =============================================================================
+
+integrations:
+
+  event_system:
+    direction: primary_input
+    rule: |
+      Notification System consuma eventi — NON decide fatti del mondo.
+    pipeline: |
+      System → Event → Notification Evaluation → Audience → Personalization → Feed
+
+  economy_main_v1:
+    direction: economy → notifications
+    personalExamples:
+      items:
+        - rent_increased
+        - salary_credited
+        - investment_lost_value
+        - loan_accepted
+    globalExamples:
+      items:
+        - inflation_increased
+        - real_estate_sector_growth
+        - recession_started
+    rule: Economy autorevole — Notification NON genera dati economici
+
+  work_main_v1:
+    direction: work → notifications
+    examples:
+      items:
+        - hired
+        - job_lost
+        - salary_received
+        - contract_changed
+        - work_task_available
+
+  property_main_v1:
+    direction: property → notifications
+    personalExamples:
+      items:
+        - property_purchased
+        - tenant_paid
+        - maintenance_required
+        - value_changed
+    globalWhenImportant: true
+
+  mobility_main_v1:
+    direction: mobility → notifications
+    examples:
+      items:
+        - maintenance_required
+        - accident
+        - travel_delayed
+
+  task_main_v1:
+    direction: task → notifications
+    examples:
+      items:
+        - task_available
+        - task_expiring
+        - task_completed
+        - task_failed
+        - consequence_received
+        - task_expired
+    rule: NON duplicare inutilmente Task UI
+
+  criminal_main_v1:
+    direction: criminal → notifications
+    personalExamples:
+      items:
+        - discovered
+        - fine_received
+        - asset_seized
+        - under_investigation
+    globalExamples:
+      items:
+        - major_criminal_arrested
+    privacy: non_public_crimes_stay_personal
+
+  political_main_v1:
+    direction: political → notifications
+    personalExamples:
+      items:
+        - election_won_lost
+        - support_decreased
+        - law_affects_you
+    globalExamples:
+      items:
+        - new_mayor_elected
+        - new_law_approved
+        - taxes_increased_public
+
+  business_main_v1:
+    direction: business → notifications
+    personalExamples:
+      items:
+        - company_loss
+        - employee_resigned
+        - acquisition_offer
+    globalExamples:
+      items:
+        - major_company_bankruptcy
+
+  family_main_v1:
+    direction: family → notifications
+    personalOnly:
+      items:
+        - child_found_job
+        - child_needs_help
+        - partner_lost_job
+        - relationship_changed
+    privacy: always_personal
+
+  progression_main_v1:
+    direction: progression → notifications
+    examples:
+      items:
+        - level_reached
+        - job_category_unlocked
+        - title_earned
+        - level_lost
+    rule: Progression autorevole
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - createdAt
+        - expiresAt
+        - lastSeenAt
+        - catch_up
+        - offline_summary
+
+  ui:
+    direction: notification → ui
+    contract: NotificationDTO
+    rule: Backend fornisce dati — UI definitiva successiva
+    notificationSystemDoesNot: implement_ui_logic
+
+  admin_panel:
+    configurable:
+      items:
+        - categories
+        - templates
+        - priorities
+        - severity
+        - retention
+        - grouping
+        - cooldown
+        - audience
+        - visibility
+        - expiration
+        - actions
+        - offline_summary
+        - thresholds
+
+  security:
+    clientCannot:
+      items:
+        - create_notifications
+        - change_recipient
+        - modify_authoritative_content
+        - mark_event_as_global
+        - execute_expired_actions
+
+  idempotency:
+    fields:
+      items:
+        - notificationId
+        - eventId
+        - recipientId
+        - idempotencyKey
+    rule: Una notifica per evento/destinatario salvo config esplicita
+
+  audit:
+    trace:
+      items:
+        - notificationId
+        - eventId
+        - recipientId
+        - createdAt
+        - readAt
+        - sourceSystem
+        - sourceEntity
+        - causalChainId
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM — testi da template content pack
+
+  separationOfConcerns:
+    notificationMustNot:
+      items:
+        - decide_world_outcomes
+        - execute_business_actions
+        - duplicate_source_system_authority
+        - publish_private_data_globally

@@ -1,0 +1,13 @@
+# =============================================================================
+# LOUDNESS — loudness standards
+# =============================================================================
+
+Loudness:
+  standard: DA DEFINIRE / TBD
+  metadata: loudness_metadata on each asset
+  criticalSounds: udibili senza essere aggressivi
+  ref: normalization.yaml
+
+events:
+  items:
+    - LoudnessValidated

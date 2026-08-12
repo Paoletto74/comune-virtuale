@@ -1,0 +1,17 @@
+# =============================================================================
+# OFFLINE — graceful degradation
+# =============================================================================
+
+Offline:
+  status: PROPOSTA TECNICA
+  maySupport:
+    items:
+      - cached_content
+      - shell_offline
+      - graceful_degradation
+  mustNot: operazioni_economiche_offline_senza_backend_confirmation
+
+events:
+  items:
+    - OfflineDetected
+    - OnlineRestored

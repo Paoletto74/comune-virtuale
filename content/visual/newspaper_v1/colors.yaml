@@ -1,0 +1,24 @@
+# =============================================================================
+# COLORS — original palette concepts
+# =============================================================================
+
+ColorSystem:
+  status: PROPOSTA TECNICA — NON HEX definitivi se gestiti da ui_main_v1
+  concepts:
+    items:
+      - paper
+      - ink
+      - accent
+      - alert
+      - success
+      - warning
+      - breaking
+  categoryAccents:
+    ref: category_system.yaml
+    rule: NON affidarsi esclusivamente al colore — ref accessibility color blindness
+
+ref: ui_main_v1, editorial_tokens.yaml
+
+events:
+  items:
+    - ColorTokenApplied

@@ -1,0 +1,37 @@
+# =============================================================================
+# GOVERNANCE — content status, ownership, relationships
+# =============================================================================
+
+Governance:
+  contentStatus:
+    items:
+      - DRAFT
+      - VALIDATED
+      - PENDING_APPROVAL
+      - APPROVED
+      - SCHEDULED
+      - PUBLISHED
+      - EXPIRED
+      - ARCHIVED
+      - REJECTED
+  ownership:
+    contentSystem: editorial content
+    domainSystems: game logic
+  relationships:
+    adminView: related content e.g. Article -> Event -> Citizen -> Municipality
+  contentGraph:
+    status: PROPOSTA TECNICA — future, NOT implement now
+  editorialCollections:
+    status: PROPOSTA TECNICA — future e.g. "ELEZIONI 2027"
+  contentPriority:
+    items:
+      - MINOR
+      - STANDARD
+      - IMPORTANT
+      - MAJOR
+      - BREAKING
+    rule: NOT same as notification priority
+
+events:
+  items:
+    - GovernanceRuleApplied

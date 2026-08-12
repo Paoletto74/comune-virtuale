@@ -1,0 +1,50 @@
+# =============================================================================
+# JOB POSITION — istanza specifica di un job
+# =============================================================================
+# DECISIONE APPROVATA: distinguere Job Definition vs Job Position
+# =============================================================================
+
+JobPosition:
+  positionId: string
+  jobId: string
+  label: string
+
+  employerId: string
+  companyId: string
+
+  salary: TBD
+  schedule: TBD
+
+  status: open | closed | occupied | recruiting | unavailable
+
+  capacity:
+    totalSlots: TBD
+    filledSlots: TBD
+    availableSlots: derived
+
+  candidates:
+    type: Application[]
+    includesPlayers: true
+    includesNpcs: true
+
+  currentEmployee:
+    citizenId: string | null
+    contractId: string | null
+    npcAllowed: true
+    playerAllowed: true
+
+  competition:
+    dynamic: true
+    notes: |
+      DECISIONE APPROVATA: più giocatori possono puntare allo stesso posto.
+      NON "primo arrivato prende per sempre".
+      Formula selezione: DA_DEFINIRE
+
+positionExamples:
+  - positionId: pos_medic_hospital_x
+    jobId: example_medic
+    label: Medico presso Ospedale X
+    companyId: TBD
+    status: recruiting
+
+catalogPositions: []

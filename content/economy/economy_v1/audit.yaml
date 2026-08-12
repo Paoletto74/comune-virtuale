@@ -1,0 +1,9 @@
+# =============================================================================
+# AUDIT — economy_v1
+# =============================================================================
+
+---
+Audit:
+  adminActions: immutable record
+  moneyCreationDestruction: source/sink reason required
+  status: DECISIONE APPROVATA

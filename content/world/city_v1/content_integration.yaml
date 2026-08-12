@@ -1,0 +1,12 @@
+# =============================================================================
+# CONTENT INTEGRATION — district/location descriptions
+# =============================================================================
+
+ContentIntegration:
+  rule: descrizioni quartieri e luoghi — Content System
+  admin: Content Studio modifica descriptions, labels, editorial — ref admin_city_content.yaml
+  ref: content_system_v1
+
+events:
+  items:
+    - CityContentResolved

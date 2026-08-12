@@ -1,0 +1,45 @@
+# =============================================================================
+# PLACEHOLDERS — property_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+      - property status definitive list
+      - occupancy status definitive list
+      - max properties per citizen
+      - valuation formula
+      - grace period rules
+      - maintenance failure rules
+      - deposit return rules
+      - eviction system
+      - property tax activation
+      - system municipality seller economic model
+      - rental history privacy rules
+      - property features catalog definitive
+      - maintenance condition definitive list
+  approvedFromPropertyMain:
+    items:
+      - Housing != Ownership
+      - multiProperty
+      - atomic ownershipTransfer
+      - housing categories homeless street shelter etc
+      - player chooses living option
+      - npc rental demand
+      - listing != ownership change
+  economicPrinciples:
+    A: Purchase TRANSFER not money creation
+    B: Rent TRANSFER not creation
+    C: System/Municipality sale per explicit transfer or sink rule
+    D: Atomic - never money without property
+    E: Property tax Economy tx Property provides base
+    F: Maintenance Economy tx
+    G: Property NOT liquidity
+    H: Ownership does NOT assign business activity
+  authorityPrinciples:
+    Property: property ownership occupancy truth
+    Economy: money truth
+    Marketplace: listing transaction facilitation
+    City: location truth
+    Housing: residence where you live truth

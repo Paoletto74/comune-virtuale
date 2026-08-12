@@ -1,0 +1,12 @@
+# =============================================================================
+# REALTIME — mobility_vehicles_v1
+# =============================================================================
+
+---
+Realtime:
+  future:
+  - vehicle sold
+  - listing change
+  - travel state
+  fallback: polling
+  status: PROPOSTA TECNICA future

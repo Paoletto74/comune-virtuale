@@ -1,0 +1,10 @@
+# =============================================================================
+# VERSIONING — economy_v1
+# =============================================================================
+
+---
+Versioning:
+  configVersioned: true
+  transactionRuleVersion: optional preserve
+  noRetroactiveRewrite: true
+  status: DECISIONE APPROVATA

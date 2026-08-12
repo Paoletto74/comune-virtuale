@@ -1,0 +1,37 @@
+# =============================================================================
+# SOCIAL EVENTS — generati da Communication, conseguenze da Event System
+# =============================================================================
+
+SocialEvents:
+  DECISIONE APPROVATA: Event System autorevole su conseguenze
+  communicationRole: registra e presenta interazioni
+
+eventTypes:
+  items:
+    - compliment_received
+    - insult_received
+    - friendship_formed
+    - rivalry_formed
+    - trust_changed
+    - relationship_changed
+    - sympathy_changed
+    - reputation_changed
+    - social_action_completed
+
+gazzettaIntegration:
+  DECISIONE APPROVATA: |
+    Eventi sociali importanti possono diventare notizie.
+    Gazzetta decide cosa pubblicare — Communication fornisce eventi.
+  examples:
+    items:
+      - "Un cittadino ha effettuato una donazione record."
+      - "Un imprenditore locale è diventato il più ricco del Comune."
+      - "Un nuovo sindaco è stato eletto."
+
+humor:
+  status: PROPOSTA TECNICA — tono ironico via contenuto configurabile
+
+events:
+  items:
+    - SocialEventEmitted
+    - GazzettaCandidateEvent

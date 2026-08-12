@@ -1,0 +1,23 @@
+# =============================================================================
+# PERFORMANCE — optimization, latency, budgets
+# =============================================================================
+
+Performance:
+  optimize:
+    items:
+      - thumbnails
+      - responsive_images
+      - compression
+      - modern_formats
+      - lazy_loading
+      - CDN_future
+  popupLatency:
+    CRITICAL: visual appare rapidamente — fallback immediato se necessario
+  budget:
+    status: PROPOSTA TECNICA — future budgets for popup, card, hero, profile, showcase
+  blurPlaceholder:
+    rule: low-resolution placeholder -> final image
+
+events:
+  items:
+    - VisualPerformanceMeasured

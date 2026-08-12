@@ -1,0 +1,15 @@
+# =============================================================================
+# MONEY DESTRUCTION — economy_v1
+# =============================================================================
+
+---
+MoneyDestruction:
+  sinks:
+  - taxes
+  - fees
+  - fines
+  - penalties
+  - system purchases
+  - burn
+  mustBeExplicit: true
+  status: DECISIONE APPROVATA

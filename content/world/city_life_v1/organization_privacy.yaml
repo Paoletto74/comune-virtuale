@@ -1,0 +1,21 @@
+# =============================================================================
+# ORGANIZATION PRIVACY — policy based visibility
+# =============================================================================
+
+OrganizationPrivacy:
+  default: policy based
+  profile:
+    shows:
+      items:
+        - name
+        - type
+        - description
+        - members_public_count
+        - location
+        - status
+        - visual
+    privacy: appropriate
+
+events:
+  items:
+    - OrganizationPrivacyEnforced

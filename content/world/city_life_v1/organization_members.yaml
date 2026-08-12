@@ -1,0 +1,17 @@
+# =============================================================================
+# ORGANIZATION MEMBERS — Player Citizens, NPC
+# =============================================================================
+
+OrganizationMembers:
+  members:
+    items:
+      - Player_Citizens
+      - NPC
+  events:
+    items:
+      - OrganizationJoined
+      - OrganizationLeft
+
+events:
+  items:
+    - OrganizationMembershipChanged

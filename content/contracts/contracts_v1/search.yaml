@@ -1,0 +1,16 @@
+# =============================================================================
+# SEARCH — normalized input, rate limit
+# =============================================================================
+
+SearchContract:
+  requirements:
+    items:
+      - normalized_input
+      - max_length
+      - rate_limit
+      - allowed_fields
+  mustNot: arbitrary database search
+
+events:
+  items:
+    - SearchExecuted

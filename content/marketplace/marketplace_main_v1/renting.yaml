@@ -1,0 +1,49 @@
+# =============================================================================
+# RENTAL MARKET — affitti
+# =============================================================================
+
+RentalListing:
+  schema:
+    listingId: string
+    listingType: RENT
+    assetRef: string
+    ownerId: string
+    askingRent: TBD
+    rentPeriod: daily | weekly | monthly | TBD
+    status: active | rented | vacant | expired | cancelled
+    expiresAt: "timestamp | null"
+
+RentalFlow:
+  DECISIONE APPROVATA: |
+    owner → rental listing → tenant → agreement
+    → recurring payment → expiration/renewal
+  contractOwner: Property/Mobility/Asset Domain — NON Marketplace
+
+rentalCashflow:
+  DECISIONE APPROVATA: |
+    Proprietario crea reddito passivo — NPC/Player paga → owner cashflow.
+    Economy: denaro, ledger, pagamento.
+    Marketplace: incontro, listing, disponibilità.
+
+vacancy:
+  DECISIONE APPROVATA: |
+    Immobile/veicolo affittabile può rimanere VACANT.
+    NON genera automaticamente reddito — cashflow realistico.
+
+rentalLock:
+  DECISIONE APPROVATA: |
+    Durante contratto — asset non vendibile se contratto lo vieta.
+    Regola configurabile — dominio autorevole.
+
+rentalExamples:
+  items:
+    - casa
+    - auto
+    - bene_affittabile_configurato
+
+events:
+  items:
+    - RentalListingCreated
+    - RentalStarted
+    - RentalEnded
+    - RentalVacancyRecorded

@@ -1,0 +1,78 @@
+# =============================================================================
+# OWNERSHIP — proprietà e multi-property
+# =============================================================================
+
+OwnershipRecord:
+  schema:
+    ownershipId: string
+    propertyId: string
+    ownerId: string
+    ownerType: citizen | company | system | npc
+    acquiredAt: timestamp
+    acquisitionType: purchase | inheritance | gift | seizure | transfer | system_grant
+    acquisitionPrice: TBD
+    transactionRef: string
+    status: active | pending_transfer | seized | released
+
+CitizenPropertyPortfolio:
+  schema:
+    citizenId: string
+    ownedPropertyIds: []
+    primaryResidencePropertyId: string | null
+    totalOwnedCount: TBD
+    totalMarketValue: TBD
+    totalResidentialValue: TBD
+    totalCommercialValue: TBD
+
+multiProperty:
+  DECISIONE APPROVATA: true
+  maxPropertiesPerCitizen: TBD
+  placeholderKey: MAX_PROPERTIES_PER_CITIZEN
+  examples:
+    items:
+      - primary_residence
+      - rental_apartment
+      - second_home
+      - commercial_unit
+      - vacant_investment
+
+ownershipTransfer:
+  atomic: true
+  steps:
+    items:
+      - validate_availability
+      - validate_funds_or_payment
+      - validate_requirements
+      - lock_property
+      - execute_economy_transaction
+      - transfer_ownership
+      - update_occupancy_if_needed
+      - record_ledger
+      - emit_events
+      - notify
+  onFailure: rollback_all
+  DECISIONE APPROVATA: |
+    Impossibile perdere denaro senza immobile,
+    ricevere immobile senza pagare,
+    duplicare immobile.
+
+futureFinancing:
+  status: not_implemented
+  note: Mutui/prestiti — interfaccia only
+  interface:
+    items:
+      - mortgageRef
+      - debtRef
+      - installmentSchedule
+      - lienOnProperty
+
+bankruptcyCompatibility:
+  status: interface_only
+  rule: economy_main_v1 bankruptcy — NO game over
+  possibleOutcomes:
+    items:
+      - maintain
+      - seize
+      - forced_sale
+      - partial_transfer
+  rules: TBD

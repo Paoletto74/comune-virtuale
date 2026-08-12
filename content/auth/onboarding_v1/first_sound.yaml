@@ -1,0 +1,12 @@
+# =============================================================================
+# FIRST SOUND — welcome cue
+# =============================================================================
+
+FirstSound:
+  cue: welcome opzionale — breve ingresso
+  rule: NON musica lunga obbligatoria
+  ref: sound_design_v1
+
+events:
+  items:
+    - FirstSoundPlayed

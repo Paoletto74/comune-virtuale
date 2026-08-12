@@ -1,0 +1,29 @@
+# =============================================================================
+# PRIVACY — PUBLIC, PRIVATE, SENSITIVE, SYSTEM
+# =============================================================================
+
+PrivacyClassification:
+  DECISIONE APPROVATA:
+  levels:
+    items:
+      - PUBLIC
+      - PRIVATE
+      - SENSITIVE
+      - SYSTEM
+
+dataAccess:
+  rule: database access rispetta classificazione
+
+publicProfile:
+  rule: Profile API distingue public vs private response
+
+citizenList:
+  DECISIONE APPROVATA: |
+    Lista Comune solo dati consentiti da privacy policy.
+    NON inviare: password, email privata, security data, full bank data, hidden criminal data.
+
+adminAccess:
+  rule: Admin accede a dati aggiuntivi solo secondo permission — NON "Admin vede tutto" automaticamente
+
+export:
+  rule: NON esportare dati privati a utenti non autorizzati

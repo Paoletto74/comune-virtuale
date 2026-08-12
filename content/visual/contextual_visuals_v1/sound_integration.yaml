@@ -1,0 +1,16 @@
+# =============================================================================
+# SOUND INTEGRATION — visual + sound same event family
+# =============================================================================
+
+SoundIntegration:
+  DECISIONE APPROVATA:
+  rule: visual + sound stessa event family quando appropriato
+  example:
+    PlayerArrested:
+      visual: crime.arrest.scene_01
+      sound: crime.arrest_siren
+  ref: sound_design_v1
+
+events:
+  items:
+    - VisualSoundPaired

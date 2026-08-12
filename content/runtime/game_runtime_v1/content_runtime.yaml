@@ -1,0 +1,24 @@
+# =============================================================================
+# CONTENT RUNTIME — hot content update, version separation
+# =============================================================================
+
+ContentRuntime:
+  DECISIONE APPROVATA: |
+    Content pubblicato disponibile senza deploy.
+    Runtime distingue CONTENT VERSION da GAME STATE VERSION.
+
+hotContentUpdate:
+  status: PROPOSTA TECNICA
+  rule: publish content -> available without application redeploy — solo schema compatibile
+
+schemaCompatibility:
+  rule: content richiede nuovo schema -> NON hot load -> migration/deploy
+
+contentInvalidation:
+  rule: invalidare solo cache/read models interessati — NON riavviare game runtime
+
+ref: admin_content_studio_v1, content_runtime admin_content_publish.yaml
+
+events:
+  emits: [ContentPublished, ContentCacheInvalidated]
+  consumes: [AdminContentPublishCommand]

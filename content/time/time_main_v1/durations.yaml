@@ -1,0 +1,38 @@
+# =============================================================================
+# DURATIONS — definizioni content-first
+# =============================================================================
+
+DurationDefinition:
+  schema:
+    definitionId: string
+    label: string
+    durationValue: TBD
+    durationUnit: seconds | minutes | hours | days | weeks | months | years
+    sourceSystem: string | null
+
+ScheduleDefinition:
+  status: content-first skeleton
+  rule: NON hardcodare durate nel motore
+
+domainDurationExamples:
+  status: demo_pattern — domini definiscono, Time gestisce
+  items:
+    - domain: work_main_v1
+      example: shift_duration_8h
+    - domain: mobility_main_v1
+      example: travel_duration
+    - domain: criminal_main_v1
+      example: sentence_duration
+    - domain: family_main_v1
+      example: support_deadline
+
+consumableExpiration:
+  rule: Time gestisce expiresAt — Marketplace/Inventory decide conseguenza scadenza
+
+assetMaintenance:
+  rule: Time gestisce maintenanceDueAt — Property/Mobility decidono costo/conseguenza
+
+events:
+  items:
+    - DurationElapsed
+    - ExpirationReached

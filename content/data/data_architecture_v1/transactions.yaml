@@ -1,0 +1,40 @@
+# =============================================================================
+# TRANSACTIONS — atomic boundaries, types
+# =============================================================================
+
+TransactionTypes:
+  items:
+    - salary
+    - purchase
+    - sale
+    - rent
+    - gift
+    - loan
+    - tax
+    - reward
+    - fine
+    - event
+    - business_transaction
+
+atomicOperations:
+  DECISIONE APPROVATA: operazioni atomiche
+  examples:
+    purchase:
+      steps:
+        - verifica_denaro
+        - crea_transaction
+        - trasferisce_ownership
+        - aggiorna_listing
+        - crea_notification
+      rule: NO stato parzialmente aggiornato
+
+idempotency:
+  DECISIONE APPROVATA: idempotencyKey per operazioni economiche
+  goal: evitare doppio pagamento/acquisto in retry
+
+ref: ledger.yaml, banking_main_v1
+
+events:
+  items:
+    - TransactionCompleted
+    - TransactionFailed

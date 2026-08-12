@@ -1,0 +1,9 @@
+# =============================================================================
+# MUNICIPALITY INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+MunicipalityIntegration:
+  mayPublish: public jobs
+  labourIndicators: true
+  status: DECISIONE APPROVATA

@@ -1,0 +1,17 @@
+# =============================================================================
+# FEATURE FLAGS — frontend respects, backend authoritative
+# =============================================================================
+
+FeatureFlags:
+  status: PROPOSTA TECNICA
+  rule: |
+    Frontend nasconde/abilita feature secondo flags.
+    Backend resta autorita — flag UI non bypassa regole server.
+  separation:
+    items:
+      - content_feature_flags
+      - code_feature_flags
+
+events:
+  items:
+    - FeatureFlagEvaluated

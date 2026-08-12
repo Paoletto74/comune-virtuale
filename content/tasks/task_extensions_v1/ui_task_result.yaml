@@ -1,0 +1,14 @@
+# =============================================================================
+# UI TASK RESULT — task_extensions_v1
+# =============================================================================
+
+---
+TaskResult:
+  displays:
+  - outcome
+  - reward
+  - immediate effects
+  - visible consequences
+  - next actions
+  hiddenConsequences: not necessarily revealed
+  status: PROPOSTA TECNICA

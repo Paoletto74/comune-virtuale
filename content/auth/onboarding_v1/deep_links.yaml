@@ -1,0 +1,16 @@
+# =============================================================================
+# DEEP LINKS — during and after onboarding
+# =============================================================================
+
+DeepLinks:
+  duringOnboarding:
+    rule: deep link a contenuto gioco — se Citizen non pronto gestire sicuro
+    forbidden: NON bypassare onboarding/authorization
+  afterLogin:
+    rule: ritornare alla route richiesta se autorizzata
+  security:
+    rule: NON fidarsi di query params o client state per authority
+
+events:
+  items:
+    - DeepLinkHandled

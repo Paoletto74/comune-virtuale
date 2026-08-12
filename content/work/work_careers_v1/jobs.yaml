@@ -1,0 +1,18 @@
+# =============================================================================
+# JOBS — work_careers_v1
+# =============================================================================
+
+---
+Job:
+  jobId: string
+  employerId: string
+  businessId: optional
+  title: string
+  category: string
+  requirements: object
+  salary: config
+  schedule: object
+  status: DECISIONE APPROVATA
+  location: LocationId
+  schemaDefinitive: TBD
+  alignsWith: work_main_v1/jobs.yaml

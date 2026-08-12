@@ -1,0 +1,11 @@
+# =============================================================================
+# MUNICIPALITY INTEGRATION — economy_v1
+# =============================================================================
+
+---
+MunicipalityIntegration:
+  shows:
+  - treasury
+  - inflation
+  - economic indicators
+  status: DECISIONE APPROVATA

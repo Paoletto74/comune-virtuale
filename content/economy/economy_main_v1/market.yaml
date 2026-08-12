@@ -1,0 +1,61 @@
+# =============================================================================
+# MARKET
+# =============================================================================
+# DECISIONE APPROVATA: mercato dinamico; prezzi non necessariamente fissi
+# =============================================================================
+
+Market:
+  marketId: comune_main_market
+  scope: local | regional | TBD
+
+  categories:
+    - consumables
+    - durable_goods
+    - vehicles
+    - real_estate
+    - luxury
+    - services
+    - future_categories
+
+  listingTypes:
+    items:
+      - fixed_price_npc
+      - dynamic_price_npc
+      - player_listing
+      - auction
+    notes: auction DA_DEFINIRE v1
+
+  demandSupply:
+    demandIndex: TBD
+    supplyIndex: TBD
+    perCategory: true
+    perProduct: optional
+    influencedBy: [population, npc_activity, events, macro_state, seasonality_TBD]
+
+  playerToPlayer:
+    enabled: true
+    atomicTransactions: true
+    fields: [sellerId, buyerId, assetRef, price, taxes, fees]
+
+  npcMarket:
+    enabled: true
+    behaviors:
+      - npc_buy_when_conditions_met
+      - npc_sell_when_conditions_met
+      - npc_rent_property
+      - npc_fill_vacant_listings
+    fallbackWhenNoPlayers: true
+    notes: |
+      Se nessun giocatore compra, NPC può acquistare se plausibile.
+      Se immobile vuoto, dopo periodo TBD NPC può affittare se compatibile.
+
+  marketParticipants:
+    players: true
+    npcs: true
+    companies: true
+    government: true
+
+  indexes:
+    priceIndexByCategory: TBD
+    housingIndex: TBD
+    consumerIndex: TBD

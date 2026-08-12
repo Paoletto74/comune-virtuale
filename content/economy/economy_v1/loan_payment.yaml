@@ -1,0 +1,9 @@
+# =============================================================================
+# LOAN PAYMENT — economy_v1
+# =============================================================================
+
+---
+LoanPayment:
+  economy: transaction
+  loanSystem: updates debt
+  status: DECISIONE APPROVATA

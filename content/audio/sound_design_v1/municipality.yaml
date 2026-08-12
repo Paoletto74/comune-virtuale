@@ -1,0 +1,14 @@
+# =============================================================================
+# MUNICIPALITY SOUNDS — local civic events
+# =============================================================================
+
+MunicipalitySounds:
+  ImportantMunicipalEvent:
+    cue: municipality.civic_cue
+    priority: HIGH
+    length: normal
+    description: local news / civic cue
+
+events:
+  items:
+    - MunicipalitySoundTriggered

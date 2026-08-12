@@ -1,0 +1,37 @@
+# =============================================================================
+# AGGREGATES — boundaries and ownership
+# =============================================================================
+
+AggregateBoundaries:
+  DECISIONE APPROVATA: NO aggregate giganteschi
+  aggregates:
+    items:
+      - CitizenAggregate
+      - BankAccountAggregate
+      - InventoryAggregate
+      - MarketplaceListingAggregate
+      - JobEmploymentAggregate
+      - PropertyAggregate
+      - VehicleAggregate
+      - PoliticalOfficeAggregate
+      - NotificationAggregate
+      - TaskInstanceAggregate
+      - MunicipalityAggregate
+
+AggregateOwnership:
+  rule: solo il relativo domain service modifica secondo regole
+  examples:
+    BankAccount: Banking
+    Inventory: Inventory
+    MarketplaceListing: Marketplace
+    Property: Property
+    PoliticalOffice: Political
+  mustNot: "Marketplace modifica direttamente Banking database — usare contract/command"
+
+gameStateVersion:
+  field: aggregateVersion
+  rule: mutations versionabili — optimistic concurrency
+
+events:
+  items:
+    - AggregateModified

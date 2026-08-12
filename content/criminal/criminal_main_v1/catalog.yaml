@@ -1,0 +1,81 @@
+# =============================================================================
+# CRIMINAL MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: criminalità = progressione alternativa, NON semplice malus
+# Strada legale + illegale + ibrida — NO separazione rigida
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1,
+#               work_main_v1, property_main_v1, mobility_main_v1, task_main_v1
+# Valori numerici: TBD
+# Contenuti: meccaniche astratte di gioco — NON guida operativa reale
+# =============================================================================
+
+catalogId: criminal_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - Strada legale / illegale / ibrida — giocatore libero di cambiare
+  - criminalTrack ≠ mainLevel — sovrapposizione percorsi
+  - criminalHeat ≠ scoperta — heat = attenzione/rischio
+  - Discovery system separato — possibilità di farla franca
+  - Guadagni via Economy Pipeline — NO modifica diretta cash
+  - Carcere = stato temporale — NO morte permanente
+  - Content-first — NO if criminalLevel == 5
+  - Client non autoritativo — audit + idempotenza
+  - NO AI runtime / servizi esterni
+  - Meccaniche astratte — non istruzioni operative reali
+
+includes:
+  tracks: tracks.yaml
+  levels: levels.yaml
+  categories: categories.yaml
+  activities: activities.yaml
+  risk_profiles: risk_profiles.yaml
+  heat: heat.yaml
+  discovery: discovery.yaml
+  penalties: penalties.yaml
+  prison: prison.yaml
+  milestones: milestones.yaml
+  reputation: reputation.yaml
+  visibility: visibility.yaml
+  integrations: integrations.yaml
+  npc: npc.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  criminal_core: [tracks, levels, categories, activities]
+  risk_module: [risk_profiles, heat, discovery]
+  consequence_module: [penalties, prison]
+  progression_module: [milestones, reputation]
+
+responsibilitySplit:
+  criminalSystemDecides:
+    items:
+      - criminal_progression
+      - criminal_categories
+      - risk
+      - heat
+      - discovery
+      - penalties
+      - criminal_milestones
+      - criminal_reputation
+  otherSystemsDecide:
+    economy: money_ledger
+    property: immobili
+    mobility: veicoli
+    work: lavoro
+    business: aziende
+    political: politica
+    progression: mainLevel
+    task: scelta_outcome_presentation

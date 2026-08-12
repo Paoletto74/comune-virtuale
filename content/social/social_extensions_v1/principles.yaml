@@ -1,0 +1,48 @@
+# =============================================================================
+# PRINCIPLES — estensioni Prompt 49
+# =============================================================================
+
+principles:
+  status: PROPOSTA TECNICA — formalizza e integra social_main_v1
+
+  core:
+    - NO free chat V1 — preset e social actions only
+    - Server authoritative — client non decide esito
+    - Content-first — textKey, messageDefinitionId, actionId
+    - Social NON possiede Economy, Property, Work, Criminal, Political, Family, Time
+    - Relationship module resta in social_main_v1 — NO relationship_main_v1
+    - Effects via EffectRequest / Event — non mutazione diretta cross-domain
+    - Privacy-aware — PRIVATE non diventa PUBLIC automaticamente
+    - Idempotency + audit obbligatori
+    - NO AI / LLM / free-form generation runtime
+    - Ironia configurabile via contenuto
+
+  socialRole: |
+    Layer attraverso cui i Citizen comunicano, interagiscono,
+    sviluppano relazioni e producono segnali sociali.
+    NON e un quest log, NON e chat libera, NON e secondo Economy.
+
+  authoritative:
+    socialOwns:
+      items:
+        - preset_messages
+        - social_actions
+        - social_interactions
+        - relationship_state
+        - trust_representation
+        - interaction_history
+        - social_permissions
+        - cooldown_state
+        - block_mute_report_state
+        - social_privacy_rules
+    socialDoesNotOwn:
+      items:
+        - money_balances
+        - property_ownership
+        - employment
+        - political_office
+        - criminal_status
+        - game_time
+        - inventory_ownership
+        - notification_instances
+        - gazzetta_publication

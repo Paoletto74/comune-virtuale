@@ -1,0 +1,27 @@
+# =============================================================================
+# DEPENDENCIES — dependency graph, no unmanageable cycles
+# =============================================================================
+
+DependencyGraph:
+  rule: rappresentare A -> B -> C senza cicli non gestibili
+
+exampleChain:
+  items:
+    - Time
+    - Work
+    - Economy
+    - Notifications
+
+avoid:
+  items:
+    - Economy -> Social -> Economy -> Social
+
+resolution:
+  rule: usare Domain Event / Orchestrator quando necessario
+
+ref: backend_architecture_v1 domain dependency rules
+
+events:
+  items:
+    - DependencyResolved
+    - CircularDependencyDetected

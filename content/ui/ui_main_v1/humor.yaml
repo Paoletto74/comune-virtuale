@@ -1,0 +1,27 @@
+# =============================================================================
+# HUMOR — tono ironico configurabile in UI
+# =============================================================================
+
+HumorSystem:
+  DECISIONE APPROVATA: ironia configurabile
+  mayAppearIn:
+    items:
+      - empty_states
+      - loading
+      - popup
+      - gazzetta
+      - task
+      - errors
+      - ranking
+      - profile
+  rule: |
+    NON rendere ironici tutti i messaggi.
+    Eventi importanti devono rimanere leggibili.
+
+UIStyleProfile:
+  status: PROPOSTA TECNICA — NO palette definitiva V1
+  compatibleWith: visual_main_v1/styles.yaml — VisualStyleProfile
+
+events:
+  items:
+    - HumorContentDisplayed

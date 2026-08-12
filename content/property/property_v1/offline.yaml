@@ -1,0 +1,12 @@
+# =============================================================================
+# OFFLINE — property_v1
+# =============================================================================
+
+---
+Offline:
+  noMutation:
+  - purchase
+  - rent
+  - listing
+  - ownership
+  status: DECISIONE APPROVATA

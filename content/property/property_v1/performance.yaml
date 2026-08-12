@@ -1,0 +1,12 @@
+# =============================================================================
+# PERFORMANCE — property_v1
+# =============================================================================
+
+---
+Performance:
+  market:
+  - pagination
+  - lazy loading
+  - search
+  - filtering
+  status: DECISIONE APPROVATA

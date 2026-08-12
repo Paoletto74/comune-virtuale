@@ -1,0 +1,35 @@
+# =============================================================================
+# ART DIRECTION — classic + modern + game UI
+# =============================================================================
+
+ArtDirection:
+  formula:
+    items:
+      - CLASSIC_NEWSPAPER
+      - MODERN_DIGITAL_PRODUCT
+      - GAME_UI
+  avoid:
+    A: giornale cartaceo simulato antiquato
+    B: dashboard SaaS generica con titoli in grassetto
+  result: editoriale, riconoscibile, moderno, giocabile
+
+scope:
+  appliesTo:
+    items:
+      - Home
+      - Gazzetta
+      - Attivita
+      - Mercato
+      - Marketplace
+      - Profilo
+      - Notifiche
+      - Comune
+      - Classifiche
+      - popup
+      - eventi
+      - schermate_informative
+  rule: NON ogni schermata letteralmente pagina giornale — grammatica editoriale comune
+
+events:
+  items:
+    - ArtDirectionApplied

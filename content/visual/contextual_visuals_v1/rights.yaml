@@ -1,0 +1,17 @@
+# =============================================================================
+# RIGHTS — source, license, status
+# =============================================================================
+
+Rights:
+  DECISIONE APPROVATA:
+  required:
+    items:
+      - source
+      - license
+      - status
+  noUnknownRights:
+    rule: asset senza informazioni licenza — NON pubblicabile in Production
+
+events:
+  items:
+    - VisualRightsVerified

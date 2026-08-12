@@ -1,0 +1,14 @@
+# =============================================================================
+# NPC MOBILITY — mobility_vehicles_v1
+# =============================================================================
+
+---
+NpcMobility:
+  npcMayHave:
+  - residence
+  - workplace
+  - vehicle
+  - travel mode
+  simulationTier: NPC LOD
+  alignsWith: mobility_main_v1/npc_mobility.yaml
+  status: PROPOSTA TECNICA

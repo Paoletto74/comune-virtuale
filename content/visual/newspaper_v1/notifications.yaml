@@ -1,0 +1,24 @@
+# =============================================================================
+# NOTIFICATIONS — news flash metaphor
+# =============================================================================
+
+NotificationsPresentation:
+  metaphor:
+    examples:
+      items:
+        - FLASH
+        - PROMOTION
+        - ECONOMIC_UPDATE
+        - PERSONAL_NEWS
+  notificationCenter:
+    concept: INBOX DELLA REDAZIONE / NEWS DESK
+    rule: deve rimanere chiaramente Notification Center
+  sourceOfTruth:
+    priority: Notification System
+    presentation: Visual/newspaper layer
+
+ref: notification_main_v1, frontend_ui_v1/notifications.yaml
+
+events:
+  items:
+    - NotificationEditorialRendered

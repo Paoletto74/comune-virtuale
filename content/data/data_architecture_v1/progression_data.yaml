@@ -1,0 +1,38 @@
+# =============================================================================
+# PROGRESSION DATA — definition vs state, unlocked vs available
+# =============================================================================
+
+ProgressionDefinition:
+  type: CONTENT
+  ref: progression_main_v1
+
+PlayerProgressionState:
+  type: PERSISTENT
+  sourceOfTruth: Progression
+  schema:
+    citizenId: string
+    currentLevel: number
+    unlocked: []
+    available: []
+    milestones: []
+    titles: []
+    history: []
+
+unlockedVsAvailable:
+  DECISIONE APPROVATA: UNLOCKED ≠ AVAILABLE — NO singolo booleano
+
+progressionHistory:
+  status: PROPOSTA TECNICA
+  tracks:
+    items:
+      - level_reached
+      - level_lost
+      - demotion
+      - milestone
+      - title
+      - track_progress
+
+events:
+  items:
+    - ProgressionStateUpdated
+    - MilestoneReached

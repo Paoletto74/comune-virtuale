@@ -1,0 +1,69 @@
+# =============================================================================
+# VALIDATION — schema, references, cross-pack
+# =============================================================================
+
+Validation:
+  DECISIONE APPROVATA: ogni contenuto importato/modificato validato
+  checks:
+    items:
+      - schema
+      - required_fields
+      - content_id
+      - references
+      - types
+      - enums
+      - dependencies
+      - duplicate_ids
+      - asset_references
+      - localization
+      - visibility
+      - scheduling
+      - permissions
+
+ValidationErrors:
+  DECISIONE APPROVATA: errori leggibili
+  example:
+    bad: "NullPointerException at ContentParser..."
+    good: "task.deliverPizza.reward.currency mancante."
+
+Warnings:
+  DECISIONE APPROVATA: distinguere ERROR da WARNING
+  example:
+    warning: "Questo task non ha un'immagine."
+    rule: WARNING non blocca necessariamente publish
+
+DependencyCheck:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - ref: item_123
+        missing: ERROR
+      - ref: event_type_x_future
+        missing: WARNING_or_TBD_per_policy
+
+CrossPackValidation:
+  DECISIONE APPROVATA: verificare riferimenti tra
+  domains:
+    items:
+      - task
+      - items
+      - marketplace
+      - events
+      - notifications
+      - visual
+      - audio
+      - progression
+      - social
+      - profile
+      - political
+      - criminal
+
+schemaVersion:
+  DECISIONE APPROVATA: ogni content object ha schemaVersion
+  onChange: validation, migration, compatibility
+
+events:
+  items:
+    - ValidationStarted
+    - ValidationPassed
+    - ValidationFailed

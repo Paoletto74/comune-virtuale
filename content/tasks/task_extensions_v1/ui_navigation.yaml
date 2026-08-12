@@ -1,0 +1,22 @@
+# =============================================================================
+# UI NAVIGATION — task_extensions_v1
+# =============================================================================
+
+---
+TaskNavigation:
+  entryPoints:
+  - Home
+  - Attivita
+  - Notification
+  - Popup
+  - Gazzetta
+  - Profile
+  - deep link
+  deepLinkNoBypassAuth: true
+  platforms:
+  - Android
+  - iPhone
+  - Windows
+  - macOS
+  mobileFirst: true
+  status: PROPOSTA TECNICA

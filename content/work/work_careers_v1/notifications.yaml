@@ -1,0 +1,14 @@
+# =============================================================================
+# NOTIFICATIONS — work_careers_v1
+# =============================================================================
+
+---
+WorkNotifications:
+  examples:
+  - applied
+  - hired
+  - promoted
+  - fired
+  - salary received
+  owner: Notification System
+  status: DECISIONE APPROVATA

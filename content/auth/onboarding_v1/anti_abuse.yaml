@@ -1,0 +1,17 @@
+# =============================================================================
+# ANTI ABUSE — bot, farming, credential abuse
+# =============================================================================
+
+AntiAbuse:
+  protects:
+    items:
+      - bot
+      - account_farming
+      - credential_abuse
+      - multiple_account_abuse
+  details: DA DEFINIRE / TBD — tecnici
+  ref: auth_main_v1/rate_limits.yaml
+
+events:
+  items:
+    - AbuseDetected

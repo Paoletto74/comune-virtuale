@@ -1,0 +1,11 @@
+# =============================================================================
+# BUSINESS HOURS — opening hours from Business/Time rules
+# =============================================================================
+
+BusinessHours:
+  rule: opening hours — Business/Time rules — NON hardcodate UI
+  ref: time_main_v1, business_main_v1
+
+events:
+  items:
+    - BusinessHoursResolved

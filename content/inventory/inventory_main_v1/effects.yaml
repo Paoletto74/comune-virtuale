@@ -1,0 +1,38 @@
+# =============================================================================
+# ITEM EFFECTS — via event_main_v1
+# =============================================================================
+
+ItemEffectHooks:
+  status: content-first via effectsRef
+  hooks:
+    items:
+      - onConsume
+      - onUse
+      - onEquip
+      - onAcquire
+      - onExpire
+      - onDestroy
+  rule: Effetti definiti in content pack — applicati via event_main_v1
+
+ItemRequirements:
+  schema:
+    requirementsRef: string
+    checks:
+      items:
+        - level
+        - job
+        - education
+        - reputation
+        - capital
+        - other_conditions
+  validation: inventory può validare riferimento — Progression/dominio decide requisiti
+
+EffectExample:
+  ref: definitions.yaml#food_apple
+  delivery: |
+    ConsumeAction → WorldEvent → EffectCommand → domain owners
+
+events:
+  items:
+    - ItemEffectTriggered
+    - ItemRequirementFailed

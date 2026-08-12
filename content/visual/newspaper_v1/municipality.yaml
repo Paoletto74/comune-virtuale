@@ -1,0 +1,22 @@
+# =============================================================================
+# MUNICIPALITY — Local Edition
+# =============================================================================
+
+MunicipalityPresentation:
+  concept: LOCAL EDITION — IL COMUNE Edizione locale
+  sections:
+    items:
+      - economia
+      - inflazione
+      - popolazione
+      - Sindaco
+      - elezioni
+      - cittadini
+      - classifiche
+  rule: NON alterare municipality logic
+
+ref: frontend_ui_v1/municipality.yaml, templates.yaml LocalEdition
+
+events:
+  items:
+    - MunicipalityEditionRendered

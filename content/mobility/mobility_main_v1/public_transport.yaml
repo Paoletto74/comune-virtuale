@@ -1,0 +1,67 @@
+# =============================================================================
+# PUBLIC TRANSPORT — sistema semplificato
+# =============================================================================
+# NON simulare rete urbana dettagliata
+# =============================================================================
+
+PublicTransportProfile:
+  schema:
+    profileId: string
+    label: string
+    baseCost: TBD
+    baseTravelTime: TBD
+    availability: TBD
+    quality: TBD
+    reliability: TBD
+    zoneCoverage: []
+
+serviceModel:
+  status: PROPOSTA_TECNICA
+  attributes:
+    items:
+      - cost
+      - travel_time
+      - availability
+      - quality
+      - reliability
+  note: Rete semplificata — non mappa dettagliata
+
+eventModifiers:
+  examples:
+    items:
+      - eventId: strike
+        label: Sciopero
+        effects:
+          items:
+            - increased_travel_time
+            - work_late_risk
+            - reduced_availability
+      - eventId: disruption
+        label: Interruzione servizio
+        effects:
+          items:
+            - delay
+            - stress_increase
+  values: TBD
+
+zoneCoverage:
+  status: skeleton_only
+  note: Quali zone servite — DA DEFINIRE
+  examples:
+    items:
+      - profileId: PT_STANDARD
+        zoneCoverage:
+          items:
+            - ZONE_CENTRO
+            - ZONE_PERIFERIA_SUD
+
+integration:
+  modeRef: modes.yaml#public_transport
+  costRef: costs.yaml#public_transport_fare
+  reliabilityRef: incidents.yaml
+
+events:
+  items:
+    - PublicTransportDelayed
+    - PublicTransportStrike
+    - PublicTransportUnavailable

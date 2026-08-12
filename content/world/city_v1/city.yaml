@@ -1,0 +1,35 @@
+# =============================================================================
+# CITY — CityId, metadata, model
+# =============================================================================
+
+City:
+  identifier: CityId
+  distinctFrom:
+    items:
+      - MunicipalityId
+      - CitizenId
+      - DistrictId
+      - LocationId
+  metadata:
+    fields:
+      items:
+        - CityId
+        - name
+        - MunicipalityId
+        - visualAssetId
+        - status
+        - configuration
+  scale:
+    status: DA DEFINIRE / TBD
+    options:
+      items:
+        - singola_grande_citta
+        - piu_citta
+        - piu_municipalita
+        - mondo_espandibile
+  dynamic:
+    rule: citta cambia nel tempo — stato authoritative server-side
+
+events:
+  items:
+    - CityLoaded

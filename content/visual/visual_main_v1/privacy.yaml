@@ -1,0 +1,27 @@
+# =============================================================================
+# IMAGE PRIVACY — visibility policy, composition privacy
+# =============================================================================
+
+ImagePrivacy:
+  schema:
+    visualAssetId: string
+    visibilityPolicy: PRIVATE | PUBLIC | SYSTEM_ONLY
+
+assetOrigin:
+  DECISIONE APPROVATA: |
+    Visual System NON mostra automaticamente origine asset.
+    Grafica mostra asset — NON prestito, regalo, acquisto, furto, eredità.
+    Salvo contenuto esplicitamente previsto da evento.
+
+profileCompositionPrivacy:
+  DECISIONE APPROVATA: |
+    Composizione pubblica usa SOLO: public assets, public character data,
+    public titles, public badges.
+    NON utilizzare dati privati per inferenza visiva.
+
+noFullInventoryVisualization:
+  "DECISIONE APPROVATA": "allinea profile_main_v1 — solo elementi selezionati"
+
+events:
+  items:
+    - VisualPrivacyViolationBlocked

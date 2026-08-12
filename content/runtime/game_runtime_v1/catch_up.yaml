@@ -1,0 +1,29 @@
+# =============================================================================
+# CATCH-UP — missed ticks, aggregated processing
+# =============================================================================
+
+CatchUp:
+  status: PROPOSTA TECNICA
+  scenario: server offline -> al ritorno gestire catch-up senza milioni di tick
+
+strategy:
+  rule: aggregated elapsed-time processing dove possibile
+
+perSystemSupport:
+  exact_replay: TBD per system
+  aggregated_catch_up: salary, NPC simulation
+  skip: old realtime popups
+  recalculation: rankings TBD
+
+examples:
+  Salary:
+    rule: "2 ore trascorse -> verificare se salary event era dovuto"
+  Npc:
+    rule: "2 ore trascorse -> simulazione aggregata"
+  RealtimePopup:
+    rule: "NON replayare vecchi popup inutilmente"
+
+events:
+  items:
+    - CatchUpStarted
+    - CatchUpCompleted

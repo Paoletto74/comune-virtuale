@@ -1,0 +1,19 @@
+# =============================================================================
+# TEMPLATE VARIABLES — authorized placeholders
+# =============================================================================
+
+TemplateVariables:
+  examples:
+    items:
+      - citizenName
+      - level
+      - playerName
+      - municipalityName
+  rule: |
+    "Cittadino {citizenName} ha raggiunto il livello {level}."
+    Sistema valida variabili — NO arbitrary code
+  resolution: authorized system resolves at delivery time
+
+events:
+  items:
+    - VariableValidated

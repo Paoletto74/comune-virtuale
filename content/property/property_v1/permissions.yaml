@@ -1,0 +1,9 @@
+# =============================================================================
+# PERMISSIONS — property_v1
+# =============================================================================
+
+---
+Permissions:
+  ownerActions: per role
+  adminTransfer: specific permission
+  status: DECISIONE APPROVATA

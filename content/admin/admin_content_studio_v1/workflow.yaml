@@ -1,0 +1,37 @@
+# =============================================================================
+# WORKFLOW — draft to publish
+# =============================================================================
+
+ContentWorkflow:
+  DECISIONE APPROVATA:
+  flow: |
+    DRAFT → VALIDATE → PREVIEW → APPROVE → PUBLISH
+
+Draft:
+  DECISIONE APPROVATA: |
+    Admin modifica senza rendere immediatamente attivo.
+    Publish esplicito — NON auto-publish al save.
+
+PublishConfirmation:
+  status: PROPOSTA TECNICA
+  sensitiveRequiresConfirm:
+    items:
+      - political_content
+      - reward_change
+      - economy_content
+      - criminal_content
+  examples:
+    items:
+      - "Stai modificando un contenuto politico."
+      - "Stai modificando una ricompensa."
+
+EmergencyDisable:
+  DECISIONE APPROVATA: |
+    Disabilitare rapidamente contenuto problematico → DISABLE.
+    NON cancellare dati.
+
+events:
+  items:
+    - WorkflowStateChanged
+    - ContentDisabled
+    - EmergencyDisableTriggered

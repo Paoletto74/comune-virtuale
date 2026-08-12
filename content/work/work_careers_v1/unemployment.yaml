@@ -1,0 +1,10 @@
+# =============================================================================
+# UNEMPLOYMENT — work_careers_v1
+# =============================================================================
+
+---
+Unemployment:
+  status: UNEMPLOYED when no job
+  benefits: future municipal - NON V1
+  definition: TBD registered vs working-age
+  statusLabel: DECISIONE APPROVATA

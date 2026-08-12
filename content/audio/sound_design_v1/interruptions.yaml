@@ -1,0 +1,14 @@
+# =============================================================================
+# INTERRUPTIONS — CRITICAL interrupts LOW
+# =============================================================================
+
+Interruptions:
+  DECISIONE APPROVATA:
+  rule: sound CRITICAL puo interrompere/cancellare sound LOW
+  example: |
+    micro UI sound -> arresto -> sirena
+  ref: priorities.yaml
+
+events:
+  items:
+    - SoundInterrupted

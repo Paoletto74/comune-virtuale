@@ -1,0 +1,51 @@
+# =============================================================================
+# EMPLOYMENT CONTRACT
+# =============================================================================
+
+EmploymentContract:
+  contractId: string
+  citizenId: string
+  employerId: string
+  jobId: string
+  positionId: string
+
+  salary: TBD
+  hoursPerDay: TBD
+  scheduleType: full_time | part_time
+  payFrequency: TBD
+
+  startTime: gameTime
+  endTime: gameTime | null
+
+  status: active | suspended | terminated | on_leave
+
+  careerLevel: string
+  careerLevelIndex: TBD
+
+  performance:
+    score: TBD
+    lastEvaluated: gameTime
+
+  qualityOfWork: TBD
+
+  lastWorkTime: gameTime
+  lastActivityTime: gameTime
+
+  metadata:
+    terminationReason: TBD
+    promotionHistory: []
+
+multiJobPolicy:
+  DECISIONE APPROVATA:
+    - Cittadino può avere più lavori contemporaneamente
+    - Ogni lavoro mantiene identità, stipendio, orari, task, carriera, reputazione, datore
+    - NON fondere in singolo oggetto
+
+termination:
+  methods: [resignation, dismissal, inactivity, company_failure, event, injury]
+  duringActiveWorkSession:
+    resignationBlocked: true
+    notes: DECISIONE APPROVATA — no licenziamento durante turno ACTIVE
+
+changeJob:
+  via: [resignation, dismissal, new_hire, event]

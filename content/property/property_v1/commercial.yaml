@@ -1,0 +1,14 @@
+# =============================================================================
+# COMMERCIAL — property_v1
+# =============================================================================
+
+---
+CommercialProperty:
+  linkedTo:
+  - Business
+  - shop
+  - office
+  - warehouse
+  - organization
+  businessOwner: Business System
+  status: DECISIONE APPROVATA

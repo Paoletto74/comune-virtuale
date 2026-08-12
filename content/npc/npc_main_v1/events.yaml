@@ -1,0 +1,56 @@
+# =============================================================================
+# NPC EVENTS — frequenza, event-driven simulation
+# =============================================================================
+
+NpcEventTypes:
+  status: skeleton
+  items:
+    - hired
+    - fired
+    - purchase
+    - sale
+    - transfer
+    - marriage
+    - birth
+    - incident
+    - criminality
+    - election
+    - bankruptcy
+    - retirement
+    - housing_change
+
+NpcEventFrequency:
+  DECISIONE APPROVATA: |
+    NON eventi casuali per ogni NPC ogni ora.
+    probability | scheduled_batches | population_simulation | importance_tiers
+
+EventDrivenSimulation:
+  DECISIONE APPROVATA: |
+    Evento importante su NPC → promuovere a simulazione individuale.
+    Es. NPC arrestato → individual state TIER_2+.
+
+eventPipeline:
+  flow: |
+    NPC System genera WorldEvent (actorType=npc)
+    → event_main_v1 → consequences
+    → notification_main_v1 (se rilevante per player)
+  rule: Event System gestisce conseguenze — NPC System genera eventi
+
+GlobalEvents:
+  DECISIONE APPROVATA: |
+    Nuova legge — NON 10.000 elaborazioni se effetto uniforme.
+    population segment effects + personalized per situazioni diverse.
+  alignsWith: event_main_v1 personalized effects
+
+IndividualEffects:
+  examplePropertyTax:
+    npcA: 0
+    npcB: -100
+    npcC: -1000
+  rule: Stesso principio giocatori — tier/importance determina individual vs segment
+
+events:
+  items:
+    - NpcWorldEventEmitted
+    - NpcBatchEventsGenerated
+    - NpcEventFrequencyApplied

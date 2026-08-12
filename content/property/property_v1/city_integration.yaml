@@ -1,0 +1,9 @@
+# =============================================================================
+# CITY INTEGRATION — property_v1
+# =============================================================================
+
+---
+CityIntegration:
+  locationId: City System
+  noDuplicateGeography: true
+  status: DECISIONE APPROVATA

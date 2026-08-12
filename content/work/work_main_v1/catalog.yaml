@@ -1,0 +1,48 @@
+# =============================================================================
+# WORK MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: lavoro giocabile, diverso per job, integrato con economia/eventi
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1
+# Valori numerici: TBD
+# =============================================================================
+
+catalogId: work_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionBalance: progression_balance_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - Ogni lavoro diverso — task coerenti con jobId/category
+  - NO "tutti i lavori fanno la stessa cosa"
+  - Stipendio via Economy Pipeline — NO modifica diretta cash
+  - Percorso criminale indipendente dal lavoro legale
+  - Client non autoritativo
+  - Nessun if job == doctor hardcoded
+
+includes:
+  categories: categories.yaml
+  jobs: jobs.yaml
+  job_positions: job_positions.yaml
+  employment: employment.yaml
+  applications: applications.yaml
+  careers: careers.yaml
+  work_sessions: work_sessions.yaml
+  performance: performance.yaml
+  quality: quality.yaml
+  levers: levers.yaml
+  daily_time: daily_time.yaml
+  inactivity: inactivity.yaml
+  injuries: injuries.yaml
+  npc_employment: npc_employment.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  work_core: [jobs, employment, work_sessions, applications]
+  career_module: [careers, performance, quality]
+  time_module: [daily_time, work_sessions]

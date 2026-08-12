@@ -1,0 +1,44 @@
+# =============================================================================
+# VISIBILITY — privacy relazioni e famiglia
+# =============================================================================
+
+visibilityDefaults:
+  relationshipDetails: PRIVATE
+  familyProblems: PRIVATE
+  familyDebts: PRIVATE
+  familyRequests: PRIVATE
+  familyConflicts: PRIVATE
+  partnerPresence: PUBLIC
+  childCountSummary: PUBLIC
+  publicFamilyResults: PUBLIC
+
+publicProfile:
+  DECISIONE APPROVATA: coerente con progression_main_v1/visibility.yaml
+  mayShow:
+    items:
+      - partner_presence
+      - number_of_children
+      - prestigious_family_elements
+      - public_results
+  doesNotShow:
+    items:
+      - private_problems
+      - conflicts
+      - family_debts
+      - private_choices
+      - relationship_strength_detail
+      - trust_detail
+      - help_requests
+
+relationshipVisibility:
+  perType: configurable
+  ref: relationship_types.yaml visibilityDefault
+
+notifications:
+  rule: Non esporre informazioni private in notifiche globali
+  personalOnly:
+    items:
+      - child_found_job
+      - child_needs_help
+      - partner_lost_job
+      - relationship_improved

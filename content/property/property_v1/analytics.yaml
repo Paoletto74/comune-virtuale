@@ -1,0 +1,13 @@
+# =============================================================================
+# ANALYTICS — property_v1
+# =============================================================================
+
+---
+Analytics:
+  metrics:
+  - sales volume
+  - rental rate
+  - average price
+  - vacancy
+  privacySafe: true
+  status: PROPOSTA TECNICA

@@ -1,0 +1,25 @@
+# =============================================================================
+# DETERMINISM — same input + state + seed = same result
+# =============================================================================
+
+Determinism:
+  DECISIONE APPROVATA: deterministico dove possibile
+  importantFor:
+    items:
+      - npc_simulation
+      - random_events
+      - testing
+
+formula: "stesso input + stesso state + stesso seed/config -> stesso risultato"
+
+timeTravelReplay:
+  status: PROPOSTA TECNICA — NON implementare full time-travel engine
+  future:
+    items:
+      - inspect_historical_state
+      - replay_specific_event
+      - reproduce_bug
+
+events:
+  emits: [DeterminismCheckFailed]
+  consumes: []

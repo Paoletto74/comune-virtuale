@@ -1,0 +1,25 @@
+# =============================================================================
+# MAINTENANCE — pause mode, runtime states
+# =============================================================================
+
+Maintenance:
+  modes:
+    items:
+      - NORMAL
+      - DEGRADED
+      - MAINTENANCE_MODE
+      - EMERGENCY_MODE
+
+pauseMode:
+  status: TBD
+  duringPause:
+    playerRead: may continue
+    criticalWrites: may be blocked
+    scheduledJobs: suspended or deferred
+
+events:
+  emits:
+    items:
+      - MaintenanceModeEntered
+      - MaintenanceModeExited
+  consumes: []

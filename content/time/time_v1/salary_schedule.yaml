@@ -1,0 +1,18 @@
+# =============================================================================
+# SALARY SCHEDULE — time_v1
+# =============================================================================
+
+---
+SalarySchedule:
+  owner: Economy/Work
+  periods:
+  - daily
+  - weekly
+  - monthly
+  - event-based
+  paydayRule: Time signals - Economy executes
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - PaydayReached
+  - SalaryPaid

@@ -1,0 +1,34 @@
+# =============================================================================
+# POLITICAL SOUNDS — vote, election, mayor, referendum
+# =============================================================================
+
+PoliticalSounds:
+  VoteCast:
+    cue: political.ballot
+    priority: LOW
+    length: micro
+    description: subtle ballot/stamp/civic sound
+  ElectionEvent:
+    cue: political.election
+    priority: HIGH
+    length: major
+    description: special political sound — civic motif
+  MayorElected:
+    cue: political.mayor_victory
+    priority: CRITICAL
+    length: major
+    description: major civic sound
+  ReferendumStart:
+    cue: political.referendum_start
+    priority: NORMAL
+    length: normal
+    description: notification/news cue
+  ReferendumResult:
+    cue: political.referendum_result
+    priority: HIGH
+    length: major
+    description: special result cue
+
+events:
+  items:
+    - PoliticalSoundTriggered

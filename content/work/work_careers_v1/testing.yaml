@@ -1,0 +1,22 @@
+# =============================================================================
+# TESTING — work_careers_v1
+# =============================================================================
+
+---
+Testing:
+  cases:
+  - application
+  - hiring
+  - rejection
+  - firing
+  - resignation
+  - promotion
+  - salary
+  - payroll
+  - race conditions
+  - requirements
+  - duplicate employment
+  - permission bypass
+  - offline
+  - idempotency
+  status: DECISIONE APPROVATA

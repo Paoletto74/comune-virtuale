@@ -1,0 +1,9 @@
+# =============================================================================
+# VALUATIONS — economy_v1
+# =============================================================================
+
+---
+Valuations:
+  rule: each asset has valuation source
+  purchasePriceNotCurrent: true
+  status: DECISIONE APPROVATA

@@ -1,0 +1,21 @@
+# =============================================================================
+# DOMAIN OWNERSHIP — time_v1
+# =============================================================================
+
+---
+DomainOwnership:
+  GameTime: Time System
+  Salary: Economy/Work
+  Rent: Property/Economy
+  Task: Task System
+  Election: Political
+  Event: Event System
+  BusinessHours: Business
+  NpcSchedule: NPC
+  NewsPublication: Content/Editorial
+  RankingPeriod: Ranking
+  timeServiceNonOwner: does not decide salary rent rewards
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DomainOwnershipApplied

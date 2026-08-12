@@ -1,0 +1,28 @@
+# =============================================================================
+# SAGAS — multi-step process managers (conceptual)
+# =============================================================================
+
+Sagas:
+  status: PROPOSTA TECNICA — NON implementare saga framework
+  candidates:
+    items:
+      - marketplace_purchase
+      - loan
+      - employment
+      - election
+      - complex_property_transaction
+
+crossDomainCommand:
+  example:
+    Marketplace: "devo incassare"
+    action: Banking command CreateTransfer or Debit or Credit per contract approvato
+
+crossDomainEvent:
+  example:
+    after: BankTransferCompleted
+    then: Marketplace aggiorna proprio state
+
+events:
+  items:
+    - SagaStepCompleted
+    - SagaFailed

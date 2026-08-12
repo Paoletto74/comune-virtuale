@@ -1,0 +1,26 @@
+# =============================================================================
+# QUICK CREATE — + NUOVO CONTENUTO workflow
+# =============================================================================
+
+QuickCreate:
+  entry: "+ NUOVO CONTENUTO"
+  types:
+    items:
+      - Articolo
+      - Task
+      - Job
+      - Notification
+      - Popup
+      - Announcement
+      - Item
+  taskQuickCreate:
+    editorial:
+      items:
+        - Titolo
+        - Descrizione
+        - Istruzioni
+    gameplay: NOT invented by Content Editor
+
+events:
+  items:
+    - QuickCreateStarted

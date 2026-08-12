@@ -1,0 +1,11 @@
+# =============================================================================
+# POPUPS — property_v1
+# =============================================================================
+
+---
+PropertyPopups:
+  highImportance:
+  - purchase
+  - major upgrade
+  - eviction future
+  status: DECISIONE APPROVATA

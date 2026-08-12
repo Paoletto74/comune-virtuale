@@ -1,0 +1,15 @@
+# =============================================================================
+# PUBLIC TRANSPORT — mobility_vehicles_v1
+# =============================================================================
+
+---
+PublicTransport:
+  possible:
+  - bus
+  - train
+  - metro
+  - tram
+  cost: Citizen to Economy if present
+  detail: TBD
+  alignsWith: mobility_main_v1/public_transport.yaml
+  status: PROPOSTA TECNICA

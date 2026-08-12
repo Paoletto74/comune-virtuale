@@ -1,0 +1,135 @@
+# =============================================================================
+# TRANSACTION MODEL
+# =============================================================================
+# DECISIONE APPROVATA: ogni movimento denaro = Transaction; estendibile
+# =============================================================================
+
+Transaction:
+  transactionId: string          # univoco — idempotenza
+  idempotencyKey: string         # opzionale, prevenzione doppia elaborazione
+  gameTime: timestamp
+  currencyId: game_currency
+
+  source:
+    type: citizen | company | government | system | market | npc | null
+    ref: string
+
+  destination:
+    type: citizen | company | government | system | market | npc | null
+    ref: string
+
+  amount: TBD                    # sempre positivo; direction da source/dest
+  transactionType: string        # da registry sotto
+  transactionClass: money_creation | money_transfer | money_destruction
+
+  reason: string                 # human-readable / templateRef
+  reasonCode: string             # machine-readable
+
+  relatedEntity: { type, ref }   # property, company, product, loan, ...
+  relatedPlayer: citizenId
+  relatedAsset: assetId
+
+  status: pending | completed | failed | reversed | cancelled
+
+  metadata:
+    taxComponent: TBD
+    feeComponent: TBD
+    priceSnapshot: TBD
+    macroStateSnapshot: TBD
+
+  causationChainId: string       # link Event System (Prompt 4)
+  sourceActionId: string
+
+  audit:
+    createdAt: timestamp
+    completedAt: timestamp
+    failureReason: string
+
+# --- Registry tipi (NON definitivo — estendibile) ---
+transactionTypes:
+  - type: salary
+    class: money_transfer
+    description: Stipendio azienda → cittadino
+
+  - type: purchase
+    class: money_transfer
+    description: Acquisto bene/servizio
+
+  - type: sale
+    class: money_transfer
+    description: Vendita bene/servizio
+
+  - type: rent
+    class: money_transfer
+    description: Affitto inquilino → proprietario
+
+  - type: tax
+    class: money_transfer
+    description: Tassa cittadino/azienda → sistema pubblico
+
+  - type: fine
+    class: money_transfer
+    description: Multa → sistema pubblico
+
+  - type: loan
+    class: money_transfer
+    description: Erogazione prestito prestatore → debitore
+
+  - type: loanRepayment
+    class: money_transfer
+    description: Restituzione capitale + interessi
+
+  - type: gift
+    class: money_transfer
+    description: Regalo tra giocatori
+
+  - type: investment
+    class: money_transfer
+    description: Investimento — dettaglio TBD
+
+  - type: businessIncome
+    class: money_transfer
+    description: Ricavi azienda
+
+  - type: businessExpense
+    class: money_transfer
+    description: Costi azienda
+
+  - type: crimeReward
+    class: money_creation
+    description: Denaro generato da attività criminale — tracciabile
+    notes: Creazione controllata; non duplicazione
+
+  - type: crimeLoss
+    class: money_destruction
+    description: Sequestro, multa, perdita criminale
+
+  - type: refund
+    class: money_transfer
+    description: Rimborso
+
+  - type: bankruptcy
+    class: money_transfer
+    description: Liquidazione asset / saldo debiti
+
+  - type: systemGrant
+    class: money_creation
+    description: Solo admin/sistema con audit — es. starter cash
+
+  - type: systemSink
+    class: money_destruction
+    description: Rimozione denaro dall'economia
+
+  - type: other
+    class: TBD
+    description: Estensibile
+
+moneyFlowRules:
+  DECISIONE APPROVATA:
+    - Vendita tra giocatori = trasferimento, NON nuova ricchezza
+    - Stipendio = trasferimento azienda → cittadino (salvo policy creazione TBD)
+    - Tassa = trasferimento → sistema pubblico
+    - crimeReward = creazione controllata con audit
+  DA_DEFINIRE:
+    - Politica money supply totale comune
+    - Stipendi pagati da aziende senza liquidità (fallimento?)

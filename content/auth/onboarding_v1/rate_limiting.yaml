@@ -1,0 +1,11 @@
+# =============================================================================
+# RATE LIMITING — auth endpoints
+# =============================================================================
+
+RateLimiting:
+  applies: authentication endpoints
+  ref: auth_main_v1/rate_limits.yaml
+
+events:
+  items:
+    - RateLimitExceeded

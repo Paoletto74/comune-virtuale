@@ -1,0 +1,19 @@
+# =============================================================================
+# ADMIN INVITATIONS
+# =============================================================================
+
+AdminInvitation:
+  status: PROPOSTA TECNICA — futuro
+  schema:
+    inviteToken: string
+    expiresAt: timestamp
+    role: string
+    permissions: []
+    inviterId: string
+    auditRef: string
+
+events:
+  items:
+    - AdminInvited
+    - AdminInvitationAccepted
+    - AdminInvitationExpired

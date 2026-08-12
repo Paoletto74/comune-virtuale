@@ -1,0 +1,15 @@
+# =============================================================================
+# SCHEDULING — publishAt with Game Time
+# =============================================================================
+
+Scheduling:
+  field: publishAt
+  example: articolo pronto oggi -> pubblicazione domani 08:00 game time
+  timeSource: Game Time — NOT device clock
+  ref: time_main_v1
+  status: SCHEDULED
+  confirmation: show Game date/time
+
+events:
+  items:
+    - ContentScheduled

@@ -1,0 +1,50 @@
+# =============================================================================
+# MESSAGE CATEGORIES — estendibili
+# =============================================================================
+
+MessageCategoryDefinition:
+  schema:
+    categoryId: string
+    label: string
+    description: string
+    tags: []
+
+categories:
+  items:
+    - categoryId: greeting
+      label: Saluto
+    - categoryId: thanks
+      label: Ringraziamento
+    - categoryId: request
+      label: Richiesta
+    - categoryId: agreement
+      label: Accordo
+    - categoryId: rejection
+      label: Rifiuto
+    - categoryId: trade
+      label: Commercio
+    - categoryId: loan
+      label: Prestito
+    - categoryId: gift
+      label: Regalo
+    - categoryId: political
+      label: Politica
+    - categoryId: work
+      label: Lavoro
+    - categoryId: social
+      label: Sociale
+    - categoryId: celebration
+      label: Celebrazione
+    - categoryId: warning
+      label: Avvertimento
+    - categoryId: humor
+      label: Ironia
+    - categoryId: reaction
+      label: Reazione
+    - categoryId: other
+      label: Altro
+  status: estendibili via Admin Content Studio
+
+events:
+  items:
+    - MessageCategoryAdded

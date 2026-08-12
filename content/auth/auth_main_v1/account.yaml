@@ -1,0 +1,47 @@
+# =============================================================================
+# ACCOUNT — identità autenticazione, NON dati di gioco
+# =============================================================================
+
+Account:
+  schema:
+    accountId: string
+    status: ACTIVE | PENDING | SUSPENDED | LOCKED | DISABLED | DELETED
+    createdAt: timestamp
+    lastLoginAt: timestamp
+    authenticationMethods: []
+    securityMetadata: object
+  status: schema_conceptual — valori definitivi TBD
+
+AccountStatus:
+  items:
+    - ACTIVE
+    - PENDING
+    - SUSPENDED
+    - LOCKED
+    - DISABLED
+    - DELETED
+
+mustNotStoreInAccount:
+  DECISIONE APPROVATA: NON inserire in Account
+  excluded:
+    items:
+      - net_worth
+      - level
+      - inventory
+      - job
+      - political_role
+
+accountVsCitizenStatus:
+  DECISIONE APPROVATA: separare ACCOUNT STATUS da GAME/CITIZEN STATUS
+  examples:
+    account: SUSPENDED
+    citizen: may_differ
+
+deleteAccount:
+  status: PROPOSTA TECNICA — NON implementare V1
+  note: definire separatamente Account, Citizen, game data, audit, legal retention
+
+events:
+  items:
+    - AccountCreated
+    - AccountStatusChanged

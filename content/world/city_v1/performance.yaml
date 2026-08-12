@@ -1,0 +1,19 @@
+# =============================================================================
+# PERFORMANCE — map data, markers, API optimization
+# =============================================================================
+
+Performance:
+  optimize:
+    items:
+      - map_data
+      - marker_rendering
+      - images
+      - location_details
+      - API_calls
+  ref: map_performance.yaml, cache.yaml
+  cost:
+    status: PROPOSTA TECNICA — considerare costi futuri map provider, tile hosting, CDN
+
+events:
+  items:
+    - CityPerformanceMeasured

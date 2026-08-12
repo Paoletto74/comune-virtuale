@@ -1,0 +1,53 @@
+# =============================================================================
+# PRICING — asking, reference, transaction, dynamic
+# =============================================================================
+
+PriceTypes:
+  DECISIONE APPROVATA: distinguere
+  items:
+    - sellerAskingPrice
+    - marketReferencePrice
+    - transactionPrice
+  rule: asking price ≠ prezzo effettivo transazione
+
+DynamicPrices:
+  status: formule TBD — marketplace_balance_v1
+  factors:
+    items:
+      - demand
+      - supply
+      - inflation
+      - scarcity
+      - quality
+      - condition
+      - macro_economy
+      - seasonality
+      - npc_behavior
+
+Inflation:
+  DECISIONE APPROVATA: |
+    Marketplace NON calcola inflazione da solo.
+    Economy fornisce inflation context.
+    Marketplace determina come mercato reagisce.
+
+marketOpportunities:
+  DECISIONE APPROVATA: |
+    Compravendita può generare guadagno O perdita.
+    bene €10.000 → economia cambia → €12.000 o crollo prezzo.
+
+noGuaranteedProfit:
+  DECISIONE APPROVATA: |
+    Comprare NON garantisce profitto.
+    Valore può salire, scendere, restare stabile, bene difficile da vendere.
+
+priceNegotiation:
+  v1: prezzo fisso/listing
+  future: negoziazione — NON implementare V1
+
+auctions:
+  status: futuro — NON V1
+
+events:
+  items:
+    - MarketPriceChanged
+    - AskingPriceUpdated

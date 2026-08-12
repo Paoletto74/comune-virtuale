@@ -1,0 +1,13 @@
+# =============================================================================
+# CRIME INTEGRATION — crime events at locations
+# =============================================================================
+
+CrimeIntegration:
+  owner: Criminal System — ref criminal_main_v1
+  example: arresto in location — visual + sound pairing
+  rule: NON creare nuovo Criminal System
+  ref: contextual_visuals_v1, sound_design_v1
+
+events:
+  items:
+    - CrimeAtLocation

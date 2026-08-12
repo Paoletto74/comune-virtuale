@@ -1,0 +1,59 @@
+# =============================================================================
+# SESSIONS — security, multiple devices
+# =============================================================================
+
+Session:
+  schema:
+    sessionId: string
+    token: string
+    accountId: string
+    createdAt: timestamp
+    expiresAt: timestamp
+    lastActivity: timestamp
+    deviceMetadata: object
+    revoked: boolean
+  technology: TBD
+
+SessionSecurity:
+  DECISIONE APPROVATA: proteggere contro
+  threats:
+    items:
+      - session_hijacking
+      - token_theft
+      - replay
+      - fixation
+      - csrf
+      - xss
+      - brute_force
+  implementation: TBD
+
+multipleDevices:
+  status: PROPOSTA TECNICA
+  rule: Account può avere più sessioni — computer, telefono, tablet
+  futureFeature: "Disconnetti tutti i dispositivi"
+
+sessionManagement:
+  status: PROPOSTA TECNICA — futura schermata Active Sessions
+  mayShow:
+    items:
+      - device
+      - approximate_metadata
+      - last_active
+      - revoke_action
+  mustNotShow: dati_tecnici_inutili
+
+adminSession:
+  status: PROPOSTA TECNICA — policy più restrittive
+  futurePolicies:
+    items:
+      - shorter_timeout
+      - re_authentication
+      - mfa
+      - ip_device_policy
+      - step_up_authentication
+
+events:
+  items:
+    - SessionCreated
+    - SessionRevoked
+    - SessionExpired

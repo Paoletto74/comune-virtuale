@@ -1,0 +1,11 @@
+# =============================================================================
+# POPUPS — mobility_vehicles_v1
+# =============================================================================
+
+---
+Popups:
+  highImportance:
+  - car purchase
+  - car sale
+  - theft future
+  status: PROPOSTA TECNICA

@@ -1,0 +1,14 @@
+# =============================================================================
+# TRANSACTION STATUS — economy_v1
+# =============================================================================
+
+---
+TransactionStatus:
+  values:
+  - PENDING
+  - COMPLETED
+  - FAILED
+  - REVERSED
+  - CANCELLED
+  definitive: TBD
+  status: DECISIONE APPROVATA

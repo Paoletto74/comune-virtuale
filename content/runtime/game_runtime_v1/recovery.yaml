@@ -1,0 +1,23 @@
+# =============================================================================
+# RECOVERY — crash restart, resume safely
+# =============================================================================
+
+RuntimeRecovery:
+  onCrashRestart:
+    steps:
+      items:
+        - detect_last_completed_tick
+        - identify_incomplete_execution
+        - resume_replay_safely
+        - avoid_duplicate_effects
+
+exactlyOnce:
+  DECISIONE APPROVATA: |
+    NON assumere exactly-once delivery infrastrutturale.
+    Progettare: at-least-once + idempotency.
+
+ref: tick_records.yaml, idempotency in player_commands.yaml
+
+events:
+  emits: [RecoveryStarted, RecoveryCompleted]
+  consumes: [RuntimeCrashDetected]

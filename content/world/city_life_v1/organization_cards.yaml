@@ -1,0 +1,15 @@
+# =============================================================================
+# ORGANIZATION CARDS — emblem, name, type, status
+# =============================================================================
+
+OrganizationCards:
+  fields:
+    items:
+      - emblem
+      - name
+      - type
+      - status
+
+events:
+  items:
+    - OrganizationCardViewed

@@ -1,0 +1,42 @@
+# =============================================================================
+# PROFESSIONAL LEVERS
+# =============================================================================
+
+ProfessionalLever:
+  leverId: string
+  jobId: string
+  categoryId: string
+  displayName: string
+
+  unlockRequirements:
+    - experience: TBD
+    - careerLevel: TBD
+    - mainLevel: TBD
+    - reputation: TBD
+    - other: TBD
+
+  parameterSchema:
+    min: TBD
+    max: TBD
+    default: TBD
+
+  effectRuleRefs: TBD
+  persistence: whileEligible | tiedToRole
+
+  notes: DECISIONE APPROVATA — leve progressive, non tutte subito
+
+leverExamples:
+  - leverId: medic_quality_of_care
+    jobId: example_medic
+    displayName: Qualità delle visite
+  - leverId: manager_team_policy
+    jobId: example_manager
+    displayName: Gestione team
+  - leverId: teacher_instruction_quality
+    jobId: example_teacher
+    displayName: Qualità insegnamento
+  - leverId: driver_safety_speed
+    jobId: example_driver
+    displayName: Sicurezza / velocità
+
+catalogLevers: []

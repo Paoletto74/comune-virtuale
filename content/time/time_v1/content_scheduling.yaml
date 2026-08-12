@@ -1,0 +1,14 @@
+# =============================================================================
+# CONTENT SCHEDULING — time_v1
+# =============================================================================
+
+---
+ContentScheduling:
+  owner: Content System
+  fields:
+  - publishAt
+  - unpublishAt
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ContentPublished

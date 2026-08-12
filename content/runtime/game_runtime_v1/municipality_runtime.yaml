@@ -1,0 +1,26 @@
+# =============================================================================
+# MUNICIPALITY RUNTIME — population, inflation, municipal economy
+# =============================================================================
+
+MunicipalityRuntime:
+  tickProcesses:
+    items:
+      - population
+      - inflation
+      - municipal_economy
+      - political_state
+      - events
+      - statistics
+
+inflation:
+  DECISIONE APPROVATA: |
+    NON cambia casualmente — determinata da Municipal/Economic rules.
+    Runtime applica il risultato.
+
+sourceOfTruth: Municipality/Time
+executionMode: tick-driven
+ref: time_main_v1, political_main_v1
+
+events:
+  emits: [InflationUpdated, MunicipalityStateChanged]
+  consumes: [ElectionHeld, GameTimeAdvanced]

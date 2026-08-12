@@ -1,0 +1,9 @@
+# =============================================================================
+# RANKINGS — economy_v1
+# =============================================================================
+
+---
+Rankings:
+  uses: authoritative net worth from Economy
+  notCashOnly: true
+  status: DECISIONE APPROVATA

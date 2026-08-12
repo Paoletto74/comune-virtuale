@@ -1,0 +1,12 @@
+# =============================================================================
+# ACCOUNTS — economy_v1
+# =============================================================================
+
+---
+Accounts:
+  separation: User Account != Financial Account
+  types:
+  - cash wallet
+  - bank account
+  - future accounts
+  status: DECISIONE APPROVATA

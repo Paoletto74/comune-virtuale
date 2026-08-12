@@ -1,0 +1,75 @@
+# =============================================================================
+# VEHICLE OWNERSHIP
+# =============================================================================
+
+OwnershipRecord:
+  schema:
+    ownershipId: string
+    vehicleId: string
+    ownerId: string
+    ownerType: citizen | company | system | npc
+    acquiredAt: timestamp
+    acquisitionType: purchase | gift | transfer | rental_return | system_grant
+    acquisitionPrice: TBD
+    transactionRef: string
+    status: active | pending_transfer | seized | stolen
+
+CitizenVehiclePortfolio:
+  schema:
+    citizenId: string
+    ownedVehicleIds: []
+    activeVehicleId: string | null
+    totalOwnedCount: TBD
+    totalMarketValue: TBD
+    prestigeVehicleId: string | null
+
+multiVehicle:
+  DECISIONE APPROVATA: true
+  maxVehiclesPerCitizen: TBD
+  placeholderKey: MAX_VEHICLES_PER_CITIZEN
+
+purchaseFlow:
+  atomic: true
+  validations:
+    items:
+      - vehicle_available
+      - buyer_funds
+      - requirements_met
+  flow: |
+    Vehicle Purchase
+    → Economy Pipeline
+    → Transaction
+    → Ledger
+    → Ownership Transfer
+  onFailure: rollback_all
+  effect: cash down, asset up
+
+saleFlow:
+  atomic: true
+  buyers:
+    items:
+      - player
+      - npc
+      - system_market
+  effect: asset down, cash up
+  flow: |
+    Vehicle Sale
+    → Economy Pipeline
+    → Transaction
+    → Ledger
+    → Ownership Transfer
+
+requirements:
+  status: configurable
+  possibleRequirements:
+    items:
+      - minimum_level
+      - license
+      - reputation
+  values: TBD
+
+events:
+  items:
+    - VehiclePurchased
+    - VehicleSold
+    - VehicleOwnershipTransferred

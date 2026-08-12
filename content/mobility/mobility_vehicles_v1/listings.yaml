@@ -1,0 +1,16 @@
+# =============================================================================
+# LISTINGS — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleListing:
+  fields:
+  - ListingId
+  - VehicleId
+  - price
+  - seller
+  - condition
+  - availability
+  - expiration
+  listingNotOwnership: DECISIONE APPROVATA
+  status: PROPOSTA TECNICA

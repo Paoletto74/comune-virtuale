@@ -1,0 +1,14 @@
+# =============================================================================
+# RETRIES — safe, idempotent, transient only
+# =============================================================================
+
+Retries:
+  policy:
+    rule: retry solo quando safe, idempotent, transient failure
+  mustNot: retry cieco su operazioni finanziarie senza idempotency
+
+ref: backend_architecture_v1/idempotency.yaml, resilience.yaml
+
+events:
+  emits: [RetryAttempted, RetryExhausted]
+  consumes: [SystemExecutionFailed]

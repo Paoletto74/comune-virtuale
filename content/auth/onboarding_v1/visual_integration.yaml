@@ -1,0 +1,19 @@
+# =============================================================================
+# VISUAL INTEGRATION — newspaper identity, character, city
+# =============================================================================
+
+VisualIntegration:
+  uses:
+    items:
+      - newspaper_visual_identity
+      - character_visual
+      - city_visual
+      - first_edition_visual
+  firstEdition:
+    concept: SPECIAL EDITION NUOVO CITTADINO — character, nome, citta
+  field: visualAssetId
+  ref: newspaper_v1, contextual_visuals_v1, visual_main_v1
+
+events:
+  items:
+    - OnboardingVisualApplied

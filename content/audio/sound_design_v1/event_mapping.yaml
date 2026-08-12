@@ -1,0 +1,120 @@
+# =============================================================================
+# EVENT MAPPING — domain event to sound cue
+# =============================================================================
+
+EventMapping:
+  examples:
+    MoneyEarned:
+      cue: economy.coin_gain
+      priority: NORMAL
+    LargeMoneyEarned:
+      cue: economy.coin_cascade
+      priority: HIGH
+      threshold: backend
+    MoneySpent:
+      cue: economy.spend_discrete
+      priority: LOW
+    MajorSpend:
+      cue: economy.major_spend
+      priority: HIGH
+      threshold: backend
+    SignificantLoss:
+      cue: economy.loss_negative
+      priority: HIGH
+    SalaryReceived:
+      cue: reward.salary_cash
+      priority: NORMAL
+    JobAccepted:
+      cue: work.job_accepted
+      priority: NORMAL
+    JobLost:
+      cue: work.job_lost
+      priority: HIGH
+    TaskCompleted:
+      cue: task.completion
+      priority: NORMAL
+    TaskRewardReceived:
+      cue: reward.received
+      priority: NORMAL
+    LevelUp:
+      cue: progression.level_up
+      priority: HIGH
+    NewTitle:
+      cue: progression.new_title
+      priority: HIGH
+    Unlock:
+      cue: progression.discovery
+      priority: NORMAL
+    PropertyPurchased:
+      cue: property.acquisition
+      priority: HIGH
+    VehiclePurchased:
+      cue: vehicle.acquisition
+      priority: HIGH
+    MarketplacePurchase:
+      cue: purchase.marketplace
+      priority: NORMAL
+    SaleCompleted:
+      cue: purchase.sale_positive
+      priority: NORMAL
+    RentPaid:
+      cue: purchase.rent_payment
+      priority: NORMAL
+    GiftReceived:
+      cue: social.gift_warm
+      priority: NORMAL
+    LoanReceived:
+      cue: social.loan_credit
+      priority: NORMAL
+    LoanRepayment:
+      cue: social.loan_repayment
+      priority: NORMAL
+    VoteCast:
+      cue: political.ballot
+      priority: LOW
+    ElectionEvent:
+      cue: political.election
+      priority: HIGH
+    MayorElected:
+      cue: political.mayor_victory
+      priority: CRITICAL
+    ReferendumStart:
+      cue: political.referendum_start
+      priority: NORMAL
+    PlayerArrested:
+      cue: crime.arrest_siren
+      priority: CRITICAL
+    CriminalSuccess:
+      cue: crime.tension_success
+      priority: NORMAL
+    CriminalFailure:
+      cue: crime.tension_failure
+      priority: NORMAL
+    BreakingNews:
+      cue: news.breaking_sting
+      priority: CRITICAL
+    NewArticle:
+      cue: news.editorial_subtle
+      priority: LOW
+    SpecialEdition:
+      cue: news.special_edition_sting
+      priority: HIGH
+    GlobalRankOne:
+      cue: ranking.achievement_number_one
+      priority: CRITICAL
+    ImportantMunicipalEvent:
+      cue: municipality.civic_cue
+      priority: HIGH
+    Error:
+      cue: ui.error_short
+      priority: NORMAL
+    Confirmation:
+      cue: ui.confirmation_subtle
+      priority: LOW
+    OperationRejected:
+      cue: ui.operation_rejected
+      priority: NORMAL
+
+events:
+  items:
+    - EventMappedToSound

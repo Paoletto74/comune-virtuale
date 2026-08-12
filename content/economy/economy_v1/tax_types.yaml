@@ -1,0 +1,15 @@
+# =============================================================================
+# TAX TYPES — economy_v1
+# =============================================================================
+
+---
+TaxTypes:
+  possible:
+  - income
+  - property
+  - transaction
+  - business
+  - wealth
+  - municipal fee
+  notAllActive: true
+  status: PROPOSTA TECNICA

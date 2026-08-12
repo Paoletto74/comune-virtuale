@@ -1,0 +1,23 @@
+# =============================================================================
+# SOUND LENGTHS — micro, normal, major, critical ranges
+# =============================================================================
+
+SoundLengths:
+  ranges:
+    Micro:
+      max: "< 1 sec"
+      use: micro feedback, UI, small purchases
+    Normal:
+      range: "1-2 sec"
+      use: standard events, rewards
+    Major:
+      range: "2-4 sec"
+      use: level up, major purchase, election
+    Critical:
+      range: "3-6 sec"
+      use: arrest, breaking news, mayor victory
+  definitiveValues: DA DEFINIRE / TBD
+
+events:
+  items:
+    - SoundLengthResolved

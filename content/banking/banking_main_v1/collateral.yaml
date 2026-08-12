@@ -1,0 +1,32 @@
+# =============================================================================
+# COLLATERAL — futuro, loan against asset, seizure
+# =============================================================================
+
+Collateral:
+  status: futuro — NON implementare sistema completo V1
+  schema:
+    collateralAssetId: string
+    collateralValue: TBD
+    collateralLock: boolean
+    collateralRelease: string | null
+
+LoanAgainstAsset:
+  status: futuro
+  examples:
+    items:
+      - house
+      - car
+      - luxury_asset
+  rule: Banking coordina — Property/Mobility/Inventory mantengono proprietà
+
+Seizure:
+  flow: |
+    Asset confiscato → CollateralSeizedEvent
+    → Criminal/Legal/Property/Inventory decidono azione
+    → Banking aggiorna debt/collateral state
+
+events:
+  items:
+    - CollateralLocked
+    - CollateralReleased
+    - CollateralSeized

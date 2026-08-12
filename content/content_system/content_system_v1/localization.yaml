@@ -1,0 +1,21 @@
+# =============================================================================
+# LOCALIZATION — locale support
+# =============================================================================
+
+Localization:
+  defaultLocale: it-IT
+  futureLocales:
+    items:
+      - en
+      - fr
+      - de
+  translationStatus:
+    items:
+      - DRAFT
+      - REVIEW
+      - PUBLISHED
+  rule: architecture ready for multi-locale
+
+events:
+  items:
+    - LocaleContentSaved

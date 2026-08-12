@@ -1,0 +1,12 @@
+# =============================================================================
+# CACHE — work_careers_v1
+# =============================================================================
+
+---
+Cache:
+  canCache: public job listings
+  cannotCache:
+  - employment status
+  - position availability
+  - salary authorization
+  status: DECISIONE APPROVATA

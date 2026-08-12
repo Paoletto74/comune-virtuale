@@ -1,0 +1,41 @@
+# =============================================================================
+# ITEM CARDS — image, price, seller, fallback
+# =============================================================================
+
+ItemCard:
+  shows:
+    items:
+      - image
+      - nome
+      - categoria
+      - prezzo
+      - purchase_or_rent
+      - condizioni
+      - seller
+      - status
+
+visualAssetFallback:
+  DECISIONE APPROVATA: placeholder coerente se no immagine — NON rompere layout
+
+propertyVisual:
+  examples:
+    items:
+      - casa
+      - appartamento
+      - villa
+      - negozio
+      - ufficio
+
+vehicleVisual:
+  rule: veicoli con immagini da Visual System
+
+mustNot:
+  items:
+    - hardcode_prices
+    - hardcoded_image_mapping
+
+ref: visual_main_v1, item_cards visual_assets.yaml
+
+events:
+  items:
+    - ItemCardViewed

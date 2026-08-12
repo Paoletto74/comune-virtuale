@@ -1,0 +1,44 @@
+# =============================================================================
+# CONSISTENCY — atomic operations, transaction boundaries
+# =============================================================================
+
+ConsistencyRules:
+  atomicOperations:
+    items:
+      - purchase
+      - salary
+      - loan
+      - gift
+      - property_transfer
+      - marketplace_sale
+
+transactionBoundaries:
+  purchase:
+    systems: [Banking, Inventory, Marketplace, Notification]
+    rule: tutti i passi o rollback
+  salary:
+    systems: [Work, Banking, Notification]
+  loan:
+    systems: [Banking, Social]
+  gift:
+    systems: [Banking, Inventory, Social, Notification]
+
+foreignReferences:
+  DECISIONE APPROVATA:
+  mandatory: ERROR se mancante
+  optional: NULL/omitted
+
+integrityChecks:
+  status: PROPOSTA TECNICA
+  checks:
+    items:
+      - negative_impossible_balances
+      - orphan_references
+      - duplicate_ownership
+      - impossible_progression_states
+      - invalid_roles
+      - broken_listings
+
+events:
+  items:
+    - ConsistencyViolationDetected

@@ -1,0 +1,90 @@
+# =============================================================================
+# TARGET SELECTION — regole selezione target
+# =============================================================================
+
+TargetRule:
+  schema:
+    ruleId: string
+    selectionType: specific | random | conditional | zone | category | availability | probability | relationship
+    candidatePool: players | npcs | citizens | properties | vehicles | zones
+    filters: []
+    count: TBD
+    fallback: null | npc | skip
+
+selectionTypes:
+  items:
+    - typeId: specific
+      description: Target pre-assegnato in context
+    - typeId: random
+      description: Casuale da pool
+    - typeId: conditional
+      description: Basato su condizioni
+    - typeId: zone
+      description: Cittadino casuale zona X
+    - typeId: category
+      description: Per categoria (es. elderly NPC)
+    - typeId: availability
+      description: Disponibilità online/offline/NPC
+    - typeId: probability
+      description: Weighted random
+    - typeId: relationship
+      description: Basato su relazione — future Relationship System
+
+targetRules:
+  status: skeleton_and_demo
+
+  random_npc_elderly:
+    ruleId: random_npc_elderly
+    selectionType: random
+    candidatePool: npcs
+    filters:
+      items:
+        - field: ageCategory
+          operator: eq
+          value: elderly
+        - field: zoneId
+          operator: eq
+          value: context.zoneId
+    count: 1
+
+  random_citizen_zone:
+    ruleId: random_citizen_zone
+    selectionType: zone
+    candidatePool: citizens
+    filters:
+      items:
+        - field: zoneId
+          operator: eq
+          value: context.zoneId
+    count: 1
+
+  fire_affected_occupants:
+    ruleId: fire_affected_occupants
+    selectionType: conditional
+    candidatePool: citizens
+    note: Per catena incendio — owner, tenant, neighbors
+    filters:
+      items:
+        - field: propertyId
+          operator: eq
+          value: context.affectedPropertyId
+    evaluation: at_event_time
+
+multiTarget:
+  supports:
+    items:
+      - single_target
+      - multiple_targets
+      - no_specific_individual
+      - affected_set_computed_at_runtime
+
+npcTargets:
+  DECISIONE APPROVATA: |
+    NPC sono cittadini del mondo simulato.
+    Possono essere vittime, beneficiari, actor semplificato.
+  simulationDepth: simplified
+
+events:
+  items:
+    - TargetSelected
+    - TargetSelectionFailed

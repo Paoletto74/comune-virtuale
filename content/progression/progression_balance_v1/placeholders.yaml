@@ -1,0 +1,193 @@
+# =============================================================================
+# PLACEHOLDER REGISTRY v1
+# =============================================================================
+# Mappa placeholderKey → definizione. value sempre TBD finché sistemi pronti.
+# Il motore risolve: levels.yaml (main) placeholderKey → questo registry → valore
+# =============================================================================
+
+placeholderRegistry:
+
+  # --- Generici cross-level (esempi strutturali) ---
+  REQ_ISTRUZIONE_MIN:
+    category: personalValues
+    field: education
+    value: TBD
+    unit: scale_0_100
+    dependsOnSystems: [education_module]
+    notes: DA_DEFINIRE
+
+  REQ_ESPERIENZA_MIN:
+    category: personalValues
+    field: experience
+    value: TBD
+    unit: scale_0_100
+    dependsOnSystems: [work, tasks]
+
+  REQ_REPUTAZIONE_MIN:
+    category: personalValues
+    field: reputation
+    value: TBD
+    unit: scale_0_100
+    dependsOnSystems: [social, work, criminal]
+
+  REQ_INFLUENZA_MIN:
+    category: personalValues
+    field: politicalInfluence
+    value: TBD
+    unit: scale_0_100
+    dependsOnSystems: [politics, civic]
+
+  REQ_CIVICA_MIN:
+    category: personalValues
+    field: civicParticipation
+    value: TBD
+    unit: scale_0_100
+    dependsOnSystems: [politics, civic]
+
+  REQ_NET_WORTH_MIN:
+    category: economic
+    field: netWorth
+    value: TBD
+    unit: currency_nominal
+    dependsOnSystems: [economy, assets, inflation]
+    futureSupport: [realValue, populationPercentile]
+    notes: DA_DEFINIRE — no €100k arbitrario
+
+  REQ_ECONOMIC_POSITION_MIN:
+    category: economic
+    field: economicPosition
+    value: TBD
+    unit: index
+    dependsOnSystems: [economy]
+    notes: DA_DEFINIRE — indice composito posizione economica
+
+  REQ_TRACK_PROFESSIONAL_MIN:
+    category: professional
+    field: professionalTrack
+    value: TBD
+    unit: track_level
+    dependsOnSystems: [work, professional_track]
+
+  REQ_TRACK_ENTREPRENEURIAL_MIN:
+    category: entrepreneurial
+    field: entrepreneurialTrack
+    value: TBD
+    unit: track_level
+    dependsOnSystems: [companies, economy]
+
+  REQ_TRACK_POLITICAL_MIN:
+    category: political
+    field: politicalTrack
+    value: TBD
+    unit: track_level
+    dependsOnSystems: [politics]
+
+  REQ_TRACK_CRIMINAL_MIN:
+    category: criminal
+    field: criminalTrack
+    value: TBD
+    unit: track_level
+    dependsOnSystems: [criminality]
+    notes: DECISIONE APPROVATA — no cap artificiale
+
+  # --- Per-level keys (allineati a progression_main_v1/levels.yaml) ---
+  # EARLY
+  REQ_L02_FELICITA_MIN: { category: personalValues, field: happiness, value: TBD, levelRef: main_L02 }
+  REQ_L02_CASH_MIN: { category: economic, field: cash, value: TBD, levelRef: main_L02 }
+  REQ_L02_ESPERIENZA_MIN: { category: personalValues, field: experience, value: TBD, levelRef: main_L02 }
+  REQ_L03_JOB_TIER_MIN: { category: professional, field: jobCategory, value: TBD, levelRef: main_L03 }
+  REQ_L03_CRIMINAL_ENTRY_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L03 }
+  REQ_L03_CASH_ALT_MIN: { category: economic, field: cash, value: TBD, levelRef: main_L03 }
+  REQ_L05_FELICITA_MIN: { category: personalValues, field: happiness, value: TBD, levelRef: main_L05 }
+  REQ_L05_STRESS_MAX: { category: personalValues, field: stress, value: TBD, op: lt, levelRef: main_L05 }
+  REQ_L05_CIVICA_MIN: { category: personalValues, field: civicParticipation, value: TBD, levelRef: main_L05 }
+  REQ_L06_JOB_TIER_MIN: { category: professional, field: jobCategory, value: TBD, levelRef: main_L06 }
+  REQ_L06_INCOME_MIN: { category: economic, field: recurringIncome, value: TBD, levelRef: main_L06 }
+  REQ_L06_TRACK_PRO_MIN: { category: professional, field: professionalTrack, value: TBD, levelRef: main_L06 }
+  REQ_L06_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L06 }
+  REQ_L06_CASH_CRIM_MIN: { category: economic, field: cash, value: TBD, levelRef: main_L06 }
+  REQ_L07_REPUTAZIONE_MIN: { category: personalValues, field: reputation, value: TBD, levelRef: main_L07 }
+  REQ_L07_INCOME_MIN: { category: economic, field: recurringIncome, value: TBD, levelRef: main_L07 }
+  REQ_L07_NET_WORTH_MIN: { category: economic, field: netWorth, value: TBD, levelRef: main_L07 }
+  REQ_L07_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L07 }
+
+  # MID (sample — pattern ripetuto per tutti i level-specific keys in main)
+  REQ_L08_TRACK_ENT_MIN: { category: entrepreneurial, field: entrepreneurialTrack, value: TBD, levelRef: main_L08 }
+  REQ_L08_NET_WORTH_ALT: { category: economic, field: netWorth, value: TBD, levelRef: main_L08 }
+  REQ_L08_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L08 }
+  REQ_L08_ECON_CRIM_MIN: { category: economic, field: economicPosition, value: TBD, levelRef: main_L08 }
+  REQ_L10_TRACK_PRO_MIN: { category: professional, field: professionalTrack, value: TBD, levelRef: main_L10 }
+  REQ_L10_ROLE_MGMT: { category: professional, field: currentJob, value: TBD, levelRef: main_L10 }
+  REQ_L10_TRACK_ENT_MIN: { category: entrepreneurial, field: entrepreneurialTrack, value: TBD, levelRef: main_L10 }
+  REQ_L10_TRACK_POL_MIN: { category: political, field: politicalTrack, value: TBD, levelRef: main_L10 }
+  REQ_L10_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L10 }
+  REQ_L12_NET_WORTH_MIN: { category: economic, field: netWorth, value: TBD, levelRef: main_L12 }
+  REQ_L12_INCOME_MIN: { category: economic, field: recurringIncome, value: TBD, levelRef: main_L12 }
+  REQ_L12_TRACK_POL_MIN: { category: political, field: politicalTrack, value: TBD, levelRef: main_L12 }
+  REQ_L12_INFLUENZA_MIN: { category: personalValues, field: politicalInfluence, value: TBD, levelRef: main_L12 }
+  REQ_L12_TRACK_PRO_MIN: { category: professional, field: professionalTrack, value: TBD, levelRef: main_L12 }
+  REQ_L12_REPUTAZIONE_MIN: { category: personalValues, field: reputation, value: TBD, levelRef: main_L12 }
+  REQ_L12_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L12 }
+  REQ_L12_NET_WORTH_CRIM_MIN: { category: economic, field: netWorth, value: TBD, levelRef: main_L12 }
+  REQ_L13_PASSIVE_INCOME_MIN: { category: economic, field: recurringIncome, value: TBD, levelRef: main_L13, subfield: passive }
+  REQ_L13_ASSET_VALUE_MIN: { category: assets, field: propertyValue, value: TBD, levelRef: main_L13 }
+  REQ_L14_TRACK_ENT_MIN: { category: entrepreneurial, field: entrepreneurialTrack, value: TBD, levelRef: main_L14 }
+  REQ_L16_NET_WORTH_MIN: { category: economic, field: netWorth, value: TBD, levelRef: main_L16 }
+  REQ_L16_ECON_POSITION_MIN: { category: economic, field: economicPosition, value: TBD, levelRef: main_L16 }
+
+  # LATE
+  REQ_L23_TRACK_POL_MIN: { category: political, field: politicalTrack, value: TBD, levelRef: main_L23 }
+  REQ_L24_TRACK_POL_MIN: { category: political, field: politicalTrack, value: TBD, levelRef: main_L24 }
+  REQ_L24_POPOLARITA_MIN: { category: personalValues, field: popularity, value: TBD, levelRef: main_L24 }
+
+  # LEGENDARY L30
+  REQ_L30_TRACK_PRO_MIN: { category: professional, field: professionalTrack, value: TBD, levelRef: main_L30 }
+  REQ_L30_REPUTAZIONE_MIN: { category: personalValues, field: reputation, value: TBD, levelRef: main_L30 }
+  REQ_L30_TRACK_ENT_MIN: { category: entrepreneurial, field: entrepreneurialTrack, value: TBD, levelRef: main_L30 }
+  REQ_L30_NET_WORTH_MIN: { category: economic, field: netWorth, value: TBD, levelRef: main_L30 }
+  REQ_L30_TRACK_POL_MIN: { category: political, field: politicalTrack, value: TBD, levelRef: main_L30 }
+  REQ_L30_INFLUENZA_MIN: { category: personalValues, field: politicalInfluence, value: TBD, levelRef: main_L30 }
+  REQ_L30_TRACK_CRIM_MIN: { category: criminal, field: criminalTrack, value: TBD, levelRef: main_L30 }
+  REQ_L30_ECON_CRIM_MIN: { category: economic, field: economicPosition, value: TBD, levelRef: main_L30 }
+
+  # Milestone thresholds
+  MILESTONE_FIRST_MILLION_NET_WORTH:
+    category: economic
+    field: netWorth
+    value: TBD
+    milestoneRef: first_million
+    dependsOnSystems: [economy, inflation]
+
+  # Demotion / inactivity (from progression_main_v1/demotion.yaml)
+  DEMOTION_INACTIVITY_DAYS: { category: meta, field: inactivityDays, value: TBD }
+  DEMOTION_BANKRUPTCY_NET_WORTH: { category: economic, field: netWorth, value: TBD, op: lt }
+  DEMOTION_REPUTATION_FLOOR: { category: personalValues, field: reputation, value: TBD, op: lt }
+  INACTIVITY_REMINDER_DAYS: { category: meta, field: days, value: TBD }
+  INACTIVITY_PRESSURE_DAYS: { category: meta, field: days, value: TBD }
+  INACTIVITY_DEMOTION_CHECK_DAYS: { category: meta, field: days, value: TBD }
+
+  # Relative requirements (future — valori TBD)
+  REL_TOP_20_NET_WORTH:
+    category: economic
+    field: netWorth
+    value: TBD
+    mode: populationPercentile
+    percentile: TBD
+    targetPercentile: 80
+    notes: DA_DEFINIRE — top 20% patrimonio
+
+  REL_TOP_10_INCOME:
+    category: economic
+    field: recurringIncome
+    value: TBD
+    mode: populationPercentile
+    percentile: TBD
+    targetPercentile: 90
+    notes: DA_DEFINIRE — top 10% reddito
+
+  REL_INFLUENCE_ABOVE_MEAN:
+    category: personalValues
+    field: politicalInfluence
+    value: TBD
+    mode: populationMean
+    notes: DA_DEFINIRE — sopra media popolazione simulata

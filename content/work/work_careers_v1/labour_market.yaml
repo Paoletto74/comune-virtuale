@@ -1,0 +1,9 @@
+# =============================================================================
+# LABOUR MARKET — work_careers_v1
+# =============================================================================
+
+---
+LabourMarket:
+  jobSupply: derived from businesses
+  jobDemand: citizens and NPCs seeking jobs
+  status: DECISIONE APPROVATA

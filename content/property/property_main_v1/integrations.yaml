@@ -1,0 +1,244 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: property ↔ economy
+    rule: DECISIONE APPROVATA — Property System NON modifica cash direttamente
+    flows:
+      purchase: |
+        Property → Purchase Event
+        → Economy Pipeline
+        → Transaction(purchase, fees, taxes)
+        → Ledger
+        → ownership transfer
+      rent: |
+        Tenant → RentalDue
+        → Economy Pipeline
+        → Transaction(rent)
+        → Ledger
+        → landlord recurring income
+      maintenance: |
+        Owner → MaintenanceDue
+        → Economy Pipeline
+        → Transaction(maintenance)
+        → Ledger
+      sale: |
+        Seller/Buyer → SaleCompleted
+        → Economy Pipeline
+        → Transaction(sale)
+        → Ledger
+        → ownership transfer
+    dataProvided:
+      items:
+        - propertyCount
+        - propertyValue
+        - ownedResidentialValue
+        - ownedCommercialValue
+        - rentalIncome
+        - recurringExpenses
+        - assetEntity
+    dataConsumed:
+      items:
+        - inflation
+        - macro_state
+        - tax_rates
+        - purchasing_power
+        - bankruptcy_rules
+
+  progression_balance_v1:
+    direction: property → progression
+    rule: Property NON decide mainLevel direttamente
+    fields:
+      items:
+        - propertyCount
+        - propertyValue
+        - ownedResidentialValue
+        - ownedCommercialValue
+        - rentalIncome
+        - propertyMilestones
+        - housingStatusCategory
+
+  work_main_v1:
+    direction: property → work (data only)
+    rule: Property NON calcola performance lavorativa
+    provides:
+      items:
+        - homeId
+        - homeZoneId
+        - distanceToWork
+        - travelTimeEstimate
+    consumedBy:
+      items:
+        - mobility_module
+        - work_performance
+        - daily_time
+    note: Logica viaggio in Housing + Mobility + Work + Time
+
+  business_system:
+    status: not_implemented
+    interface:
+      propertyProvides:
+        items:
+          - propertyId
+          - location
+          - zoneId
+          - cost
+          - value
+          - rent
+          - occupancyStatus
+      businessUses:
+        items:
+          - headquarters
+          - shop
+          - office
+          - factory
+          - warehouse
+
+  criminal_system:
+    status: not_implemented
+    interface:
+      possibleUses:
+        items:
+          - illicit_purchase
+          - asset_hiding
+          - ownership_transfer
+          - illegal_activities_on_premises
+      rule: Property fornisce interfacce — regole criminali DA DEFINIRE
+
+  citizen_model:
+    personalValuesAffected:
+      items:
+        - happiness
+        - health
+        - stress
+        - safety
+        - freeTime
+        - wellbeing
+        - reputation
+    publicProfile:
+      rule: DECISIONE APPROVATA — mostrare asset prestigiosi, non dettagli economici
+      displays:
+        items:
+          - most_prestigious_property
+          - property_type_summary
+      excludes:
+        items:
+          - purchase_price
+          - debts
+          - rental_income
+          - acquisition_history
+          - full_portfolio
+
+  event_system:
+    direction: bidirectional
+    property_emits:
+      items:
+        - PropertyPurchased
+        - PropertySold
+        - RentPaid
+        - PropertyVacant
+        - MaintenanceRequired
+        - PropertyDamaged
+        - PropertyRevalued
+        - HousingStatusChanged
+        - ZoneChanged
+    property_consumes:
+      items:
+        - EconomicCrisis
+        - InflationChanged
+        - BankruptcyDeclared
+        - PersonalValueChanged
+
+  notification_system:
+    direction: property → notifications
+    rule: DECISIONE APPROVATA — NO UI notifiche nel Property System
+    templates:
+      items:
+        - purchase_completed
+        - property_sold
+        - rent_received
+        - property_vacant
+        - maintenance_required
+        - damage_loss
+        - tax_due
+        - rental_contract_signed
+        - tenant_moved_out
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - timestamps
+        - scheduled_events
+        - tick
+        - catch_up
+        - offline_processing
+    offlineEffects:
+      items:
+        - rent_payments
+        - expenses
+        - maintenance
+        - value_changes
+        - events
+        - demand_changes
+        - npc_tenants
+        - vacancy
+
+  mobility_system:
+    status: not_implemented
+    provides: travel_time, transport_mode
+    consumes: homeZoneId, workZoneId, propertyLocation
+
+  admin_panel:
+    configurable:
+      items:
+        - categories
+        - property_types
+        - zones
+        - base_prices
+        - base_rents
+        - costs
+        - maintenance
+        - taxes
+        - demand
+        - supply
+        - revaluation
+        - contract_duration
+        - npc_rules
+        - max_properties
+        - housing_effects
+
+  security:
+    clientCannotDecide:
+      items:
+        - owner
+        - market_value
+        - sale_price
+        - rent_amount
+        - contract_terms
+        - tenant
+        - transfer
+        - payment_outcome
+        - property_status
+        - occupancy
+
+  ui:
+    direction: read_only_display
+    displays:
+      items:
+        - where_you_live
+        - owned_properties
+        - rental_listings
+        - value
+        - costs
+        - status
+        - market
+        - opportunities
+    rule: DECISIONE APPROVATA — logica economica/proprietaria NON in UI
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI runtime, NO servizi esterni
+    futureUse: content authoring offline only

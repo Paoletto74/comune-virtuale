@@ -1,0 +1,34 @@
+# =============================================================================
+# REPUTATION — influenzata indirettamente
+# =============================================================================
+
+Reputation:
+  status: PROPOSTA TECNICA — formula TBD
+  DECISIONE APPROVATA: |
+    Interazioni possono influenzare reputation, sympathy, popularity, reliability.
+    Communication NON modifica direttamente questi valori.
+
+positiveInteractions:
+  items:
+    - compliment
+    - thank
+    - help
+    - gift
+    - support
+
+negativeInteractions:
+  items:
+    - insult_controlled
+    - provoke
+    - rejection
+    - report
+    - hostility
+
+socialScore:
+  status: PROPOSTA TECNICA — metrica aggregata opzionale
+  rule: NON necessariamente nuovo track progression
+  formula: TBD
+
+events:
+  items:
+    - ReputationInteractionRecorded

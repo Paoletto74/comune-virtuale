@@ -1,0 +1,63 @@
+# =============================================================================
+# NPC — dipendenti, clienti, proprietari
+# =============================================================================
+
+NpcEmployeeService:
+  ref: work_main_v1/npc_employment.yaml
+  rule: NPC assumibili se nessun player accetta posto
+  simulationDepth: simplified
+
+NpcCustomerService:
+  DECISIONE APPROVATA: fondamentale
+  rule: |
+    NPC possono essere clienti — azienda genera revenue senza giocatori reali.
+    Es. ristorante senza clienti player → NPC generano domanda.
+  factors:
+    items:
+      - price
+      - quality
+      - reputation
+      - location
+      - sector
+      - macro_economy
+  formula: TBD
+
+NpcBusinessOwner:
+  DECISIONE APPROVATA: true
+  purpose:
+    items:
+      - competition
+      - economy_baseline
+      - job_market
+      - company_market
+  note: Non tutte le aziende create da giocatori
+
+NpcBusinessSimulation:
+  status: PROPOSTA_TECNICA
+  rule: Simulazione aggregata — NON ogni dettaglio
+  aggregatedFields:
+    items:
+      - demand
+      - revenue
+      - expenses
+      - performance
+      - employees
+      - value
+  depth: lower_than_player_companies
+
+npcCapabilities:
+  items:
+    - apply_for_jobs
+    - be_hired
+    - work_simplified
+    - receive_salary
+    - be_customers
+    - own_companies
+    - buy_sell_companies
+
+events:
+  items:
+    - NpcCustomerPurchase
+    - NpcEmployeeHired
+    - NpcCompanyCreated
+    - NpcCompanySold

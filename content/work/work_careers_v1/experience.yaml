@@ -1,0 +1,15 @@
+# =============================================================================
+# EXPERIENCE — work_careers_v1
+# =============================================================================
+
+---
+WorkExperience:
+  records:
+  - job
+  - employer
+  - duration
+  - achievements
+  - start
+  - end
+  experiencePoints: separate from Player XP
+  status: DECISIONE APPROVATA

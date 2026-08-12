@@ -1,0 +1,22 @@
+# =============================================================================
+# EXPORT — published, approved, content pack
+# =============================================================================
+
+Export:
+  targets:
+    items:
+      - published_content
+      - approved_content
+      - content_pack
+  preserves:
+    items:
+      - contentId
+      - version
+      - locale
+      - status
+      - metadata
+  use: backup, versioning
+
+events:
+  items:
+    - ContentExported

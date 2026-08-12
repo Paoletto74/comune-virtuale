@@ -1,0 +1,13 @@
+# =============================================================================
+# REALTIME — work_careers_v1
+# =============================================================================
+
+---
+Realtime:
+  future:
+  - new job
+  - application update
+  - hiring
+  - promotion
+  fallback: polling
+  status: PROPOSTA TECNICA future

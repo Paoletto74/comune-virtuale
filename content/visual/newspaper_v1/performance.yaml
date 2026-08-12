@@ -1,0 +1,28 @@
+# =============================================================================
+# PERFORMANCE — editorial must not mean heavy layouts
+# =============================================================================
+
+Performance:
+  DECISIONE APPROVATA: performance first
+  mustNot:
+    items:
+      - immagini_gigantesche
+      - layout_pesanti
+      - animazioni_continue
+  imagePerformance:
+    items:
+      - hero_responsive
+      - thumbnail_optimized
+      - lazy_load
+  fontPerformance:
+    items:
+      - limitare_font_families
+      - font_loading_strategy
+  graphLanguage:
+    rule: semplici, editoriali, leggibili — NON software finanziario generico
+
+ref: frontend_ui_v1/performance.yaml
+
+events:
+  items:
+    - PerformanceBudgetChecked

@@ -1,0 +1,23 @@
+# =============================================================================
+# GOOGLE AUTHENTICATION
+# =============================================================================
+
+GoogleProvider:
+  DECISIONE APPROVATA: provider GOOGLE — astratto, non hardcoded unico
+  type: oauth
+  providerId: google
+
+socialLoginPrivacy:
+  DECISIONE APPROVATA: |
+    Google login fornisce solo dati necessari.
+    NON pubblicare automaticamente: Google email, profile data, identity.
+
+googleAccountLinking:
+  status: PROPOSTA TECNICA — futuro
+  rule: collegare Google a Account esistente — NO doppio Citizen accidentale
+
+events:
+  items:
+    - GoogleAuthenticationSucceeded
+    - GoogleAuthenticationFailed
+    - IdentityLinked

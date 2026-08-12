@@ -1,0 +1,70 @@
+# =============================================================================
+# PRICING
+# =============================================================================
+# DECISIONE APPROVATA: prezzi variabili; NO formula unica price = base * inflation
+# PROPOSTA TECNICA: modello multi-componente configurabile
+# =============================================================================
+
+PricingModel:
+  formulaRef: DYNAMIC_PRICE_FORMULA
+  formula: TBD
+
+  components:
+    basePrice:
+      source: content_catalog
+      value: TBD
+
+    marketModifier:
+      source: demand_supply_index
+      value: TBD
+      formula: TBD
+
+    inflationModifier:
+      source: inflation_engine
+      value: TBD
+      formula: TBD
+      notes: Componente, non unico fattore
+
+    availabilityModifier:
+      source: stock_scarcity
+      value: TBD
+
+    eventModifier:
+      source: economic_events
+      value: TBD
+
+    categoryModifier:
+      source: product_category_rules
+      value: TBD
+
+    conditionModifier:
+      source: asset_condition
+      appliesTo: [assets, used_goods]
+
+    zoneModifier:
+      source: location
+      appliesTo: [real_estate]
+
+  computation:
+    mode: multiplicative | additive | hybrid
+    value: TBD
+    clampMin: TBD
+    clampMax: TBD
+
+  updateFrequency:
+    mode: on_event | on_tick | on_transaction
+    tickInterval: TBD
+
+  antiPatterns:
+    - price_equals_base_times_global_inflation_only
+
+  purchasingPowerLink:
+    priceIndexRef: world.economy.priceIndex
+    realPriceFormula: TBD
+
+productPriceEntry:
+  productId: string
+  category: string
+  basePrice: TBD
+  placeholderKey: TBD
+  dynamic: true

@@ -1,0 +1,17 @@
+# =============================================================================
+# EVENT ORDERING — maintain order where necessary
+# =============================================================================
+
+EventOrdering:
+  status: PROPOSTA TECNICA
+  example:
+    sequence:
+      items:
+        - PaymentCreated
+        - PaymentCompleted
+        - OwnershipTransferred
+  rule: NON consentire consumer incoerenti
+
+events:
+  items:
+    - EventOrderViolationDetected

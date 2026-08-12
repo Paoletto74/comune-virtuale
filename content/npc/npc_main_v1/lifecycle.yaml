@@ -1,0 +1,42 @@
+# =============================================================================
+# LIFECYCLE — created, active, retired, death
+# =============================================================================
+
+NpcLifecycle:
+  states:
+    items:
+      - CREATED
+      - ACTIVE
+      - INACTIVE
+      - RETIRED
+      - ARCHIVED
+  rule: Non eliminare arbitrariamente NPC importanti
+
+NpcRetirement:
+  status: PROPOSTA TECNICA
+  effects:
+    items:
+      - stop_working
+      - receive_income
+      - change_consumption
+      - change_life_situation
+  owner: work_main_v1 autorevole su pensione lavoro
+
+NpcDeath:
+  status: meccanismo futuro configurabile — NON obbligatorio V1
+  rule: |
+    Giocatore principale NON muore.
+    Se implementata per NPC: eventi familiari/economici via event_main_v1.
+  v1Default: disabled_or_TBD
+
+CreationRetirement:
+  flow: |
+    CREATED → ACTIVE → (INACTIVE) → RETIRED → ARCHIVED
+  dePromotionNote: Tier può scendere — lifecycle status separato da simulation tier
+
+events:
+  items:
+    - NpcLifecycleChanged
+    - NpcRetired
+    - NpcArchived
+    - NpcDeathEvent

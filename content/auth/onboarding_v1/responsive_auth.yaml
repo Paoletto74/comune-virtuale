@@ -1,0 +1,15 @@
+# =============================================================================
+# RESPONSIVE AUTH — phone, tablet, desktop
+# =============================================================================
+
+ResponsiveAuth:
+  optimized:
+    items:
+      - phone
+      - tablet
+      - desktop
+  ref: mobile_auth.yaml, desktop_auth.yaml
+
+events:
+  items:
+    - ResponsiveAuthApplied

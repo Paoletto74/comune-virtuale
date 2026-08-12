@@ -1,0 +1,52 @@
+# =============================================================================
+# WEALTH HISTORY — grafico patrimonio reale/storico
+# =============================================================================
+
+WealthHistory:
+  DECISIONE APPROVATA: |
+    Nel profilo personale deve esistere un grafico reale/storico del patrimonio.
+    Persistente — NON solo calcolo attuale.
+
+WealthSnapshot:
+  schema:
+    snapshotId: string
+    citizenId: string
+    timestamp: timestamp
+    worldTime: timestamp
+    netWorth: TBD
+    cash: TBD
+    debt: TBD
+    assetValue: TBD
+    levelAtSnapshot: "number | null"
+
+wealthGraph:
+  DECISIONE APPROVATA: mostra
+  fields:
+    items:
+      - wealth_evolution
+      - period
+      - temporal_points
+      - milestones
+  examplePoints:
+    status: solo esempio dimostrativo
+    items:
+      - level: L01
+        netWorth: "€0"
+      - level: L05
+        netWorth: "€2.500"
+      - level: L10
+        netWorth: "€45.000"
+      - level: L15
+        netWorth: "€180.000"
+
+cashGraph:
+  status: PROPOSTA TECNICA
+  rule: separare NET WORTH HISTORY da CASH HISTORY
+
+frequency: TBD
+retention: TBD
+
+events:
+  items:
+    - WealthSnapshotCreated
+    - WealthHistoryUpdated

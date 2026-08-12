@@ -1,0 +1,48 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  TASK_EXPIRATION_DEFAULT: TBD
+  TASK_COOLDOWN_DEFAULT: TBD
+  MAX_ACTIVE_TASKS_PER_CITIZEN: TBD
+  POOL_DRAW_PROBABILITY: TBD
+
+  EFFECT_HAPPINESS_DEFAULT: TBD
+  EFFECT_STRESS_DEFAULT: TBD
+  EFFECT_REPUTATION_DEFAULT: TBD
+  EFFECT_DURATION_HOURS: TBD
+
+  PROB_STEAL_UNSEEN: TBD
+  PROB_STEAL_WITNESSED: TBD
+  PROB_STEAL_IDENTIFIED: TBD
+
+  DELAYED_CONSEQUENCE_HOURS_DEFAULT: TBD
+  DELAYED_VICTIM_REPORT_HOURS: TBD
+
+  TARGET_SELECTION_WEIGHTS: TBD
+  GLOBAL_EVENT_EFFECT_FORMULA: TBD
+  PER_CITIZEN_EFFECT_FORMULA: TBD
+
+  ANTI_GRIND_COOLDOWN: TBD
+  ANTI_GRIND_DIMINISHING_FACTOR: TBD
+  ANTI_GRIND_CAP: TBD
+
+  NPC_TASK_MAX_ACTIVE: TBD
+  NPC_SIMULATION_DEPTH: TBD
+
+  RANDOM_SEED_STRATEGY: TBD
+  IDEMPOTENCY_KEY_TTL: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - progression_balance_v1
+      - criminal_module
+      - political_module
+      - relationship_module
+      - family_module
+      - notification_module

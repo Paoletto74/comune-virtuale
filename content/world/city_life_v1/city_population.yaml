@@ -1,0 +1,24 @@
+# =============================================================================
+# CITY POPULATION — Municipality SOT, count separation
+# =============================================================================
+
+CityPopulation:
+  sourceOfTruth: Municipality System — ref political_main_v1
+  rule: NON sommare NPC nel frontend
+  separate:
+    items:
+      - registered_player_citizens
+      - NPC_population
+      - total_population
+  definition: DA DEFINIRE / TBD
+  comuneDisplay:
+    mayShow:
+      items:
+        - cittadini_giocanti
+        - popolazione_NPC
+        - popolazione_totale
+    policy: DA DEFINIRE / TBD
+
+events:
+  items:
+    - CityPopulationDisplayed

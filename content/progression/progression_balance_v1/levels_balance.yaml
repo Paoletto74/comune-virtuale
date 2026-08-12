@@ -1,0 +1,598 @@
+# =============================================================================
+# LEVEL BALANCE MAPPING — L01–L30
+# =============================================================================
+# Collegamento: levelId ↔ progression_main_v1/levels.yaml
+# Tutti i valori numerici: TBD
+# requirementGroups risolvono placeholderKey via placeholders.yaml
+# =============================================================================
+
+# --- Template balance meta per tier ---
+_balance_early: &balance_early_meta
+  difficultyScore: TBD
+  estimatedTimeToReach:
+    value: TBD
+    category: TBD
+    unit: TBD
+  estimatedActivityVolume: TBD
+  estimatedDecisionCount: TBD
+  grindRisk: TBD
+
+_four_path_requirements: &four_path_requirements
+  mode: any
+  label: PATH A | B | C | D — requisiti equivalenti
+  templateRef: FOUR_PATH_OR_TEMPLATE
+  notes: Dettaglio per-level via levelSpecificPlaceholderOverrides sotto
+
+levelBalance:
+
+  # ===========================================================================
+  # EARLY — L01–L07
+  # ===========================================================================
+
+  - levelId: main_L01
+    linkedLabel: SENZATETTO
+    narrativeTier: EARLY
+    <<: *balance_early_meta
+    difficultyScore: TBD
+    difficultyTier: TBD
+    estimatedTimeToReach: { value: TBD, category: instant, unit: TBD }
+    requirementGroups:
+      mode: all
+      note: Livello iniziale — nessun requisito balance; assegnato alla creazione
+      requirements: []
+    levelSpecificPlaceholderOverrides: []
+    preferredActivities: [survival, basic_interaction]
+    alternativePaths: []
+    relativeRequirements: []
+    riskRewardProfile: null
+    antiGrindNotes: N/A — starting level
+    analysisNotes: Baseline difficulty 0
+
+  - levelId: main_L02
+    linkedLabel: SOPRAVVISSUTO
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    difficultyTier: TBD
+    estimatedTimeToReach: { value: TBD, category: very_short, unit: TBD }
+    estimatedActivityVolume: TBD
+    estimatedDecisionCount: TBD
+    grindRisk: low
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          label: Attività minima
+          requirements:
+            - { category: personalValues, field: happiness, op: gte, placeholderKey: REQ_L02_FELICITA_MIN }
+            - { category: economic, field: cash, op: gte, placeholderKey: REQ_L02_CASH_MIN }
+        - mode: all
+          label: Prima entrata
+          requirements:
+            - { category: personalValues, field: experience, op: gte, placeholderKey: REQ_L02_ESPERIENZA_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_job, optional: true }
+    preferredActivities: [survival, first_income, basic_tasks]
+    alternativePaths:
+      - { pathId: PATH_SURVIVAL, templateRef: null }
+      - { pathId: PATH_FIRST_INCOME, templateRef: null }
+    relativeRequirements: []
+    riskRewardProfile: { reward: low, risk: low }
+
+  - levelId: main_L03
+    linkedLabel: LAVORATORE
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    difficultyTier: TBD
+    estimatedTimeToReach: { value: TBD, category: very_short, unit: TBD }
+    grindRisk: low
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH — Lavoro
+          requirements:
+            - { category: milestones, field: completedMilestone, op: exists, value: first_job }
+            - { category: professional, field: jobCategory, op: gte, placeholderKey: REQ_L03_JOB_TIER_MIN }
+        - mode: all
+          label: PATH — Criminale entry
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L03_CRIMINAL_ENTRY_MIN }
+            - { category: economic, field: cash, op: gte, placeholderKey: REQ_L03_CASH_ALT_MIN }
+    preferredActivities: [work, basic_tasks, optional_criminal_entry]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE, partial: true }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE, partial: true }
+    relativeRequirements: []
+
+  - levelId: main_L04
+    linkedLabel: CON UN TETTO
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: short, unit: TBD }
+    grindRisk: low
+    requirementGroups:
+      mode: any
+      requirements:
+        - { category: milestones, field: completedMilestone, op: exists, value: first_home }
+        - { category: assets, field: propertyCount, op: gte, placeholderKey: TBD_PROPERTY_COUNT_L04, optional: true }
+    preferredActivities: [housing, work, economy_basic]
+    alternativePaths:
+      - { pathId: PATH_HOUSING, note: Affitto o proprietà — DA_DEFINIRE alternativa criminale }
+    relativeRequirements: []
+
+  - levelId: main_L05
+    linkedLabel: QUASI NORMALE
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: short, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: personalValues, field: happiness, op: gte, placeholderKey: REQ_L05_FELICITA_MIN }
+            - { category: personalValues, field: stress, op: lt, placeholderKey: REQ_L05_STRESS_MAX }
+        - mode: all
+          requirements:
+            - { category: milestones, field: completedMilestone, op: exists, value: first_home }
+            - { category: personalValues, field: civicParticipation, op: gte, placeholderKey: REQ_L05_CIVICA_MIN }
+    preferredActivities: [work, housing, civic, branch_selection, tasks]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE, opens: true }
+      - { pathId: PATH_B, templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE, opens: true }
+      - { pathId: PATH_C, templateRef: PATH_C_POLITICAL_TEMPLATE, opens: true }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE, opens: true }
+    relativeRequirements: []
+    antiGrindNotes: Nodo ramificazione — richiede stabilità multi-dimensionale
+
+  - levelId: main_L06
+    linkedLabel: IMPIEGATO
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: medium, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: professional, field: jobCategory, op: gte, placeholderKey: REQ_L06_JOB_TIER_MIN }
+            - { category: economic, field: recurringIncome, op: gte, placeholderKey: REQ_L06_INCOME_MIN }
+        - mode: all
+          requirements:
+            - { category: professional, field: professionalTrack, op: gte, placeholderKey: REQ_L06_TRACK_PRO_MIN }
+        - mode: all
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L06_TRACK_CRIM_MIN }
+            - { category: economic, field: cash, op: gte, placeholderKey: REQ_L06_CASH_CRIM_MIN }
+    preferredActivities: [work, taxes, bureaucracy, civic]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE }
+
+  - levelId: main_L07
+    linkedLabel: CONTRIBUENTE
+    narrativeTier: EARLY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: medium, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: personalValues, field: reputation, op: gte, placeholderKey: REQ_L07_REPUTAZIONE_MIN }
+            - { category: economic, field: recurringIncome, op: gte, placeholderKey: REQ_L07_INCOME_MIN }
+        - mode: all
+          requirements:
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L07_NET_WORTH_MIN }
+        - mode: all
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L07_TRACK_CRIM_MIN }
+    preferredActivities: [work, taxes, investments_mini, political_entry, criminal_mid]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE }
+      - { pathId: PATH_B, templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE, partial: true }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE }
+    relativeRequirements: []
+    analysisNotes: Fine EARLY — salto difficoltà verso MID (TBD calibrazione)
+
+  # ===========================================================================
+  # MID — L08–L19
+  # ===========================================================================
+
+  - levelId: main_L08
+    linkedLabel: PROFESSIONISTA
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: medium, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - templateRef: PATH_A_PROFESSIONAL_TEMPLATE
+        - mode: all
+          requirements:
+            - { category: entrepreneurial, field: entrepreneurialTrack, op: gte, placeholderKey: REQ_L08_TRACK_ENT_MIN }
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L08_NET_WORTH_ALT }
+        - mode: all
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L08_TRACK_CRIM_MIN }
+            - { category: economic, field: economicPosition, op: gte, placeholderKey: REQ_L08_ECON_CRIM_MIN }
+    preferredActivities: [work, training, tasks, reputation, specialist_levers]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE }
+      - { pathId: PATH_B, templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE, partial: true }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE, partial: true }
+    antiGrindNotes: Richiede formazione + lavoro + reputazione
+
+  - levelId: main_L09
+    linkedLabel: AFFERMATO
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: extended, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [work, assets, local_influence, relationships]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE }
+      - { pathId: PATH_B, templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE }
+      - { pathId: PATH_C, templateRef: PATH_C_POLITICAL_TEMPLATE }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE }
+
+  - levelId: main_L10
+    linkedLabel: MANAGER
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: extended, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: professional, field: professionalTrack, op: gte, placeholderKey: REQ_L10_TRACK_PRO_MIN }
+            - { category: professional, field: currentJob, op: gte, placeholderKey: REQ_L10_ROLE_MGMT }
+        - mode: all
+          requirements:
+            - { category: entrepreneurial, field: entrepreneurialTrack, op: gte, placeholderKey: REQ_L10_TRACK_ENT_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_company, optional: true }
+        - mode: all
+          requirements:
+            - { category: political, field: politicalTrack, op: gte, placeholderKey: REQ_L10_TRACK_POL_MIN }
+        - mode: all
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L10_TRACK_CRIM_MIN }
+    preferredActivities: [management, team_levers, small_companies, organized_crime_entry]
+    alternativePaths:
+      - { pathId: PATH_A, templateRef: PATH_A_PROFESSIONAL_TEMPLATE }
+      - { pathId: PATH_B, templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE }
+      - { pathId: PATH_C, templateRef: PATH_C_POLITICAL_TEMPLATE }
+      - { pathId: PATH_D, templateRef: PATH_D_CRIMINAL_TEMPLATE }
+
+  - levelId: main_L11
+    linkedLabel: DIRIGENTE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: extended, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [executive_work, strategic_tasks, high_sector_levers]
+
+  - levelId: main_L12
+    linkedLabel: BENESTANTE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: extended, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L12_NET_WORTH_MIN }
+            - { category: economic, field: recurringIncome, op: gte, placeholderKey: REQ_L12_INCOME_MIN }
+        - templateRef: PATH_C_POLITICAL_TEMPLATE
+          overrides: [{ placeholderKey: REQ_TRACK_POLITICAL_MIN, levelKey: REQ_L12_TRACK_POL_MIN }]
+        - mode: all
+          requirements:
+            - { category: professional, field: professionalTrack, op: gte, placeholderKey: REQ_L12_TRACK_PRO_MIN }
+            - { category: personalValues, field: reputation, op: gte, placeholderKey: REQ_L12_REPUTAZIONE_MIN }
+        - mode: all
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L12_TRACK_CRIM_MIN }
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L12_NET_WORTH_CRIM_MIN }
+    preferredActivities: [wealth, income, political_influence, professional_excellence]
+    relativeRequirements: []
+    analysisNotes: Politico non ricco deve poter passare via PATH_C
+
+  - levelId: main_L13
+    linkedLabel: INVESTITORE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: milestones, field: completedMilestone, op: exists, value: first_major_investment }
+            - { category: economic, field: recurringIncome, op: gte, placeholderKey: REQ_L13_PASSIVE_INCOME_MIN, subfield: passive }
+            - { category: assets, field: propertyValue, op: gte, placeholderKey: REQ_L13_ASSET_VALUE_MIN }
+        - templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE
+        - templateRef: PATH_D_CRIMINAL_TEMPLATE
+    preferredActivities: [investments, passive_income, business, financial_tasks]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_TOP_20_NET_WORTH]
+
+  - levelId: main_L14
+    linkedLabel: IMPRENDITORE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: milestones, field: completedMilestone, op: exists, value: first_company }
+            - { category: entrepreneurial, field: entrepreneurialTrack, op: gte, placeholderKey: REQ_L14_TRACK_ENT_MIN }
+        - templateRef: PATH_A_PROFESSIONAL_TEMPLATE
+        - templateRef: PATH_C_POLITICAL_TEMPLATE
+        - templateRef: PATH_D_CRIMINAL_TEMPLATE
+    preferredActivities: [work, investments, business, wealth, company_management]
+    antiGrindNotes: Non solo cash — richiede companyOwnership / milestone
+
+  - levelId: main_L15
+    linkedLabel: IMPRENDITORE DI SUCCESSO
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [business_scaling, market, high_value_tasks]
+
+  - levelId: main_L16
+    linkedLabel: RICCO
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L16_NET_WORTH_MIN }
+            - { category: economic, field: economicPosition, op: gte, placeholderKey: REQ_L16_ECON_POSITION_MIN }
+        - templateRef: PATH_C_POLITICAL_TEMPLATE
+        - templateRef: PATH_A_PROFESSIONAL_TEMPLATE
+        - templateRef: PATH_D_CRIMINAL_TEMPLATE
+    preferredActivities: [wealth, luxury, investments, political_influence]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_TOP_20_NET_WORTH, REL_TOP_10_INCOME]
+    analysisNotes: Label "RICCO" ≠ solo PATH_B — OR obbligatori
+
+  - levelId: main_L17
+    linkedLabel: POTENTE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [influence, high_impact_levers, macro_tasks]
+
+  - levelId: main_L18
+    linkedLabel: MAGNATE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: medium
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [business_empire, market, multi_asset]
+
+  - levelId: main_L19
+    linkedLabel: INFLUENTE
+    narrativeTier: MID
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: long, unit: TBD }
+    grindRisk: low
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [politics, networks, voting, soft_power]
+    analysisNotes: Cap MID — gateway LATE
+
+  # ===========================================================================
+  # LATE — L20–L27
+  # ===========================================================================
+
+  - levelId: main_L20
+    linkedLabel: FIGURA DI RILIEVO
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: very_long, unit: TBD }
+    grindRisk: high
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [influence, wealth, career, achievements, advanced_content]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_TOP_20_NET_WORTH, REL_INFLUENCE_ABOVE_MEAN]
+    antiGrindNotes: Canonical parity level — A/B/C/D equally valid structurally
+    pathCompetitivenessCheck: required
+
+  - levelId: main_L21
+    linkedLabel: POLITICO
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: very_long, unit: TBD }
+    grindRisk: low
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [politics, elections, public_levers, referendums]
+
+  - levelId: main_L22
+    linkedLabel: POLITICO DI PESO
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: very_long, unit: TBD }
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [coalitions, policy_major, national_scope_tasks]
+
+  - levelId: main_L23
+    linkedLabel: AMMINISTRATORE
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: very_long, unit: TBD }
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: political, field: politicalTrack, op: gte, placeholderKey: REQ_L23_TRACK_POL_MIN }
+            - { category: political, field: politicalRole, op: exists, value: TBD_ADMIN_ROLE }
+        - templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE
+        - templateRef: PATH_A_PROFESSIONAL_TEMPLATE
+        - templateRef: PATH_D_CRIMINAL_TEMPLATE
+    preferredActivities: [administration, public_services, public_budget]
+
+  - levelId: main_L24
+    linkedLabel: CANDIDATO DI RILIEVO
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: very_long, unit: TBD }
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { category: political, field: politicalTrack, op: gte, placeholderKey: REQ_L24_TRACK_POL_MIN }
+            - { category: personalValues, field: popularity, op: gte, placeholderKey: REQ_L24_POPOLARITA_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_election, optional: true }
+        - templateRef: PATH_B_ENTREPRENEURIAL_TEMPLATE
+        - templateRef: PATH_A_PROFESSIONAL_TEMPLATE
+        - templateRef: PATH_D_CRIMINAL_TEMPLATE
+    preferredActivities: [election_campaign, propaganda, pre_mayor_levers]
+    analysisNotes: Sblocca eleggibilità candidatura — NON ruolo sindaco
+
+  - levelId: main_L25
+    linkedLabel: SINDACO
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: epic, unit: TBD }
+    grindRisk: high
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [late_game, great_influence_levers, governance]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_INFLUENCE_ABOVE_MEAN]
+    analysisNotes: |
+      DECISIONE APPROVATA: balance NON include grantRole(mayor).
+      Sindaco = modulo politico + elezione (TBD).
+    mayorRoleRequirement: DA_DEFINIRE — separate from level balance
+
+  - levelId: main_L26
+    linkedLabel: FIGURA DI POTERE
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: epic, unit: TBD }
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [cross_module_levers, world_events, multi_sector]
+
+  - levelId: main_L27
+    linkedLabel: PERSONAGGIO NAZIONALE
+    narrativeTier: LATE
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: epic, unit: TBD }
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [media, national_narrative, fame]
+
+  # ===========================================================================
+  # LEGENDARY — L28–L30
+  # ===========================================================================
+
+  - levelId: main_L28
+    linkedLabel: MAGNATE DI RILIEVO
+    narrativeTier: LEGENDARY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: legendary, unit: TBD }
+    grindRisk: high
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [legendary_assets, ma, deep_market_levers]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_TOP_10_INCOME, REL_TOP_20_NET_WORTH]
+
+  - levelId: main_L29
+    linkedLabel: POTERE ASSOLUTO
+    narrativeTier: LEGENDARY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: legendary, unit: TBD }
+    requirementGroups:
+      <<: *four_path_requirements
+    preferredActivities: [maximum_levers, macro_consequences, epic_tasks]
+    analysisNotes: Iperbole ironica — meccaniche hanno limiti (TBD)
+
+  - levelId: main_L30
+    linkedLabel: LEGGENDA
+    narrativeTier: LEGENDARY
+    difficultyScore: TBD
+    estimatedTimeToReach: { value: TBD, category: legendary, unit: TBD }
+    grindRisk: very_high
+    requirementGroups:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH A — Leggenda professionale
+          requirements:
+            - { category: professional, field: professionalTrack, op: gte, placeholderKey: REQ_L30_TRACK_PRO_MIN }
+            - { category: personalValues, field: reputation, op: gte, placeholderKey: REQ_L30_REPUTAZIONE_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_job }
+        - mode: all
+          label: PATH B — Leggenda imprenditoriale
+          requirements:
+            - { category: entrepreneurial, field: entrepreneurialTrack, op: gte, placeholderKey: REQ_L30_TRACK_ENT_MIN }
+            - { category: economic, field: netWorth, op: gte, placeholderKey: REQ_L30_NET_WORTH_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_company }
+        - mode: all
+          label: PATH C — Leggenda politica
+          requirements:
+            - { category: political, field: politicalTrack, op: gte, placeholderKey: REQ_L30_TRACK_POL_MIN }
+            - { category: personalValues, field: politicalInfluence, op: gte, placeholderKey: REQ_L30_INFLUENZA_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_political_office, optional: true }
+        - mode: all
+          label: PATH D — Leggenda criminale
+          requirements:
+            - { category: criminal, field: criminalTrack, op: gte, placeholderKey: REQ_L30_TRACK_CRIM_MIN }
+            - { category: economic, field: economicPosition, op: gte, placeholderKey: REQ_L30_ECON_CRIM_MIN }
+            - { category: milestones, field: completedMilestone, op: exists, value: first_crime }
+    preferredActivities: [endgame_prestige, major_milestones, path_mastery]
+    relativeRequirements: []
+    futureRelativeOptions: [REL_TOP_10_INCOME, REL_TOP_20_NET_WORTH, REL_INFLUENCE_ABOVE_MEAN]
+    antiGrindNotes: Endgame — major milestone obbligatoria per path
+    levelReachRateTarget: TBD
+
+# --- Difficulty score scale (PROPOSTA TECNICA — valori TBD) ---
+difficultyScoreScale:
+  min: TBD
+  max: TBD
+  L01: TBD
+  L05: TBD
+  L10: TBD
+  L15: TBD
+  L20: TBD
+  L25: TBD
+  L30: TBD
+  notes: |
+    Permette confronto relativo difficoltà tra livelli.
+    NON mostrato al giocatore di default.
+    Coerenza con estimatedTimeToReach da validare via simulationFramework.

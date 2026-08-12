@@ -1,0 +1,298 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  task_main_v1:
+    direction: bidirectional
+    criminalToTask:
+      provides:
+        items:
+          - criminal_activity_definitions
+          - risk_context
+          - heat_context
+          - discovery_rules
+          - task_pool_refs
+      generates: criminal_tasks
+    taskToCriminal:
+      provides:
+        items:
+          - option_selected
+          - task_outcome
+          - execution_quality
+    criminalDecides:
+      items:
+        - availability
+        - risk
+        - heat_change
+        - discovery_evaluation
+        - criminal_progression
+    taskDecides:
+      items:
+        - presentation
+        - options
+        - outcome_structure
+        - consequence_delivery
+
+  economy_main_v1:
+    direction: criminal → economy
+    rule: DECISIONE APPROVATA — Criminal NON modifica cash direttamente
+    flows:
+      reward: |
+        Criminal Activity Success → EffectRequest(cash)
+        → Economy Pipeline → Transaction → Ledger
+      fine: |
+        Penalty(fine) → Economy Pipeline → Transaction → Ledger
+      seizure: |
+        SeizureRequested → Economy/Asset transfer → Ledger
+    observes:
+      items:
+        - gifts
+        - loans
+        - transfers
+        - transactions
+        - purchases
+        - sales
+      rule: |
+        NON blocca automaticamente operazioni.
+        Può generare suspicion, heat, investigation.
+    bankruptcy:
+      rule: |
+        Bancarotta NON è automaticamente reato.
+        Può produrre opportunità criminali, asset loss, debt.
+      interaction: TBD
+
+  property_main_v1:
+    direction: criminal ↔ property
+    criminalRequests:
+      items:
+        - asset_seizure
+        - ownership_transfer_penalty
+    propertyExecutes:
+      items:
+        - seizure
+        - status_change
+    observes:
+      items:
+        - suspicious_property_transfers
+        - illicit_purchase_patterns
+
+  mobility_main_v1:
+    direction: criminal ↔ mobility
+    criminalRequests:
+      items:
+        - vehicle_seizure
+        - stolen_vehicle_state
+    mobilityExecutes:
+      items:
+        - seizure
+        - stolen_status
+    observes:
+      items:
+        - suspicious_vehicle_use
+        - transport_crimes
+
+  work_main_v1:
+    direction: parallel
+    rule: |
+      Lavoro legale + attività criminale contemporaneamente.
+      Lavoro NON è automaticamente copertura criminale.
+    workProvides: legitimate_income_reputation_context
+    criminalProvides: parallel_illegal_progression
+
+  business_system:
+    status: not_implemented
+    interface:
+      entrepreneurCan:
+        items:
+          - be_fully_legal
+          - have_criminal_activities
+          - use_companies_in_illicit_activities
+      businessManages: company
+      criminalProvides: risk_heat_discovery_rules
+
+  political_system:
+    status: not_implemented
+    interface:
+      politicianCan:
+        items:
+          - commit_role_based_crimes
+      abstractExamples:
+        items:
+          - corruption
+          - fraud
+          - abuse_of_power
+          - manipulation
+          - money_laundering
+      rule: Criminalità politica NON obbligatoria per politica
+
+  progression_main_v1:
+    direction: criminal ↔ progression
+    trackId: criminal
+    criminalProvides:
+      items:
+        - criminalTrack
+        - criminalExperience
+        - criminalMilestones
+        - criminalReputation
+    criminalDoesNot:
+      items:
+        - assign_mainLevel
+
+  progression_balance_v1:
+    direction: criminal → progression
+    provides:
+      items:
+        - criminal_progression_data
+        - netWorth_context
+    consumes:
+      items:
+        - anti_grind
+        - level_thresholds
+
+  event_system:
+    direction: bidirectional
+    criminal_emits:
+      items:
+        - CriminalActivityCompleted
+        - CrimeDiscovered
+        - CriminalHeatChanged
+        - PenaltyIssued
+        - Arrested
+        - Incarcerated
+        - SeizureRequested
+        - CriminalMilestoneReached
+        - InvestigationStarted
+    criminal_consumes:
+      items:
+        - TaskCompleted
+        - TransactionCompleted
+        - GiftSent
+        - LoanIssued
+        - PropertyTransferred
+        - LawEnacted
+
+  notification_system:
+    direction: criminal → notifications
+    rule: NO UI nel Criminal System
+    personal:
+      items:
+        - fined
+        - arrested
+        - asset_seized
+        - under_investigation
+    global:
+      items:
+        - major_criminal_arrested
+        - new_anti_crime_law
+    privacy: visibility.yaml
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - heat_decay
+        - delayed_discovery
+        - prison_sentence
+        - scheduled_investigations
+        - catch_up
+    offline:
+      items:
+        - investigations
+        - discovery
+        - fines
+        - seizures
+        - arrests
+        - delayed_consequences
+
+  citizen_model:
+    fields:
+      criminalNamespace: citizen.criminal
+      separateFrom: publicProfile_defaults
+
+  admin_panel:
+    configurable:
+      items:
+        - tracks
+        - levels
+        - categories
+        - activities
+        - risk_profiles
+        - heat_formulas
+        - discovery_formulas
+        - penalties
+        - prison_durations
+        - milestones
+        - reputation
+        - visibility
+
+  security:
+    clientCannotDecide:
+      items:
+        - success
+        - reward
+        - probability
+        - heat
+        - discovery
+        - penalty
+        - prison_duration
+        - seizure
+        - consequences
+
+  idempotency:
+    fields:
+      items:
+        - criminalActionId
+        - taskInstanceId
+        - actionId
+        - idempotencyKey
+
+  audit:
+    trace:
+      items:
+        - criminalActionId
+        - actorId
+        - taskId
+        - targetId
+        - timestamp
+        - outcome
+        - heatChange
+        - discoveryStatus
+        - consequences
+        - causalChainId
+    purpose:
+      items:
+        - engine
+        - debug
+        - anti_exploit
+    notShownToPlayer: true
+
+  antiExploit:
+    protections:
+      items:
+        - duplicate_money
+        - duplicate_asset
+        - task_repeat_exploit
+        - duplicate_transfers
+        - duplicate_rewards
+        - prison_bypass
+        - client_result_manipulation
+        - outcome_reset
+    rule: |
+      Protezioni attive ma sistema NON eccessivamente restrittivo.
+      Giocatore può sperimentare strategie.
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM runtime
+    futureUse: content pack authoring offline only
+
+  separationOfConcerns:
+    criminalMustNot:
+      items:
+        - modify_cash_directly
+        - own_assets_directly
+        - replace_task_system
+        - replace_economy
+        - implement_notification_ui
+        - provide_operational_crime_instructions

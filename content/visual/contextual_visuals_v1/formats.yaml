@@ -1,0 +1,18 @@
+# =============================================================================
+# FORMATS — web modern formats
+# =============================================================================
+
+Formats:
+  requirement: supportare formati web moderni
+  technology: DA DEFINIRE / TBD
+  candidates:
+    status: PROPOSTA TECNICA
+    items:
+      - webp
+      - avif
+      - png
+      - jpg
+
+events:
+  items:
+    - VisualFormatResolved

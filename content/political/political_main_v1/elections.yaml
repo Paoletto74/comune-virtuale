@@ -1,0 +1,76 @@
+# =============================================================================
+# ELECTIONS — sistema elettorale configurabile
+# =============================================================================
+
+Election:
+  schema:
+    electionId: string
+    officeId: string
+    status: scheduled | campaign | voting | counting | completed | cancelled
+    startTime: timestamp
+    campaignStart: timestamp
+    votingStart: timestamp
+    votingEnd: timestamp
+    resultTime: timestamp
+    mandateStart: timestamp
+    mandateEnd: timestamp
+    candidateIds: []
+    winnerId: string | null
+    idempotencyKey: string
+
+electionTimeline:
+  phases:
+    items:
+      - scheduled
+      - campaign
+      - voting
+      - counting
+      - completed
+  durations: TBD
+
+mandate:
+  schema:
+    mandateId: string
+    roleId: string
+    holderId: string
+    electionId: string
+    startTime: timestamp
+    endTime: timestamp
+    status: active | expired | revoked | resigned
+
+  DECISIONE APPROVATA: |
+    Mandato temporale.
+    Durante: ruolo attivo, leve disponibili, decisioni producono effetti.
+    Fine: nuova elezione, rielezione, perdita ruolo.
+
+reElection:
+  rule: Possibilità, NON garanzia
+  requirements: eligibility + support + electoral_rules
+  values: TBD
+
+roleLoss:
+  triggers:
+    items:
+      - electoral_defeat
+      - support_loss
+      - political_events
+      - resignation
+      - disqualification
+      - scandal
+  rule: NON dipendere automaticamente da mainLevel
+
+offline:
+  rule: Elezioni e mandati procedono offline via Time System
+
+events:
+  items:
+    - ElectionScheduled
+    - ElectionStarted
+    - CampaignStarted
+    - VotingOpened
+    - VotingClosed
+    - ElectionEnded
+    - MayorElected
+    - MayorRemoved
+    - MandateStarted
+    - MandateEnded

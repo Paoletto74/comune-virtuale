@@ -1,0 +1,89 @@
+# =============================================================================
+# POLITICAL LEVERS — manopole di governo
+# =============================================================================
+
+PoliticalLever:
+  schema:
+    leverId: string
+    label: string
+    description: string
+    roleIds: []
+    unlockRequirementsRef: string
+    decisionRef: string
+    policyCategory: string
+    visibility: discoverable | visible
+
+  DECISIONE APPROVATA: |
+    Leva = decisione, NON semplice "+10%".
+    Es. "Aumenta tassa X" → conseguenze multiple.
+
+unlockRules:
+  progressive: true
+  rule: NON dare tutte le leve subito
+  unlockSources:
+    items:
+      - role
+      - politicalExperience
+      - politicalLevel
+      - milestone
+      - mandate_duration
+  values: TBD
+
+roleLeverSets:
+  LEVERS_MAYOR:
+    roleId: mayor
+    levers:
+      items:
+        - leverId: LEVER_TAX_ADJUSTMENT
+          label: Regolazione tasse
+          policyCategory: taxes
+          unlockRequirementsRef: TBD
+        - leverId: LEVER_PUBLIC_INVESTMENT
+          label: Investimenti pubblici
+          policyCategory: public_investment
+        - leverId: LEVER_TRANSPORT_POLICY
+          label: Politica trasporti
+          policyCategory: transport
+        - leverId: LEVER_SERVICE_FUNDING
+          label: Finanziamento servizi
+          policyCategory: services
+        - leverId: LEVER_REGULATION
+          label: Regolamentazione
+          policyCategory: regulation
+    note: Catalogo skeleton — valori TBD
+
+  LEVERS_COUNCILLOR:
+    roleId: councillor
+    levers:
+      items:
+        - leverId: LEVER_COUNCIL_VOTE
+          label: Voto consiglio
+          policyCategory: governance
+
+  LEVERS_ASSESSOR:
+    roleId: assessor
+    levers:
+      items:
+        - leverId: LEVER_SECTOR_POLICY
+          label: Politica settoriale
+          policyCategory: sector
+
+workLeversSeparation:
+  DECISIONE APPROVATA: |
+    Work System → leve professionali (es. medico sanità).
+    Political System → leve politiche (es. sindaco tasse/servizi).
+    Ruoli diversi → leve diverse.
+
+leverActivation:
+  flow: |
+    Mayor selects lever decision
+    → PolicyDecision created
+    → approval if required
+    → Policy Event → downstream systems
+    → support impact evaluated
+
+events:
+  items:
+    - LeverUnlocked
+    - LeverActivated
+    - LeverDecisionExecuted

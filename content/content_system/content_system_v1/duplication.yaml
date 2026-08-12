@@ -1,0 +1,12 @@
+# =============================================================================
+# DUPLICATION — duplicate content as new draft
+# =============================================================================
+
+Duplication:
+  capability: duplicate content as base for new content
+  result: new contentId
+  bulk: ref bulk_actions.yaml
+
+events:
+  items:
+    - ContentDuplicated

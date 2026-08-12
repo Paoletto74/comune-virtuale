@@ -1,0 +1,29 @@
+# =============================================================================
+# SCALING — horizontal API, single executor for global simulation
+# =============================================================================
+
+Scaling:
+  playerApi:
+    rule: puo scalare orizzontalmente
+  runtimeScheduler:
+    rule: evitare duplicate global simulation
+  partitioning:
+    status: PROPOSTA TECNICA — futuro — NON implementare
+    candidates:
+      items:
+        - municipality
+        - population_segment
+        - workload
+
+backgroundWorkers:
+  items:
+    - NPC
+    - ranking
+    - notifications
+    - analytics
+    - reconciliation
+    - scheduled_jobs
+
+events:
+  emits: [ScalingEventRecorded]
+  consumes: []

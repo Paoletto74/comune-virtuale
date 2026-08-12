@@ -1,0 +1,104 @@
+# =============================================================================
+# ENTITIES — core entity map, data layers
+# =============================================================================
+
+DataLayers:
+  DECISIONE APPROVATA:
+  items:
+    - PERSISTENT_DATA
+    - DERIVED_DATA
+    - CONTENT
+    - RUNTIME_STATE
+    - CACHE
+
+persistentData:
+  DECISIONE APPROVATA: sopravvive logout, riavvio, deploy, refresh
+  examples:
+    items:
+      - Account
+      - Citizen
+      - patrimonio
+      - properties
+      - inventory
+      - work
+      - progression
+      - transaction_history
+      - milestones
+      - persistent_relationships
+
+derivedData:
+  DECISIONE APPROVATA: calcolabile — duplicare solo come projection se performance
+  examples:
+    items:
+      - net_worth
+      - ranking
+      - percentile
+      - global_position
+      - statistics
+      - graphs
+
+content:
+  DECISIONE APPROVATA: configurabile, separato da game state
+  examples:
+    items:
+      - ITEM_DEFINITION vs PLAYER_ITEM_INSTANCE
+      - TASK_DEFINITION vs PLAYER_TASK_INSTANCE
+      - EVENT_DEFINITION vs EVENT_OCCURRENCE
+      - NOTIFICATION_TEMPLATE vs NOTIFICATION_INSTANCE
+
+runtimeState:
+  status: PROPOSTA TECNICA — non tutto persistito permanentemente
+  examples:
+    items:
+      - sessions
+      - popup_queue
+      - live_event_state
+      - temporary_effects
+
+cache:
+  status: PROPOSTA TECNICA — NON fonte autorevole
+  examples:
+    items:
+      - rankings
+      - gazzetta
+      - marketplace
+      - home_summary
+      - content_metadata
+
+sourceOfTruth:
+  DECISIONE APPROVATA:
+  mapping:
+    Account: Auth
+    Citizen: Citizen/GameState
+    Balance: Banking/Economy
+    NetWorth: Economy/derived
+    Level: Progression
+    Job: Work
+    Property: Property
+    Vehicle: Mobility
+    ItemOwnership: Inventory
+    Listing: Marketplace
+    Notification: Notification
+    Event: Event
+    Content: ContentStudio/ContentStore
+    Image: Visual/AssetSystem
+
+stableReferences:
+  DECISIONE APPROVATA: ID stabili
+  ids:
+    items:
+      - accountId
+      - citizenId
+      - itemId
+      - itemInstanceId
+      - taskId
+      - taskInstanceId
+      - eventId
+      - notificationId
+      - listingId
+      - contentId
+
+events:
+  items:
+    - EntityCreated
+    - EntityUpdated

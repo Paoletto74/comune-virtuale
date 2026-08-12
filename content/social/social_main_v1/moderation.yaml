@@ -1,0 +1,56 @@
+# =============================================================================
+# MODERATION — report, block, mute
+# =============================================================================
+
+ReportInteraction:
+  status: PROPOSTA TECNICA
+  schema:
+    reportId: string
+    reporterId: string
+    targetId: string
+    reportType: GAME_REPORT | CONTENT_REPORT
+    reason: abuse | misconduct | spam | exploit | inappropriate_content
+    context: object
+    timestamp: timestamp
+    status: pending | reviewed | resolved | dismissed
+
+reportTypes:
+  GAME_REPORT:
+    description: abuso sistema, exploit, spam, comportamento scorretto in-game
+  CONTENT_REPORT:
+    description: contenuti non appropriati (preset message inappropriato se aggiunto via content)
+
+BlockPlayer:
+  DECISIONE APPROVATA: giocatore può bloccare un altro
+  mayBlock:
+    items:
+      - preset_messages
+      - some_social_interactions
+      - requests
+      - non_essential_notifications
+  mustNotBlockAutomatically:
+    items:
+      - necessary_transactions
+      - public_events
+      - rankings
+      - municipal_information
+  rules: TBD
+
+Mute:
+  status: PROPOSTA TECNICA
+  useCases:
+    items:
+      - social_notifications
+      - repetitive_interactions
+      - automatic_messages
+
+noAiModeration:
+  DECISIONE APPROVATA: NO moderazione automatica AI V1
+
+events:
+  items:
+    - ReportSubmitted
+    - ReportResolved
+    - PlayerBlocked
+    - PlayerUnblocked
+    - PlayerMuted

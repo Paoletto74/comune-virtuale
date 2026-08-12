@@ -1,0 +1,48 @@
+# =============================================================================
+# CANDIDATES — candidature
+# =============================================================================
+
+CandidateRegistration:
+  schema:
+    registrationId: string
+    electionId: string
+    citizenId: string
+    roleSought: string
+    status: registered | withdrawn | disqualified | elected | defeated
+    registeredAt: timestamp
+    endorsements: []
+    campaignRef: string | null
+
+candidacyFlow:
+  actions:
+    items:
+      - self_register
+      - withdraw
+      - be_nominated
+      - receive_endorsement
+  validations:
+    items:
+      - eligibility
+      - not_already_candidate
+      - election_phase
+  rule: Candidatura NON garantisce elezione
+
+endorsement:
+  status: PROPOSTA_TECNICA
+  schema:
+    endorserId: string
+    candidateId: string
+    weight: TBD
+  note: Supporto da altri cittadini — regole TBD
+
+npcCandidates:
+  rule: NPC possono candidarsi — concorrenza reale con pochi giocatori
+  ref: npc.yaml
+
+events:
+  items:
+    - CandidateRegistered
+    - CandidateWithdrawn
+    - CandidateDisqualified
+    - CandidateElected
+    - CandidateDefeated

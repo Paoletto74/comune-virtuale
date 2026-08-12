@@ -1,0 +1,9 @@
+# =============================================================================
+# MUNICIPAL PROPERTY TAX — property_v1
+# =============================================================================
+
+---
+MunicipalPropertyTax:
+  treasuryReceives: true
+  economyRecords: true
+  status: PROPOSTA TECNICA

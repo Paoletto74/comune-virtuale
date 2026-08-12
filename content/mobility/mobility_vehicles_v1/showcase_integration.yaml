@@ -1,0 +1,11 @@
+# =============================================================================
+# SHOWCASE INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+ShowcaseIntegration:
+  vehicleInShowcase: true
+  example: character + villa + pool + Ferrari
+  visualAssetId: true
+  alignsWith: property_v1/showcase_contract.yaml
+  status: PROPOSTA TECNICA

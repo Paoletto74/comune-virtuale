@@ -1,0 +1,23 @@
+# =============================================================================
+# RATE LIMITS — categories, values TBD
+# =============================================================================
+
+RateLimitPolicy:
+  status: PROPOSTA TECNICA — valori TBD
+  categories:
+    AUTH:
+      endpoints: [login, register, password_reset]
+    PLAYER:
+      endpoints: [general_player_actions]
+    MARKETPLACE:
+      endpoints: [buy, sell, create_listing]
+    SOCIAL:
+      endpoints: [gift, sympathy, loan]
+    ADMIN:
+      endpoints: [content_publish, import, rollback]
+    SENSITIVE:
+      endpoints: [financial_commands, political_vote]
+
+events:
+  items:
+    - RateLimitExceeded

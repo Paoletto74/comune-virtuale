@@ -1,0 +1,102 @@
+# =============================================================================
+# CROSS-DOMAIN FLOWS — example orchestration paths
+# =============================================================================
+
+CrossDomainFlows:
+  PropertyPurchased:
+    chain:
+      items:
+        - Economy
+        - Inventory_Ownership
+        - Progression
+        - Notification
+        - Gazzetta_candidate
+        - Ranking_refresh
+
+  DayChange:
+    chain:
+      items:
+        - Time_advances
+        - Day_boundary_detected
+        - Scheduled_jobs
+        - Salaries
+        - Rent
+        - NPC_batch
+        - Municipality_updates
+        - Rankings_if_scheduled
+        - Notifications
+        - Snapshots
+
+  LevelUp:
+    chain:
+      items:
+        - Domain_state_changes
+        - Progression_evaluation
+        - LevelReached_event
+        - Milestone_title_unlock
+        - Notification
+        - Popup_candidate
+        - Ranking_invalidation
+        - Frontend_update
+
+  MajorCriminalEvent:
+    chain:
+      items:
+        - Criminal_action
+        - Criminal_rules
+        - Economic_effects
+        - Heat_reputation
+        - Domain_event
+        - Notification_visibility
+        - Gazzetta_candidate
+        - Ranking_update
+
+  Election:
+    chain:
+      items:
+        - Political_deadline
+        - Candidate_validation
+        - Voting
+        - Vote_close
+        - Count
+        - Result
+        - Mayor_state
+        - Political_event
+        - Municipality_update
+        - Notifications
+        - Gazzetta
+        - Ranking_projection
+
+  MarketPurchase:
+    chain:
+      items:
+        - Player_command
+        - Authorization
+        - Marketplace_validation
+        - Banking_transaction
+        - Ownership_transfer
+        - Listing_state
+        - Domain_events
+        - Notification
+        - Projection_invalidation
+
+  TaskCompletion:
+    chain:
+      items:
+        - Player_command
+        - Task_validation
+        - Requirement_evaluation
+        - Completion
+        - Reward
+        - Banking_economy
+        - Progression
+        - Milestones
+        - Notification
+        - Events
+        - Projection_invalidation
+
+rule: runtime coordina senza duplicare regole
+
+events:
+  emits: [CrossDomainFlowCompleted]
+  consumes: []

@@ -1,0 +1,51 @@
+# =============================================================================
+# VISUAL ASSET — metadata core, NO path hardcoded nel motore
+# =============================================================================
+
+VisualAsset:
+  DECISIONE APPROVATA: |
+    Separare Game Content da Visual Asset da Visual Presentation.
+    Ogni asset ha visualAssetId stabile — NON "/images/pizza-final.png" nel codice.
+  schema:
+    visualAssetId: string
+    assetType: string
+    source: static | generated | external
+    version: string
+    status: ACTIVE | DRAFT | DEPRECATED | ARCHIVED
+    dimensions: object
+    formats: []
+    variants: []
+    tags: []
+    accessibilityMetadata: object
+    storageRef: string
+    fallbackAssetId: "string | null"
+    placeholderAssetId: "string | null"
+    createdAt: timestamp
+    updatedAt: timestamp
+  status: schema_conceptual — valori definitivi TBD
+
+exampleIds:
+  status: esempi dimostrativi — NON libreria completa
+  items:
+    - visualAssetId: item_food_pizza_margherita_v1
+      assetType: ITEM
+    - visualAssetId: vehicle_ferrari_001_v1
+      assetType: VEHICLE
+    - visualAssetId: property_villa_pool_v1
+      assetType: PROPERTY
+    - visualAssetId: character_avatar_default_v1
+      assetType: CHARACTER
+
+imageStorage:
+  status: PROPOSTA TECNICA
+  rule: |
+    Separare asset metadata da asset binary.
+    Database NON contiene necessariamente immagini binarie.
+    Storage provider TBD.
+
+events:
+  items:
+    - VisualAssetCreated
+    - VisualAssetUpdated
+    - VisualAssetPublished
+    - VisualAssetDeprecated

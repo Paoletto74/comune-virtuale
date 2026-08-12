@@ -1,0 +1,60 @@
+# =============================================================================
+# NPC ECONOMY
+# =============================================================================
+# DECISIONE APPROVATA: NPC economicamente simulati; popolazione configurabile
+# =============================================================================
+
+NpcEconomy:
+  enabled: true
+
+  population:
+    playerCount: variable
+    npcCount: configurable
+    totalPopulation: derived
+    configurableVia: admin_panel
+
+  npcCapabilities:
+    - work
+    - receive_salary
+    - buy_goods
+    - rent_property
+    - buy_property
+    - sell_goods
+    - save
+    - incur_debt
+    - generate_demand
+    - generate_supply
+    - influence_prices
+    - use_services
+    - work_in_player_companies
+    - occupy_housing
+
+  simulationDepth:
+    full_player_parity: false
+    simplified_economic_profile: true
+    fields: [cash_budget, income_band, spending_profile, housing_need, employment_template]
+
+  marketRole:
+    fillDemandWhenLowPlayers: true
+    fillSupplyWhenLowPlayers: true
+    rentVacantProperties:
+      enabled: true
+      afterVacancyPeriod: TBD
+      conditions: TBD
+
+  employmentRole:
+    fillJobsWhenNoPlayers: true
+    workInPlayerCompanies: true
+
+  priceInfluence:
+    participationWeight: TBD
+    notes: NPC contribuiscono a domanda/offerta aggregata
+
+  transactionTypes:
+    same_as_players: true
+    ledger: recorded
+    class: money_transfer
+
+  offlineBehavior:
+    continues: true
+    batchProcessing: true

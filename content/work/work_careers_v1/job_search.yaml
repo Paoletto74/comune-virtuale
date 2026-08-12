@@ -1,0 +1,15 @@
+# =============================================================================
+# JOB SEARCH — work_careers_v1
+# =============================================================================
+
+---
+JobSearch:
+  features:
+  - search
+  - filters
+  - categories
+  - salary range
+  - location
+  - requirements
+  privacy: employer does not see other jobs viewed
+  status: DECISIONE APPROVATA

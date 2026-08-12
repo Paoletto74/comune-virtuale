@@ -1,0 +1,18 @@
+# =============================================================================
+# GROUPING — aggregated sounds for similar events
+# =============================================================================
+
+Grouping:
+  rule: eventi simili aggregati in un unico sound
+  examples:
+    multipleEarnings:
+      display: "3 nuovi guadagni"
+      sound: economy.coin_gain — once
+    multipleTasks:
+      display: "3 task completati"
+      sound: reward.aggregated — once
+  ref: anti_spam.yaml
+
+events:
+  items:
+    - SoundGrouped

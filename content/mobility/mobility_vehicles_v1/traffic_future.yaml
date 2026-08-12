@@ -1,0 +1,8 @@
+# =============================================================================
+# TRAFFIC FUTURE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Traffic:
+  status: PROPOSTA TECNICA FUTURE NON V1
+  rule: NO complex road simulator

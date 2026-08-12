@@ -1,0 +1,72 @@
+# =============================================================================
+# RELATIONSHIP TYPES — categorie configurabili
+# =============================================================================
+
+RelationshipTypeDefinition:
+  schema:
+    typeId: string
+    label: string
+    category: social | family | professional
+    isFamilyType: boolean
+    canFormHousehold: boolean
+    visibilityDefault: PUBLIC | PRIVATE
+    tags: []
+
+types:
+  items:
+    - typeId: partner
+      label: Partner
+      category: social
+      isFamilyType: false
+      canFormHousehold: true
+    - typeId: spouse_companion
+      label: Spouse / Companion
+      category: social
+      isFamilyType: false
+      canFormHousehold: true
+      note: Matrimonio/partnership opzionale — NON obbligatorio
+    - typeId: parent
+      label: Genitore
+      category: family
+      isFamilyType: true
+      canFormHousehold: true
+    - typeId: child
+      label: Figlio
+      category: family
+      isFamilyType: true
+      canFormHousehold: true
+    - typeId: sibling
+      label: Fratello / Sorella
+      category: family
+      isFamilyType: true
+      canFormHousehold: false
+    - typeId: friend
+      label: Amico
+      category: social
+      isFamilyType: false
+      canFormHousehold: false
+    - typeId: colleague
+      label: Collega
+      category: professional
+      isFamilyType: false
+      canFormHousehold: false
+    - typeId: acquaintance
+      label: Conoscenza
+      category: social
+      isFamilyType: false
+      canFormHousehold: false
+    - typeId: other
+      label: Altro
+      category: social
+      isFamilyType: false
+      canFormHousehold: false
+  notes: Nomi definitivi TBD — estendibili senza modificare motore
+
+statusValues:
+  items:
+    - active
+    - distant
+    - strained
+    - broken
+    - ended
+    - unknown

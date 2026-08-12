@@ -1,0 +1,13 @@
+# =============================================================================
+# RATE LIMITING — economy_v1
+# =============================================================================
+
+---
+RateLimiting:
+  protect:
+  - transfer
+  - purchase
+  - loan
+  - gift
+  - admin ops
+  status: DECISIONE APPROVATA

@@ -1,0 +1,23 @@
+# =============================================================================
+# APPROVAL — workflow DRAFT -> VALIDATED -> PENDING -> APPROVED
+# =============================================================================
+
+Approval:
+  workflow:
+    items:
+      - DRAFT
+      - VALIDATED
+      - PENDING_APPROVAL
+      - APPROVED
+      - PUBLISHED
+    rejected: REJECTED -> DRAFT
+  twoPerson:
+    future: Author -> Reviewer -> Publisher
+    v1: single admin supported — no unnecessary complexity
+  permissions:
+    ref: admin_permissions.yaml
+
+events:
+  items:
+    - ContentApproved
+    - ContentRejected

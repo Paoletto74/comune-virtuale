@@ -1,0 +1,11 @@
+# =============================================================================
+# EMAIL VERIFICATION — TBD
+# =============================================================================
+
+EmailVerification:
+  status: DA DEFINIRE / TBD — dipende da provider
+  ref: auth_main_v1
+
+events:
+  items:
+    - EmailVerified

@@ -1,0 +1,98 @@
+# =============================================================================
+# PROFILO — sezioni UI, integrazione profile_main_v1
+# =============================================================================
+
+ProfileSection:
+  DECISIONE APPROVATA: |
+    PROFILO apre proprio profilo o profilo pubblico se visualizzato da altri.
+  ref: profile_main_v1
+
+selfViewSections:
+  items:
+    - OVERVIEW
+    - ECONOMY
+    - CAREER
+    - ASSETS
+    - PROGRESSION
+    - SOCIAL
+    - HISTORY
+    - PERSONAL
+
+overview:
+  mayShow:
+    items:
+      - avatar
+      - name
+      - level
+      - title
+      - role
+      - job
+      - liquidity
+      - netWorth
+      - ranking
+      - prestige_assets
+
+economy:
+  mayShow:
+    items:
+      - cash
+      - bank_balance
+      - net_worth
+      - debt
+      - income
+      - wealth_graph
+      - cash_graph
+  rule: dati da Banking/Economy autorevoli
+
+career:
+  mayShow:
+    items:
+      - current_job
+      - career
+      - experience
+      - employer
+      - professional_titles
+      - progression
+
+assets:
+  mayShow:
+    items:
+      - properties
+      - vehicles
+      - luxury_goods
+      - main_assets
+
+progression:
+  mayShow:
+    items:
+      - level
+      - progress
+      - tier
+      - titles
+      - milestones
+      - achievements
+
+social:
+  mayShow:
+    items:
+      - sympathy
+      - popularity
+      - reputation
+      - ranking
+      - recognitions
+
+globalPosition:
+  DECISIONE APPROVATA: |
+    Posizione attuale livello globale — es. #1.245 o Top 12%.
+    Formato definitivo TBD.
+
+profileShowcase:
+  DECISIONE APPROVATA: |
+    Integrazione Visual System — personaggio + villa + Ferrari + lusso.
+    Profile decide asset — Visual decide presentazione.
+  ref: visual_main_v1/profile_showcase.yaml
+
+events:
+  items:
+    - ProfileSectionViewed
+    - ProfileSubSectionOpened

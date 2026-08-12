@@ -1,0 +1,65 @@
+# =============================================================================
+# QUERIES — read-only operations
+# =============================================================================
+
+Queries:
+  DECISIONE APPROVATA: QUERY legge stato — NO side effects
+
+queries:
+  HomeQueries:
+    items:
+      - GetHomeSummary
+  ProfileQueries:
+    items:
+      - GetPublicProfile
+      - GetPrivateProfile
+      - GetAdminProfile
+  MarketplaceQueries:
+    items:
+      - ListMarketplace
+      - SearchMarketplace
+      - GetListingDetail
+  TaskQueries:
+    items:
+      - GetAvailableTasks
+      - GetActiveTasks
+      - GetTaskDetail
+  WorkQueries:
+    items:
+      - ListJobs
+      - GetJobDetail
+      - GetCurrentJob
+      - GetSalaryStatus
+  NotificationQueries:
+    items:
+      - ListNotifications
+      - GetUnreadCount
+      - GetPopupCandidates
+  MunicipalityQueries:
+    items:
+      - GetMunicipalityInfo
+      - GetCitizenList
+  RankingQueries:
+    items:
+      - GetCurrentRanking
+      - GetPosition
+      - GetPercentile
+      - GetHistoricalSnapshots
+  GazzettaQueries:
+    items:
+      - GetLatestNews
+      - GetNewsCategories
+      - GetArticle
+  ContentQueries:
+    items:
+      - GetPublishedContent
+      - GetContentVersion
+
+cqrs:
+  status: PROPOSTA TECNICA
+  rule: separazione concettuale Commands != Queries — NO CQRS completo obbligatorio
+  readModels: ottimizzabili indipendentemente
+
+events:
+  items:
+    - QueryExecuted

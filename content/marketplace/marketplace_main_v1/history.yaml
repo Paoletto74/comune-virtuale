@@ -1,0 +1,47 @@
+# =============================================================================
+# MARKET HISTORY — statistiche, price history, player history
+# =============================================================================
+
+MarketHistory:
+  status: PROPOSTA TECNICA
+  aggregates:
+    items:
+      - average_price
+      - last_price
+      - sales_count
+      - average_time_on_market
+      - demand_index
+      - supply_index
+  rule: NON granularità infinita inutile
+
+PriceHistory:
+  status: PROPOSTA TECNICA
+  appliesTo: categorie importanti
+  uses:
+    items:
+      - charts
+      - analysis
+      - economic_decisions
+      - opportunities
+
+PlayerMarketHistory:
+  schema:
+    citizenId: string
+    purchases: []
+    sales: []
+    profitLoss: TBD
+  privacy: visibile al player — NON automaticamente ad altri
+
+GlobalMarketData:
+  status: PROPOSTA TECNICA — UI futura
+  mayShow:
+    items:
+      - average_prices
+      - inflation
+      - demand_supply
+      - market_trends
+
+events:
+  items:
+    - MarketStatisticsUpdated
+    - PriceHistoryRecorded

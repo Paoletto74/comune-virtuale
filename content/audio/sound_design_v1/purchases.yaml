@@ -1,0 +1,35 @@
+# =============================================================================
+# PURCHASE SOUNDS — purchase, marketplace, sale, rent
+# =============================================================================
+
+PurchaseSounds:
+  PurchaseConfirmed:
+    cue: purchase.confirmation
+    priority: NORMAL
+    length: micro
+    description: acquisto riuscito
+  MajorPurchase:
+    cue: purchase.prestige
+    priority: HIGH
+    length: normal
+    description: villa, auto costosa, proprieta importante — valore authoritative
+    threshold: backend_authoritative
+  MarketplacePurchase:
+    cue: purchase.marketplace
+    priority: NORMAL
+    length: micro
+    description: distinto ma breve
+  SaleCompleted:
+    cue: purchase.sale_positive
+    priority: NORMAL
+    length: micro
+    description: vendita riuscita — positive cash sound
+  RentPaid:
+    cue: purchase.rent_payment
+    priority: NORMAL
+    length: micro
+    description: affitto pagato — negative economic cue
+
+events:
+  items:
+    - PurchaseSoundTriggered

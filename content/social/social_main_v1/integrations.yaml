@@ -1,0 +1,125 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  banking_main_v1:
+    direction: banking → social
+    events:
+      items:
+        - gift
+        - loan_offer
+        - loan_accepted
+        - loan_rejected
+        - loan_due
+        - loan_paid
+        - payment_received
+    socialProvides: contextual_preset_responses
+
+  marketplace_main_v1:
+    direction: marketplace → social
+    events:
+      items:
+        - sale
+        - purchase
+        - rental
+    socialProvides: contextual_trade_messages
+    rule: NO negoziazione libera tramite chat
+
+  work_main_v1:
+    direction: work → social
+    actors: [employer, employee, colleagues]
+    rule: solo preset — azioni reali gestite da Work System
+    presetExamples:
+      items:
+        - "Sei assunto."
+        - "Ben fatto."
+        - "Devi migliorare."
+        - "Mi licenzio."
+
+  political_main_v1:
+    direction: political ↔ social
+    rule: comunicazione politica controllata — NO propaganda libera V1
+    presetExamples:
+      items:
+        - "Voterò per te."
+        - "Non hai il mio voto."
+        - "Mi candido."
+        - "Sostengo questa proposta."
+        - "Sono contrario."
+    socialDoesNotDecide: political_outcome
+
+  criminal_main_v1:
+    direction: criminal ↔ social
+    status: compatibilità futura
+    futurePresetTypes:
+      items:
+        - contacts
+        - controlled_threats
+        - agreements
+        - requests
+        - intimidation
+    rule: Criminal System determina conseguenze — NO chat libera
+
+  npc_main_v1:
+    direction: bidirectional
+    uses:
+      items:
+        - relationship
+        - trust
+        - sympathy
+        - social_events
+    rule: NPC behavior — NPC autorevole
+
+  event_main_v1:
+    direction: social → event
+    rule: Event autorevole su delayed consequences ed effects
+
+  notification_main_v1:
+    direction: social → notification
+    ref: notifications.yaml
+
+  time_main_v1:
+    direction: time → social
+    manages:
+      items:
+        - cooldown
+        - expiration
+        - retention
+        - scheduled_social_events
+
+  progression_main_v1:
+    direction: data for profile/rankings
+    fields:
+      items:
+        - sympathy
+        - popularity
+        - reputation
+    rule: Communication non modifica tracks direttamente
+
+  family_main_v1:
+    direction: complementare
+    rule: family autorevole su relazioni familiari — social su player-player generico
+
+  task_main_v1:
+    direction: task → social actions
+    ref: loan accept/reject via preset + task actions
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA
+    flow: YAML/JSON → validation → preview → publish → Communication Content
+
+  noAi:
+    DECISIONE APPROVATA: NO AI conversazionale / LLM / API esterne
+
+  separationOfConcerns:
+    socialMustNot:
+      items:
+        - allow_free_text_chat
+        - modify_reputation_directly
+        - modify_sympathy_directly
+        - decide_political_outcome
+        - decide_criminal_outcome
+        - own_gazzetta_content
+        - duplicate_notification_delivery

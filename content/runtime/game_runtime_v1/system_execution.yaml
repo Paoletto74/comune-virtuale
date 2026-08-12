@@ -1,0 +1,22 @@
+# =============================================================================
+# SYSTEM EXECUTION — per-system execution records
+# =============================================================================
+
+SystemExecution:
+  status: PROPOSTA TECNICA
+  schema:
+    executionId: string
+    systemId: string
+    tickId: string
+    status: string
+    startedAt: timestamp
+    completedAt: timestamp
+    retries: number
+    error: object
+    metrics: object
+
+events:
+  items:
+    - SystemExecutionStarted
+    - SystemExecutionCompleted
+    - SystemExecutionFailed

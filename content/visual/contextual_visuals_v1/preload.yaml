@@ -1,0 +1,15 @@
+# =============================================================================
+# PRELOAD — critical popup assets
+# =============================================================================
+
+Preload:
+  preload:
+    items:
+      - critical_popup_assets
+      - frequent_thumbnails
+  rule: preload where predictable — NON precaricare tutto
+  ref: crime_visuals.yaml, performance.yaml
+
+events:
+  items:
+    - VisualPreloaded

@@ -1,0 +1,9 @@
+# =============================================================================
+# TENANCY — property_v1
+# =============================================================================
+
+---
+Tenancy:
+  tenancyId: string
+  relationship: Tenant to Property Owner
+  status: DECISIONE APPROVATA

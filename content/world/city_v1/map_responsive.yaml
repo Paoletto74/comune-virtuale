@@ -1,0 +1,24 @@
+# =============================================================================
+# MAP RESPONSIVE — mobile, tablet, desktop
+# =============================================================================
+
+MapResponsive:
+  mobile:
+    items:
+      - touch
+      - pinch_zoom
+      - tap_location
+      - bottom_sheet_detail
+  desktop:
+    items:
+      - mouse
+      - zoom
+      - pan
+      - hover
+      - detail_panel
+  tablet: comportamento intermedio
+  rule: leggibile, responsive, navigabile, filtrabile
+
+events:
+  items:
+    - MapResponsiveLayoutApplied

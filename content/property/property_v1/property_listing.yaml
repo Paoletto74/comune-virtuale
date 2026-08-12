@@ -1,0 +1,14 @@
+# =============================================================================
+# PROPERTY LISTING — property_v1
+# =============================================================================
+
+---
+PropertyListing:
+  fields:
+  - PropertyId
+  - price
+  - sale/rent
+  - seller
+  - availability
+  - expiration
+  status: DECISIONE APPROVATA

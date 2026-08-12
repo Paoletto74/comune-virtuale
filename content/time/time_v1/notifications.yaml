@@ -1,0 +1,15 @@
+# =============================================================================
+# NOTIFICATIONS — time_v1
+# =============================================================================
+
+---
+TimeBasedNotifications:
+  owner: Notification System
+  examples:
+  - salary received
+  - rent due
+  - event started
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - TimeNotificationSent

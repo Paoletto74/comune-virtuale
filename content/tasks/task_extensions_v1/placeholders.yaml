@@ -1,0 +1,28 @@
+# =============================================================================
+# PLACEHOLDERS — task_extensions_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+    - maxActiveTasks
+    - loop max depth
+    - outcome probability formulas
+    - cooldown formulas
+    - API endpoints definitive
+    - UI section placement
+    - state enum alignment
+  approvedFromTaskMain:
+    items:
+    - Task != mission
+    - Definition != Instance
+    - EffectRequest pattern
+    - delayed consequences dynamic evaluation
+    - causal chain
+    - idempotency audit
+    - no AI no chat
+    - categories pools priorities
+    - DEMO_SUITCASE_OFFER example
+    - automatic tasks
+    - anti-grind mechanisms skeleton

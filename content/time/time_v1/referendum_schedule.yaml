@@ -1,0 +1,15 @@
+# =============================================================================
+# REFERENDUM SCHEDULE — time_v1
+# =============================================================================
+
+---
+ReferendumSchedule:
+  owner: Political
+  fields:
+  - startAt
+  - endAt
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ReferendumOpened
+  - ReferendumClosed

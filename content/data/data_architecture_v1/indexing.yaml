@@ -1,0 +1,38 @@
+# =============================================================================
+# INDEXING — query frequenti
+# =============================================================================
+
+IndexingStrategy:
+  status: PROPOSTA TECNICA — NON centinaia di indici inutili
+  frequentQueries:
+    items:
+      - citizenId
+      - accountId
+      - ownerId
+      - status
+      - createdAt
+      - category
+      - municipalityId
+      - listingState
+      - rankingFields
+
+pagination:
+  DECISIONE APPROVATA: pagination + cursor dove utile
+  lists:
+    items:
+      - citizens
+      - marketplace
+      - news
+      - notifications
+      - audit
+
+search:
+  status: DA DEFINIRE — tecnologia TBD
+  domains:
+    items:
+      - citizen
+      - item
+      - listing
+      - news
+      - content
+      - admin_data

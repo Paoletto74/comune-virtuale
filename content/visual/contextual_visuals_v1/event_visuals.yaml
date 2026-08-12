@@ -1,0 +1,18 @@
+# =============================================================================
+# EVENT VISUALS — domain event visual resolution
+# =============================================================================
+
+EventVisuals:
+  trigger: Domain Event semantic
+  resolver: Visual Layer — NOT Domain System
+  flow:
+    items:
+      - receive semantic event
+      - resolve via visual manifest
+      - apply hierarchy fallback chain
+      - select layout by popup type and device
+      - pair with sound from same family
+
+events:
+  items:
+    - EventVisualResolved

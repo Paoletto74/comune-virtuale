@@ -1,0 +1,39 @@
+# =============================================================================
+# PRIORITIES — CRITICAL, HIGH, NORMAL, LOW
+# =============================================================================
+
+AudioPriority:
+  levels:
+    CRITICAL:
+      examples:
+        items:
+          - arresto
+          - evento eccezionale
+      behavior: puo interrompere/cancellare sound LOW
+    HIGH:
+      examples:
+        items:
+          - promozione
+          - grande vincita
+          - level up
+    NORMAL:
+      examples:
+        items:
+          - acquisto
+          - regalo
+    LOW:
+      examples:
+        items:
+          - micro feedback
+
+  queue:
+    items:
+      - priority_queue
+      - deduplication
+      - cooldown
+
+  definitiveValues: DA DEFINIRE / TBD
+
+events:
+  items:
+    - AudioPriorityResolved

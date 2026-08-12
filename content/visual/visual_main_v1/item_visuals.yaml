@@ -1,0 +1,36 @@
+# =============================================================================
+# ITEM VISUALS — thumbnail condiviso Marketplace/Inventory
+# =============================================================================
+
+ItemVisual:
+  DECISIONE APPROVATA: item devono poter mostrare piccola immagine
+  schema:
+    contentRef: string
+    visualAssetId: string
+    defaultVariant: thumbnail
+
+exampleMappings:
+  status: esempi dimostrativi
+  items:
+    - contentRef: item_food_pizza_margherita
+      visualAssetId: item_food_pizza_margherita_v1
+    - contentRef: item_clothing_suit
+      visualAssetId: item_clothing_suit_v1
+    - contentRef: item_tool_wrench
+      visualAssetId: item_tool_wrench_v1
+
+itemConditionVisual:
+  status: PROPOSTA TECNICA — struttura futura, NON tutte V1
+  states:
+    items:
+      - new
+      - used
+      - damaged
+      - luxury
+      - rare
+      - stolen
+  rule: Visual riceve stato — Inventory/Asset System autorevole
+
+events:
+  items:
+    - ItemVisualResolved

@@ -1,0 +1,64 @@
+# =============================================================================
+# OFFLINE / CATCH-UP — mondo continua senza giocatori online
+# =============================================================================
+
+OfflineSimulation:
+  DECISIONE APPROVATA: |
+    NPC simulation funziona anche senza giocatori online.
+    Mondo continua — al riavvio processare tempo trascorso.
+    NON riprodurre ogni singolo tick passato.
+
+CatchUpStrategy:
+  schema:
+    lastSimulationAt: timestamp
+    elapsedTime: duration
+    batchJobs: []
+    deterministicSeed: string
+    generatedEvents: []
+    aggregatedOutcomes: []
+  status: PROPOSTA TECNICA
+
+catchUpFlow:
+  flow: |
+    Player offline / server restart
+    → Time System elapsed
+    → BatchSimulationJob per time buckets (daily/weekly)
+    → Aggregate outcomes + promote event-driven individuals
+    → event_main_v1 processa eventi generati
+    → notification_main_v1 riepilogo player al login
+  rule: Catch-up per bucket — non tick-by-tick replay
+
+performanceTarget:
+  DECISIONE APPROVATA: 10.000+ NPC — architettura scalabile
+  avoids: 10000_npc_x_1_tick_per_second
+  uses:
+    items:
+      - event_driven
+      - batch
+      - caching
+      - lod
+      - aggregate_simulation
+
+memoryStrategy:
+  status: PROPOSTA TECNICA — dettagli TBD
+  items:
+    - compact_state
+    - lazy_loading
+    - caching
+    - persistence
+
+persistence:
+  status: PROPOSTA TECNICA
+  compatibleWith:
+    items:
+      - relational
+      - document
+      - cache_layer
+  rule: NO graph database obbligatorio
+
+events:
+  items:
+    - CatchUpStarted
+    - CatchUpCompleted
+    - BatchSimulationScheduled
+    - OfflinePopulationUpdated

@@ -1,0 +1,18 @@
+# =============================================================================
+# VISUAL INTEGRATION — city, district, building, location assets
+# =============================================================================
+
+VisualIntegration:
+  assets:
+    items:
+      - city
+      - district
+      - building
+      - location
+      - landmark
+  field: visualAssetId — Visual System source of truth
+  ref: visual_main_v1, contextual_visuals_v1
+
+events:
+  items:
+    - CityVisualApplied

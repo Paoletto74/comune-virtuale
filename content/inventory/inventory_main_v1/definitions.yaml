@@ -1,0 +1,70 @@
+# =============================================================================
+# ITEM DEFINITIONS — content-first catalog skeleton
+# =============================================================================
+
+ItemDefinition:
+  status: skeleton_and_demo_only
+  versioning:
+    DECISIONE APPROVATA: |
+      ItemDefinition versionabile — es. food_apple v1 → v2.
+      Item posseduti NON cambiano arbitrariamente senza policy esplicita.
+
+demoDefinitions:
+  items:
+    - itemId: food_apple
+      version: "1.0.0"
+      category: consumable
+      subcategory: food
+      name: Mela
+      stackable: true
+      consumable: true
+      perishable: true
+      tradable: false
+      rentable: false
+      resellable: false
+      effectsRef: DEMO_FOOD_APPLE_EFFECTS
+      shelfLife: TBD
+
+    - itemId: food_bread
+      version: "1.0.0"
+      category: consumable
+      subcategory: food
+      name: Pane
+      stackable: true
+      consumable: true
+      perishable: true
+      tradable: false
+      rentable: false
+      resellable: false
+
+    - itemId: clothing_shirt
+      version: "1.0.0"
+      category: consumable
+      subcategory: clothing
+      name: Camicia
+      stackable: false
+      consumable: false
+      reusable: true
+      perishable: false
+      tradable: false
+      resellable: configurable
+      durability: TBD
+
+    - itemId: luxury_diamond
+      version: "1.0.0"
+      category: luxury
+      subcategory: jewelry
+      name: Diamante
+      stackable: false
+      unique: true
+      tradable: true
+      resellable: true
+      rentable: configurable
+
+contentFirst:
+  DECISIONE APPROVATA: NO hardcode oggetti nel motore — ItemDefinition in content pack
+
+events:
+  items:
+    - ItemDefinitionPublished
+    - ItemDefinitionVersioned

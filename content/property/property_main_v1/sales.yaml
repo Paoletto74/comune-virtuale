@@ -1,0 +1,85 @@
+# =============================================================================
+# SALES — compravendita immobiliare
+# =============================================================================
+
+SaleListing:
+  schema:
+    listingId: string
+    propertyId: string
+    sellerId: string
+    askingPrice: TBD
+    pricingMode: seller_defined | market_suggested | negotiable
+    status: open | pending | sold | withdrawn | expired
+    buyerType: player | npc | system
+    listedAt: timestamp
+    expiresAt: timestamp | null
+
+purchaseFlow:
+  DECISIONE APPROVATA: atomico
+  validations:
+    items:
+      - property_available
+      - price_valid
+      - buyer_funds
+      - requirements_met
+      - taxes_computed
+      - transaction_fees_computed
+  flow: |
+    Buyer intent → Action(PurchaseProperty)
+    → validate
+    → lock property
+    → Economy Pipeline (purchase + fees + taxes)
+    → ownership transfer
+    → update occupancy if needed
+    → Ledger
+    → notify both parties
+  onFailure: rollback_all
+
+saleModes:
+  items:
+    - player_to_player
+    - player_to_npc
+    - npc_to_player
+    - system_market
+  pricingModes:
+    items:
+      - seller_defined
+      - market_determined
+      - negotiation_future
+
+playerToPlayerSale:
+  DECISIONE APPROVATA: true
+  transfers:
+    items:
+      - cash
+      - ownership
+      - obligations
+      - occupancy_state
+  ledgerRequired: true
+
+transferOnSale:
+  occupancyRules:
+    items:
+      - vacant_transfer
+      - tenant_remains_if_lease_active
+      - owner_occupied_becomes_vacant_or_transferred
+  rules: TBD
+
+events:
+  items:
+    - PropertyListedForSale
+    - PropertyPurchaseInitiated
+    - PropertyPurchaseCompleted
+    - PropertyPurchaseFailed
+    - PropertySold
+    - PropertyDelisted
+
+requirements:
+  status: configurable
+  possibleRequirements:
+    items:
+      - minimum_level
+      - reputation
+      - clean_record
+      - residency_status
+  values: TBD

@@ -1,0 +1,23 @@
+# =============================================================================
+# EVENT VISUALS — eventVisualType mapping
+# =============================================================================
+
+EventVisuals:
+  eventVisualType:
+    examples:
+      items:
+        - promotion
+        - election
+        - purchase
+        - crime
+        - economic
+        - festival
+  assetMapping:
+    rule: EventVisualType -> visualAsset rules — Visual System resta owner
+  mustNot: hardcodare visuali direttamente nei componenti
+
+ref: visual_main_v1, event_visuals mapping
+
+events:
+  items:
+    - EventVisualResolved

@@ -1,0 +1,12 @@
+# =============================================================================
+# CROWD VISUALIZATION — aggregated activity on map
+# =============================================================================
+
+CrowdVisualization:
+  rule: map mostra aggregated activity — NON migliaia di NPC individuali
+  eventCrowd: eventi possono aumentare visual activity
+  ref: city_v1/crowd_visualization.yaml
+
+events:
+  items:
+    - CrowdVisualized

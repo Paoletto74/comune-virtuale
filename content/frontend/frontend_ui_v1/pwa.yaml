@@ -1,0 +1,25 @@
+# =============================================================================
+# PWA — manifest, installability, service worker future
+# =============================================================================
+
+Pwa:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  planned:
+    items:
+      - manifest
+      - icons
+      - installability
+      - service_worker_future
+      - offline_shell_future
+
+appIcon:
+  source: Visual/Brand System
+
+mobileInstallUx:
+  DECISIONE APPROVATA: Install App solo quando opportuno — NON CTA inutile
+
+ref: header.yaml InstallApp
+
+events:
+  items:
+    - PwaInstallPrompted

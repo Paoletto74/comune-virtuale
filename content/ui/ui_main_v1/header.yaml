@@ -1,0 +1,57 @@
+# =============================================================================
+# HEADER — logo, balance, profile, share, install, logout
+# =============================================================================
+
+Header:
+  DECISIONE APPROVATA: composizione definitiva TBD
+  elements:
+    items:
+      - logo
+      - money_balance
+      - profile_icon
+      - share_icon
+      - install_app_if_available
+      - logout
+
+logo:
+  DECISIONE APPROVATA: persistente in UI principale
+  rule: Visual Asset System fornisce logo — NO hardcode file nel codice
+  visualRef: visual_main_v1/assets.yaml
+
+balanceHeader:
+  DECISIONE APPROVATA: |
+    Saldo visibile rapidamente — es. € 12.450
+    Valore da Banking/Economy — NO duplicazione logica economica.
+    Tap saldo → Profilo/Economia o destinazione configurata.
+
+profileHeaderIcon:
+  target: own_profile
+  mayShowBadge:
+    items:
+      - new_event
+      - new_title
+      - update
+      - other_badge
+
+shareIcon:
+  ref: sharing.yaml
+  futureFunctions:
+    items:
+      - share_game
+      - share_public_profile
+      - share_deep_link
+
+installAppIcon:
+  ref: install_app.yaml
+  rule: mostra solo se tecnicamente disponibile
+
+logout:
+  DECISIONE APPROVATA: |
+    Tasto ESCI → logout via Authentication System.
+    NON cancella cittadino, progressione, patrimonio, inventario, storia.
+
+events:
+  items:
+    - HeaderBalanceTapped
+    - HeaderProfileTapped
+    - LogoutRequested

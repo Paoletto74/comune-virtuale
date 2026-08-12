@@ -1,0 +1,18 @@
+# =============================================================================
+# FALLBACK — missing asset handling
+# =============================================================================
+
+Fallback:
+  DECISIONE APPROVATA:
+  onMissing:
+    options:
+      items:
+        - fallback_category_sound
+        - silence
+  rule: MAI bloccare gameplay
+  onLoadError:
+    rule: errore caricamento audio NON rompe UI
+
+events:
+  items:
+    - SoundFallbackApplied

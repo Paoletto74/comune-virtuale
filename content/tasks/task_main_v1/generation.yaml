@@ -1,0 +1,100 @@
+# =============================================================================
+# TASK GENERATION — generazione dinamica
+# =============================================================================
+
+TaskGenerator:
+  schema:
+    generatorId: string
+    sourceModule: task | work | property | mobility | criminal | political | economy | event
+    triggerType: scheduled | event | condition | pool_draw | consequence | manual
+    conditionsRef: string | null
+    poolRef: string | null
+    definitionTemplateRef: string
+    contextBindings: []
+
+generationInputs:
+  items:
+    - citizen_context
+    - job_context
+    - location_zone
+    - economy_state
+    - events
+    - time
+    - properties
+    - relationships
+    - progression
+    - randomness
+  rule: NO AI esterna — catalogo + motore procedurale
+
+generators:
+  status: skeleton_only
+  examples:
+    items:
+      - generatorId: work_job_task
+        sourceModule: work
+        triggerType: event
+        note: Work fornisce jobId, careerLevel, employer — Task istanzia da pool
+      - generatorId: property_damage_task
+        sourceModule: property
+        triggerType: event
+        note: Danno immobile → task riparazione
+      - generatorId: mobility_breakdown_task
+        sourceModule: mobility
+        triggerType: event
+        note: VehicleBreakdown → task gestione
+      - generatorId: random_personal_pool
+        sourceModule: task
+        triggerType: pool_draw
+        poolRef: POOL_PERSONAL_DAILY
+      - generatorId: consequence_chain
+        sourceModule: task
+        triggerType: consequence
+        note: Da Immediate/Delayed Consequence
+
+workTaskGeneration:
+  direction: work → task
+  workProvides:
+    items:
+      - jobId
+      - jobCategory
+      - employerId
+      - careerLevel
+      - performance
+      - workContext
+  taskProvides:
+    items:
+      - taskInstance
+      - options
+      - outcomes
+  examples:
+    items:
+      - medico_visita_paziente
+      - medico_emergenza
+      - autista_consegna
+      - manager_gestione_dipendente
+
+automaticTasks:
+  DECISIONE APPROVATA: |
+    Task/eventi automatici senza richiesta giocatore.
+    Es. affittuario non paga, veicolo guasto.
+  triggers:
+    items:
+      - scheduled_check
+      - system_event
+      - delayed_consequence
+      - module_event
+
+performance:
+  rules:
+    items:
+      - generate_on_demand
+      - use_pools_not_unbounded
+      - cooldown_between_generations
+      - npc_simplified_generation
+  values: TBD
+
+events:
+  items:
+    - TaskGenerated
+    - TaskGenerationSkipped
+    - TaskGenerationFailed

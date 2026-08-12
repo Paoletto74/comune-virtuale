@@ -1,0 +1,15 @@
+# =============================================================================
+# RESOURCE OWNERSHIP
+# =============================================================================
+
+ResourceOwnership:
+  DECISIONE APPROVATA:
+  examples:
+    player_may_modify: own_profile
+    player_may_not_modify: other_citizen_profile
+  adminOverride: Admin con permission specifica — capacità differenti
+
+events:
+  items:
+    - ResourceOwnershipVerified
+    - ResourceOwnershipViolation

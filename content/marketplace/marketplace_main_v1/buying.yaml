@@ -1,0 +1,37 @@
+# =============================================================================
+# BUYING — player, NPC, P2P
+# =============================================================================
+
+PlayerBuyers:
+  DECISIONE APPROVATA: acquisto da NPC, altri giocatori, aziende, marketplace catalog
+
+PlayerToPlayer:
+  DECISIONE APPROVATA: |
+    Player A listing → Player B purchase
+    Atomico: denaro + bene + ownership + listing status
+  flow: see selling.yaml + transaction atomicity
+
+NpcBuyers:
+  DECISIONE APPROVATA: |
+    NPC System genera domanda.
+    Marketplace valuta: disponibilità, prezzo, domanda, segmento, preferenze.
+    Economy autorizza transazione.
+  ref: npc_market.yaml
+
+GiftTransfer:
+  DECISIONE APPROVATA: |
+    Regalo NON è vendita — GiftTransfer via inventory_main_v1.
+    Marketplace può offrire interfaccia trasferimento diretto.
+    Economy + Inventory restano autorevoli.
+
+doublePurchaseProtection:
+  DECISIONE APPROVATA: |
+    Lock + transaction + idempotency + server authority
+    contro due acquirenti simultanei stesso asset
+
+events:
+  items:
+    - PurchaseRequested
+    - PurchaseCompleted
+    - PurchaseRejected
+    - SaleCompleted

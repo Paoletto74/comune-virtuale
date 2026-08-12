@@ -1,0 +1,11 @@
+# =============================================================================
+# BIRTHDAYS — time_v1
+# =============================================================================
+
+---
+Birthdays:
+  privacy: privacy first
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - BirthdayReached

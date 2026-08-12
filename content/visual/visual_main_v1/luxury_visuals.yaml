@@ -1,0 +1,25 @@
+# =============================================================================
+# LUXURY VISUALS
+# =============================================================================
+
+LuxuryVisual:
+  schema:
+    contentRef: string
+    visualAssetId: string
+    variants:
+      items:
+        - thumbnail
+        - card
+        - profile
+        - hero
+
+exampleCategories:
+  items:
+    - jewelry
+    - artwork
+    - watches
+    - rare_objects
+
+events:
+  items:
+    - LuxuryVisualResolved

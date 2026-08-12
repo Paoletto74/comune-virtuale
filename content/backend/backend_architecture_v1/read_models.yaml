@@ -1,0 +1,36 @@
+# =============================================================================
+# READ MODELS — query-oriented services
+# =============================================================================
+
+ReadModelServices:
+  status: PROPOSTA TECNICA
+  services:
+    HomeSummaryService:
+      endpoint: "GET /api/v1/home"
+      fields:
+        items:
+          - balance
+          - level
+          - title
+          - currentJob
+          - activeTasks
+          - unreadNotifications
+          - importantEvents
+          - highlights
+    ProfileSummaryService:
+      endpoint: "GET /api/v1/profile/:citizenId"
+      variants: [public, private_self, admin]
+    MarketplaceQueryService:
+      operations: [list, search, filters, detail]
+    RankingQueryService:
+      operations: [type, current, position, percentile, snapshots]
+    MunicipalityQueryService:
+      operations: [info, citizen_list, inflation, mayor]
+
+rule: NON duplicare intera database structure nelle response
+
+ref: data_architecture_v1/read_models.yaml
+
+events:
+  items:
+    - ReadModelRefreshed

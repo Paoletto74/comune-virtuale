@@ -1,0 +1,61 @@
+# =============================================================================
+# ADMIN API — content, audit, users
+# =============================================================================
+
+AdminApi:
+  basePath: /api/v1/admin
+  DECISIONE APPROVATA: separata da Player API
+
+endpoints:
+  content:
+    items:
+      - "POST /content/import"
+      - "POST /content/publish"
+      - "POST /content/rollback"
+      - "GET /content/drafts"
+      - "GET /content/published"
+  audit:
+    items:
+      - "GET /audit"
+      - "GET /audit/:id"
+  users:
+    items:
+      - "GET /users"
+      - "PATCH /users/:id/status"
+  observability:
+    items:
+      - "GET /health/content"
+      - "GET /health/jobs"
+      - "GET /health/system"
+
+importContent:
+  endpoint: "POST /api/v1/admin/content/import"
+  input:
+    items: [raw_content, format, dryRun]
+  output:
+    items: [validation_result, errors, warnings, preview_metadata]
+
+publishContent:
+  checks:
+    items:
+      - admin_authentication
+      - permission
+      - content_validation
+      - approval
+      - environment
+      - sensitive_scope
+
+rollbackContent:
+  checks:
+    items:
+      - permission
+      - target_version
+      - compatibility
+      - audit
+
+auditApi:
+  rule: NON modificabile dal normale Admin — accesso secondo permission
+
+events:
+  items:
+    - AdminApiRequestProcessed

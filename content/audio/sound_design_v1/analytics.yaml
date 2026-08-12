@@ -1,0 +1,17 @@
+# =============================================================================
+# ANALYTICS — future sound metrics
+# =============================================================================
+
+AudioAnalytics:
+  status: PROPOSTA TECNICA — future
+  metrics:
+    items:
+      - sound_played
+      - sound_failed
+      - sound_muted
+      - audio_initialization_failure
+  privacy: NON tracciare contenuti personali non necessari
+
+events:
+  items:
+    - AudioAnalyticsRecorded

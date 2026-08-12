@@ -1,0 +1,19 @@
+# =============================================================================
+# FILTERS — alias extended in search.yaml, dedicated filters
+# =============================================================================
+
+LibraryFilters:
+  ref: search.yaml
+  quickFilters:
+    items:
+      - drafts_only
+      - published_only
+      - has_errors
+      - has_warnings
+      - sensitive_content
+      - recently_updated
+      - scheduled
+
+events:
+  items:
+    - LibraryFilterApplied

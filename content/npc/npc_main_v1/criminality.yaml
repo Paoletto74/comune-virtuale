@@ -1,0 +1,29 @@
+# =============================================================================
+# CRIMINALITY — autori, vittime, simulazione aggregata
+# =============================================================================
+
+NpcCriminality:
+  ref: criminal_main_v1/npc.yaml
+  capabilities:
+    items:
+      - commit_crimes
+      - be_victims
+      - be_arrested
+      - be_involved_in_events
+  owner: criminal_main_v1 autorevole
+
+aggregateCrime:
+  DECISIONE APPROVATA: criminalità NPC simulabile aggregatamente
+  provides:
+    items:
+      - crime_rate_statistic
+      - segment_risk_profile
+      - background_crime_events
+  individualPromotion: NPC arrestato → TIER_2+ individual state
+
+events:
+  items:
+    - NpcCrimeCommitted
+    - NpcCrimeVictim
+    - NpcArrested
+    - AggregateCrimeEvent

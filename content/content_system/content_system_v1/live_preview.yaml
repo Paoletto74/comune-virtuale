@@ -1,0 +1,12 @@
+# =============================================================================
+# LIVE PREVIEW — updated while editing, never publish
+# =============================================================================
+
+LivePreview:
+  rule: preview updates while Admin edits — NEVER triggers publish
+  layout: LEFT editor — RIGHT live preview
+  ref: admin_preview.yaml
+
+events:
+  items:
+    - LivePreviewUpdated

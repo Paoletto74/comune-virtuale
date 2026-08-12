@@ -1,0 +1,16 @@
+# =============================================================================
+# PRINCIPLES — work_careers_v1
+# =============================================================================
+
+---
+WorkPrinciples:
+  DECISIONE APPROVATA:
+    workSOT: employment jobs applications career salary config
+    workNotEconomy: Work decide compensation - Economy esegue transfer
+    workNotBusiness: Business entity != employment relationship
+    jobTypeNotPosition: true
+    levelNotSkill: true
+    hiringNoAutoMoney: true
+    clientNotAuthoritative: true
+    noRealEmployment: true
+  alignsWith: work_main_v1 multi-job policy

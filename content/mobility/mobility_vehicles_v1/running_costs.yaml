@@ -1,0 +1,15 @@
+# =============================================================================
+# RUNNING COSTS — mobility_vehicles_v1
+# =============================================================================
+
+---
+RunningCosts:
+  possible:
+  - fuel
+  - maintenance
+  - insurance future
+  - taxes
+  - parking
+  - tolls
+  definitive: TBD
+  status: TBD

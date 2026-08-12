@@ -1,0 +1,19 @@
+# =============================================================================
+# COMPATIBILITY — API and content backward compatibility
+# =============================================================================
+
+BackwardCompatibility:
+  api:
+    nonBreaking: stessa versione /api/v1
+    breaking: nuova versione /api/v2
+    rule: NON rompere arbitrariamente client esistenti
+
+content:
+    rule: evitare breaking changes non pianificate
+
+configuration:
+  rule: NON hardcodare valori gameplay nel codice quando devono essere configurabili
+
+events:
+  items:
+    - CompatibilityCheckPerformed

@@ -1,0 +1,20 @@
+# =============================================================================
+# EXTERNAL SERVICES — abstraction layer
+# =============================================================================
+
+ExternalServices:
+  status: PROPOSTA TECNICA — NON accoppiare dominio direttamente al provider
+  abstractions:
+    items:
+      - GoogleAuthProvider
+      - EmailProvider
+      - MediaStorageProvider
+      - AnalyticsProvider
+      - PaymentProviderFuture
+
+rule: domain services usano abstraction — implementazione swappable
+
+events:
+  items:
+    - ExternalServiceCallCompleted
+    - ExternalServiceCallFailed

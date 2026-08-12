@@ -1,0 +1,20 @@
+# =============================================================================
+# JOBS — Employment section editorial language
+# =============================================================================
+
+JobsSection:
+  concept: OFFERTA DI LAVORO
+  fields:
+    items:
+      - azienda
+      - ruolo
+      - stipendio
+      - requisiti
+      - scadenza
+  rule: NON alterare work logic
+
+ref: frontend_ui_v1/work.yaml, templates.yaml EmploymentSection
+
+events:
+  items:
+    - JobListingRendered

@@ -1,0 +1,13 @@
+# =============================================================================
+# RATE LIMITING — work_careers_v1
+# =============================================================================
+
+---
+RateLimiting:
+  protect:
+  - applications
+  - job creation
+  - hiring
+  - firing
+  - salary changes
+  status: DECISIONE APPROVATA

@@ -1,0 +1,13 @@
+# =============================================================================
+# PROFILE INTEGRATION — economy_v1
+# =============================================================================
+
+---
+ProfileIntegration:
+  shows:
+  - liquidity
+  - net worth
+  - debt
+  - history per privacy
+  netWorthGraph: historical Game Time - no invented points
+  status: DECISIONE APPROVATA

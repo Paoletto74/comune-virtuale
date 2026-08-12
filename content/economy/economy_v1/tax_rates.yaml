@@ -1,0 +1,9 @@
+# =============================================================================
+# TAX RATES — economy_v1
+# =============================================================================
+
+---
+TaxRates:
+  configurable: true
+  noFrontendHardcode: true
+  status: DECISIONE APPROVATA

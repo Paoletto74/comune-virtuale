@@ -1,0 +1,27 @@
+# =============================================================================
+# EDITORIAL TOKENS — separate from base ui_main_v1 tokens
+# =============================================================================
+
+EditorialTokens:
+  status: PROPOSTA TECNICA
+  distinction:
+    BASE_TOKENS: ui_main_v1
+    EDITORIAL_TOKENS: newspaper_v1
+  tokens:
+    items:
+      - editorial_spacing
+      - headline_hierarchy
+      - rules
+      - paper
+      - ink
+      - accent
+      - breaking
+      - category
+      - metadata
+  rule: NON duplicare design tokens base di ui_main_v1
+
+ref: ui_main_v1/design_tokens.yaml, frontend_ui_v1/design_tokens.yaml
+
+events:
+  items:
+    - EditorialTokenApplied

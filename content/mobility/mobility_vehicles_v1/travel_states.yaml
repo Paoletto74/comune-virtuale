@@ -1,0 +1,14 @@
+# =============================================================================
+# TRAVEL STATES — mobility_vehicles_v1
+# =============================================================================
+
+---
+TravelStates:
+  possible:
+  - PLANNED
+  - ACTIVE
+  - COMPLETED
+  - CANCELLED
+  - FAILED
+  definitive: TBD
+  status: PROPOSTA TECNICA

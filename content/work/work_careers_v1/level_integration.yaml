@@ -1,0 +1,10 @@
+# =============================================================================
+# LEVEL INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+LevelIntegration:
+  jobMayRequireLevel: true
+  levelSystemSeparate: true
+  levelNotSkill: true
+  status: DECISIONE APPROVATA

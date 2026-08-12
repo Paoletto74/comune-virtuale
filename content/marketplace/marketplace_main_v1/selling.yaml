@@ -1,0 +1,42 @@
+# =============================================================================
+# SELLING — flusso vendita
+# =============================================================================
+
+SellingFlow:
+  DECISIONE APPROVATA: |
+    Inventory/Asset System → verifica proprietà + tradabilità
+    → lock → Marketplace listing → attesa acquirente
+    → transazione atomica → cambio proprietà → unlock
+  steps:
+    items:
+      - verify_ownership
+      - verify_tradable
+      - apply_listing_lock
+      - create_listing
+      - wait_for_buyer
+      - atomic_transaction
+      - transfer_ownership
+      - release_lock
+
+ListingLock:
+  DECISIONE APPROVATA: |
+    Asset in vendita locked — non vendibile altrove, regalato, distrutto, trasferito
+    finché listing attivo (salvo regole speciali).
+
+withdrawListing:
+  status: PROPOSTA TECNICA
+  actions:
+    items:
+      - seller_withdraws
+      - reprice
+      - renew_expired
+
+repriceUnsold:
+  rule: listing invenduto può essere riprezzato — mercato realistico
+
+events:
+  items:
+    - ListingCreated
+    - ListingWithdrawn
+    - ListingRepriced
+    - ListingLockApplied

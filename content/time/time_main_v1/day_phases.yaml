@@ -1,0 +1,34 @@
+# =============================================================================
+# DAY PHASES — notte, mattina, pomeriggio, sera
+# =============================================================================
+
+DayPhase:
+  schema:
+    phaseId: string
+    label: string
+    startHour: TBD
+    endHour: TBD
+  items:
+    - phaseId: night
+      label: Notte
+    - phaseId: morning
+      label: Mattina
+    - phaseId: afternoon
+      label: Pomeriggio
+    - phaseId: evening
+      label: Sera
+
+dayPhaseUsage:
+  status: PROPOSTA TECNICA
+  consumers:
+    items:
+      - task
+      - work
+      - criminal
+      - mobility
+      - events
+  rule: NON rendering realistico obbligatorio — logica di disponibilità
+
+events:
+  items:
+    - DayPhaseChanged

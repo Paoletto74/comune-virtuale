@@ -1,0 +1,39 @@
+# =============================================================================
+# INSTANCES — stacking, unique, quantity
+# =============================================================================
+
+Stacking:
+  DECISIONE APPROVATA: |
+    Oggetti stackable — una entry con quantity.
+    Es. 10 mele → quantity=10, NON 10 record.
+  schema:
+    ownerId: string
+    itemDefinitionId: string
+    quantity: number
+    instanceId: string
+
+UniqueItems:
+  DECISIONE APPROVATA: oggetti unici richiedono uniqueInstanceId
+  examples:
+    items:
+      - rare_object
+      - prize
+      - document
+      - unique_luxury
+  rule: quantity = 1, uniqueInstanceId obbligatorio
+
+Quantity:
+  rules:
+    stackable: quantity greater than 1 allowed
+    unique: quantity equals 1
+
+InstanceGranularity:
+  rule: |
+    Granularità istanza dipende da tipo.
+    NON storia completa per ogni mela consumata.
+    Storia persistente per asset importanti — see history.yaml
+
+events:
+  items:
+    - ItemStackUpdated
+    - UniqueItemCreated

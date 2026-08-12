@@ -1,0 +1,13 @@
+# =============================================================================
+# RANKING VISUALS — small avatar, top player larger
+# =============================================================================
+
+RankingVisuals:
+  list: small avatar — NON immagini pesanti
+  topPlayer: eventuale larger visual
+  GlobalRankOne: ranking.number_one.achievement
+  ref: progression_main_v1
+
+events:
+  items:
+    - RankingVisualResolved

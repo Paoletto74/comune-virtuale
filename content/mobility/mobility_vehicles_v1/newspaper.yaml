@@ -1,0 +1,13 @@
+# =============================================================================
+# NEWSPAPER — mobility_vehicles_v1
+# =============================================================================
+
+---
+NewspaperIntegration:
+  editorialCandidate: true
+  notAutoPublish: true
+  examples:
+  - exceptional car purchase
+  - record sale
+  - mobility crisis
+  status: PROPOSTA TECNICA

@@ -1,0 +1,12 @@
+# =============================================================================
+# BONUSES — work_careers_v1
+# =============================================================================
+
+---
+Bonuses:
+  types:
+  - performance
+  - event
+  - holiday
+  execution: Economy transaction
+  status: PROPOSTA TECNICA

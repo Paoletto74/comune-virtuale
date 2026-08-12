@@ -1,0 +1,26 @@
+# =============================================================================
+# MEDIA API — file upload, asset metadata
+# =============================================================================
+
+MediaApi:
+  endpoints:
+    items:
+      - "POST /api/v1/admin/media/upload"
+      - "GET /api/v1/media/:assetId"
+
+uploadRules:
+  DECISIONE APPROVATA:
+  items:
+    - verificare Admin permission
+    - validare MIME type
+    - limitare dimensione
+    - creare asset metadata
+    - non fidarsi del filename
+    - non eseguire file
+
+storage: TBD — ref visual_main_v1
+
+events:
+  items:
+    - MediaUploaded
+    - MediaAssetCreated

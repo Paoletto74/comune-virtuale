@@ -1,0 +1,15 @@
+# =============================================================================
+# HISTORICAL CONTENT — published content retains asset reference
+# =============================================================================
+
+HistoricalContent:
+  DECISIONE APPROVATA:
+  rule: |
+    Old Gazzetta articles NON cambiano immagine inaspettatamente
+    perche asset corrente e stato sostituito.
+  snapshot: consider snapshot/reference version for published editorial content
+  ref: content_system_v1/versioning.yaml
+
+events:
+  items:
+    - HistoricalVisualPreserved

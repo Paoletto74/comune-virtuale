@@ -1,0 +1,13 @@
+# =============================================================================
+# HOUSEHOLDS — future family system
+# =============================================================================
+
+Households:
+  status: PROPOSTA TECNICA — future household/family system
+  v1: NON implementare automaticamente
+  company:
+    note: Company puo essere tipo Organization — relazione Business definitiva TBD
+
+events:
+  items:
+    - HouseholdCreated

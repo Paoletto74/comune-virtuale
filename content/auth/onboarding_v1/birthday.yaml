@@ -1,0 +1,17 @@
+# =============================================================================
+# BIRTHDAY — optional, visibility policy
+# =============================================================================
+
+Birthday:
+  optional: true
+  visibility:
+    items:
+      - PRIVATE
+      - PUBLIC
+      - DISCOVERABLE
+  editLimits: policy DA DEFINIRE / TBD — possibili limiti modifiche
+  ref: profile_visibility.yaml, profile_main_v1
+
+events:
+  items:
+    - BirthdaySet

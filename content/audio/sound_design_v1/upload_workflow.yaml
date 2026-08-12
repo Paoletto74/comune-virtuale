@@ -1,0 +1,26 @@
+# =============================================================================
+# UPLOAD WORKFLOW — future admin sound upload
+# =============================================================================
+
+UploadWorkflow:
+  status: PROPOSTA TECNICA — NON implementare runtime V1
+  future:
+    steps:
+      items:
+        - Upload_sound
+        - metadata
+        - validation
+        - preview
+        - approve
+        - publish
+  validation:
+    items:
+      - format
+      - license
+      - loudness
+      - duration
+      - category
+
+events:
+  items:
+    - SoundUploadSubmitted

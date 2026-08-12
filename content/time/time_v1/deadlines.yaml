@@ -1,0 +1,15 @@
+# =============================================================================
+# DEADLINES — time_v1
+# =============================================================================
+
+---
+Deadlines:
+  fields:
+  - dueAt
+  - expiresAt
+  engine: PROPOSTA TECNICA
+  expiredRule: backend EXPIRED
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DeadlineExpired

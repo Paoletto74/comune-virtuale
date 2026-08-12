@@ -1,0 +1,23 @@
+# =============================================================================
+# PROPERTY VISUALS — exterior, interior, gallery
+# =============================================================================
+
+PropertyVisuals:
+  types:
+    items:
+      - exterior
+      - interior
+      - special_features
+      - category_image
+  detail:
+    hero: hero image
+    gallery: gallery views
+  entity:
+    pattern: "property.{propertyId}.hero"
+  example:
+    Villa_Bellavista: property.villa_bellavista.hero
+  ref: property_main_v1
+
+events:
+  items:
+    - PropertyVisualResolved

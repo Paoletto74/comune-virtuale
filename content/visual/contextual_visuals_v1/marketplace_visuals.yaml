@@ -1,0 +1,16 @@
+# =============================================================================
+# MARKETPLACE VISUALS — thumbnail, detail, gallery
+# =============================================================================
+
+MarketplaceVisuals:
+  support:
+    items:
+      - thumbnail
+      - detail_image
+      - gallery
+  rule: thumbnail obbligatoria quando disponibile
+  ref: marketplace_main_v1
+
+events:
+  items:
+    - MarketplaceVisualResolved

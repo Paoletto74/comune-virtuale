@@ -1,0 +1,16 @@
+# =============================================================================
+# MONTHS — time_v1
+# =============================================================================
+
+---
+GameMonth:
+  uses:
+  - rent
+  - balances
+  - taxes
+  - rankings
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - MonthStarted
+  - MonthEnded

@@ -1,0 +1,180 @@
+# =============================================================================
+# INTEGRATIONS — tutti i domini emettono/consumano eventi
+# =============================================================================
+
+integrations:
+
+  notification_main_v1:
+    direction: event → notification
+    rule: |
+      Event System pubblica WorldEvent su bus.
+      Notification decide se/chi/come notificare.
+      NON duplicare notification logic.
+    flow: WorldEvent → Notification Evaluation → Feed
+
+  task_main_v1:
+    direction: task → event
+    rule: |
+      Task genera TaskChoiceEvent / outcome events.
+      Event System calcola/propaga conseguenze.
+      Task NON contiene tutte le conseguenze del mondo.
+    alignsWith:
+      items:
+        - task_main_v1/consequences.yaml
+        - task_main_v1/effects.yaml
+        - task_main_v1/delayed_consequences.yaml
+    note: event_main_v1 formalizza layer trasversale — pack task non modificato
+
+  criminal_main_v1:
+    direction: criminal → event
+    flow: CrimeCommitted → Event System → Consequences
+    criminalDecides:
+      items:
+        - crime_type
+        - heat
+        - detection
+    eventSystemPropagates:
+      items:
+        - damages
+        - losses
+        - cross_domain_effects
+
+  political_main_v1:
+    direction: political → event
+    flow: LawActivated → individual evaluation → personalized effects
+    politicalDecides: law_and_policy
+    economyApplies: money
+    eventSystemRepresents: effect_commands
+
+  economy_main_v1:
+    direction: bidirectional
+    economyEmits:
+      items:
+        - TransactionCompleted
+        - PriceChanged
+        - InflationChanged
+        - DebtDefault
+        - SalaryPaid
+    economyConsumes: EffectCommand(MONEY)
+    rule: Economy autorevole su valori economici
+
+  work_main_v1:
+    direction: work → event
+    workEmits:
+      items:
+        - JobStarted
+        - JobLost
+        - SalaryPaid
+        - Injury
+        - PerformanceChanged
+    eventSystemMayPropagate:
+      items:
+        - stress
+        - health
+        - income
+        - reputation
+        - career_consequences
+    workRemainsAuthoritative: employment_state
+
+  property_main_v1:
+    direction: property → event
+    propertyEmits:
+      items:
+        - PropertyDamaged
+        - PropertySold
+        - PropertyRented
+        - RentReceived
+        - PropertyValueChanged
+
+  mobility_main_v1:
+    direction: mobility → event
+    mobilityEmits:
+      items:
+        - VehicleDamaged
+        - TravelDelayed
+        - VehicleSold
+        - Accident
+    eventSystemMayPropagate:
+      items:
+        - cash
+        - stress
+        - freeTime
+        - work_performance
+
+  business_main_v1:
+    direction: business → event
+    businessEmits:
+      items:
+        - CompanyProfitChanged
+        - CompanyFailed
+        - EmployeeChanged
+        - CompanyValueChanged
+    eventSystemPropagates:
+      items:
+        - owner_netWorth
+        - income
+        - stress
+        - reputation
+        - employment_effects
+
+  family_main_v1:
+    direction: family → event
+    familyEmits:
+      items:
+        - ChildNeedsHelp
+        - ChildStartedJob
+        - RelationshipChanged
+        - FamilyCrisis
+    privacy: always_personal_visibility
+
+  progression_main_v1:
+    direction: progression ← event
+    rule: |
+      Event System può emettere milestone/experience requests.
+      Progression decide se cambia mainLevel.
+      Event System NON decide direttamente il livello.
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - triggerAt
+        - expiresAt
+        - durations
+        - recurring_schedules
+        - catch_up
+        - offline_consequence_processing
+    rule: NON duplicare clock
+
+  offline:
+    DECISIONE APPROVATA: |
+      Conseguenze continuano offline.
+      Event System processa catch-up via Time System.
+      Notification System produce riepilogo al login.
+
+  npc:
+    direction: npc → event
+    rule: NPC emettono eventi come cittadini — stesso pipeline
+
+  admin_panel:
+    configurable:
+      items:
+        - event_definitions
+        - consequence_definitions
+        - effect_definitions
+        - conditions
+        - modifiers
+        - cascade_limits
+        - stacking_rules
+        - visibility_rules
+        - idempotency_policies
+
+  separationOfConcerns:
+    eventSystemMustNot:
+      items:
+        - own_economy_ledger
+        - own_property_registry
+        - own_employment_state
+        - decide_main_level
+        - generate_notification_text
+        - become_recurring_payment_scheduler

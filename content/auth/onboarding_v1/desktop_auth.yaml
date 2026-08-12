@@ -1,0 +1,15 @@
+# =============================================================================
+# DESKTOP AUTH — wider layout, editorial hero
+# =============================================================================
+
+DesktopAuth:
+  features:
+    items:
+      - layout_piu_amplio
+      - eventuale_hero_editorial
+      - form_compatto
+  ref: landing.yaml, newspaper_v1
+
+events:
+  items:
+    - DesktopAuthViewed

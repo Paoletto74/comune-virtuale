@@ -1,0 +1,74 @@
+# =============================================================================
+# READ MODELS — summaries, composition, stale data
+# =============================================================================
+
+ReadModels:
+  rule: query puo usare authoritative source, projection, read model, cache — deve dichiarare freshness
+
+HomeSummary:
+  fields:
+    items:
+      - balance
+      - level
+      - activeJob
+      - activeTasks
+      - unreadNotifications
+      - netWorth
+      - municipalitySummary
+      - gazzettaHighlights
+  rule: NON duplicate authoritative state
+
+ProfileSummary:
+  composes:
+    items: [identity, level, title, work, balance_per_policy, netWorth, ranking, showcase]
+
+MunicipalitySummary:
+  fields:
+    items:
+      - municipalityId
+      - name
+      - population
+      - inflation
+      - treasury
+      - mayor
+      - candidacyStatus
+      - key_statistics
+
+RankingEntry:
+  fields:
+    items: [rankingId, rank, citizenId, value, percentile, trend, snapshotTime]
+
+ListingSummary:
+  fields:
+    items: [listingId, sellerPublicIdentity, item, visualAssetId, price, rentPrice, status, createdAt, expiresAt]
+
+TaskSummary:
+  fields:
+    items: [taskId, title, description, difficulty, reward_display, progress, requirements_display, status, cooldown, expiresAt]
+  rule: reward_display NON client-authoritative
+
+JobSummary:
+  fields:
+    items: [jobId, title, employer, salary_display, requirements, schedule, status, application_state]
+
+InventorySummary:
+  fields:
+    items: [itemId, quantity, ownership, condition, visualAssetId, usage_status]
+
+BalanceSummary:
+  fields:
+    items: [available_cash, bank_balance_if_authorized, debt_summary_if_authorized, currency, asOf]
+  mustNot: secrets
+
+NetWorthSummary:
+  fields:
+    items: [netWorth, liquidAssets, propertyValue, vehicleValue, itemValue, liabilities, asOf]
+  rule: valuation rules authoritative in Economy/Property/Mobility
+
+staleData:
+  field: asOf
+  uiHint: "aggiornato X"
+
+events:
+  items:
+    - ReadModelRefreshed

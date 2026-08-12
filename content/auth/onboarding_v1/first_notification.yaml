@@ -1,0 +1,18 @@
+# =============================================================================
+# FIRST NOTIFICATION — welcome
+# =============================================================================
+
+FirstNotification:
+  content: "Benvenuto in citta."
+  source: Content System — NON hardcoded frontend
+  pairing:
+    items:
+      - visual_opzionale
+      - popup_opzionale
+      - sound_opzionale
+  rule: NON invasivo
+  ref: content_system_v1, notification_main_v1
+
+events:
+  items:
+    - FirstNotificationSent

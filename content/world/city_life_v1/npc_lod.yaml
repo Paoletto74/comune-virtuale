@@ -1,0 +1,18 @@
+# =============================================================================
+# NPC LOD — FULL, REDUCED, ABSTRACT simulation levels
+# =============================================================================
+
+NpcLod:
+  levels:
+    FULL:
+      use: NPC vicino/interagibile
+    REDUCED:
+      use: stato semplificato
+    ABSTRACT:
+      use: solo statistiche aggregate
+  aggregation:
+    rule: citta puo rappresentare popolazione aggregata senza simulare ogni individuo
+
+events:
+  items:
+    - NpcLodApplied

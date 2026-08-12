@@ -1,0 +1,15 @@
+# =============================================================================
+# CACHE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Cache:
+  canCache:
+  - public listings
+  - public metadata
+  - images
+  cannotCache:
+  - ownership
+  - availability auth
+  - travel state
+  status: PROPOSTA TECNICA

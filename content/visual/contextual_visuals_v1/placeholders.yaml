@@ -1,0 +1,36 @@
+# =============================================================================
+# PLACEHOLDERS — TBD items and open decisions
+# =============================================================================
+
+Placeholders:
+  TBD:
+    items:
+      - character_customization_layer_structure
+      - avatar_policy_final
+      - resolution_policy_per_type
+      - image_format_technology
+      - storage_technology
+      - CDN_provider
+      - performance_budgets
+      - compression_settings
+      - dynamic_showcase_algorithm
+      - AI_visual_provider
+      - player_generated_content_workflow
+  approvedPrinciples:
+    items:
+      - ogni visual ha una funzione
+      - visualAssetId — NO hardcoded URLs
+      - semantic visual — eventType not file path
+      - hierarchy — specific -> entity -> category -> generic -> placeholder
+      - popup HIGH/CRITICAL support contextual visuals
+      - visual + sound same event family
+      - fallback — NEVER broken image
+      - human approval for all visuals
+      - no auto-publish generated visuals
+      - historical content snapshot preservation
+      - accessibility alt description
+      - prefers-reduced-motion support
+
+events:
+  items:
+    - PlaceholderResolved

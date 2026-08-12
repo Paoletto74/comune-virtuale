@@ -1,0 +1,41 @@
+# =============================================================================
+# ACCESSIBILITY — keyboard, screen reader, graphs, navigation, popups
+# =============================================================================
+
+Accessibility:
+  requirements:
+    items:
+      - keyboard_navigation
+      - screen_reader
+      - focus_management
+      - semantic_HTML
+      - contrast
+      - reduced_motion
+      - reduced_sound
+      - aria_labels
+      - error_announcements
+
+Navigation:
+  bottomNav:
+    items:
+      - semanticamente_navigabile
+      - active_state_annunciato
+      - label_leggibili
+
+Popups:
+  items:
+    - annunciabile
+    - focus_corretto
+    - chiudibile
+    - non_bloccare_screen_reader
+
+Graphs:
+  DECISIONE APPROVATA: alternativa testuale per grafici importanti
+  example: "Il patrimonio e aumentato del X% nel periodo selezionato."
+  source: valore reale da backend
+
+ref: ui_main_v1
+
+events:
+  items:
+    - AccessibilityPreferenceChanged

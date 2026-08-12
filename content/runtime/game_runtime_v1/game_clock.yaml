@@ -1,0 +1,35 @@
+# =============================================================================
+# GAME CLOCK — Time System source of truth
+# =============================================================================
+
+GameClock:
+  sourceOfTruth: Time System — runtime NON crea secondo clock indipendente
+  DECISIONE APPROVATA: client clock NON e source of truth
+
+concepts:
+  items:
+    - current_game_time
+    - real_time
+    - game_time
+    - tick
+    - day
+    - week
+    - month
+    - year
+    - seasons_future
+
+realVsGameTime:
+  DECISIONE APPROVATA: separare REAL CLOCK da GAME CLOCK
+  acceleration:
+    status: TBD
+    example: "1 real minute -> N game minutes — nessun valore definitivo"
+
+gameTimeDisplay:
+  rule: UI riceve game time dal backend — timezone/local display nel frontend
+
+ref: time_main_v1
+
+events:
+  items:
+    - GameTimeAdvanced
+    - DayBoundaryCrossed

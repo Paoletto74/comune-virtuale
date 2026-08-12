@@ -1,0 +1,298 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  progression_main_v1:
+    direction: bidirectional
+    politicalProvides:
+      items:
+        - politicalTrack
+        - politicalExperience
+        - politicalInfluence
+        - civicParticipation
+        - politicalMilestones
+        - activeRole
+    politicalDoesNot:
+      items:
+        - assign_mainLevel
+    l25Note: |
+      L25 SINDACO = levelLabel catalogo — NON activeRole automatico
+
+  progression_balance_v1:
+    direction: political ↔ balance
+    consumes:
+      items:
+        - population_context
+        - anti_grind
+        - relative_requirements
+    provides:
+      items:
+        - political_progression_data
+
+  economy_main_v1:
+    direction: political → economy
+    rule: DECISIONE APPROVATA — Political NON modifica cash direttamente
+    flows:
+      tax: |
+        Policy Decision → PolicyEvent(tax) → Economy Pipeline → tax rates/transactions
+      spending: |
+        Policy Decision → PolicyEvent(spending) → Economy macro effects
+      incentive: |
+        Policy Decision → PolicyEvent(incentive) → Economy
+    influences:
+      items:
+        - taxes
+        - public_spending
+        - demand
+        - prices
+        - services
+        - employment
+        - macro_economy
+        - opportunities
+    doesNotOwn: economy_system
+    inflation:
+      rule: |
+        Sindaco NON controlla inflazione direttamente.
+        Decisioni possono influenzare domanda, spesa, tasse.
+        Inflazione = Economy System responsibility.
+
+  task_main_v1:
+    direction: bidirectional
+    politicalToTask:
+      provides:
+        items:
+          - political_task_definitions
+          - campaign_context
+          - decision_context
+          - vote_context
+      taskExamples:
+        items:
+          - campaign
+          - meet_citizens
+          - decision
+          - emergency
+          - vote
+          - crisis_management
+          - law_proposal
+    taskToPolitical:
+      provides: choice, outcome
+    politicalDecides:
+      items:
+        - eligibility
+        - influence
+        - support
+        - role_context
+    taskDecides:
+      items:
+        - presentation
+        - options
+        - outcome_structure
+
+  criminal_main_v1:
+    direction: criminal → political
+    rule: NON duplicare sistema criminale
+    eventsConsumed:
+      items:
+        - CrimeDiscovered
+        - PenaltyIssued
+        - Arrested
+        - ScandalEvent
+    effects:
+      items:
+        - eligibility
+        - support
+        - reelection_risk
+        - career_impact
+    compatibility:
+      rule: criminalTrack > 0 NON automaticamente incompatibile con politica
+
+  work_main_v1:
+    direction: parallel
+    rule: |
+      Politico può mantenere lavoro se regole lo consentono.
+      Attività politiche consumano tempo — integrazione Time System.
+    workProvides: professional_levers
+    politicalProvides: political_levers
+
+  property_main_v1:
+    direction: political → property
+    policyCanAffect:
+      items:
+        - property_taxes
+        - zoning_future
+        - public_housing_policy
+    evaluation: per_property_owner via differentiated effects
+
+  mobility_main_v1:
+    direction: political → mobility
+    policyCanAffect:
+      items:
+        - public_transport_funding
+        - transport_regulation
+        - infrastructure
+
+  citizen_model:
+    effectPipeline:
+      ref: task_main_v1/effects.yaml
+      rule: Riutilizzare effetti generici — NO duplicate formulas
+    fieldsAffected:
+      items:
+        - happiness
+        - health
+        - stress
+        - freeTime
+        - reputation
+        - politicalInfluence
+        - civicParticipation
+
+  event_system:
+    direction: bidirectional
+    political_emits:
+      items:
+        - ElectionStarted
+        - CandidateRegistered
+        - VoteCast
+        - ElectionEnded
+        - MayorElected
+        - MayorRemoved
+        - LawProposed
+        - LawPassed
+        - LawRejected
+        - LawActivated
+        - LawExpired
+        - SupportChanged
+        - PoliticalMilestoneReached
+        - PolicyActivated
+        - LeverActivated
+    political_consumes:
+      items:
+        - CrimeDiscovered
+        - EconomicCrisis
+        - PersonalValueChanged
+        - TransactionCompleted
+
+  notification_system:
+    direction: political → notifications
+    rule: NO UI nel Political System
+    personal:
+      items:
+        - election_won
+        - election_lost
+        - law_affects_you
+        - support_decreased
+        - mandate_ending
+    global:
+      items:
+        - new_mayor_elected
+        - new_law_approved
+        - taxes_increased
+        - election_started
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - election_schedule
+        - mandate_duration
+        - law_effective_dates
+        - campaign_timeline
+        - catch_up
+        - political_activity_time_cost
+    offline:
+      items:
+        - elections
+        - voting
+        - decisions
+        - support_changes
+        - laws
+        - role_changes
+
+  admin_panel:
+    configurable:
+      items:
+        - roles
+        - requirements
+        - elections
+        - durations
+        - voting_rules
+        - support_formulas
+        - levers
+        - laws
+        - effects
+        - milestones
+        - visibility
+        - npc
+        - population
+
+  security:
+    clientCannotDecide:
+      items:
+        - election_results
+        - vote_counts
+        - eligibility
+        - role_assignment
+        - mandate_duration
+        - active_laws
+        - law_effects
+        - support_values
+
+  idempotency:
+    fields:
+      items:
+        - electionId
+        - voteId
+        - actionId
+        - lawId
+        - idempotencyKey
+    rules:
+      items:
+        - no_double_vote
+        - no_double_law_application
+        - no_duplicate_mandate
+
+  audit:
+    trace:
+      items:
+        - electionId
+        - candidateId
+        - vote
+        - timestamp
+        - result
+        - law
+        - politicalAction
+        - effects
+        - causalChainId
+    purpose:
+      items:
+        - debug
+        - security
+        - analysis
+    notPublicHistory: true
+
+  antiExploit:
+    protections:
+      items:
+        - double_vote
+        - client_manipulation
+        - duplicate_roles
+        - duplicate_elections
+        - double_law_application
+        - result_tampering
+        - mandate_bypass
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI/LLM runtime
+    futureUse: content pack authoring offline
+
+  separationOfConcerns:
+    politicalMustNot:
+      items:
+        - modify_cash_directly
+        - assign_mainLevel
+        - auto_assign_mayor_at_L25
+        - duplicate_criminal_system
+        - duplicate_task_system
+        - control_inflation_directly
+        - implement_notification_ui

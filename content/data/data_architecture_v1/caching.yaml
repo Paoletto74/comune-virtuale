@@ -1,0 +1,28 @@
+# =============================================================================
+# CACHING — non fonte autorevole
+# =============================================================================
+
+CacheStrategy:
+  rule: CACHE NON è fonte autorevole
+  cachedDomains:
+    items:
+      - rankings
+      - gazzetta
+      - marketplace
+      - statistics
+      - content
+      - image_metadata
+      - home_summary
+
+contentCache:
+  DECISIONE APPROVATA: |
+    Content pubblicato cacheable.
+    PUBLISHED CONTENT ≠ PLAYER STATE.
+
+cacheInvalidation:
+  contentChange: invalidate/revalidate
+  playerStateChange: invalidate solo proiezioni necessarie
+
+events:
+  items:
+    - CacheInvalidated

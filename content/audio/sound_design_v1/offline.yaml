@@ -1,0 +1,12 @@
+# =============================================================================
+# OFFLINE — PWA audio caching
+# =============================================================================
+
+OfflineAudio:
+  rule: UI shell puo funzionare offline — audio assets cached where appropriate
+  gameplay: online rimane authoritative server-side
+  ref: frontend_ui_v1
+
+events:
+  items:
+    - OfflineAudioResolved

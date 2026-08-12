@@ -1,0 +1,18 @@
+# =============================================================================
+# ADMIN FILTERS — type, status, category, locale, date
+# =============================================================================
+
+AdminFilters:
+  filters:
+    items:
+      - type
+      - status
+      - category
+      - locale
+      - date
+      - author
+      - published_unpublished
+
+events:
+  items:
+    - ContentFiltered

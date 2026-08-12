@@ -1,0 +1,67 @@
+# =============================================================================
+# COMPONENTS — shared reusable component system
+# =============================================================================
+
+ComponentSystem:
+  shared:
+    items:
+      - Button
+      - Card
+      - Modal
+      - Popup
+      - Toast
+      - Tabs
+      - Badge
+      - Avatar
+      - AssetImage
+      - Graph
+      - Table
+      - List
+      - EmptyState
+      - LoadingState
+      - ErrorState
+
+AssetImage:
+  supports:
+    items:
+      - loading
+      - fallback
+      - error
+      - responsive_size
+  assetTypes: ref visual_assets.yaml
+
+Graph:
+  usedBy:
+    items:
+      - patrimonio
+      - inflazione
+      - ranking_trend
+      - statistiche
+  rule: dati reali — NON inventati
+
+ComponentContract:
+  perComponent:
+    items:
+      - input
+      - output_events
+      - accessibility
+      - loading
+      - error
+      - responsive_behavior
+
+Badges:
+  indicators:
+    items:
+      - level
+      - title
+      - verified_admin
+      - trend
+      - unread
+      - active_status
+  rule: NON sovraccaricare UI
+
+ref: ui_main_v1
+
+events:
+  items:
+    - ComponentRendered

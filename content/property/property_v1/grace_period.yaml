@@ -1,0 +1,14 @@
+# =============================================================================
+# GRACE PERIOD — property_v1
+# =============================================================================
+
+---
+GracePeriod:
+  status: PROPOSTA TECNICA / TBD
+  toDefine:
+    items:
+      - duration
+      - consequences
+      - warning count
+      - eventual termination
+  configurable: true

@@ -1,0 +1,16 @@
+# =============================================================================
+# NOTIFICATION SOUNDS — priority-aligned
+# =============================================================================
+
+NotificationSounds:
+  priorityMapping:
+    LOW: subtle notification cue
+    NORMAL: standard notification cue
+    HIGH: prominent notification cue
+    CRITICAL: critical alert cue
+  rule: NON usare suono critico per notifica banale
+  ref: notification_main_v1
+
+events:
+  items:
+    - NotificationSoundPlayed

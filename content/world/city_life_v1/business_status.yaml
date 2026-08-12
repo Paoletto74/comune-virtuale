@@ -1,0 +1,19 @@
+# =============================================================================
+# BUSINESS STATUS — OPEN, CLOSED, SUSPENDED, etc.
+# =============================================================================
+
+BusinessStatus:
+  states:
+    items:
+      - OPEN
+      - CLOSED
+      - SUSPENDED
+      - BANKRUPT
+      - COMING_SOON
+      - ARCHIVED
+  definitive: DA DEFINIRE / TBD
+  authoritative: backend
+
+events:
+  items:
+    - BusinessStatusChanged

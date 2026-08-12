@@ -1,0 +1,18 @@
+# =============================================================================
+# CRIMINAL RUNTIME — heat decay, timers, consequences
+# =============================================================================
+
+CriminalRuntime:
+  tickProcesses:
+    items:
+      - heat_decay
+      - timers
+      - consequences
+      - scheduled_effects
+  sourceOfTruth: Criminal
+  executionMode: event-driven + tick-driven
+  ref: criminal_main_v1
+
+events:
+  emits: [CriminalActivityExecuted, HeatChanged]
+  consumes: [PlayerCommandCriminalAction]

@@ -1,0 +1,44 @@
+# =============================================================================
+# NPC — famiglie NPC e semplificazione
+# =============================================================================
+
+NpcFamilySimulation:
+  DECISIONE APPROVATA: NPC possono avere famiglie
+  purpose:
+    items:
+      - credible_world
+      - economic_demand
+      - events
+      - relationships
+      - dynamic_population
+
+simulationDepth:
+  playerFamily:
+    items:
+      - persistent_entities
+      - detailed_events
+      - tasks
+      - full_consequences
+      - child_npc_lifecycle
+  npcFamily:
+    items:
+      - aggregated_state
+      - probability_events
+      - synthetic_events
+      - lower_depth
+
+NpcChild:
+  rule: Figli NPC del player = persistenti — figli NPC di NPC = simplified
+  depth: configurable
+
+aggregatedFields:
+  items:
+    - household_size
+    - income_sources_count
+    - dependents_count
+    - event_probability
+
+events:
+  items:
+    - NpcFamilyEvent
+    - NpcHouseholdUpdated

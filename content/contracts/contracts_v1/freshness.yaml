@@ -1,0 +1,26 @@
+# =============================================================================
+# FRESHNESS — REALTIME, NEAR_REALTIME, EVENTUAL, SNAPSHOT
+# =============================================================================
+
+FreshnessPolicy:
+  levels:
+    REALTIME:
+      examples: [balance]
+    NEAR_REALTIME:
+      examples: []
+    EVENTUAL:
+      examples: [ranking]
+    SNAPSHOT:
+      examples: [historical_graph, ranking_snapshot]
+
+graphQueries:
+  items:
+    - GetNetWorthHistory
+    - GetInflationHistory
+    - GetRankingHistory
+  response:
+    items: [period, timestamp, value, source, version]
+
+events:
+  items:
+    - FreshnessPolicyApplied

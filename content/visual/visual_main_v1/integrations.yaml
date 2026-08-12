@@ -1,0 +1,151 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  profile_main_v1:
+    direction: profile → visual
+    provides:
+      items:
+        - citizen
+        - bestProperty
+        - bestVehicle
+        - bestLuxury
+        - public_titles
+        - public_badges
+    visualProduces: ProfileShowcase
+
+  marketplace_main_v1:
+    direction: marketplace → visual
+    provides:
+      items:
+        - listing
+        - item_reference
+        - category
+        - state
+    visualReturns: thumbnail_card_visual
+
+  inventory_main_v1:
+    direction: inventory → visual
+    provides:
+      items:
+        - item
+        - quantity
+        - condition
+    visualReturns: thumbnail
+
+  property_main_v1:
+    direction: property → visual
+    provides:
+      items:
+        - property_type
+        - quality
+        - condition
+        - public_status
+    visualReturns: property_visual
+
+  mobility_main_v1:
+    direction: mobility → visual
+    provides:
+      items:
+        - vehicle_model
+        - condition
+        - status
+    visualReturns: vehicle_visual
+
+  event_main_v1:
+    direction: event → visual
+    provides:
+      items:
+        - event_type
+        - context
+        - participants
+    visualReturns: event_visual
+
+  notification_main_v1:
+    direction: notification → visual
+    provides:
+      items:
+        - priority
+        - event
+        - target
+    visualReturns: icon_image_animation_sound_ref
+
+  gazzetta_future:
+    direction: gazzetta → visual
+    provides:
+      items:
+        - headline
+        - article
+        - publication
+    visualProvides:
+      items:
+        - image
+        - illustration
+        - thumbnail
+
+  audio_system_future:
+    direction: visual → audio
+    rule: Visual riferisce soundId — Audio autorevole playback
+
+  animation_ui_future:
+    direction: visual → animation
+    rule: Visual riferisce animationId — Animation/UI autorevole
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA
+    manages:
+      items:
+        - visual_asset_metadata
+        - item_vehicle_property_images
+        - character_visuals
+        - profile_showcase_definitions
+        - popup_definitions
+        - icons_sounds_animations
+        - news_event_visuals
+    flow: YAML/JSON → validation → preview → publish → Visual Content
+
+  noAiRuntime:
+    DECISIONE APPROVATA: NO AI image generation runtime V1
+
+  separationOfConcerns:
+    visualMustNot:
+      items:
+        - own_game_content_definitions
+        - decide_best_assets
+        - show_asset_origin_automatically
+        - include_private_assets_in_public_composition
+        - manage_global_audio_volume
+        - implement_animation_engine
+        - hardcode_image_paths
+
+  contentIntegrity:
+    DECISIONE APPROVATA: proteggere contro
+    threats:
+      items:
+        - asset_mismatch
+        - broken_reference
+        - unauthorized_visual
+        - private_asset_leakage
+        - version_mismatch
+
+  security:
+    DECISIONE APPROVATA: client NON può
+    clientCannot:
+      items:
+        - modify_visual_assets
+        - change_visibility
+        - change_profile_showcase
+        - associate_arbitrary_images_to_assets
+        - bypass_content_validation
+
+  audit:
+    DECISIONE APPROVATA:
+    logTypes:
+      items:
+        - assetPublished
+        - assetDeprecated
+        - assetUpdated
+        - profileShowcaseUpdated
+        - popupDefinitionUpdated

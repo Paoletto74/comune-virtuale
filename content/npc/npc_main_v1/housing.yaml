@@ -1,0 +1,38 @@
+# =============================================================================
+# HOUSING — affitti, acquisti, homeless
+# =============================================================================
+
+NpcHousing:
+  DECISIONE APPROVATA: allinea property_main_v1/npc_demand.yaml
+  capabilities:
+    items:
+      - rent
+      - buy
+      - sell
+      - own_property
+  owner: property_main_v1 autorevole
+  simulation: aggregata per tier bassi — individuale per tier alti
+
+rentalDemand:
+  triggers:
+    items:
+      - listing_open_no_player_tenant
+      - scheduled_market_tick
+      - vacancy_timeout
+  ref: property_main_v1/npc_demand.yaml
+
+purchaseDemand:
+  triggers:
+    items:
+      - listing_open_no_player_buyer
+      - system_market_refresh
+
+npcTenant:
+  promotion: tenant NPC può passare a TIER_1+ se relazione con player
+
+events:
+  items:
+    - NpcTenantAssigned
+    - NpcPropertyPurchased
+    - NpcPropertySold
+    - NpcHousingSituationChanged

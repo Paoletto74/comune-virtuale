@@ -1,0 +1,21 @@
+# =============================================================================
+# NOTIFICATION VISUALS
+# =============================================================================
+
+NotificationVisual:
+  schema:
+    notificationTypeRef: string
+    iconAssetId: "string | null"
+    thumbnailAssetId: "string | null"
+    imageAssetId: "string | null"
+    animationId: "string | null"
+    soundId: "string | null"
+
+rule: |
+  Notification fornisce priority, event, target.
+  Visual System restituisce icon/image/animation/sound reference.
+  Notifiche normali compatte.
+
+events:
+  items:
+    - NotificationVisualResolved

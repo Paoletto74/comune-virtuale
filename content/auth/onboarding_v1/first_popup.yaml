@@ -1,0 +1,13 @@
+# =============================================================================
+# FIRST POPUP — welcome popup
+# =============================================================================
+
+FirstPopup:
+  content: Content System
+  visual: character visual + headline + breve introduzione
+  sound: opzionale — ref sound_integration.yaml
+  ref: contextual_visuals_v1, content_system_v1/popup_content.yaml
+
+events:
+  items:
+    - FirstPopupShown

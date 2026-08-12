@@ -1,0 +1,32 @@
+# =============================================================================
+# DASHBOARD — overview admin
+# =============================================================================
+
+AdminDashboard:
+  status: PROPOSTA TECNICA — layout TBD
+  mayShow:
+    items:
+      - published_count
+      - draft_count
+      - error_count
+      - pending_approval_count
+      - recent_changes
+      - recent_versions
+      - failed_publishes
+      - disabled_count
+
+contentHealth:
+  ref: health.yaml
+  futureMetrics:
+    items:
+      - broken_references
+      - missing_visuals
+      - missing_translations
+      - expired_content
+      - duplicate_ids
+      - unpublished_drafts
+      - validation_errors
+
+events:
+  items:
+    - DashboardViewed

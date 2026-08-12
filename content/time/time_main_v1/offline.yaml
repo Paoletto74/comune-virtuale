@@ -1,0 +1,41 @@
+# =============================================================================
+# OFFLINE — mondo continua, player catch-up al login
+# =============================================================================
+
+OfflinePlayer:
+  DECISIONE APPROVATA: |
+    Giocatore offline — mondo continua.
+    Al login:
+    elapsedRealTime → worldElapsedTime
+    → scheduled events → batch simulation
+    → player-specific events → notifications
+
+lastActiveAt:
+  schema:
+    citizenId: string
+    lastActiveAt: timestamp
+    lastSeenAt: timestamp
+  rule: Progression/World usano inactivity — Time NON fa decadere tutto automaticamente
+
+Inactivity:
+  DECISIONE APPROVATA: inattività misurabile via lastActiveAt
+  consumers:
+    items:
+      - progression_main_v1
+      - progression_balance_v1
+  rule: decay/recovery rules nei domini — NON Time System
+
+WorldEventsWhileOffline:
+  items:
+    - laws
+    - economy
+    - npc_simulation
+    - rent_salary
+    - family_events
+    - criminal_consequences
+
+events:
+  items:
+    - PlayerWentOffline
+    - PlayerReturnedOnline
+    - InactivityMeasured

@@ -1,0 +1,12 @@
+# =============================================================================
+# VALUE TYPES — property_v1
+# =============================================================================
+
+---
+ValueTypes:
+  separate:
+  - purchase price
+  - market value
+  - tax value
+  - insurance value future
+  status: DECISIONE APPROVATA

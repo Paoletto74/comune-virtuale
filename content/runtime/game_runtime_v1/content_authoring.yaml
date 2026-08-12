@@ -1,0 +1,20 @@
+# =============================================================================
+# CONTENT AUTHORING — Admin Studio to runtime availability
+# =============================================================================
+
+ContentAuthoring:
+  status: PROPOSTA TECNICA
+  futureFlow:
+    items:
+      - Admin_incolla_nuovo_task
+      - Content_Parser_future
+      - Validation
+      - Preview
+      - Publish
+      - Runtime_availability
+
+ref: admin_content_studio_v1, content_authoring admin workflow
+
+events:
+  emits: [ContentDraftValidated]
+  consumes: []

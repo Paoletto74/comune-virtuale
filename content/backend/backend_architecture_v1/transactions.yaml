@@ -1,0 +1,38 @@
+# =============================================================================
+# TRANSACTIONS — boundaries, atomicity, rollback
+# =============================================================================
+
+TransactionBoundaries:
+  DECISIONE APPROVATA: ogni command definisce boundary, sistemi, atomicita, rollback
+
+boundaries:
+  BuyItem:
+    systems: [Banking, Marketplace, Inventory, Notification]
+    atomic: true
+    rollback: full on any failure
+  CompleteTask:
+    systems: [Task, Banking, Progression, Notification]
+    atomic: true
+  ReceiveSalary:
+    systems: [Work, Banking, Notification]
+    atomic: true
+    idempotency: required
+  SendGift:
+    systems: [Banking, Inventory, Social, Notification]
+    atomic: true
+  Vote:
+    systems: [Political, Notification]
+    atomic: true
+  CreateListing:
+    systems: [Marketplace, Inventory]
+    atomic: true
+  PublishContent:
+    systems: [Content, Audit]
+    atomic: true
+
+ref: data_architecture_v1/transactions.yaml
+
+events:
+  items:
+    - TransactionCommitted
+    - TransactionRolledBack

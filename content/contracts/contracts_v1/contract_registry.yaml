@@ -1,0 +1,49 @@
+# =============================================================================
+# CONTRACT REGISTRY — catalog structure (no runtime)
+# =============================================================================
+
+ContractRegistry:
+  status: PROPOSTA TECNICA — NON implementare registry runtime
+  structure:
+    commands: commands/
+    queries: queries/
+    events: events/
+    read_models: read_models/
+    errors: errors/
+    schemas: schemas/
+    examples: examples/
+
+perContract:
+  documents:
+    items:
+      - purpose
+      - owner
+      - input
+      - output
+      - authorization
+      - validation
+      - side_effects
+      - events
+      - errors
+      - consistency
+      - idempotency
+      - version
+
+contractOwnership:
+  rule: ogni contract ha owner — shared contracts ownership esplicita
+
+sharedTypes:
+  shareOnly:
+    items:
+      - IDs
+      - primitives
+      - timestamps
+      - money_value_object
+      - pagination
+      - errors
+      - correlation_metadata
+  mustNot: mega shared package con tutte domain entities
+
+events:
+  items:
+    - ContractRegistered

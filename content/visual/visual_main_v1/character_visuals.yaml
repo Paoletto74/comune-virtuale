@@ -1,0 +1,50 @@
+# =============================================================================
+# CHARACTER / CITIZEN VISUALS
+# =============================================================================
+
+CharacterVisual:
+  schema:
+    citizenId: string
+    avatarAssetId: string
+    profilePortraitAssetId: "string | null"
+    fullBodyAssetId: "string | null"
+    contextualAssetId: "string | null"
+
+characterCustomization:
+  status: PROPOSTA TECNICA — NO character creator complesso V1
+  futureComponents:
+    items:
+      - gender
+      - age
+      - hair
+      - clothing
+      - accessories
+      - style
+      - expression
+      - social_status
+      - other_elements
+
+characterProgressionVisual:
+  status: PROPOSTA TECNICA — PRESENTAZIONE, non modifica statistiche
+  exampleTiers:
+    items:
+      - SENZATETTO
+      - LAVORATORE
+      - PROFESSIONISTA
+      - IMPRENDITORE
+      - FIGURA_DI_POTERE
+  rule: progressione visuale = presentazione — NON altera stats automaticamente
+
+profileHeroImage:
+  status: PROPOSTA TECNICA
+  mayCombine:
+    items:
+      - character
+      - prestige_asset
+      - environment
+      - decorative_elements
+
+events:
+  items:
+    - CharacterVisualUpdated
+    - ProfileHeroImageUpdated

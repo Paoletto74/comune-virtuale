@@ -1,0 +1,80 @@
+# =============================================================================
+# DISCOVERY SYSTEM — scoperta separata da heat
+# =============================================================================
+
+DiscoveryRecord:
+  schema:
+    discoveryId: string
+    criminalActionId: string
+    actorId: string
+    status: undiscovered | suspected | investigated | attributed | proven | archived | unresolved
+    discoveredAt: timestamp | null
+    evidenceLevel: TBD
+    witnesses: []
+    investigationRef: string | null
+
+discoveryStatuses:
+  items:
+    - statusId: undiscovered
+      label: Non scoperto
+    - statusId: suspected
+      label: Sospettato
+    - statusId: investigated
+      label: Indagato
+    - statusId: attributed
+      label: Attribuito
+    - statusId: proven
+      label: Provato
+    - statusId: archived
+      label: Archiviato
+    - statusId: unresolved
+      label: Non risolto
+
+discoveryEvaluation:
+  inputs:
+    items:
+      - heat
+      - crime_type
+      - execution_quality
+      - evidence
+      - witnesses
+      - randomness
+      - investigation_capacity
+      - events
+  rule: |
+    NO simulatore poliziesco complesso.
+    Risultato probabilistico — motore autorevole.
+  formula: TBD
+
+successWithoutDiscovery:
+  DECISIONE APPROVATA: fondamentale
+  note: Non ogni crimine deve essere scoperto
+  outcomes:
+    items:
+      - success_no_discovery
+      - success_delayed_discovery
+      - failure_no_discovery
+      - failure_immediate_discovery
+  probabilities: TBD
+
+publicReputationLink:
+  rule: |
+    Crimine segreto NON influenza reputazione pubblica finché non scoperto.
+    Scoperta → possibile impatto reputation, sympathy, popularity.
+  values: TBD
+
+investigationModel:
+  status: PROPOSTA_TECNICA
+  simplified: true
+  note: Investigators astratti — non simulazione forense dettagliata
+  capacity: TBD
+
+events:
+  items:
+    - CrimeUndiscovered
+    - CrimeSuspected
+    - InvestigationStarted
+    - CrimeAttributed
+    - CrimeProven
+    - InvestigationArchived
+    - CrimeDiscovered

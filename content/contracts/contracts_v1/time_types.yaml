@@ -1,0 +1,15 @@
+# =============================================================================
+# TIME TYPES — RealTimestamp, GameTimestamp, GameDate
+# =============================================================================
+
+TimeTypes:
+  distinguish:
+    items:
+      - RealTimestamp
+      - GameTimestamp
+      - GameDate
+  rule: client timestamp NON authoritative — game time from server
+
+events:
+  items:
+    - TimeTypeApplied

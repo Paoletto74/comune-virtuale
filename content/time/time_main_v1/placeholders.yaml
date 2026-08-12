@@ -1,0 +1,60 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_TIME_SCALE: TBD
+  INITIAL_WORLD_TIME: TBD
+  WORLD_TIMEZONE: TBD
+  WORLD_SEED: TBD
+
+  SECONDS_PER_MINUTE: TBD
+  MINUTES_PER_HOUR: TBD
+  DAYS_PER_WEEK: TBD
+  WEEKS_PER_MONTH: TBD
+  MONTHS_PER_YEAR: TBD
+
+  DAY_PHASE_HOURS: TBD
+  SEASON_DURATION_DAYS: TBD
+
+  CATCHUP_MAX_ELAPSED_DAYS: TBD
+  CATCHUP_MAX_EVENTS: TBD
+  CATCHUP_MAX_BATCH_SIZE: TBD
+
+  HOURLY_TICK_ENABLED: TBD
+  DAILY_TICK_HOUR: TBD
+  WEEKLY_TICK_DAY: TBD
+  MONTHLY_TICK_DAY: TBD
+
+  INACTIVITY_WARNING_DAYS: TBD
+  INACTIVITY_DEMOTION_DAYS: TBD
+
+  SCHEDULER_POLL_INTERVAL_MS: TBD
+  PERSIST_INTERVAL_MS: TBD
+
+  MAX_CONCURRENT_ACTIVITIES: TBD
+  DEFAULT_SLEEP_HOURS: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - work_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - business_main_v1
+      - family_main_v1
+      - political_main_v1
+      - criminal_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - task_main_v1
+      - event_main_v1
+      - notification_main_v1
+      - npc_main_v1
+
+  futurePack:
+    note: time_balance_v1 — timeScale default, calendar, tick schedules — DA DEFINIRE
+
+  contentPackNote: |
+    time_main_v1 formalizza shared_time_service referenziato da tutti i pack.
+    NON modifica pack approvati.

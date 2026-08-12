@@ -1,0 +1,10 @@
+# =============================================================================
+# PAYDAY — work_careers_v1
+# =============================================================================
+
+---
+Payday:
+  trigger: Time System
+  work: determines compensation
+  economy: executes transaction
+  status: DECISIONE APPROVATA

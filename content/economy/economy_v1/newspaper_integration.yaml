@@ -1,0 +1,13 @@
+# =============================================================================
+# NEWSPAPER INTEGRATION — economy_v1
+# =============================================================================
+
+---
+NewspaperIntegration:
+  editorialCandidate: true
+  notAutoPublish: true
+  examples:
+  - market crash
+  - inflation spike
+  - wealth milestone
+  status: DECISIONE APPROVATA

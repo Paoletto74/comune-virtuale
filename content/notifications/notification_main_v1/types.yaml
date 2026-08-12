@@ -1,0 +1,72 @@
+# =============================================================================
+# NOTIFICATION ENTITY & TYPES
+# =============================================================================
+
+Notification:
+  schema:
+    notificationId: string
+    recipientId: string | null
+    feedType: personal | global
+    typeId: string
+    categoryId: string
+    severity: INFO | WARNING | CRITICAL
+    priority: LOW | NORMAL | HIGH | CRITICAL
+    title: string
+    body: string
+    createdAt: timestamp
+    readAt: "timestamp | null"
+    expiresAt: "timestamp | null"
+    status: UNREAD | READ | ARCHIVED
+    sourceType: string
+    sourceId: string
+    sourceSystem: string
+    eventId: string
+    causalChainId: string | null
+    effectsSummary: []
+    actionRef: string | null
+    idempotencyKey: string
+    templateRef: string
+    personalizationContext: {}
+
+NotificationDTO:
+  status: PROPOSTA_TECNICA
+  note: Contratto UI backend — UI definitiva progettata successivamente
+  fields:
+    items:
+      - id
+      - type
+      - severity
+      - priority
+      - title
+      - body
+      - createdAt
+      - readAt
+      - expiresAt
+      - category
+      - sourceType
+      - sourceId
+      - action
+      - effects
+      - causalChainId
+
+WorldEventVsNotification:
+  DECISIONE APPROVATA: |
+    WORLD EVENT ≠ NOTIFICATION.
+    Evento può: non generare notifica; 1 personale; N personali;
+    1 globale; notifiche diverse per destinatari diversi.
+
+pipeline:
+  flow: |
+    System → Event
+    → Notification Evaluation
+    → Audience Resolution
+    → Personalization
+    → Notification
+    → Feed (personal | global)
+
+events:
+  items:
+    - NotificationCreated
+    - NotificationRead
+    - NotificationArchived
+    - NotificationExpired

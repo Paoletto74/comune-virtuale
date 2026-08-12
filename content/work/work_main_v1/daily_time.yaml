@@ -1,0 +1,59 @@
+# =============================================================================
+# DAILY TIME — 24 ore, full/part time, più lavori
+# =============================================================================
+
+DailyTimeModel:
+  hoursPerDay: 24
+
+  allocation:
+    work: variable
+    freeTime: derived
+    otherActivities: TBD
+
+  scheduleTypes:
+    full_time:
+      defaultHours: TBD
+    part_time:
+      defaultHours: TBD
+
+  multiJobExample:
+    - jobA: 8h
+      jobB: 4h
+      freeTime: 12h
+    - jobA: 8h
+      jobB: 8h
+      freeTime: 8h
+
+  maxWorkableHoursPerDay:
+    value: TBD
+    initialHypothesis: 16
+    placeholderKey: MAX_WORK_HOURS_PER_DAY
+    notes: |
+      PROPOSTA TECNICA: ipotesi iniziale 16h/giorno
+      DA DEFINIRE e CONFIGURABILE
+
+  freeTimeEffects:
+    contributesTo:
+      - freeTime_personal_value
+      - happiness
+      - recovery
+      - health
+    tradeOff:
+      DECISIONE APPROVATA: più lavoro → più reddito potenziale, peggioramento valori
+
+  stressFromWork:
+    drivers:
+      - hours_worked
+      - job_type
+      - difficulty
+      - conditions
+      - quality
+      - events
+      - results
+      - environment
+    formula: TBD
+    notes: NON solo ore — multi-fattore
+
+  integration:
+    timeSystem: shared
+    blocksIncompatibleActions: true

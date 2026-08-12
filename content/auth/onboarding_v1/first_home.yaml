@@ -1,0 +1,20 @@
+# =============================================================================
+# FIRST HOME — personalized front page
+# =============================================================================
+
+FirstHome:
+  type: personalized_front_page
+  widgets:
+    items:
+      - benvenuto
+      - Gazzetta
+      - primo_task
+      - stato_Citizen
+      - Comune
+      - notifiche
+  rule: diversa da Home Citizen esperto — ref progressive_disclosure.yaml
+  ref: frontend_ui_v1
+
+events:
+  items:
+    - FirstHomeViewed

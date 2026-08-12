@@ -1,0 +1,38 @@
+# =============================================================================
+# ROLE HISTORY — job vs activeRole, Political autorevole
+# =============================================================================
+
+RoleHistory:
+  status: PROPOSTA TECNICA — retention TBD
+  schema:
+    entryId: string
+    citizenId: string
+    roleType: political | professional | honorary | other
+    roleLabel: string
+    startDate: timestamp
+    endDate: "timestamp | null"
+    visibility: PUBLIC | PRIVATE
+
+activeRole:
+  DECISIONE APPROVATA: da lifeSituation/Political — separato da levelLabel
+  politicalProfile:
+    mayShow:
+      items:
+        - role
+        - municipality
+        - mandate_if_applicable
+        - status
+
+jobVsRole:
+  DECISIONE APPROVATA:
+  examples:
+    items:
+      - job: medico
+        activeRole: sindaco
+      - job: imprenditore
+        activeRole: nessuno
+
+events:
+  items:
+    - RoleChanged
+    - RoleHistoryUpdated

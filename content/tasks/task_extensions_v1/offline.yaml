@@ -1,0 +1,15 @@
+# =============================================================================
+# OFFLINE — task_extensions_v1
+# =============================================================================
+
+---
+Offline:
+  canView: cached tasks
+  cannotOffline:
+  - completion
+  - reward claim
+  - economic effects
+  - ownership effects
+  - progression effects
+  delayedOffline: DECISIONE APPROVATA inherited - consequences via Time catch-up
+  status: mixed inherited + PROPOSTA

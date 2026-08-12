@@ -1,0 +1,73 @@
+# =============================================================================
+# COMMANDS — catalog, structure, naming
+# =============================================================================
+
+CommandModel:
+  DECISIONE APPROVATA:
+  structure:
+    commandId: string
+    commandType: string
+    schemaVersion: number
+    actorId: string
+    targetId: string
+    payload: object
+    occurredAt: timestamp
+    correlationId: string
+    causationId: string
+    idempotencyKey: string
+
+naming:
+  rule: verbs — BuyItem, CompleteTask, ApplyForJob, CastVote
+
+actorTypes:
+  items:
+    - PLAYER
+    - NPC
+    - ADMIN
+    - SYSTEM
+    - SCHEDULER
+  rule: NON fidarsi actorId client senza auth/authz
+
+payload:
+  rule: |
+    Solo dati necessari. NON includere server-generated reward,
+    authoritative price, level, ownership, hidden state.
+
+timestamps:
+  distinguish:
+    items:
+      - client_request_time
+      - server_received_time
+      - game_time
+  rule: client timestamp NON authoritative
+
+catalog:
+  Economy:
+    items: [ProcessSalary, ProcessRent]
+  Task:
+    items: [CompleteTask, StartTask]
+  Work:
+    items: [ApplyForJob, AcceptJob, LeaveJob]
+  Marketplace:
+    items: [CreateListing, PurchaseListing, RentListing, CancelListing]
+  Banking:
+    items: [CreateTransfer, CreateLoan, RepayLoan]
+  Political:
+    items: [CastVote, SubmitCandidacy]
+  Social:
+    items: [CreateGift, CreateLoanRequest]
+  Profile:
+    items: [UpdateProfile]
+  Criminal:
+    items: [ExecuteCriminalAction]
+  Property:
+    items: [PurchaseProperty]
+  Mobility:
+    items: [PurchaseVehicle]
+  Inventory:
+    items: [TransferItem]
+
+events:
+  items:
+    - CommandReceived
+    - CommandProcessed

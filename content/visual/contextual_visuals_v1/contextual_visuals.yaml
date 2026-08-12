@@ -1,0 +1,20 @@
+# =============================================================================
+# CONTEXTUAL VISUALS — overview
+# =============================================================================
+
+ContextualVisuals:
+  purpose: |
+    Eventi importanti usano immagini, illustrazioni, scene, personaggi, oggetti,
+    ambientazioni, composizioni contestuali — NON solo testo, icona, colore, suono.
+  appliesTo:
+    items:
+      - popup_HIGH_CRITICAL
+      - notification_with_thumbnail
+      - Gazzetta_article
+      - marketplace_card
+      - profile_showcase
+      - event_scenes
+
+events:
+  items:
+    - ContextualVisualResolved

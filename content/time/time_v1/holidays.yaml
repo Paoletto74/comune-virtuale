@@ -1,0 +1,14 @@
+# =============================================================================
+# HOLIDAYS — time_v1
+# =============================================================================
+
+---
+GameHolidays:
+  status: PROPOSTA TECNICA future
+  effects:
+  - business
+  - jobs
+  - events
+events:
+  items:
+  - HolidayStarted

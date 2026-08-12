@@ -1,0 +1,10 @@
+# =============================================================================
+# PURCHASE ATOMICITY — property_v1
+# =============================================================================
+
+---
+PurchaseAtomicity:
+  rule: never money debited without property OR property without payment
+  recovery: safe rollback on partial failure
+  alignsWith: property_main_v1 ownershipTransfer atomic
+  status: DECISIONE APPROVATA

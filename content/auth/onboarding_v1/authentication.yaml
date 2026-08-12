@@ -1,0 +1,15 @@
+# =============================================================================
+# AUTHENTICATION — methods overview (extends auth_main_v1)
+# =============================================================================
+
+Authentication:
+  methods:
+    A: Google_Login
+    B: Email_Password
+    other: DA DEFINIRE / TBD
+  ref: auth_main_v1/authentication.yaml, providers.yaml
+  rule: authentication richiede connettivita — NON creare Citizen offline
+
+events:
+  items:
+    - AuthenticationStarted

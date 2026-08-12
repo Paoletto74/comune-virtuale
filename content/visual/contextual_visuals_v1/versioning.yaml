@@ -1,0 +1,14 @@
+# =============================================================================
+# VERSIONING — visual asset versions
+# =============================================================================
+
+Versioning:
+  rule: visual asset versionato — modifica sostanziale = nuova versione
+  replace:
+    rule: replacing asset creates new version
+  historical:
+    ref: historical_content.yaml, snapshots.yaml
+
+events:
+  items:
+    - VisualVersionUpdated

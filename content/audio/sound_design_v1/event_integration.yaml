@@ -1,0 +1,12 @@
+# =============================================================================
+# EVENT INTEGRATION — eventSoundType
+# =============================================================================
+
+EventIntegration:
+  field: eventSoundType
+  rule: Event content referenzia semantic sound type — NOT raw file
+  ref: event_main_v1, content_system_v1/event_content.yaml
+
+events:
+  items:
+    - EventSoundTypeResolved

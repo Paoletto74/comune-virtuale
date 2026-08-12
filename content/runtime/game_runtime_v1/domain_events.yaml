@@ -1,0 +1,25 @@
+# =============================================================================
+# DOMAIN EVENTS — produced by domain systems
+# =============================================================================
+
+DomainEvents:
+  examples:
+    items:
+      - TaskCompleted
+      - ItemPurchased
+      - SalaryPaid
+      - JobStarted
+      - LevelReached
+      - LevelLost
+      - ElectionHeld
+      - PropertyPurchased
+      - LoanCreated
+      - CriminalActivityExecuted
+
+source: domain systems — NOT runtime orchestrator directly
+
+ref: backend_architecture_v1/domain_events.yaml
+
+events:
+  items:
+    - DomainEventPublished

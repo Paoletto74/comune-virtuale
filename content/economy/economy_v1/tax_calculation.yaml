@@ -1,0 +1,8 @@
+# =============================================================================
+# TAX CALCULATION — economy_v1
+# =============================================================================
+
+---
+TaxCalculation:
+  serverAuthoritative: true
+  status: DECISIONE APPROVATA

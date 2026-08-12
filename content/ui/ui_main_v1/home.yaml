@@ -1,0 +1,66 @@
+# =============================================================================
+# HOME — homepage, main content, personalization
+# =============================================================================
+
+HomePage:
+  DECISIONE APPROVATA: punto centrale del gioco
+  structure:
+    items:
+      - header
+      - main_content_area
+      - bottom_navigation
+
+mainContent:
+  status: PROPOSTA TECNICA — layout definitivo TBD
+  mayShow:
+    items:
+      - recent_events
+      - tasks
+      - economic_situation
+      - activities
+      - news
+      - personal_status
+      - suggestions
+      - alerts
+      - contextual_content
+
+HomeSummary:
+  status: PROPOSTA TECNICA — data contract
+  schema:
+    balance: TBD
+    level: TBD
+    title: TBD
+    currentJob: TBD
+    activeTasks: TBD
+    unreadNotifications: TBD
+    importantEvents: TBD
+    publicHighlights: TBD
+
+homePersonalization:
+  status: PROPOSTA TECNICA
+  mayChangeBy:
+    items:
+      - level
+      - activity
+      - economic_situation
+      - events
+      - job
+      - season
+      - municipal_events
+  rule: NON cambiare arbitrariamente navigazione principale
+
+contentPriority:
+  status: PROPOSTA TECNICA — ordine definitivo TBD
+  priority:
+    items:
+      - important_events
+      - actions_requiring_attention
+      - tasks
+      - personal_info
+      - interest_content
+      - secondary_content
+
+events:
+  items:
+    - HomeViewLoaded
+    - HomeSummaryUpdated

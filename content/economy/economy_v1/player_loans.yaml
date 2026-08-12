@@ -1,0 +1,10 @@
+# =============================================================================
+# PLAYER LOANS — economy_v1
+# =============================================================================
+
+---
+PlayerLoans:
+  rules: Social/Loan System
+  economy: executes transfer
+  bankLoans: TBD future
+  status: DECISIONE APPROVATA

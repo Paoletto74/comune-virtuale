@@ -1,0 +1,26 @@
+# =============================================================================
+# BACKGROUND JOBS — workers, technology TBD
+# =============================================================================
+
+BackgroundJobs:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  jobs:
+    items:
+      - ranking_refresh
+      - npc_simulation
+      - notification_processing
+      - scheduled_content
+      - scheduled_events
+      - cleanup
+      - reconciliation
+      - analytics
+
+technology: TBD
+
+rule: NON bloccare API interattive
+
+events:
+  items:
+    - BackgroundJobStarted
+    - BackgroundJobCompleted
+    - BackgroundJobFailed

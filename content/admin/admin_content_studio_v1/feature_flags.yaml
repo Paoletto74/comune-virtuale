@@ -1,0 +1,20 @@
+# =============================================================================
+# FEATURE FLAGS & A/B — struttura compatibile futuro
+# =============================================================================
+
+FeatureFlags:
+  status: PROPOSTA TECNICA — compatibilità futura
+  states:
+    items:
+      - disabled
+      - enabled
+      - enabled_for_test
+      - enabled_globally
+
+AbTesting:
+  status: PROPOSTA TECNICA — NON implementare V1
+  note: struttura compatibile contentVariant A/B
+
+events:
+  items:
+    - FeatureFlagUpdated

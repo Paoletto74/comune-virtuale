@@ -1,0 +1,23 @@
+# =============================================================================
+# DEPRECATION — replacement, sunset, migration notes
+# =============================================================================
+
+Deprecation:
+  deprecatedContract:
+    requires:
+      items:
+        - replacement
+        - sunset_policy
+        - migration_notes
+
+contractMigration:
+  when: realmente necessario
+  options:
+    items:
+      - migration
+      - dual_read_dual_write
+      - compatibility_period
+
+events:
+  items:
+    - ContractDeprecated

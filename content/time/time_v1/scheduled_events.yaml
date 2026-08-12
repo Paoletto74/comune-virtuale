@@ -1,0 +1,16 @@
+# =============================================================================
+# SCHEDULED EVENTS — time_v1
+# =============================================================================
+
+---
+ScheduledEvents:
+  field: eventAt
+  types:
+  - instant
+  - scheduled
+  - recurring
+  - duration
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ScheduledEventFired

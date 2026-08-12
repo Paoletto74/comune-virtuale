@@ -1,0 +1,12 @@
+# =============================================================================
+# DEAD LETTER — failed events/jobs after repeated failure
+# =============================================================================
+
+DeadLetter:
+  status: PROPOSTA TECNICA
+  purpose: eventi/job che falliscono ripetutamente
+  handling: manual review, alert, potential replay after fix
+
+events:
+  emits: [DeadLetterQueued]
+  consumes: [RetryExhausted]

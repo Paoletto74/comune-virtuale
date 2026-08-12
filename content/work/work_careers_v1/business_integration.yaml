@@ -1,0 +1,8 @@
+# =============================================================================
+# BUSINESS INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+BusinessIntegration:
+  businessIs: employer job positions staff payroll
+  status: DECISIONE APPROVATA

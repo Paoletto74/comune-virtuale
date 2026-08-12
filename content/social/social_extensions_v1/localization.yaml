@@ -1,0 +1,20 @@
+# =============================================================================
+# LOCALIZATION
+# =============================================================================
+
+Localization:
+  status: PROPOSTA TECNICA
+
+  rule: |
+    Preset messages usano textKey.
+    Default locale it-IT.
+    Content System gestisce traduzioni.
+
+  mustNotHardcode:
+    items:
+      - Grazie
+      - Complimenti
+      - Ti odio
+      - other_display_strings
+
+  formatting: centralizzato via Content System

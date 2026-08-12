@@ -1,0 +1,32 @@
+# =============================================================================
+# MOTIFS — sound families per category
+# =============================================================================
+
+SoundMotifs:
+  families:
+    Economy:
+      motif: cash
+      cues: [economy.coin_gain, economy.major_spend]
+    Politics:
+      motif: civic
+      cues: [political.ballot, political.mayor_victory]
+    Crime:
+      motif: tension
+      cues: [crime.arrest_siren, crime.police_tension]
+    News:
+      motif: newsroom
+      cues: [news.breaking_sting, news.editorial_subtle]
+    Progression:
+      motif: achievement
+      cues: [progression.level_up, progression.new_title]
+
+  consistency:
+    DECISIONE APPROVATA: |
+      Stesso evento usa stessa sound family tra popup, notification, Gazzetta, Home.
+
+  noRandomChaos:
+    rule: randomizzazione NON compromette riconoscibilita, priorita, tono
+
+events:
+  items:
+    - MotifApplied

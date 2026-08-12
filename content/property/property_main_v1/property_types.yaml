@@ -1,0 +1,108 @@
+# =============================================================================
+# PROPERTY TYPES — definizioni/tipologie (Property Definition)
+# =============================================================================
+# Esempio: "Monolocale in centro" = definizione
+#          "Monolocale Via X unità 24" = istanza (properties.yaml)
+# =============================================================================
+
+PropertyDefinition:
+  schema:
+    typeId: string
+    name: string
+    categoryId: string
+    description: string
+    zoneProfileRef: string
+    baseMarketValue: TBD
+    baseRent: TBD
+    baseMaintenanceCost: TBD
+    baseTaxRate: TBD
+    capacity: TBD
+    habitable: boolean
+    commercialUseAllowed: boolean
+    businessUseAllowed: boolean
+    housingEffectsRef: string
+    conditionDecayRate: TBD
+    tags: []
+
+categories:
+  items:
+    - categoryId: shelter
+      label: Rifugio / emergenza
+      habitable: true
+      isResidential: true
+    - categoryId: shack
+      label: Struttura precaria
+      habitable: true
+      isResidential: true
+    - categoryId: room
+      label: Stanza
+      habitable: true
+      isResidential: true
+    - categoryId: studio
+      label: Monolocale / studio
+      habitable: true
+      isResidential: true
+    - categoryId: apartment
+      label: Appartamento
+      habitable: true
+      isResidential: true
+    - categoryId: house
+      label: Casa
+      habitable: true
+      isResidential: true
+    - categoryId: villa
+      label: Villa
+      habitable: true
+      isResidential: true
+    - categoryId: penthouse
+      label: Attico / penthouse
+      habitable: true
+      isResidential: true
+    - categoryId: commercial
+      label: Commerciale
+      habitable: false
+      isResidential: false
+    - categoryId: industrial
+      label: Industriale
+      habitable: false
+      isResidential: false
+    - categoryId: land
+      label: Terreno
+      habitable: false
+      isResidential: false
+    - categoryId: special
+      label: Speciale
+      habitable: TBD
+      isResidential: TBD
+  notes: Lista non definitiva — nuove categorie senza modificare motore
+
+indicativeProgression:
+  status: PROPOSTA_TECNICA
+  note: NON obbligatoria — giocatore può saltare livelli
+  sequence:
+    items:
+      - street
+      - shelter
+      - shack
+      - vehicle
+      - room
+      - studio
+      - apartment
+      - house
+      - villa
+      - penthouse
+  values: TBD
+
+definitions:
+  status: skeleton_only
+  note: Catalogo definitivo immobili — DA DEFINIRE in modulo separato
+  examples:
+    items:
+      - typeId: TYPE_STUDIO_CENTRO
+        categoryId: studio
+        name: Monolocale in centro
+        baseMarketValue: TBD
+      - typeId: TYPE_ROOM_PERIFERIA
+        categoryId: room
+        name: Stanza in periferia
+        baseMarketValue: TBD

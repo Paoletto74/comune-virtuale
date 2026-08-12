@@ -1,0 +1,20 @@
+# =============================================================================
+# PROFILE INTEGRATION — audio preferences in profile settings
+# =============================================================================
+
+ProfileIntegration:
+  settings:
+    path: Profile -> Settings -> Audio
+    items:
+      - Master
+      - SFX
+      - Notifications
+      - Popups
+      - Reduced_Sound
+      - Audio_ON_OFF
+  persistence: user/device per policy
+  ref: profile_main_v1, settings.yaml
+
+events:
+  items:
+    - ProfileAudioSettingsSaved

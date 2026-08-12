@@ -1,0 +1,35 @@
+# =============================================================================
+# INTEGRATION — work_careers_v1
+# =============================================================================
+
+WorkIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — work_main_v1
+
+  boundary:
+    workOwns:
+      items:
+        - employment
+        - salary
+        - promotion
+        - work_state
+        - schedule
+    socialProvides:
+      items:
+        - employer_employee_preset_messages
+        - congratulation
+        - rivalry
+        - colleague_interaction
+
+  workEventsMayTrigger:
+    items:
+      - hired_congratulation
+      - promotion_congratulation
+      - rivalry_at_work
+      - resignation_message
+      - performance_reaction
+
+  note: |
+    employer/employee relationship potrebbe restare Work-owned.
+    Social status enum approvato NON include employer/employee — TBD.

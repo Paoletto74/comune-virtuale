@@ -1,0 +1,114 @@
+# =============================================================================
+# PLAYER PROFILE & PUBLIC IDENTITY MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: distinguere Account / Citizen / Private Profile / Public Profile
+# Gestisce: identità, profilo, privacy, snapshot, highlights, directory, history
+# NON modifica: tutti i moduli già approvati
+# Valori numerici/formule: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: profile_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  economy: economy_main_v1
+  banking: banking_main_v1
+  marketplace: marketplace_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  work: work_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  social: social_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+  task: task_main_v1
+
+principles:
+  - Account ≠ Citizen ≠ Private Profile ≠ Public Profile
+  - Profile presenta — NON calcola netWorth/formule duplicate
+  - Authentication autorevole — Profile riceve playerId
+  - Public profile = prestigioso/divertente, NON scheda investigativa
+  - Mostra COSA possiede, NON COME l'ha ottenuto
+  - Most expensive assets — NON inventario completo
+  - L25 SINDACO ≠ sindaco automatico — levelLabel vs activeRole
+  - Criminal data PRIVATE default — discoverable per policy
+  - Wealth graph reale/storico nel profilo personale
+  - PublicProfileSnapshot per performance
+  - Content-first + Admin Content Studio compatible
+  - Server authoritative — client non modifica dati profilo
+  - NO AI / LLM / API esterne
+
+includes:
+  identity: identity.yaml
+  personalFacts: personal_facts.yaml
+  visibility: visibility.yaml
+  publicProfile: public_profile.yaml
+  privateProfile: private_profile.yaml
+  highlights: highlights.yaml
+  titles: titles.yaml
+  achievements: achievements.yaml
+  rankings: rankings.yaml
+  wealthHistory: wealth_history.yaml
+  careerHistory: career_history.yaml
+  roleHistory: role_history.yaml
+  humor: humor.yaml
+  search: search.yaml
+  directory: directory.yaml
+  sharing: sharing.yaml
+  privacy: privacy.yaml
+  security: security.yaml
+  offline: offline.yaml
+  events: events.yaml
+  notifications: notifications.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  identity_module: [identity, personalFacts]
+  presentation_module: [publicProfile, privateProfile, highlights, humor]
+  history_module: [wealthHistory, careerHistory, roleHistory]
+  governance_module: [visibility, privacy, security, directory, search]
+
+responsibilitySplit:
+  profileDecides:
+    items:
+      - profile_presentation
+      - public_private_representation
+      - profile_snapshots
+      - profile_visibility
+      - profile_highlights
+      - public_directory
+      - profile_history_presentation
+      - profile_facts_presentation
+      - profile_search
+  authenticationDecides: [account, login, session, security]
+  bankingDecides: [cash, debt, financial_history]
+  economyDecides: [netWorth, economic_values]
+  inventoryDecides: items
+  propertyDecides: properties
+  mobilityDecides: vehicles
+  marketplaceDecides: listings
+  workDecides: [jobs, career]
+  progressionDecides: [level, titles, milestones]
+  socialDecides: [sympathy, reputation, popularity]
+  politicalDecides: active_political_role
+  criminalDecides: criminal_state
+  notificationDecides: notification_delivery
+  eventDecides: consequences
+  timeDecides: [dates, scheduling]
+  uiPwaDecides: [app_installation, sharing_mechanics]
+
+alignsWith:
+  note: |
+    Formalizza e centralizza progression_main_v1/visibility.yaml,
+    marketplace_main_v1/privacy.yaml, social_main_v1/privacy.yaml.
+    NON modifica pack approvati.

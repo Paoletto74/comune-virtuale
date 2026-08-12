@@ -1,0 +1,87 @@
+# =============================================================================
+# DEMOTION & INACTIVITY RULES v1
+# =============================================================================
+# DECISIONE APPROVATA: floor level = 1; no game over; milestone e unlock-once conservati
+# Numeri: TBD / DA_DEFINIRE
+# =============================================================================
+
+demotionPolicy:
+  policyId: demotion_main_v1
+  enabled: true
+  floorLevel: 1
+
+  preserveOnDemotion:
+    unlockedOnce: true
+    milestones: true
+    titleHistory: true
+    narrativeHistory: true
+
+  suspendOnDemotion:
+    whileEligibleUnlocks: true
+    tiedToRoleUnlocks: true
+
+  trackRegression: TBD
+  notes: DA_DEFINIRE — none | soft | full
+
+  triggers:
+    - triggerId: inactivity_extended
+      description: Inattività prolungata del giocatore
+      conditionRef: inactivity_threshold
+      value: TBD
+      placeholderKey: DEMOTION_INACTIVITY_DAYS
+      effect: evaluate_demotion_or_requirement_loss
+
+    - triggerId: job_loss_sustained
+      description: Perdita lavoro senza recupero
+      conditionRef: employment.lost_sustained
+      value: TBD
+      effect: block_advancement_or_demote
+
+    - triggerId: bankruptcy
+      description: Bancarotta / patrimonio sotto soglia
+      conditionRef: economic.bankruptcy
+      value: TBD
+      placeholderKey: DEMOTION_BANKRUPTCY_NET_WORTH
+      effect: evaluate_demotion
+
+    - triggerId: reputation_collapse
+      description: Reputazione sotto soglia critica
+      conditionRef: personalValue.reputazione
+      op: lt
+      value: TBD
+      placeholderKey: DEMOTION_REPUTATION_FLOOR
+      effect: evaluate_demotion
+
+    - triggerId: influence_collapse
+      description: Perdita influenza politica
+      conditionRef: personalValue.influenzaPolitica
+      op: lt
+      value: TBD
+      effect: block_advancement_or_demote
+
+    - triggerId: negative_major_event
+      description: Eventi negativi major (fallimento, scandalo, etc.)
+      conditionRef: event.significance_major_negative
+      effect: evaluate_demotion
+      note: DA_DEFINIRE — modulo eventi
+
+  onDemote:
+    mainLevel: previous
+    recalculateFromRequirements: TBD
+    notificationRef: notification.demotion.generic
+
+inactivityPolicy:
+  policyId: inactivity_main_v1
+  enabled: true
+  thresholds:
+    - after: TBD
+      placeholderKey: INACTIVITY_REMINDER_DAYS
+      effects: [scheduled_reminder_event]
+    - after: TBD
+      placeholderKey: INACTIVITY_PRESSURE_DAYS
+      effects: [reputation_decay, opportunity_loss]
+    - after: TBD
+      placeholderKey: INACTIVITY_DEMOTION_CHECK_DAYS
+      effects: [job_risk, expense_pressure, demotion_check]
+  floorProtection: true
+  notes: DECISIONE APPROVATA — obiettivo riportare in gioco, non eliminare

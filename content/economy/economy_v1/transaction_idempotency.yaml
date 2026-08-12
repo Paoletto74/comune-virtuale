@@ -1,0 +1,15 @@
+# =============================================================================
+# TRANSACTION IDEMPOTENCY — economy_v1
+# =============================================================================
+
+---
+Idempotency:
+  enabled: true
+  rule: no double credit on retry
+  keyFields:
+  - idempotencyKey
+  - transactionType
+  - source
+  - destination
+  - amount
+  status: DECISIONE APPROVATA

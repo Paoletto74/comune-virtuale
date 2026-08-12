@@ -1,0 +1,60 @@
+# =============================================================================
+# AGE PROGRESSION — età configurabile
+# =============================================================================
+
+AgeStage:
+  schema:
+    stageId: string
+    label: string
+    minAge: TBD
+    maxAge: TBD
+    order: number
+
+stages:
+  status: conceptual_only
+  indicativeExamples:
+    items:
+      - stageId: infant
+        label: Infante
+        order: 1
+      - stageId: child
+        label: Bambino
+        order: 2
+      - stageId: teenager
+        label: Adolescente
+        order: 3
+      - stageId: young_adult
+        label: Giovane adulto
+        order: 4
+      - stageId: adult
+        label: Adulto
+        order: 5
+  durations: TBD
+  rule: Compatibile con Time System — NON fissare durate definitive in v1
+
+AgeProgression:
+  schema:
+    citizenId: string
+    currentStageId: string
+    ageValue: TBD
+    lastUpdated: timestamp
+    nextMilestoneAt: timestamp | null
+
+progressionMechanism:
+  delivery: scheduled_events | age_milestones | periodic_updates | catch_up
+  offline: true
+  rule: NON simulare ogni secondo
+
+milestones:
+  items:
+    - stage_transition
+    - birthday
+    - education_milestone
+    - autonomy_threshold
+  triggers: ChildAgeChanged event
+
+events:
+  items:
+    - AgeStageChanged
+    - BirthdayReached
+    - AutonomyThresholdReached

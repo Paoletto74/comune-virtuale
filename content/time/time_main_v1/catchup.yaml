@@ -1,0 +1,56 @@
+# =============================================================================
+# CATCH-UP — ordine, limiti, performance
+# =============================================================================
+
+CatchUpStrategy:
+  DECISIONE APPROVATA: |
+    NON riprodurre ogni secondo trascorso.
+    Es. 5 giorni offline — NON 432.000 tick.
+    Eseguire: scheduled events, daily/weekly batches,
+    NPC aggregate, relevant player events, recurring systems.
+
+CatchUpOrder:
+  status: PROPOSTA TECNICA — ordine definitivo TBD
+  proposedOrder:
+    items:
+      - world_clock
+      - scheduled_events
+      - recurring_obligations
+      - npc_batch
+      - economy_updates
+      - player_specific_consequences
+      - progression_evaluation
+      - notifications
+      - statistics
+
+CatchUpLimits:
+  status: PROPOSTA TECNICA
+  limits:
+    items:
+      - max_events_per_catchup
+      - max_simulable_duration
+      - max_batch_size
+      - max_retry
+      - max_cascade_depth
+  rule: Catch-up enorme → aggregazione
+
+CatchUpFlow:
+  schema:
+    catchUpId: string
+    startedAt: timestamp
+    elapsedRealTime: duration
+    elapsedWorldTime: duration
+    phasesCompleted: []
+    status: running | completed | truncated | failed
+
+Performance:
+  DECISIONE APPROVATA: |
+    Time Engine NON genera 1 evento/NPC/secondo.
+    Preferire scheduler, queue, batches, buckets, event-driven.
+
+events:
+  items:
+    - CatchUpStarted
+    - CatchUpPhaseCompleted
+    - CatchUpCompleted
+    - CatchUpTruncated

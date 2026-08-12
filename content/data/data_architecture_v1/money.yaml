@@ -1,0 +1,22 @@
+# =============================================================================
+# MONEY — transazionale, NO balance += senza traccia
+# =============================================================================
+
+MoneyRecord:
+  DECISIONE APPROVATA: |
+    NON modificare balance = balance + 100 senza traccia transazionale.
+  schema:
+    ownerType: citizen | municipality | system
+    ownerId: string
+    currency: string
+    amount: TBD
+    source: string
+    destination: string
+    timestamp: timestamp
+    transactionRef: string
+
+ref: banking_main_v1/money.yaml
+
+events:
+  items:
+    - MoneyMovementRecorded

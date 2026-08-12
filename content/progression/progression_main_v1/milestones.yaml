@@ -1,0 +1,120 @@
+# =============================================================================
+# MILESTONE v1 — indipendenti dal livello
+# =============================================================================
+# DECISIONE APPROVATA: milestone possono contribuire a progressione, sblocchi, profilo
+# Valori numerici: TBD / DA_DEFINIRE
+# =============================================================================
+
+milestones:
+  - milestoneId: first_job
+    label: Primo lavoro
+    category: career
+    significance: normal
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: employment.started
+      note: DA_DEFINIRE — condizioni esatte
+
+  - milestoneId: first_home
+    label: Prima casa (uso/abituazione)
+    category: housing
+    significance: normal
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: housing.secured
+      note: DA_DEFINIRE
+
+  - milestoneId: first_property
+    label: Primo immobile di proprietà
+    category: housing
+    significance: major
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: property.acquired
+      note: DA_DEFINIRE
+
+  - milestoneId: first_company
+    label: Prima azienda
+    category: economic
+    significance: major
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: company.founded
+      note: DA_DEFINIRE
+
+  - milestoneId: first_million
+    label: Primo milione
+    category: economic
+    significance: major
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: requirement
+      requirement:
+        type: net_worth
+        op: gte
+        value: TBD
+        placeholderKey: MILESTONE_FIRST_MILLION_NET_WORTH
+
+  - milestoneId: first_election
+    label: Prima elezione vinta
+    category: political
+    significance: major
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: election.won
+      note: DA_DEFINIRE — modulo politico
+
+  - milestoneId: first_political_office
+    label: Primo incarico politico
+    category: political
+    significance: major
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: political.office_assumed
+      note: DA_DEFINIRE
+
+  - milestoneId: first_crime
+    label: Primo crimine
+    category: criminal
+    significance: normal
+    visibility: PRIVATE
+    publicProfileEligible: false
+    trigger:
+      type: event
+      eventType: criminality.crime_committed
+      note: DA_DEFINIRE
+
+  - milestoneId: first_arrest
+    label: Primo arresto
+    category: criminal
+    significance: major
+    visibility: PRIVATE
+    publicProfileEligible: false
+    trigger:
+      type: event
+      eventType: criminality.arrested
+      note: DA_DEFINIRE
+
+  - milestoneId: first_major_investment
+    label: Primo grande investimento
+    category: economic
+    significance: normal
+    visibility: PUBLIC
+    publicProfileEligible: true
+    trigger:
+      type: event
+      eventType: investment.major_completed
+      note: DA_DEFINIRE — soglia TBD

@@ -1,0 +1,16 @@
+# =============================================================================
+# WEEKS — time_v1
+# =============================================================================
+
+---
+GameWeek:
+  uses:
+  - salary
+  - rankings
+  - statistics
+  - events
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - WeekStarted
+  - WeekEnded

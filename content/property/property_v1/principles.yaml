@@ -1,0 +1,38 @@
+# =============================================================================
+# PRINCIPLES — property_v1
+# =============================================================================
+
+---
+PropertyPrinciples:
+  DECISIONE APPROVATA:
+    propertySOT:
+      items:
+        - property identity type ownership occupancy rental status features valuation
+    separations:
+      items:
+        - PROPERTY != ECONOMY
+        - PROPERTY != MARKETPLACE
+        - PROPERTY != CITY
+        - HOUSING != OWNERSHIP
+    purchaseAtomic:
+      rule: mai denaro scalato senza property e mai property senza pagamento valido
+    propertyNotLiquidity:
+      rule: valuation change does NOT auto credit/debit money
+    clientNotAuthoritative: true
+  inheritedFromPropertyMain:
+    items:
+      - Housing Status != Property Ownership
+      - multiProperty allowed max TBD
+      - ownershipTransfer atomic with rollback
+      - playerToPlayer rental
+      - npcRental demand
+      - livingOptions player chooses noForcedHousing
+      - housingCategories homeless street shelter temporary vehicle rented owned other
+  PROPOSTA TECNICA:
+    items:
+      - coOwnership future NON V1
+      - gracePeriod TBD
+      - eviction TBD FUTURE
+      - propertyTax TBD
+      - comfort prestige future
+      - valuation formula TBD

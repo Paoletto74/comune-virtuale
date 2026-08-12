@@ -1,0 +1,12 @@
+# =============================================================================
+# POPULATION — municipality population display
+# =============================================================================
+
+Population:
+  display: citta puo mostrare population
+  sourceOfTruth: Municipality System — NON inventare nel frontend
+  ref: municipality.yaml, political_main_v1
+
+events:
+  items:
+    - PopulationDisplayed

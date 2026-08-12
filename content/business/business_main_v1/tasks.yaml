@@ -1,0 +1,47 @@
+# =============================================================================
+# COMPANY TASKS — task per proprietario
+# =============================================================================
+
+taskGeneration:
+  direction: business → task_main_v1
+  rule: Task System gestisce scelta/outcome — Business fornisce contesto
+
+ownerTaskExamples:
+  items:
+    - hire_employee
+    - fire_employee
+    - invest
+    - improve_quality
+    - handle_problem
+    - adjust_price
+    - manage_crisis
+    - seize_opportunity
+    - expand
+    - reduce_costs
+
+opportunities:
+  status: PROPOSTA_TECNICA
+  configurable: true
+  examples:
+    items:
+      - undervalued_company
+      - growing_sector
+      - sector_in_crisis
+      - interesting_property
+      - sudden_demand
+      - competitor_failed
+  note: Rende sistema istruttivo — formule TBD
+
+businessContextProvided:
+  items:
+    - companyId
+    - companyStatus
+    - performance
+    - financial_snapshot
+    - employee_situation
+    - event_context
+
+events:
+  items:
+    - BusinessTaskGenerated
+    - BusinessTaskCompleted

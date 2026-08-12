@@ -1,0 +1,14 @@
+# =============================================================================
+# NPC EMPLOYMENT — work_careers_v1
+# =============================================================================
+
+---
+NpcEmployment:
+  npcCanHave:
+  - job
+  - employer
+  - schedule
+  - salary
+  simulationTier: NPC LOD decides detail
+  alignsWith: work_main_v1/npc_employment.yaml
+  status: DECISIONE APPROVATA

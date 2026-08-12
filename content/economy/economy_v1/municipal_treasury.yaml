@@ -1,0 +1,9 @@
+# =============================================================================
+# MUNICIPAL TREASURY — economy_v1
+# =============================================================================
+
+---
+MunicipalTreasury:
+  contextOwner: Municipality System
+  ledgerOwner: Economy
+  status: DECISIONE APPROVATA

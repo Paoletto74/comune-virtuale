@@ -1,0 +1,12 @@
+# =============================================================================
+# LEDGER — economy_v1
+# =============================================================================
+
+---
+Ledger:
+  authoritative: true
+  appendOnly: true
+  immutableCompleted: true
+  corrections: reversal transaction
+  alignsWith: economy_main_v1/ledger.yaml
+  status: DECISIONE APPROVATA

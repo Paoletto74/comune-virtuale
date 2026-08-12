@@ -1,0 +1,31 @@
+# =============================================================================
+# ACCOUNT VS CITIZEN — separation
+# =============================================================================
+
+AccountCitizen:
+  DECISIONE APPROVATA:
+  Account:
+    items:
+      - authentication
+      - credentials
+      - provider
+      - session
+      - security
+  Citizen:
+    items:
+      - nome
+      - eta
+      - sesso
+      - profilo
+      - livello
+      - lavoro
+      - patrimonio
+      - vita_nel_gioco
+  username:
+    status: PROPOSTA TECNICA — username unico
+    distinction: Account identity != Citizen display name
+  ref: auth_main_v1/account.yaml, citizen_association.yaml
+
+events:
+  items:
+    - AccountCitizenDistinctionApplied

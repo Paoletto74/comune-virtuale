@@ -1,0 +1,13 @@
+# =============================================================================
+# OFFLINE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Offline:
+  noMutation:
+  - purchase
+  - sale
+  - transfer
+  - maintenance
+  - travel completion
+  status: DECISIONE APPROVATA

@@ -1,0 +1,53 @@
+# =============================================================================
+# LEDGER
+# =============================================================================
+# DECISIONE APPROVATA: no player.money += X senza transazione registrata
+# =============================================================================
+
+Ledger:
+  description: Registro append-only transazioni economiche
+
+  properties:
+    appendOnly: true
+    immutableCompletedEntries: true
+    reversalsVia: reversal_transaction
+
+  entryStructure:
+    inherits: Transaction
+    ledgerSequence: number
+    balanceAfterSource: TBD
+    balanceAfterDestination: TBD
+
+  balanceDerivation:
+    rule: cash = sum(completed_transactions) + opening_balance
+    notes: Saldo derivato o materializzato con riconciliazione — DA_DEFINIRE
+
+  prohibitions:
+    - direct_cash_mutation_without_transaction
+    - client_side_balance_authority
+
+  useCases:
+    - cronologia_cittadino
+    - debugging
+    - statistiche
+    - notifiche
+    - audit
+    - moderazione
+    - anti_duplication
+
+  auditQuery:
+    example: "Perché cittadino ha perso 4250?"
+    returns: [transaction chain, related events, asset changes]
+
+  visibility:
+    owner: full_history
+    other_players: TBD
+    admin: full
+    public: none
+
+  retention: TBD
+
+  idempotency:
+    enabled: true
+    keyFields: [idempotencyKey, transactionType, source, destination, amount, gameTime_bucket]
+    onDuplicate: reject_second

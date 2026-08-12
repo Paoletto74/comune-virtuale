@@ -1,0 +1,12 @@
+# =============================================================================
+# OFFLINE — work_careers_v1
+# =============================================================================
+
+---
+Offline:
+  noMutation:
+  - application
+  - hiring
+  - resignation
+  - salary
+  status: DECISIONE APPROVATA

@@ -1,0 +1,20 @@
+# =============================================================================
+# PERFORMANCE — LOD, aggregation, scheduled simulation
+# =============================================================================
+
+Performance:
+  DECISIONE APPROVATA:
+  rule: NON simulare milioni di entities individualmente
+  strategies:
+    items:
+      - aggregation
+      - LOD
+      - scheduled_simulation
+  citizenList:
+    rule: focalizzata su Player Citizens — NON elencare tutti NPC
+  rankings:
+    rule: Player Citizens — NPC non competono globalmente salvo esplicito
+
+events:
+  items:
+    - CityLifePerformanceOptimized

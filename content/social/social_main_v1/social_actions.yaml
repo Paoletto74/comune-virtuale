@@ -1,0 +1,63 @@
+# =============================================================================
+# SOCIAL ACTIONS — azioni strutturate, non chat libera
+# =============================================================================
+
+SocialActionDefinition:
+  schema:
+    actionId: string
+    label: string
+    category: greeting | thanks | compliment | help | insult | provoke | encourage | celebrate | support | other
+    presetMessageIds: []
+    effectRefs: []
+    cooldownGroup: "string | null"
+    requiresRelationship: "string | null"
+    enabled: boolean
+
+actions:
+  status: esempi dimostrativi — effetti definiti da Effects/Event/Social
+  items:
+    - actionId: greet
+      label: Salutare
+      category: greeting
+    - actionId: thank
+      label: Ringraziare
+      category: thanks
+    - actionId: compliment
+      label: Complimentarsi
+      category: compliment
+    - actionId: help
+      label: Aiutare
+      category: help
+    - actionId: insult_controlled
+      label: Insultare (forma controllata)
+      category: insult
+    - actionId: provoke
+      label: Provocare
+      category: provoke
+    - actionId: encourage
+      label: Incoraggiare
+      category: encourage
+    - actionId: celebrate
+      label: Celebrare
+      category: celebrate
+    - actionId: support
+      label: Sostenere
+      category: support
+
+SocialActionInstance:
+  schema:
+    interactionId: string
+    actionId: string
+    actorId: string
+    targetId: string
+    messageDefinitionId: "string | null"
+    timestamp: timestamp
+    worldTime: timestamp
+    context: object
+    outcome: pending | completed | blocked | expired
+    idempotencyKey: string
+
+events:
+  items:
+    - SocialActionPerformed
+    - SocialActionBlocked

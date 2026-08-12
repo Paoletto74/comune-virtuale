@@ -1,0 +1,61 @@
+# =============================================================================
+# TAXES
+# =============================================================================
+# DECISIONE APPROVATA: tasse integrali; aliquote configurabili TBD
+# Interfaccia politica futura — non implementata
+# =============================================================================
+
+TaxSystem:
+  enabled: true
+
+  taxTypes:
+    - id: income_tax
+      appliesTo: [salary, business_income, other_income_TBD]
+      rate: TBD
+      placeholderKey: TAX_INCOME_RATE
+
+    - id: purchase_tax
+      appliesTo: [purchase, sale_TBD]
+      rate: TBD
+      placeholderKey: TAX_PURCHASE_RATE
+
+    - id: property_tax
+      appliesTo: [real_estate_ownership]
+      rate: TBD
+      frequency: recurring
+      placeholderKey: TAX_PROPERTY_RATE
+
+    - id: business_tax
+      appliesTo: [companies]
+      rate: TBD
+      placeholderKey: TAX_BUSINESS_RATE
+
+    - id: transaction_tax
+      appliesTo: [player_to_player_sale, market_transaction]
+      rate: TBD
+      placeholderKey: TAX_TRANSACTION_RATE
+
+    - id: future_tax_types
+      rate: TBD
+
+  collection:
+    via: transaction_type_tax
+    destination: government
+
+  politicalInterface:
+    enabled: false
+    futureInputs:
+      - mayor_lever_tax_modify
+      - referendum_tax_change
+      - law_entity_modifier
+    effects:
+      - citizens_hit
+      - companies_hit
+      - prices_modified
+      - happiness_stress_modified
+      - purchasing_power_modified
+      - political_consequences
+
+  visibility:
+    citizen: itemized_on_transaction
+    public: aggregated_TBD

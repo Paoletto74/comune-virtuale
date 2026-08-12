@@ -1,0 +1,48 @@
+# =============================================================================
+# ELIGIBILITY — requisiti apertura azienda
+# =============================================================================
+
+CompanyCreationEligibility:
+  schema:
+    ruleId: string
+    definitionId: string | all
+    conditionsRef: string
+    blockingConditionsRef: string | null
+
+possibleRequirements:
+  items:
+    - cash
+    - netWorth
+    - mainLevel
+    - entrepreneurialTrack
+    - businessExperience
+    - skills
+    - required_assets
+    - sector_requirements
+  values: TBD
+
+creationFlow:
+  DECISIONE APPROVATA: atomico
+  flow: |
+    Citizen → Create Company Request
+    → Eligibility check
+    → Economy Transaction (startup costs)
+    → Company Created
+    → Ownership Assigned
+  onFailure: rollback_all
+
+startupCosts:
+  items:
+    - capital
+    - property_lease_or_purchase
+    - equipment
+    - licenses
+    - other_costs
+  values: TBD
+  delivery: Economy Pipeline
+
+events:
+  items:
+    - CompanyCreationRequested
+    - CompanyCreationApproved
+    - CompanyCreationRejected

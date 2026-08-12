@@ -1,0 +1,28 @@
+# =============================================================================
+# MARKETPLACE VISUALS — Visual fornisce, Marketplace non possiede immagine
+# =============================================================================
+
+MarketplaceVisual:
+  schema:
+    listingRef: string
+    visualAssetId: string
+    variant: marketplace | thumbnail | card
+
+listingCardLayout:
+  status: PROPOSTA TECNICA — UI definitiva TBD
+  elements:
+    items:
+      - image
+      - name
+      - price
+      - condition
+      - sale_or_rent
+
+rule: |
+  Marketplace fornisce listing, item reference, category, state.
+  Visual System restituisce thumbnail/card visual.
+  Marketplace NON possiede l'immagine.
+
+events:
+  items:
+    - MarketplaceVisualResolved

@@ -1,0 +1,32 @@
+# =============================================================================
+# FAILURE POLICY — per-system, partial vs critical failure
+# =============================================================================
+
+FailurePolicy:
+  status: PROPOSTA TECNICA — ogni sistema dichiara policy esplicita
+  policies:
+    FAIL_FAST: financial transaction
+    RETRY: safe idempotent operations
+    SKIP: non-critical deferrable
+    DEFER: analytics, rankings refresh
+    DEGRADE: continue with reduced functionality
+
+partialFailure:
+  rule: |
+    Sistema non critico fallisce -> gioco continua.
+    Es: ranking refresh fallisce -> ranking precedente resta valido.
+
+criticalFailure:
+  rule: |
+    Ledger/economy consistency fallisce ->
+    fermare operazione, NO effetti parziali, registrare errore, alert, reconciliation.
+
+examples:
+  financial: FAIL or RETRY sicuro
+  analytics: DEFER
+  ranking: SKIP or DEFER
+
+events:
+  items:
+    - PartialFailureHandled
+    - CriticalFailureDetected

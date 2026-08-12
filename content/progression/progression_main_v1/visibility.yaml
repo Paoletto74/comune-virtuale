@@ -1,0 +1,72 @@
+# =============================================================================
+# VISIBILITY RULES v1
+# =============================================================================
+# DECISIONE APPROVATA: PUBLIC | PRIVATE | DISCOVERABLE (ROLE riservato a futuro)
+# =============================================================================
+
+visibilityDefaults:
+  track:
+    professional: PUBLIC
+    entrepreneurial: PUBLIC
+    political: PUBLIC
+    criminal: PRIVATE
+
+  requirement:
+    default: DISCOVERABLE
+    note: DA_DEFINIRE — policy globale requisiti visibili vs nascosti (Prompt 5)
+
+  milestone:
+    criminal: PRIVATE
+    default: PUBLIC
+
+publicProfile:
+  displayFields:
+    - field: mainLevel
+      visibility: PUBLIC
+      label: Livello
+    - field: levelLabel
+      visibility: PUBLIC
+      label: Grado sociale
+      note: defaultLabel catalogo — narrativo/ironico
+    - field: contextualTitle
+      visibility: PUBLIC
+      label: Titolo
+      note: da Title Engine; esclude titoli PRIVATE
+    - field: activeRole
+      visibility: PUBLIC
+      label: Ruolo
+      note: da lifeSituation; separato da levelLabel
+    - field: publicCareerSummary
+      visibility: PUBLIC
+    - field: prestigeMilestones
+      visibility: PUBLIC
+    - field: prestigeAssets
+      visibility: PUBLIC
+      note: quantità/tipo, non origine patrimonio
+
+  excludedByDefault:
+    - criminal_track_level
+    - criminal_milestones
+    - cash
+    - debts
+    - income_streams
+    - crime_history
+    - asset_origin
+    - hidden_requirements
+
+  uiExample:
+    - scenario: imprenditore_L25_no_role
+      display:
+        level: 25
+        levelLabel: SINDACO
+        contextualTitle: Magnate
+        activeRole: Nessuno
+    - scenario: politico_L25_mayor
+      display:
+        level: 25
+        levelLabel: SINDACO
+        contextualTitle: Figura politica di rilievo
+        activeRole: Sindaco
+  notes: |
+    DECISIONE APPROVATA: evitare interpretazione "L25 = Sindaco".
+    levelLabel resta label catalogo; role solo se incarico attivo.

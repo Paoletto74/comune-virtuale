@@ -1,0 +1,20 @@
+# =============================================================================
+# MAP PERFORMANCE — clustering, viewport, LOD
+# =============================================================================
+
+MapPerformance:
+  rules:
+    items:
+      - clustering
+      - viewport_loading
+      - lazy_loading
+      - level_of_detail
+  rule: NON caricare migliaia di marker contemporaneamente
+  zoomLevels:
+    city: zoom out
+    district: medium
+    location: zoom in
+
+events:
+  items:
+    - MapPerformanceOptimized

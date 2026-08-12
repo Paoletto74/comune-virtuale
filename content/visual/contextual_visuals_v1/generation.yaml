@@ -1,0 +1,20 @@
+# =============================================================================
+# GENERATION — future image generation workflow
+# =============================================================================
+
+Generation:
+  status: NON implementare V1
+  future:
+    workflow:
+      items:
+        - Admin_prompt
+        - generate
+        - review
+        - approve
+        - visualAssetId
+  noAutoPublish:
+    DECISIONE APPROVATA: generated visuals NEVER become Production automatically
+
+events:
+  items:
+    - VisualGenerationDraftCreated

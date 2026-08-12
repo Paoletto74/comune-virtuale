@@ -1,0 +1,11 @@
+# =============================================================================
+# CONTENT INTEGRATION — descriptions via Content System
+# =============================================================================
+
+ContentIntegration:
+  rule: descriptions NPC, business, organization — Content System
+  entityContent: ref content_system_v1
+
+events:
+  items:
+    - CityLifeContentResolved

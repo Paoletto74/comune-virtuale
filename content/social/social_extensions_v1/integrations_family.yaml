@@ -1,0 +1,24 @@
+# =============================================================================
+# INTEGRATION — family_main_v1
+# =============================================================================
+
+FamilyIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — family_main_v1
+
+  boundary:
+    familyOwns:
+      items:
+        - family_relationships
+        - household
+        - kinship
+    socialOwns:
+      items:
+        - generic_player_player_relationships
+        - social_interactions_complement
+
+  rule: |
+    NON duplicare family relationships.
+    Social fornisce componente sociale complementare generica.
+    ref: social_main_v1/relationships.yaml note

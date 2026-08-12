@@ -1,0 +1,24 @@
+# =============================================================================
+# CACHING — domain service must not assume cache = truth
+# =============================================================================
+
+Caching:
+  rule: Domain Service NON assume cache = truth
+  invalidation: esplicita
+
+cachedQueries:
+  items:
+    - GetHomeSummary
+    - GetPublicProfile
+    - ListMarketplace
+    - GetCurrentRanking
+    - GetPublishedContent
+
+contentCache:
+  DECISIONE APPROVATA: content pubblicato cacheable — publish invalida/revalida
+
+ref: data_architecture_v1/caching.yaml
+
+events:
+  items:
+    - CacheInvalidated

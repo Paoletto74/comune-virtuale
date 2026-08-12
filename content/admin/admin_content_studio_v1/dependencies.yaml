@@ -1,0 +1,45 @@
+# =============================================================================
+# DEPENDENCIES & CONTENT RELATIONSHIPS
+# =============================================================================
+
+ContentRelationships:
+  DECISIONE APPROVATA: mostrare relazioni tra contenuti
+  example:
+    task: deliver_pizza
+    requires:
+      items:
+        - item: pizza_margherita
+    mayGenerate:
+      items:
+        - event: pizza_delivered
+        - notification: task_completed
+    uses:
+      items:
+        - visual: pizza_image
+
+ContentDependencies:
+  status: PROPOSTA TECNICA
+  display: |
+    "Questo contenuto dipende da:"
+    item, event, notification, visual, audio, progression, social
+
+ContentRelationView:
+  status: PROPOSTA TECNICA
+  example:
+    item: Pizza Margherita
+    usedIn:
+      items:
+        - "7 task"
+        - "2 eventi"
+        - "3 popup"
+        - "1 news template"
+
+ContentGraph:
+  status: PROPOSTA TECNICA — futuro, NON grafo visuale complesso V1
+  example: |
+    TASK → ITEM → EVENT → NOTIFICATION → PROFILE EFFECT
+
+events:
+  items:
+    - DependencyCheckCompleted
+    - RelationshipGraphUpdated

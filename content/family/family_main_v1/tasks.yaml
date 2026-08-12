@@ -1,0 +1,55 @@
+# =============================================================================
+# FAMILY TASKS — integrazione Task System
+# =============================================================================
+
+taskGeneration:
+  direction: family → task_main_v1
+  rule: |
+    Family System genera Family Task Context.
+    Task System gestisce presentazione, opzioni, outcome, conseguenze.
+    Family gestisce contesto, relazioni, stato, eventi futuri.
+
+familyContextProvided:
+  items:
+    - familyId
+    - relationshipIds
+    - involvedMemberIds
+    - eventType
+    - relationshipStrength
+    - trust
+    - householdRef
+    - financialContextSummary
+
+taskExamples:
+  status: demo_pattern
+  childNeedsMoney:
+    title: Tuo figlio ha bisogno di aiuto economico
+    options:
+      items:
+        - optionId: help
+          label: Aiutalo
+          effectsRef: TBD
+        - optionId: refuse
+          label: Rifiuta
+          effectsRef: TBD
+        - optionId: lend
+          label: Prestagli il denaro
+          effectsRef: TBD
+    rule: DECISIONE APPROVATA — scelte diverse, conseguenze diverse
+    note: NON buon genitore = sempre aiutare — egoismo supportato
+
+familyChoice:
+  supported:
+    items:
+      - help
+      - ignore
+      - refuse
+      - lend
+      - ask_something_in_return
+      - selfish_decisions
+  consequences: via Effect Pipeline
+
+events:
+  items:
+    - FamilyTaskGenerated
+    - FamilyTaskCompleted

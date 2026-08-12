@@ -1,0 +1,51 @@
+# =============================================================================
+# PROPERTY / HOUSING MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Housing (dove vivo) ≠ Property Ownership (cosa possiedo)
+# NON modifica: progression_main_v1, progression_balance_v1, economy_main_v1, work_main_v1
+# Valori numerici: TBD
+# =============================================================================
+
+catalogId: property_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - Housing Status separato da Property Ownership
+  - Giocatore parte SENZATETTO — scelta abitativa libera
+  - Immobile = asset economico (real_estate subtype in economy)
+  - Reddito/spese via Economy Pipeline — NO modifica diretta cash
+  - Property Definition ≠ Property Instance
+  - Mercato funziona con pochi giocatori (NPC demand)
+  - Casa costosa != livello sociale obbligatorio
+  - Client non autoritativo
+  - Nessuna AI runtime / servizi esterni
+
+includes:
+  property_types: property_types.yaml
+  properties: properties.yaml
+  zones: zones.yaml
+  ownership: ownership.yaml
+  housing: housing.yaml
+  rentals: rentals.yaml
+  sales: sales.yaml
+  valuation: valuation.yaml
+  maintenance: maintenance.yaml
+  events: events.yaml
+  npc_demand: npc_demand.yaml
+  taxes: taxes.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  housing_core: [housing, property_types]
+  property_core: [properties, ownership, zones]
+  market_module: [sales, rentals, npc_demand, valuation]
+  lifecycle_module: [maintenance, events, taxes]

@@ -1,0 +1,14 @@
+# =============================================================================
+# OFFLINE — cache shell, no authoritative actions
+# =============================================================================
+
+Offline:
+  cache:
+    items:
+      - city_map_shell
+      - public_location_metadata
+  rule: NON azioni authoritative offline
+
+events:
+  items:
+    - OfflineCityViewed

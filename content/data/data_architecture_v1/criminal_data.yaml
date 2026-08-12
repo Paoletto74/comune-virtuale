@@ -1,0 +1,22 @@
+# =============================================================================
+# CRIMINAL DATA — visibility per policy
+# =============================================================================
+
+CriminalData:
+  sourceOfTruth: Criminal
+  schema:
+    citizenId: string
+    criminalTrack: TBD
+    experience: TBD
+    milestones: []
+    reputation: TBD
+    heat: TBD
+    history: []
+
+visibility: per policy — NON esporre in citizen list/public profile
+
+ref: criminal_main_v1
+
+events:
+  items:
+    - CriminalStateUpdated

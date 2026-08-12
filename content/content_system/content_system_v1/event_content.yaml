@@ -1,0 +1,15 @@
+# =============================================================================
+# EVENT CONTENT — content event vs gameplay event
+# =============================================================================
+
+EventContent:
+  DECISIONE APPROVATA: |
+    Content Event != Gameplay Event.
+    Admin puo creare evento editoriale/content-driven.
+    Vero Game Event passa da Event System.
+
+ref: event_main_v1, contracts_v1/domain_events.yaml
+
+events:
+  items:
+    - EventContentSaved

@@ -1,0 +1,9 @@
+# =============================================================================
+# PRESTIGE — property_v1
+# =============================================================================
+
+---
+Prestige:
+  mayInfluence: status/social
+  notDuplicateReputation: true
+  status: PROPOSTA TECNICA

@@ -1,0 +1,70 @@
+# =============================================================================
+# RISK PROFILES — rischio/ricompensa per attività
+# =============================================================================
+
+RiskProfile:
+  schema:
+    profileId: string
+    rewardPotential: TBD
+    riskLevel: low | medium | high | very_high
+    heatGain: TBD
+    discoveryRisk: TBD
+    penaltySeverity: TBD
+    executionQualityModifier: boolean
+
+riskRewardPrinciple:
+  DECISIONE APPROVATA: |
+    Generalmente: più alto guadagno → maggiore rischio.
+    NON formula lineare obbligatoria.
+  opportunityTypes:
+    items:
+      - low_risk_low_return
+      - medium_risk_medium_return
+      - high_risk_high_return
+      - anomalous_opportunity
+  note: Varietà — occasionali opportunità anomale
+
+profiles:
+  status: skeleton_only
+  items:
+    - profileId: RISK_LOW
+      riskLevel: low
+      rewardPotential: TBD
+      heatGain: TBD
+      discoveryRisk: TBD
+      penaltySeverity: TBD
+    - profileId: RISK_MEDIUM
+      riskLevel: medium
+      rewardPotential: TBD
+      heatGain: TBD
+      discoveryRisk: TBD
+      penaltySeverity: TBD
+    - profileId: RISK_HIGH
+      riskLevel: high
+      rewardPotential: TBD
+      heatGain: TBD
+      discoveryRisk: TBD
+      penaltySeverity: TBD
+    - profileId: RISK_VERY_HIGH
+      riskLevel: very_high
+      rewardPotential: TBD
+      heatGain: TBD
+      discoveryRisk: TBD
+      penaltySeverity: TBD
+
+rewardTypes:
+  items:
+    - cash
+    - asset_access
+    - network_access
+    - criminal_reputation
+    - criminal_experience
+    - new_opportunities
+  delivery: |
+    Criminal → EffectRequest → Economy Pipeline → Transaction → Ledger
+  rule: Criminal NON modifica cash direttamente
+
+executionQuality:
+  status: PROPOSTA_TECNICA
+  note: Qualità esecuzione può modificare discoveryRisk e reward
+  formula: TBD

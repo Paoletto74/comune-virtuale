@@ -1,0 +1,61 @@
+# =============================================================================
+# COMPANY TYPES — definizioni (CompanyDefinition)
+# =============================================================================
+
+CompanyDefinition:
+  schema:
+    definitionId: string
+    name: string
+    categoryId: string
+    description: string
+    startupCostRef: string
+    eligibilityRef: string
+    revenueModelRef: string
+    expenseModelRef: string
+    demandProfileRef: string
+    leverRefs: []
+    tags: []
+
+categories:
+  items:
+    - categoryId: retail
+      label: Commercio al dettaglio
+    - categoryId: restaurant
+      label: Ristorazione
+    - categoryId: services
+      label: Servizi
+    - categoryId: professional
+      label: Professionale
+    - categoryId: manufacturing
+      label: Manifattura
+    - categoryId: transport
+      label: Trasporti
+    - categoryId: technology
+      label: Tecnologia
+    - categoryId: healthcare
+      label: Sanità
+    - categoryId: construction
+      label: Edilizia
+    - categoryId: entertainment
+      label: Intrattenimento
+    - categoryId: finance
+      label: Finanza
+    - categoryId: other
+      label: Altro
+  notes: Lista estendibile senza modificare motore
+
+definitions:
+  status: skeleton_only
+  examples:
+    items:
+      - definitionId: TYPE_RESTAURANT
+        categoryId: restaurant
+        name: Ristorante
+        note: Modello generale — istanza "Ristorante di Mario"
+      - definitionId: TYPE_RETAIL_SHOP
+        categoryId: retail
+        name: Negozio
+      - definitionId: TYPE_TRANSPORT
+        categoryId: transport
+        name: Azienda trasporti
+        note: Integrazione mobility

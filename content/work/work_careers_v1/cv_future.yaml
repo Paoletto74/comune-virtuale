@@ -1,0 +1,13 @@
+# =============================================================================
+# CV FUTURE — work_careers_v1
+# =============================================================================
+
+---
+CV:
+  status: PROPOSTA TECNICA future
+  mayInclude:
+  - education
+  - jobs
+  - achievements
+  - skills
+  - titles

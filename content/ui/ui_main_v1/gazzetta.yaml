@@ -1,0 +1,50 @@
+# =============================================================================
+# GAZZETTA — referendum + notizie di cronaca
+# =============================================================================
+
+GazzettaSection:
+  areas:
+    items:
+      - referendum
+      - news
+
+referendum:
+  status: PROPOSTA TECNICA — Political System autorevole
+  mayShow:
+    items:
+      - active_referendums
+      - question
+      - options
+      - status
+      - time_remaining
+      - future_result
+      - participation
+
+news:
+  status: PROPOSTA TECNICA — Gazzetta autorevole contenuto editoriale
+  mayShow:
+    items:
+      - headline
+      - image
+      - category
+      - date
+      - article
+      - involved_citizen
+      - profile_link
+  visualRule: Visual System fornisce immagini — Gazzetta decide contenuto
+
+gazzettaContent:
+  mayInclude:
+    items:
+      - active_referendums
+      - results
+      - news
+      - important_events
+      - local_chronicle
+      - economic_political_social_events
+
+events:
+  items:
+    - GazzettaSectionViewed
+    - ReferendumOpened
+    - NewsArticleOpened

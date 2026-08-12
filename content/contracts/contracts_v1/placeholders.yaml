@@ -1,0 +1,52 @@
+# =============================================================================
+# PLACEHOLDERS — TBD values, schema format, observability
+# =============================================================================
+
+TbdValues:
+  status: DA DEFINIRE
+  items:
+    - command_status_enum_final
+    - money_precision_and_rounding_rules
+    - payload_size_limits
+    - rate_limit_numeric_values
+    - schema_format_choice
+    - contract_discovery_format
+    - enum_nullability_defaults_per_field
+    - saga_compensation_details
+    - event_replay_scope_per_projection
+    - contract_cache_ttl_policies
+
+SchemaFormat:
+  status: PROPOSTA TECNICA — NON scegliere definitivamente
+  candidates:
+    items:
+      - JSON_Schema
+      - OpenAPI
+      - AsyncAPI
+
+ContractObservability:
+  metrics:
+    items:
+      - command_success_failure
+      - rejection_rate
+      - query_latency
+      - event_processing_latency
+      - consumer_retry
+      - conflict_rate
+      - idempotency_hit_rate
+      - payload_size
+
+ContractCache:
+  rule: cache solo read models compatibili freshness — NON blindly financial mutation results
+
+GazzettaContract:
+  ref: sagas.yaml, notification_contracts.yaml
+  rule: Major event -> candidate -> editor decides — NON auto-publish ogni event
+
+RankingContract:
+  ref: read_models.yaml RankingEntry
+  rule: derived — NON source of truth
+
+events:
+  items:
+    - PlaceholderResolved

@@ -1,0 +1,12 @@
+# =============================================================================
+# FIRST JOB — find work intro
+# =============================================================================
+
+FirstJob:
+  intro: "Trova un lavoro - possibile primo passo"
+  rule: NON assegnare automaticamente lavoro senza Work System
+  ref: work_main_v1
+
+events:
+  items:
+    - FirstJobIntroShown

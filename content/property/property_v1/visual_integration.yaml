@@ -1,0 +1,13 @@
+# =============================================================================
+# VISUAL INTEGRATION — property_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  ref: contextual_visuals_v1
+  examples:
+  - home
+  - keys
+  - luxury villa
+  - showcase composition
+  status: DECISIONE APPROVATA

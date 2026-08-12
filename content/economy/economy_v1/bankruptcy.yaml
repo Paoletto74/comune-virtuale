@@ -1,0 +1,11 @@
+# =============================================================================
+# BANKRUPTCY — economy_v1
+# =============================================================================
+
+---
+Bankruptcy:
+  types:
+  - personal
+  - business
+  status: TBD - NOT auto implement
+  statusLabel: DA DEFINIRE

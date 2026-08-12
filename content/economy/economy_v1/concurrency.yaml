@@ -1,0 +1,8 @@
+# =============================================================================
+# CONCURRENCY — economy_v1
+# =============================================================================
+
+---
+Concurrency:
+  rule: no double spend same balance
+  status: DECISIONE APPROVATA

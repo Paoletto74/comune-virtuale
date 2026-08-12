@@ -1,0 +1,82 @@
+# =============================================================================
+# TRAVEL — concetto fondamentale del sistema
+# =============================================================================
+
+Travel:
+  schema:
+    travelId: string
+    citizenId: string
+    originRef: string
+    destinationRef: string
+    originZoneId: string | null
+    destinationZoneId: string | null
+    mode: string
+    vehicleId: string | null
+    estimatedDuration: TBD
+    actualDuration: TBD
+    cost: TBD
+    status: planned | in_progress | completed | delayed | failed | cancelled
+    startTime: timestamp
+    endTime: timestamp | null
+    reliabilityRoll: TBD
+    delayMinutes: TBD
+    generatedEffects: []
+
+  rule: DECISIONE APPROVATA — ogni spostamento occupa tempo
+
+destinationTypes:
+  items:
+    - home
+    - work
+    - shop
+    - hospital
+    - school
+    - task_location
+    - other
+  note: |
+    Riferimenti generici — Mobility non conosce logica del sistema chiamante.
+    originRef/destinationRef = opaque location reference.
+
+travelPlanning:
+  input:
+    items:
+      - citizenId
+      - originRef
+      - destinationRef
+      - preferredMode
+      - availableModes
+      - citizenMobilityStatus
+  output:
+    items:
+      - estimatedDuration
+      - estimatedCost
+      - mode
+      - reliability
+      - vehicleId_if_applicable
+
+travelExecution:
+  flow: |
+    Action(Travel) or embedded in WorkSession/Task
+    → resolve route (routes.yaml)
+    → compute duration + cost
+    → reserve time slot (Time System)
+    → apply operating costs (Economy Pipeline)
+    → roll reliability / incidents
+    → emit TravelCompleted or TravelDelayed
+  onFailure: fallback_to_alternative_mode if available
+
+timeOccupation:
+  DECISIONE APPROVATA: |
+    Tempo viaggio sottratto dal tempo disponibile.
+    Critico per multi-job.
+    Esempio: 24h - 8h lavoro A - 4h lavoro B - 2h viaggio = 10h libere.
+  formula: TBD
+
+events:
+  items:
+    - TravelPlanned
+    - TravelStarted
+    - TravelCompleted
+    - TravelDelayed
+    - TravelFailed
+    - ArrivalLate

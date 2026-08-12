@@ -1,0 +1,67 @@
+# =============================================================================
+# COMPONENTS — editorial library + game integration
+# =============================================================================
+
+EditorialComponentLibrary:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  editorial:
+    items:
+      - Masthead
+      - Headline
+      - Subhead
+      - Kicker
+      - ArticleCard
+      - ArticleHero
+      - Caption
+      - Byline
+      - EditorialDivider
+      - NewsTicker
+      - BreakingBadge
+      - StatBlock
+      - DataTable
+      - LeagueTable
+      - EditionHeader
+      - ClassifiedCard
+      - CitizenFeature
+      - SpecialEditionBanner
+  gameIntegration:
+    ref: ui_main_v1 — NON duplicare
+    items:
+      - Button
+      - Card
+      - Modal
+      - Popup
+      - Toast
+      - Tabs
+      - Badge
+      - Graph
+      - Avatar
+      - AssetImage
+
+editorialVsGameUI:
+  DECISIONE APPROVATA:
+  editorial:
+    items: [titoli, articoli, cronaca, statistiche]
+  game:
+    items: [buttons, forms, confirmation, actions]
+  rule: devono convivere senza confondersi
+  gameplayClarity:
+    cta:
+      examples: [ACQUISTA, CANDIDATI, VOTA, COMPLETA, ACCETTA, INVIA]
+    rule: CTA gioco immediatamente riconoscibili — NON nascoste in estetica editoriale
+  forms:
+    rule: chiarezza, leggibilita, feedback, accessibility — NON simulazioni cartacee
+  buttons:
+    rule: styling editoriale ma chiaramente interactive controls
+
+visualHierarchy:
+  order:
+    items:
+      - cosa_devo_vedere
+      - cosa_e_importante
+      - cosa_posso_fare
+      - cosa_e_secondario
+
+events:
+  items:
+    - EditorialComponentRendered

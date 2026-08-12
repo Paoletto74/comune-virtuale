@@ -1,0 +1,31 @@
+# =============================================================================
+# RATE LIMITS & LOCKOUT
+# =============================================================================
+
+RateLimiting:
+  status: PROPOSTA TECNICA — valori TBD
+  appliesTo:
+    items:
+      - login
+      - password_reset
+      - admin_login
+      - admin_invite
+      - permission_operations
+
+BruteForce:
+  status: PROPOSTA TECNICA
+  includes:
+    items:
+      - rate_limiting
+      - temporary_lock
+      - suspicious_login_detection
+
+AccountLockout:
+  DECISIONE APPROVATA: Account LOCKED temporaneamente
+  distinctFrom: SUSPENDED
+
+events:
+  items:
+    - RateLimitExceeded
+    - AccountLocked
+    - AccountUnlocked

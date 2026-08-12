@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC SCHEDULE — Game Time schedule for active NPCs
+# =============================================================================
+
+NpcSchedule:
+  appliesTo: ACTIVE and SPECIAL NPCs
+  timeSource: Game Time — ref time_main_v1
+  integration: NPC/Time integration
+
+events:
+  items:
+    - NpcScheduleResolved

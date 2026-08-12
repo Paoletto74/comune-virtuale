@@ -1,0 +1,18 @@
+# =============================================================================
+# GAME DATETIME — time_v1
+# =============================================================================
+
+---
+GameDateTime:
+  schema:
+    year: integer
+    month: 1-12
+    day: integer
+    hour: 0-23
+    minute: 0-59
+    second: 0-59
+  granularity: TBD
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - GameDateTimeChanged

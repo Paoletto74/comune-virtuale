@@ -1,0 +1,21 @@
+# =============================================================================
+# ACCESS RULES — backend authoritative access
+# =============================================================================
+
+AccessRules:
+  DECISIONE APPROVATA:
+  rule: client NON decide se luogo accessibile, puo entrare, comprare, lavorare
+  backend: authoritative access check
+  eventAccess: ref location_events.yaml — backend authoritative
+  deepLink:
+    private: location non pubblica — access denied/appropriate response
+    paths:
+      items:
+        - "/city/{cityId}"
+        - "/district/{districtId}"
+        - "/location/{locationId}"
+    authorization: server-side
+
+events:
+  items:
+    - AccessChecked

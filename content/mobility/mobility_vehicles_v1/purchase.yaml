@@ -1,0 +1,15 @@
+# =============================================================================
+# PURCHASE — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehiclePurchase:
+  flow:
+  - listing
+  - detail
+  - confirmation
+  - Economy payment
+  - ownership transfer
+  - availability update
+  atomic: DECISIONE APPROVATA inherited
+  status: DECISIONE APPROVATA flow PROPOSTA detail

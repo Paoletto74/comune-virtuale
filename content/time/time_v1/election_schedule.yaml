@@ -1,0 +1,15 @@
+# =============================================================================
+# ELECTION SCHEDULE — time_v1
+# =============================================================================
+
+---
+ElectionSchedule:
+  owner: Political
+  periods:
+  - campaign
+  - voting
+  - results
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ElectionVotingOpened

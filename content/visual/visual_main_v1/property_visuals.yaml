@@ -1,0 +1,33 @@
+# =============================================================================
+# PROPERTY VISUALS — per tipologia/configurazione
+# =============================================================================
+
+PropertyVisual:
+  schema:
+    contentRef: string
+    visualAssetId: string
+    propertyCategory: string
+
+exampleMappings:
+  status: esempi dimostrativi
+  items:
+    - contentRef: property_shack
+      label: baracca
+    - contentRef: property_apartment
+      label: appartamento
+    - contentRef: property_house
+      label: casa
+    - contentRef: property_villa
+      label: villa
+    - contentRef: property_villa_pool
+      label: villa con piscina
+    - contentRef: property_palace
+      label: palazzo
+    - contentRef: property_commercial
+      label: edificio aziendale
+
+rule: immagini rappresentano categoria/configurazione immobile
+
+events:
+  items:
+    - PropertyVisualResolved

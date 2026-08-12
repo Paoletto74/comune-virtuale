@@ -1,0 +1,22 @@
+# =============================================================================
+# MODERATION — profanity, abuse, UGC
+# =============================================================================
+
+Moderation:
+  applies:
+    items:
+      - nome
+      - fun_facts
+      - testo_pubblico
+  checks:
+    items:
+      - profanity_filter
+      - abuse_detection
+      - report
+      - moderation_workflow
+  details: DA DEFINIRE / TBD
+  ucg: tutti i campi liberamente scrivibili = USER-GENERATED CONTENT
+
+events:
+  items:
+    - ContentModerated

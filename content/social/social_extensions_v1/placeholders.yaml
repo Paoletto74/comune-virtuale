@@ -1,0 +1,23 @@
+# =============================================================================
+# PLACEHOLDERS — extensions (TBD)
+# =============================================================================
+
+placeholders:
+  status: PROPOSTA TECNICA — estende social_main_v1/placeholders.yaml
+
+  inheritedFromMain:
+    note: tutti i placeholder TBD del main restano validi
+
+  newPlaceholders:
+    DISCOVERY_ACQUAINTANCE_RULE: TBD
+    MAJOR_GIFT_POPUP_THRESHOLD: TBD
+    GAZZETTA_DONATION_THRESHOLD: TBD
+    SOCIAL_GRAPH_MAX_DEPTH: TBD
+    POPUP_QUEUE_MAX: 1
+
+  futurePack:
+    note: social_balance_v1 — formule, limiti numerici, threshold popup/gazzetta
+
+  contentPackNote: |
+    social_extensions_v1 — review e chiarimenti Prompt 49.
+    social_main_v1 approvato — NON modificato.

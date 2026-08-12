@@ -1,0 +1,9 @@
+# =============================================================================
+# NPC LABOUR MARKET — work_careers_v1
+# =============================================================================
+
+---
+NpcLabourMarket:
+  npcCanFillPositions: true
+  simulation: may be aggregated
+  status: PROPOSTA TECNICA

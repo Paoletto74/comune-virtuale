@@ -1,0 +1,19 @@
+# =============================================================================
+# MULTI DEVICE — cross-device same Citizen
+# =============================================================================
+
+MultiDevice:
+  platforms:
+    items:
+      - Android
+      - iPhone
+      - Windows
+      - macOS
+      - tablet
+  rule: stesso account = stesso Citizen — NON Citizen duplicati
+  gameState: server-side
+  ref: auth_main_v1/sessions.yaml
+
+events:
+  items:
+    - MultiDeviceLogin

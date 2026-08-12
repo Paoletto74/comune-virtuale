@@ -1,0 +1,39 @@
+# =============================================================================
+# SENSITIVE PERMISSIONS — economy, political, criminal, ecc.
+# =============================================================================
+
+SensitivePermissionScopes:
+  status: PROPOSTA TECNICA
+  domains:
+    items:
+      - ECONOMY
+      - BANKING
+      - POLITICAL
+      - CRIMINAL
+      - PROGRESSION
+      - REWARDS
+      - EVENTS
+      - CONTENT_PUBLISH
+
+rule: |
+  Editor generico NON deve poter modificare tutto.
+  Operazioni sensibili richiedono permission superiori.
+
+stepUpAuthentication:
+  status: PROPOSTA TECNICA — futuro
+  requiredFor:
+    items:
+      - publish_economy
+      - rollback
+      - permission_changes
+      - delete_disable
+      - system_changes
+
+mfa:
+  status: PROPOSTA TECNICA — compatibilità futura, NON obbligatorio V1
+  note: particolarmente importante per OWNER
+
+events:
+  items:
+    - SensitiveActionAttempted
+    - StepUpAuthenticationRequired

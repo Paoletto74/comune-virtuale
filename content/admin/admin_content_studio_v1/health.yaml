@@ -1,0 +1,20 @@
+# =============================================================================
+# CONTENT HEALTH — dashboard metrics
+# =============================================================================
+
+ContentHealth:
+  status: PROPOSTA TECNICA — dashboard futura
+  metrics:
+    items:
+      - broken_references
+      - missing_visuals
+      - missing_translations
+      - expired_content
+      - duplicate_ids
+      - unpublished_drafts
+      - validation_errors
+
+events:
+  items:
+    - ContentHealthCheckCompleted
+    - ContentHealthAlertRaised

@@ -1,0 +1,19 @@
+# =============================================================================
+# RULES & BORDERS — editorial separators
+# =============================================================================
+
+RulesAndBorders:
+  elements:
+    items:
+      - linee
+      - doppie_linee
+      - regole
+      - box
+      - colonne
+  rule: elemento ricorrente — NON ogni elemento pieno di bordi
+
+ref: components.yaml EditorialDivider
+
+events:
+  items:
+    - EditorialRuleApplied

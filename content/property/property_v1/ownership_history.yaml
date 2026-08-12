@@ -1,0 +1,13 @@
+# =============================================================================
+# OWNERSHIP HISTORY — property_v1
+# =============================================================================
+
+---
+OwnershipHistory:
+  records:
+  - previous owner
+  - new owner
+  - acquisition date
+  - transfer reason
+  - transaction reference
+  status: DECISIONE APPROVATA

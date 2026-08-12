@@ -1,0 +1,9 @@
+# =============================================================================
+# ADDRESS — property_v1
+# =============================================================================
+
+---
+Address:
+  display: address/display label
+  internal: geographic IDs not arbitrary strings
+  status: DECISIONE APPROVATA

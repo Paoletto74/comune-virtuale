@@ -1,0 +1,39 @@
+# =============================================================================
+# SECURITY — anti-cheat social
+# =============================================================================
+
+Security:
+  status: PROPOSTA TECNICA — estende social_main_v1/placeholders.yaml security
+
+  clientCannot:
+    items:
+      - send_arbitrary_text
+      - modify_messageDefinition
+      - falsify_sender
+      - falsify_recipient
+      - modify_relationship_score
+      - modify_trust
+      - modify_sympathy
+      - modify_reputation
+      - bypass_cooldown
+      - bypass_block
+      - bypass_daily_limits
+      - generate_unauthorized_effects
+      - forge_interaction_id
+      - replay_completed_interaction
+
+  serverMust:
+    items:
+      - validate_all_preset_references
+      - enforce_idempotency
+      - audit_all_state_changes
+      - reject_offline_unauthorized_effects
+
+  antiCheat:
+    items:
+      - duplicate_send
+      - duplicate_relationship_change
+      - replay_attack
+      - forged_messageDefinitionId
+      - time_manipulation
+      - location_spoofing_for_context

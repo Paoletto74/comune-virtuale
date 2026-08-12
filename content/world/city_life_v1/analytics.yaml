@@ -1,0 +1,17 @@
+# =============================================================================
+# ANALYTICS — privacy-aware metrics
+# =============================================================================
+
+Analytics:
+  status: PROPOSTA TECNICA — future
+  possible:
+    items:
+      - NPC_interactions
+      - business_views
+      - location_views
+      - social_actions
+  privacy: privacy-aware — ref privacy.yaml
+
+events:
+  items:
+    - CityLifeAnalyticsRecorded

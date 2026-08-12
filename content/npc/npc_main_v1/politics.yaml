@@ -1,0 +1,31 @@
+# =============================================================================
+# POLITICS — voto, candidature, influenza
+# =============================================================================
+
+NpcPolitics:
+  ref: political_main_v1/npc.yaml
+  DECISIONE APPROVATA: popolazione = players + NPC
+  capabilities:
+    items:
+      - vote
+      - run_for_office
+      - be_elected
+      - have_influence
+      - civic_participation
+  owner: political_main_v1 autorevole
+
+votingSimulation:
+  tier_0: aggregate_vote_by_segment
+  tier_3: individual_vote_for_important_npc
+  rule: NON 10.000 elaborazioni se effetto uniforme per segmento
+
+npcCandidates:
+  status: PROPOSTA TECNICA
+  example: sindaco NPC — TIER_3
+
+events:
+  items:
+    - NpcVoted
+    - NpcElected
+    - NpcPoliticalInfluenceChanged
+    - AggregateVoteEvent

@@ -1,0 +1,20 @@
+# =============================================================================
+# FIRST NEWS — editorial new citizen story
+# =============================================================================
+
+FirstNews:
+  concept: "Nuovo cittadino in citta - sistema editoriale configurabile"
+  privacyFirst:
+    DECISIONE APPROVATA:
+    noAutoPublish:
+      items:
+        - eta
+        - compleanno
+        - fun_facts_privati
+        - dati_finanziari
+  rule: "rispettare privacy - NON notizia globale automatica senza regola"
+  ref: content_system_v1, first_newspaper.yaml
+
+events:
+  items:
+    - FirstNewsCandidateCreated

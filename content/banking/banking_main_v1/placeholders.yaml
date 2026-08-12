@@ -1,0 +1,54 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_CURRENCY: TBD
+  OPENING_BALANCE: TBD
+
+  MAX_LOAN_AMOUNT: TBD
+  MAX_INTEREST_RATE: TBD
+  MIN_INTEREST_RATE: TBD
+
+  GIFT_DAILY_LIMIT: TBD
+  TRANSFER_DAILY_LIMIT: TBD
+
+  TRANSFER_FEE_PERCENT: TBD
+  LOAN_FEE_PERCENT: TBD
+  WITHDRAWAL_FEE: TBD
+  ACCOUNT_FEE: TBD
+
+  BANKRUPTCY_THRESHOLD: TBD
+  OVERDUE_GRACE_DAYS: TBD
+  DEFAULT_AFTER_DAYS: TBD
+
+  SIMPLE_INTEREST_FORMULA: TBD
+  FIXED_REPAYMENT_FORMULA: TBD
+
+  USURER_RANKING_FORMULA: TBD
+  BENEFACTOR_RANKING_FORMULA: TBD
+  CREDITWORTHINESS_FORMULA: TBD
+
+  LEDGER_RETENTION_DAYS: TBD
+  PARTIAL_REPAYMENT_ENABLED: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - marketplace_main_v1
+      - inventory_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - criminal_main_v1
+      - notification_main_v1
+      - event_main_v1
+      - time_main_v1
+      - progression_main_v1
+      - task_main_v1
+
+  futurePack:
+    note: banking_balance_v1 — interest formulas, bankruptcy thresholds, limits — DA DEFINIRE
+
+  contentPackNote: |
+    banking_main_v1 formalizza economy ledger/lending/gifts/bankruptcy layer dedicato.
+    Pack approvati NON modificati.

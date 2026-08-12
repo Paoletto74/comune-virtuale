@@ -1,0 +1,9 @@
+# =============================================================================
+# NET WORTH — economy_v1
+# =============================================================================
+
+---
+NetWorth:
+  formula: Assets - Liabilities
+  notEqualTo: cash
+  status: DECISIONE APPROVATA

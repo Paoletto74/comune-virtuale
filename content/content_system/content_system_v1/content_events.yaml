@@ -1,0 +1,27 @@
+# =============================================================================
+# CONTENT EVENTS — ContentPublished, ContentUpdated, ContentExpired
+# =============================================================================
+
+ContentEvents:
+  domainEvents:
+    items:
+      - ContentPublished
+      - ContentUpdated
+      - ContentExpired
+  distinction: |
+    ContentPublished != ItemPurchased, JobStarted, VoteCast.
+    Content status != game state.
+  consumers:
+    items:
+      - cache
+      - search
+      - Gazzetta
+      - analytics
+      - notification_if_explicit_rule
+  rule: publish does NOT automatically notify all players
+
+ref: contracts_v1/domain_events.yaml
+
+events:
+  items:
+    - ContentEventEmitted

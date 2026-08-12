@@ -1,0 +1,31 @@
+# =============================================================================
+# MAP — city map overview
+# =============================================================================
+
+CityMap:
+  DECISIONE APPROVATA:
+  purpose:
+    items:
+      - comprendere quartieri
+      - luoghi
+      - proprieta
+      - servizi
+      - punti_importanti
+  style:
+    rule: coerente con NEWSPAPER IDENTITY — editoriale/cartografico
+    forbidden: NON deve necessariamente sembrare Google Maps
+  geo:
+    rule: mondo fictional — NON coordinate reali obbligatorie
+  provider: DA DEFINIRE / TBD — NON Google Maps/Mapbox/OSM assumed
+  data:
+    fields:
+      items:
+        - geometry
+        - layers
+        - markers
+        - metadata
+    technology: DA DEFINIRE / TBD
+
+events:
+  items:
+    - CityMapOpened

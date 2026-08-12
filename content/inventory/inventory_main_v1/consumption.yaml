@@ -1,0 +1,65 @@
+# =============================================================================
+# CONSUMPTION — ConsumeAction, food
+# =============================================================================
+
+ConsumeAction:
+  schema:
+    actionId: string
+    actorId: string
+    itemInstanceId: string
+    quantity: number
+    validatedBy: string
+    status: pending | completed | rejected
+    idempotencyKey: string
+  DECISIONE APPROVATA: |
+    Inventory verifica possesso → ConsumeAction → Effects via event_main_v1.
+    Inventory NON decide "questo cibo dà +5 felicità" — content pack definisce effetti.
+
+ConsumptionFlow:
+  flow: |
+    Request consume
+    → verify ownership + quantity + not locked + not expired
+    → emit ConsumeAction
+    → event_main_v1 applies effects
+    → reduce quantity or destroy instance
+    → ItemConsumed event
+
+Food:
+  DECISIONE APPROVATA: categoria configurabile
+  fields:
+    items:
+      - quality
+      - price_ref
+      - category
+      - satiety
+      - effects
+      - deterioration
+      - duration
+      - wellbeing_effects
+  rule: NON formule nutrizionali realistiche V1 — cibo migliore → piccolo boost valori
+
+FoodEffects:
+  DECISIONE APPROVATA: via event_main_v1 — NO hardcode motore
+  demoExample:
+    eventType: EatPremiumFood
+    effects:
+      items:
+        - type: HAPPINESS
+          operation: add
+          magnitude: TBD
+        - type: HEALTH
+          operation: add
+          magnitude: TBD
+        - type: STRESS
+          operation: subtract
+          magnitude: TBD
+
+Clothing:
+  DECISIONE APPROVATA: acquistati, usati, sostituiti, deteriorati
+  resellRule: configurable — se consumable class → default no resell
+
+events:
+  items:
+    - ConsumeActionRequested
+    - ItemConsumed
+    - ConsumptionRejected

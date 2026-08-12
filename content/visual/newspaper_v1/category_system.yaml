@@ -1,0 +1,35 @@
+# =============================================================================
+# CATEGORY SYSTEM — configurable editorial categories
+# =============================================================================
+
+CategorySystem:
+  labels:
+    examples:
+      items:
+        - CRONACA
+        - ECONOMIA
+        - POLITICA
+        - LAVORO
+        - MERCATO
+        - SOCIETA
+        - CITTA
+        - SPORT
+        - CULTURA
+    rule: solo categorie approvate attive
+  accents:
+    rule: accent differenti per categoria — NON solo colore
+  eventDesks:
+    mapping:
+      personal: PERSONAL NEWS
+      global: SPECIAL REPORT
+      municipal: LOCAL NEWS
+      economic: MARKET UPDATE
+      political: POLITICAL DESK
+      criminal: CRIME DESK
+      social: CITY LIFE
+
+ref: gazzetta.yaml, metadata.yaml
+
+events:
+  items:
+    - CategoryApplied

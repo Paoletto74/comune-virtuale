@@ -1,0 +1,136 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: bidirectional
+    alignsWith: economy_main_v1/assets.yaml
+    economyOwns:
+      items:
+        - prices
+        - money
+        - transactions
+        - marketplace_orders
+        - inflation
+        - currentMarketValue
+    inventoryOwns:
+      items:
+        - item_identity
+        - ownership
+        - quantity
+        - condition
+    atomicTransfer: AssetTransfer pattern in assets.yaml
+
+  property_main_v1:
+    direction: reference_only
+    rule: Property autorevole — inventory propertyReference only
+
+  mobility_main_v1:
+    direction: reference_only
+    rule: Mobility autorevole — inventory vehicleReference only
+
+  business_main_v1:
+    direction: reference_only
+    rule: company equity via business — not full duplicate in inventory
+
+  event_main_v1:
+    direction: inventory → events
+    uses:
+      items:
+        - ConsumeAction effects
+        - onUse onEquip hooks
+        - expiration consequences
+        - transfer consequences
+
+  time_main_v1:
+    uses:
+      items:
+        - expiresAt
+        - shelfLife
+        - deteriorationSchedule
+        - lock expiry
+
+  criminal_main_v1:
+    direction: criminal → inventory
+    uses:
+      items:
+        - legalStatus
+        - stolen ownership
+        - confiscation
+        - illegal item detection
+
+  npc_main_v1:
+    direction: npc market demand
+    rule: NPC generano domanda — Marketplace/Economy transazioni
+
+  progression_main_v1:
+    uses:
+      items:
+        - item requirements
+        - prestige assets for profile data
+
+  notification_main_v1:
+    direction: events → notification
+    examples:
+      items:
+        - item_expired
+        - gift_received
+        - confiscation
+
+  task_main_v1:
+    direction: bidirectional
+    uses:
+      items:
+        - quest_item_locks
+        - consumables for tasks
+
+  marketplace:
+    status: PROPOSTA TECNICA — parte economy
+    usesCatalogFor:
+      items:
+        - categories
+        - availability
+        - metadata
+        - condition
+
+  security:
+    clientCannot:
+      items:
+        - create_items
+        - modify_ownership
+        - bypass_transfer_validation
+        - consume_without_validation
+        - unlock_seized_items
+
+  idempotency:
+    keys:
+      items:
+        - transferId
+        - consumeActionId
+        - instanceId
+        - idempotencyKey
+
+  audit:
+    fields:
+      items:
+        - itemInstanceId
+        - ownerId
+        - transferId
+        - actionType
+        - timestamp
+        - outcome
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    inventoryMustNot:
+      items:
+        - set_prices
+        - mutate_cash
+        - own_property_logic
+        - own_vehicle_logic
+        - decide_crime_outcomes
+        - duplicate_marketplace

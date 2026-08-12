@@ -1,0 +1,89 @@
+# =============================================================================
+# GAPS REVIEW — Prompt 49 vs social_main_v1
+# =============================================================================
+
+gapsReview:
+  status: PROPOSTA TECNICA
+
+  alreadyApproved:
+    pack: social_main_v1
+    fileCount: 18
+    note: verificato — NON modificato
+
+  gaps:
+    items:
+      - id: discovery_explicit
+        description: CitizenMet / social discovery non ha file dedicato nel main
+        resolution: discovery.yaml in extensions
+      - id: property_integration
+        description: property events non esplicitati in integrations.yaml main
+        resolution: integrations_property_v1.yaml
+      - id: popup_visual_sound
+        description: popup eligibility e asset cues non definiti nel main
+        resolution: ui_social_popup + visual/sound integrations
+      - id: ui_contracts
+        description: frontend social UI non definito nel main
+        resolution: ui_social_* files
+      - id: api_schema
+        description: endpoint non definiti
+        resolution: api.yaml — TBD
+      - id: economy_v1_alignment
+        description: main linka economy_main_v1, non economy_v1
+        resolution: integrations_economy_v1.yaml
+      - id: work_careers_alignment
+        description: main linka work_main_v1
+        resolution: integrations_work_careers.yaml
+      - id: time_v1_alignment
+        description: main linka time_main_v1
+        resolution: integrations_time_v1.yaml
+
+  conflicts:
+    items:
+      - id: relationship_status_enum
+        approved:
+          items:
+            - unknown
+            - acquaintance
+            - friendly
+            - trusted
+            - hostile
+            - rival
+            - business_contact
+            - creditor
+            - debtor
+        prompt49_suggests:
+          items:
+            - stranger
+            - friend
+            - employer
+            - employee
+            - customer
+            - political_contact
+            - criminal_contact
+        resolution: TBD — NON sovrascrivere enum approvato senza approvazione esplicita
+        note: employer/employee potrebbero restare in Work; family in family_main_v1
+
+      - id: sympathy_reputation_ownership
+        approved: Social registra, Effects/Event/Progression modificano
+        risk: task_main_v1 effects.yaml include sympathy effectType
+        resolution: Task emette EffectRequest, Social/Progression decidono — pattern gia approvato in task
+
+      - id: relationship_module_reference
+        approved: social_main_v1/relationships.yaml
+        risk: task_main_v1/placeholders.yaml menziona relationship_module
+        resolution: social_main_v1 resta SOT relationship — task consulta via context
+
+      - id: contracts_social_commands
+        approved: contracts_v1 — CreateGift, CreateLoanRequest
+        gap: preset message / social action commands non elencati
+        resolution: TBD — estendere contracts_v1 in futuro, non in questo pack
+
+      - id: visibility_friends_label
+        approved: FRIENDS_RELATIONSHIP
+        prompt49: FRIENDS/RELATIONSHIP
+        resolution: stesso concetto — usare enum approvato
+
+      - id: criminal_integration
+        approved: compatibilita futura in integrations.yaml
+        prompt49: richiede boundary chiaro
+        resolution: integrations_criminal.yaml — boundary only, runtime TBD

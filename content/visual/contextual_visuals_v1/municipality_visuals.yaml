@@ -1,0 +1,17 @@
+# =============================================================================
+# MUNICIPALITY VISUALS — city, town hall, local events
+# =============================================================================
+
+MunicipalityVisuals:
+  family:
+    items:
+      - city
+      - town_hall
+      - citizens
+      - local_events
+  events:
+    ImportantMunicipalEvent: municipality.civic.event
+
+events:
+  items:
+    - MunicipalityVisualResolved

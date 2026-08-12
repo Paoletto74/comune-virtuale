@@ -1,0 +1,18 @@
+# =============================================================================
+# SECURITY — task_extensions_v1
+# =============================================================================
+
+---
+SecurityExtensions:
+  clientCannot:
+  - task availability
+  - requirements
+  - reward
+  - outcome
+  - probability
+  - target
+  - consequence
+  - completion
+  - cooldown
+  inheritedFromMain: integrations.yaml security
+  status: DECISIONE APPROVATA inherited

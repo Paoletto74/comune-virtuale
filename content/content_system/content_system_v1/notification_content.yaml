@@ -1,0 +1,26 @@
+# =============================================================================
+# NOTIFICATION CONTENT — template vs instance
+# =============================================================================
+
+NotificationContent:
+  template:
+    items:
+      - title
+      - body
+      - icon_visual
+      - CTA_label
+      - localization
+  notificationSystemOwns:
+    items:
+      - recipient
+      - priority
+      - eligibility
+      - createdAt
+      - read_state
+      - popup_eligibility
+
+ref: notification_main_v1, contracts_v1/notification_contracts.yaml
+
+events:
+  items:
+    - NotificationTemplateSaved

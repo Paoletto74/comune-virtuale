@@ -1,0 +1,18 @@
+# =============================================================================
+# SANITIZATION — XSS, unsafe URLs, embeds
+# =============================================================================
+
+Sanitization:
+  prevents:
+    items:
+      - script_injection
+      - HTML_non_autorizzato
+      - template_injection
+      - XSS
+      - unsafe_URLs
+      - malicious_embeds
+  rule: NO arbitrary code in content body
+
+events:
+  items:
+    - ContentSanitized

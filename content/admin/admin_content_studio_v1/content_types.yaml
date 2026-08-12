@@ -1,0 +1,100 @@
+# =============================================================================
+# CONTENT TYPES — registry estendibile
+# =============================================================================
+
+ContentTypeRegistry:
+  DECISIONE APPROVATA: catalogo estendibile di tipi content editabili
+  schema:
+    typeId: string
+    label: string
+    packRef: string
+    schemaRef: string
+    editorRef: string
+    sensitive: boolean
+
+contentTypes:
+  items:
+    - typeId: task
+      label: Tasks
+      packRef: task_main_v1
+    - typeId: event
+      label: Events
+      packRef: event_main_v1
+    - typeId: item
+      label: Items
+      packRef: inventory_main_v1
+    - typeId: marketplace
+      label: Marketplace content
+      packRef: marketplace_main_v1
+    - typeId: job
+      label: Jobs
+      packRef: work_main_v1
+    - typeId: news
+      label: News
+      labelNote: Gazzetta
+    - typeId: notification
+      label: Notifications
+      packRef: notification_main_v1
+    - typeId: popup
+      label: Popup
+      packRef: visual_main_v1/popup_definitions.yaml
+    - typeId: social_message
+      label: Social messages
+      packRef: social_main_v1/preset_messages.yaml
+    - typeId: social_action
+      label: Social actions
+      packRef: social_main_v1/social_actions.yaml
+    - typeId: title
+      label: Titles
+      packRef: progression_main_v1/titles.yaml
+    - typeId: achievement
+      label: Achievements
+      packRef: profile_main_v1/achievements.yaml
+    - typeId: profile_fact
+      label: Profile facts
+      packRef: profile_main_v1/personal_facts.yaml
+    - typeId: ranking
+      label: Rankings
+    - typeId: visual_asset
+      label: Visual assets metadata
+      packRef: visual_main_v1/assets.yaml
+    - typeId: audio_ref
+      label: Audio references
+      packRef: visual_main_v1/audio_refs.yaml
+    - typeId: ui_text
+      label: UI texts
+      packRef: ui_main_v1
+    - typeId: humor
+      label: Humor
+    - typeId: npc_content
+      label: NPC content
+      packRef: npc_main_v1
+    - typeId: political_content
+      label: Political content
+      packRef: political_main_v1
+    - typeId: criminal_content
+      label: Criminal content
+      packRef: criminal_main_v1
+    - typeId: progression_content
+      label: Progression content
+      packRef: progression_main_v1
+    - typeId: other
+      label: Other
+
+ContentObject:
+  schema:
+    contentId: string
+    contentType: string
+    schemaVersion: number
+    version: string
+    status: string
+    payload: object
+    createdAt: timestamp
+    updatedAt: timestamp
+    publishedAt: "timestamp | null"
+    publishedBy: "string | null"
+
+events:
+  items:
+    - ContentTypeRegistered
+    - ContentObjectCreated

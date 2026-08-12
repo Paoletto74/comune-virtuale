@@ -1,0 +1,26 @@
+# =============================================================================
+# PERSONAL EDITION — future Home personalization
+# =============================================================================
+
+PersonalEdition:
+  status: PROPOSTA TECNICA
+  concept: Home mostra contenuti rilevanti per Citizen
+  examples:
+    items:
+      - lavoro
+      - promozione
+      - proprieta_acquistata
+      - notizia_comune
+      - evento_personale
+      - classifica
+      - notizia_globale
+  noFilterBubble:
+    DECISIONE APPROVATA: |
+      NON solo contenuti player — mondo esterno deve esistere.
+      Citta viva oltre il giocatore.
+
+ref: personalization.yaml
+
+events:
+  items:
+    - PersonalEditionComposed

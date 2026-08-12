@@ -1,0 +1,14 @@
+# =============================================================================
+# COMMUTE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Commute:
+  concept: Residence to Workplace
+  inputs:
+  - Property residence
+  - Work workplace
+  - Mobility calculation
+  costRules: TBD
+  doesNotModifyWorkDirectly: DECISIONE APPROVATA inherited
+  status: PROPOSTA TECNICA

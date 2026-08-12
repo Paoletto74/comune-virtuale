@@ -1,0 +1,53 @@
+# =============================================================================
+# SYSTEM REGISTRY — registered runtime systems
+# =============================================================================
+
+SystemRegistry:
+  status: PROPOSTA TECNICA
+  systemDeclaration:
+    items:
+      - systemId
+      - version
+      - tick_frequency
+      - dependencies
+      - priority
+      - enabled
+      - execution_mode
+      - failure_policy
+
+lifecycle:
+  states:
+    items:
+      - initialize
+      - ready
+      - running
+      - degraded
+      - disabled
+      - shutdown
+
+registeredSystems:
+  items:
+    - Time
+    - Work
+    - Economy
+    - Property
+    - Mobility
+    - Task
+    - Progression
+    - Social
+    - Political
+    - Criminal
+    - Business
+    - Family
+    - NPC
+    - Municipality
+    - Notification
+    - Ranking
+    - Gazzetta
+    - Content
+    - Analytics
+
+events:
+  items:
+    - SystemRegistered
+    - SystemStateChanged

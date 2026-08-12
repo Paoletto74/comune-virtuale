@@ -1,0 +1,98 @@
+# =============================================================================
+# TASK DEFINITIONS — modelli (TaskDefinition)
+# =============================================================================
+# Esempio dimostrativo — NON catalogo definitivo
+# Pattern: signora anziana al parco (modello dati, non hardcode motore)
+# =============================================================================
+
+TaskDefinition:
+  schema:
+    taskId: string
+    type: string
+    categoryId: string
+    title: string
+    description: string
+    availabilityConditionsRef: string
+    visibility: visible | hidden | discoverable | triggered
+    expiration: TBD
+    optionsRef: string
+    targetRulesRef: string
+    consequenceRulesRef: string
+    cooldown: TBD
+    repeatable: boolean
+    priority: low | normal | high | critical
+    tags: []
+    sourceModule: task | work | property | mobility | criminal | political | economy
+
+  rule: DECISIONE APPROVATA — TaskDefinition ≠ TaskInstance
+
+definitions:
+  status: skeleton_and_demo_only
+  note: Catalogo definitivo — DA DEFINIRE
+
+  demoExamples:
+    items:
+      - taskId: DEMO_ELDERLY_CROSSING
+        categoryId: social
+        type: situational
+        title: Signora anziana al parco
+        description: Vedi una signora anziana che deve attraversare la strada.
+        optionsRef: DEMO_ELDERLY_CROSSING_OPTIONS
+        targetRulesRef: random_npc_elderly
+        visibility: visible
+        repeatable: true
+        priority: normal
+        note: Esempio modello dati — NON hardcoded nel motore
+
+      - taskId: DEMO_SUITCASE_OFFER
+        categoryId: criminal
+        type: delivery
+        title: Offerta valigia
+        description: Un uomo ti offre denaro per trasportare una valigia.
+        optionsRef: DEMO_SUITCASE_OPTIONS
+        mobilityRequired: true
+        visibility: visible
+        priority: normal
+        note: Esempio end-to-end Prompt 13 §59
+
+      - taskId: DEMO_GLOBAL_LAW
+        categoryId: global
+        type: global_event
+        title: Nuova legge approvata
+        description: È stata approvata una nuova legge.
+        effectRulesRef: per_citizen_conditional
+        visibility: visible
+        priority: high
+        note: Effetti diversi per cittadino — §10-11
+
+TaskInstance:
+  schema:
+    taskInstanceId: string
+    definitionId: string
+    citizenId: string
+    actorId: string
+    targetId: string | null
+    affectedCitizenIds: []
+    observerIds: []
+    createdAt: timestamp
+    expiresAt: timestamp | null
+    status: pending | active | completed | failed | expired | cancelled
+    context: {}
+    causalChainId: string | null
+    previousTaskId: string | null
+    previousEventId: string | null
+    idempotencyKey: string | null
+    selectedOptionId: string | null
+    resultRef: string | null
+
+TaskResult:
+  schema:
+    resultId: string
+    taskInstanceId: string
+    outcome: success | failure | partial
+    outcomeId: string
+    effects: []
+    generatedEvents: []
+    generatedTasks: []
+    delayedConsequences: []
+    auditRef: string

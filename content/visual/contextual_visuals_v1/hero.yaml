@@ -1,0 +1,18 @@
+# =============================================================================
+# HERO — hero image format
+# =============================================================================
+
+Hero:
+  type: HERO_IMAGE
+  use:
+    items:
+      - Gazzetta_article
+      - property_detail
+      - vehicle_detail
+      - breaking_news
+      - popup_FULL_BLEED
+  resolution: DA DEFINIRE / TBD
+
+events:
+  items:
+    - HeroImageLoaded

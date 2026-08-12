@@ -1,0 +1,34 @@
+# =============================================================================
+# CATEGORIES — sound taxonomy
+# =============================================================================
+
+SoundCategories:
+  catalog:
+    items:
+      - UI
+      - ECONOMY
+      - PURCHASE
+      - REWARD
+      - PROGRESSION
+      - WORK
+      - PROPERTY
+      - VEHICLE
+      - SOCIAL
+      - POLITICAL
+      - CRIME
+      - NOTIFICATION
+      - POPUP
+      - GAZZETTA_NEWS
+      - MUNICIPALITY
+      - EVENTS
+      - ERROR
+      - SUCCESS
+      - AMBIENT
+      - SPECIAL_EVENT
+
+  settingsGroup:
+    mapping: each category maps to volume group where applicable
+
+events:
+  items:
+    - SoundCategorySelected

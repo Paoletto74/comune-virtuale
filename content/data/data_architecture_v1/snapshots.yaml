@@ -1,0 +1,25 @@
+# =============================================================================
+# SNAPSHOTS — rankings, inflation, net worth, municipal, simulation
+# =============================================================================
+
+SnapshotTypes:
+  items:
+    - ranking_daily
+    - ranking_weekly
+    - inflation
+    - net_worth_history
+    - municipal_state
+    - simulation_state
+
+schema:
+  snapshotId: string
+  snapshotType: string
+  capturedAt: timestamp
+  data: object
+  schemaVersion: number
+
+example: ranking_daily_2026_08_08
+
+events:
+  items:
+    - SnapshotCreated

@@ -1,0 +1,18 @@
+# =============================================================================
+# JOB TYPES — work_careers_v1
+# =============================================================================
+
+---
+JobType:
+  definition: template e.g. barista
+  categories:
+  - manual
+  - office
+  - commercial
+  - professional
+  - managerial
+  - public
+  - criminal
+  - entrepreneurial
+  - special
+  status: DECISIONE APPROVATA

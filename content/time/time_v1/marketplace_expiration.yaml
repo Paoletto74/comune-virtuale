@@ -1,0 +1,12 @@
+# =============================================================================
+# MARKETPLACE EXPIRATION — time_v1
+# =============================================================================
+
+---
+MarketplaceExpiration:
+  owner: Marketplace
+  field: expiresAt
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ListingExpired

@@ -1,0 +1,54 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  RELATIONSHIP_STRENGTH_GAIN: TBD
+  RELATIONSHIP_STRENGTH_LOSS: TBD
+  TRUST_GAIN: TBD
+  TRUST_LOSS: TBD
+  AFFINITY_GAIN: TBD
+
+  AGE_STAGE_DURATION_INFANT: TBD
+  AGE_STAGE_DURATION_CHILD: TBD
+  AGE_STAGE_DURATION_TEEN: TBD
+  AGE_STAGE_DURATION_YOUNG_ADULT: TBD
+  AUTONOMY_AGE_THRESHOLD: TBD
+
+  FAMILY_EXPENSE_BASE: TBD
+  EDUCATION_COST: TBD
+  CHILD_NEEDS_COST: TBD
+  HOUSEHOLD_SHARED_EXPENSE_RATIO: TBD
+
+  SUPPORT_COOLDOWN: TBD
+  RELATIONSHIP_DECAY_RATE: TBD
+  TIME_TOGETHER_BONUS: TBD
+
+  MAX_CHILDREN_PER_CITIZEN: TBD
+  MAX_PARTNERS_V1: TBD
+
+  NPC_FAMILY_EVENT_PROBABILITY: TBD
+  NPC_CHILD_SIMULATION_DEPTH: TBD
+
+  FAMILY_TASK_COOLDOWN: TBD
+  FAMILY_EVENT_FREQUENCY: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - task_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - work_main_v1
+      - business_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - notification_module
+
+  futurePack:
+    note: family_balance_v1 — DA DEFINIRE

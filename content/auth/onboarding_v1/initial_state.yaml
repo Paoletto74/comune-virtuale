@@ -1,0 +1,32 @@
+# =============================================================================
+# INITIAL STATE — backend authoritative starting values
+# =============================================================================
+
+InitialState:
+  DECISIONE APPROVATA:
+  source: backend — Initial Citizen State — NON hardcoded frontend
+  fields:
+    startingMoney:
+      owner: Economy_Banking — se esiste
+    startingLevel:
+      owner: Progression_System
+    startingJob:
+      owner: Work_System — NON assegnare automaticamente senza Work System
+    startingItems:
+      owner: Inventory_Economy
+    startingProperty:
+      owner: Property_System — NON assumere
+    startingVehicle:
+      owner: Mobility_System — NON assumere
+    startingTitle:
+      owner: Progression_System
+    initialRanking:
+      rule: NON mostrare ranking inventato — "Non ancora classificato" se assente
+    initialNetWorth:
+      rule: derived value — NON hardcodare
+    initialGraph:
+      rule: se no historical data — stato iniziale appropriato — NO grafico falso
+
+events:
+  items:
+    - InitialStateReceived

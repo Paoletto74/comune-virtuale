@@ -1,0 +1,20 @@
+# =============================================================================
+# EVENT VERSIONS — backward compatibility
+# =============================================================================
+
+EventVersioning:
+  format: "EventType.vN — es. ItemPurchased.v1, ItemPurchased.v2"
+  rule: NON modificare silenziosamente significato di v1
+
+backwardCompatibility:
+  rule: nuovi consumer leggono eventi precedenti dove possibile
+  breaking: richiede nuova versione
+
+commandQueryVersioning:
+  commands: commandType + schemaVersion
+  queries: queryType + schemaVersion
+  readModels: modelVersion
+
+events:
+  items:
+    - EventVersionMismatchDetected

@@ -1,0 +1,20 @@
+# =============================================================================
+# UI SOUNDS — button, tab, toggle, confirmation
+# =============================================================================
+
+UiSounds:
+  types:
+    button: subtle — NON ogni button
+    tab: subtle
+    toggle: subtle
+    selection: subtle
+    confirmation: subtle
+    modal: subtle
+    error: ref errors.yaml
+  rule: preferire important actions — volume e frequenza bassi
+  notificationCenterOpen: NON necessariamente sound
+  profileUpdate: subtle confirmation
+
+events:
+  items:
+    - UiSoundTriggered

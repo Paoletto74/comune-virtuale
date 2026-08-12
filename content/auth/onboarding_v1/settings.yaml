@@ -1,0 +1,23 @@
+# =============================================================================
+# SETTINGS — account, profile, privacy, audio, etc.
+# =============================================================================
+
+Settings:
+  sections:
+    items:
+      - Authentication
+      - Profile
+      - Privacy
+      - Audio
+      - Notifications
+      - Language
+      - Accessibility
+  location: Profile -> Settings
+  profileVsSettings:
+    Profile: chi sei
+    Settings: come funziona account/esperienza
+  ref: profile_main_v1, sound_design_v1/settings.yaml
+
+events:
+  items:
+    - SettingsViewed

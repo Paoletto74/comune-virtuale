@@ -1,0 +1,38 @@
+# =============================================================================
+# PRINCIPLES — mobility_vehicles_v1
+# =============================================================================
+
+---
+MobilityPrinciples:
+  DECISIONE APPROVATA:
+    separations:
+    - Mobility != Vehicle Ownership
+    - Vehicle != Mobility
+    - Vehicle != Marketplace
+    mobilitySOT: travel mobility state vehicle state commute
+    vehicleNotRequired: walk public transport always possible
+    noAutoSimulator: NOT full road/traffic simulator V1
+    travelGameTime: true
+    purchaseAtomic: true
+    vehicleNotLiquidity: true
+    clientNotAuthoritative: true
+  inheritedFromMobilityMain:
+    items:
+    - Mobility Status != Vehicle Ownership
+    - multiVehicle allowed max TBD
+    - purchase sale atomic rollback
+    - Vehicle Definition != Vehicle Instance
+    - costs via Economy Pipeline
+    - Mobility provides data Work decides consequences
+    - travel occupies time
+    - no permanent death incidents
+    - walk mode exists
+  PROPOSTA TECNICA:
+    items:
+    - traffic congestion
+    - fuel energy system
+    - insurance
+    - accidents
+    - taxi ride services
+    - parking detail
+    - primary vehicle rule

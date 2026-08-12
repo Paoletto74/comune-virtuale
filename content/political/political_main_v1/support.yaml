@@ -1,0 +1,75 @@
+# =============================================================================
+# POLITICAL SUPPORT — consenso e soddisfazione
+# =============================================================================
+
+SupportMetrics:
+  schema:
+    citizenId: string
+    roleHolderId: string | null
+    popularity: TBD
+    politicalSupport: TBD
+    satisfaction: TBD
+    lastUpdated: timestamp
+
+  rule: |
+    popularity, politicalSupport, satisfaction — collegati ma NON necessariamente identici.
+
+mayorSupport:
+  schema:
+    mayorId: string
+    aggregateSupport: TBD
+    aggregatePopularity: TBD
+    trendDirection: rising | stable | falling
+  affects:
+    items:
+      - reelection_probability
+      - role_stability
+      - protest_events
+      - task_generation
+
+citizenSatisfaction:
+  DECISIONE APPROVATA: |
+    Decisioni influenzano cittadini diversamente.
+    Es. nuova tassa: A happiness -10 cash -100; B -2 -20; C +5.
+    NO "nuova tassa → tutti -10".
+  evaluation: per_citizen via Effect Pipeline
+  inputs:
+    items:
+      - cash
+      - income
+      - property
+      - job
+      - health
+      - happiness
+      - stress
+      - family
+      - location
+      - economicPosition
+      - politicalInfluence
+
+supportChange:
+  triggers:
+    items:
+      - policy_decisions
+      - law_activation
+      - economic_conditions
+      - events
+      - scandals
+      - campaign_promises
+  formula: TBD
+  deterministic: false
+
+roleLossFromSupport:
+  triggers:
+    items:
+      - support_below_threshold
+      - confidence_vote_future
+      - combined_with_events
+  values: TBD
+
+events:
+  items:
+    - SupportChanged
+    - PopularityChanged
+    - SatisfactionChanged
+    - SupportThresholdCrossed

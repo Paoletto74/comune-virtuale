@@ -1,0 +1,20 @@
+# =============================================================================
+# ECONOMY VISUALS — money, market, commerce
+# =============================================================================
+
+EconomyVisuals:
+  family:
+    items:
+      - money
+      - market
+      - commerce
+      - property
+      - work
+  events:
+    LargeMoneyEarned: economy.large_gain.celebration
+    MajorSpend: economy.major_spend.weight
+    LoanReceived: economy.loan.credit
+
+events:
+  items:
+    - EconomyVisualResolved

@@ -1,0 +1,24 @@
+# =============================================================================
+# OPENAPI — contract documentation future
+# =============================================================================
+
+OpenApi:
+  status: PROPOSTA TECNICA — tecnologia TBD — NON implementare ora
+  purpose: contract documentation per frontend e integrazioni
+
+contractSchema:
+  perEndpoint:
+    items:
+      - name
+      - version
+      - method
+      - input
+      - output
+      - errors
+      - authorization
+      - idempotency
+      - source_of_truth
+
+events:
+  items:
+    - OpenApiSpecUpdated

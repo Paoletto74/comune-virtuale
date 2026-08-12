@@ -1,0 +1,107 @@
+# =============================================================================
+# VISUAL CONTENT & PRESENTATION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: separare Game Content / Visual Asset / Visual Presentation
+# Gestisce: metadata asset, varianti, composizioni, popup, fallback, versioning
+# NON modifica: tutti i moduli già approvati
+# V1: proposta architetturale — NO libreria immagini completa, NO AI generation runtime
+# =============================================================================
+
+catalogId: visual_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  profile: profile_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  marketplace: marketplace_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  progressionMain: progression_main_v1
+  social: social_main_v1
+  work: work_main_v1
+  banking: banking_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+
+principles:
+  - Game Content ≠ Visual Asset ≠ Visual Presentation
+  - visualAssetId stabile — NO path hardcoded nel motore
+  - Metadata separato da binary storage
+  - Content-first — immagini, popup, suoni, composizioni configurabili
+  - Profile decide best assets — Visual decide come presentarli
+  - NO full inventory visualization in composizione pubblica
+  - Visual NON mostra origine asset (prestito, regalo, furto)
+  - Fallback/placeholder obbligatori — UI non si rompe
+  - UNO stile grafico coerente V1 — style consistency
+  - AI generation compatibile futuro — NON dipendenza obbligatoria
+  - Audio/Animation autorevoli — Visual riferisce soundId/animationId
+  - Server authoritative — client non modifica asset/visibility
+  - Admin Content Studio compatible
+  - NO AI image generation runtime V1
+
+includes:
+  assetTypes: asset_types.yaml
+  assets: assets.yaml
+  itemVisuals: item_visuals.yaml
+  vehicleVisuals: vehicle_visuals.yaml
+  propertyVisuals: property_visuals.yaml
+  luxuryVisuals: luxury_visuals.yaml
+  characterVisuals: character_visuals.yaml
+  profileShowcase: profile_showcase.yaml
+  profileCompositions: profile_compositions.yaml
+  marketplaceVisuals: marketplace_visuals.yaml
+  inventoryVisuals: inventory_visuals.yaml
+  eventVisuals: event_visuals.yaml
+  newsVisuals: news_visuals.yaml
+  notificationVisuals: notification_visuals.yaml
+  popupDefinitions: popup_definitions.yaml
+  audioRefs: audio_refs.yaml
+  animationRefs: animation_refs.yaml
+  styles: styles.yaml
+  variants: variants.yaml
+  privacy: privacy.yaml
+  accessibility: accessibility.yaml
+  performance: performance.yaml
+  versioning: versioning.yaml
+  validation: validation.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  asset_module: [assets, assetTypes, versioning, validation]
+  presentation_module: [profileShowcase, profileCompositions, marketplaceVisuals, inventoryVisuals]
+  popup_module: [popupDefinitions, notificationVisuals, audioRefs, animationRefs]
+  governance_module: [privacy, accessibility, performance, styles, placeholders]
+
+responsibilitySplit:
+  visualDecides:
+    items:
+      - visual_asset_metadata
+      - asset_references
+      - visual_variants
+      - image_presentation
+      - profile_composition
+      - showcase
+      - visual_fallback
+      - visual_content_validation
+      - visual_content_versioning
+  profileDecides: [citizen_identity, public_assets, rankings, titles]
+  inventoryDecides: item_state
+  propertyDecides: property
+  mobilityDecides: vehicle
+  marketplaceDecides: listing
+  eventDecides: event
+  gazzettaDecides: editorial_content
+  notificationDecides: notification_logic
+  audioDecides: audio_playback
+  animationUiDecides: animation
+  adminContentStudioDecides: content_editing_publishing
+
+alignsWith:
+  note: |
+    Complementa profile_main_v1 (showcase, hero), marketplace_main_v1 (listing cards),
+    inventory_main_v1 (thumbnails), notification_main_v1 (popup).
+    NON modifica pack approvati.

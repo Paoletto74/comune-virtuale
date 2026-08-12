@@ -1,0 +1,21 @@
+# =============================================================================
+# WORK RUNTIME — salary, employment state
+# =============================================================================
+
+WorkRuntime:
+  tickProcesses:
+    items:
+      - scheduled_salary
+      - shift
+      - employment_state
+      - absence
+      - contract_expiry
+  rule: NON inventare regole non presenti nel Work System
+  sourceOfTruth: Work
+  executionMode: tick-driven + event-driven
+  failurePolicy: RETRY with idempotency for salary
+  ref: work_main_v1
+
+events:
+  emits: [SalaryPaid, JobStarted, JobEnded]
+  consumes: [PlayerCommandApplyJob]

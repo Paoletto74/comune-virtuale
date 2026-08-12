@@ -1,0 +1,14 @@
+# =============================================================================
+# AUDIT — work_careers_v1
+# =============================================================================
+
+---
+Audit:
+  important:
+  - hire
+  - fire
+  - salary change
+  - promotion
+  - manual adjustment
+  - admin intervention
+  status: DECISIONE APPROVATA

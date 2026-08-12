@@ -1,0 +1,17 @@
+# =============================================================================
+# SOCIAL VISUALS — gift, citizens, community
+# =============================================================================
+
+SocialVisuals:
+  family:
+    items:
+      - gift
+      - citizens
+      - interaction
+      - community
+  events:
+    GiftReceived: social.gift.warm
+
+events:
+  items:
+    - SocialVisualResolved

@@ -1,0 +1,22 @@
+# =============================================================================
+# MAP ACCESSIBILITY — map not only way to explore
+# =============================================================================
+
+MapAccessibility:
+  DECISIONE APPROVATA:
+  rule: mappa NON unico modo per esplorare
+  alternatives:
+    items:
+      - list_view
+      - search
+      - location_cards
+      - city_guide
+  screenReader: locations navigabili senza mappa visuale
+  keyboard: desktop keyboard navigation
+  reducedMotion: map animations rispettano prefers-reduced-motion
+  contrast: marker e district colors rispettano contrast
+  legend: legenda marker types
+
+events:
+  items:
+    - MapAccessibilityApplied

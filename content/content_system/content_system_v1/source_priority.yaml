@@ -1,0 +1,16 @@
+# =============================================================================
+# SOURCE PRIORITY — authority hierarchy
+# =============================================================================
+
+SourcePriority:
+  hierarchy:
+    CODE: schema and rules
+    CONTENT_STORE: published content
+    DOMAIN_SYSTEM: game state and rules
+  override:
+    rule: configurable overrides possible — NO arbitrary game rule overrides
+  conflicts: avoid authority conflicts
+
+events:
+  items:
+    - SourcePriorityResolved

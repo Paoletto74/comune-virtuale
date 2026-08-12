@@ -1,0 +1,47 @@
+# =============================================================================
+# EFFECT REQUEST PATTERN — Social boundaries
+# =============================================================================
+
+EffectRequestPattern:
+  status: PROPOSTA TECNICA — formalizza separationOfConcerns del main
+
+  rule: |
+    Social registra interazioni e puo richiedere effetti.
+    I sistemi authoritative applicano le proprie regole.
+
+  flows:
+    items:
+      - name: sympathy_update
+        pattern: SocialEvent → EffectRequest → Progression/Effects → Result
+        socialDoesNot: modify_sympathy_directly
+
+      - name: reputation_update
+        pattern: SocialEvent → EffectRequest → Progression/Effects → Result
+        socialDoesNot: modify_reputation_directly
+
+      - name: trust_update
+        pattern: SocialEvent → EffectRequest → Social (trust field) → Result
+        note: trust e dato relazionale social — modifica via effect autorizzato
+
+      - name: relationship_update
+        pattern: SocialEvent → EffectRequest → Social → RelationshipUpdated
+        socialDoesNot: client_modifies_score
+
+      - name: gift_flow
+        pattern: Economy GiftSent → Event → Social contextual reaction
+        socialDoesNot: modify_balance
+
+      - name: loan_flow
+        pattern: Economy LoanRequest → Social presentation → Economy decision
+        socialDoesNot: become_banking_system
+
+      - name: task_relationship_context
+        pattern: Task → SocialQuery (relationship/trust) → Task eligibility
+        taskDoesNot: modify_relationship_directly
+
+      - name: delayed_social_consequence
+        pattern: SocialEvent → EventRequest → Time trigger → Event/Social resolution
+
+  idempotency:
+    DECISIONE APPROVATA: ogni EffectRequest richiede idempotencyKey
+    ref: social_main_v1/placeholders.yaml

@@ -1,0 +1,11 @@
+# =============================================================================
+# VERSIONING — configuration versioned
+# =============================================================================
+
+Versioning:
+  applies: NPC, business, organization configuration
+  ref: content_system_v1 versioning patterns
+
+events:
+  items:
+    - CityLifeVersionUpdated

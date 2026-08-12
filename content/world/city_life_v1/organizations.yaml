@@ -1,0 +1,17 @@
+# =============================================================================
+# ORGANIZATIONS — collective entities, != Business
+# =============================================================================
+
+Organizations:
+  definition: gruppo/entita collettiva
+  notBusiness:
+    DECISIONE APPROVATA: |
+      Business = operazione economica.
+      Organization = gruppo collettivo.
+      Organization puo possedere business.
+  identifier: OrganizationId
+  types: ref organization_types.yaml
+
+events:
+  items:
+    - OrganizationLoaded

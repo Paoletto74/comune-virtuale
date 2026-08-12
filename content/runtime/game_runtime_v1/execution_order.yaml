@@ -1,0 +1,36 @@
+# =============================================================================
+# EXECUTION ORDER — architectural example, validate per real dependencies
+# =============================================================================
+
+ExecutionOrder:
+  status: PROPOSTA TECNICA — ordine esempio architetturale
+  example:
+    items:
+      - Time
+      - Scheduled_Events
+      - Player_State
+      - Work
+      - Economy
+      - Property
+      - Mobility
+      - Social
+      - Political
+      - Criminal
+      - Progression
+      - NPC
+      - Rankings
+      - Notifications
+      - Analytics
+  note: ordine definitivo deve essere validato per dipendenze reali
+
+atomicityDeclaration:
+  perExecution:
+    items:
+      - atomic
+      - transactional
+      - eventually_consistent
+  rule: operazioni finanziarie critiche = atomic
+
+events:
+  items:
+    - ExecutionOrderApplied

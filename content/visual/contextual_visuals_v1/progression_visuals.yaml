@@ -1,0 +1,20 @@
+# =============================================================================
+# PROGRESSION VISUALS — level, title, achievement, unlock
+# =============================================================================
+
+ProgressionVisuals:
+  family:
+    items:
+      - level
+      - title
+      - achievement
+      - unlock
+  events:
+    LevelUp: progression.level_up.achievement
+    NewTitle: progression.new_title.prestige
+    Unlock: progression.unlock.discovery
+    TaskCompleted: progression.task.complete
+
+events:
+  items:
+    - ProgressionVisualResolved

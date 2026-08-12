@@ -1,0 +1,13 @@
+# =============================================================================
+# BALANCE FEEDBACK — metrics feed progression_balance_v1
+# =============================================================================
+
+BalanceFeedback:
+  rule: |
+    Runtime metrics alimentano progression_balance_v1.
+    NON modificare automaticamente i placeholder di balance.
+  ref: progression_balance_v1
+
+events:
+  emits: [BalanceMetricRecorded]
+  consumes: [LevelReached, TaskCompleted]

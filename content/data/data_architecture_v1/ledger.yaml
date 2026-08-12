@@ -1,0 +1,37 @@
+# =============================================================================
+# LEDGER — append-oriented, authoritative
+# =============================================================================
+
+Ledger:
+  sourceOfTruth: Banking/Economy
+  DECISIONE APPROVATA: modello append-oriented
+  properties:
+    appendOnly: true
+    noArbitraryRewrite: true
+    correctionsVia: reversal_or_adjustment_entry
+
+schema:
+  transactionId: string
+  idempotencyKey: string
+  timestamp: timestamp
+  worldTime: timestamp
+  source: string
+  destination: string
+  amount: TBD
+  currency: string
+  transactionType: string
+  reference: string
+  status: string
+
+ref: banking_main_v1/ledger.yaml
+
+reconciliation:
+  status: PROPOSTA TECNICA
+  rule: |
+    Ledger balance vs Account balance — se differiscono: ALERT.
+    Job riconciliazione per sistemi critici.
+
+events:
+  items:
+    - LedgerEntryAppended
+    - LedgerReconciliationAlert

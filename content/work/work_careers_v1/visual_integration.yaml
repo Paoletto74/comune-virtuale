@@ -1,0 +1,14 @@
+# =============================================================================
+# VISUAL INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+VisualIntegration:
+  ref: contextual_visuals_v1
+  examples:
+  - briefcase
+  - contract
+  - promotion
+  - workplace
+  - unemployment
+  status: DECISIONE APPROVATA

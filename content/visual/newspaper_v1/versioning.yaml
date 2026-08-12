@@ -1,0 +1,14 @@
+# =============================================================================
+# VERSIONING — visualDirectionVersion
+# =============================================================================
+
+Versioning:
+  visualDirectionVersion: newspaper_v1
+  contentCompatibility:
+    rule: content deve dichiarare compatibilita con visual direction version
+
+ref: catalog.yaml visualDirectionVersion
+
+events:
+  items:
+    - VersionCompatibilityChecked

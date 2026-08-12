@@ -1,0 +1,14 @@
+# =============================================================================
+# API — property_v1
+# =============================================================================
+
+---
+PropertyApi:
+  endpoints:
+  - GET /api/v1/properties
+  - GET /api/v1/properties/{id}
+  - POST purchase
+  - POST rent/apply
+  - GET /api/v1/ownership/me
+  schema: TBD
+  status: PROPOSTA TECNICA

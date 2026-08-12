@@ -1,0 +1,19 @@
+# =============================================================================
+# PROPERTY SOUNDS — purchase, rent
+# =============================================================================
+
+PropertySounds:
+  PropertyPurchased:
+    cue: property.acquisition
+    priority: HIGH
+    length: major
+    description: casa/proprieta acquistata — special acquisition sound
+  PropertyRent:
+    cue: property.rent_payment
+    priority: NORMAL
+    length: micro
+    description: affitto — economic payment sound
+
+events:
+  items:
+    - PropertySoundTriggered

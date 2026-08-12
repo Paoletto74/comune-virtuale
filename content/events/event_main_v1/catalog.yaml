@@ -1,0 +1,93 @@
+# =============================================================================
+# EVENT / CONSEQUENCE / EFFECTS MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: linguaggio comune per eventi, conseguenze, effetti
+# Principio gioco: "Ogni azione impatta su noi stessi e sugli altri."
+# NON modifica: tutti i moduli già approvati
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: event_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  notification: notification_main_v1
+  timeSystem: shared_time_service
+
+principles:
+  - EVENT ≠ CONSEQUENCE ≠ EFFECT — separazione netta
+  - Domain ownership — Effects System NON muta stato altrui direttamente
+  - EffectCommand → sistema competente valida ed esegue
+  - Personalizzazione per destinatario — stesso evento, effetti diversi
+  - Causal chain tracciabile — audit, debug, notifiche
+  - Content-first definitions — NO hardcode conseguenze nel motore
+  - Idempotenza + atomicità + rollback dove necessario
+  - Cascade control — profondità max, cycle detection, event budget
+  - Client non autoritativo
+  - NO AI / LLM / API esterne
+
+includes:
+  types: types.yaml
+  events: events.yaml
+  consequences: consequences.yaml
+  effects: effects.yaml
+  conditions: conditions.yaml
+  modifiers: modifiers.yaml
+  duration: duration.yaml
+  stacking: stacking.yaml
+  cascade: cascade.yaml
+  visibility: visibility.yaml
+  ordering: ordering.yaml
+  idempotency: idempotency.yaml
+  definitions: definitions.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  event_core: [types, events, consequences]
+  effect_module: [effects, modifiers, duration, stacking]
+  orchestration_module: [cascade, ordering, conditions]
+  lifecycle_module: [idempotency, visibility]
+
+responsibilitySplit:
+  eventSystemDecides:
+    items:
+      - event_representation
+      - consequence_propagation
+      - effect_command_routing
+      - causal_chain_tracking
+      - cascade_orchestration
+      - condition_evaluation
+      - scheduled_consequence_dispatch
+      - idempotency_enforcement
+  otherSystemsDecide:
+    economy: money_ledger_and_economic_facts
+    work: employment_and_salary
+    property: property_state_and_ownership
+    mobility: vehicle_and_travel_state
+    criminal: crime_heat_detection_penalties
+    political: laws_elections_policies
+    business: company_performance_and_ownership
+    family: relationships_and_household
+    progression: main_level_and_tracks
+    task: task_choice_and_outcome_presentation
+    notification: whether_and_how_to_notify
+    time: clock_schedules_catch_up
+
+replacesConceptually:
+  note: |
+    Formalizza e unifica pattern già presenti in task_main_v1
+    (effects, consequences, conditions, delayed_consequences).
+    NON modifica i pack approvati — event_main_v1 è layer trasversale.

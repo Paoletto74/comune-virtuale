@@ -1,0 +1,14 @@
+# =============================================================================
+# ANNIVERSARIES — time_v1
+# =============================================================================
+
+---
+Anniversaries:
+  types:
+  - work
+  - property
+  - city entry
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - AnniversaryReached

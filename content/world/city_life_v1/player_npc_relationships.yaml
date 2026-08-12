@@ -1,0 +1,25 @@
+# =============================================================================
+# PLAYER NPC RELATIONSHIPS — acquaintance, friend, rival, etc.
+# =============================================================================
+
+PlayerNpcRelationships:
+  types:
+    items:
+      - acquaintance
+      - friend
+      - rival
+      - employee
+      - employer
+      - customer
+      - creditor
+      - debtor
+      - political_contact
+      - criminal_contact
+  extensible: true
+  owner:
+    rule: Relationship System separato solo se necessario — integrare Social System esistente
+  ref: social_main_v1
+
+events:
+  items:
+    - PlayerNpcRelationshipUpdated

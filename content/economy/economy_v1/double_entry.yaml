@@ -1,0 +1,9 @@
+# =============================================================================
+# DOUBLE ENTRY — economy_v1
+# =============================================================================
+
+---
+DoubleEntry:
+  status: PROPOSTA TECNICA strongly recommended
+  rule: every movement has debit and credit
+  statusLabel: PROPOSTA TECNICA

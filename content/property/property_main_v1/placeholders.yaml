@@ -1,0 +1,49 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  BASE_MARKET_VALUE_TIER_1: TBD
+  BASE_MARKET_VALUE_TIER_2: TBD
+  BASE_RENT_TIER_1: TBD
+  BASE_RENT_TIER_2: TBD
+
+  MAX_PROPERTIES_PER_CITIZEN: TBD
+  REVALUATION_INTERVAL: TBD
+  CONDITION_DECAY_RATE: TBD
+  MAINTENANCE_COST_BASE: TBD
+  PROPERTY_TAX_RATE: TBD
+  TRANSFER_TAX_RATE: TBD
+
+  RENT_PAYMENT_FREQUENCY: TBD
+  RENTAL_CONTRACT_MIN_DURATION: TBD
+  RENTAL_DEPOSIT: TBD
+  VACANCY_NPC_FILL_DELAY: TBD
+
+  NPC_RENTAL_DEMAND_FORMULA: TBD
+  NPC_PURCHASE_DEMAND_FORMULA: TBD
+  MARKET_DEMAND_INDEX: TBD
+
+  ZONE_VALUE_MULTIPLIER_CENTRO: TBD
+  ZONE_VALUE_MULTIPLIER_PERIFERIA: TBD
+  ZONE_RENT_MULTIPLIER: TBD
+
+  HOUSING_EFFECT_STREET_STRESS: TBD
+  HOUSING_EFFECT_QUALITY_HAPPINESS: TBD
+  HOUSING_EFFECT_MODERATION_CAP: TBD
+
+  DISTANCE_TO_WORK_FORMULA: TBD
+  TRAVEL_TIME_FORMULA: TBD
+
+  EVENT_DAMAGE_PROBABILITY: TBD
+  EVENT_FIRE_PROBABILITY: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - progression_balance_v1
+      - work_main_v1
+      - business_module
+      - mobility_module
+      - criminal_module
+      - politics_module

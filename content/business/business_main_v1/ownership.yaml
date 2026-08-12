@@ -1,0 +1,63 @@
+# =============================================================================
+# OWNERSHIP — proprietà e multi-company
+# =============================================================================
+
+OwnershipRecord:
+  schema:
+    ownershipId: string
+    companyId: string
+    ownerId: string
+    ownerType: citizen | npc | system
+    ownershipPercent: TBD
+    acquiredAt: timestamp
+    acquisitionType: founded | purchase | transfer | inheritance
+    acquisitionPrice: TBD
+    transactionRef: string
+    status: active | pending_transfer | seized
+
+CitizenBusinessPortfolio:
+  schema:
+    citizenId: string
+    ownedCompanyIds: []
+    totalCompanyCount: TBD
+    totalCompanyValue: TBD
+    primaryCompanyId: string | null
+
+multiCompany:
+  DECISIONE APPROVATA: true
+  maxCompaniesPerCitizen: TBD
+  placeholderKey: MAX_COMPANIES_PER_CITIZEN
+  roles:
+    items:
+      - sole_owner
+      - shareholder_future
+      - manager_future
+
+ownerCompensation:
+  types:
+    items:
+      - profit_distribution
+      - dividends_future
+      - owner_salary_if_working
+  rule: |
+    profit/dividendi ≠ stipendio se proprietario lavora in azienda.
+    Stipendio via Work System — distinto da profitto.
+
+companyValueVsOwnerCash:
+  DECISIONE APPROVATA: companyValue ≠ cash del proprietario
+
+transferFlow:
+  atomic: true
+  purchase: |
+    Buyer → Purchase Request → validate → Economy Transaction
+    → Ownership Transfer → Company Owner Updated
+  sale: |
+    Seller → Sale Request → Economy → Ownership Transfer
+  onFailure: rollback_all
+
+events:
+  items:
+    - CompanyFounded
+    - CompanyOwnershipTransferred
+    - CompanySold
+    - CompanyPurchased

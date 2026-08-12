@@ -1,0 +1,30 @@
+# =============================================================================
+# NPC SOCIAL — stesso sistema, risposte rule-based
+# =============================================================================
+
+NpcSocialInteraction:
+  status: PROPOSTA TECNICA — V1 compatibile
+  DECISIONE APPROVATA: |
+    Stesso sistema per NPC importanti.
+    Player → interazione → NPC.
+    NPC → risposta preimpostata.
+    NO AI conversazionale.
+
+NpcResponseRules:
+  status: PROPOSTA TECNICA — regole appartengono a NPC/Social systems
+  examples:
+    items:
+      - condition: player_reputation_high
+        responseTone: friendly
+      - condition: player_reputation_low
+        responseTone: cold
+  rule: rule-based, NON LLM
+
+npcLod:
+  ref: npc_main_v1/simulation_tiers.yaml
+  rule: NON generare eventi inutili per ogni NPC — event-driven, aggregate stats
+
+events:
+  items:
+    - NpcSocialInteractionPerformed
+    - NpcPresetResponseSent

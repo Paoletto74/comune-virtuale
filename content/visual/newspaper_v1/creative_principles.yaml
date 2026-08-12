@@ -1,0 +1,29 @@
+# =============================================================================
+# CREATIVE PRINCIPLES
+# =============================================================================
+
+CreativePrinciples:
+  DECISIONE APPROVATA:
+  playerExperience: |
+    "Sto vivendo dentro un quotidiano che racconta la mia citta e la mia vita."
+  cityProduces:
+    items:
+      - notizie
+      - scandali
+      - elezioni
+      - eventi
+      - risultati_economici
+      - annunci
+      - personaggi
+      - classifiche
+      - storie
+  presentation: linguaggio editoriale racconta tutto
+
+noSkeuomorphism:
+  DECISIONE APPROVATA: |
+    Riferimento e VISUAL LANGUAGE — NON PHYSICAL SIMULATION.
+    Metafore stampa/pagina/edizione devono essere sottili.
+
+events:
+  items:
+    - CreativePrincipleValidated

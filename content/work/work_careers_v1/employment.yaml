@@ -1,0 +1,18 @@
+# =============================================================================
+# EMPLOYMENT — work_careers_v1
+# =============================================================================
+
+---
+Employment:
+  employmentId: string
+  citizenId: string
+  employerId: string
+  jobId: string
+  contract:
+  - salary
+  - schedule
+  - startDate
+  - endDate
+  status: see employment_status
+  alignsWith: work_main_v1/employment.yaml
+  statusLabel: DECISIONE APPROVATA

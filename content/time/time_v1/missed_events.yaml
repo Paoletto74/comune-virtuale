@@ -1,0 +1,16 @@
+# =============================================================================
+# MISSED EVENTS — time_v1
+# =============================================================================
+
+---
+MissedEvents:
+  owner: Event System
+  options:
+  - persistent
+  - notification
+  - missed
+  - replayable
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - EventMissed

@@ -1,0 +1,31 @@
+# =============================================================================
+# MUNICIPALITY API
+# =============================================================================
+
+MunicipalityApi:
+  sourceOfTruth: MunicipalityService
+  endpoints:
+    items:
+      - "GET /api/v1/municipality"
+      - "GET /api/v1/municipality/citizens"
+      - "GET /api/v1/municipality/inflation"
+      - "GET /api/v1/municipality/mayor"
+
+response:
+  fields:
+    items:
+      - name
+      - population
+      - inflation
+      - municipal_cash_summary
+      - mayor
+      - civic_progression_info
+      - rankings
+      - citizen_list
+
+citizenList:
+  rule: solo dati consentiti da privacy policy
+
+events:
+  items:
+    - MunicipalityApiRequestProcessed

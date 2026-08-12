@@ -1,0 +1,27 @@
+# =============================================================================
+# CACHE — cosa cacheare
+# =============================================================================
+
+CachePolicy:
+  status: PROPOSTA TECNICA
+
+  mayCache:
+    items:
+      - preset_message_definitions
+      - social_action_definitions
+      - message_categories
+      - public_social_metadata
+      - public_profile_social_stats
+
+  mustNotCacheAuthoritative:
+    items:
+      - relationship_state
+      - trust_values
+      - cooldown_state
+      - block_mute_state
+      - message_delivery_state
+      - social_effects_result
+      - eligibility
+
+  offlineDisplay:
+    rule: definizioni e metadata pubblici da cache — stato da server al sync

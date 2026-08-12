@@ -1,0 +1,18 @@
+# =============================================================================
+# ADMIN PICKER — visual asset selection in Content Studio
+# =============================================================================
+
+AdminPicker:
+  capabilities:
+    items:
+      - search
+      - filter
+      - preview
+      - category
+      - status
+  rule: Admin seleziona visualAssetId — NON URL
+  ref: content_system_v1/admin_authoring.yaml, admin_content_studio_v1
+
+events:
+  items:
+    - AdminVisualSelected

@@ -1,0 +1,9 @@
+# =============================================================================
+# LOANS — economy_v1
+# =============================================================================
+
+---
+Loans:
+  owner: Loan System / Economy
+  structuredDebt: true
+  status: DECISIONE APPROVATA

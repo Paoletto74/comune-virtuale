@@ -1,0 +1,18 @@
+# =============================================================================
+# CALENDAR — time_v1
+# =============================================================================
+
+---
+GameCalendar:
+  supports:
+  - dates
+  - periods
+  - intervals
+  - recurrence
+  - deadlines
+  - events
+  formatter: centralized
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - CalendarViewOpened

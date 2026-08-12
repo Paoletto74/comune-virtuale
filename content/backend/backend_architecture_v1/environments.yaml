@@ -1,0 +1,27 @@
+# =============================================================================
+# ENVIRONMENTS — DEV/STAGING/PRODUCTION
+# =============================================================================
+
+Environments:
+  DECISIONE APPROVATA: DEV/STAGING/PRODUCTION separati
+  rule: MAI production secrets in development
+
+config:
+  perEnvironment:
+    items:
+      - api_config
+      - database_connection
+      - cache_connection
+      - external_service_keys
+      - feature_flags
+
+separation:
+  items:
+    - CODE
+    - CONFIG
+    - CONTENT
+    - DATA
+
+events:
+  items:
+    - EnvironmentConfigured

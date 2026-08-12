@@ -1,0 +1,9 @@
+# =============================================================================
+# PROPERTY SHOWCASE — property_v1
+# =============================================================================
+
+---
+PropertyShowcase:
+  integration: contextual_visuals_v1
+  example: Citizen + Villa + Pool + Ferrari
+  status: DECISIONE APPROVATA

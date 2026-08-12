@@ -1,0 +1,69 @@
+# =============================================================================
+# POPULATION STATISTICS & PERCENTILES
+# =============================================================================
+
+PopulationStatistics:
+  DECISIONE APPROVATA: statistiche aggregate per altri sistemi
+  metrics:
+    items:
+      - total_population
+      - employed
+      - unemployed
+      - homeless
+      - average_income
+      - median_income
+      - property_ownership
+      - vehicle_ownership
+      - age_distribution
+      - wealth_distribution
+      - crime_rate
+      - political_participation
+
+Percentiles:
+  status: PROPOSTA TECNICA — serve progression_balance_v1
+  supported:
+    items:
+      - income_percentile
+      - netWorth_percentile
+      - influence_percentile
+      - other_relative_metrics
+  scopes:
+    ref: progression_balance_v1/population_context.yaml
+    items:
+      - all_citizens
+      - players_only
+      - npc_only
+
+NpcProgression:
+  DECISIONE APPROVATA: |
+    Compatibilità mainLevel — NON L01-L30 per ogni NPC.
+    NPC importanti: level presente.
+    Popolazione aggregata: populationSegment.
+  npcTitles:
+    items:
+      - job_title
+      - political_role
+      - business_role
+      - contextual_title
+    visibility: non tutti nei profili pubblici
+
+NpcEconomySummary:
+  individual_tier_2_3:
+    items:
+      - cash
+      - netWorth
+      - debt
+  aggregate_tier_0_1:
+    items:
+      - averageCash
+      - distribution
+      - economicSegment
+      - debtDistribution
+
+NpcSavings:
+  rule: segmenti economici — non conto individuale per tutti
+
+events:
+  items:
+    - PopulationStatisticsUpdated
+    - PercentileRecalculated

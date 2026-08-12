@@ -1,0 +1,16 @@
+# =============================================================================
+# VALIDATION — content requires valid visualAssetId
+# =============================================================================
+
+Validation:
+  DECISIONE APPROVATA: |
+    Contenuto che richiede visualAssetId inesistente NON puo essere pubblicato.
+  adminEditorialPreview:
+    ref: governance.yaml adminPreview
+
+ref: admin_content_studio_v1, visual_main_v1
+
+events:
+  items:
+    - ValidationFailed
+    - ValidationPassed

@@ -1,0 +1,51 @@
+# =============================================================================
+# EMPLOYMENT — job market, player companies
+# =============================================================================
+
+NpcEmployment:
+  DECISIONE APPROVATA: allinea work_main_v1/npc_employment.yaml
+  capabilities:
+    items:
+      - work
+      - change_job
+      - lose_job
+      - apply
+      - be_hired
+      - work_for_player_companies
+      - work_for_npc_companies
+  owner: work_main_v1 autorevole sul lavoro
+
+NpcJobMarket:
+  DECISIONE APPROVATA: |
+    NPC partecipano al mercato del lavoro.
+    Evita: azienda giocatore → nessun dipendente → inutilizzabile.
+  fillVacancies: true
+  applyForJobs: probabilistic_by_segment
+
+PlayerCompany:
+  DECISIONE APPROVATA: |
+    Giocatore apre azienda → sistema fornisce NPC employees.
+    Candidatura, assegnazione, lavoro, performance, stipendio.
+  owner: business_main_v1 autorevole su situazione aziendale
+  ifNoPlayerAccepts: assign_compatible_npc
+
+NpcSalary:
+  individual:
+    tier: "TIER_2 | TIER_3"
+    event: SalaryPaid
+  aggregate:
+    tier: "TIER_0 | TIER_1"
+    event: SalaryDistributionEvent
+  delivery: economy_main_v1 Pipeline
+
+NpcCustomers:
+  ref: business_main_v1/npc.yaml
+  DECISIONE APPROVATA: fondamentale — generano domanda per aziende/marketplace
+
+events:
+  items:
+    - NpcHired
+    - NpcFired
+    - NpcJobChanged
+    - SalaryDistributionEvent
+    - NpcAppliedForJob

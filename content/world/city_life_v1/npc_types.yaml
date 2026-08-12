@@ -1,0 +1,12 @@
+# =============================================================================
+# NPC TYPES — role categories
+# =============================================================================
+
+NpcTypes:
+  categories: ref npcs.yaml roles
+  anonymous:
+    rule: NPC anonimi — display ruolo/titolo invece di nome
+
+events:
+  items:
+    - NpcTypeResolved

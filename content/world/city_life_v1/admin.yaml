@@ -1,0 +1,26 @@
+# =============================================================================
+# ADMIN — NPC, business, organization content configuration
+# =============================================================================
+
+Admin:
+  canManage:
+    items:
+      - NPC_configuration
+      - business_presentation
+      - organization_content
+      - city_population_configuration
+      - visual_references
+  cannot:
+    rule: NON game state arbitrario — ref admin workflows
+  npcWorkflow:
+    items:
+      - Draft
+      - Review
+      - Approve
+      - Publish
+  businessOrg:
+    rule: content editing separato da economic operations / membership authority
+
+events:
+  items:
+    - AdminCityLifeUpdated

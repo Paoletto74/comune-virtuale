@@ -1,0 +1,35 @@
+# =============================================================================
+# SECURITY — UI security, headers, deep link security
+# =============================================================================
+
+SecurityUi:
+  mustNotDisplay:
+    items:
+      - token
+      - password
+      - secret
+      - internal_ids_non_necessari
+      - debug_stack_traces
+
+securityHeaders:
+  status: TBD
+  items:
+    items:
+      - CSP
+      - CORS
+      - secure_cookies
+      - frame_protection
+      - content_type
+      - referrer_policy
+
+deepLinkSecurity:
+  DECISIONE APPROVATA: deep link NON bypassa authorization
+
+serverAuthority:
+  DECISIONE APPROVATA: |
+    Frontend puo mostrare "Puoi acquistare"
+    ma backend decide se "puoi davvero acquistare".
+
+events:
+  items:
+    - SecurityViolationDetected

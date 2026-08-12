@@ -1,0 +1,51 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  DEFAULT_LISTING_DURATION_DAYS: TBD
+  LISTING_FEE_PERCENT: TBD
+  TRANSACTION_FEE_PERCENT: TBD
+  RENTAL_FEE_PERCENT: TBD
+
+  LIQUIDITY_SCORE_FORMULA: TBD
+  MARKET_REFERENCE_PRICE_FORMULA: TBD
+  DYNAMIC_PRICE_FACTORS: TBD
+
+  NPC_BUY_PROBABILITY_BASE: TBD
+  AGGREGATE_DEMAND_BATCH_SIZE: TBD
+  IMPORTANT_NPC_TIER_THRESHOLD: TBD
+
+  LISTING_EXPIRY_DEFAULT_ACTION: TBD
+  RENTAL_VACANCY_DAYS_BEFORE_NPC: TBD
+
+  MARKET_HISTORY_RETENTION_DAYS: TBD
+  PRICE_HISTORY_GRANULARITY: TBD
+
+  SEARCH_PAGE_SIZE: TBD
+  MAX_ACTIVE_LISTINGS_PER_CITIZEN: TBD
+
+  STOLEN_GOODS_LISTING_ALLOWED: TBD
+  BANKRUPTCY_TRADE_RESTRICTED: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - inventory_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - business_main_v1
+      - work_main_v1
+      - criminal_main_v1
+      - npc_main_v1
+      - event_main_v1
+      - notification_main_v1
+      - time_main_v1
+      - progression_main_v1
+
+  futurePack:
+    note: marketplace_balance_v1 — pricing, fees, liquidity formulas — DA DEFINIRE
+
+  contentPackNote: |
+    marketplace_main_v1 formalizza economy_main_v1/market.yaml layer dedicato.
+    Pack approvati NON modificati.

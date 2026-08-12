@@ -1,0 +1,11 @@
+# =============================================================================
+# ACCESSIBILITY — time_v1
+# =============================================================================
+
+---
+Accessibility:
+  timeInfo: readable screen reader compatible
+  countdown: low frequency updates
+  status: DECISIONE APPROVATA
+events:
+  items: []

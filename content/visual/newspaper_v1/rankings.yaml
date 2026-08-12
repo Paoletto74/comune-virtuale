@@ -1,0 +1,17 @@
+# =============================================================================
+# RANKINGS — League table / honors
+# =============================================================================
+
+RankingsPresentation:
+  concept:
+    items:
+      - CLASSIFICA_DELLA_CITTA
+      - CLASSIFICA_GLOBALE
+  format: "rank positions 1 2 3 with categories"
+  rule: NON alterare ranking logic - league table plus editorial highlight
+
+ref: frontend_ui_v1/rankings.yaml, components.yaml LeagueTable
+
+events:
+  items:
+    - RankingTableRendered

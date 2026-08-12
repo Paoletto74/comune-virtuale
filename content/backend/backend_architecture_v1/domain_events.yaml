@@ -1,0 +1,54 @@
+# =============================================================================
+# DOMAIN EVENTS — technical events, NOT content event definitions
+# =============================================================================
+
+DomainEvents:
+  DECISIONE APPROVATA: |
+    Domain Event tecnico != EventDefinition del Content System.
+    "Festival cittadino" (content) != "PropertyPurchased" (domain event).
+
+events:
+  items:
+    - TaskCompleted
+    - PaymentCompleted
+    - ItemPurchased
+    - JobStarted
+    - SalaryPaid
+    - PropertyPurchased
+    - ElectionHeld
+    - LevelReached
+    - LevelLost
+    - NotificationCreated
+    - ListingCreated
+    - ListingSold
+    - GiftSent
+    - LoanGranted
+    - CriminalActivityExecuted
+    - ContentPublished
+    - ContentRolledBack
+
+eventSchema:
+  eventId: string
+  eventType: string
+  occurredAt: timestamp
+  aggregateId: string
+  aggregateType: string
+  payload: object
+  correlationId: string
+
+eventHandlers:
+  status: PROPOSTA TECNICA
+  consumers:
+    items:
+      - Notification
+      - Social
+      - Analytics
+      - Gazzetta
+      - Progression
+      - Rankings
+  rule: evitare dipendenze circolari
+
+events:
+  items:
+    - DomainEventPublished
+    - DomainEventHandled

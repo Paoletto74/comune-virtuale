@@ -1,0 +1,40 @@
+# =============================================================================
+# CONTENT LIBRARY — search, filter, sort
+# =============================================================================
+
+ContentLibrary:
+  status: PROPOSTA TECNICA
+  functions:
+    items:
+      - search
+      - filter
+      - sort
+      - category
+      - status
+      - author
+      - version
+      - updatedAt
+      - publishedAt
+
+ContentStatus:
+  status: PROPOSTA TECNICA — valori definitivi TBD
+  items:
+    - DRAFT
+    - VALIDATING
+    - VALID
+    - PENDING_APPROVAL
+    - PUBLISHED
+    - SCHEDULED
+    - DISABLED
+    - ARCHIVED
+    - ERROR
+
+contentId:
+  DECISIONE APPROVATA: |
+    ID stabile — es. task_deliver_pizza_001
+    NON nomi file come identificatori logici.
+
+events:
+  items:
+    - ContentLibrarySearched
+    - ContentItemOpened

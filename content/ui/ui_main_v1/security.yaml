@@ -1,0 +1,26 @@
+# =============================================================================
+# SECURITY — UI non autorevole
+# =============================================================================
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: UI NON è fonte autorevole
+
+clientCannotViaUI:
+  items:
+    - modify_balance
+    - modify_net_worth
+    - modify_level
+    - modify_role
+    - modify_ranking
+    - modify_property
+    - complete_task
+    - modify_notifications
+    - modify_referendum
+    - modify_citizens
+
+contentFirstUI:
+  DECISIONE APPROVATA: NO hardcode testi, label, empty states, popup, ranking labels
+
+events:
+  items:
+    - UIUnauthorizedActionBlocked

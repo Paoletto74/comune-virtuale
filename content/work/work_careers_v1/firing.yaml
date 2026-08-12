@@ -1,0 +1,11 @@
+# =============================================================================
+# FIRING — work_careers_v1
+# =============================================================================
+
+---
+Firing:
+  fields:
+  - reason
+  - effectiveDate
+  - severance future
+  status: DECISIONE APPROVATA

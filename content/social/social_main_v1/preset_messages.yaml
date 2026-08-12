@@ -1,0 +1,103 @@
+# =============================================================================
+# PRESET MESSAGES — NO free text, solo definizioni catalogo
+# =============================================================================
+
+PresetMessageDefinition:
+  DECISIONE APPROVATA: |
+    Tutti i messaggi visibili tra giocatori provengono dal catalogo autorizzato.
+    NON hardcodare testi nel motore.
+  schema:
+    messageDefinitionId: string
+    categoryId: string
+    textKey: string
+    tone: neutral | positive | negative | humorous | ironic
+    visibilityDefault: PRIVATE | PUBLIC | GLOBAL
+    contextTags: []
+    allowedSenders: player | npc | system
+    cooldownGroup: "string | null"
+    enabled: boolean
+
+contextualMessages:
+  status: PROPOSTA TECNICA
+  rule: messaggi collegabili a eventi/azioni
+  examples:
+    items:
+      - context: after_loan
+        messageDefinitionId: msg_thanks_loan
+        textExample: "Grazie per il prestito!"
+      - context: after_gift
+        messageDefinitionId: msg_benefactor
+        textExample: "Sei un benefattore!"
+      - context: after_sale
+        messageDefinitionId: msg_deal_done
+        textExample: "Affare fatto."
+      - context: after_rejection
+        messageDefinitionId: msg_too_bad
+        textExample: "Peccato."
+
+presetExamples:
+  status: esempi dimostrativi — lista definitiva configurabile
+  items:
+    - messageDefinitionId: msg_hello
+      categoryId: greeting
+      textExample: "Ciao!"
+    - messageDefinitionId: msg_thanks
+      categoryId: thanks
+      textExample: "Grazie!"
+    - messageDefinitionId: msg_coffee_offer
+      categoryId: social
+      textExample: "Ti offro un caffè."
+    - messageDefinitionId: msg_accept
+      categoryId: agreement
+      textExample: "Accetto."
+    - messageDefinitionId: msg_reject
+      categoryId: rejection
+      textExample: "Rifiuto."
+    - messageDefinitionId: msg_trust
+      categoryId: social
+      textExample: "Mi fido di te."
+    - messageDefinitionId: msg_distrust
+      categoryId: social
+      textExample: "Non mi fido di te."
+    - messageDefinitionId: msg_deal_done
+      categoryId: trade
+      textExample: "Affare fatto."
+    - messageDefinitionId: msg_great_deal
+      categoryId: trade
+      textExample: "Che affare!"
+    - messageDefinitionId: msg_leave_me
+      categoryId: warning
+      textExample: "Lasciami stare."
+    - messageDefinitionId: msg_compliment
+      categoryId: social
+      textExample: "Complimenti!"
+    - messageDefinitionId: msg_owe_favor
+      categoryId: social
+      textExample: "Ti devo un favore."
+    - messageDefinitionId: msg_good_luck
+      categoryId: celebration
+      textExample: "Buona fortuna."
+
+MessageInstance:
+  schema:
+    messageId: string
+    messageDefinitionId: string
+    senderId: string
+    recipientId: string
+    timestamp: timestamp
+    worldTime: timestamp
+    context: object
+    visibility: PRIVATE | PUBLIC | GLOBAL
+    status: sent | delivered | read | expired
+    idempotencyKey: string
+
+noFreeTextDatabase:
+  DECISIONE APPROVATA: |
+    Messaggi = riferimenti a PresetMessageDefinition.
+    Riduce storage, moderazione, abuso, complessità.
+
+events:
+  items:
+    - PresetMessageSent
+    - PresetMessageDelivered
+    - ContextualMessageSuggested

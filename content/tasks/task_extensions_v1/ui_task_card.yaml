@@ -1,0 +1,23 @@
+# =============================================================================
+# UI TASK CARD — task_extensions_v1
+# =============================================================================
+
+---
+TaskCard:
+  displays:
+  - title
+  - description
+  - reward hint
+  - duration
+  - difficulty
+  - requirements
+  - status
+  - progress
+  - CTA
+  - image
+  mustNotInvent:
+  - reward
+  - requirements
+  - outcome
+  - completion
+  status: PROPOSTA TECNICA UI contract

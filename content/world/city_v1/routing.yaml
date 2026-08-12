@@ -1,0 +1,15 @@
+# =============================================================================
+# ROUTING — future route calculation
+# =============================================================================
+
+Routing:
+  status: PROPOSTA TECNICA — NON implementare necessariamente V1
+  future:
+    items:
+      - route_calculation
+      - line_path_on_map
+  ref: travel.yaml
+
+events:
+  items:
+    - RouteCalculated

@@ -1,0 +1,13 @@
+# =============================================================================
+# COMMERCIAL VEHICLES — mobility_vehicles_v1
+# =============================================================================
+
+---
+CommercialVehicles:
+  possible:
+  - delivery van
+  - truck
+  - taxi
+  - service vehicle
+  definitive: TBD
+  status: PROPOSTA TECNICA

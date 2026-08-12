@@ -1,0 +1,73 @@
+# =============================================================================
+# PERFORMANCE & QUALITY — performance e qualità azienda
+# =============================================================================
+
+CompanyPerformance:
+  schema:
+    companyId: string
+    performanceScore: TBD
+    qualityScore: TBD
+    lastUpdated: timestamp
+
+performanceInputs:
+  items:
+    - employee_performance_aggregate
+    - hours_worked
+    - absences
+    - quality_of_service
+    - investments
+    - economic_conditions
+    - events
+    - demand
+  formula: TBD
+
+qualityTradeOff:
+  DECISIONE APPROVATA: |
+    Alta qualità → clienti soddisfatti, costi maggiori, meno margine.
+    Bassa qualità → costi inferiori, margine potenziale, reputazione peggiore.
+  applicableBySector: true
+  configuredIn: company_types.yaml
+
+ownerLevers:
+  status: PROPOSTA_TECNICA
+  progressiveUnlock: true
+  levers:
+    items:
+      - leverId: LEVER_PRICING
+        label: Pricing
+      - leverId: LEVER_QUALITY
+        label: Qualità servizio
+      - leverId: LEVER_INVESTMENT
+        label: Investimento
+      - leverId: LEVER_HIRING
+        label: Assunzioni
+      - leverId: LEVER_EXPANSION
+        label: Espansione
+      - leverId: LEVER_COST_REDUCTION
+        label: Riduzione costi
+  unlockSources:
+    items:
+      - entrepreneurialLevel
+      - businessExperience
+      - milestone
+      - company_performance
+
+companyValueLink:
+  factors:
+    items:
+      - performance
+      - profit
+      - revenue
+      - reputation
+      - sector
+      - market
+      - outlook
+      - macro_economy
+  formula: TBD
+
+events:
+  items:
+    - PerformanceUpdated
+    - QualityChanged
+    - LeverUnlocked
+    - LeverActivated

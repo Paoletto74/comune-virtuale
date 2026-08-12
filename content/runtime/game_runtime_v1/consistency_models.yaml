@@ -1,0 +1,36 @@
+# =============================================================================
+# CONSISTENCY MODELS — strong vs eventual
+# =============================================================================
+
+ConsistencyModels:
+  strongConsistency:
+    requiredFor:
+      items:
+        - money
+        - ownership
+        - critical_permissions
+  eventualConsistency:
+    acceptableFor:
+      items:
+        - rankings
+        - analytics
+        - some_notifications
+        - non_critical_projections
+
+economicInflation:
+  status: PROPOSTA TECNICA
+  supports:
+    items:
+      - nominal_values
+      - real_values
+      - historical_index
+
+userExperience:
+  rule: |
+    Runtime invisibile all'utente quando possibile.
+    Utente vede risultato, popup, aggiornamento, notifica.
+    NON vede queue internals, retries, worker details.
+
+events:
+  emits: [ConsistencyModelApplied]
+  consumes: []

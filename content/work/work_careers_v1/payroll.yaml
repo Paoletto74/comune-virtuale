@@ -1,0 +1,10 @@
+# =============================================================================
+# PAYROLL — work_careers_v1
+# =============================================================================
+
+---
+Payroll:
+  workCalculates: true
+  economyExecutes: true
+  failureNoFunds: TBD - no auto money creation
+  status: DECISIONE APPROVATA

@@ -1,0 +1,91 @@
+# =============================================================================
+# EVENT DEFINITIONS & EVENT SOURCE
+# =============================================================================
+
+EventDefinition:
+  schema:
+    definitionId: string
+    eventType: string
+    sourceSystem: string
+    label: string
+    description: string
+    defaultVisibility: public | personal | restricted | private | system
+    consequenceRefs: []
+    cascadeRulesRef: string | null
+    notificationHintRef: string | null
+    idempotencyPolicyRef: string | null
+
+EventSource:
+  DECISIONE APPROVATA: ogni evento identifica la propria origine
+  schema:
+    sourceSystem: string
+    sourceEntityId: string
+    sourceEntityType: string
+  examples:
+    items:
+      - sourceSystem: task_main_v1
+        sourceEntityType: taskId
+      - sourceSystem: political_main_v1
+        sourceEntityType: lawId
+      - sourceSystem: criminal_main_v1
+        sourceEntityType: crimeId
+      - sourceSystem: business_main_v1
+        sourceEntityType: companyId
+      - sourceSystem: family_main_v1
+        sourceEntityType: familyEventId
+      - sourceSystem: economy_main_v1
+        sourceEntityType: transactionId
+
+Actor:
+  schema:
+    actorId: string | null
+    actorType: citizen | npc | system | market | politics | economy | natural
+  rule: |
+    Actor NON deve essere necessariamente un giocatore.
+    Può essere NPC, sistema, mercato, politica, economia, evento naturale.
+
+Target:
+  schema:
+    targetType: citizen | npc | family | company | property | vehicle | object | market | city | other
+    targetId: string
+  rule: Utilizzare riferimenti alle entità — NON duplicare entità
+
+AffectedEntities:
+  DECISIONE APPROVATA: |
+    Singolo evento può avere più destinatari con effetti diversi.
+  exampleFire:
+    actor: Player A
+    affected:
+      items:
+        - Player B
+        - Property X
+        - insurance_system
+        - city_environment
+
+WorldEventBus:
+  status: PROPOSTA_TECNICA
+  role: bus centrale per pubblicazione WorldEvent
+  consumers:
+    items:
+      - notification_main_v1
+      - event_main_v1_cascade_engine
+      - domain_systems_subscribed
+
+eventTypes:
+  status: skeleton — estendibile via content pack
+  genericExamples:
+    items:
+      - FireStarted
+      - BuildingDamaged
+      - LawActivated
+      - CrimeCommitted
+      - InvestigationStarted
+      - PropertySold
+      - SalaryPaid
+      - TaskChoiceCompleted
+
+events:
+  items:
+    - EventDefinitionRegistered
+    - WorldEventReceived
+    - WorldEventPublished

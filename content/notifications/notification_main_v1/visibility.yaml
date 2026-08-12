@@ -1,0 +1,57 @@
+# =============================================================================
+# VISIBILITY & PRIVACY
+# =============================================================================
+
+privacyRules:
+  DECISIONE APPROVATA: |
+    Global Feed NON pubblica info private.
+    Se info diventa pubblica via evento → notifica globale consentita.
+
+neverInGlobalFeed:
+  items:
+    - personal_income
+    - personal_debts
+    - family_problems
+    - non_public_criminal_activity
+    - private_relationships
+    - private_decisions
+    - confidential_information
+
+mayBecomePublic:
+  items:
+    - major_arrest_public_figure
+    - elected_mayor
+    - public_law
+    - major_company_bankruptcy
+    - configured_player_achievements
+  rule: Via evento esplicito + audience rule
+
+modulePrivacyRefs:
+  criminal: criminal_main_v1/visibility.yaml
+  family: family_main_v1/visibility.yaml
+  political: political_main_v1/visibility.yaml
+  progression: progression_main_v1/visibility.yaml
+
+effectsDisplay:
+  rule: |
+    Effetti mostrabili in notifica personale — configurabile detail level.
+    NON mostrare ogni singolo modificatore obbligatoriamente.
+  levels:
+    items:
+      - minimal
+      - standard
+      - detailed
+
+causalChainDisplay:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Giocatore può vedere "Perché è successo?" via causalChainId
+    senza esporre dati privati o tecnici di altri.
+  example: |
+    Mayor Decision → Law → Tax → Effect → Notification
+    Detail: Law #123, Happiness -5, Cash -€100
+
+events:
+  items:
+    - GlobalNotificationBlocked
+    - PrivacyFilterApplied

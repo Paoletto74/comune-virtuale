@@ -1,0 +1,35 @@
+# =============================================================================
+# CONTENT TYPES — catalog
+# =============================================================================
+
+ContentTypes:
+  catalog:
+    items:
+      - NewsArticle
+      - Headline
+      - Task
+      - Job
+      - Item
+      - Property
+      - Vehicle
+      - NotificationTemplate
+      - EventContent
+      - MunicipalityContent
+      - RankingLabel
+      - ProfileContent
+      - PopupContent
+      - Announcement
+      - TutorialHelp
+      - SystemLabel
+
+contentId:
+  DECISIONE APPROVATA: semanticamente distinto da EventId, TaskId, ItemId
+
+contentVersionId:
+  field: ContentVersionId
+
+ref: content_types per modello in file dedicati
+
+events:
+  items:
+    - ContentTypeSelected

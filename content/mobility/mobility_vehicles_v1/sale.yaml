@@ -1,0 +1,14 @@
+# =============================================================================
+# SALE — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleSale:
+  flow:
+  - owner
+  - listing
+  - buyer
+  - payment
+  - ownership transfer
+  atomic: true
+  status: PROPOSTA TECNICA

@@ -1,0 +1,20 @@
+# =============================================================================
+# METADATA — sound asset metadata
+# =============================================================================
+
+SoundMetadata:
+  fields:
+    items:
+      - soundAssetId
+      - category
+      - duration
+      - format
+      - version
+      - license_source
+      - loudness_metadata
+      - status
+  ref: licenses.yaml, loudness.yaml
+
+events:
+  items:
+    - SoundMetadataValidated

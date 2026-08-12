@@ -1,0 +1,34 @@
+# =============================================================================
+# LOCATION VISIBILITY — PUBLIC, PRIVATE, RESTRICTED, HIDDEN, DISCOVERABLE
+# =============================================================================
+
+LocationVisibility:
+  levels:
+    items:
+      - PUBLIC
+      - PRIVATE
+      - RESTRICTED
+      - HIDDEN
+      - DISCOVERABLE
+  restricted:
+    accessBy:
+      items:
+        - job
+        - ownership
+        - permission
+        - event
+        - level
+        - political_role
+    rule: UI NON bypassa authorization
+  hidden:
+    discoveredBy:
+      items:
+        - task
+        - evento
+        - quest_activity
+        - investigation
+        - news
+
+events:
+  items:
+    - LocationVisibilityResolved

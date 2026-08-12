@@ -1,0 +1,33 @@
+# =============================================================================
+# STACKING — comportamento effetti multipli
+# =============================================================================
+
+StackingRule:
+  schema:
+    ruleId: string
+    effectType: string | all
+    behavior: stack | refresh | replace | ignore | merge
+    maxStack: TBD
+    mergeStrategy: sum | max | latest | TBD
+
+stacking:
+  status: PROPOSTA_TECNICA — regole configurabili
+  exampleStress:
+    input:
+      items:
+        - stress +5
+        - stress +5
+    behavior_stack: stress +10
+    behavior_refresh: stress +5 (reset timer)
+    behavior_replace: stress +5 (ultimo vince)
+
+capIntegration:
+  rule: Stacking rispetta minValue/maxValue del dominio autorevole
+  example: happiness stack non supera 100
+
+events:
+  items:
+    - EffectStacked
+    - EffectRefreshed
+    - EffectReplaced
+    - EffectIgnored

@@ -1,0 +1,11 @@
+# =============================================================================
+# BUSINESS EMPLOYEES — Work System SOT
+# =============================================================================
+
+BusinessEmployees:
+  owner: Work System — ref work_main_v1
+  rule: business puo avere employees — Work System source of truth
+
+events:
+  items:
+    - BusinessEmployeeUpdated

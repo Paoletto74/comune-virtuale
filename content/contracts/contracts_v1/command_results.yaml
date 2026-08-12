@@ -1,0 +1,48 @@
+# =============================================================================
+# COMMAND RESULTS — status, rejection vs failure
+# =============================================================================
+
+CommandResult:
+  structure:
+    commandId: string
+    status: string
+    aggregateId: string
+    version: number
+    events: []
+    errors: []
+
+status:
+  items:
+    - ACCEPTED
+    - COMPLETED
+    - REJECTED
+    - FAILED
+    - DUPLICATE
+  note: valori definitivi TBD
+
+rejectionVsFailure:
+  DECISIONE APPROVATA:
+  REJECTED: regola di gioco non soddisfatta — es. soldi insufficienti
+  FAILED: errore tecnico/infrastrutturale — es. database unavailable
+
+mutationResponse:
+  structure:
+    commandId: string
+    status: string
+    data: object
+    invalidations: []
+    requestId: string
+  rule: NON restituire intero Game State dopo ogni command
+
+transactionResult:
+  financial:
+    items: [transactionId, result, authoritative_state_reference]
+
+ownershipResult:
+  items: [ownershipId, version]
+
+events:
+  items:
+    - CommandCompleted
+    - CommandRejected
+    - CommandFailed

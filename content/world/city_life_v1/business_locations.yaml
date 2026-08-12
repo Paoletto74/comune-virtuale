@@ -1,0 +1,15 @@
+# =============================================================================
+# BUSINESS LOCATIONS — Building, Location, District
+# =============================================================================
+
+BusinessLocations:
+  occupies:
+    items:
+      - Building
+      - Location
+      - District
+  ref: city_v1, business_main_v1
+
+events:
+  items:
+    - BusinessAtLocation

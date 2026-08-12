@@ -1,0 +1,12 @@
+# =============================================================================
+# BUSINESS JOBS — job openings via Work System
+# =============================================================================
+
+BusinessJobs:
+  publishes: job openings
+  owner: Work System decide availability, requirements, salary, employment
+  ref: work_main_v1
+
+events:
+  items:
+    - BusinessJobPosted

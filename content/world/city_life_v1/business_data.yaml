@@ -1,0 +1,19 @@
+# =============================================================================
+# BUSINESS DATA — model
+# =============================================================================
+
+BusinessData:
+  model:
+    BusinessId: string
+    name: string
+    type: string
+    owner: string
+    location: string
+    employees: []
+    status: string
+    visual: string
+  field: visualAssetId for visual
+
+events:
+  items:
+    - BusinessDataValidated

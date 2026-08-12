@@ -1,0 +1,13 @@
+# =============================================================================
+# EVENT INTEGRATION — Event System source of truth
+# =============================================================================
+
+EventIntegration:
+  owner: Event System — ref event_main_v1
+  rule: NON creare nuovo Event System
+  scopes:
+    ref: world_events.yaml, district_events.yaml, location_events.yaml
+
+events:
+  items:
+    - CityEventIntegrated

@@ -1,0 +1,16 @@
+# =============================================================================
+# BACKUPS — automated, PITR, restore testing
+# =============================================================================
+
+BackupStrategy:
+  status: PROPOSTA TECNICA — provider TBD
+  requirements:
+    items:
+      - automated_backup
+      - point_in_time_recovery
+      - restore_testing
+
+events:
+  items:
+    - BackupCompleted
+    - RestoreTestCompleted

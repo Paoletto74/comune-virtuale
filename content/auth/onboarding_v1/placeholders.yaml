@@ -1,0 +1,42 @@
+# =============================================================================
+# PLACEHOLDERS — TBD items and open decisions
+# =============================================================================
+
+Placeholders:
+  TBD:
+    items:
+      - Google_OAuth_provider_runtime
+      - email_verification_required
+      - password_hashing_policy
+      - username_uniqueness_policy
+      - gender_values_policy
+      - age_validation_values
+      - age_vs_birthday_source_of_truth
+      - avatar_policy_preset_generated_custom
+      - character_customization_layers
+      - municipality_assignment_rule
+      - multi_municipality_choice
+      - immutable_profile_fields
+      - birthday_edit_limits
+      - delete_account_policy
+      - analytics_provider
+      - CAPTCHA_provider
+      - account_recovery_provider
+  approvedPrinciples:
+    items:
+      - Landing -> Auth -> Account -> Citizen -> Home
+      - Account != Citizen != Profile
+      - frontend NON authority su CitizenId, money, level
+      - backend authoritative Citizen creation
+      - onboarding resume — no data loss
+      - idempotent Create Citizen
+      - privacy by default PRIVATE
+      - tutorial skippable — non interminabile
+      - content-driven texts
+      - logout preserves Citizen/Game State
+      - same account same Citizen cross-device
+      - auth requires connectivity
+
+events:
+  items:
+    - PlaceholderResolved

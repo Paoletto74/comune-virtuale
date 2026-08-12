@@ -1,0 +1,159 @@
+# =============================================================================
+# INTEGRATIONS — Time decide QUANDO, domini decidono COSA
+# =============================================================================
+
+integrations:
+
+  event_main_v1:
+    direction: bidirectional
+    split:
+      time: quando
+      event: cosa
+    examples:
+      items:
+        - scheduled_consequence_72h
+        - delayed_effect
+        - recurring_effect_evaluation
+    uses:
+      items:
+        - scheduleEvent
+        - triggerAt
+        - duration
+        - expiresAt
+
+  npc_main_v1:
+    direction: npc uses time
+    uses:
+      items:
+        - batch_jobs
+        - lifecycle
+        - age
+        - decisions
+        - consumption
+        - jobs
+        - population_dynamics
+        - lastSimulationAt
+    rule: NPC decide comportamento — Time decide quando simulare
+
+  economy_main_v1:
+    uses:
+      items:
+        - salary_schedule
+        - rent_schedule
+        - debt_due
+        - inflation_periods
+        - consumption_periods
+        - price_refresh
+    rule: Economy decide logica — Time gestisce scadenze
+
+  work_main_v1:
+    alignsWith: work_main_v1/daily_time.yaml
+    uses:
+      items:
+        - shift_start_end
+        - work_duration
+        - part_full_time
+        - multi_job
+        - application_cooldown
+        - absence_tracking
+    rule: Work = lavoro — Time = durata/lock
+
+  property_main_v1:
+    uses:
+      items:
+        - rent_nextPaymentAt
+        - maintenanceDueAt
+        - contract_expiry
+        - revaluation_schedule
+    rule: Property = logica — Time = scadenze
+
+  mobility_main_v1:
+    uses:
+      items:
+        - travel_start_end
+        - delay_duration
+        - maintenanceDueAt
+        - vehicle_cooldown
+
+  business_main_v1:
+    uses:
+      items:
+        - payroll
+        - reporting
+        - recurring_costs
+        - contract_deadlines
+
+  family_main_v1:
+    uses:
+      items:
+        - birthdays
+        - age_milestones
+        - scheduled_family_events
+        - support_deadlines
+
+  political_main_v1:
+    uses:
+      items:
+        - campaignStart
+        - votingStart
+        - votingEnd
+        - electionDate
+        - termStart
+        - termEnd
+
+  criminal_main_v1:
+    uses:
+      items:
+        - retryAt
+        - heatDecayAt
+        - investigationDeadline
+        - sentenceEndAt
+
+  progression_main_v1:
+    uses:
+      items:
+        - inactivity
+        - demotion_timing
+        - cooldown
+        - milestone_eligibility
+    rule: Progression autorevole — Time fornisce durata/misura
+
+  notification_main_v1:
+    uses:
+      items:
+        - createdAt
+        - expiresAt
+        - retention
+        - offline_summary
+        - urgency
+
+  task_main_v1:
+    uses:
+      items:
+        - task_deadline
+        - availability_window
+        - delayed_consequences
+
+  contentFirst:
+    definitions:
+      items:
+        - TimeDefinition
+        - ScheduleDefinition
+        - DurationDefinition
+        - CooldownDefinition
+        - DeadlineDefinition
+        - CalendarDefinition
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    timeSystemMustNot:
+      items:
+        - decide_economic_outcomes
+        - decide_work_performance
+        - decide_crime_results
+        - decide_election_winners
+        - decide_npc_behavior
+        - pause_world_for_single_player
+        - simulate_every_entity_every_second

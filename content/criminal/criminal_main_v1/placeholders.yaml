@@ -1,0 +1,53 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  CRIMINAL_EXPERIENCE_PER_ACTIVITY: TBD
+  CRIMINAL_LEVEL_THRESHOLD_BASE: TBD
+  CRIMINAL_REPUTATION_GAIN: TBD
+  CRIMINAL_REPUTATION_LOSS: TBD
+
+  HEAT_GAIN_LOW: TBD
+  HEAT_GAIN_MEDIUM: TBD
+  HEAT_GAIN_HIGH: TBD
+  HEAT_DECAY_RATE: TBD
+  HEAT_THRESHOLD_INVESTIGATION: TBD
+
+  DISCOVERY_PROB_BASE: TBD
+  DISCOVERY_PROB_HEAT_MODIFIER: TBD
+  DISCOVERY_DELAY_HOURS: TBD
+
+  REWARD_LOW: TBD
+  REWARD_MEDIUM: TBD
+  REWARD_HIGH: TBD
+  REWARD_VERY_HIGH: TBD
+
+  FINE_BASE: TBD
+  FINE_ESCALATION_FACTOR: TBD
+  PRISON_SENTENCE_DEFAULT: TBD
+  PRISON_SENTENCE_MAX: TBD
+
+  OFFENSE_ESCALATION_THRESHOLD: TBD
+  SUSPICION_TRANSFER_THRESHOLD: TBD
+
+  PROB_SUCCESS_NO_DISCOVERY: TBD
+  PROB_SUCCESS_DELAYED_DISCOVERY: TBD
+  PROB_FAILURE_NO_DISCOVERY: TBD
+  PROB_FAILURE_IMMEDIATE_DISCOVERY: TBD
+
+  IDEMPOTENCY_KEY_TTL: TBD
+  AUDIT_RETENTION: TBD
+
+  dependsOnSystems:
+    items:
+      - economy_main_v1
+      - task_main_v1
+      - property_main_v1
+      - mobility_main_v1
+      - work_main_v1
+      - progression_main_v1
+      - progression_balance_v1
+      - business_module
+      - political_module
+      - notification_module

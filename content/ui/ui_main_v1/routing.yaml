@@ -1,0 +1,72 @@
+# =============================================================================
+# ROUTING — deep links, URL, back navigation
+# =============================================================================
+
+Routing:
+  status: PROPOSTA TECNICA — NON hardcodare URL definitivi se framework TBD
+  conceptualRoutes:
+    items:
+      - /home
+      - /gazzetta
+      - /attivita
+      - /mercato
+      - /profilo
+      - /notifiche
+      - /comune
+      - /citizen/:id
+      - /marketplace/:listingId
+      - /news/:id
+      - /referendum/:id
+
+deepLinks:
+  DECISIONE APPROVATA: ogni contenuto importante ha destinazione
+  examples:
+    items:
+      - popup: promotion
+        target: "Profilo > Carriera"
+      - popup: house_sold
+        target: "Marketplace / Asset"
+      - popup: referendum
+        target: "Gazzetta > Referendum"
+      - popup: new_mayor
+        target: "Comune > Info"
+
+backNavigation:
+  status: PROPOSTA TECNICA
+  supports:
+    items:
+      - browser_back
+      - mobile_back
+      - return_to_previous_section
+      - deep_link_return
+
+landingPage:
+  status: PROPOSTA TECNICA — NON dashboard
+  mayShow:
+    items:
+      - logo
+      - game_name
+      - short_description
+      - ironic_tone
+      - login_access
+      - registration
+      - install_app
+      - intro_info
+
+login:
+  status: PROPOSTA TECNICA — Authentication autorevole
+  methods:
+    items:
+      - google
+      - username_password
+  rule: UI presenta metodi disponibili
+
+onboarding:
+  ref: profile_main_v1/identity.yaml
+  required: [name, gender, age]
+  optional: [birthday, favoriteFood, hobbies, favoriteColor, favoriteAnimal, motto]
+
+events:
+  items:
+    - RouteChanged
+    - DeepLinkOpened

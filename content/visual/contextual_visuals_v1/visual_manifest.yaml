@@ -1,0 +1,18 @@
+# =============================================================================
+# VISUAL MANIFEST — eventType, asset, priority, layout, fallback
+# =============================================================================
+
+VisualManifest:
+  structure:
+    eventType: string
+    visualAssetId: string
+    fallbackChain: []
+    priority: string
+    layout: string
+    animation: string
+    soundCueId: string
+  ref: event_mapping.yaml
+
+events:
+  items:
+    - VisualManifestLoaded

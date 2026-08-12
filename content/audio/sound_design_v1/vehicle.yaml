@@ -1,0 +1,20 @@
+# =============================================================================
+# VEHICLE SOUNDS — purchase, incidents
+# =============================================================================
+
+VehicleSounds:
+  VehiclePurchased:
+    cue: vehicle.acquisition
+    priority: HIGH
+    length: major
+    description: special vehicle/acquisition sound
+  VehicleIncident:
+    cue: vehicle.incident
+    priority: NORMAL
+    length: normal
+    description: incidenti, guasti, riparazioni — solo se previsti dai systems
+    note: conditional on mobility system events
+
+events:
+  items:
+    - VehicleSoundTriggered

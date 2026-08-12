@@ -1,0 +1,25 @@
+# =============================================================================
+# NEWS SOUNDS — breaking, normal, special edition
+# =============================================================================
+
+NewsSounds:
+  BreakingNews:
+    cue: news.breaking_sting
+    priority: CRITICAL
+    length: major
+    description: short newsroom/news alert — firma sonora del gioco
+    ref: newspaper_identity.yaml
+  NewArticle:
+    cue: news.editorial_subtle
+    priority: LOW
+    length: micro
+    description: subtle editorial — NON riprodurlo continuamente durante navigazione
+  SpecialEdition:
+    cue: news.special_edition_sting
+    priority: HIGH
+    length: major
+    description: distinct editorial sting
+
+events:
+  items:
+    - NewsSoundTriggered

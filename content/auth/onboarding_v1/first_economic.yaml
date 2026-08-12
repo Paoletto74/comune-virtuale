@@ -1,0 +1,16 @@
+# =============================================================================
+# FIRST ECONOMIC — introduce economy concepts
+# =============================================================================
+
+FirstEconomic:
+  introduces:
+    items:
+      - guadagno
+      - spesa
+      - patrimonio
+  rule: NON alterare Economy logic
+  ref: economy_main_v1
+
+events:
+  items:
+    - FirstEconomicIntroShown

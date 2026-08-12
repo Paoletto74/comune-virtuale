@@ -1,0 +1,20 @@
+# =============================================================================
+# RESPONSIVE — mobile, tablet, desktop
+# =============================================================================
+
+Responsive:
+  DECISIONE APPROVATA:
+  support:
+    items:
+      - mobile
+      - tablet
+      - desktop
+  rule: NON deformare immagini
+  behavior:
+    mobile: stacked layout, IMAGE_TOP or FULL_BLEED
+    tablet: IMAGE_SIDE where appropriate
+    desktop: IMAGE_SIDE or FULL_BLEED for CRITICAL
+
+events:
+  items:
+    - ResponsiveLayoutApplied

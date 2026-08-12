@@ -1,0 +1,11 @@
+# =============================================================================
+# REALTIME — property_v1
+# =============================================================================
+
+---
+Realtime:
+  future:
+  - listing update
+  - purchase complete
+  fallback: polling
+  status: PROPOSTA TECNICA future

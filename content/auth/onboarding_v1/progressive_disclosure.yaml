@@ -1,0 +1,17 @@
+# =============================================================================
+# PROGRESSIVE DISCLOSURE — gradual feature reveal
+# =============================================================================
+
+ProgressiveDisclosure:
+  rule: NON mostrare subito tutte le funzioni
+  featureDiscovery:
+    examples:
+      items:
+        - Scopri_il_Mercato
+        - Scopri_il_Comune
+  firstHome: diversa da Home Citizen esperto
+  ref: first_home.yaml
+
+events:
+  items:
+    - FeatureDiscovered

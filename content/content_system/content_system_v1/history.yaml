@@ -1,0 +1,19 @@
+# =============================================================================
+# HISTORY — edit history, diff
+# =============================================================================
+
+History:
+  records:
+    items:
+      - who_modified
+      - what_changed
+      - when
+      - previous_version
+      - new_version
+  diff:
+    future: BEFORE vs AFTER visualization
+  timeline: Admin can view modification timeline
+
+events:
+  items:
+    - ContentHistoryRecorded

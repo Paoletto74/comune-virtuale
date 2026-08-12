@@ -1,0 +1,42 @@
+# =============================================================================
+# MARKETPLACE — buy, rent, sell, search, filters
+# =============================================================================
+
+Marketplace:
+  DECISIONE APPROVATA: sezione MERCATO con LAVORO + MARKETPLACE
+  operations:
+    items:
+      - acquisto
+      - affitto
+      - vendita
+      - ricerca
+      - filtri
+      - categorie
+
+purchaseUx:
+  flow:
+    items:
+      - listing
+      - detail
+      - purchase_or_rent
+      - confirmation
+      - backend_command
+      - result
+      - inventory_update
+      - notification
+  invalidateAfter:
+    items:
+      - balance
+      - inventory
+      - marketplace
+      - profile
+      - notifications
+
+confirmationRequired: acquisto costoso, vendita
+
+api: marketplace_api.yaml
+
+events:
+  items:
+    - ListingViewed
+    - PurchaseRequested

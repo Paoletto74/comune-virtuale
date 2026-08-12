@@ -1,0 +1,12 @@
+# =============================================================================
+# ADMIN PREVIEW — test sound without player state change
+# =============================================================================
+
+AdminPreview:
+  capability: Admin ascolta sound asset prima di associarlo
+  testSound: preview playback — NON modifica player state
+  ref: admin_content_studio_v1
+
+events:
+  items:
+    - AdminSoundPreviewed

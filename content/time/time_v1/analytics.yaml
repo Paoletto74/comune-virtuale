@@ -1,0 +1,12 @@
+# =============================================================================
+# ANALYTICS — time_v1
+# =============================================================================
+
+---
+Analytics:
+  gameTime: true
+  realTimeSeparate: true
+  status: PROPOSTA TECNICA
+events:
+  items:
+  - TimeAnalyticsRecorded

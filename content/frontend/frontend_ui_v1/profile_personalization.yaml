@@ -1,0 +1,37 @@
+# =============================================================================
+# PROFILE PERSONALIZATION — configurable personal fields
+# =============================================================================
+
+ProfilePersonalization:
+  configurableFields:
+    examples:
+      items:
+        - nome
+        - sesso_genere
+        - eta
+        - compleanno
+        - piatto_preferito
+        - hobby
+        - frase
+        - curiosita
+        - informazione_buffa
+
+rule: |
+  NON trasformare tutti i campi in statistiche di gioco automaticamente.
+  Eta di gioco distinta da eta reale utente/account.
+
+ageDisplay:
+  status: PROPOSTA TECNICA
+  rule: eta mostrata secondo privacy policy
+
+avatar:
+  options:
+    items:
+      - default_avatar
+      - custom_avatar
+      - future_generated_avatar
+  assetPolicy: TBD
+
+events:
+  items:
+    - ProfileFieldUpdated

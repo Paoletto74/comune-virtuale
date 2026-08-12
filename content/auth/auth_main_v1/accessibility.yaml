@@ -1,0 +1,36 @@
+# =============================================================================
+# ACCESSIBILITY & AUTH UI TEXTS
+# =============================================================================
+
+Accessibility:
+  DECISIONE APPROVATA: Authentication e Admin supportano
+  features:
+    items:
+      - keyboard
+      - screen_reader
+      - focus
+      - contrast
+      - error_announcement
+      - mobile
+
+AuthUiTexts:
+  status: PROPOSTA TECNICA — content-configurable
+  areas:
+    items:
+      - login
+      - errors
+      - password_recovery
+      - unauthorized
+      - suspended
+  rule: |
+    NON rendere ironici messaggi sicurezza critici se riduce chiarezza.
+  ref: admin_content_studio_v1 per editing futuro
+
+AuthErrorUx:
+  DECISIONE APPROVATA:
+  good: "Accesso non autorizzato."
+  bad: "Role ADMIN_CONTENT_PUBLISH missing from JWT scope..."
+
+events:
+  items:
+    - AuthUiTextDisplayed

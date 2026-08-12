@@ -1,0 +1,21 @@
+# =============================================================================
+# INVALIDATION — mutation invalidation contract
+# =============================================================================
+
+InvalidationContract:
+  DECISIONE APPROVATA:
+  mutationMayReturn:
+    invalidate:
+      examples:
+        items:
+          - balance
+          - inventory
+          - profile
+          - marketplace
+          - notifications
+          - rankings
+  rule: frontend re-fetch authoritative read models
+
+events:
+  items:
+    - InvalidationIssued

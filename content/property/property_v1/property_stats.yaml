@@ -1,0 +1,16 @@
+# =============================================================================
+# PROPERTY STATS — property_v1
+# =============================================================================
+
+---
+PropertyStats:
+  display:
+  - size
+  - rooms
+  - condition
+  - features
+  - location
+  - price
+  - rent
+  - valuation
+  status: DECISIONE APPROVATA

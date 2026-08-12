@@ -1,0 +1,48 @@
+# =============================================================================
+# REACTIONS — risposte rapide a eventi/interazioni
+# =============================================================================
+
+ReactionDefinition:
+  schema:
+    reactionId: string
+    label: string
+    presetMessageId: string
+    triggerContext: string
+    categoryId: string
+    enabled: boolean
+
+humorReactions:
+  status: PROPOSTA TECNICA — tono ironico configurabile
+  examples:
+    items:
+      - reactionId: react_ironic_choice
+        textExample: "Ottima scelta. Probabilmente."
+      - reactionId: react_sensible
+        textExample: "Complimenti, hai fatto una cosa sensata."
+      - reactionId: react_consequences
+        textExample: "Questa decisione avrà sicuramente conseguenze."
+      - reactionId: react_accountant
+        textExample: "Il tuo commercialista sarebbe fiero di te."
+      - reactionId: react_debatable
+        textExample: "Scelta discutibile."
+
+contextualReactions:
+  status: PROPOSTA TECNICA
+  items:
+    - triggerContext: banking.loan_received
+      presetExamples: ["Grazie.", "Accetto.", "Ci penso.", "Rifiuto."]
+    - triggerContext: banking.loan_due
+      presetExamples: ["Il tuo prestito sta per scadere."]
+    - triggerContext: banking.loan_paid
+      presetExamples: ["Prestito saldato."]
+    - triggerContext: banking.gift_received
+      presetExamples: ["Grazie!", "Non dovevi!", "Sei un benefattore."]
+    - triggerContext: marketplace.sale
+      presetExamples: ["Affare fatto.", "Grazie per l'acquisto.", "Venduto!"]
+    - triggerContext: work.employed
+      presetExamples: ["Sei assunto.", "Ben fatto.", "Devi migliorare.", "Mi licenzio."]
+
+events:
+  items:
+    - ReactionSuggested
+    - ReactionSent

@@ -1,0 +1,18 @@
+# =============================================================================
+# SOUND — master, notification, popup, music future
+# =============================================================================
+
+SoundSettings:
+  settings:
+    items:
+      - master_sound
+      - notification_sound
+      - popup_sound
+      - music_futura
+  music: NON implementare ora
+
+ref: popup_audio.yaml, accessibility reduced_sound
+
+events:
+  items:
+    - SoundSettingChanged

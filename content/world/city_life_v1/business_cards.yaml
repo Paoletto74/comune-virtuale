@@ -1,0 +1,26 @@
+# =============================================================================
+# BUSINESS CARDS — visual, name, category, status, location
+# =============================================================================
+
+BusinessCards:
+  fields:
+    items:
+      - visual
+      - name
+      - category
+      - status
+      - location
+  profile:
+    items:
+      - nome
+      - categoria
+      - location
+      - stato
+      - descrizione
+      - servizi
+      - jobs
+      - visual
+
+events:
+  items:
+    - BusinessCardViewed

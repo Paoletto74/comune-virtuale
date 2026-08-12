@@ -1,0 +1,68 @@
+# =============================================================================
+# MAINTENANCE — manutenzione e condizione
+# =============================================================================
+
+ConditionModel:
+  schema:
+    propertyId: string
+    condition: number
+    lastUpdated: timestamp
+    decayRate: TBD
+  range: TBD
+
+conditionEffects:
+  affects:
+    items:
+      - marketValue
+      - housingQuality
+      - rentAmount
+      - demand
+      - maintenanceCosts
+      - reputation
+  formulas: TBD
+
+decay:
+  rule: Condizione può diminuire nel tempo
+  triggers:
+    items:
+      - time_passed
+      - vacancy
+      - tenant_behavior
+      - events
+      - neglect
+  rate: TBD
+
+maintenanceTypes:
+  items:
+    - ordinary
+    - extraordinary
+    - repair
+    - renovation
+    - damage_response
+  costs: TBD
+
+maintenanceAction:
+  flow: |
+    Owner initiates maintenance
+    → validate ownership + funds
+    → Economy Pipeline (maintenance expense)
+    → update condition
+    → emit PropertyMaintained
+  optional: true
+
+ownerObligations:
+  DECISIONE APPROVATA: proprietà non gratuita
+  recurring:
+    items:
+      - ordinary_maintenance
+      - extraordinary_if_needed
+      - repairs
+      - damage_costs
+  values: TBD
+
+events:
+  items:
+    - ConditionDecayed
+    - MaintenanceRequired
+    - MaintenanceCompleted
+    - PropertyDamaged

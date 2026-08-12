@@ -1,0 +1,19 @@
+# =============================================================================
+# CITIZEN AVATAR — integration with editorial layouts
+# =============================================================================
+
+CitizenAvatar:
+  integratesWith:
+    items:
+      - headline
+      - profile_card
+      - article
+      - showcase
+      - ranking
+  fallback: default avatar — ref fallback.yaml
+
+ref: visual_main_v1, frontend_ui_v1/profile_personalization.yaml
+
+events:
+  items:
+    - AvatarRendered

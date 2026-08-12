@@ -1,0 +1,8 @@
+# =============================================================================
+# JOB DISCOVERY — work_careers_v1
+# =============================================================================
+
+---
+JobDiscovery:
+  optionalNotification: new careers discovered
+  status: PROPOSTA TECNICA

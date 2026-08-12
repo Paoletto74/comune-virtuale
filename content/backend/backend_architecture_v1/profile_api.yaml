@@ -1,0 +1,27 @@
+# =============================================================================
+# PROFILE API — public/private/admin variants
+# =============================================================================
+
+ProfileApi:
+  sourceOfTruth: ProfileService
+  endpoints:
+    items:
+      - "GET /api/v1/profile/:citizenId"
+      - "GET /api/v1/profile/me"
+      - "PATCH /api/v1/profile/me"
+
+responseVariants:
+  public:
+    privacy: PUBLIC + DISCOVERABLE only
+  privateSelf:
+    privacy: full own profile
+  admin:
+    privacy: per permission — NOT automatic full access
+
+rule: global position deriva da ranking — NON scrivibile client
+
+ref: profile_main_v1/visibility.yaml
+
+events:
+  items:
+    - ProfileApiRequestProcessed

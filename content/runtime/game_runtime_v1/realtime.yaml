@@ -1,0 +1,24 @@
+# =============================================================================
+# REALTIME — push to client after domain changes
+# =============================================================================
+
+Realtime:
+  status: PROPOSTA TECNICA — NON implementare
+  flow:
+    items:
+      - Domain_Event
+      - Notification_Realtime_Gateway
+      - Client
+  rule: NON tutti gli eventi inviati al client
+
+clientConsistency:
+  DECISIONE APPROVATA: |
+    Dopo runtime/domain changes frontend riceve:
+    updated state, invalidation, event, notification.
+    NON inventare aggiornamenti.
+
+ref: frontend_ui_v1/realtime.yaml, backend_architecture_v1/realtime.yaml
+
+events:
+  emits: [RealtimePushSent]
+  consumes: [DomainEventPublished]

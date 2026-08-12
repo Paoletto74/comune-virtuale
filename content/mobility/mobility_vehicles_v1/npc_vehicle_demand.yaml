@@ -1,0 +1,8 @@
+# =============================================================================
+# NPC VEHICLE DEMAND — mobility_vehicles_v1
+# =============================================================================
+
+---
+NpcVehicleDemand:
+  mayBeAggregated: true
+  status: PROPOSTA TECNICA

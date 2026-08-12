@@ -1,0 +1,23 @@
+# =============================================================================
+# MAP SEARCH — location, district, business, property, landmark
+# =============================================================================
+
+MapSearch:
+  search:
+    items:
+      - location
+      - district
+      - business
+      - property
+      - landmark
+  security:
+    DECISIONE APPROVATA: search results rispettano authorization/privacy
+  alternatives:
+    items:
+      - list_view
+      - location_cards
+      - city_guide
+
+events:
+  items:
+    - MapSearchExecuted

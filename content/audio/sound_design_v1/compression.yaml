@@ -1,0 +1,15 @@
+# =============================================================================
+# COMPRESSION — file size, quality, latency
+# =============================================================================
+
+AudioCompression:
+  optimize:
+    items:
+      - file_size
+      - quality
+      - latency
+  technology: DA DEFINIRE / TBD
+
+events:
+  items:
+    - AudioCompressed

@@ -1,0 +1,49 @@
+# =============================================================================
+# MONEY MODEL — cash, bank balance, available
+# =============================================================================
+
+MoneyModel:
+  schema:
+    currency: string
+    cash: TBD
+    bankBalance: TBD
+    reservedBalance: TBD
+    availableBalance: TBD
+  status: schema_conceptual — valori TBD
+
+Cash:
+  DECISIONE APPROVATA: denaro immediatamente disponibile
+  uses:
+    items:
+      - purchases
+      - payments
+      - gifts
+      - loans
+      - taxes
+      - expenses
+  rule: NO valori negativi salvo regole esplicite
+
+BankBalance:
+  DECISIONE APPROVATA: V1 semplice — deposito, prelievo, trasferimento, saldo
+  notInV1:
+    items:
+      - multiple_banks
+      - complex_checking
+      - credit_cards
+      - bank_investments
+      - advanced_financial_instruments
+
+AvailableBalance:
+  DECISIONE APPROVATA: |
+    totalBalance ≠ availableBalance.
+    Es. totale €10.000, €3.000 riservati → available €7.000.
+
+MoneyCreation:
+  rule: |
+    NON banca centrale V1 — money supply gestita da Economy.
+    Banking rappresenta e trasferisce saldi.
+
+events:
+  items:
+    - BalanceUpdated
+    - ReservedBalanceChanged

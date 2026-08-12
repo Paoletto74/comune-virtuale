@@ -1,0 +1,62 @@
+# =============================================================================
+# EXPENSES — spese azienda
+# =============================================================================
+
+ExpenseModel:
+  schema:
+    companyId: string
+    periodExpenses: TBD
+    expenseCategories: []
+    lastCalculated: timestamp
+
+expenseCategories:
+  items:
+    - salaries
+    - rent
+    - maintenance
+    - raw_materials
+    - energy
+    - taxes
+    - financing
+    - mobility_costs
+    - other
+  values: TBD
+
+delivery:
+  rule: Spese monetarie via Economy System
+  flow: |
+    Expense Due → Economy Pipeline → Transaction → Ledger
+    → company cashBalance reduced
+
+salaries:
+  ref: work_main_v1
+  flow: Company payroll → Work salaries → Economy Pipeline
+
+rent:
+  ref: property_main_v1
+  note: Affitto sede via Property/Economy
+
+financing:
+  status: interface_only
+  ref: economy_main_v1/lending.yaml
+  note: Prestiti/finanziamenti — Business fornisce interfaccia, Economy gestisce debiti
+
+lossScenario:
+  DECISIONE APPROVATA: |
+    revenue - expenses = profit (positivo | nullo | negativo)
+    Perdita NON implica fallimento automatico
+  consequences:
+    items:
+      - use_reserves
+      - accumulate_debt
+      - reduce_activity
+      - lose_value
+      - insolvency
+      - bankruptcy
+  values: TBD
+
+events:
+  items:
+    - ExpenseIncurred
+    - PayrollDue
+    - ExpenseSpike

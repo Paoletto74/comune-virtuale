@@ -1,0 +1,39 @@
+# =============================================================================
+# SEED DATA — dev, staging, production controlled
+# =============================================================================
+
+SeedData:
+  development:
+    rule: NON utilizzare dati reali
+    includes:
+      items:
+        - test_player
+        - simulated_citizen
+        - admin_test
+  staging:
+    rule: dataset controllato per QA
+  production:
+    rule: seed controllato, separato da test
+
+testData:
+  status: PROPOSTA TECNICA
+  types:
+    items:
+      - test_player
+      - simulated_citizen
+      - admin_test
+  rule: separati dalla produzione
+
+import:
+  status: PROPOSTA TECNICA
+  requirements:
+    items:
+      - validation
+      - dry_run
+      - transaction_batch
+      - error_report
+      - rollback_strategy
+
+events:
+  items:
+    - SeedDataApplied

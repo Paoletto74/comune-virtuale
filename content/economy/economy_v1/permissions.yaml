@@ -1,0 +1,12 @@
+# =============================================================================
+# PERMISSIONS — economy_v1
+# =============================================================================
+
+---
+AdminPermissions:
+  roles:
+  - VIEW_ECONOMY
+  - MANAGE_ECONOMIC_CONFIG
+  - EXECUTE_MANUAL_ADJUSTMENT
+  - VIEW_FINANCIAL_AUDIT
+  status: DECISIONE APPROVATA

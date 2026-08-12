@@ -1,0 +1,15 @@
+# =============================================================================
+# BUSINESS STAFFING — work_careers_v1
+# =============================================================================
+
+---
+BusinessStaffing:
+  states:
+  - UNDERSTAFFED
+  - STAFFED
+  - OVERSTAFFED
+  metrics:
+  - employee count
+  - open positions
+  - salary budget
+  status: DECISIONE APPROVATA

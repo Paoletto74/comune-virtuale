@@ -1,0 +1,12 @@
+# =============================================================================
+# ECONOMIC SOURCES — economy_v1
+# =============================================================================
+
+---
+EconomicSources:
+  controlled:
+  - wages
+  - rewards
+  - business activity
+  - government spending
+  status: DECISIONE APPROVATA

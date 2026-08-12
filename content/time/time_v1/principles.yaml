@@ -1,0 +1,25 @@
+# =============================================================================
+# PRINCIPLES — time_v1
+# =============================================================================
+
+---
+TimePrinciples:
+  DECISIONE APPROVATA:
+    timeSystemSOT: TIME SYSTEM source of truth
+    realVsGame: REAL TIME != GAME TIME
+    serverAuthoritative: true
+    noIndependentClocks: true
+    timeDecidesWhen: true
+    noGlobalDailyReset: true
+    noPlayerPause: true
+    clientUntrusted: true
+    offlineWorldContinues: true
+  PROPOSTA TECNICA:
+    deadlineEngine: common expiration engine
+    eventQueue: scheduled queue future
+    multiCityTime: TBD
+    seasons: future
+    holidays: future
+events:
+  items:
+  - TimePrincipleApplied

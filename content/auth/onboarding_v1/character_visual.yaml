@@ -1,0 +1,19 @@
+# =============================================================================
+# CHARACTER VISUAL — uses across game
+# =============================================================================
+
+CharacterVisual:
+  uses:
+    items:
+      - Profile
+      - Citizen_List
+      - Rankings
+      - Notifications
+      - Popup
+      - Showcase
+  field: visualAssetId
+  ref: contextual_visuals_v1/character_visuals.yaml
+
+events:
+  items:
+    - CharacterVisualAssigned

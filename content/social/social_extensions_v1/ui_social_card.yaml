@@ -1,0 +1,35 @@
+# =============================================================================
+# UI SOCIAL CARD — newspaper-style
+# =============================================================================
+
+SocialCard:
+  status: PROPOSTA TECNICA
+
+  mayDisplay:
+    items:
+      - title
+      - category_label
+      - sender_avatar
+      - recipient_hint
+      - timestamp
+      - headline
+      - contextual_visual_asset_id
+      - action_cta
+      - relationship_hint
+      - status_badge
+
+  mustNotInvent:
+    items:
+      - message_text_not_in_catalog
+      - relationship_score
+      - trust_value
+      - reputation_value
+      - effects
+      - permissions
+
+  visualStyle:
+    ref: newspaper_style.yaml
+    rule: coerente con giornale di cronaca — NON duplicare design tokens
+
+  accessibility:
+    ref: accessibility.yaml

@@ -1,0 +1,62 @@
+# =============================================================================
+# LEDGER — append-only, all money movements
+# =============================================================================
+
+Ledger:
+  "DECISIONE APPROVATA": "allinea economy_main_v1/ledger.yaml"
+  properties:
+    appendOnly: true
+    immutableCompletedEntries: true
+    reversalsVia: reversal_transaction
+
+LedgerEntry:
+  schema:
+    transactionId: string
+    timestamp: timestamp
+    worldTime: timestamp
+    source: string
+    destination: string
+    amount: TBD
+    currency: string
+    transactionType: string
+    reference: string | null
+    status: pending | completed | failed | reversed
+    idempotencyKey: string
+    ledgerSequence: number
+
+transactionTypes:
+  status: estendibile
+  items:
+    - salary
+    - purchase
+    - sale
+    - rent
+    - tax
+    - gift
+    - loan_disbursement
+    - loan_repayment
+    - interest
+    - fine
+    - confiscation
+    - reward
+    - expense
+    - deposit
+    - withdrawal
+    - transfer
+    - bankruptcy_adjustment
+
+prohibitions:
+  DECISIONE APPROVATA:
+    items:
+      - direct_cash_mutation_without_transaction
+      - client_side_balance_authority
+
+auditQuery:
+  example: "Perché cittadino ha perso €4250?"
+  returns: transaction chain, related events
+
+events:
+  items:
+    - LedgerEntryCreated
+    - TransactionCompleted
+    - TransactionReversed

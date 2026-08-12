@@ -1,0 +1,53 @@
+# =============================================================================
+# ADMIN ACCESS — regola fondamentale
+# =============================================================================
+
+AdminAccess:
+  "DECISIONE APPROVATA": "REGOLA FONDAMENTALE — pannello Admin NON accessibile a normali giocatori"
+  rule: |
+    Accesso solo: Owner, Admin autorizzati, ruoli amministrativi configurati.
+    Conoscere /admin NON concede accesso.
+
+AdminAuthentication:
+  "DECISIONE APPROVATA": "Admin deve autenticarsi — Admin Authentication Layer"
+  mustNotUse: "if username == admin nel frontend"
+
+AdminRoutes:
+  status: PROPOSTA TECNICA
+  note: routing definitivo TBD
+  conceptual:
+    items:
+      - /admin
+      - /admin/dashboard
+      - /admin/content
+      - /admin/content/:id
+      - /admin/media
+      - /admin/users
+      - /admin/permissions
+      - /admin/audit
+
+UnauthorizedAdminAccess:
+  DECISIONE APPROVATA: normal Citizen tenta /admin
+  response:
+    items:
+      - rifiutare
+      - non_mostrare_dati_admin
+      - registrare_tentativo_eventualmente
+      - riportare_pagina_sicura
+    mustNot: rivelare_dettagli_interni
+
+AdminLoginSeparate:
+  status: PROPOSTA TECNICA — es. /admin/login — decisione UX TBD
+
+AdminAccessLogic:
+  DECISIONE APPROVATA:
+  rules:
+    normal_player: GAME_ONLY
+    authorized_admin: GAME_PLUS_ADMIN_per_permission
+    owner: GAME_PLUS_FULL_ADMIN
+
+events:
+  items:
+    - AdminAccessDenied
+    - AdminAccessGranted
+    - UnauthorizedAdminAttemptLogged

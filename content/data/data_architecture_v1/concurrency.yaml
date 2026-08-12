@@ -1,0 +1,30 @@
+# =============================================================================
+# CONCURRENCY — locking, idempotency, race protection
+# =============================================================================
+
+ConcurrencyProtection:
+  risks:
+    items:
+      - doppio_acquisto
+      - doppia_vendita
+      - doppio_reward
+      - race_condition
+      - duplicate_task_completion
+
+strategies:
+  status: PROPOSTA TECNICA — tecnologia TBD
+  perArea:
+    purchase: pessimistic_or_unique_constraint
+    listing: optimistic_locking
+    reward: idempotency_key
+    task_completion: idempotency_key
+
+locking:
+  optimistic: listing, profile updates
+  pessimistic: purchase, transfer ownership
+  uniqueConstraints: idempotencyKey, listing+asset
+  idempotency: all economic operations
+
+events:
+  items:
+    - ConcurrencyConflictDetected

@@ -1,0 +1,17 @@
+# =============================================================================
+# CACHE — city metadata, map data, invalidation
+# =============================================================================
+
+Cache:
+  cacheable:
+    items:
+      - city_metadata
+      - district_metadata
+      - public_locations
+      - map_data_shell
+  dynamicState: appropriate invalidation on events, ownership, status changes
+  ref: offline.yaml
+
+events:
+  items:
+    - CityCacheInvalidated

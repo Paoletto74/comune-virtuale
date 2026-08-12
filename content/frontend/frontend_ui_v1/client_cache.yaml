@@ -1,0 +1,27 @@
+# =============================================================================
+# CLIENT CACHE — non authoritative
+# =============================================================================
+
+ClientCache:
+  canCache:
+    items:
+      - content
+      - public_profiles
+      - rankings
+      - marketplace_browsing
+  rule: NON trattare cache come authoritative
+
+optimisticUi:
+  status: PROPOSTA TECNICA
+  safeFor: low_risk_ui_updates
+  mustNot:
+    items:
+      - denaro
+      - ownership
+      - level
+      - political_role
+
+events:
+  items:
+    - CacheHit
+    - CacheInvalidated

@@ -1,0 +1,46 @@
+# =============================================================================
+# RETENTION — conservazione feed
+# =============================================================================
+
+RetentionPolicy:
+  schema:
+    policyId: string
+    feedType: personal | global
+    maxAge: TBD
+    maxCount: TBD
+    archiveAfter: TBD
+    deleteAfter: TBD
+
+retention:
+  DECISIONE APPROVATA: feed non cresce indefinitamente
+  rules:
+    items:
+      - max_age
+      - max_count
+      - archive_old
+      - priority_based_retention
+  values: TBD
+
+readStates:
+  items:
+    - UNREAD
+    - READ
+    - ARCHIVED
+
+expiration:
+  schema:
+    expiresAt: "timestamp | null"
+  rule: |
+    Notifica scaduta non utilizzabile per azioni non più valide.
+  example: "Accetta il prestito entro 24 ore — expiresAt TBD"
+
+lifecycle:
+  flow: |
+    UNREAD → READ → ARCHIVED → (deleted per retention policy)
+  expiredActionBlocked: true
+
+events:
+  items:
+    - NotificationArchived
+    - NotificationDeleted
+    - NotificationExpired

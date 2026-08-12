@@ -1,0 +1,14 @@
+# =============================================================================
+# ANTI GRIND EXTENSIONS — task_extensions_v1
+# =============================================================================
+
+---
+AntiGrindExtensions:
+  extends: task_main_v1 pools antiSpam progression_balance
+  mechanisms:
+  - diminishing rewards
+  - cooldown
+  - max completions
+  - category limits
+  formulas: TBD
+  status: PROPOSTA TECNICA

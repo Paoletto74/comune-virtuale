@@ -1,0 +1,19 @@
+# =============================================================================
+# VARIANTS — A/B/C controlled randomization
+# =============================================================================
+
+SoundVariants:
+  purpose: evitare monotonia
+  example:
+    crime.arrest_siren:
+      variants:
+        items:
+          - siren_01
+          - siren_02
+          - siren_03
+  selection: controlled rules — NOT random chaos
+  rule: randomizzazione NON compromette riconoscibilita, priorita, tono
+
+events:
+  items:
+    - SoundVariantSelected

@@ -1,0 +1,44 @@
+# =============================================================================
+# VISIBILITY — privacy politica
+# =============================================================================
+
+visibilityDefaults:
+  politicalTrack: PUBLIC
+  politicalLevel: PUBLIC
+  activeRole: PUBLIC
+  electionResults: PUBLIC
+  publicLaws: PUBLIC
+  politicalMilestones: PUBLIC
+
+privateByDefault:
+  items:
+    - future_intentions
+    - campaign_strategy
+    - confidential_briefings
+    - voter_personal_data
+    - undecided_vote_intent
+    - internal_support_calculations
+
+publicProfile:
+  shows:
+    items:
+      - activeRole
+      - relevant_political_results
+      - public_laws_enacted
+      - public_electoral_info
+  doesNotShow:
+    items:
+      - private_strategy
+      - voter_identity_details
+      - internal_polls
+
+l25SindacoClarification:
+  DECISIONE APPROVATA: |
+    mainLevel L25 label "SINDACO" = narrativo/ironico (progression_main_v1).
+    activeRole = mayor solo se eletto via Political System.
+    UI già distingue levelLabel vs activeRole (visibility.yaml progression).
+
+criminalVisibility:
+  rule: |
+    criminalTrack PRIVATE — scandalo/scoperta può rendere info DISCOVERABLE.
+  ref: criminal_main_v1/visibility.yaml

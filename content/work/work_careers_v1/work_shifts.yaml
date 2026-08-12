@@ -1,0 +1,12 @@
+# =============================================================================
+# WORK SHIFTS — work_careers_v1
+# =============================================================================
+
+---
+WorkShifts:
+  states:
+  - scheduled
+  - active
+  - completed
+  - missed
+  status: PROPOSTA TECNICA

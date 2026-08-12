@@ -1,0 +1,105 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: bidirectional
+    alignsWith:
+      items:
+        - economy_main_v1/ledger.yaml
+        - economy_main_v1/lending.yaml
+        - economy_main_v1/gifts.yaml
+        - economy_main_v1/bankruptcy.yaml
+    economyOwns:
+      items:
+        - currency
+        - inflation
+        - macroeconomics
+        - money_supply
+        - purchasing_power
+    bankingOwns:
+      items:
+        - accounts
+        - transfers
+        - gifts
+        - loans
+        - debt
+        - banking_ledger_operations
+
+  marketplace_main_v1:
+    uses:
+      items:
+        - fund_verification
+        - payment
+        - collection
+        - refund
+        - fees
+
+  inventory_main_v1:
+    split:
+      money_gift: banking
+      item_gift: inventory
+      sale: marketplace + banking + asset domain
+
+  property_main_v1:
+    direction: collateral future
+    rule: asset ownership — Property autorevole
+
+  mobility_main_v1:
+    direction: collateral future
+    rule: vehicle ownership — Mobility autorevole
+
+  criminal_main_v1:
+    direction: criminal → banking policy
+    rule: |
+      Legality, fraud, asset concealment — Criminal/Legal autorevoli.
+      Banking registra — NON giudica.
+
+  time_main_v1:
+    uses:
+      items:
+        - dueAt
+        - repayment_date
+        - overdue
+        - recurring_payment
+        - reminders
+
+  notification_main_v1:
+    direction: banking → notification
+    ref: notifications.yaml
+
+  event_main_v1:
+    direction: banking → events
+    examples:
+      items:
+        - loan_default
+        - bankruptcy
+        - large_transfer
+        - gift
+
+  progression_main_v1:
+    direction: data for profile/rankings
+    rule: creditworthiness NON track progression
+
+  task_main_v1:
+    direction: task → loan offers
+    ref: notification actionable loan accept/reject
+
+  adminContentStudio:
+    status: PROPOSTA TECNICA
+    flow: YAML/JSON → validation → preview → publish
+
+  noAi:
+    DECISIONE APPROVATA: NO AI / LLM / API esterne
+
+  separationOfConcerns:
+    bankingMustNot:
+      items:
+        - decide_legality
+        - create_money_supply
+        - calculate_inflation
+        - duplicate_tax_system
+        - auto_arrest_on_bankruptcy
+        - auto_arrest_on_default

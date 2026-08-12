@@ -1,0 +1,11 @@
+# =============================================================================
+# PERFORMANCE — time_v1
+# =============================================================================
+
+---
+Performance:
+  rule: scheduled jobs not per-second
+  tickFrequency: TBD
+  status: DECISIONE APPROVATA
+events:
+  items: []

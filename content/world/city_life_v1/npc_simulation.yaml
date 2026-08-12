@@ -1,0 +1,13 @@
+# =============================================================================
+# NPC SIMULATION — tiered simulation levels
+# =============================================================================
+
+NpcSimulation:
+  DECISIONE APPROVATA:
+  rule: NON simulare ogni NPC con stesso livello di dettaglio
+  frequency: DA DEFINIRE / TBD — NON obbligatorio real-time
+  serverSide: world simulation server-side/authoritative
+
+events:
+  items:
+    - NpcSimulated

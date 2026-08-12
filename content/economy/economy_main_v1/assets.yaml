@@ -1,0 +1,84 @@
+# =============================================================================
+# ASSET MODEL
+# =============================================================================
+# DECISIONE APPROVATA: distinguere CONSUMABLE vs ASSET
+# =============================================================================
+
+assetClasses:
+
+  CONSUMABLE:
+    description: Beni consumati — non asset finanziari persistenti
+    examples: [food, clothing, consumables]
+    behaviors:
+      - purchased
+      - consumed
+      - may_deteriorate
+      - must_repurchase
+    economicTreatment: expense_on_purchase_or_amortized
+    notIncludedInNetWorth: true
+
+  ASSET:
+    description: Beni durevoli con valore persistente
+    subtypes:
+      real_estate:
+        examples: [baracca, camper, stanza, monolocale, appartamento, casa, villa, attico]
+        moduleRef: housing_module
+        behaviors: [buy, sell, rent, live_in, generate_income, generate_costs, revalue]
+      vehicle:
+        behaviors: [buy, sell, rent_optional, generate_costs, mobility_effects]
+        moduleRef: transport_module
+      luxury:
+        behaviors: [buy, sell, rent_optional, prestige, profile_public, revalue]
+      durable_goods:
+        behaviors: [buy, sell, revalue]
+      company_equity:
+        behaviors: [own, dividend, revalue]
+        moduleRef: business_module
+
+AssetEntity:
+  assetId: string
+  assetClass: CONSUMABLE | ASSET
+  assetSubtype: string
+  ownerRef: citizenId | companyId
+  currencyId: game_currency
+
+  valuation:
+    currentValue: TBD
+    baseValue: TBD
+    lastRevaluationGameTime: timestamp
+    modifiers: [market, inflation, demand, supply, zone, quality, events, condition]
+
+  income:
+    recurringIncomeFlows: []     # es. affitto
+  costs:
+    recurringExpenseFlows: []    # manutenzione, tasse immobiliari
+
+  status: active | listed | rented | vacant | seized | destroyed
+
+  visibility: PUBLIC | PRIVATE   # profilo pubblico — aggregato
+
+ConsumableCatalog:
+  food:
+    categories: TBD
+    priceRange: TBD
+    qualityTiers: TBD
+    personalValueEffects:
+      enabled: true
+      magnitude: small
+      configurable: true
+      targets: [happiness, health, stress]
+      formulas: TBD
+    notes: NON sistema nutrizionale realistico v1
+
+  clothing:
+    categories: TBD
+    priceRange: TBD
+
+  other_consumables:
+    categories: TBD
+
+AssetTransfer:
+  atomic: true
+  steps: [validate, lock, transfer_cash, transfer_ownership, record_transaction, notify]
+  onFailure: rollback_all
+  supports: [player_to_player, player_to_npc, npc_to_player, company_transfers]

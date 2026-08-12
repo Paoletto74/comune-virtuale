@@ -1,0 +1,9 @@
+# =============================================================================
+# RECONCILIATION — economy_v1
+# =============================================================================
+
+---
+Reconciliation:
+  compare: ledger vs materialized balances
+  inconsistency: alert block audit - NO silent fix
+  status: DECISIONE APPROVATA

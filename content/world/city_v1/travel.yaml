@@ -1,0 +1,26 @@
+# =============================================================================
+# TRAVEL — movement between locations
+# =============================================================================
+
+Travel:
+  concept: Citizen si sposta tra locations
+  feedback:
+    items:
+      - destinazione
+      - tempo
+      - costo
+      - mezzo
+      - stato
+    optional:
+      items:
+        - animation
+        - progress
+        - sound
+        - notification
+  rule: non bloccare inutilmente il giocatore
+  gameTime: ref travel_time.yaml, time_integration.yaml
+
+events:
+  items:
+    - TravelStarted
+    - TravelCompleted

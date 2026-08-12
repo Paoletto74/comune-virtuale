@@ -1,0 +1,18 @@
+# =============================================================================
+# PRIVACY SETTINGS — public/private/discoverability
+# =============================================================================
+
+PrivacySettings:
+  manages:
+    items:
+      - public_private
+      - discoverability
+      - birthday
+      - fun_facts
+      - avatar_visibility
+  location: Profile -> Settings -> Privacy
+  ref: profile_visibility.yaml, profile_main_v1
+
+events:
+  items:
+    - PrivacySettingsUpdated

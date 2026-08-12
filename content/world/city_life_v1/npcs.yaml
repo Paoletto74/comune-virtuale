@@ -1,0 +1,25 @@
+# =============================================================================
+# NPCS — overview, NPC != BOT PLAYER
+# =============================================================================
+
+Npcs:
+  definition: entita non controllata direttamente da player
+  notBotPlayer:
+    DECISIONE APPROVATA: NPC != BOT PLAYER — livello simulazione dipende da ruolo
+  roles:
+    items:
+      - lavoratore
+      - commerciante
+      - poliziotto
+      - medico
+      - impiegato
+      - cittadino_comune
+      - proprietario
+      - amministratore
+      - personaggio_speciale
+  identifier: NpcId
+  ref: npc_tiers.yaml
+
+events:
+  items:
+    - NpcLoaded

@@ -1,0 +1,19 @@
+# =============================================================================
+# FRONT PAGE — Home as prima pagina concept
+# =============================================================================
+
+FrontPage:
+  DECISIONE APPROVATA: Home concettualmente PRIMA PAGINA
+  concept: "front page della vita del cittadino"
+  exampleStructure:
+    items:
+      - masthead_nome_gioco_edizione_data
+      - ultima_ora_hero
+      - sezioni_economia_politica_cronaca_vita_cittadina
+  rule: NON replicare sempre stesso layout — mantenere concetto
+
+ref: templates.yaml FrontPage, frontend_ui_v1/home.yaml
+
+events:
+  items:
+    - FrontPageRendered

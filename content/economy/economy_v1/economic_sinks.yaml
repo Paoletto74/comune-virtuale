@@ -1,0 +1,15 @@
+# =============================================================================
+# ECONOMIC SINKS — economy_v1
+# =============================================================================
+
+---
+EconomicSinks:
+  purpose: prevent uncontrolled inflation
+  examples:
+  - fees
+  - taxes
+  - repairs
+  - fines
+  - services
+  - luxury
+  status: DECISIONE APPROVATA

@@ -1,0 +1,76 @@
+# =============================================================================
+# DELAYED CONSEQUENCES
+# =============================================================================
+
+DelayedConsequence:
+  schema:
+    delayedConsequenceId: string
+    sourceTaskInstanceId: string
+    sourceOptionId: string
+    actorId: string
+    targetId: string | null
+    triggerAt: timestamp
+    triggerType: fixed_time | relative_hours | world_state_check
+    triggerOffset: TBD
+    evaluationRulesRef: string
+    precomputedEffects: boolean
+    status: scheduled | pending_evaluation | executed | cancelled
+    causalChainId: string
+    visibility: hidden | visible
+    idempotencyKey: string
+
+scheduling:
+  DECISIONE APPROVATA: supporto conseguenze ritardate
+  example: |
+    Oggi rubi 500.
+    Tra 3 giorni: vittima denuncia, rischio scoperta, task, reputazione, multa.
+  delivery: scheduled_events | time_queue | catch_up
+
+dynamicEvaluation:
+  DECISIONE APPROVATA: |
+    Conseguenza futura NON necessariamente completamente determinata oggi.
+    Al trigger: valuta stato attuale mondo → calcola conseguenza.
+  exampleFire:
+    note: Giocatore incendia edificio — §30
+    atTriggerEvaluate:
+      items:
+        - building_still_exists
+        - current_owner
+        - current_occupant
+        - current_value
+        - insured
+        - repaired
+        - owner_online
+        - owner_is_npc
+    then: compute_individual_consequences
+
+evaluationRules:
+  schema:
+    ruleId: string
+    conditionsAtTrigger: []
+    effectsRef: string
+    generatedTasksRef: string | null
+    generatedEventsRef: string | null
+    cancelIf: []
+
+stealWalletDelayed:
+  status: demo_pattern
+  triggerOffset: TBD
+  possibleOutcomes:
+    items:
+      - victim_reports
+      - discovery_risk_increase
+      - new_task_assigned
+      - reputation_loss
+      - fine_via_economy
+
+events:
+  items:
+    - DelayedConsequenceScheduled
+    - DelayedConsequenceTriggered
+    - DelayedConsequenceEvaluated
+    - DelayedConsequenceCancelled
+
+offline:
+  rule: Conseguenze scattano offline via Time System catch-up
+  notifyOnReturn: true

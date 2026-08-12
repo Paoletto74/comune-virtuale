@@ -1,0 +1,14 @@
+# =============================================================================
+# MUNICIPAL EVENTS — time_v1
+# =============================================================================
+
+---
+MunicipalEvents:
+  owner: Event System
+  fields:
+  - startAt
+  - endAt
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - MunicipalEventStarted

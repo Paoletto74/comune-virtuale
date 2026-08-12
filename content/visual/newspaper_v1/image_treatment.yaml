@@ -1,0 +1,25 @@
+# =============================================================================
+# IMAGE TREATMENT — crop, aspect ratio, hero, thumbnail
+# =============================================================================
+
+ImageTreatment:
+  properties:
+    items:
+      - crop
+      - aspect_ratio
+      - caption
+      - border
+      - focal_point
+      - thumbnail
+      - hero
+  rule: NON hardcodare unico aspect ratio per tutto
+  performance:
+    hero: responsive
+    thumbnail: optimized
+    lazyLoad: where appropriate
+
+ref: visual_main_v1, frontend_ui_v1/performance.yaml
+
+events:
+  items:
+    - ImageTreatmentApplied

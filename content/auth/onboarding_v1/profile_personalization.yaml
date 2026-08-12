@@ -1,0 +1,25 @@
+# =============================================================================
+# PROFILE PERSONALIZATION — required vs optional
+# =============================================================================
+
+ProfilePersonalization:
+  required:
+    rule: minimum identity necessary for Citizen creation
+    items:
+      - nome
+      - gender_policy_field
+      - age
+  optional:
+    items:
+      - cognome
+      - birthday
+      - fun_facts
+      - avatar_customization
+  profileCompletion:
+    rule: Profile Completion % — NON obbligare 100%
+  optionalReward:
+    rule: reward completamento solo se Progression/Economy — NON Profile UI
+
+events:
+  items:
+    - ProfilePersonalizationUpdated

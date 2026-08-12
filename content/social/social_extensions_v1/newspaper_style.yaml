@@ -1,0 +1,25 @@
+# =============================================================================
+# NEWSPAPER STYLE — social cards
+# =============================================================================
+
+NewspaperStyleSocial:
+  status: PROPOSTA TECNICA
+
+  direction: giornale di cronaca
+
+  elements:
+    items:
+      - headline
+      - character_avatar
+      - contextual_illustration
+      - category_label
+      - timestamp
+      - newspaper_composition
+
+  rule: |
+    Social cards e popup importanti possono usare stile cronaca.
+    Visual System e frontend_ui_v1 restano owner design tokens.
+    Social fornisce solo visualAssetId e content metadata.
+
+  gazzettaBoundary:
+    rule: Social crea EditorialCandidate — Gazzetta decide pubblicazione

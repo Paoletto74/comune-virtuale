@@ -1,0 +1,9 @@
+# =============================================================================
+# RACE CONDITIONS — property_v1
+# =============================================================================
+
+---
+RaceConditions:
+  atomicPurchase: true
+  twoBuyersSameProperty: one succeeds one fails
+  status: DECISIONE APPROVATA

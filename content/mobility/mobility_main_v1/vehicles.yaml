@@ -1,0 +1,58 @@
+# =============================================================================
+# VEHICLE INSTANCES — veicoli concreti
+# =============================================================================
+
+VehicleInstance:
+  schema:
+    vehicleId: string
+    assetId: string
+    typeId: string
+    ownerId: string | null
+    condition: number
+    marketValue: TBD
+    purchasePrice: TBD
+    acquisitionTime: timestamp | null
+    currentStatus: active | broken | stolen | seized | listed | rented | unavailable
+    rentalStatus: not_for_rent | for_rent | rented | pending
+    currentRenterId: string | null
+
+  rules:
+    DECISIONE APPROVATA:
+      items:
+        - collegato a Economy System come asset vehicle
+        - marketValue != purchasePrice necessarily
+        - ogni veicolo indipendente in multi-vehicle
+
+AssetLink:
+  economyAssetClass: ASSET
+  economyAssetSubtype: vehicle
+  moduleRef: mobility_main_v1
+  behaviors:
+    items:
+      - buy
+      - sell
+      - rent_optional
+      - generate_costs
+      - mobility_effects
+      - revalue
+
+stolenState:
+  status: interface_only
+  rule: Criminal System — DA DEFINIRE
+  possibleEffects:
+    items:
+      - not_legally_usable
+      - wanted_risk
+      - seizure_risk
+  currentStatusValue: stolen
+
+instances:
+  status: skeleton_only
+  examples:
+    items:
+      - vehicleId: VEH_EXAMPLE_001
+        typeId: TYPE_CAR_ECONOMY
+        ownerId: null
+        marketValue: TBD
+        condition: TBD
+        currentStatus: listed

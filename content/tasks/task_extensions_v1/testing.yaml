@@ -1,0 +1,23 @@
+# =============================================================================
+# TESTING — task_extensions_v1
+# =============================================================================
+
+---
+Testing:
+  cases:
+  - generation
+  - eligibility
+  - options
+  - outcome
+  - reward
+  - cooldown
+  - expiration
+  - idempotency
+  - delayed consequence
+  - causal chain
+  - loop prevention
+  - mobility
+  - economy
+  - security
+  - offline
+  status: PROPOSTA TECNICA

@@ -1,0 +1,8 @@
+# =============================================================================
+# LOAN PRINCIPAL — economy_v1
+# =============================================================================
+
+---
+LoanPrincipal:
+  definition: initial amount lent
+  status: DECISIONE APPROVATA

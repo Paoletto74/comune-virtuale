@@ -1,0 +1,46 @@
+# =============================================================================
+# DURATION — instant, temporary, permanent, recurring
+# =============================================================================
+
+DurationType:
+  items:
+    - typeId: instant
+      description: Applicato una volta al momento evento
+      example: cash +100 al completamento task
+    - typeId: temporary
+      description: Attivo per durata limitata
+      example: stress +10 per 24 ore
+    - typeId: permanent
+      description: Persiste fino a evento contrario o permanente
+      example: reputation -5 permanente
+    - typeId: recurring
+      description: Si ripete su schedule — dominio genera evento
+      note: Effects NON proprietario pagamenti ricorrenti
+
+DurationSpec:
+  schema:
+    durationType: instant | temporary | permanent | recurring
+    durationValue: TBD
+    durationUnit: hours | days | ticks | until_event
+    expiresAt: "timestamp | null"
+    recurringScheduleRef: string | null
+
+temporaryEffect:
+  example:
+    effectType: STRESS
+    magnitude: TBD
+    duration: temporary
+    durationValue: TBD
+    durationUnit: hours
+
+recurringBoundary:
+  DECISIONE APPROVATA: |
+    Affitto, stipendio, tasse periodiche:
+    dominio (Property/Economy/Work) genera WorldEvent periodico.
+    Event System propaga EffectCommand al trigger — NON timer interno Effects.
+
+events:
+  items:
+    - TemporaryEffectStarted
+    - TemporaryEffectExpired
+    - RecurringEffectTriggered

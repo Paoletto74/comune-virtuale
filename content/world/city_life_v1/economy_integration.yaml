@@ -1,0 +1,13 @@
+# =============================================================================
+# ECONOMY INTEGRATION — no second economy
+# =============================================================================
+
+EconomyIntegration:
+  rule: NON creare seconda economia — economy_main_v1
+  npcActions: NPC economic actions via Economy System
+  businessFinance: Business financial logic via Economy/Business Systems
+  ref: economy_main_v1, business_main_v1
+
+events:
+  items:
+    - EconomyCityLifeIntegrated

@@ -1,0 +1,38 @@
+# =============================================================================
+# AUDIT — operazioni importanti
+# =============================================================================
+
+AuditLog:
+  type: PERSISTENT
+  sourceOfTruth: Audit
+  schema:
+    auditId: string
+    actorId: string
+    actorType: admin | system | citizen
+    action: string
+    targetType: string
+    targetId: string
+    timestamp: timestamp
+    metadata: object
+    before: object
+    after: object
+
+auditedOperations:
+  items:
+    - admin_actions
+    - economy_corrections
+    - permission_changes
+    - sensitive_actions
+    - content_publish
+    - rollback
+    - hard_delete
+
+eventSourcing:
+  status: PROPOSTA TECNICA
+  rule: |
+    NON obbligare intero gioco a event sourcing.
+    Utile per: financial ledger, audit, major events, critical history.
+
+events:
+  items:
+    - AuditEntryCreated

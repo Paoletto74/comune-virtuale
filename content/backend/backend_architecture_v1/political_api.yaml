@@ -1,0 +1,26 @@
+# =============================================================================
+# POLITICAL API — Political Engine authoritative
+# =============================================================================
+
+PoliticalApi:
+  sourceOfTruth: PoliticalService
+  endpoints:
+    queries:
+      items:
+        - "GET /api/v1/political/elections"
+        - "GET /api/v1/political/mayor"
+        - "GET /api/v1/political/referenda"
+        - "GET /api/v1/political/info"
+    commands:
+      items:
+        - "POST /api/v1/political/candidacy"
+        - "POST /api/v1/political/vote"
+        - "POST /api/v1/political/referendum/:id/vote"
+
+rule: |
+  L25 != Mayor — ruolo Sindaco deriva da Political System.
+  Backend NON interpreta L25 = Mayor.
+
+events:
+  items:
+    - PoliticalApiRequestProcessed

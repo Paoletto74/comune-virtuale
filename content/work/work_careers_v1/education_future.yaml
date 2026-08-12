@@ -1,0 +1,11 @@
+# =============================================================================
+# EDUCATION FUTURE — work_careers_v1
+# =============================================================================
+
+---
+Education:
+  status: PROPOSTA TECNICA future NON V1
+  types:
+  - schools
+  - universities
+  - courses

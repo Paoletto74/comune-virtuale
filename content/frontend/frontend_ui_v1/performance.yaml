@@ -1,0 +1,40 @@
+# =============================================================================
+# PERFORMANCE — images, lazy loading, code splitting
+# =============================================================================
+
+Performance:
+  optimize:
+    items:
+      - images
+      - lazy_loading
+      - route_loading
+      - code_splitting
+      - cache
+      - graph_rendering
+  rule: NON sacrificare correttezza dati
+
+imageOptimization:
+  status: TBD
+  items:
+    items:
+      - thumbnails
+      - responsive_images
+      - appropriate_formats
+      - lazy_loading
+      - CDN_future
+
+navigationPerformance:
+  rule: sezioni principali aprono rapidamente — route-level code splitting
+
+observability:
+  items:
+    items:
+      - route_load
+      - api_latency
+      - render_errors
+      - asset_failures
+      - Web_Vitals
+
+events:
+  items:
+    - PerformanceMetricRecorded

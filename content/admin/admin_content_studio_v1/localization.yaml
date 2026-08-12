@@ -1,0 +1,16 @@
+# =============================================================================
+# LOCALIZATION
+# =============================================================================
+
+Localization:
+  status: PROPOSTA TECNICA — NO traduzioni automatiche V1
+  schema:
+    languageKey: string
+  examples:
+    items:
+      - title.it
+      - title.en
+
+events:
+  items:
+    - LocalizationKeyAdded

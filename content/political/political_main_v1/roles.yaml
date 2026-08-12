@@ -1,0 +1,87 @@
+# =============================================================================
+# POLITICAL ROLES — catalogo configurabile
+# =============================================================================
+# V1 focus: politica locale — sindaco principale
+# =============================================================================
+
+PoliticalRole:
+  schema:
+    roleId: string
+    label: string
+    scope: local | regional | national
+    description: string
+    leversRef: string
+    requirementsRef: string
+    mandateDuration: TBD
+    visibility: PUBLIC
+
+roles:
+  status: skeleton_local_focus
+  items:
+    - roleId: citizen
+      label: Cittadino
+      scope: local
+      description: Nessuna carica attiva
+      leversRef: none
+      mandateDuration: null
+
+    - roleId: candidate
+      label: Candidato
+      scope: local
+      description: Candidato in campagna elettorale
+      leversRef: none
+      mandateDuration: null
+      status: transitional
+
+    - roleId: councillor
+      label: Consigliere
+      scope: local
+      description: Membro consiglio comunale
+      leversRef: LEVERS_COUNCILLOR
+      mandateDuration: TBD
+
+    - roleId: assessor
+      label: Assessore
+      scope: local
+      description: Assessore con competenze settoriali
+      leversRef: LEVERS_ASSESSOR
+      mandateDuration: TBD
+
+    - roleId: mayor
+      label: Sindaco
+      scope: local
+      description: Sindaco — ruolo reale eletto con mandato e leve
+      leversRef: LEVERS_MAYOR
+      mandateDuration: TBD
+      note: DECISIONE APPROVATA — NON automatico a L25
+
+  futureRoles:
+    items: []
+    note: Altri ruoli aggiungibili senza modificare motore
+
+ActiveRoleAssignment:
+  schema:
+    assignmentId: string
+    citizenId: string
+    roleId: string
+    status: active | suspended | ended
+    mandateStart: timestamp
+    mandateEnd: timestamp
+    electionRef: string | null
+    acquiredVia: election | appointment | succession
+
+  rule: |
+    activeRole assegnato da Political System (elezione/appointment).
+    mainLevel L25 "SINDACO" = label narrativo progression_main_v1 — separato.
+
+mayorProfile:
+  DECISIONE APPROVATA:
+    items:
+      - eletto — non automatico per ricchezza/potere/mainLevel
+      - mandato temporale
+      - leve di governo
+      - prende decisioni
+      - influenza città
+      - può perdere consenso
+      - può essere rieletto
+      - può perdere ruolo

@@ -1,0 +1,72 @@
+# =============================================================================
+# RELATIVE REQUIREMENTS — framework futuro
+# =============================================================================
+# PROPOSTA TECNICA: requisiti vs popolazione simulata (giocatori + NPC)
+# NON implementato — solo schema e placeholder
+# =============================================================================
+
+relativeRequirementsFramework:
+  enabled: false
+  schemaVersion: 1
+
+  modes:
+    populationPercentile:
+      description: Posizione relativa nella distribuzione popolazione totale
+      example: top 20% patrimonio
+      params:
+        field: string
+        targetPercentile: TBD
+        populationScope: all_citizens | players_only | npc_excluded
+      placeholderExamples:
+        - REL_TOP_20_NET_WORTH
+        - REL_TOP_10_INCOME
+
+    populationMean:
+      description: Sopra/sotto media popolazione
+      example: influenza superiore alla media
+      params:
+        field: string
+        op: gt | gte
+        multiplier: TBD
+      placeholderExamples:
+        - REL_INFLUENCE_ABOVE_MEAN
+
+    populationRank:
+      description: Rank assoluto top N
+      example: top 10 patrimonio nel comune
+      params:
+        field: string
+        maxRank: TBD
+      notes: DA_DEFINIRE — scalabilità con popolazione dinamica
+
+    economicIndexRatio:
+      description: Rapporto con indice economia globale comune
+      example: patrimonio >= X × indice_medio_comune
+      params:
+        field: string
+        ratio: TBD
+        indexRef: world.economy.wealthIndex
+      dependsOnSystems: [economy, inflation]
+
+  inflationAdjustment:
+    enabled: false
+    description: Valore nominale vs reale vs potere d'acquisto
+    params:
+      useRealValue: TBD
+      inflationIndexRef: world.economy.inflation
+    notes: |
+      €100.000 non hanno significato fisso.
+      DA_DEFINIRE quando economia definita.
+
+  applicabilityByLevel:
+    notes: |
+      EARLY levels — assoluti + placeholder TBD possibile
+      LATE/LEGENDARY — preferire percentile/relativi quando popolazione cresce
+    suggestedFromLevel: TBD
+
+  levelBindings: []
+  # Esempio futuro (non attivo):
+  # main_L20:
+  #   optionalRelativeRequirements:
+  #     - placeholderKey: REL_TOP_20_NET_WORTH
+  #       pathHint: PATH_B

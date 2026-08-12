@@ -1,0 +1,29 @@
+# =============================================================================
+# CONTENT USAGE & OBSERVABILITY
+# =============================================================================
+
+ContentUsage:
+  status: PROPOSTA TECNICA
+  mayTrack:
+    example: "Usato X volte."
+  usefulFor:
+    items:
+      - unused_tasks
+      - unused_popups
+      - never_sold_items
+      - never_opened_news
+
+Observability:
+  status: PROPOSTA TECNICA — NON analytics complete V1
+  metrics:
+    items:
+      - validation_failures
+      - publish_failures
+      - content_usage
+      - content_views
+      - content_trigger_rate
+      - errors
+
+events:
+  items:
+    - ContentUsageRecorded

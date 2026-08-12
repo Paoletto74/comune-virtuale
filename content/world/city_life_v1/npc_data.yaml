@@ -1,0 +1,21 @@
+# =============================================================================
+# NPC DATA — model concept
+# =============================================================================
+
+NpcData:
+  model:
+    npcId: string
+    cityId: string
+    districtId: string
+    role: string
+    locationId: string
+    visualAssetId: string
+    status: string
+    configuration: object
+  rule: NON sostituire domain systems
+  spawn:
+    rule: NON generare NPC arbitrariamente dal client — TBD
+
+events:
+  items:
+    - NpcDataValidated

@@ -1,0 +1,13 @@
+# =============================================================================
+# SALARY HISTORY — work_careers_v1
+# =============================================================================
+
+---
+SalaryHistory:
+  fields:
+  - amount
+  - period
+  - employment
+  - gameTime
+  - transactionRef
+  status: DECISIONE APPROVATA

@@ -1,0 +1,23 @@
+# =============================================================================
+# SECURITY — runtime does not trust client
+# =============================================================================
+
+RuntimeSecurity:
+  DECISIONE APPROVATA: runtime NON si fida di
+  untrustedClientData:
+    items:
+      - client_timestamps
+      - client_prices
+      - client_rewards
+      - client_level
+      - client_ownership
+      - client_role
+
+rateLimit:
+  rule: protezione da spam commands — player action rate limits
+
+ref: auth_main_v1, backend_architecture_v1/security.yaml
+
+events:
+  emits: [SecurityViolationDetected]
+  consumes: []

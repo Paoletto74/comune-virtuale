@@ -1,0 +1,29 @@
+# =============================================================================
+# OFFLINE — catch-up ledger, loans, bankruptcy
+# =============================================================================
+
+OfflineBanking:
+  DECISIONE APPROVATA: durante offline
+  mayOccur:
+    items:
+      - salary_received
+      - rent_paid
+      - installment_due
+      - loan_overdue
+      - transfer_received
+      - gift_received
+      - bankruptcy_trigger
+  onLogin:
+    flow: |
+      catch-up → ledger updates → loan status → notifications
+
+BankruptcyOffline:
+  DECISIONE APPROVATA: |
+    Giocatore può entrare in bancarotta offline.
+    Valuta obblighi → aggiorna stato → registra eventi → notifica login.
+    NO arresto automatico.
+
+events:
+  items:
+    - OfflineBankingCatchUpCompleted
+    - OfflineBankruptcyProcessed

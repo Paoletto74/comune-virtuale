@@ -1,0 +1,27 @@
+# =============================================================================
+# MARKETPLACE DATA — listing vs asset instance
+# =============================================================================
+
+Listing:
+  type: PERSISTENT
+  sourceOfTruth: Marketplace
+  schema:
+    listingId: string
+    sellerId: string
+    assetType: item | property | vehicle | rental
+    assetRef: string
+    price: TBD
+    state: DRAFT | ACTIVE | SOLD | RENTED | EXPIRED | CANCELLED | SUSPENDED
+    createdAt: timestamp
+    updatedAt: timestamp
+
+rule: |
+  LISTING ≠ ITEM INSTANCE.
+  Listing può riferirsi a item, property, vehicle, rental asset.
+
+ref: marketplace_main_v1
+
+events:
+  items:
+    - ListingCreated
+    - ListingStateChanged

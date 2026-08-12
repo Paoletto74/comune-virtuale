@@ -1,0 +1,25 @@
+# =============================================================================
+# SCHEDULER — Time System authoritative
+# =============================================================================
+
+Scheduler:
+  status: PROPOSTA TECNICA
+  rule: |
+    Time System resta autorevole.
+    Backend esegue scheduled jobs — NON crea secondo sistema temporale incoerente.
+
+scheduledJobs:
+  items:
+    - salary_payment
+    - inflation_update
+    - election_cycle
+    - ranking_snapshot
+    - npc_simulation_batch
+    - content_scheduled_publish
+    - cleanup_expired_listings
+
+ref: time_main_v1
+
+events:
+  items:
+    - ScheduledJobTriggered

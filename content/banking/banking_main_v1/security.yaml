@@ -1,0 +1,76 @@
+# =============================================================================
+# SECURITY & ANTI-DUPLICATION
+# =============================================================================
+
+ServerAuthoritative:
+  DECISIONE APPROVATA: server authoritative su saldi e prestiti
+
+clientCannot:
+  items:
+    - modify_balance
+    - create_money
+    - modify_loans
+    - modify_interest_rates
+    - declare_loan_paid
+    - bypass_due_dates
+    - modify_ledger
+
+antiDuplication:
+  DECISIONE APPROVATA: proteggere contro
+  threats:
+    items:
+      - money_duplication
+      - replay
+      - race_condition
+      - negative_balance_exploit
+      - transaction_duplication
+      - loan_duplication
+      - double_payment
+      - double_transfer
+      - double_loan_acceptance
+      - double_repayment
+  mechanisms:
+    items:
+      - idempotency
+      - transaction_lock
+      - atomic_transactions
+      - server_validation
+
+Idempotency:
+  keys:
+    items:
+      - transactionId
+      - transferId
+      - giftId
+      - loanId
+      - idempotencyKey
+
+Audit:
+  DECISIONE APPROVATA:
+  fields:
+    items:
+      - transactionId
+      - actor
+      - source
+      - destination
+      - amount
+      - reason
+      - timestamp
+      - worldTime
+      - reference
+      - status
+
+performance:
+  status: PROPOSTA TECNICA
+  uses:
+    items:
+      - scheduled_events
+      - due_date_queues
+      - batch_processing
+      - ledger_append_only
+      - indexes
+
+events:
+  items:
+    - SecurityViolationBlocked
+    - DuplicateTransactionRejected

@@ -1,0 +1,36 @@
+# =============================================================================
+# HOME — dashboard sintetica, HomeSummary read model
+# =============================================================================
+
+Home:
+  role: dashboard sintetica — NON enorme muro di informazioni
+  api: "GET /api/v1/home"
+  sourceOfTruth: HomeSummary read model — NON decine di chiamate indipendenti
+
+widgets:
+  status: PROPOSTA TECNICA — cards configurabili
+  examples:
+    items:
+      - saldo
+      - livello
+      - lavoro
+      - task_attivi
+      - notifiche_importanti
+      - eventi
+      - gazzetta_highlights
+      - patrimonio
+      - stato_comune
+
+states:
+  items:
+    - loading_skeleton
+    - success
+    - empty
+    - error
+
+ref: backend_architecture_v1/read_models.yaml
+
+events:
+  items:
+    - HomeLoaded
+    - HomeRefreshRequested

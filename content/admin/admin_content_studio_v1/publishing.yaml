@@ -1,0 +1,45 @@
+# =============================================================================
+# PUBLISHING — explicit publish, hot update, cache
+# =============================================================================
+
+Publishing:
+  DECISIONE APPROVATA: publish esplicito — NON auto al save
+
+HotContentUpdate:
+  DECISIONE APPROVATA — OBIETTIVO IMPORTANTE: |
+    Cambiare contenuti senza aggiornare codice gioco.
+    Es. reward €100 → €150: Admin Publish → cache refresh → attivo.
+    Se content-only — NO deploy codice.
+
+CodeBoundContent:
+  DECISIONE APPROVATA: |
+    Se richiede nuova funzionalità motore:
+    "Questo contenuto richiede una nuova versione del motore."
+    NON fingere che content-only possa fare qualsiasi cosa.
+
+CacheInvalidation:
+  status: PROPOSTA TECNICA
+  rule: |
+    Al publish — invalidazione/refresh cache necessarie.
+    NON richiedere necessariamente deploy.
+
+ContentIntegrity:
+  DECISIONE APPROVATA: ogni contenuto pubblicato ha
+  fields:
+    items:
+      - contentId
+      - version
+      - checksum_hash_optional
+      - publishedAt
+      - publishedBy
+      - status
+
+Unpublish:
+  DECISIONE APPROVATA: DISABLE — non cancellare necessariamente
+
+events:
+  items:
+    - ContentPublished
+    - ContentPublishFailed
+    - CacheInvalidated
+    - ContentUnpublished

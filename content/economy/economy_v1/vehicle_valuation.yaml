@@ -1,0 +1,9 @@
+# =============================================================================
+# VEHICLE VALUATION — economy_v1
+# =============================================================================
+
+---
+VehicleValuation:
+  owner: Mobility/Vehicle System
+  economyUses: data only
+  status: DECISIONE APPROVATA

@@ -1,0 +1,12 @@
+# =============================================================================
+# ARCHIVE — historical content keeps visual references
+# =============================================================================
+
+Archive:
+  rule: |
+    Historical content mantiene visual/content references usate quando pubblicato.
+    NON cancellare riferimenti storici.
+
+events:
+  items:
+    - ArchiveReferencePreserved

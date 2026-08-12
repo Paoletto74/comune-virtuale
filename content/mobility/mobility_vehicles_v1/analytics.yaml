@@ -1,0 +1,13 @@
+# =============================================================================
+# ANALYTICS — mobility_vehicles_v1
+# =============================================================================
+
+---
+Analytics:
+  metrics:
+  - ownership
+  - sales
+  - modes
+  - commute duration
+  privacySafe: true
+  status: PROPOSTA TECNICA

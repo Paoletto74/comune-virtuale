@@ -1,0 +1,9 @@
+# =============================================================================
+# NPC INTEGRATION — property_v1
+# =============================================================================
+
+---
+NpcIntegration:
+  npcTenants: true
+  npcDemand: property_main_v1 npc_demand
+  status: DECISIONE APPROVATA

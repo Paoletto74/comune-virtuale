@@ -1,0 +1,25 @@
+# =============================================================================
+# DISTRICT TYPES — economic indicators derived from domain systems
+# =============================================================================
+
+DistrictTypes:
+  indicators:
+    derived:
+      items:
+        - property_value
+        - commercial_activity
+        - employment
+        - crime_rate
+        - population
+    rule: formule appartengono ai Domain Systems — NON city pack
+  visualIdentity:
+    items:
+      - palette
+      - architecture_style
+      - ambient_cues
+      - newspaper_imagery
+    rule: NON duplicare Design System — ref newspaper_v1, visual_main_v1
+
+events:
+  items:
+    - DistrictTypeResolved

@@ -1,0 +1,14 @@
+# =============================================================================
+# ACCOUNT LINKING — Google + email same account
+# =============================================================================
+
+AccountLinking:
+  scenario: Google poi email/password — account linking
+  rule: NON creare due Citizen involontariamente
+  duplicate:
+    rule: same verified email + multiple providers — gestione coerente
+  ref: auth_main_v1/identity_linking.yaml
+
+events:
+  items:
+    - AccountLinked

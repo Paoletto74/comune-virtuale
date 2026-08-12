@@ -1,0 +1,30 @@
+# =============================================================================
+# CRIMINAL API — privacy and visibility mandatory
+# =============================================================================
+
+CriminalApi:
+  sourceOfTruth: CriminalService
+  endpoints:
+    queries:
+      items:
+        - "GET /api/v1/criminal/progression"
+        - "GET /api/v1/criminal/heat"
+        - "GET /api/v1/criminal/history"
+    commands:
+      items:
+        - "POST /api/v1/criminal/activities/:activityId/execute"
+
+flow:
+  steps:
+    - validate_conditions
+    - execute_criminal_rules
+    - update_criminal_state
+    - apply_economic_effects_via_banking
+    - generate_events
+    - notifications_per_visibility
+
+privacy: visibility obbligatoria — hidden data NON in public/citizen list
+
+events:
+  items:
+    - CriminalApiRequestProcessed

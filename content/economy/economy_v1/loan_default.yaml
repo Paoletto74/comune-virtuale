@@ -1,0 +1,13 @@
+# =============================================================================
+# LOAN DEFAULT — economy_v1
+# =============================================================================
+
+---
+LoanDefault:
+  owner: Loan System determines consequences
+  economyNotAutonomous: true
+  states:
+  - overdue
+  - penalty
+  - default
+  status: DECISIONE APPROVATA

@@ -1,0 +1,13 @@
+# =============================================================================
+# API — economy_v1
+# =============================================================================
+
+---
+EconomyApi:
+  endpoints:
+  - GET /api/v1/economy/me
+  - GET /api/v1/economy/transactions
+  - POST /api/v1/economy/transfer
+  forbidden: POST /set-balance
+  schema: TBD
+  status: PROPOSTA TECNICA

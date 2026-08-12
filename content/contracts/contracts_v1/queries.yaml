@@ -1,0 +1,60 @@
+# =============================================================================
+# QUERIES — catalog, contract, authorization
+# =============================================================================
+
+QueryModel:
+  structure:
+    queryId: string
+    queryType: string
+    schemaVersion: number
+    actorId: string
+    parameters: object
+    correlationId: string
+  rule: NON consentire query anonime dove dati privati
+
+naming:
+  rule: nouns/Get — GetProfile, GetBalance, GetTasks, GetRankings
+
+catalog:
+  items:
+    - GetHome
+    - GetProfile
+    - GetPublicProfile
+    - GetBalance
+    - GetInventory
+    - GetTasks
+    - GetJobs
+    - GetMarketplace
+    - GetNotifications
+    - GetMunicipality
+    - GetCitizens
+    - GetRankings
+    - GetNetWorthHistory
+    - GetInflationHistory
+    - GetRankingHistory
+
+queryAuthorization:
+  DECISIONE APPROVATA: |
+    Client puo chiedere GetCitizenProfile(X) —
+    backend decide cosa puo vedere.
+
+publicProfile:
+  mustNot:
+    items:
+      - email
+      - password
+      - bank_data
+      - private_notifications
+      - hidden_criminal_information
+      - internal_security_fields
+
+privateProfile:
+  rule: own profile piu dati — NON password, NON auth secrets
+
+adminQuery:
+  requires: Admin authentication + authorization
+  rule: NON accesso automatico a tutti Game State
+
+events:
+  items:
+    - QueryExecuted

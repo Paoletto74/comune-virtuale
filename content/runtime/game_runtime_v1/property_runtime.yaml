@@ -1,0 +1,18 @@
+# =============================================================================
+# PROPERTY RUNTIME — rent, maintenance, condition
+# =============================================================================
+
+PropertyRuntime:
+  tickProcesses:
+    items:
+      - rent
+      - maintenance
+      - condition
+      - ownership_state
+  sourceOfTruth: Property
+  executionMode: tick-driven
+  ref: property_main_v1
+
+events:
+  emits: [RentPaid, PropertyConditionChanged]
+  consumes: [PropertyPurchased]

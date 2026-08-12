@@ -1,0 +1,23 @@
+# =============================================================================
+# CONTENT API — player-facing, published only
+# =============================================================================
+
+ContentApi:
+  playerFacing:
+    rule: solo PUBLISHED + VISIBLE — draft NON esposto ai giocatori
+  endpoints:
+    items:
+      - "GET /api/v1/content/:contentId"
+      - "GET /api/v1/content/version"
+      - "GET /api/v1/content/catalog"
+
+contentVersion:
+  status: PROPOSTA TECNICA
+  rule: player runtime deve sapere quale content version utilizza
+
+contentCache:
+  DECISIONE APPROVATA: caching per contenuti pubblicati — publish invalida cache
+
+events:
+  items:
+    - ContentApiRequestProcessed

@@ -1,0 +1,37 @@
+# =============================================================================
+# MARKET EVENTS — compatibili event_main_v1
+# =============================================================================
+
+marketEvents:
+  items:
+    - ListingCreated
+    - ListingUpdated
+    - ListingExpired
+    - ListingCancelled
+    - SaleCompleted
+    - RentalStarted
+    - RentalEnded
+    - MarketDemandChanged
+    - MarketPriceChanged
+
+commercialEventRouting:
+  rule: |
+    Eventi commerciali → event_main_v1 per conseguenze opzionali.
+    Transazioni economiche primary record: economy_main_v1.
+
+TransactionAtomicity:
+  DECISIONE APPROVATA: |
+    1. verifica listing
+    2. verifica buyer cash
+    3. lock
+    4. Economy transaction
+    5. ownership transfer
+    6. listing sold/rented
+    7. unlock
+    8. events
+    on failure: rollback
+
+events:
+  items:
+    - MarketplaceEventPublished
+    - TransactionRolledBack

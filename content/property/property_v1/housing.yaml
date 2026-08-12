@@ -1,0 +1,9 @@
+# =============================================================================
+# HOUSING — property_v1
+# =============================================================================
+
+---
+Housing:
+  alignsWith: property_main_v1/housing.yaml
+  livingOptions: player chooses how to live
+  status: DECISIONE APPROVATA

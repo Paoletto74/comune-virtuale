@@ -1,0 +1,21 @@
+# =============================================================================
+# SECURITY — client cannot create/alter entities
+# =============================================================================
+
+Security:
+  DECISIONE APPROVATA:
+  clientCannot:
+    items:
+      - create_NPC
+      - create_money
+      - create_business_ownership
+      - alter_membership
+      - alter_relationships
+      - alter_population
+  apiBoundary:
+    rule: semantic APIs/events — NON client-side direct database access
+  ref: contracts_v1
+
+events:
+  items:
+    - CityLifeSecurityEnforced

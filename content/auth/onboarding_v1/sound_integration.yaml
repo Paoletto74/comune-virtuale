@@ -1,0 +1,16 @@
+# =============================================================================
+# SOUND INTEGRATION — welcome cues
+# =============================================================================
+
+SoundIntegration:
+  cues:
+    items:
+      - welcome_cue
+      - creation_success
+      - first_notification
+  rule: audio opzionale — NON musica lunga obbligatoria
+  ref: sound_design_v1
+
+events:
+  items:
+    - OnboardingSoundPlayed

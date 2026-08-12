@@ -1,0 +1,14 @@
+# =============================================================================
+# ADMIN SCHEDULING — time_v1
+# =============================================================================
+
+---
+AdminScheduling:
+  canSchedule:
+  - content
+  - events
+  - campaigns
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - AdminScheduleCreated

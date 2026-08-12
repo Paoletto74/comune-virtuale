@@ -1,0 +1,9 @@
+# =============================================================================
+# PROPERTY PRICE — property_v1
+# =============================================================================
+
+---
+PropertyPrice:
+  listingPrice: market decision
+  notEqualTo: property valuation
+  status: DECISIONE APPROVATA

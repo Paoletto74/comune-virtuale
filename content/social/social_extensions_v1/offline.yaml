@@ -1,0 +1,29 @@
+# =============================================================================
+# OFFLINE — modello compatibile
+# =============================================================================
+
+OfflineModel:
+  status: PROPOSTA TECNICA — estende DECISIONE APPROVATA in placeholders.yaml
+
+  mayOccurOffline:
+    items:
+      - preset_interactions_received
+      - gifts_received
+      - loans_requested
+      - scheduled_social_consequences
+      - social_events_queued
+
+  mustNotOffline:
+    items:
+      - client_create_unauthorized_effects
+      - client_modify_relationship
+      - client_send_unvalidated_messages
+      - client_claim_rewards
+
+  catchUp:
+    steps:
+      - login
+      - time_catch_up
+      - social_event_resolution
+      - notification_instances
+      - popup_queue

@@ -1,0 +1,17 @@
+# =============================================================================
+# POLITICS INTEGRATION — municipality, mayor, elections
+# =============================================================================
+
+PoliticsIntegration:
+  owner: Political/Municipality System — ref political_main_v1
+  cityStatus:
+    items:
+      - sindaco
+      - cassa
+      - elezioni
+  rule: NON creare nuovo Political System
+  dashboard: ref municipality.yaml — Comune page
+
+events:
+  items:
+    - PoliticalAtLocation

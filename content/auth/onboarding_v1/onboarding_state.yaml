@@ -1,0 +1,20 @@
+# =============================================================================
+# ONBOARDING STATE — state machine
+# =============================================================================
+
+OnboardingState:
+  DECISIONE APPROVATA:
+  states:
+    items:
+      - ACCOUNT_CREATED
+      - CITIZEN_CREATION
+      - PROFILE_SETUP
+      - INTRODUCTION
+      - FIRST_ENTRY
+      - ACTIVE
+  terminal: ACTIVE
+  backend: authoritative state — NOT client-only
+
+events:
+  items:
+    - OnboardingStateChanged

@@ -1,0 +1,17 @@
+# =============================================================================
+# ENVIRONMENTS — DEV/STAGING/PRODUCTION isolation
+# =============================================================================
+
+EnvironmentIsolation:
+  DECISIONE APPROVATA: DEV/STAGING/PRODUCTION dati separati
+  rule: NON condividere accidentalmente database production con development
+
+environments:
+  items:
+    - development
+    - staging
+    - production
+
+events:
+  items:
+    - EnvironmentConfigured

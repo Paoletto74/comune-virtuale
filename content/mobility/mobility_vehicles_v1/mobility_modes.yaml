@@ -1,0 +1,18 @@
+# =============================================================================
+# MOBILITY MODES — mobility_vehicles_v1
+# =============================================================================
+
+---
+MobilityModes:
+  possible:
+  - walk
+  - bicycle
+  - motorcycle
+  - car
+  - public transport
+  - taxi
+  - other
+  walkingFallback: DECISIONE APPROVATA
+  definitive: TBD
+  alignsWith: mobility_main_v1/modes.yaml
+  status: PROPOSTA TECNICA list walk APPROVATO

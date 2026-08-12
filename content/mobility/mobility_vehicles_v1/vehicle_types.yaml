@@ -1,0 +1,17 @@
+# =============================================================================
+# VEHICLE TYPES — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleTypes:
+  possible:
+  - bicycle
+  - motorcycle
+  - scooter
+  - car
+  - van
+  - truck
+  - bus
+  - special vehicle
+  definitive: TBD
+  status: PROPOSTA TECNICA

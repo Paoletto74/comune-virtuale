@@ -1,0 +1,33 @@
+# =============================================================================
+# ATTIVITÀ — task disponibili, attivi, completati
+# =============================================================================
+
+ActivitiesSection:
+  DECISIONE APPROVATA: Task System autorevole
+  contains:
+    items:
+      - available_tasks
+      - active_tasks
+      - completed_tasks
+      - rewards
+      - progress
+      - contextual_activities
+
+TaskCard:
+  status: PROPOSTA TECNICA — layout TBD
+  mayShow:
+    items:
+      - icon
+      - title
+      - description
+      - reward
+      - difficulty
+      - time
+      - status
+      - action
+  visualRule: Visual System fornisce eventuali immagini
+
+events:
+  items:
+    - ActivitiesSectionViewed
+    - TaskCardOpened

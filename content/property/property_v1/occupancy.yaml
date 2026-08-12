@@ -1,0 +1,12 @@
+# =============================================================================
+# OCCUPANCY — property_v1
+# =============================================================================
+
+---
+Occupancy:
+  types:
+  - owner occupied
+  - tenant occupied
+  - vacant
+  - business occupied
+  status: DECISIONE APPROVATA

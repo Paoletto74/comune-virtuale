@@ -1,0 +1,9 @@
+# =============================================================================
+# GARAGE — mobility_vehicles_v1
+# =============================================================================
+
+---
+Garage:
+  propertyFeature: Property System owner
+  mobilityState: Mobility manages vehicle storage state
+  status: PROPOSTA TECNICA

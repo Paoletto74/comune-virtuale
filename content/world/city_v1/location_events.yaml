@@ -1,0 +1,13 @@
+# =============================================================================
+# LOCATION EVENTS — location-specific events
+# =============================================================================
+
+LocationEvents:
+  scope: LOCATION-SPECIFIC
+  field: event.locationId
+  access: backend authoritative — ref access_rules.yaml
+  ref: event_main_v1
+
+events:
+  items:
+    - LocationEventStarted

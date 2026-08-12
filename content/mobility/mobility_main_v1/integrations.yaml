@@ -1,0 +1,248 @@
+# =============================================================================
+# INTEGRATIONS
+# =============================================================================
+
+integrations:
+
+  economy_main_v1:
+    direction: mobility ↔ economy
+    rule: DECISIONE APPROVATA — Mobility NON modifica cash direttamente
+    flows:
+      purchase: |
+        Vehicle Purchase
+        → Economy Pipeline
+        → Transaction
+        → Ledger
+        → ownership transfer (cash ↓ asset ↑)
+      sale: |
+        Vehicle Sale
+        → Economy Pipeline
+        → Transaction
+        → Ledger
+        → ownership transfer (asset ↓ cash ↑)
+      operating_cost: |
+        Travel → FuelCost/Parking/Toll Event
+        → Economy Pipeline
+        → Transaction
+        → Ledger
+      maintenance: |
+        Maintenance → MaintenanceCost Event
+        → Economy Pipeline
+        → Transaction
+        → Ledger
+      rental: |
+        RentalDue → Economy Pipeline → Transaction → recurring income/expense
+    dataProvided:
+      items:
+        - vehicleCount
+        - vehicleValue
+        - mobilityCosts
+        - assetEntity
+    dataConsumed:
+      items:
+        - macro_state
+        - purchasing_power
+
+  property_main_v1:
+    direction: property → mobility
+    rule: Mobility NON modifica proprietà abitazione
+    receives:
+      items:
+        - homeZoneId
+        - homeLocationRef
+    computes:
+      items:
+        - distance
+        - duration
+        - cost
+        - mode
+
+  work_main_v1:
+    direction: bidirectional (data only)
+    rule: DECISIONE APPROVATA — Mobility fornisce dati, Work decide conseguenze
+    receives:
+      items:
+        - workplaceLocationRef
+        - workZoneId
+        - schedule
+    provides:
+      items:
+        - travelTime
+        - travelCost
+        - arrivalTime
+        - reliability
+        - delayRisk
+    workDecides:
+      items:
+        - punctuality
+        - performance
+        - multi_job_feasibility
+        - stress_from_commute
+    doesNotDuplicate: work_performance_logic
+
+  progression_balance_v1:
+    direction: mobility → progression
+    rule: Mobility NON decide mainLevel
+    fields:
+      items:
+        - vehicleCount
+        - vehicleValue
+        - mobilityMilestones
+        - prestigeVehicleRef
+
+  task_system:
+    status: not_implemented
+    interface:
+      taskRequests:
+        items:
+          - originRef
+          - destinationRef
+      mobilityProvides:
+        items:
+          - feasibleModes
+          - duration
+          - cost
+          - consequences
+      taskDecides: task_outcome
+
+  criminal_system:
+    status: not_implemented
+    interface:
+      possibleUses:
+        items:
+          - escape
+          - chase
+          - transport_goods
+          - stolen_vehicles
+          - illegal_activities
+      stolenState: vehicles.yaml#stolenState
+      rule: Mobility fornisce interfacce — regole DA DEFINIRE
+
+  citizen_model:
+    personalValuesAffected:
+      items:
+        - stress
+        - health
+        - freeTime
+        - happiness
+    publicProfile:
+      rule: DECISIONE APPROVATA — veicolo più prestigioso/costoso
+      displays:
+        items:
+          - prestige_vehicle_summary
+      excludes:
+        items:
+          - purchase_price
+          - debts
+          - maintenance_cost
+          - acquisition_origin
+          - full_vehicle_history
+      note: Public Profile System resta responsabile visualizzazione
+
+  event_system:
+    direction: bidirectional
+    mobility_emits:
+      items:
+        - TravelCompleted
+        - TravelDelayed
+        - VehicleBreakdown
+        - IncidentOccurred
+        - VehiclePurchased
+        - VehicleSold
+        - PublicTransportStrike
+        - ArrivalLate
+    mobility_consumes:
+      items:
+        - PublicTransportStrike
+        - WeatherEvent
+        - EconomicCrisis
+        - ZoneChanged
+
+  notification_system:
+    direction: mobility → notifications
+    rule: DECISIONE APPROVATA — NO UI notifiche nel Mobility System
+    templates:
+      items:
+        - vehicle_breakdown
+        - incident_occurred
+        - vehicle_repaired
+        - arrival_late
+        - public_transport_delayed
+        - vehicle_purchased
+        - vehicle_sold
+
+  time_system:
+    shared: true
+    uses:
+      items:
+        - timestamps
+        - duration
+        - scheduled_events
+        - tick
+        - catch_up
+    input:
+      items:
+        - startTime
+        - duration
+    output:
+      items:
+        - time_occupied
+        - delay
+        - next_availability
+
+  admin_panel:
+    configurable:
+      items:
+        - modes
+        - vehicle_types
+        - speeds
+        - costs
+        - reliability
+        - maintenance
+        - fuel_consumption
+        - conditions
+        - incidents
+        - breakdowns
+        - public_transport
+        - travel_times
+        - modifiers
+        - npc_demand
+        - max_vehicles
+
+  security:
+    clientCannotDecide:
+      items:
+        - travel_duration
+        - travel_cost
+        - vehicle_owner
+        - vehicle_status
+        - incident_outcome
+        - breakdown_outcome
+        - final_position
+        - mode_selection_result
+
+  ui:
+    direction: read_only_display
+    displays:
+      items:
+        - current_mode
+        - owned_vehicles
+        - travel_estimates
+        - costs
+        - vehicle_condition
+        - market_listings
+    rule: DECISIONE APPROVATA — logica mobilità NON in UI
+
+  ai:
+    rule: DECISIONE APPROVATA — NO AI runtime, NO mappe esterne, NO routing esterni
+    futureUse: content authoring offline only
+
+  separationOfConcerns:
+    mobilityMustNot:
+      items:
+        - decide_work_performance
+        - decide_property_ownership
+        - decide_criminality
+        - decide_progression_level
+        - modify_cash_directly
+        - manage_notification_ui

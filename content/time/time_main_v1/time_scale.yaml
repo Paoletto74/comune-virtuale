@@ -1,0 +1,54 @@
+# =============================================================================
+# TIME SCALE — configurabile, non hardcoded
+# =============================================================================
+
+TimeScale:
+  schema:
+    scale: number
+    label: string
+    description: string
+  defaultPreference: REAL_TIME
+
+RealTimeMode:
+  DECISIONE APPROVATA: modalità iniziale preferita REAL TIME
+  example: "1 ora reale = 1 ora di gioco"
+  rule: NON hardcodare rapporto — configurabile via timeScale
+
+TimeScaleExamples:
+  status: concettuali — valori TBD
+  items:
+    - scale: 1.0
+      meaning: tempo reale
+    - scale: 2.0
+      meaning: mondo scorre 2x più veloce
+    - scale: 0.5
+      meaning: mondo scorre più lentamente
+    - scale: TBD
+      meaning: "1 game day = 1 real week — senza modificare domini"
+
+TimeScaleHistory:
+  DECISIONE APPROVATA: tracciare cambi scale
+  schema:
+    changedAt: timestamp
+    oldScale: number
+    newScale: number
+    actor: string
+    reason: string
+
+TimeScaleChanges:
+  DECISIONE APPROVATA: |
+    Se timeScale cambia — NON alterare arbitrariamente date già registrate.
+    Usare real timestamp + world timestamp + scale history.
+
+DeterministicSimulation:
+  DECISIONE APPROVATA: riproducibile quando necessario
+  seeds:
+    items:
+      - worldSeed
+      - eventSeed
+      - batchSeed
+      - simulationSeed
+
+events:
+  items:
+    - TimeScaleChanged

@@ -1,0 +1,16 @@
+# =============================================================================
+# DAY NIGHT — future day/night state
+# =============================================================================
+
+DayNight:
+  status: PROPOSTA TECNICA — implementazione TBD
+  mayInfluence:
+    items:
+      - visual
+      - availability
+  mapVisual:
+    status: PROPOSTA TECNICA — future map visual changes based on Game Time
+
+events:
+  items:
+    - DayNightStateChanged

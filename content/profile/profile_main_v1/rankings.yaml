@@ -1,0 +1,38 @@
+# =============================================================================
+# GLOBAL RANKINGS — presentation in profile
+# =============================================================================
+
+GlobalRankings:
+  status: PROPOSTA TECNICA — formule TBD
+  displayModes:
+    items:
+      - exact_position
+      - top_percentage
+  examples:
+    items:
+      - "#1.245 / 10.010"
+      - "Top 12%"
+
+rankingCategories:
+  status: PROPOSTA TECNICA — NON tutte sempre visibili
+  items:
+    - richest
+    - poorest
+    - most_sympathetic
+    - most_influential
+    - most_popular
+    - benefactor
+    - usurer
+    - most_reliable
+    - most_generous
+    - most_hated
+    - ironic_future_categories
+
+crossRef:
+  bankingRankings: banking_main_v1/rankings.yaml
+  socialRankings: social_main_v1/rankings.yaml
+
+events:
+  items:
+    - RankingChanged
+    - RankingDisplayed

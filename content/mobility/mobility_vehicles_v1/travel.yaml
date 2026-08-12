@@ -1,0 +1,11 @@
+# =============================================================================
+# TRAVEL — mobility_vehicles_v1
+# =============================================================================
+
+---
+Travel:
+  travelId: string
+  flow: origin to destination mode duration arrival
+  consumesGameTime: DECISIONE APPROVATA
+  alignsWith: mobility_main_v1/travel.yaml
+  status: DECISIONE APPROVATA concept PROPOSTA schema

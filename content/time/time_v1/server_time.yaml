@@ -1,0 +1,13 @@
+# =============================================================================
+# SERVER TIME — time_v1
+# =============================================================================
+
+---
+ServerTime:
+  realTimestamp: audit analytics recovery
+  gameDateTime: game logic
+  rule: REAL != GAME both recorded
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ServerTimeRecorded

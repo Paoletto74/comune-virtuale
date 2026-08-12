@@ -1,0 +1,49 @@
+# =============================================================================
+# PLACEHOLDERS — TBD items
+# =============================================================================
+
+Placeholders:
+  TBD:
+    items:
+      - population_count_definitions
+      - comune_display_policy
+      - npc_spawn_generation
+      - npc_death_removal_rules
+      - relationship_system_separate_or_integrated
+      - business_status_definitive
+      - organization_role_rules
+      - company_vs_organization_vs_business_relation
+      - activity_density_formulas
+      - city_reputation_owner
+      - player_editorial_consent_policy
+      - business_rankings_V1
+      - npc_ai_behavior
+      - simulation_tick_frequency
+      - city_reset_policy
+      - business_org_unique_naming_rules
+  approvedPrinciples:
+    items:
+      - PLAYER CITIZEN != NPC != BUSINESS != ORGANIZATION
+      - NPC != BOT PLAYER — tiered simulation
+      - NPC LOD FULL/REDUCED/ABSTRACT
+      - client visualizza — NON simula truth
+      - population Municipality SOT — NON frontend sum
+      - Business != Marketplace
+      - Organization != Business
+      - domain events -> editorial candidate NOT auto publish
+      - aggregation over individual simulation
+      - client cannot create/alter entities
+      - Citizen list = Player Citizens
+      - rankings = Player Citizens primarily
+
+entityIds:
+  distinct:
+    items:
+      - CitizenId
+      - NpcId
+      - BusinessId
+      - OrganizationId
+
+events:
+  items:
+    - PlaceholderResolved

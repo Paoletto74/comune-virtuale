@@ -1,0 +1,27 @@
+# =============================================================================
+# ASSET TAXONOMY — visual asset categories
+# =============================================================================
+
+AssetTaxonomy:
+  categories:
+    items:
+      - logo
+      - icon
+      - avatar
+      - item
+      - property
+      - vehicle
+      - article
+      - municipality
+      - event
+      - showcase
+      - decorative
+  contentVisualSeparation:
+    DECISIONE APPROVATA:
+    article: contentId + visualAssetId — separare testo da asset
+
+ref: visual_main_v1
+
+events:
+  items:
+    - AssetTaxonomyApplied

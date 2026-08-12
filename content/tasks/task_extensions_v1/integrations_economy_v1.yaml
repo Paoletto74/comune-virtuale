@@ -1,0 +1,15 @@
+# =============================================================================
+# INTEGRATIONS ECONOMY V1 — task_extensions_v1
+# =============================================================================
+
+---
+EconomyV1Integration:
+  flow: EffectRequest -> economy_main_v1 -> Transaction -> Ledger -> EffectResult
+  examples:
+  - reward
+  - cost
+  - fine
+  - payment
+  - gift
+  noDirectBalance: DECISIONE APPROVATA
+  status: PROPOSTA TECNICA extends approved integration

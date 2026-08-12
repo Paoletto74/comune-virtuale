@@ -1,0 +1,99 @@
+# =============================================================================
+# JOB DEFINITION — template schema (catalogo job TBD)
+# =============================================================================
+# DECISIONE APPROVATA: comportamento job definito in dati, non hardcoded
+# =============================================================================
+
+JobDefinition:
+  jobId: string
+  name: string
+  categoryId: string
+  tier: base | qualified | professional | management
+  description: string
+
+  requirements:
+    type: RequirementGroup
+    placeholderKeys: TBD
+    notes: education, culture, reputation, experience, level, milestone — valori TBD
+
+  compensation:
+    baseSalary: TBD
+    payFrequency: TBD
+    bonusRules: TBD
+    malusRules: TBD
+    variableComponents: TBD
+
+  schedule:
+    defaultWorkHours: TBD
+    scheduleType: full_time | part_time | flexible
+    workHoursPerSession: TBD
+
+  careerPathRef: string
+  taskPoolRef: string
+  qualitySystemRef: string
+  leversRef: string
+
+  effects:
+    reputationEffects: TBD
+    stressEffects: TBD
+    experienceGain: TBD
+    personalValueEffects: TBD
+
+  availableFromLevel: TBD
+  tags: []
+
+  identity:
+    uniqueTasks: true
+    notes: DECISIONE APPROVATA — task coerenti con job, non generici identici
+
+# --- Esempi strutturali (NON catalogo definitivo) ---
+jobExamples:
+  - jobId: example_medic
+    name: Medico
+    categoryId: healthcare
+    tier: professional
+    taskPoolRef: tasks_medic
+    qualitySystemRef: quality_care_lever
+    leversRef: levers_medic
+    notes: Modello QUALITY OF CARE — configurabile, non regola universale
+
+  - jobId: example_driver
+    name: Autista
+    categoryId: transport
+    tier: base
+    taskPoolRef: tasks_driver
+    leversRef: levers_driver_safety_speed
+
+  - jobId: example_teacher
+    name: Insegnante
+    categoryId: education
+    tier: professional
+    taskPoolRef: tasks_teacher
+
+  - jobId: example_worker
+    name: Operaio
+    categoryId: industry
+    tier: base
+    taskPoolRef: tasks_worker
+
+  - jobId: example_manager
+    name: Manager
+    categoryId: management
+    tier: management
+    taskPoolRef: tasks_manager
+
+  - jobId: example_hospitality
+    name: Ristoratore
+    categoryId: hospitality
+    tier: base
+    taskPoolRef: tasks_hospitality
+
+catalogJobs: []
+# Catalogo job definitivo: DA_DEFINIRE in content pack futuro
+
+baseJobsPolicy:
+  DECISIONE APPROVATA:
+    - Requisiti minimi o nulli
+    - Gestiti dal sistema
+    - Non trattati come inutili
+    - Possono generare denaro, XP, reputazione, task, opportunità

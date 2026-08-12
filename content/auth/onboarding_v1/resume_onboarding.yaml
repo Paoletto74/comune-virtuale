@@ -1,0 +1,15 @@
+# =============================================================================
+# RESUME ONBOARDING — abandon and return
+# =============================================================================
+
+ResumeOnboarding:
+  DECISIONE APPROVATA:
+  rule: abbandono durante onboarding — al successivo login riprende dal punto corretto
+  data: NON perdere dati gia salvati
+  logoutDuringOnboarding:
+    rule: salva stato onboarding se possibile — resume al login
+  ref: onboarding_state.yaml
+
+events:
+  items:
+    - OnboardingResumed

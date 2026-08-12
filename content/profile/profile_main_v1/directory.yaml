@@ -1,0 +1,35 @@
+# =============================================================================
+# CITIZEN DIRECTORY — Comune → Cittadini
+# =============================================================================
+
+CitizenDirectory:
+  status: PROPOSTA TECNICA
+  flow: |
+    Comune → Cittadini → Citizen Directory
+    → lista cittadini → profilo pubblico
+
+PublicCitizenList:
+  DECISIONE APPROVATA: NON mostrare dati privati nella lista
+  mayShow:
+    items:
+      - displayName
+      - level
+      - levelLabel
+      - contextualTitle
+      - activeRole
+      - public_ranking_summary
+  mustNotShow:
+    items:
+      - debts
+      - cash
+      - criminal_data
+      - private_messages
+      - full_assets
+
+pagination:
+  status: PROPOSTA TECNICA — indexed queries, pagination
+
+events:
+  items:
+    - CitizenDirectoryViewed
+    - CitizenListItemClicked

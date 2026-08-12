@@ -1,0 +1,17 @@
+# =============================================================================
+# VEHICLE CATEGORIES — mobility_vehicles_v1
+# =============================================================================
+
+---
+VehicleCategories:
+  possible:
+  - economy
+  - compact
+  - sedan
+  - sport
+  - luxury
+  - utility
+  - commercial
+  - special
+  extendible: true
+  status: PROPOSTA TECNICA

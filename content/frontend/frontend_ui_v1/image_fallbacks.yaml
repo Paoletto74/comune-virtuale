@@ -1,0 +1,22 @@
+# =============================================================================
+# IMAGE FALLBACKS — category placeholders
+# =============================================================================
+
+ImageFallbacks:
+  DECISIONE APPROVATA: placeholder coerente per categoria se asset non disponibile
+  perCategory:
+    items:
+      - item
+      - property
+      - vehicle
+      - avatar
+      - news
+      - showcase
+
+rule: NON rompere layout — loading, fallback, error states
+
+ref: components.yaml AssetImage
+
+events:
+  items:
+    - FallbackShown

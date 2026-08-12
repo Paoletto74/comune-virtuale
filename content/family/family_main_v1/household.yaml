@@ -1,0 +1,53 @@
+# =============================================================================
+# HOUSEHOLD — situazione abitativa/economica condivisa
+# =============================================================================
+
+Household:
+  schema:
+    householdId: string
+    memberIds: []
+    primaryResidentId: string
+    housingRef: string | null
+    financeModelRef: string
+    sharedExpenseRefs: []
+    status: active | dissolved
+
+  DECISIONE APPROVATA: FAMILY ≠ HOUSEHOLD
+  note: |
+    Household = chi condivide effettivamente abitazione/economia.
+    Property System resta proprietario casa — householdRef only.
+
+HouseholdMember:
+  schema:
+    householdId: string
+    citizenId: string
+    role: primary | partner | child | dependent | other
+    movedInAt: timestamp
+
+sharedFinances:
+  ref: support.yaml householdFinanceModel
+  v1Default: separate_plus_shared_household_expenses
+  modes:
+    items:
+      - financesSeparate
+      - financesShared
+      - mixed
+
+aggregatedEconomy:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Nucleo può avere più fonti reddito (partner stipendio, azienda, figlio adulto).
+    household wealth != automaticamente personal netWorth.
+  displayOnly: TBD
+
+propertyIntegration:
+  rule: Property possiede immobile — Family registra householdRef, livingArrangement
+  ref: property_main_v1/housing.yaml
+
+events:
+  items:
+    - HouseholdCreated
+    - HouseholdChanged
+    - HouseholdMemberMovedIn
+    - HouseholdMemberMovedOut
+    - HouseholdDissolved

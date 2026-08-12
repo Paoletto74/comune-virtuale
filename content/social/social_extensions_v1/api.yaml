@@ -1,0 +1,37 @@
+# =============================================================================
+# API — endpoint concettuali
+# =============================================================================
+
+SocialApi:
+  status: PROPOSTA TECNICA — endpoint definitivi TBD
+
+  conceptualEndpoints:
+    items:
+      - method: GET
+        path: /api/v1/social
+        description: social overview for citizen
+      - method: GET
+        path: /api/v1/social/relationships
+        description: relationship list
+      - method: GET
+        path: /api/v1/social/messages
+        description: message history — privacy filtered
+      - method: POST
+        path: /api/v1/social/messages/preset
+        description: send preset message
+      - method: POST
+        path: /api/v1/social/actions
+        description: perform social action
+      - method: POST
+        path: /api/v1/social/block
+        description: block citizen
+      - method: POST
+        path: /api/v1/social/mute
+        description: mute citizen
+      - method: POST
+        path: /api/v1/social/report
+        description: report interaction
+
+  note: contracts_v1 attualmente elenca CreateGift, CreateLoanRequest — altri command TBD
+
+  rule: NO runtime implementation in this pack

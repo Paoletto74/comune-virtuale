@@ -1,0 +1,23 @@
+# =============================================================================
+# TESTING — cross-platform visual testing
+# =============================================================================
+
+Testing:
+  platforms:
+    items:
+      - mobile
+      - tablet
+      - desktop
+  scenarios:
+    items:
+      - dark_light_themes
+      - slow_network
+      - missing_assets
+      - broken_references
+      - reduced_motion
+      - accessibility
+  rule: NO runtime implementation V1
+
+events:
+  items:
+    - VisualTestCompleted

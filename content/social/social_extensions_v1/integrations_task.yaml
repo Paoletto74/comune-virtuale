@@ -1,0 +1,32 @@
+# =============================================================================
+# INTEGRATION — task_main_v1
+# =============================================================================
+
+TaskIntegration:
+  status: PROPOSTA TECNICA
+
+  extends: social_main_v1/integrations.yaml — task_main_v1
+
+  taskMay:
+    items:
+      - generate_social_tasks
+      - require_relationship_context
+      - require_trust_threshold
+      - target_citizen_or_npc
+
+  socialMay:
+    items:
+      - provide_relationship_context
+      - provide_target_eligibility
+      - receive_social_action_from_task_option
+
+  pattern:
+    taskToSocial: Task → SocialQuery → relationship/trust → Task eligibility
+    socialEffect: Task outcome → Social EffectRequest → Social → Result
+
+  taskDoesNot:
+    items:
+      - modify_relationship_score_directly
+      - bypass_social_permissions
+
+  ref: task_main_v1/effects.yaml — sympathy via effect request, non diretto

@@ -1,0 +1,10 @@
+# =============================================================================
+# LOCATION — property_v1
+# =============================================================================
+
+---
+Location:
+  field: LocationId
+  source: City System
+  district: derived not duplicated
+  status: DECISIONE APPROVATA

@@ -1,0 +1,14 @@
+# =============================================================================
+# CANDIDATE PROFILE — work_careers_v1
+# =============================================================================
+
+---
+CandidateProfile:
+  employerSees:
+  - name
+  - level
+  - public title
+  - professional experience
+  - relevant skills
+  - public reputation
+  status: DECISIONE APPROVATA

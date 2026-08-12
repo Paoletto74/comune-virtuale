@@ -1,0 +1,8 @@
+# =============================================================================
+# INTEGRATIONS CITY LIFE — task_extensions_v1
+# =============================================================================
+
+---
+CityLifeIntegration:
+  cityLifeMayGenerate: situational tasks
+  status: PROPOSTA TECNICA future

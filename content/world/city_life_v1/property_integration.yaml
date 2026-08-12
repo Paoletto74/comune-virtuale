@@ -1,0 +1,14 @@
+# =============================================================================
+# PROPERTY INTEGRATION — NPC and business property
+# =============================================================================
+
+PropertyIntegration:
+  owner: Property System — ref property_main_v1
+  applies:
+    items:
+      - business_property
+      - npc_property
+
+events:
+  items:
+    - PropertyCityLifeIntegrated

@@ -1,0 +1,12 @@
+# =============================================================================
+# IDEMPOTENCY — no duplicate citizens
+# =============================================================================
+
+Idempotency:
+  DECISIONE APPROVATA:
+  createCitizen: idempotente — doppio click NON crea due Citizen
+  ref: citizen_creation.yaml, auth_main_v1/citizen_association.yaml
+
+events:
+  items:
+    - IdempotentCreationHandled

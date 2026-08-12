@@ -1,0 +1,45 @@
+# =============================================================================
+# PROFILE EVENTS
+# =============================================================================
+
+profileEvents:
+  items:
+    - ProfileCreated
+    - ProfileUpdated
+    - PublicProfileUpdated
+    - LevelChanged
+    - TitleChanged
+    - RoleChanged
+    - AchievementUnlocked
+    - RankingChanged
+    - WealthSnapshotCreated
+    - PrivacyChanged
+    - BirthdayReached
+    - PublicProfileViewed
+    - CareerHistoryUpdated
+    - JobChanged
+
+snapshotUpdate:
+  status: PROPOSTA TECNICA
+  rule: |
+    Aggiornare PublicProfileSnapshot quando cambia dato rilevante.
+    NON ricostruire tutto ad ogni visualizzazione.
+  triggers:
+    items:
+      - level_changed
+      - title_changed
+      - role_changed
+      - prestige_asset_changed
+      - ranking_changed
+      - public_fact_changed
+
+profileHistory:
+  status: PROPOSTA TECNICA — retention TBD
+  types:
+    items:
+      - level_history
+      - career_history
+      - wealth_history
+      - title_history
+      - role_history
+      - achievement_history

@@ -1,0 +1,16 @@
+# =============================================================================
+# SNAPSHOTS — version snapshot for published content
+# =============================================================================
+
+Snapshots:
+  purpose: preserve visualAssetId + version at publish time
+  applies:
+    items:
+      - Gazzetta_articles
+      - published_popup_content
+      - editorial_content
+  ref: historical_content.yaml
+
+events:
+  items:
+    - VisualSnapshotCreated

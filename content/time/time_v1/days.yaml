@@ -1,0 +1,15 @@
+# =============================================================================
+# DAYS — time_v1
+# =============================================================================
+
+---
+GameDay:
+  boundaryEvents:
+  - DayStarted
+  - DayEnded
+  dailyReset: per-domain rules only
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - DayStarted
+  - DayEnded

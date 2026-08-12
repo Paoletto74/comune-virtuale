@@ -1,0 +1,31 @@
+# =============================================================================
+# PLACEHOLDERS — time_v1
+# =============================================================================
+
+---
+Placeholders:
+  TBD:
+    items:
+    - game_speed_ratio
+    - granularity
+    - day_night_thresholds
+    - multi_city_time
+    - game_age
+    - deadline_engine
+    - tick_frequency
+    - calendar_ui
+    - api_schema
+    - missed_events_policy
+  approvedPrinciples:
+    items:
+    - TIME SYSTEM SOT
+    - REAL != GAME TIME
+    - server authoritative
+    - no independent clocks
+    - no global reset
+    - no player pause
+    - offline continues
+    - Gazzetta Game Date
+events:
+  items:
+  - PlaceholderResolved

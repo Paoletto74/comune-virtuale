@@ -1,0 +1,56 @@
+# =============================================================================
+# LAYERS — API / Application / Domain / Repositories / Persistence
+# =============================================================================
+
+ArchitectureLayers:
+  DECISIONE APPROVATA:
+  stack:
+    - API_Transport_Layer
+    - Application_Use_Cases
+    - Domain_Services
+    - Repositories_Data_Access
+    - Persistence
+
+supporting:
+  items:
+    - Domain_Events
+    - Cache
+    - External_Services
+    - Content_Store
+
+ApiLayer:
+  responsibility: auth context, authorization, request validation, serialization, errors, rate limiting, versioning
+  mustNot: contain economic or progression rules
+
+ApplicationLayer:
+  responsibility: coordinate use cases across domain services
+  examples:
+    items:
+      - CompleteTask
+      - BuyItem
+      - SellItem
+      - RentProperty
+      - ApplyForJob
+      - ReceiveSalary
+      - SendGift
+      - RequestLoan
+      - Vote
+      - CreateListing
+      - PublishContent
+
+DomainLayer:
+  responsibility: business rules per domain — each service owns its source of truth
+
+DataAccessLayer:
+  responsibility: persistence abstraction — repositories
+
+TrustModel:
+  frontend: UNTRUSTED CLIENT
+  backend: game authority
+  database: persistence authority
+  domainServices: domain rule authority
+  contentStudio: AUTHORIZED CONTENT CLIENT — NOT Game Engine
+
+events:
+  items:
+    - LayerRequestProcessed

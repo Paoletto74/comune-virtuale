@@ -1,0 +1,70 @@
+# =============================================================================
+# ZONES — aree configurabili
+# =============================================================================
+
+ZoneDefinition:
+  schema:
+    zoneId: string
+    name: string
+    profile: string
+    baseValueMultiplier: TBD
+    baseRentMultiplier: TBD
+    demandProfile: TBD
+    safetyProfile: TBD
+    qualityProfile: TBD
+    opportunityTags: []
+    dynamicStateRef: string
+
+zoneProfiles:
+  items:
+    - profileId: centro
+      label: Centro
+    - profileId: periferia
+      label: Periferia
+    - profileId: industriale
+      label: Zona industriale
+    - profileId: povera
+      label: Zona povera
+    - profileId: ricca
+      label: Zona ricca
+    - profileId: rurale
+      label: Zona rurale
+  notes: Mappa definitiva — DA DEFINIRE
+
+zoneDynamics:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Le zone possono cambiare nel tempo (gentrification, crisi, degrado).
+    NON implementare sistema urbano completo in v1.
+  factors:
+    items:
+      - economy_state
+      - demand_supply
+      - events
+      - development_projects
+      - population_flow
+  formulas: TBD
+
+zones:
+  status: skeleton_only
+  examples:
+    items:
+      - zoneId: ZONE_CENTRO
+        name: Centro storico
+        profile: centro
+        baseValueMultiplier: TBD
+      - zoneId: ZONE_PERIFERIA_SUD
+        name: Periferia sud
+        profile: periferia
+        baseValueMultiplier: TBD
+
+zoneEffects:
+  affects:
+    items:
+      - marketValue
+      - rent
+      - demand
+      - safety
+      - quality
+      - opportunities
+  values: TBD

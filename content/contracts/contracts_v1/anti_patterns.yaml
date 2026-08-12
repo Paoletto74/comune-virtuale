@@ -1,0 +1,28 @@
+# =============================================================================
+# ANTI-PATTERNS — explicit forbidden patterns
+# =============================================================================
+
+AntiPatterns:
+  DECISIONE APPROVATA — documentare esplicitamente:
+  forbidden:
+    items:
+      - shared_database_access
+      - giant_aggregate
+      - event_as_rpc
+      - command_as_query
+      - client_authoritative_state
+      - duplicated_money
+      - duplicated_ownership
+      - unversioned_events
+      - hidden_side_effects
+      - arbitrary_payload
+      - arbitrary_query
+      - direct_frontend_domain_access
+      - marketplace_modifies_banking_db_directly
+      - client_provided_reward_or_price
+      - event_contains_secrets
+      - replay_financial_events_as_new_transactions
+
+events:
+  items:
+    - AntiPatternDetected

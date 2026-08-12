@@ -1,0 +1,13 @@
+# =============================================================================
+# ADMIN — property_v1
+# =============================================================================
+
+---
+Admin:
+  canManage:
+  - property types
+  - public content
+  - configuration
+  cannotArbitraryTransfer: without permission reason audit
+  contentAdminSeparate: true
+  status: DECISIONE APPROVATA

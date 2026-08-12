@@ -1,0 +1,23 @@
+# =============================================================================
+# VERSIONING & DEPRECATION
+# =============================================================================
+
+Versioning:
+  DECISIONE APPROVATA: ogni contenuto versionato
+  example:
+    contentId: task_deliver_pizza_001
+    versions:
+      items:
+        - v1
+        - v2
+        - v3
+  rule: modifica non distrugge versione precedente
+
+ContentDeprecation:
+  status: PROPOSTA TECNICA
+  rule: DEPRECATED — non cancellare necessariamente
+
+events:
+  items:
+    - ContentVersionCreated
+    - ContentDeprecated

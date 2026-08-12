@@ -1,0 +1,12 @@
+# =============================================================================
+# MAINTENANCE — property_v1
+# =============================================================================
+
+---
+Maintenance:
+  state:
+  - condition
+  - wear
+  - maintenance cost
+  alignsWith: property_main_v1/maintenance.yaml
+  status: DECISIONE APPROVATA

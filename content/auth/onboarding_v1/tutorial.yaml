@@ -1,0 +1,20 @@
+# =============================================================================
+# TUTORIAL — optional, skippable
+# =============================================================================
+
+Tutorial:
+  mode: OPTIONAL / GUIDED
+  capabilities:
+    items:
+      - saltato
+      - ripreso
+      - riaperto_successivamente
+  nonBlocking: NON bloccare giocatore troppo a lungo
+  reopen: Help -> Tour
+  ref: help.yaml, guided_tour.yaml
+
+events:
+  items:
+    - TutorialStarted
+    - TutorialSkipped
+    - TutorialCompleted

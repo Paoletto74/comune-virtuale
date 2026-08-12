@@ -1,0 +1,74 @@
+# =============================================================================
+# TRANSFER — gift, sale, validation, atomicity
+# =============================================================================
+
+TransferAction:
+  schema:
+    transferId: string
+    transferType: gift | sale | loan | inheritance | npc_trade | other
+    sourceOwnerId: string
+    destinationOwnerId: string
+    itemInstanceId: string
+    quantity: number
+    status: pending | completed | failed | rolled_back
+    idempotencyKey: string
+
+TransferValidation:
+  DECISIONE APPROVATA: prima di trasferire verificare
+  checks:
+    items:
+      - source_owns_item
+      - item_transferable
+      - quantity_available
+      - destination_valid
+      - status_ok
+      - restrictions_clear
+      - not_locked
+
+PlayerToPlayer:
+  DECISIONE APPROVATA: trasferimento beni consentiti
+  example: Player A regalo → Player B
+  alsoChecks:
+    items:
+      - tradable_flag
+      - criminal_rules_future
+      - tax_rules_future
+
+NpcTransfers:
+  status: PROPOSTA TECNICA
+  rule: vendita/acquisto/trasferimento NPC se dominio permette
+  owner: Marketplace/Economy decidono transazione
+
+GiftTransfer:
+  DECISIONE APPROVATA: regalo senza prezzo obbligatorio
+  taxesConsequences: economy/political/criminal futuri
+
+LoanedItems:
+  status: futuro — non implementare V1 completo
+  schema:
+    ownerId: string
+    holderId: string
+    contractRef: string
+  example: "Ti presto la mia auto"
+
+TransactionAtomicity:
+  DECISIONE APPROVATA: |
+    Compravendita atomica — Economy + Inventory + dominio asset coordinati.
+    Es. A cash -1000, B cash +1000, item A→B — no stato parziale.
+  onFailure: rollback_all
+
+LostDestroyed:
+  statuses:
+    items:
+      - lost
+      - destroyed
+      - confiscated
+      - seized
+  rule: causa dal dominio — inventory aggiorna stato
+
+events:
+  items:
+    - ItemTransferred
+    - GiftTransferCompleted
+    - TransferRejected
+    - TransferRolledBack

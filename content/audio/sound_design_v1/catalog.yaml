@@ -1,0 +1,121 @@
+# =============================================================================
+# SOUND DESIGN MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: audio significativo, non decorativo optional
+# Semantic audio: eventType -> soundAssetId — NON backend invia "play siren.mp3"
+# V1: proposta architetturale — NO audio runtime, NO file audio, NO engine
+# Integra con notification, event, economy, newspaper, contracts — NON li modifica
+# =============================================================================
+
+catalogId: sound_design_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  notification: notification_main_v1
+  event: event_main_v1
+  economy: economy_main_v1
+  progression: progression_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  newspaper: newspaper_v1
+  frontend: frontend_ui_v1
+  visual: visual_main_v1
+  contracts: contracts_v1
+  contentSystem: content_system_v1
+  auth: auth_main_v1
+
+principles:
+  - audio significativo — feedback, immersione, identita editoriale
+  - gerarchia sonora — NON un suono per ogni azione
+  - semantic audio — backend comunica evento semantico, audio layer decide riproduzione
+  - backend authority — frontend NON inventa eventi authoritative
+  - accessibility — nessuna info critica solo via suono
+  - gameplay integrity — disattivare audio NON cambia reward/outcome/timing
+
+includes:
+  principles: principles.yaml
+  identity: identity.yaml
+  categories: categories.yaml
+  priorities: priorities.yaml
+  settings: settings.yaml
+  accessibility: accessibility.yaml
+  notifications: notifications.yaml
+  popups: popups.yaml
+  economy: economy.yaml
+  purchases: purchases.yaml
+  rewards: rewards.yaml
+  progression: progression.yaml
+  work: work.yaml
+  property: property.yaml
+  vehicle: vehicle.yaml
+  social: social.yaml
+  political: political.yaml
+  crime: crime.yaml
+  news: news.yaml
+  municipality: municipality.yaml
+  rankings: rankings.yaml
+  ui: ui.yaml
+  errors: errors.yaml
+  events: events.yaml
+  specialEvents: special_events.yaml
+  newspaperIdentity: newspaper_identity.yaml
+  motifs: motifs.yaml
+  soundLengths: sound_lengths.yaml
+  antiSpam: anti_spam.yaml
+  grouping: grouping.yaml
+  mobile: mobile.yaml
+  desktop: desktop.yaml
+  tablet: tablet.yaml
+  autoplay: autoplay.yaml
+  audioFocus: audio_focus.yaml
+  interruptions: interruptions.yaml
+  ducking: ducking.yaml
+  music: music.yaml
+  ambient: ambient.yaml
+  soundAssets: sound_assets.yaml
+  metadata: metadata.yaml
+  licenses: licenses.yaml
+  formats: formats.yaml
+  compression: compression.yaml
+  preload: preload.yaml
+  lazyLoad: lazy_load.yaml
+  cache: cache.yaml
+  offline: offline.yaml
+  manifest: manifest.yaml
+  eventMapping: event_mapping.yaml
+  semanticAudio: semantic_audio.yaml
+  variants: variants.yaml
+  versioning: versioning.yaml
+  fallback: fallback.yaml
+  adminPreview: admin_preview.yaml
+  adminMapping: admin_mapping.yaml
+  uploadWorkflow: upload_workflow.yaml
+  generation: generation.yaml
+  governance: governance.yaml
+  contentIntegration: content_integration.yaml
+  popupIntegration: popup_integration.yaml
+  gazzettaIntegration: gazzetta_integration.yaml
+  eventIntegration: event_integration.yaml
+  profileIntegration: profile_integration.yaml
+  analytics: analytics.yaml
+  privacy: privacy.yaml
+  testing: testing.yaml
+  qa: qa.yaml
+  loudness: loudness.yaml
+  mixing: mixing.yaml
+  normalization: normalization.yaml
+  synchronization: synchronization.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  audioSystem: sound playback, priority queue, settings, semantic mapping
+  domainSystems: authoritative events, thresholds, game logic
+  backend: emits semantic domain events — NOT raw sound files
+  frontend: audio engine init, user settings, playback — NOT invent events
+  contentSystem: soundCueId references in notification/popup/gazzetta content
+
+alignsWith:
+  note: |
+    Formalizza Sound Design coerente con newspaper_v1 e contracts_v1.
+    NON modifica pack approvati. NON implementa runtime.

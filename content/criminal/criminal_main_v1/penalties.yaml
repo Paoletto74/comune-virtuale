@@ -1,0 +1,65 @@
+# =============================================================================
+# PENALTIES — conseguenze penali
+# =============================================================================
+
+Penalty:
+  schema:
+    penaltyId: string
+    criminalActionId: string
+    citizenId: string
+    penaltyType: string
+    severity: TBD
+    amount: TBD
+    assetRefs: []
+    status: pending | applied | appealed | served | waived
+    appliedAt: timestamp
+
+penaltyTypes:
+  items:
+    - typeId: fine
+      label: Multa
+      delivery: Economy Pipeline
+    - typeId: confiscation
+      label: Confisca
+      delivery: Economy + Asset systems
+    - typeId: seizure
+      label: Sequestro
+      delivery: SeizureRequest → Property/Mobility/Economy
+    - typeId: asset_loss
+      label: Perdita asset
+    - typeId: restriction
+      label: Limitazioni
+      status: TBD
+    - typeId: arrest
+      label: Arresto
+      leadsTo: prison
+    - typeId: prison
+      label: Carcere
+      leadsTo: prison.yaml
+  values: TBD
+
+multipleOffenses:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Più reati aggravano conseguenze.
+    Es. prima multa → seconda multa → terza condanna → maggiore probabilità carcere.
+  escalationRules: TBD
+
+penaltyFlow:
+  flow: |
+    Discovery(proven) → PenaltyEvaluated
+    → PenaltyRequested (fine/seizure/prison)
+    → Target System executes (Economy/Property/Prison)
+    → Ledger updated → Notification
+  rule: Criminal genera request — sistemi proprietari eseguono
+
+failurePenalties:
+  note: Fallimento crimine può generare heat, discovery, injury — non sempre pena formale
+  values: TBD
+
+events:
+  items:
+    - PenaltyIssued
+    - FineApplied
+    - ArrestIssued
+    - PenaltyServed

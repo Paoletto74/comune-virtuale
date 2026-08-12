@@ -1,0 +1,12 @@
+# =============================================================================
+# CANDIDACY WINDOWS — time_v1
+# =============================================================================
+
+---
+CandidacyWindows:
+  timeRef: Time System
+  eligibility: Political System
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - CandidacyWindowOpened

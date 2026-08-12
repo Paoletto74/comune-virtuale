@@ -1,0 +1,28 @@
+# =============================================================================
+# LOADING STATES — skeleton, per-section states
+# =============================================================================
+
+LoadingStates:
+  types:
+    items:
+      - skeleton
+      - spinner
+      - partial_loading
+
+rule: NON mostrare schermate vuote durante caricamento
+
+perSection:
+  required:
+    items:
+      - loading
+      - success
+      - empty
+      - error
+
+skeleton:
+  status: PROPOSTA TECNICA — dove migliora percezione velocita
+
+events:
+  items:
+    - LoadingStarted
+    - LoadingCompleted

@@ -1,0 +1,24 @@
+# =============================================================================
+# ACTIVITY DENSITY — varies by district, time, event
+# =============================================================================
+
+ActivityDensity:
+  variesBy:
+    items:
+      - district
+      - time
+      - event
+      - business_activity
+  indicators:
+    status: PROPOSTA TECNICA
+    items:
+      - commercial_activity
+      - population_density
+      - traffic_activity
+      - nightlife
+      - employment
+  formulas: DA DEFINIRE / TBD
+
+events:
+  items:
+    - ActivityDensityCalculated

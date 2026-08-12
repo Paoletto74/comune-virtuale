@@ -1,0 +1,13 @@
+# =============================================================================
+# NOTIFICATIONS — property_v1
+# =============================================================================
+
+---
+PropertyNotifications:
+  examples:
+  - rent due
+  - rent paid
+  - purchase complete
+  - maintenance due
+  owner: Notification System
+  status: DECISIONE APPROVATA

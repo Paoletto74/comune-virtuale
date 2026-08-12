@@ -1,0 +1,18 @@
+# =============================================================================
+# MUNICIPALITY ASSIGNMENT — authoritative city assignment
+# =============================================================================
+
+MunicipalityAssignment:
+  rule: assegnazione authoritative — NON scegliere arbitrariamente dal client
+  multiMunicipality:
+    status: DA DEFINIRE / TBD
+    options:
+      items:
+        - assegnare
+        - far_scegliere
+        - suggerire
+  ref: political_main_v1
+
+events:
+  items:
+    - MunicipalityAssigned

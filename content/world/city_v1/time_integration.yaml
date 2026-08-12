@@ -1,0 +1,17 @@
+# =============================================================================
+# TIME INTEGRATION — Game Time, city clock
+# =============================================================================
+
+TimeIntegration:
+  owner: Time System — ref time_main_v1
+  rule: NON creare nuovo Time System
+  uses:
+    items:
+      - travel_time
+      - city_clock
+      - opening_hours
+      - day_night_future
+
+events:
+  items:
+    - TimeAtCity

@@ -1,0 +1,20 @@
+# =============================================================================
+# VEHICLE VISUALS — side/front, model specific
+# =============================================================================
+
+VehicleVisuals:
+  types:
+    items:
+      - side_front_visual
+      - category
+      - specific_model_visual
+  detail:
+    hero: hero image
+    gallery: additional views
+  entity:
+    pattern: "vehicle.{vehicleId}.hero"
+  ref: mobility_main_v1
+
+events:
+  items:
+    - VehicleVisualResolved

@@ -1,0 +1,21 @@
+# =============================================================================
+# TESTING — city life test strategy
+# =============================================================================
+
+Testing:
+  areas:
+    items:
+      - entity_separation
+      - NPC_tiers
+      - business_ownership
+      - organization_membership
+      - privacy
+      - search_authorization
+      - discovery
+      - population_display
+      - performance_LOD
+  rule: NO runtime implementation V1
+
+events:
+  items:
+    - CityLifeTestCompleted

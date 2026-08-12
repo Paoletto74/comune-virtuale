@@ -1,0 +1,16 @@
+# =============================================================================
+# PROFILE CONTENT — editorial presentation of profile
+# =============================================================================
+
+ProfileContent:
+  types:
+    items:
+      - profile_tagline
+      - showcase_caption
+      - public_fact_labels
+
+ref: profile_main_v1, newspaper_v1/profile.yaml
+
+events:
+  items:
+    - ProfileContentSaved

@@ -1,0 +1,65 @@
+# =============================================================================
+# LOANS — offer, accept, reject, settle
+# =============================================================================
+
+Loan:
+  schema:
+    loanId: string
+    lenderId: string
+    borrowerId: string
+    principal: TBD
+    interestRate: TBD
+    term: TBD
+    dueAt: timestamp
+    repaymentAmount: TBD
+    status: OFFERED | ACCEPTED | REJECTED | ACTIVE | PAID | OVERDUE | DEFAULTED | CANCELLED
+    createdAt: timestamp
+    acceptedAt: "timestamp | null"
+    settledAt: "timestamp | null"
+    idempotencyKey: string
+
+LoanOffer:
+  DECISIONE APPROVATA: |
+    Prestatore crea offerta: importo, tasso, durata, scadenza, condizioni.
+    Denaro NON trasferito prima dell'accettazione.
+
+loanStatus:
+  items:
+    - OFFERED
+    - ACCEPTED
+    - REJECTED
+    - ACTIVE
+    - PAID
+    - OVERDUE
+    - DEFAULTED
+    - CANCELLED
+
+Accept:
+  DECISIONE APPROVATA: |
+    Destinatario ACCETTA → loan ACTIVE
+    → denaro trasferito → debt creato → repayment schedule
+
+Reject:
+  DECISIONE APPROVATA: |
+    RIFIUTA → nessun trasferimento, nessun debito, status REJECTED
+
+Settle:
+  DECISIONE APPROVATA: |
+    Debitore SALDA → debt=0, loan PAID, ledger, lock rimossi
+
+PlayerToPlayerLending:
+  DECISIONE APPROVATA: elemento centrale del gioco
+  example: |
+    A offre €10.000, 15%, 30 giorni → B accetta → Loan ACTIVE
+
+NpcLending:
+  status: futuro — V1 principalmente Player↔Player + Bank/System
+
+events:
+  items:
+    - LoanOfferCreated
+    - LoanAccepted
+    - LoanRejected
+    - LoanActivated
+    - LoanPaid
+    - LoanCancelled

@@ -1,0 +1,20 @@
+# =============================================================================
+# AGE — age validation
+# =============================================================================
+
+Age:
+  input: giocatore inserisce/seleziona eta
+  validation:
+    ref: validation.yaml
+    rules:
+      items:
+        - game_policy
+        - legal_policy
+        - Profile_System
+  values: DA DEFINIRE / TBD
+  ageVsBirthday:
+    rule: se entrambi esistono — definire source of truth — NON valori indipendenti divergenti
+
+events:
+  items:
+    - AgeValidated

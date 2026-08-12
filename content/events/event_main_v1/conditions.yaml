@@ -1,0 +1,74 @@
+# =============================================================================
+# CONDITION ENGINE — valutazione configurabile
+# =============================================================================
+
+ConditionDefinition:
+  schema:
+    conditionId: string
+    operator: AND | OR | NOT
+    clauses: []
+    label: string
+
+ConditionClause:
+  schema:
+    field: string
+    operator: eq | ne | gt | gte | lt | lte | in | exists
+    value: TBD
+    source: citizen | economy | work | property | mobility | progression | criminal | political | business | family | context
+
+ConditionEngine:
+  status: PROPOSTA_TECNICA
+  role: valuta condizioni per effetti, conseguenze, scheduled triggers
+  rule: NON definire ancora formule definitive — schema + esempi demo
+
+conditionExamples:
+  items:
+    - conditionId: cash_above_x
+      field: cash
+      operator: gt
+      source: economy
+    - conditionId: property_count_gt_zero
+      field: propertyCount
+      operator: gt
+      value: 0
+      source: property
+    - conditionId: job_employed
+      field: jobStatus
+      operator: eq
+      value: employed
+      source: work
+    - conditionId: happiness_below_x
+      field: happiness
+      operator: lt
+      source: citizen
+    - conditionId: criminal_heat_above_x
+      field: criminalHeat
+      operator: gt
+      source: criminal
+    - conditionId: political_role_mayor
+      field: politicalRole
+      operator: eq
+      value: mayor
+      source: political
+    - conditionId: company_value_above_x
+      field: companyValue
+      operator: gt
+      source: business
+    - conditionId: owner_exists
+      field: ownerId
+      operator: exists
+      source: context
+
+historyConditions:
+  status: PROPOSTA_TECNICA
+  fields:
+    items:
+      - previousEventId
+      - parentEventId
+      - causalChainId
+      - previousTaskId
+
+events:
+  items:
+    - ConditionEvaluated
+    - ConditionFailed

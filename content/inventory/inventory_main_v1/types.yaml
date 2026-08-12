@@ -1,0 +1,95 @@
+# =============================================================================
+# ITEM vs ASSET — separazione fondamentale
+# =============================================================================
+
+ItemVsAsset:
+  DECISIONE APPROVATA: |
+    ITEM = oggetto fisico/consumabile in inventario.
+    ASSET = bene persistente con valore economico/proprietà.
+  examples:
+    items:
+      - entity: mela
+        type: ITEM
+        class: CONSUMABLE
+      - entity: vestito
+        type: ITEM
+        class: CONSUMABLE_or_REUSABLE
+      - entity: automobile
+        type: ASSET
+        class: VEHICLE
+        owner: mobility_main_v1
+      - entity: casa
+        type: ASSET
+        class: PROPERTY
+        owner: property_main_v1
+      - entity: diamante
+        type: ASSET
+        class: LUXURY
+
+AssetClasses:
+  "DECISIONE APPROVATA": "allinea economy_main_v1/assets.yaml"
+  items:
+    - classId: CONSUMABLE
+      description: Consumati — non asset finanziari persistenti net worth
+    - classId: RESSELLABLE_ASSET
+      description: Veicoli, immobili, lusso — buy/sell/rent optional
+    - classId: LUXURY
+      description: Prestigio, profilo, valore
+    - classId: VEHICLE
+      ref: mobility_main_v1
+    - classId: PROPERTY
+      ref: property_main_v1
+    - classId: USABLE_ITEM
+      description: Oggetti utilizzabili non consumabili immediati
+    - classId: RESOURCE
+      description: Materiali/risorse future
+    - classId: OTHER
+      description: Asset futuri estendibili
+
+ItemDefinition:
+  schema:
+    itemId: string
+    version: string
+    category: string
+    subcategory: string
+    name: string
+    description: string
+    stackable: boolean
+    tradable: boolean
+    rentable: boolean
+    consumable: boolean
+    perishable: boolean
+    reusable: boolean
+    resellable: boolean
+    durability: TBD
+    quality: TBD
+    rarity: TBD
+    effectsRef: "string | null"
+    requirementsRef: "string | null"
+    tags: []
+    legalStatusDefault: legitimate
+  status: schema_conceptual — valori TBD
+
+ItemInstance:
+  schema:
+    instanceId: string
+    uniqueInstanceId: "string | null"
+    itemDefinitionId: string
+    definitionVersion: string
+    ownerId: string
+    quantity: number
+    condition: TBD
+    currentDurability: TBD
+    maxDurability: TBD
+    quality: TBD
+    location: string
+    status: active | locked | expired | destroyed | confiscated
+    expiresAt: "timestamp | null"
+    createdAt: timestamp
+    assetRef: "string | null"
+  rule: ItemDefinition ≠ ItemInstance — non tutti richiedono instance individuale
+
+events:
+  items:
+    - ItemDefinitionRegistered
+    - ItemInstanceCreated

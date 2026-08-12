@@ -1,0 +1,13 @@
+# =============================================================================
+# AUDIT — mobility_vehicles_v1
+# =============================================================================
+
+---
+Audit:
+  important:
+  - purchase
+  - sale
+  - transfer
+  - maintenance
+  - admin intervention
+  status: PROPOSTA TECNICA

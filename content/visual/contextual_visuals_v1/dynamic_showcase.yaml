@@ -1,0 +1,13 @@
+# =============================================================================
+# DYNAMIC SHOWCASE — future automatic composition
+# =============================================================================
+
+DynamicShowcase:
+  status: PROPOSTA TECNICA — future
+  concept: sistema costruisce scena da asset posseduti automaticamente
+  v1: NON richiedere automatic AI generation
+  ref: showcase.yaml
+
+events:
+  items:
+    - DynamicShowcaseGenerated

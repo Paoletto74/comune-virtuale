@@ -1,0 +1,36 @@
+# =============================================================================
+# TEMPLATES — page templates per section
+# =============================================================================
+
+PageTemplates:
+  status: PROPOSTA TECNICA — NON implementare runtime
+  templates:
+    FrontPage:
+      use: Home
+      sections: [Hero story, secondary stories, stats, tasks, personal news]
+    SectionPage:
+      use: Gazzetta sections
+    ArticlePage:
+      use: Gazzetta article detail
+    CitizenFeature:
+      use: Profile
+      sections: [CitizenFeature, Stats, History, Showcase]
+    LocalEdition:
+      use: Municipality
+      sections: [Economy, Politics, Citizens, Rankings]
+    RankingPage:
+      use: Classifiche
+    MarketplaceClassifieds:
+      use: Marketplace
+    EmploymentSection:
+      use: Jobs
+    NewsDesk:
+      use: Notifications
+    NewsFlash:
+      use: Popup
+
+ref: frontend_ui_v1 routing
+
+events:
+  items:
+    - PageTemplateApplied

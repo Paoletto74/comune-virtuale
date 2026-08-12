@@ -1,0 +1,18 @@
+# =============================================================================
+# VISUAL CONTRACTS — visualAssetId, no hardcoded URLs
+# =============================================================================
+
+VisualContracts:
+  reference: visualAssetId
+  mustNot: hardcodare URL immagini in domain events
+
+profileVisual:
+  fields:
+    items: [avatarAssetId, showcaseId]
+  rule: visual composition separata da Profile State
+
+ref: visual_main_v1
+
+events:
+  items:
+    - VisualReferenceResolved

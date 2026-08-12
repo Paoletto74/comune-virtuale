@@ -1,0 +1,133 @@
+# =============================================================================
+# TEMPLATES — content-first, NO hardcode nel motore
+# =============================================================================
+
+NotificationDefinition:
+  schema:
+    definitionId: string
+    typeId: string
+    categoryId: string
+    templateRef: string
+    audienceRuleRef: string
+    priorityDefault: string
+    severityDefault: string
+    showEffects: boolean
+    effectsDetailLevel: minimal | standard | detailed
+    educational: boolean
+    actionable: boolean
+    globalEligible: boolean
+    privacyRuleRef: string
+
+Template:
+  schema:
+    templateId: string
+    titleTemplate: string
+    bodyTemplate: string
+    variables: []
+    locale: default
+
+templates:
+  status: skeleton_and_demo_only
+
+  demoExamples:
+    items:
+      - templateId: WORK_HIRED
+        titleTemplate: "Sei stato assunto"
+        bodyTemplate: "Sei stato assunto da {{employerName}}."
+        categoryId: WORK
+        sourceSystem: work_main_v1
+
+      - templateId: ECONOMY_RENT_CHARGED
+        titleTemplate: "Affitto addebitato"
+        bodyTemplate: "Il tuo affitto è stato addebitato."
+        categoryId: ECONOMIC
+        sourceSystem: economy_main_v1
+
+      - templateId: MOBILITY_VEHICLE_DAMAGED
+        titleTemplate: "Veicolo danneggiato"
+        bodyTemplate: "Il tuo veicolo è stato danneggiato."
+        categoryId: MOBILITY
+        sourceSystem: mobility_main_v1
+
+      - templateId: LOAN_ACCEPTED
+        titleTemplate: "Prestito accettato"
+        bodyTemplate: "Il tuo prestito è stato accettato."
+        categoryId: ECONOMIC
+        sourceSystem: economy_main_v1
+
+      - templateId: CRIMINAL_ARRESTED
+        titleTemplate: "Sei stato arrestato"
+        bodyTemplate: "Sei stato arrestato."
+        categoryId: CRIMINAL
+        severityDefault: CRITICAL
+        priorityDefault: CRITICAL
+        sourceSystem: criminal_main_v1
+
+      - templateId: POLITICAL_LAW_GLOBAL
+        titleTemplate: "Nuova legge"
+        bodyTemplate: "È stata approvata una nuova legge: {{lawName}}."
+        categoryId: POLITICAL
+        globalEligible: true
+        sourceSystem: political_main_v1
+
+      - templateId: POLITICAL_LAW_PERSONAL_EFFECT
+        titleTemplate: "Legge ha modificato la tua situazione"
+        bodyTemplate: "{{lawName}} ha modificato la tua situazione."
+        categoryId: POLITICAL
+        showEffects: true
+        effectsDetailLevel: standard
+        educational: true
+        sourceSystem: political_main_v1
+
+      - templateId: ECONOMY_INFLATION_GLOBAL
+        titleTemplate: "Inflazione"
+        bodyTemplate: "L'inflazione è {{direction}}."
+        categoryId: ECONOMIC
+        globalEligible: true
+        sourceSystem: economy_main_v1
+
+      - templateId: BUSINESS_BANKRUPTCY_GLOBAL
+        titleTemplate: "Grande azienda fallita"
+        bodyTemplate: "Una grande azienda della città ha dichiarato bancarotta."
+        categoryId: BUSINESS
+        globalEligible: true
+        sourceSystem: business_main_v1
+
+      - templateId: POLITICAL_MAYOR_ELECTED_GLOBAL
+        titleTemplate: "Nuovo sindaco"
+        bodyTemplate: "È stato eletto un nuovo sindaco."
+        categoryId: POLITICAL
+        globalEligible: true
+        sourceSystem: political_main_v1
+
+personalization:
+  rule: Testo personalizzato per destinatario via template variables + context
+  exampleLaw:
+    note: LawActivated — A cash -100 happiness -10; B cash +50 happiness +5
+    globalTemplate: POLITICAL_LAW_GLOBAL
+    personalTemplate: POLITICAL_LAW_PERSONAL_EFFECT
+
+causality:
+  status: PROPOSTA_TECNICA
+  fields:
+    items:
+      - what_happened
+      - why
+      - consequence
+  example: |
+    "Il comune ha aumentato la tassa sugli immobili."
+    "Possiedi 3 immobili."
+    "Impatto: -€240."
+
+educational:
+  rule: Spiegazioni brevi quando utile — NON ogni notifica una lezione
+  topics:
+    items:
+      - inflation
+      - taxes
+      - debt
+      - interest
+      - risk
+      - market
+      - demand_supply
+      - decision_consequences

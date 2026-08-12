@@ -1,0 +1,38 @@
+# =============================================================================
+# EVENT ENVELOPES — standard envelope
+# =============================================================================
+
+EventEnvelope:
+  DECISIONE APPROVATA:
+  structure:
+    eventId: string
+    eventType: string
+    eventVersion: number
+    aggregateType: string
+    aggregateId: string
+    aggregateVersion: number
+    occurredAt: timestamp
+    gameTime: timestamp
+    actorId: string
+    correlationId: string
+    causationId: string
+    payload: object
+
+payloadRules:
+  items:
+    - dati necessari ai consumer
+    - NON intero aggregate se non necessario
+    - NON password, tokens, secrets
+    - NON dati personali/bancari non necessari
+
+visibility:
+  levels:
+    items:
+      - INTERNAL_DOMAIN_EVENT
+      - PUBLIC_EVENT
+      - NOTIFICATION_CANDIDATE
+  rule: domain event interno NON automaticamente visibile al player
+
+events:
+  items:
+    - EventEnvelopeValidated

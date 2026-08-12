@@ -1,0 +1,51 @@
+# =============================================================================
+# CAMPAIGNS — campagna elettorale semplificata
+# =============================================================================
+
+Campaign:
+  schema:
+    campaignId: string
+    electionId: string
+    candidateId: string
+    status: active | suspended | ended
+    startTime: timestamp
+    endTime: timestamp
+    resourcesSpent: TBD
+    supportScore: TBD
+
+campaignFactors:
+  items:
+    - reputation
+    - popularity
+    - politicalInfluence
+    - civicParticipation
+    - prior_decisions
+    - track_record
+    - endorsements
+    - economic_resources
+  rule: |
+    Campagna semplificata — NO simulatore politico complesso.
+  formula: TBD
+
+campaignActivities:
+  status: via_task_system
+  taskExamples:
+    items:
+      - meet_citizens
+      - public_speech
+      - debate
+      - outreach
+  timeCost: true
+  ref: task_main_v1
+
+entrepreneurCampaign:
+  note: |
+    Imprenditore può candidarsi — patrimonio NON garantisce elezione.
+    Può influenzare campagna, reputazione, accesso, relazioni.
+  values: TBD
+
+events:
+  items:
+    - CampaignStarted
+    - CampaignActivityCompleted
+    - CampaignEnded

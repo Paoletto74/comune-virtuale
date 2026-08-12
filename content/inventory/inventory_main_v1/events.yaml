@@ -1,0 +1,35 @@
+# =============================================================================
+# EVENTS — inventory e commerciali
+# =============================================================================
+
+inventoryEvents:
+  items:
+    - ItemAcquired
+    - ItemConsumed
+    - ItemUsed
+    - ItemTransferred
+    - ItemExpired
+    - ItemDamaged
+    - ItemRepaired
+    - ItemDestroyed
+    - ItemLocked
+    - ItemUnlocked
+
+commercialEvents:
+  note: eventi economici/commerciali da sistemi competenti
+  emittedBy:
+    items:
+      - economy_main_v1
+      - marketplace
+  examples:
+    items:
+      - ItemSold
+      - ItemPurchased
+      - TransactionCompleted
+
+inventoryEmits:
+  rule: Inventory emette eventi possesso/consumo/stato — non duplica transazioni economiche
+
+events:
+  items:
+    - InventoryEventPublished

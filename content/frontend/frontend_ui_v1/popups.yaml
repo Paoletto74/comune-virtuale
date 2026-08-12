@@ -1,0 +1,46 @@
+# =============================================================================
+# POPUPS — queue, priority, CTA, toast vs modal distinction
+# =============================================================================
+
+PopupSystem:
+  DECISIONE APPROVATA: notifiche importanti come POPUP — NON sostituisce Notification Center
+
+PopupPriority:
+  rule: solo HIGH/CRITICAL — NON ogni notifica diventa popup
+
+PopupQueue:
+  rule: queue — evitare 5 popup contemporanei
+
+PopupActions:
+  cta:
+    items:
+      - Visualizza
+      - Apri
+      - Vai_al_task
+      - Apri_profilo
+      - Leggi_notizia
+
+ToastVsPopupVsModal:
+  TOAST: informazione leggera
+  POPUP: evento importante
+  MODAL: richiede interazione/decisione
+
+PopupNotificationSync:
+  DECISIONE APPROVATA: popup coerente con Notification Instance — NON popup non tracciato
+
+PromotionExample:
+  flow:
+    items:
+      - backend_event
+      - NotificationService
+      - Notification_Instance
+      - popup_candidate
+      - frontend_popup
+      - optional_sound
+
+ref: notification_main_v1, popups.yaml
+
+events:
+  items:
+    - PopupShown
+    - PopupDismissed

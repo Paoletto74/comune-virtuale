@@ -1,0 +1,21 @@
+# =============================================================================
+# ORGANIZATION TYPES — company, political, criminal, civic
+# =============================================================================
+
+OrganizationTypes:
+  examples:
+    items:
+      - company
+      - political_group
+      - association
+      - club
+      - criminal_organization
+      - civic_organization
+  integrations:
+    political: ref political_main_v1 — NON duplicate rules
+    criminal: ref criminal_main_v1 — NON duplicate rules
+    civic: rules TBD
+
+events:
+  items:
+    - OrganizationTypeResolved

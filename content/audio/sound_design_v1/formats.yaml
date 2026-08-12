@@ -1,0 +1,18 @@
+# =============================================================================
+# FORMATS — web/mobile/desktop compatible formats
+# =============================================================================
+
+AudioFormats:
+  requirement: formati compatibili web, mobile, desktop
+  technology: DA DEFINIRE / TBD
+  candidates:
+    status: PROPOSTA TECNICA
+    items:
+      - mp3
+      - ogg
+      - webm
+      - aac
+
+events:
+  items:
+    - AudioFormatResolved

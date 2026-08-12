@@ -1,0 +1,26 @@
+# =============================================================================
+# EMPTY STATES — tono ironico configurabile
+# =============================================================================
+
+EmptyStates:
+  DECISIONE APPROVATA: content-first — NO hardcode nel motore
+  schema:
+    emptyStateId: string
+    sectionRef: string
+    titleKey: string
+    messageKey: string
+    tone: neutral | ironic | playful
+
+examples:
+  status: esempi dimostrativi — configurabili via Admin Content Studio
+  items:
+    - emptyStateId: no_notifications
+      messageExample: "Per ora nessuno ha combinato niente di interessante."
+    - emptyStateId: no_jobs
+      messageExample: "Il Comune sembra avere finito i lavori. Momento ideale per preoccuparsi."
+    - emptyStateId: no_listings
+      messageExample: "Il mercato è stranamente tranquillo."
+
+events:
+  items:
+    - EmptyStateDisplayed

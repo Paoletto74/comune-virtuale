@@ -1,0 +1,34 @@
+# =============================================================================
+# VERSIONING & DEPRECATION
+# =============================================================================
+
+AssetVersioning:
+  DECISIONE APPROVATA: ogni visual asset versionato
+  example:
+    items:
+      - ferrari_001_v1
+      - ferrari_001_v2
+  rule: |
+    Se sostituiamo immagine, vecchi riferimenti non devono rompersi.
+
+AssetStatus:
+  items:
+    - ACTIVE
+    - DRAFT
+    - DEPRECATED
+    - ARCHIVED
+
+deprecation:
+  rule: NON cancellare brutalmente asset ancora referenziato
+
+contentRollback:
+  status: PROPOSTA TECNICA
+  rule: |
+    Se asset nuovo errato, tornare versione precedente.
+    NON richiedere nuovo deploy motore.
+
+events:
+  items:
+    - VisualAssetVersionPublished
+    - VisualAssetRolledBack
+    - VisualAssetArchived

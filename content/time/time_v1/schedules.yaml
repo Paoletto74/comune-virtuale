@@ -1,0 +1,12 @@
+# =============================================================================
+# SCHEDULES — time_v1
+# =============================================================================
+
+---
+Schedules:
+  owner: domain per type
+  timezone: Game Time only
+  status: DECISIONE APPROVATA
+events:
+  items:
+  - ScheduleResolved

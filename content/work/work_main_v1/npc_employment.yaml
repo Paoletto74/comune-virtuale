@@ -1,0 +1,33 @@
+# =============================================================================
+# NPC EMPLOYMENT
+# =============================================================================
+
+NpcEmployment:
+  enabled: true
+  DECISIONE APPROVATA: lavori possono essere svolti da NPC
+
+  capabilities:
+    - fill_base_jobs
+    - compete_for_qualified_positions
+    - work_in_player_companies
+    - generate_economy_activity
+
+  baseJobs:
+    managedBySystem: true
+    npcFillWhenNoPlayers: true
+
+  playerCompanies:
+    hirePlayers: true
+    hireNpcs: true
+    ifNoPlayerAccepts: assign_compatible_npc
+    notes: |
+      DECISIONE APPROVATA: azienda giocatore NON dipende da altri giocatori.
+      NPC compatibile se nessun player accetta.
+
+  npcProfile:
+    simplified: true
+    fields: [skill_band, availability, salary_expectation_TBD]
+
+  economyLink:
+    npc_salary: via Economy Pipeline
+    npc_work: demand_supply_labor_market

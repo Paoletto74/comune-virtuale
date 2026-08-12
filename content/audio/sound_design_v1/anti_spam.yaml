@@ -1,0 +1,21 @@
+# =============================================================================
+# ANTI SPAM — cooldown, deduplication, max simultaneous
+# =============================================================================
+
+AntiSpam:
+  rules:
+    items:
+      - cooldown
+      - grouping
+      - priority
+      - deduplication
+      - maximum_simultaneous_sounds
+  cooldown:
+    example: |
+      10 notifiche di piccolo valore NON producono 10 beep consecutivi.
+  queue:
+    ref: priorities.yaml
+
+events:
+  items:
+    - AudioSpamPrevented

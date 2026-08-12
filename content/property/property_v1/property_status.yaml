@@ -1,0 +1,21 @@
+# =============================================================================
+# PROPERTY STATUS — property_v1
+# =============================================================================
+
+---
+PropertyStatus:
+  note: possible values - lista definitiva TBD
+  possibleValues:
+    items:
+      - AVAILABLE
+      - FOR_SALE
+      - FOR_RENT
+      - OWNED
+      - RENTED
+      - OCCUPIED
+      - VACANT
+      - UNDER_MAINTENANCE
+      - LOCKED
+      - UNAVAILABLE
+  definitive: TBD
+  status: PROPOSTA TECNICA

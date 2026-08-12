@@ -1,0 +1,19 @@
+# =============================================================================
+# MOBILITY RUNTIME — vehicle condition, maintenance
+# =============================================================================
+
+MobilityRuntime:
+  tickProcesses:
+    items:
+      - vehicle_condition
+      - usage
+      - maintenance
+      - travel_state
+  rule: solo se previsto dal Mobility System
+  sourceOfTruth: Mobility
+  executionMode: tick-driven
+  ref: mobility_main_v1
+
+events:
+  emits: [VehicleConditionChanged]
+  consumes: [VehiclePurchased]

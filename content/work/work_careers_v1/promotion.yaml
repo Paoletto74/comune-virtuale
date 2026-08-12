@@ -1,0 +1,21 @@
+# =============================================================================
+# PROMOTION — work_careers_v1
+# =============================================================================
+
+---
+Promotion:
+  dependsOn:
+  - experience
+  - performance
+  - time
+  - requirements
+  - employer decision
+  - event
+  authority: Employer/Work System not frontend
+  noAutoMoney: true
+  generates:
+  - employment update
+  - salary change
+  - title
+  - notification
+  status: DECISIONE APPROVATA

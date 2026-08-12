@@ -1,0 +1,14 @@
+# =============================================================================
+# SOUND INTEGRATION — work_careers_v1
+# =============================================================================
+
+---
+SoundIntegration:
+  ref: sound_design_v1
+  cues:
+  - hiring
+  - promotion
+  - salary
+  - rejection
+  - firing
+  status: DECISIONE APPROVATA

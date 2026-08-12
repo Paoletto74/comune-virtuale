@@ -1,0 +1,17 @@
+# =============================================================================
+# PROPERTIES — property_v1
+# =============================================================================
+
+---
+Property:
+  propertyId: string
+  locationId: string
+  type: string
+  status: string
+  ownerId: string
+  occupancy: object
+  features: object
+  valuation: object
+  schemaDefinitive: TBD
+  alignsWith: property_main_v1/properties.yaml
+  statusLabel: DECISIONE APPROVATA

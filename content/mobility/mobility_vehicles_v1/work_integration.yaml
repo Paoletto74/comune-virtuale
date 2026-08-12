@@ -1,0 +1,10 @@
+# =============================================================================
+# WORK INTEGRATION — mobility_vehicles_v1
+# =============================================================================
+
+---
+WorkIntegration:
+  workProvides: WorkLocationId
+  propertyProvides: ResidenceLocationId
+  mobilityCalculates: commute
+  status: PROPOSTA TECNICA

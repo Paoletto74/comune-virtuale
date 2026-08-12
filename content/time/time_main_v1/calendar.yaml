@@ -1,0 +1,75 @@
+# =============================================================================
+# CALENDAR — unità temporali configurabili
+# =============================================================================
+
+CalendarDefinition:
+  schema:
+    calendarId: string
+    secondsPerMinute: TBD
+    minutesPerHour: TBD
+    hoursPerDay: 24
+    daysPerWeek: TBD
+    weeksPerMonth: TBD
+    monthsPerYear: TBD
+    monthDefinitions: []
+  preference: calendario realistico — valori configurabili
+
+CalendarUnits:
+  items:
+    - second
+    - minute
+    - hour
+    - day
+    - week
+    - month
+    - year
+
+TwentyFourHourDay:
+  DECISIONE APPROVATA: giorno ha 24 ore — coerente con work_main_v1/daily_time.yaml
+  citizenDay:
+    items:
+      - work
+      - second_job
+      - free_time
+      - sleep
+      - travel
+      - other_activities
+  note: NON definire ancora ore obbligatorie per attività
+
+RealWorldCalendar:
+  DECISIONE APPROVATA: |
+    V1 compatibile con calendario realistico.
+    Se timeScale cambia — calendario di gioco continua coerentemente.
+    NON obbligare mondo a seguire calendario reale per sempre.
+
+PlayerAge:
+  DECISIONE APPROVATA: |
+    birthDate + worldDate → age calcolato.
+    NON aggiornare età ogni secondo.
+
+NpcAge:
+  DECISIONE APPROVATA: stessa logica — birthDate + worldDate
+  milestones: child, teenager, adult, retirement — Family/NPC gestiscono conseguenze
+
+DateFormatting:
+  status: PROPOSTA TECNICA — UI
+  examples:
+    items:
+      - oggi
+      - ieri
+      - domani
+      - "12 agosto"
+      - lunedì
+      - "14:30"
+  backend: timestamp standard
+
+TimeZone:
+  DECISIONE APPROVATA: V1 unica timezone mondo
+  future: estensibilità multi-timezone — non implementare V1
+
+events:
+  items:
+    - DayChanged
+    - WeekChanged
+    - MonthChanged
+    - YearChanged

@@ -1,0 +1,57 @@
+# =============================================================================
+# REVENUE — entrate azienda
+# =============================================================================
+
+RevenueModel:
+  schema:
+    companyId: string
+    periodRevenue: TBD
+    revenueSources: []
+    lastCalculated: timestamp
+
+revenueFactors:
+  items:
+    - demand
+    - customers_npc
+    - customers_players
+    - pricing
+    - sector
+    - quality
+    - reputation
+    - macro_economy
+    - employees
+    - events
+    - seasonality_future
+  formula: TBD
+
+playerCustomers:
+  flow: |
+    Player purchase → Marketplace/Economy Transaction
+    → Business receives Revenue Event
+  rule: Economy gestisce transazione — Business riceve revenue event
+
+npcCustomers:
+  ref: npc.yaml NpcCustomerService
+  rule: Revenue da domanda NPC simulata
+
+recurringRevenue:
+  status: PROPOSTA_TECNICA
+  note: Cashflow ricorrente possibile — NON garantito
+  class: economy recurringIncome for owner when distributed
+
+passiveCashflow:
+  DECISIONE APPROVATA: |
+    Obiettivo: reddito autonomo via azienda.
+    cashflow != profitto garantito — azienda può avere problemi.
+
+delivery:
+  rule: DECISIONE APPROVATA — NO modifica diretta cash
+  flow: |
+    Revenue Event → Economy Pipeline → Transaction → Ledger
+    → company cashBalance updated
+
+events:
+  items:
+    - RevenueGenerated
+    - RevenueDeclined
+    - RevenueSpike

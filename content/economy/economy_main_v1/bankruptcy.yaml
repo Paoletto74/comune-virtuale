@@ -1,0 +1,43 @@
+# =============================================================================
+# BANKRUPTCY
+# =============================================================================
+# DECISIONE APPROVATA: NO game over; bancarotta persistente possibile
+# =============================================================================
+
+Bankruptcy:
+  enabled: true
+
+  triggers:
+    items:
+      - netWorth_below_threshold
+      - debt_exceeds_assets
+      - loan_default
+      - sustained_negative_cash
+    values: TBD
+
+  NOT:
+    - automatic_arrest
+    - permanent_game_over
+
+  consequences:
+    items:
+      - asset_loss
+      - tool_access_restrictions
+      - financial_reputation
+      - economic_consequences
+      - progression_demotion_possible
+      - future_consequences_TBD
+    values: TBD
+
+  process:
+    states: [warning, proceedings, asset_liquidation, discharged, recurring]
+    transactions: [bankruptcy, asset_seizure, debt_settlement]
+    atomic: true
+
+  recovery:
+    enabled: true
+    note: Coerente con no game over — ripartenza possibile
+
+  criminalCompatibility:
+    note: Giocatore può tentare nascondere patrimonio — criminal module decide scoperta
+    economyProvides: [transfers, gifts, asset_holding, loans]

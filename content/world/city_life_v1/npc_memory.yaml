@@ -1,0 +1,11 @@
+# =============================================================================
+# NPC MEMORY — future relationship memory
+# =============================================================================
+
+NpcMemory:
+  status: PROPOSTA TECNICA — future relationship/memory
+  v1: NON obbligatorio
+
+events:
+  items:
+    - NpcMemoryUpdated

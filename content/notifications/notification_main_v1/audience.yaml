@@ -1,0 +1,73 @@
+# =============================================================================
+# AUDIENCE — risoluzione destinatari
+# =============================================================================
+
+AudienceRule:
+  schema:
+    ruleId: string
+    eventType: string
+    sourceSystem: string
+    audienceType: single | affected_citizens | all_players | global_only | conditional
+    conditionsRef: string | null
+    privacyFilterRef: string
+
+audienceTypes:
+  items:
+    - typeId: actor_only
+      description: Solo il cittadino coinvolto direttamente
+    - typeId: affected_set
+      description: Set calcolato per evento (es. legge — cittadini con effetti)
+    - typeId: global_public
+      description: Global feed — nessun recipientId personale
+    - typeId: role_based
+      description: Es. sindaco, proprietario azienda
+    - typeId: threshold_relevance
+      description: Global solo se evento sufficientemente importante
+
+evaluation:
+  flow: |
+    Event received
+    → NotificationDefinition lookup
+    → AudienceRule evaluation
+    → Privacy filter
+    → Recipient list (personal) + global flag
+    → Per-recipient personalization
+
+personalizationPerRecipient:
+  DECISIONE APPROVATA: |
+    Stesso evento LawActivated:
+    Cittadino A → notifica con effetti A
+    Cittadino B → notifica con effetti B
+    Global → "È entrata in vigore la legge X" (no dettagli privati)
+
+worldEventBus:
+  ref: eventSystem
+  globalFeedSource: World Event Bus
+  examples:
+    items:
+      - election
+      - major_company_bankruptcy
+      - economic_crisis
+      - new_law
+      - major_event
+      - significant_price_change
+      - emergency
+      - player_achievement_public
+
+playerAchievements:
+  status: PROPOSTA_TECNICA
+  mayBeGlobal:
+    items:
+      - reached_level_30
+      - largest_company_in_city
+      - elected_mayor
+  publication: configurable
+
+relevanceFilter:
+  rule: Non tutto nel mondo va nel Global Feed
+  threshold: TBD
+
+events:
+  items:
+    - AudienceResolved
+    - RecipientListGenerated

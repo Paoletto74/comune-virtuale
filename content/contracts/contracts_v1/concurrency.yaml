@@ -1,0 +1,20 @@
+# =============================================================================
+# CONCURRENCY — optimistic locking, conflict
+# =============================================================================
+
+Concurrency:
+  optimistic:
+    field: aggregateVersion
+    onMismatch: CONFLICT
+
+exampleListing:
+  scenario: |
+    Listing v7 — Request A expects v7 succeeds -> v8.
+    Request B expects v7 -> CONFLICT. NON doppia vendita.
+
+balanceConcurrency:
+  rule: Banking impedisce double spend su operazioni simultanee
+
+events:
+  items:
+    - ConcurrencyConflictDetected

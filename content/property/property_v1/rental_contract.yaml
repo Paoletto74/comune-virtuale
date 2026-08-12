@@ -1,0 +1,16 @@
+# =============================================================================
+# RENTAL CONTRACT — property_v1
+# =============================================================================
+
+---
+RentalContract:
+  fields:
+  - rent
+  - billing period
+  - start
+  - end
+  - deposit
+  - notice
+  - conditions
+  alignsWith: property_main_v1/rentals.yaml
+  status: DECISIONE APPROVATA

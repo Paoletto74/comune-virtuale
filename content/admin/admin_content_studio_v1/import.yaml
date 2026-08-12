@@ -1,0 +1,54 @@
+# =============================================================================
+# IMPORT — paste text, YAML, JSON, ChatGPT workflow
+# =============================================================================
+
+ImportText:
+  DECISIONE APPROVATA: |
+    Finestra per incollare testo da ChatGPT.
+    Sistema: riconosce formato → valida → trasforma in content object
+    → preview → modifica → publish.
+
+ImportYaml:
+  DECISIONE APPROVATA:
+  workflow: paste YAML → parse → schema validation → preview → import
+
+ImportJson:
+  DECISIONE APPROVATA:
+  workflow: paste JSON → parse → schema validation → preview → import
+
+NaturalLanguageImport:
+  status: PROPOSTA TECNICA — future AI-assisted content authoring
+  rule: |
+    V1 NON interpreta automaticamente linguaggio naturale.
+    Es. "crea task consegna 3 pizze" — futuro, non obbligatorio V1.
+
+ChatGptWorkflow:
+  DECISIONE APPROVATA:
+  steps:
+    items:
+      - user_asks_chatgpt_for_content
+      - chatgpt_produces_yaml_json_conform_schema
+      - user_copies_content
+      - user_pastes_in_admin_studio
+      - validation
+      - preview
+      - publish
+  goal: NON modificare manualmente file locali
+
+BulkImport:
+  status: PROPOSTA TECNICA
+  rule: |
+    YAML con più contenuti — es. 30 task.
+    Validation indica: quanti validi, invalidi, errori per item.
+
+ImportMigration:
+  status: PROPOSTA TECNICA
+  rule: |
+    Vecchio formato V1 → migration → current schema.
+    NON modificare automaticamente dati senza audit.
+
+events:
+  items:
+    - ContentImported
+    - ImportValidationCompleted
+    - ImportFailed

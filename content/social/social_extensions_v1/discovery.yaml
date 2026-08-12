@@ -1,0 +1,52 @@
+# =============================================================================
+# SOCIAL DISCOVERY — come nasce una relazione
+# =============================================================================
+
+SocialDiscovery:
+  status: PROPOSTA TECNICA
+
+  rule: |
+    Una nuova relazione puo nascere da incontro, interazione,
+    task, evento, business, lavoro, marketplace, comune.
+    Deve rispettare privacy e discoverability.
+
+  sources:
+    items:
+      - encounter
+      - social_interaction
+      - task
+      - event
+      - business
+      - work
+      - marketplace
+      - city_life
+
+  flow:
+    steps:
+      - CitizenMet event emitted
+      - privacy check
+      - relationship creation if rule valid
+      - default status acquaintance if approved rule matches
+      - optional notification or toast
+      - optional avatar or visual
+      - audit record
+
+  initialStatus:
+    approvedDefault: unknown
+    mayTransitionTo: acquaintance
+    rule: TBD — formula transizione unknown → acquaintance
+
+  privacy:
+    rule: NON rivelare dati privati non autorizzati al discovery
+    examples:
+      mustNotReveal:
+        items:
+          - hidden_bank_data
+          - private_messages
+          - private_relationships
+
+  events:
+    items:
+      - CitizenMet
+      - SocialDiscovery
+      - RelationshipCreated

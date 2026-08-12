@@ -1,0 +1,39 @@
+# =============================================================================
+# AUTHORIZATION — centralized AuthorizationService
+# =============================================================================
+
+AuthorizationService:
+  DECISIONE APPROVATA: centralizzato — NON duplicare regole in ogni controller
+  defaultPolicy: DENY
+
+input:
+  subject: accountId + roles + permissions
+  action: string
+  resource: type + id
+  context: object
+
+output: ALLOW | DENY
+
+adminApi:
+  DECISIONE APPROVATA: Admin API separate da Player API
+  paths:
+    items:
+      - /api/v1/admin/content
+      - /api/v1/admin/audit
+      - /api/v1/admin/users
+  rule: passano attraverso AuthorizationService
+
+adminContentRestrictions:
+  DECISIONE APPROVATA: Admin NON puo
+  forbidden:
+    items:
+      - modify_player_balance
+      - grant_arbitrary_level
+      - alter_ownership
+      - bypass_domain_rules
+      - self_promote_admin
+
+events:
+  items:
+    - AuthorizationGranted
+    - AuthorizationDenied

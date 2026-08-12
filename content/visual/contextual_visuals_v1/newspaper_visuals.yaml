@@ -1,0 +1,19 @@
+# =============================================================================
+# NEWSPAPER VISUALS — editorial visual identity
+# =============================================================================
+
+NewspaperVisuals:
+  DECISIONE APPROVATA:
+  style: coerente con NEWSPAPER + MODERN DIGITAL GAME
+  ref: newspaper_v1, visual_main_v1
+  elements:
+    items:
+      - article_image
+      - headline_visual
+      - category_image
+      - breaking_visual
+      - newsroom_treatment
+
+events:
+  items:
+    - NewspaperVisualApplied

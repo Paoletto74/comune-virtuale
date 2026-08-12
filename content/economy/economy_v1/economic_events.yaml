@@ -1,0 +1,18 @@
+# =============================================================================
+# ECONOMIC EVENTS — economy_v1
+# =============================================================================
+
+---
+SemanticEconomicEvents:
+  items:
+  - MoneyCredited
+  - MoneyDebited
+  - TransferCompleted
+  - SalaryPaid
+  - TaxPaid
+  - LoanCreated
+  - LoanPaid
+  - DebtOverdue
+  - PurchasePaid
+  - RefundIssued
+  status: DECISIONE APPROVATA

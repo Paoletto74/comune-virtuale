@@ -1,0 +1,11 @@
+# =============================================================================
+# RENT PAYMENT — property_v1
+# =============================================================================
+
+---
+RentPayment:
+  success:
+  - transaction
+  - tenancy update
+  - notification
+  status: DECISIONE APPROVATA

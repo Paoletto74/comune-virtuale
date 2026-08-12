@@ -1,0 +1,22 @@
+# =============================================================================
+# ADMIN ADJUSTMENTS — economy_v1
+# =============================================================================
+
+---
+AdminAdjustments:
+  grant:
+    requires:
+    - permission
+    - amount
+    - target
+    - reason
+    - audit
+  debit:
+    requires:
+    - permission
+    - amount
+    - target
+    - reason
+    - audit
+  noSilentBalanceChange: true
+  status: DECISIONE APPROVATA

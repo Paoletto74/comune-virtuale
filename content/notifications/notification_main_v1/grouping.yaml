@@ -1,0 +1,55 @@
+# =============================================================================
+# GROUPING — raggruppamento anti-spam
+# =============================================================================
+
+GroupingRule:
+  schema:
+    ruleId: string
+    categoryId: string | all
+    windowDuration: TBD
+    maxUngrouped: TBD
+    groupTemplateRef: string
+
+grouping:
+  status: PROPOSTA_TECNICA
+  example: |
+    "Negli ultimi 7 giorni hai ricevuto 12 notifiche relative all'economia."
+  windowDuration: TBD
+
+exclusions:
+  DECISIONE APPROVATA: |
+    CRITICAL e ACTION_REQUIRED NON nascoste in gruppo
+    senza accesso evidente al dettaglio.
+  neverGroup:
+    items:
+      - priority_CRITICAL
+      - category_ACTION_REQUIRED
+      - severity_CRITICAL
+
+antiSpam:
+  mechanisms:
+    items:
+      - cooldown
+      - aggregation
+      - threshold
+      - deduplication
+  thresholds: TBD
+
+deduplication:
+  keys:
+    items:
+      - eventId
+      - notificationId
+      - recipientId
+      - causalChainId
+      - idempotencyKey
+  rule: Stessa causa non deve produrre stessa notifica due volte accidentalmente
+
+microEventFilter:
+  rule: Oscillazioni minime, eventi ripetitivi NPC — filtrare
+  threshold: TBD
+
+events:
+  items:
+    - NotificationsGrouped
+    - NotificationSuppressed

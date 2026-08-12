@@ -1,0 +1,42 @@
+# =============================================================================
+# PROFILE GRAPHS — net worth, level history, inflation
+# =============================================================================
+
+ProfileGraphs:
+  NetWorthGraph:
+    DECISIONE APPROVATA: grafico REALE del patrimonio nel tempo
+    source: historical data — NON dati inventati, random, hardcoded
+    periods:
+      status: TBD
+      candidates:
+        items:
+          - settimana
+          - mese
+          - anno
+          - storico
+
+  LevelHistory:
+    shows:
+      items:
+        - livello_attuale
+        - progressione
+        - milestone
+        - eventuali_demotion
+
+  LevelUpUi:
+    status: PROPOSTA TECNICA
+    trigger: backend segnala LevelReached
+    shows:
+      items:
+        - popup
+        - animazione
+        - nuovo_livello
+        - nuovo_titolo
+        - unlock_summary
+    mustNot: assegnare livello dal frontend
+
+ref: profile_graphs component, data_architecture_v1/history.yaml
+
+events:
+  items:
+    - GraphPeriodChanged

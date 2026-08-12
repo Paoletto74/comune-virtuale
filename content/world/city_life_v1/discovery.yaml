@@ -1,0 +1,22 @@
+# =============================================================================
+# DISCOVERY — citizen, business, organization discovery
+# =============================================================================
+
+Discovery:
+  types:
+    Citizen:
+      message: "Nuovo cittadino conosciuto. (optional)"
+    Business:
+      message: "Nuovo locale scoperto."
+    Organization:
+      message: "Nuova organizzazione scoperta."
+  popup:
+    items:
+      - visual
+      - text
+      - optional_sound
+  ref: discovery_events in city_v1
+
+events:
+  items:
+    - EntityDiscovered

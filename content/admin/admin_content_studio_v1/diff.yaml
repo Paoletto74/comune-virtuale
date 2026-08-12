@@ -1,0 +1,19 @@
+# =============================================================================
+# VERSION DIFF
+# =============================================================================
+
+VersionDiff:
+  status: PROPOSTA TECNICA
+  rule: visualizzare differenze v1 → v2
+  examples:
+    items:
+      - field: reward
+        from: 100
+        to: 150
+      - field: title
+        from: Task
+        to: Consegna pizza
+
+events:
+  items:
+    - VersionDiffGenerated

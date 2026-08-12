@@ -1,0 +1,14 @@
+# =============================================================================
+# SECURITY — economy_v1
+# =============================================================================
+
+---
+Security:
+  requirements:
+  - authorization
+  - validation
+  - idempotency
+  - audit
+  - rate limiting
+  noSetBalanceApi: true
+  status: DECISIONE APPROVATA

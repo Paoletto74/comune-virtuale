@@ -1,0 +1,16 @@
+# =============================================================================
+# VERSIONING — city configuration/content versioning
+# =============================================================================
+
+Versioning:
+  applies:
+    items:
+      - city_configuration
+      - district_content
+      - location_content
+  snapshot:
+    status: PROPOSTA TECNICA — future city snapshot for events/analytics/debugging
+
+events:
+  items:
+    - CityVersionUpdated

@@ -1,0 +1,28 @@
+# =============================================================================
+# GIFTS — regali tra giocatori
+# =============================================================================
+
+GiftTransfer:
+  giftId: string
+  idempotencyKey: string
+
+  fromRef: citizenId
+  toRef: citizenId
+  amount: TBD
+  currencyId: game_currency
+  message: optional
+
+  transactionType: gift
+  transactionClass: money_transfer
+
+  ledger: required
+
+  futureRules:
+    limits: TBD
+    taxes: TBD
+    controls: TBD
+    consequences: TBD
+    criminalInvestigation: TBD
+
+  antiDuplication: true
+  serverAuthoritative: true

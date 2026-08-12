@@ -1,0 +1,22 @@
+# =============================================================================
+# CHARACTER VISUALS — profile character representation
+# =============================================================================
+
+CharacterVisuals:
+  purpose: visual del personaggio nel profilo
+  represents:
+    items:
+      - appearance
+      - style
+      - status
+      - unlocked_elements
+  customization:
+    status: DA DEFINIRE / TBD
+    concept: character base + hair + clothing + accessory layers
+  privacy:
+    rule: visualizzazione pubblica rispetta profile visibility
+  ref: profile_main_v1
+
+events:
+  items:
+    - CharacterVisualResolved

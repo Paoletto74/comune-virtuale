@@ -1,0 +1,17 @@
+# =============================================================================
+# INTEGRATIONS NOTIFICATION — task_extensions_v1
+# =============================================================================
+
+---
+NotificationIntegration:
+  taskEmits: semantic events
+  notificationOwns:
+  - instance
+  - priority
+  - read/unread
+  - popup eligibility
+  examples:
+  - task available
+  - deadline approaching
+  - consequence triggered
+  status: PROPOSTA TECNICA extends notifications.yaml

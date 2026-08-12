@@ -1,0 +1,37 @@
+# =============================================================================
+# CITIZEN LIST — public data, detail, privacy
+# =============================================================================
+
+CitizenList:
+  publicData:
+    items:
+      - avatar
+      - nome
+      - livello
+      - titolo
+      - lavoro
+      - statistiche_pubbliche
+      - ranking
+  privacy: obbligatoria — ref profile_main_v1/visibility.yaml
+
+CitizenDetail:
+  action: click -> public profile
+  actions:
+    items:
+      - regalo
+      - prestito
+      - interazione_sociale
+  rule: solo se consentite dalle regole
+
+mustNot:
+  items:
+    - mostrare_criminal_data_hidden
+    - mostrare_email_privata
+    - mostrare_full_bank_data
+
+api: municipality_api.yaml, profile_api.yaml
+
+events:
+  items:
+    - CitizenListViewed
+    - CitizenDetailOpened

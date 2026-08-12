@@ -1,0 +1,13 @@
+# =============================================================================
+# NOTIFICATIONS — mobility_vehicles_v1
+# =============================================================================
+
+---
+Notifications:
+  examples:
+  - purchased
+  - sold
+  - maintenance required
+  - repair completed
+  owner: Notification System
+  status: PROPOSTA TECNICA

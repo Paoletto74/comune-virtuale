@@ -1,0 +1,18 @@
+# =============================================================================
+# LOAD TESTING — 10 players + 10,000 NPC
+# =============================================================================
+
+LoadTesting:
+  status: PROPOSTA TECNICA — NON implementare
+  target: 10 players + 10,000 NPC
+  testAreas:
+    items:
+      - tick
+      - api
+      - background_jobs
+      - rankings
+      - notifications
+
+events:
+  emits: [LoadTestCompleted]
+  consumes: []

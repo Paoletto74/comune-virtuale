@@ -1,0 +1,11 @@
+# =============================================================================
+# POPUP INTEGRATION — city event popups
+# =============================================================================
+
+PopupIntegration:
+  cityEvent: visual + sound + text
+  ref: contextual_visuals_v1, sound_design_v1, frontend_ui_v1
+
+events:
+  items:
+    - CityPopupShown

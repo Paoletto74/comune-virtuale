@@ -1,0 +1,129 @@
+# =============================================================================
+# DATA ARCHITECTURE & PERSISTENCE MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: separare Persistent / Derived / Content / Runtime / Cache
+# Definisce: entity boundaries, source of truth, consistency, contracts
+# V1: proposta architetturale — NO database runtime, NO backend
+# Scale target: 10 giocatori + 10.000 NPC iniziali, estendibile
+# =============================================================================
+
+catalogId: data_architecture_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  auth: auth_main_v1
+  profile: profile_main_v1
+  economy: economy_main_v1
+  banking: banking_main_v1
+  inventory: inventory_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  marketplace: marketplace_main_v1
+  task: task_main_v1
+  eventSystem: event_main_v1
+  notification: notification_main_v1
+  progressionMain: progression_main_v1
+  social: social_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+  visual: visual_main_v1
+  ui: ui_main_v1
+  adminContentStudio: admin_content_studio_v1
+
+principles:
+  - Persistent ≠ Derived ≠ Content ≠ Runtime ≠ Cache
+  - Definition vs Instance — content separate from game state
+  - Source of truth per dominio — NO duplicazione inutile
+  - Projections/materialized views quando duplicazione per performance
+  - Ledger append-oriented — transazioni non riscritte arbitrariamente
+  - Atomic operations — purchase, loan, gift, salary
+  - Idempotency — operazioni economiche
+  - Server authoritative — client non scrive balance/level/ranking
+  - Repository → Domain → API → UI — NO UI direct DB
+  - Admin Studio modifica CONTENT — NON game state arbitrario
+  - CODE DEPLOY ≠ CONTENT PUBLISH ≠ DATA MIGRATION
+  - DEV/STAGING/PRODUCTION dati separati
+
+includes:
+  entities: entities.yaml
+  accountData: account_data.yaml
+  citizenData: citizen_data.yaml
+  profileData: profile_data.yaml
+  gameState: game_state.yaml
+  economyData: economy_data.yaml
+  money: money.yaml
+  ledger: ledger.yaml
+  inventoryData: inventory_data.yaml
+  propertyData: property_data.yaml
+  mobilityData: mobility_data.yaml
+  marketplaceData: marketplace_data.yaml
+  taskData: task_data.yaml
+  eventData: event_data.yaml
+  notificationData: notification_data.yaml
+  progressionData: progression_data.yaml
+  socialData: social_data.yaml
+  politicalData: political_data.yaml
+  criminalData: criminal_data.yaml
+  businessData: business_data.yaml
+  familyData: family_data.yaml
+  npcData: npc_data.yaml
+  municipalityData: municipality_data.yaml
+  gazzettaData: gazzetta_data.yaml
+  rankings: rankings.yaml
+  audit: audit.yaml
+  history: history.yaml
+  transactions: transactions.yaml
+  consistency: consistency.yaml
+  concurrency: concurrency.yaml
+  indexing: indexing.yaml
+  caching: caching.yaml
+  realtime: realtime.yaml
+  snapshots: snapshots.yaml
+  migrations: migrations.yaml
+  backups: backups.yaml
+  disasterRecovery: disaster_recovery.yaml
+  privacy: privacy.yaml
+  security: security.yaml
+  apiContracts: api_contracts.yaml
+  readModels: read_models.yaml
+  contractRegistry: contract_registry.yaml
+  environments: environments.yaml
+  seedData: seed_data.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  persistence_module: [entities, accountData, citizenData, gameState]
+  financial_module: [money, ledger, transactions, economyData]
+  domain_module: [inventoryData, propertyData, mobilityData, marketplaceData, taskData]
+  projection_module: [rankings, snapshots, readModels, caching]
+  governance_module: [consistency, concurrency, migrations, audit, privacy, security]
+
+responsibilitySplit:
+  dataArchitectureDecides:
+    items:
+      - persistence_model
+      - entity_boundaries
+      - references
+      - transactions
+      - consistency
+      - history
+      - projections
+      - caching_strategy
+      - backups
+      - migrations
+      - data_contracts
+  authDecides: [account, identity, session, permissions]
+  gameSystemsDecide: [gameplay_state, business_rules, calculations]
+  contentSystemDecides: [definitions, templates, labels]
+  uiDecides: [presentation, navigation]
+
+alignsWith:
+  note: |
+    Formalizza pattern Definition/Instance da tutti i pack approvati.
+    NON modifica pack approvati.

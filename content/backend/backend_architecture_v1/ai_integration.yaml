@@ -1,0 +1,36 @@
+# =============================================================================
+# AI INTEGRATION — content only, never direct game state
+# =============================================================================
+
+AiIntegration:
+  status: PROPOSTA TECNICA
+  futureUses:
+    items:
+      - content_authoring
+      - news_generation
+      - npc_flavor
+      - content_suggestions
+
+rules:
+  DECISIONE APPROVATA:
+  items:
+    - AI NON modifica direttamente Game State
+    - ogni output AI passa da validation/authorization
+    - mai AI -> direct production state
+
+contentAiWorkflow:
+  flow:
+    items:
+      - ChatGPT
+      - content_draft
+      - Admin_import
+      - validation
+      - preview
+      - approval
+      - publish
+
+ref: admin_content_studio_v1
+
+events:
+  items:
+    - AiContentDraftGenerated

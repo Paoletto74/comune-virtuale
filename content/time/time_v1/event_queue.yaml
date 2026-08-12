@@ -1,0 +1,10 @@
+# =============================================================================
+# EVENT QUEUE — time_v1
+# =============================================================================
+
+---
+EventQueue:
+  status: PROPOSTA TECNICA future
+events:
+  items:
+  - QueuedEventProcessed

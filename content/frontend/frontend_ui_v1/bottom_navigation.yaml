@@ -1,0 +1,50 @@
+# =============================================================================
+# BOTTOM NAVIGATION — 6 tabs, badges, accessibility
+# =============================================================================
+
+BottomNavigation:
+  DECISIONE APPROVATA: menu fisso orizzontale
+  tabs:
+    items:
+      - GAZZETTA
+      - ATTIVITA
+      - MERCATO
+      - PROFILO
+      - NOTIFICHE
+      - COMUNE
+
+tabProperties:
+  perTab:
+    items:
+      - icon
+      - label
+      - active_state
+      - accessibility_label
+      - optional_badge
+
+badges:
+  status: PROPOSTA TECNICA
+  candidates:
+    items:
+      - unread_notifications
+      - active_tasks
+      - important_events
+  rule: NON mostrare numeri inutili
+
+responsive:
+  mobile: facilmente utilizzabile con pollice — NON coprire contenuto
+  desktop: orizzontale o adattamento TBD
+  safeAreas:
+    items:
+      - iPhone_safe_area
+      - notch
+      - browser_toolbar
+      - mobile_viewport
+      - keyboard
+
+ref: ui_main_v1
+
+events:
+  items:
+    - TabChanged
+    - TabBadgeUpdated

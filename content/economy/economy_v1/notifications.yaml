@@ -1,0 +1,13 @@
+# =============================================================================
+# NOTIFICATIONS — economy_v1
+# =============================================================================
+
+---
+FinancialNotifications:
+  owner: Notification System
+  examples:
+  - salary received
+  - rent due
+  - tax paid
+  - loan overdue
+  status: DECISIONE APPROVATA

@@ -1,0 +1,13 @@
+# =============================================================================
+# POPUP INTEGRATION — popupSoundCueId
+# =============================================================================
+
+PopupIntegration:
+  field: popupSoundCueId
+  rule: Popup referenzia soundCueId — NON file URL
+  applies: HIGH / CRITICAL popups
+  ref: content_system_v1/popup_content.yaml, frontend_ui_v1
+
+events:
+  items:
+    - PopupSoundCueResolved

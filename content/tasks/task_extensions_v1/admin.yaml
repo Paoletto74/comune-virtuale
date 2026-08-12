@@ -1,0 +1,17 @@
+# =============================================================================
+# ADMIN — task_extensions_v1
+# =============================================================================
+
+---
+Admin:
+  canConfigure:
+  - definitions
+  - pools
+  - categories
+  - priorities
+  - cooldown
+  - conditions
+  - effects
+  - content
+  cannotBypassAuthWithoutAudit: true
+  status: DECISIONE APPROVATA inherited from integrations admin_panel

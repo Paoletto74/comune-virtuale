@@ -1,0 +1,14 @@
+# =============================================================================
+# POPUPS — economy_v1
+# =============================================================================
+
+---
+FinancialPopups:
+  importantOnly:
+  - salary
+  - large purchase
+  - major loss
+  - debt default
+  - large reward
+  configurable: true
+  status: DECISIONE APPROVATA

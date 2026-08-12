@@ -1,0 +1,19 @@
+# =============================================================================
+# ACCOUNT SECURITY — session, tokens, secrets
+# =============================================================================
+
+AccountSecurity:
+  protects:
+    items:
+      - session
+      - password
+      - OAuth_tokens
+      - account_recovery
+  rule: NON esporre secrets al frontend
+  password:
+    rule: NON leggibile in chiaro — hashing/storage TBD
+  ref: auth_main_v1/secrets.yaml, api_security.yaml
+
+events:
+  items:
+    - AccountSecurityEvent

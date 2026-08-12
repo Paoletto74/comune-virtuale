@@ -1,0 +1,134 @@
+# =============================================================================
+# GAME RUNTIME MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Runtime Orchestrator coordina sistemi indipendenti
+# NO "ONE GIANT GAME LOOP" — V1 proposta architetturale, NO runtime implementato
+# Server authoritative, idempotent, modular, fault tolerant
+# =============================================================================
+
+catalogId: game_runtime_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  timeSystem: time_main_v1
+  eventSystem: event_main_v1
+  npc: npc_main_v1
+  dataArchitecture: data_architecture_v1
+  backend: backend_architecture_v1
+  frontend: frontend_ui_v1
+  adminContentStudio: admin_content_studio_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  economy: economy_main_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  banking: banking_main_v1
+  notification: notification_main_v1
+  political: political_main_v1
+  criminal: criminal_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  social: social_main_v1
+  visual: visual_main_v1
+
+principles:
+  - NO one giant game loop — Runtime Orchestrator coordina domain systems
+  - Time System = source of truth game clock — NO secondo clock indipendente
+  - Server authoritative — client clock NON e source of truth
+  - Tick-driven + Event-driven — non forzare un solo modello
+  - Player commands immediate — non aspettano necessariamente tick
+  - At-least-once + idempotency — NON exactly-once infrastrutturale
+  - Financial/ownership = atomic — rankings/analytics = eventual consistency OK
+  - L25 != Mayor — Political System determina ruolo
+  - AI NON modifica Game State — content via Admin Studio
+  - Deterministic dove possibile — controlled randomness per critical outcomes
+
+includes:
+  runtimeOrchestrator: runtime_orchestrator.yaml
+  gameClock: game_clock.yaml
+  tickModel: tick_model.yaml
+  systemRegistry: system_registry.yaml
+  dependencies: dependencies.yaml
+  executionOrder: execution_order.yaml
+  tickRecords: tick_records.yaml
+  systemExecution: system_execution.yaml
+  failurePolicy: failure_policy.yaml
+  catchUp: catch_up.yaml
+  scheduledJobs: scheduled_jobs.yaml
+  playerCommands: player_commands.yaml
+  runtimeEvents: runtime_events.yaml
+  domainEvents: domain_events.yaml
+  eventConsumers: event_consumers.yaml
+  eventOrdering: event_ordering.yaml
+  economyRuntime: economy_runtime.yaml
+  workRuntime: work_runtime.yaml
+  propertyRuntime: property_runtime.yaml
+  mobilityRuntime: mobility_runtime.yaml
+  taskRuntime: task_runtime.yaml
+  progressionRuntime: progression_runtime.yaml
+  notificationRuntime: notification_runtime.yaml
+  npcRuntime: npc_runtime.yaml
+  municipalityRuntime: municipality_runtime.yaml
+  politicalRuntime: political_runtime.yaml
+  criminalRuntime: criminal_runtime.yaml
+  businessRuntime: business_runtime.yaml
+  familyRuntime: family_runtime.yaml
+  socialRuntime: social_runtime.yaml
+  rankingRuntime: ranking_runtime.yaml
+  gazzettaRuntime: gazzetta_runtime.yaml
+  contentRuntime: content_runtime.yaml
+  adminContentPublish: admin_content_publish.yaml
+  visualContent: visual_content.yaml
+  historicalData: historical_data.yaml
+  snapshots: snapshots.yaml
+  consistency: consistency.yaml
+  reconciliation: reconciliation.yaml
+  locks: locks.yaml
+  scaling: scaling.yaml
+  queues: queues.yaml
+  retries: retries.yaml
+  deadLetter: dead_letter.yaml
+  observability: observability.yaml
+  determinism: determinism.yaml
+  randomness: randomness.yaml
+  maintenance: maintenance.yaml
+  degradedMode: degraded_mode.yaml
+  emergencyStop: emergency_stop.yaml
+  realtime: realtime.yaml
+  security: security.yaml
+  featureFlags: feature_flags.yaml
+  gameVersions: game_versions.yaml
+  simulationSpeed: simulation_speed.yaml
+  testClock: test_clock.yaml
+  testing: testing.yaml
+  loadTesting: load_testing.yaml
+  simulationTesting: simulation_testing.yaml
+  balanceFeedback: balance_feedback.yaml
+  antiGrind: anti_grind.yaml
+  contentAuthoring: content_authoring.yaml
+  contentSafety: content_safety.yaml
+  contentRollback: content_rollback.yaml
+  gameHistory: game_history.yaml
+  citizenJournal: citizen_journal.yaml
+  crossDomainFlows: cross_domain_flows.yaml
+  recovery: recovery.yaml
+  consistencyModels: consistency_models.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  timeSystem: [game_clock, time_advancement, calendar]
+  runtimeOrchestrator: [scheduling, coordination, execution, dependencies, retries, recovery]
+  domainSystems: [business_rules, state_transitions, calculations, domain_events]
+  eventBus: [event_delivery]
+  backgroundWorkers: [async_processing]
+  contentSystem: [definitions, published_content]
+  adminContentStudio: [authoring, validation, preview, approval, publish]
+  frontend: [presentation, interaction, popup, sound, navigation]
+
+alignsWith:
+  note: |
+    Formalizza game runtime coerente con time_main_v1, backend_architecture_v1,
+    data_architecture_v1, npc_main_v1. NON modifica pack approvati. NON implementa runtime.

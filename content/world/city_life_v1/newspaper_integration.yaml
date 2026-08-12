@@ -1,0 +1,24 @@
+# =============================================================================
+# NEWSPAPER INTEGRATION — Gazzetta editorial workflow
+# =============================================================================
+
+NewspaperIntegration:
+  topics:
+    items:
+      - business_openings
+      - elections
+      - crimes
+      - scandals
+      - social_events
+      - economic_changes
+  npcNews: NPC speciali protagonisti editorial stories
+  playerNews:
+    rule: Player in Gazzetta solo per privacy, editorial rules, event rules
+  playerConsent:
+    status: policy TBD — player control editorial public info
+  rule: Domain Event -> editorial candidate — NON auto publication
+  ref: content_system_v1, newspaper_v1
+
+events:
+  items:
+    - CityLifeNewsCandidateCreated

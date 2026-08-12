@@ -1,0 +1,24 @@
+# =============================================================================
+# IMPORT — YAML/JSON import with validation
+# =============================================================================
+
+Import:
+  formats:
+    items:
+      - YAML
+      - JSON
+  workflow:
+    items:
+      - parse
+      - schema
+      - references
+      - preview
+      - approve
+      - publish
+  yamlPacks:
+    rule: existing YAML content packs must remain importable
+  ref: content pack compatibility
+
+events:
+  items:
+    - ContentImported

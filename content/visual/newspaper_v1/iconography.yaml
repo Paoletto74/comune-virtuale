@@ -1,0 +1,18 @@
+# =============================================================================
+# ICONOGRAPHY — simple, editorial-inspired
+# =============================================================================
+
+Iconography:
+  rules:
+    items:
+      - semplici
+      - leggibili
+      - coerenti
+      - eventualmente_ispirate_simboli_editoriali
+  mustNot: emoji come sistema principale iconografia
+
+ref: ui_main_v1
+
+events:
+  items:
+    - IconRendered

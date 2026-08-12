@@ -1,0 +1,28 @@
+# =============================================================================
+# PROFILE CONTRACTS — UpdateProfile, visibility, personalization
+# =============================================================================
+
+ProfileContract:
+  UpdateProfile:
+    validation: Profile validation + visibility policy
+    emits: ProfileUpdated
+    fields:
+      examples:
+        items:
+          - name
+          - gender_or_sex_per_policy
+          - age
+          - birthday
+          - favourite_food
+          - hobby
+          - funny_fact
+          - phrase
+    rule: |
+      Personalization fields NON automatically gameplay statistics.
+      Every field may have PUBLIC/PRIVATE/DISCOVERABLE — backend enforces.
+
+ref: profile_main_v1/visibility.yaml
+
+events:
+  items:
+    - ProfileContractExecuted

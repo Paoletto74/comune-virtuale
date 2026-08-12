@@ -1,0 +1,20 @@
+# =============================================================================
+# TESTING — content system testing strategy
+# =============================================================================
+
+Testing:
+  areas:
+    items:
+      - schema_validation
+      - reference_validation
+      - sanitization
+      - publish_workflow
+      - permission_checks
+      - import_export
+      - locale_fallback
+      - preview_isolation
+  rule: NO runtime implementation in V1 — define test strategy only
+
+events:
+  items:
+    - ContentTestCompleted

@@ -1,0 +1,9 @@
+# =============================================================================
+# LOCALIZATION — task_extensions_v1
+# =============================================================================
+
+---
+Localization:
+  languageKey: true
+  centralizedFormatting: true
+  status: PROPOSTA TECNICA extends content-first

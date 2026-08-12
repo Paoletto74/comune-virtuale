@@ -1,0 +1,13 @@
+# =============================================================================
+# LIQUIDITY — economy_v1
+# =============================================================================
+
+---
+Liquidity:
+  formula: cash + bank funds per approved rules
+  excludes:
+  - properties
+  - vehicles
+  - items
+  - debt
+  status: DECISIONE APPROVATA

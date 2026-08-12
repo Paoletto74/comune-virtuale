@@ -1,0 +1,12 @@
+# =============================================================================
+# INTEGRATIONS PROFILE — task_extensions_v1
+# =============================================================================
+
+---
+ProfileIntegration:
+  profileShows:
+  - milestones
+  - achievements
+  - history
+  taskRemainsSOT: true
+  status: PROPOSTA TECNICA

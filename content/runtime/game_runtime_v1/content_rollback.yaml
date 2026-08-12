@@ -1,0 +1,17 @@
+# =============================================================================
+# CONTENT ROLLBACK — cache invalidation, no history deletion
+# =============================================================================
+
+ContentRollback:
+  onRollback:
+    items:
+      - cache_invalidation
+      - affected_read_models_refresh
+      - runtime_compatibility_check
+  mustNot: cancellare game history generata dal vecchio content
+
+ref: admin_content_studio_v1, backend_architecture_v1/admin_api.yaml
+
+events:
+  emits: [ContentRolledBack]
+  consumes: [AdminContentRollbackCommand]

@@ -1,0 +1,25 @@
+# =============================================================================
+# VISUAL ASSETS — Visual System integration, no hardcoded mapping
+# =============================================================================
+
+VisualAssets:
+  "DECISIONE APPROVATA": frontend consuma Visual Asset definitions
+  mustNot: "itemId to hardcoded image mapping"
+
+assetTypes:
+  items:
+    - item
+    - property
+    - vehicle
+    - avatar
+    - news
+    - showcase
+    - logo
+    - app_icon
+
+ref: visual_main_v1
+
+events:
+  items:
+    - AssetLoaded
+    - AssetLoadFailed

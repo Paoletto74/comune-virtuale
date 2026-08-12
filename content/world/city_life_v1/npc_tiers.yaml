@@ -1,0 +1,36 @@
+# =============================================================================
+# NPC TIERS — STATIC, ROLE, ACTIVE, SPECIAL
+# =============================================================================
+
+NpcTiers:
+  DECISIONE APPROVATA:
+  tiers:
+    STATIC:
+      description: presenza narrativa/visuale — es. persona in piazza
+      simulation: visual presence only
+    ROLE:
+      description: serve una funzione — es. commesso negozio
+      simulation: interaction required
+    ACTIVE:
+      description: partecipa simulazione
+      has:
+        items:
+          - schedule
+          - location
+          - job
+          - relationships
+          - state
+    SPECIAL:
+      description: personaggio importante
+      has:
+        items:
+          - nome
+          - storia
+          - visual
+          - dialoghi
+          - eventi
+          - ruolo_speciale
+
+events:
+  items:
+    - NpcTierResolved

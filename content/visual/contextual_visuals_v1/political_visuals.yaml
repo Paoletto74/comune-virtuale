@@ -1,0 +1,20 @@
+# =============================================================================
+# POLITICAL VISUALS — civic, election, municipality
+# =============================================================================
+
+PoliticalVisuals:
+  family:
+    items:
+      - civic
+      - municipality
+      - election
+      - ballot
+      - campaign
+  events:
+    ElectionEvent: political.election.campaign
+    MayorElected: political.mayor.victory
+    ReferendumResult: political.referendum.result
+
+events:
+  items:
+    - PoliticalVisualResolved

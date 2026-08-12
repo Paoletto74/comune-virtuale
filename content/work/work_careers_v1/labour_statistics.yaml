@@ -1,0 +1,9 @@
+# =============================================================================
+# LABOUR STATISTICS — work_careers_v1
+# =============================================================================
+
+---
+LabourStatistics:
+  derived: true
+  notFrontendModifiable: true
+  status: DECISIONE APPROVATA

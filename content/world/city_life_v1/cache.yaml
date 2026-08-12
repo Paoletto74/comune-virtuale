@@ -1,0 +1,16 @@
+# =============================================================================
+# CACHE — public metadata cacheable
+# =============================================================================
+
+Cache:
+  cacheable:
+    items:
+      - public_business
+      - public_NPC_metadata
+      - public_organization_metadata
+  dynamicState: invalidated on status, membership, events
+  ref: offline.yaml
+
+events:
+  items:
+    - CityLifeCacheInvalidated

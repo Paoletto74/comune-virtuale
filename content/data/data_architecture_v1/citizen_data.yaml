@@ -1,0 +1,27 @@
+# =============================================================================
+# CITIZEN DATA
+# =============================================================================
+
+CitizenData:
+  sourceOfTruth: Citizen/GameState
+  schema:
+    citizenId: string
+    accountId: string
+    name: string
+    gender: TBD
+    age: TBD
+    birthday: "date | null"
+    profileFacts: []
+    creationDate: timestamp
+    gameStateRefs: object
+
+playerVsNpc:
+  DECISIONE APPROVATA: separare PLAYER CITIZEN da SIMULATED CITIZEN
+  rule: NON creare 10.000 account reali se non necessario
+
+ref: profile_main_v1/identity.yaml
+
+events:
+  items:
+    - CitizenDataCreated
+    - CitizenDataUpdated

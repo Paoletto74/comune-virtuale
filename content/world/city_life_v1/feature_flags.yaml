@@ -1,0 +1,16 @@
+# =============================================================================
+# FEATURE FLAGS — experimental NPC/business/org
+# =============================================================================
+
+FeatureFlags:
+  applies:
+    items:
+      - new_NPC
+      - new_business
+      - new_organizations
+  experimental:
+    status: DRAFT / EXPERIMENTAL — non visibili player normali
+
+events:
+  items:
+    - CityLifeFeatureFlagApplied

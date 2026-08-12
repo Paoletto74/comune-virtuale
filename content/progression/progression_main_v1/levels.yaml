@@ -1,0 +1,1135 @@
+# =============================================================================
+# LEVEL CATALOG — 30 livelli progression_main_v1
+# =============================================================================
+# DECISIONE APPROVATA: nomi livello approvati; requisiti numerici = TBD
+# DECISIONE APPROVATA: wealth non è track; valori economici cross-cutting
+# =============================================================================
+
+# --- Template requirement groups (PROPOSTA TECNICA — riutilizzabili dal motore) ---
+# Il motore risolve placeholderKey → valore da config bilanciamento futuro
+
+requirementTemplates:
+
+  path_professional_base: &path_professional_base
+    mode: all
+    label: PATH_A — Professionale
+    requirements:
+      - { type: personalValue, field: istruzione, op: gte, value: TBD, placeholderKey: REQ_ISTRUZIONE_MIN }
+      - { type: personalValue, field: esperienza, op: gte, value: TBD, placeholderKey: REQ_ESPERIENZA_MIN }
+      - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: REQ_TRACK_PROFESSIONAL_MIN }
+      - { type: personalValue, field: reputazione, op: gte, value: TBD, placeholderKey: REQ_REPUTAZIONE_MIN }
+
+  path_entrepreneurial_base: &path_entrepreneurial_base
+    mode: all
+    label: PATH_B — Imprenditoriale + posizione economica
+    requirements:
+      - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: REQ_TRACK_ENTREPRENEURIAL_MIN }
+      - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_NET_WORTH_MIN }
+      - { type: economic_position, op: gte, value: TBD, placeholderKey: REQ_ECONOMIC_POSITION_MIN }
+
+  path_political_base: &path_political_base
+    mode: all
+    label: PATH_C — Politico
+    requirements:
+      - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_TRACK_POLITICAL_MIN }
+      - { type: personalValue, field: influenzaPolitica, op: gte, value: TBD, placeholderKey: REQ_INFLUENZA_MIN }
+      - { type: personalValue, field: partecipazioneCivica, op: gte, value: TBD, placeholderKey: REQ_CIVICA_MIN }
+
+  path_criminal_base: &path_criminal_base
+    mode: all
+    label: PATH_D — Criminale + posizione economica
+    requirements:
+      - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_TRACK_CRIMINAL_MIN }
+      - { type: economic_position, op: gte, value: TBD, placeholderKey: REQ_ECONOMIC_POSITION_CRIMINAL_MIN }
+      - { type: personalValue, field: esperienza, op: gte, value: TBD, placeholderKey: REQ_ESPERIENZA_CRIMINAL_MIN }
+
+  path_survival_base: &path_survival_base
+    mode: all
+    label: PATH_SURVIVAL — Sopravvivenza iniziale
+    requirements:
+      - { type: personalValue, field: stress, op: lt, value: TBD, placeholderKey: REQ_STRESS_MAX_EARLY }
+      - { type: milestone, field: first_job, op: exists, value: null, optional: true }
+
+  path_housing_base: &path_housing_base
+    mode: any
+    label: PATH_HOUSING — Stabilità abitativa
+    requirements:
+      - { type: milestone, field: first_home, op: exists, value: null }
+      - { type: asset_type, field: housing, op: exists, value: null, note: DA_DEFINIRE }
+
+  four_path_or: &four_path_or
+    mode: any
+    groups:
+      - *path_professional_base
+      - *path_entrepreneurial_base
+      - *path_political_base
+      - *path_criminal_base
+
+levels:
+
+  # ===========================================================================
+  # EARLY — L01–L07
+  # ===========================================================================
+
+  - levelId: main_L01
+    level: 1
+    defaultLabel: SENZATETTO
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Il giocatore parte dal punto più basso della scalata. Ha pochissime risorse,
+      poche possibilità e deve affrontare le necessità fondamentali della vita.
+    tags: [starting, survival, onboarding, ironic]
+    requirements:
+      mode: all
+      note: Livello iniziale — assegnato alla creazione del cittadino
+      requirements: []
+    alternativePaths:
+      - note: Nessuna alternativa; stato di partenza obbligatorio
+    relevantTracks: []
+    unlockCategories:
+      - tasks_survival
+      - interactions_basic
+      - economy_minimal
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L01_teaser
+      ironicTone: true
+    notes: DECISIONE APPROVATA — defaultStartLevel
+
+  - levelId: main_L02
+    level: 2
+    defaultLabel: SOPRAVVISSUTO
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Il cittadino ha superato la fase più critica. Non prospera, ma sopravvive.
+      Inizia ad avere scelte minime e prime interazioni con l'economia del comune.
+    tags: [survival, early, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: Attività minima
+          requirements:
+            - { type: personalValue, field: felicità, op: gte, value: TBD, placeholderKey: REQ_L02_FELICITA_MIN }
+            - { type: cash, op: gte, value: TBD, placeholderKey: REQ_L02_CASH_MIN }
+        - mode: all
+          label: Primo impiego o equivalente
+          requirements:
+            - { type: milestone, field: first_job, op: exists, value: null, optional: true }
+            - { type: personalValue, field: esperienza, op: gte, value: TBD, placeholderKey: REQ_L02_ESPERIENZA_MIN }
+    alternativePaths:
+      - { pathHint: survival_active, description: Sopravvivere con attività minime }
+      - { pathHint: first_income, description: Ottenere prima entrata economica }
+    relevantTracks: []
+    unlockCategories:
+      - tasks_survival_expanded
+      - jobs_unstable_entry
+      - economy_basic_spending
+      - notifications_personal_economic
+    branchNodes: []
+    milestoneContributors: [first_job]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L02_teaser
+      ironicTone: true
+
+  - levelId: main_L03
+    level: 3
+    defaultLabel: LAVORATORE
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Il cittadino entra nel mondo del lavoro. Non è ancora stabile, ma ha un
+      ruolo nella società. Inizia la scalata attraverso il lavoro o equivalenti.
+    tags: [work, early, professional_entry, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH — Lavoro formale
+          requirements:
+            - { type: milestone, field: first_job, op: exists, value: null }
+            - { type: job_tier, op: gte, value: TBD, placeholderKey: REQ_L03_JOB_TIER_MIN }
+        - mode: all
+          label: PATH — Attività equivalente (incluso criminale minore)
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L03_CRIMINAL_ENTRY_MIN }
+            - { type: cash, op: gte, value: TBD, placeholderKey: REQ_L03_CASH_ALT_MIN }
+    alternativePaths:
+      - { pathHint: professional, track: professional, description: Primo lavoro stabile }
+      - { pathHint: criminal_entry, track: criminal, description: Entrate da attività illegali minori }
+    relevantTracks: [professional, criminal]
+    unlockCategories:
+      - jobs_basic
+      - tasks_work
+      - interactions_economic_basic
+      - civic_participation_minimal
+    branchNodes: []
+    milestoneContributors: [first_job]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L03_teaser
+      ironicTone: true
+
+  - levelId: main_L04
+    level: 4
+    defaultLabel: CON UN TETTO
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Il cittadino ha ottenuto una forma di stabilità abitativa. Ironia: "finalmente
+      un tetto". Non è ricchezza, ma un passo verso la normalità percepita.
+    tags: [housing, early, stability, ironic]
+    requirements:
+      <<: *path_housing_base
+    alternativePaths:
+      - { pathHint: housing_rent, description: Affitto o uso stabile }
+      - { pathHint: housing_own, description: Prima proprietà (milestone first_property opzionale) }
+      - { pathHint: criminal_housing, description: Soluzione abitativa alternativa — DA_DEFINIRE }
+    relevantTracks: [professional]
+    unlockCategories:
+      - housing_rent_buy_entry
+      - tasks_domestic
+      - expenses_recurring_rent
+      - assets_consumption_basic
+    branchNodes: []
+    milestoneContributors: [first_home, first_property]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L04_teaser
+      ironicTone: true
+
+  - levelId: main_L05
+    level: 5
+    defaultLabel: QUASI NORMALE
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Il giocatore ha raggiunto una prima forma di stabilità e inizia a poter
+      scegliere quale direzione dare alla propria vita. Nodo di ramificazione principale.
+    tags: [branching, early, pivotal, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { type: main_level, op: gte, value: 4, placeholderKey: TBD }
+            - { type: personalValue, field: felicità, op: gte, value: TBD, placeholderKey: REQ_L05_FELICITA_MIN }
+            - { type: personalValue, field: stress, op: lt, value: TBD, placeholderKey: REQ_L05_STRESS_MAX }
+        - mode: all
+          requirements:
+            - { type: milestone, field: first_home, op: exists, value: null }
+            - { type: personalValue, field: partecipazioneCivica, op: gte, value: TBD, placeholderKey: REQ_L05_CIVICA_MIN }
+    alternativePaths:
+      - { pathHint: professional, track: professional }
+      - { pathHint: entrepreneurial, track: entrepreneurial }
+      - { pathHint: political, track: political }
+      - { pathHint: criminal, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - branch_nodes_all_tracks
+      - jobs_expanded
+      - tasks_expanded
+      - criminality_entry
+      - civic_participation
+      - social_interactions_expanded
+    branchNodes:
+      - branch_L05_professional
+      - branch_L05_entrepreneurial
+      - branch_L05_political
+      - branch_L05_criminal
+    milestoneContributors: [first_job, first_home]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L05_teaser
+      ironicTone: true
+      branchHighlight: true
+
+  - levelId: main_L06
+    level: 6
+    defaultLabel: IMPIEGATO
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Integrazione nel sistema sociale ed economico. Il cittadino "esiste" agli
+      occhi della burocrazia e paga qualcosa. Tono ironico sull'impiegato modello.
+    tags: [work, bureaucracy, early, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH — Impiego formale
+          requirements:
+            - { type: job_tier, op: gte, value: TBD, placeholderKey: REQ_L06_JOB_TIER_MIN }
+            - { type: recurring_income, op: gte, value: TBD, placeholderKey: REQ_L06_INCOME_MIN }
+        - mode: all
+          label: PATH — Equivalente track
+          requirements:
+            - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: REQ_L06_TRACK_PRO_MIN }
+        - mode: all
+          label: PATH — Alternativa criminale/economica
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L06_TRACK_CRIM_MIN }
+            - { type: cash, op: gte, value: TBD, placeholderKey: REQ_L06_CASH_CRIM_MIN }
+    alternativePaths:
+      - { pathHint: formal_employment, track: professional }
+      - { pathHint: criminal_income, track: criminal }
+    relevantTracks: [professional, political, criminal]
+    unlockCategories:
+      - jobs_tier2_entry
+      - taxes_basic
+      - tasks_bureaucratic
+      - civic_participation
+    branchNodes: []
+    milestoneContributors: [first_job]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L06_teaser
+      ironicTone: true
+
+  - levelId: main_L07
+    level: 7
+    defaultLabel: CONTRIBUENTE
+    narrativeTier: EARLY
+    narrativeFunction: >
+      Fine dell'early game. Il cittadino contribuisce all'economia del comune
+      (tasse, consumo, lavoro). Ironia fiscale. Si apre il mid game.
+    tags: [taxes, early_cap, mid_gate, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { type: personalValue, field: reputazione, op: gte, value: TBD, placeholderKey: REQ_L07_REPUTAZIONE_MIN }
+            - { type: recurring_income, op: gte, value: TBD, placeholderKey: REQ_L07_INCOME_MIN }
+        - mode: all
+          requirements:
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L07_NET_WORTH_MIN }
+        - mode: all
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L07_TRACK_CRIM_MIN }
+    alternativePaths:
+      - { pathHint: professional, track: professional }
+      - { pathHint: economic_cross, note: net_worth / economic_position }
+      - { pathHint: criminal, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - taxation_full
+      - investments_mini
+      - levers_sector_basic
+      - criminality_mid_risk
+      - political_entry_depth
+    branchNodes: []
+    milestoneContributors: [first_major_investment]
+    titleCandidates: []
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L07_teaser
+      ironicTone: true
+
+  # ===========================================================================
+  # MID — L08–L19
+  # ===========================================================================
+
+  - levelId: main_L08
+    level: 8
+    defaultLabel: PROFESSIONISTA
+    narrativeTier: MID
+    narrativeFunction: >
+      Competenza riconosciuta in un settore. Non più semplice impiegato: il cittadino
+      ha un'identità professionale, anche se il titolo può essere contestuale.
+    tags: [professional, mid, qualified]
+    requirements:
+      mode: any
+      groups:
+        - *path_professional_base
+        - mode: all
+          label: PATH_ALT — Imprenditoria equivalente
+          requirements:
+            - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: REQ_L08_TRACK_ENT_MIN }
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L08_NET_WORTH_ALT }
+        - mode: all
+          label: PATH_ALT — Criminale specializzato
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L08_TRACK_CRIM_MIN }
+            - { type: economic_position, op: gte, value: TBD, placeholderKey: REQ_L08_ECON_CRIM_MIN }
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, criminal]
+    unlockCategories:
+      - jobs_qualified
+      - tasks_specialist
+      - levers_quality_operative
+      - professions_tier1
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: [title_professional_L08]
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L08_teaser
+
+  - levelId: main_L09
+    level: 9
+    defaultLabel: AFFERMATO
+    narrativeTier: MID
+    narrativeFunction: >
+      Stabilità sociale intermedia. Il cittadino è "affermato" — termine volutamente
+      generico per accogliere percorsi diversi.
+    tags: [mid, stability, generic]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - assets_mid_tier
+      - tasks_influence_local
+      - relationships_business
+      - social_interactions_mid
+    branchNodes: []
+    milestoneContributors: [first_property]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L09_teaser
+
+  - levelId: main_L10
+    level: 10
+    defaultLabel: MANAGER
+    narrativeTier: MID
+    narrativeFunction: >
+      Responsabilità su altri. Gate managerial. Il nome evoca corporate world ma
+      il livello resta raggiungibile via percorsi non corporate.
+    tags: [mid, management, pivotal]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH_A — Manageriale professionale
+          requirements:
+            - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: REQ_L10_TRACK_PRO_MIN }
+            - { type: role_tier, field: management, op: gte, value: TBD, placeholderKey: REQ_L10_ROLE_MGMT, note: DA_DEFINIRE }
+        - mode: all
+          label: PATH_B — Imprenditore con team
+          requirements:
+            - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: REQ_L10_TRACK_ENT_MIN }
+            - { type: milestone, field: first_company, op: exists, value: null, optional: true }
+        - mode: all
+          label: PATH_C — Politico organizzatore
+          requirements:
+            - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_L10_TRACK_POL_MIN }
+        - mode: all
+          label: PATH_D — Criminale organizzato
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L10_TRACK_CRIM_MIN }
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - jobs_management
+      - levers_team_management
+      - companies_small
+      - tasks_strategic
+      - criminality_organized_entry
+    branchNodes: [branch_L10_management]
+    milestoneContributors: [first_company]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L10_teaser
+
+  - levelId: main_L11
+    level: 11
+    defaultLabel: DIRIGENTE
+    narrativeTier: MID
+    narrativeFunction: >
+      Vertice organizzativo. Alta responsabilità senza necessariamente possedere
+      l'impresa. Politico o criminale possono equivalere con track alti.
+    tags: [mid, executive]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - jobs_executive
+      - levers_high_sector_impact
+      - tasks_executive
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L11_teaser
+
+  - levelId: main_L12
+    level: 12
+    defaultLabel: BENESTANTE
+    narrativeTier: MID
+    narrativeFunction: >
+      Ironia classe media-alta. Comfort economico percepito. NON equivale a "ricco"
+      (quello arriva a L16) — attenzione interpretazione.
+    tags: [mid, economic, ironic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH — Posizione economica
+          requirements:
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L12_NET_WORTH_MIN }
+            - { type: recurring_income, op: gte, value: TBD, placeholderKey: REQ_L12_INCOME_MIN }
+        - mode: all
+          label: PATH — Politico influente non ricco
+          requirements:
+            - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_L12_TRACK_POL_MIN }
+            - { type: personalValue, field: influenzaPolitica, op: gte, value: TBD, placeholderKey: REQ_L12_INFLUENZA_MIN }
+        - mode: all
+          label: PATH — Professionista top
+          requirements:
+            - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: REQ_L12_TRACK_PRO_MIN }
+            - { type: personalValue, field: reputazione, op: gte, value: TBD, placeholderKey: REQ_L12_REPUTAZIONE_MIN }
+        - mode: all
+          label: PATH — Criminale benestante
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L12_TRACK_CRIM_MIN }
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L12_NET_WORTH_CRIM_MIN }
+    alternativePaths:
+      - { pathHint: economic_cross, note: net_worth + income }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - properties_mid_high
+      - luxury_entry
+      - investments_expanded
+    branchNodes: []
+    milestoneContributors: [first_property, first_million]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L12_teaser
+      ironicTone: true
+
+  - levelId: main_L13
+    level: 13
+    defaultLabel: INVESTITORE
+    narrativeTier: MID
+    narrativeFunction: >
+      Il capitale lavora per il cittadino. Focus su investimenti e reddito passivo.
+      Ricchezza come condizione cross-cutting, non track.
+    tags: [mid, investment, economic]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          requirements:
+            - { type: milestone, field: first_major_investment, op: exists, value: null }
+            - { type: recurring_income, field: passive, op: gte, value: TBD, placeholderKey: REQ_L13_PASSIVE_INCOME_MIN }
+            - { type: asset_value, op: gte, value: TBD, placeholderKey: REQ_L13_ASSET_VALUE_MIN }
+        - *path_entrepreneurial_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: investment, note: passive income + assets }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [entrepreneurial, criminal, professional]
+    unlockCategories:
+      - investments_markets
+      - levers_portfolio
+      - tasks_financial
+      - passive_income_systems
+    branchNodes: []
+    milestoneContributors: [first_major_investment, first_million]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L13_teaser
+
+  - levelId: main_L14
+    level: 14
+    defaultLabel: IMPRENDITORE
+    narrativeTier: MID
+    narrativeFunction: >
+      Creatore di attività economiche. Gate per aziende e gestione imprenditoriale.
+      Nome orientato all'imprenditoria ma raggiungibile con PATH alternativi.
+    tags: [mid, entrepreneurial, company_gate]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH_B — Imprenditore
+          requirements:
+            - { type: milestone, field: first_company, op: exists, value: null }
+            - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: REQ_L14_TRACK_ENT_MIN }
+        - *path_professional_base
+        - *path_political_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [entrepreneurial, professional, political, criminal]
+    unlockCategories:
+      - company_creation
+      - company_management
+      - economic_opportunities_expanded
+      - levers_business
+      - hiring_basic
+    branchNodes: [branch_L14_company_creation]
+    milestoneContributors: [first_company]
+    titleCandidates: [title_entrepreneurial_L14]
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L14_teaser
+
+  - levelId: main_L15
+    level: 15
+    defaultLabel: IMPRENDITORE DI SUCCESSO
+    narrativeTier: MID
+    narrativeFunction: >
+      Validazione imprenditoriale con ironia sul "successo". Mid game alto.
+      Criminale con business front può convergere qui via PATH_D + economic_position.
+    tags: [mid, entrepreneurial, mid_cap, ironic]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - companies_multi
+      - levers_scaling
+      - market_regional
+      - tasks_high_value
+    branchNodes: []
+    milestoneContributors: [first_company, first_million]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L15_teaser
+      ironicTone: true
+
+  - levelId: main_L16
+    level: 16
+    defaultLabel: RICCO
+    narrativeTier: MID
+    narrativeFunction: >
+      Ironia: "ricco" compare a L16, non a L30. La ricchezza è condizione economica
+      cross-cutting; politico influente può passare via PATH_C senza patrimonio enorme.
+    tags: [mid, economic, ironic, wealth_milestone]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH — Ricchezza (cross-cutting)
+          requirements:
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L16_NET_WORTH_MIN }
+            - { type: economic_position, op: gte, value: TBD, placeholderKey: REQ_L16_ECON_POSITION_MIN }
+        - *path_political_base
+        - *path_professional_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: economic_cross, note: net_worth — NON track wealth }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [entrepreneurial, political, criminal, professional]
+    unlockCategories:
+      - luxury_high
+      - properties_premium
+      - levers_economic_powerful
+      - assets_prestige
+    branchNodes: []
+    milestoneContributors: [first_million]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L16_teaser
+      ironicTone: true
+      warningNote: levelLabel "RICCO" ≠ identità obbligatoria; title override possibile
+
+  - levelId: main_L17
+    level: 17
+    defaultLabel: POTENTE
+    narrativeTier: MID
+    narrativeFunction: >
+      Potere in senso ampio: economico, sociale, criminale o politico. Termine
+      volutamente ambiguo; title engine disambigua.
+    tags: [mid, power, generic]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - levers_high_impact
+      - influence_local_strong
+      - tasks_macro_consequences
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L17_teaser
+
+  - levelId: main_L18
+    level: 18
+    defaultLabel: MAGNATE
+    narrativeTier: MID
+    narrativeFunction: >
+      Dominanza economica mid-late. Distinto da L28 "MAGNATE DI RILIEVO" (legendary).
+      Imprenditore/criminale convergono spesso; politico via PATH_C.
+    tags: [mid, economic, magnate]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+    relevantTracks: [entrepreneurial, criminal, political, professional]
+    unlockCategories:
+      - companies_empire_entry
+      - market_levers
+      - multi_asset_management
+    branchNodes: []
+    milestoneContributors: [first_million, first_company]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L18_teaser
+
+  - levelId: main_L19
+    level: 19
+    defaultLabel: INFLUENTE
+    narrativeTier: MID
+    narrativeFunction: >
+      Peso sociale e politico. Non necessariamente ricco. Core level per politici
+      pre-late game. Cap del tier MID verso LATE.
+    tags: [mid, influence, political, mid_late_gate]
+    requirements:
+      mode: any
+      groups:
+        - *path_political_base
+        - *path_professional_base
+        - *path_entrepreneurial_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [political, professional, entrepreneurial, criminal]
+    unlockCategories:
+      - networks_influence
+      - voting_weight_increased
+      - political_tasks
+      - levers_soft_power
+    branchNodes: []
+    milestoneContributors: [first_political_office, first_election]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L19_teaser
+
+  # ===========================================================================
+  # LATE — L20–L27
+  # ===========================================================================
+
+  - levelId: main_L20
+    level: 20
+    defaultLabel: FIGURA DI RILIEVO
+    narrativeTier: LATE
+    narrativeFunction: >
+      Il cittadino ha raggiunto una posizione importante nella società. Da questo
+      punto le differenze tra i percorsi personali diventano particolarmente evidenti.
+      Esempio canonico: stesso livello, vite opposte (PROMPT 6).
+    tags: [late, pivotal, canonical_example]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional, example: Giocatore professionista di riferimento }
+      - { pathHint: PATH_B, track: entrepreneurial, example: Giocatore magnate }
+      - { pathHint: PATH_C, track: political, example: Giocatore politico di rilievo }
+      - { pathHint: PATH_D, track: criminal, example: Giocatore criminale influente (PRIVATE) }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - content_advanced
+      - levers_high_impact
+      - events_complex
+      - tasks_late_game_entry
+      - roles_elite_entry
+    branchNodes: []
+    milestoneContributors: [first_million, first_political_office, first_company]
+    titleCandidates:
+      - title_professional_L20
+      - title_entrepreneurial_L20
+      - title_political_L20
+      - title_criminal_L20
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L20_teaser
+      pathDifferentiationHighlight: true
+
+  - levelId: main_L21
+    level: 21
+    defaultLabel: POLITICO
+    narrativeTier: LATE
+    narrativeFunction: >
+      Identità politica consolidata. NON implica sindaco. Imprenditore/magnate può
+      avere title override "Magnate" pur passando per label "POLITICO".
+    tags: [late, political]
+    requirements:
+      mode: any
+      groups:
+        - *path_political_base
+        - *path_entrepreneurial_base
+        - *path_professional_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [political, entrepreneurial, professional, criminal]
+    unlockCategories:
+      - candidacies
+      - levers_political_high
+      - referendums_participation
+      - political_roles
+    branchNodes: [branch_L21_political_consolidated]
+    milestoneContributors: [first_election, first_political_office]
+    titleCandidates: [title_political_L21]
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L21_teaser
+
+  - levelId: main_L22
+    level: 22
+    defaultLabel: POLITICO DI PESO
+    narrativeTier: LATE
+    narrativeFunction: >
+      Influenza istituzionale. Kingmaker. Criminale con track alto può raggiungere
+      main level via PATH_D; title e visibility criminal restano PRIVATE.
+    tags: [late, political, influence]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [political, professional, entrepreneurial, criminal]
+    unlockCategories:
+      - coalitions
+      - levers_policy_major
+      - tasks_national_scope
+    branchNodes: []
+    milestoneContributors: [first_election, first_political_office]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L22_teaser
+
+  - levelId: main_L23
+    level: 23
+    defaultLabel: AMMINISTRATORE
+    narrativeTier: LATE
+    narrativeFunction: >
+      Gestione pubblica. Pre-sindaco narrativo. Richiede ruolo amministrativo OR
+      track politico — ruolo ≠ levelLabel.
+    tags: [late, political, administration]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH_C — Amministrazione
+          requirements:
+            - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_L23_TRACK_POL_MIN }
+            - { type: role, field: administrative, op: exists, value: null, note: DA_DEFINIRE modulo politico }
+        - *path_entrepreneurial_base
+        - *path_professional_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [political, entrepreneurial, professional, criminal]
+    unlockCategories:
+      - administrative_roles
+      - levers_public_services
+      - public_budget
+    branchNodes: []
+    milestoneContributors: [first_political_office]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L23_teaser
+
+  - levelId: main_L24
+    level: 24
+    defaultLabel: CANDIDATO DI RILIEVO
+    narrativeTier: LATE
+    narrativeFunction: >
+      Gate elettorale. Sblocca possibilità di candidatura significativa (incluso
+      sindaco TBD). Candidato ≠ eletto ≠ sindaco.
+    tags: [late, political, election_gate]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH_C — Candidatura
+          requirements:
+            - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_L24_TRACK_POL_MIN }
+            - { type: personalValue, field: popolarità, op: gte, value: TBD, placeholderKey: REQ_L24_POPOLARITA_MIN }
+            - { type: milestone, field: first_election, op: exists, value: null, optional: true }
+        - *path_entrepreneurial_base
+        - *path_professional_base
+        - *path_criminal_base
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [political, entrepreneurial, professional, criminal]
+    unlockCategories:
+      - election_campaign
+      - propaganda_tasks
+      - levers_pre_mayor
+      - candidacy_mayor_eligibility
+    branchNodes: [branch_L24_candidacy]
+    milestoneContributors: [first_election]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L24_teaser
+      note: Sblocca eleggibilità candidatura, NON ruolo sindaco
+
+  - levelId: main_L25
+    level: 25
+    defaultLabel: SINDACO
+    narrativeTier: LATE
+    narrativeFunction: >
+      Label narrativa/ironica di livello alto nella scalata. NON concede ruolo sindaco.
+      Ruolo Sindaco = percorso politico + requisiti + candidatura + elezione (TBD).
+      UI deve mostrare LEVEL / TITLE / ROLE separati.
+    tags: [late, critical_naming, political_label, ironic]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_C, track: political, note: Non implica sindaco }
+      - { pathHint: PATH_B, track: entrepreneurial, note: Magnate L25 senza ruolo }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - late_game_content
+      - levers_great_influence
+      - mayor_tier_levers_eligibility
+      - advanced_roles_opportunities
+      - events_late_game
+    branchNodes: [branch_L25_mayor_tier_levers]
+    milestoneContributors: [first_political_office, first_election]
+    titleCandidates:
+      - title_political_L25_public
+      - title_entrepreneurial_L25
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L25_teaser
+      ironicTone: true
+      levelRoleSeparationRequired: true
+      uiWarningRef: progression/L25_not_automatic_mayor
+    notes: |
+      DECISIONE APPROVATA: main_L25 defaultLabel "SINDACO" ≠ role.mayor.
+      mayor role: modulo politico — DA_DEFINIRE.
+
+  - levelId: main_L26
+    level: 26
+    defaultLabel: FIGURA DI POTERE
+    narrativeTier: LATE
+    narrativeFunction: >
+      Potere trasversale oltre la politica locale. Sindaco L26 vs magnate L26:
+      stesso levelLabel, title e role distinti.
+    tags: [late, power]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - levers_cross_module
+      - world_level_personal_events
+      - multi_sector_influence
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L26_teaser
+
+  - levelId: main_L27
+    level: 27
+    defaultLabel: PERSONAGGIO NAZIONALE
+    narrativeTier: LATE
+    narrativeFunction: >
+      Celebrità oltre il comune — astrazione narrativa. Cap tier LATE prima di LEGENDARY.
+      Famoso per politica, impresa, professione o underground (criminal PRIVATE).
+    tags: [late, fame, late_cap]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - media_events
+      - tasks_national_narrative
+      - levers_narrative
+    branchNodes: []
+    milestoneContributors: [first_election]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L27_teaser
+
+  # ===========================================================================
+  # LEGENDARY — L28–L30
+  # ===========================================================================
+
+  - levelId: main_L28
+    level: 28
+    defaultLabel: MAGNATE DI RILIEVO
+    narrativeTier: LEGENDARY
+    narrativeFunction: >
+      Leggenda economica. Tier LEGENDARY — distinto da L18 MAGNATE (MID).
+      Difficoltà estrema; percorsi multipli OR.
+    tags: [legendary, economic, magnate]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_D, track: criminal }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_A, track: professional }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - assets_legendary
+      - mergers_acquisitions
+      - market_levers_deep
+    branchNodes: []
+    milestoneContributors: [first_million, first_company]
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L28_teaser
+
+  - levelId: main_L29
+    level: 29
+    defaultLabel: POTERE ASSOLUTO
+    narrativeTier: LEGENDARY
+    narrativeFunction: >
+      Iperbole ironica. Quasi-cap. Leve massime eleggibili; consequenze macro.
+      "Assoluto" ≠ assenza limiti meccanici sindaco/leve (TBD bilanciamento).
+    tags: [legendary, power, ironic]
+    requirements:
+      <<: *four_path_or
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional }
+      - { pathHint: PATH_B, track: entrepreneurial }
+      - { pathHint: PATH_C, track: political }
+      - { pathHint: PATH_D, track: criminal }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - levers_maximum_eligibility
+      - macro_consequences
+      - epic_tasks
+    branchNodes: []
+    milestoneContributors: []
+    titleCandidates: []
+    uiHints:
+      visibility: DISCOVERABLE
+      teaserTextRef: progression/L29_teaser
+      ironicTone: true
+
+  - levelId: main_L30
+    level: 30
+    defaultLabel: LEGGENDA
+    narrativeTier: LEGENDARY
+    narrativeFunction: >
+      Il cittadino ha raggiunto il massimo livello della progressione principale.
+      Può essere una leggenda della politica, dell'imprenditoria, della professione
+      o della criminalità. Long-term goal; deve restare raro.
+    tags: [legendary, cap, endgame, canonical_end]
+    requirements:
+      mode: any
+      groups:
+        - mode: all
+          label: PATH_A — Leggenda professionale
+          requirements:
+            - { type: track_level, field: professional, op: gte, value: TBD, placeholderKey: REQ_L30_TRACK_PRO_MIN }
+            - { type: personalValue, field: reputazione, op: gte, value: TBD, placeholderKey: REQ_L30_REPUTAZIONE_MIN }
+            - { type: milestone, field: first_job, op: exists, value: null }
+        - mode: all
+          label: PATH_B — Leggenda imprenditoriale
+          requirements:
+            - { type: track_level, field: entrepreneurial, op: gte, value: TBD, placeholderKey: REQ_L30_TRACK_ENT_MIN }
+            - { type: net_worth, op: gte, value: TBD, placeholderKey: REQ_L30_NET_WORTH_MIN }
+            - { type: milestone, field: first_company, op: exists, value: null }
+        - mode: all
+          label: PATH_C — Leggenda politica
+          requirements:
+            - { type: track_level, field: political, op: gte, value: TBD, placeholderKey: REQ_L30_TRACK_POL_MIN }
+            - { type: personalValue, field: influenzaPolitica, op: gte, value: TBD, placeholderKey: REQ_L30_INFLUENZA_MIN }
+            - { type: milestone, field: first_political_office, op: exists, value: null, optional: true }
+        - mode: all
+          label: PATH_D — Leggenda criminale
+          requirements:
+            - { type: track_level, field: criminal, op: gte, value: TBD, placeholderKey: REQ_L30_TRACK_CRIM_MIN }
+            - { type: economic_position, op: gte, value: TBD, placeholderKey: REQ_L30_ECON_CRIM_MIN }
+            - { type: milestone, field: first_crime, op: exists, value: null }
+    alternativePaths:
+      - { pathHint: PATH_A, track: professional, endgame: Leggenda del mestiere }
+      - { pathHint: PATH_B, track: entrepreneurial, endgame: Leggenda economica }
+      - { pathHint: PATH_C, track: political, endgame: Leggenda politica }
+      - { pathHint: PATH_D, track: criminal, endgame: Leggenda criminale (PRIVATE title) }
+    relevantTracks: [professional, entrepreneurial, political, criminal]
+    unlockCategories:
+      - prestige_maximum
+      - narrative_finale
+      - profile_legend_badge
+      - cosmetic_prestige
+    branchNodes: []
+    milestoneContributors: [first_million, first_election, first_company, first_crime]
+    titleCandidates: [title_legend_L30]
+    uiHints:
+      visibility: visible
+      teaserTextRef: progression/L30_teaser
+      endgameHighlight: true

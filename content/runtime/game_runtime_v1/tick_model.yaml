@@ -1,0 +1,57 @@
+# =============================================================================
+# TICK MODEL — frequency tiers, scheduling concept
+# =============================================================================
+
+RuntimeTick:
+  status: PROPOSTA TECNICA — concettuale, NON implementare scheduler
+  rule: un tick NON aggiorna necessariamente ogni sistema
+
+frequencyTiers:
+  HIGH:
+    examples: [realtime_notifications]
+  MEDIUM:
+    examples: [gameplay_state]
+  LOW:
+    examples: [rankings]
+  BATCH:
+    examples: [npc_simulation]
+
+tickScheduling:
+  perSystem:
+    items:
+      - tick_type
+      - frequency
+      - priority
+      - dependencies
+      - timeout
+      - retry
+      - idempotency
+
+eventDrivenVsTickDriven:
+  DECISIONE APPROVATA: usare entrambi — non forzare un solo modello
+  tickDriven:
+    items:
+      - time
+      - salary_schedules
+      - rent
+      - recurring_income
+      - npc_simulation
+      - scheduled_events
+  eventDriven:
+    items:
+      - purchase
+      - task_completion
+      - promotion
+      - level_up
+      - election_result
+      - major_incident
+
+timeAdvancement:
+  rule: |
+    Quando clock avanza T1->T2: determinare cosa e successo.
+    NON assumere ogni secondo reale = un tick.
+
+events:
+  items:
+    - TickScheduled
+    - TickExecuted

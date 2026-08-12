@@ -1,0 +1,21 @@
+# =============================================================================
+# SOUND ASSETS — soundAssetId, no hardcoded URLs
+# =============================================================================
+
+SoundAssets:
+  identifier: soundAssetId
+  rule: NO URL hardcoded — analogo a visualAssetId
+  layer: Audio System / Sound Asset layer — separato da Visual System
+  governance:
+    ref: governance.yaml
+    statuses:
+      items:
+        - DRAFT
+        - REVIEW
+        - APPROVED
+        - PUBLISHED
+        - DEPRECATED
+
+events:
+  items:
+    - SoundAssetLoaded

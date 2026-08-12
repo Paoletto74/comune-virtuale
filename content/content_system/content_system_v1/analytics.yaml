@@ -1,0 +1,19 @@
+# =============================================================================
+# ANALYTICS — future content metrics
+# =============================================================================
+
+Analytics:
+  status: PROPOSTA TECNICA — future
+  metrics:
+    items:
+      - views
+      - clicks
+      - CTA
+      - read_time
+      - engagement
+  distinction: content performance != game performance
+  rule: does NOT modify gameplay
+
+events:
+  items:
+    - ContentAnalyticsRecorded

@@ -1,0 +1,27 @@
+# =============================================================================
+# TASK INSTANCE EXTENSIONS — task_extensions_v1
+# =============================================================================
+
+---
+TaskInstanceExtensions:
+  note: align prompt 48 fields with approved task_main_v1 schema
+  approvedFields:
+  - taskInstanceId
+  - definitionId
+  - citizenId
+  - status
+  - createdAt
+  - expiresAt
+  - context
+  - causalChainId
+  - selectedOptionId
+  prompt48Additional:
+  - priority
+  - targets
+  - progress
+  - outcome
+  statusMapping:
+    approved: pending active completed failed expired cancelled
+    prompt48Possible: AVAILABLE OFFERED ACTIVE IN_PROGRESS etc - align TBD do not
+      override without approval
+  status: PROPOSTA TECNICA alignment only

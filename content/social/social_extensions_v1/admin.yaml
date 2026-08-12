@@ -1,0 +1,28 @@
+# =============================================================================
+# ADMIN — Content Studio
+# =============================================================================
+
+AdminSocial:
+  status: PROPOSTA TECNICA — estende integrations.yaml adminContentStudio
+
+  adminMayConfigure:
+    items:
+      - preset_message_definitions
+      - message_categories
+      - social_actions
+      - reactions
+      - cooldown_groups
+      - daily_limits
+      - privacy_policy
+      - moderation_rules
+
+  adminMustNot:
+    items:
+      - bypass_runtime_authorization_without_audit
+      - modify_relationship_state_without_reason_and_audit
+
+  auditRequired:
+    items:
+      - admin_relationship_override
+      - admin_block_override
+      - content_publish

@@ -1,0 +1,39 @@
+# =============================================================================
+# INHERITANCE — placeholder futuro
+# =============================================================================
+# NON implementare V1: testamenti, successioni, tasse ereditarie, dispute
+# =============================================================================
+
+Inheritance:
+  status: not_implemented_v1
+  futureCompatibility: true
+
+futureFeatures:
+  items:
+    - wills
+    - succession
+    - inheritance_taxes
+    - inheritance_disputes
+    - asset_transfer_on_death_npc
+  note: Solo placeholder — generational continuity via living adult children in v1
+
+generationalContinuity:
+  status: PROPOSTA_TECNICA
+  v1Mechanism: |
+    Figlio adulto diventa NPC autonomo con propria vita.
+    NON eredità automatica complessa in v1.
+  future: inheritance.yaml expansion
+
+placeholderFields:
+  items:
+    - inheritanceId
+    - deceasedCitizenId
+    - beneficiaryIds
+    - assetRefs
+    - status
+
+events:
+  future:
+    items:
+      - InheritanceTriggered
+      - InheritanceDistributed

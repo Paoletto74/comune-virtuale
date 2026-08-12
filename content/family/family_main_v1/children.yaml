@@ -1,0 +1,73 @@
+# =============================================================================
+# CHILDREN — figli e persone a carico
+# =============================================================================
+
+ChildRecord:
+  schema:
+    childId: string
+    citizenId: string
+    parentIds: []
+    familyId: string
+    ageStageRef: string
+    birthTime: timestamp
+    status: dependent | growing | adult_autonomous
+    npcCitizenId: string
+    educationLevel: TBD
+    needsProfileRef: string | null
+
+  DECISIONE APPROVATA: |
+    Figli NON semplici numeri — NPC persistenti che evolvono.
+    Iniziano come DEPENDENT NPC.
+
+ChildLifecycle:
+  stages:
+    ref: age.yaml
+  evolution:
+    items:
+      - grow
+      - develop_values
+      - receive_education
+      - generate_needs
+      - generate_events
+      - become_adult
+      - become_autonomous_npc
+  generationalContinuity:
+    status: PROPOSTA_TECNICA
+    adultChildCan:
+      items:
+        - have_job
+        - have_home
+        - have_vehicle
+        - have_relationships
+        - have_children
+        - have_problems
+        - ask_for_help
+        - own_business
+        - criminal_activity
+        - political_role
+    note: Mondo continua attraverso generazioni — eredità V1 placeholder only
+
+dependents:
+  schema:
+    dependentId: string
+    citizenId: string
+    guardianId: string
+    type: child | elderly | other
+    status: active | independent
+
+noPlayerDeath:
+  DECISIONE APPROVATA: player non muore permanentemente
+  npcEvents:
+    items:
+      - health_issues
+      - injuries
+      - aging_future
+  npcDeathRules: configurable_future — NOT player
+
+events:
+  items:
+    - ChildBorn
+    - ChildAgeChanged
+    - ChildBecameAdult
+    - ChildBecameAutonomous
+    - DependentRegistered

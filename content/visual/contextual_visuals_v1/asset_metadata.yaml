@@ -1,0 +1,28 @@
+# =============================================================================
+# ASSET METADATA — visualAssetId metadata fields
+# =============================================================================
+
+AssetMetadata:
+  fields:
+    items:
+      - visualAssetId
+      - type
+      - category
+      - subject
+      - style
+      - aspectRatio
+      - resolution
+      - version
+      - source
+      - license
+      - status
+      - focalPoint
+      - accessibility_description
+      - decorative
+  naming:
+    example: crime.arrest.scene_01
+    forbidden: img_48392
+
+events:
+  items:
+    - AssetMetadataValidated

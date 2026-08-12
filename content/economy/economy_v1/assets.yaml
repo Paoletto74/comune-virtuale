@@ -1,0 +1,16 @@
+# =============================================================================
+# ASSETS — economy_v1
+# =============================================================================
+
+---
+Assets:
+  types:
+  - cash
+  - bank balance
+  - property
+  - vehicles
+  - items
+  - business ownership
+  - future financial
+  valuation: domain systems
+  status: DECISIONE APPROVATA

@@ -1,0 +1,26 @@
+# =============================================================================
+# FUN FACTS — optional light personal info
+# =============================================================================
+
+FunFacts:
+  optional: true — NON obbligare compilazione completa
+  examples:
+    items:
+      - piatto_preferito
+      - colore_preferito
+      - hobby
+      - animale_preferito
+      - frase
+      - qualcosa_di_buffo
+      - piccola_curiosita
+  validation:
+    items:
+      - length_limit
+      - moderation
+      - no_sensitive_information
+      - visibility_policy
+  ucg: tutti i campi liberamente scrivibili = USER-GENERATED CONTENT
+
+events:
+  items:
+    - FunFactAdded

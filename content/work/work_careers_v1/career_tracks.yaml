@@ -1,0 +1,9 @@
+# =============================================================================
+# CAREER TRACKS — work_careers_v1
+# =============================================================================
+
+---
+CareerTracks:
+  example: Intern to Junior to Senior to Manager
+  configurable: true
+  status: PROPOSTA TECNICA

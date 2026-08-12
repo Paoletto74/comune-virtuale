@@ -1,0 +1,33 @@
+# =============================================================================
+# LOCATIONS — LocationId, visitable places
+# =============================================================================
+
+Locations:
+  identifier: LocationId
+  definition: luogo visitabile o utilizzabile dal Citizen
+  metadata:
+    fields:
+      items:
+        - LocationId
+        - BuildingId
+        - DistrictId
+        - type
+        - name
+        - description
+        - visualAssetId
+        - status
+        - access_policy
+  vsBuilding:
+    rule: Building puo contenere una o piu Location
+    example:
+      building: Centro Commerciale
+      locations:
+        items:
+          - negozio_A
+          - negozio_B
+          - ristorante
+          - ufficio
+
+events:
+  items:
+    - LocationLoaded

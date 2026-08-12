@@ -1,0 +1,22 @@
+# =============================================================================
+# MOTION — subtle editorial micro-interactions
+# =============================================================================
+
+Motion:
+  status: PROPOSTA TECNICA — NON implementare animazioni runtime
+  mayEvoke:
+    items:
+      - pagina
+      - stampa
+      - ticker
+      - headline
+      - news_flash
+  rule: NON animazioni pesanti — NON realistiche inutili
+  reducedMotion:
+    DECISIONE APPROVATA: disabilitare/ridurre effetti editoriali non essenziali
+
+ref: frontend_ui_v1/accessibility.yaml
+
+events:
+  items:
+    - MotionApplied

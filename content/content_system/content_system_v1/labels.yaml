@@ -1,0 +1,12 @@
+# =============================================================================
+# LABELS — system labels
+# =============================================================================
+
+SystemLabels:
+  purpose: UI labels, category labels, system strings
+  locale: required
+  ref: localization.yaml
+
+events:
+  items:
+    - LabelSaved

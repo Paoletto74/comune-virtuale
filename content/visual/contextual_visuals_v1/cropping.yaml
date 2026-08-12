@@ -1,0 +1,16 @@
+# =============================================================================
+# CROPPING — responsive crops per device
+# =============================================================================
+
+Cropping:
+  crops:
+    items:
+      - mobile
+      - tablet
+      - desktop
+  rule: soggetto principale rimane visibile
+  ref: focal_points.yaml
+
+events:
+  items:
+    - CropApplied

@@ -1,0 +1,57 @@
+# =============================================================================
+# ECONOMY MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: economia simulata dinamica, server-authoritative
+# DECISIONE APPROVATA: separata da progression; fornisce dati a progression_balance_v1
+# Valori numerici: TBD — nessun bilanciamento definitivo
+# =============================================================================
+
+catalogId: economy_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedProgressionBalance:
+  balanceId: progression_balance_v1
+  economicFieldsProvided:
+    - cash
+    - netWorth
+    - recurringIncome
+    - recurringExpenses
+    - debt
+    - economicPosition
+    - assetValue
+
+principles:
+  - Denaro ha origine, movimento, destinazione
+  - Ogni mutazione saldo via Transaction + Ledger
+  - Distinzione money_creation vs money_transfer
+  - NPC mantengono economia viva con pochi giocatori
+  - Client non autoritativo su saldi/prezzi/validità transazioni
+  - Nessuna dipendenza AI esterna a runtime
+
+includes:
+  currency: currency.yaml
+  citizen_economic_state: citizen_economic_state.yaml
+  transactions: transaction_types.yaml
+  ledger: ledger.yaml
+  assets: assets.yaml
+  market: market.yaml
+  pricing: pricing.yaml
+  inflation: inflation.yaml
+  macro_state: economic_states.yaml
+  taxes: taxes.yaml
+  lending: lending.yaml
+  gifts: gifts.yaml
+  bankruptcy: bankruptcy.yaml
+  npc_economy: npc_economy.yaml
+  events: economic_events.yaml
+  time: time_integration.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  economy_core: [currency, transactions, ledger, citizen_economic_state]
+  market_module: [market, pricing, assets]
+  macro_module: [inflation, macro_state, economic_events]
+  lending_module: [lending, gifts, bankruptcy]
+  npc_module: [npc_economy]

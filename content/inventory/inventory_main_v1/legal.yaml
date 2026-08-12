@@ -1,0 +1,40 @@
+# =============================================================================
+# LEGAL STATUS — illegal, stolen
+# =============================================================================
+
+LegalStatus:
+  schema:
+    legalStatus: legitimate | restricted | illegal
+    ownershipStatus: legitimate | stolen | disputed | unknown
+  rule: Inventory rappresenta — Criminal System gestisce rischio/detection/conseguenze
+
+IllegalItems:
+  status: PROPOSTA TECNICA
+  examples:
+    items:
+      - stolen_goods
+      - illicit_merchandise
+      - restricted_items
+  inventoryRole: metadata only — NO logica criminale in inventory
+
+StolenItems:
+  DECISIONE APPROVATA: ownershipStatus stolen/disputed/unknown
+  enables:
+    items:
+      - fencing
+      - seizure
+      - inspections
+      - consequences
+  rulesOwner: criminal_main_v1
+
+Confiscation:
+  flow: |
+    Criminal/Legal → ConfiscationEvent
+    → Inventory aggiorna ownership/status/location
+  inventoryDoesNot: decidere legalità
+
+events:
+  items:
+    - LegalStatusUpdated
+    - ConfiscationApplied
+    - StolenItemFlagged

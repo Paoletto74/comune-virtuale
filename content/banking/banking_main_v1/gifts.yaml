@@ -1,0 +1,46 @@
+# =============================================================================
+# GIFTS — transfer senza obbligo restituzione
+# =============================================================================
+
+GiftTransfer:
+  "DECISIONE APPROVATA": "allinea economy_main_v1/gifts.yaml"
+  schema:
+    giftId: string
+    fromRef: string
+    toRef: string
+    amount: TBD
+    currency: string
+    message: string | null
+    idempotencyKey: string
+  result: |
+    A -amount, B +amount. Nessun debt record.
+  transactionType: gift
+
+GiftValidation:
+  checks:
+    items:
+      - account_valid
+      - sufficient_balance
+      - available_balance
+      - no_blocking_lock
+      - restrictions_clear
+
+GiftLimits:
+  status: futuro — valori TBD
+  mayInclude:
+    items:
+      - daily_limits
+      - per_account_limits
+      - tax_limits
+      - anti_abuse_controls
+
+assetProtectionNote:
+  DECISIONE APPROVATA: |
+    Regali leciti permessi. Nascondere patrimonio — Criminal/Legal/Tax decidono.
+    Banking registra — NON giudica intento.
+
+events:
+  items:
+    - GiftSent
+    - GiftReceived
+    - GiftRejected

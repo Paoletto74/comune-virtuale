@@ -1,0 +1,19 @@
+# =============================================================================
+# PRINCIPLES — economy_v1
+# =============================================================================
+
+---
+EconomyPrinciples:
+  DECISIONE APPROVATA:
+    economySOT: true
+    noDirectBalanceMutation: true
+    economyNotMarketplace: true
+    economyNotBank: true
+    transferNotCreation: true
+    immutableCompletedTransactions: true
+    clientNotAuthoritative: true
+    noRealMoney: true
+  PROPOSTA TECNICA:
+    doubleEntry: strongly recommended
+    creditScore: future
+    bankFailure: future

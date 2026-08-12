@@ -1,0 +1,38 @@
+# =============================================================================
+# NOTIFICATION DATA — template vs instance
+# =============================================================================
+
+NotificationTemplate:
+  type: CONTENT
+  schema:
+    templateId: string
+    contentId: string
+
+NotificationInstance:
+  type: PERSISTENT
+  sourceOfTruth: Notification
+  schema:
+    notificationId: string
+    citizenId: string
+    templateId: string
+    priority: TBD
+    read: boolean
+    dismissed: boolean
+    createdAt: timestamp
+    deepLink: string
+    eventRef: string
+
+PopupQueue:
+  type: RUNTIME
+  status: PROPOSTA TECNICA
+  rule: |
+    Popup runtime derivato da notifiche/eventi.
+    NON persistire tutta la coda.
+    Persistire solo per offline catch-up, important notifications, guaranteed delivery.
+
+ref: notification_main_v1
+
+events:
+  items:
+    - NotificationCreated
+    - NotificationRead

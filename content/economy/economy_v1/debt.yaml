@@ -1,0 +1,14 @@
+# =============================================================================
+# DEBT — economy_v1
+# =============================================================================
+
+---
+Debt:
+  schema:
+    debtor: id
+    creditor: id
+    principal: integer
+    interestRules: config
+    dueDates: GameDateTime
+    status: string
+  status: DECISIONE APPROVATA

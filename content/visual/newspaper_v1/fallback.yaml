@@ -1,0 +1,19 @@
+# =============================================================================
+# FALLBACK — category-coherent placeholders
+# =============================================================================
+
+Fallback:
+  DECISIONE APPROVATA:
+  examples:
+    item: placeholder item
+    article: editorial placeholder
+    citizen: default avatar
+  rule: |
+    Asset missing -> fallback coerente — NON rompere articolo/card.
+    Gameplay continua — NON dipendere da immagine specifica.
+
+ref: visual_main_v1, frontend_ui_v1/image_fallbacks.yaml
+
+events:
+  items:
+    - FallbackShown

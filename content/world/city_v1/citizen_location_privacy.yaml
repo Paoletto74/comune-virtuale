@@ -1,0 +1,18 @@
+# =============================================================================
+# CITIZEN LOCATION PRIVACY — no realtime GPS, no private markers
+# =============================================================================
+
+CitizenLocationPrivacy:
+  DECISIONE APPROVATA:
+  noRealtimeLocation: NON posizione privata realtime senza consenso/regola
+  noGPS:
+    rule: gioco NON necessita GPS per gameplay V1 normale
+  noRealWorldPosition:
+    rule: posizione fisica reale giocatore != posizione Citizen
+  gameLocation: posizione Citizen = GAME LOCATION
+  history:
+    status: PROPOSTA TECNICA — location visit history con privacy appropriata
+
+events:
+  items:
+    - CitizenLocationPrivacyEnforced

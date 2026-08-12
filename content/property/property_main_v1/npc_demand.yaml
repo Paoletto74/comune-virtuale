@@ -1,0 +1,68 @@
+# =============================================================================
+# NPC DEMAND — domanda affitti/acquisti da NPC
+# =============================================================================
+
+NpcDemandService:
+  purpose: |
+    Mercato immobiliare funziona con pochi giocatori online.
+    Proprietari possono affittare/vendere a NPC.
+  DECISIONE APPROVATA: true
+
+rentalDemand:
+  triggers:
+    items:
+      - listing_open_no_player_tenant
+      - scheduled_market_tick
+      - vacancy_timeout
+  selectionFactors:
+    items:
+      - rent_price
+      - zoneId
+      - property_condition
+      - category
+      - market_demand_index
+      - npc_affordability
+      - npc_preferences
+      - availability
+  formula: TBD
+
+purchaseDemand:
+  triggers:
+    items:
+      - listing_open_no_player_buyer
+      - system_market_refresh
+  selectionFactors:
+    items:
+      - asking_price
+      - zoneId
+      - property_condition
+      - market_value_gap
+      - npc_wealth
+  formula: TBD
+
+npcTenant:
+  schema:
+    tenantId: string
+    npcProfileRef: string
+    contractRef: string
+    behaviorProfile: TBD
+  note: NPC tenant semplificato — non richiede player online
+
+npcBuyer:
+  schema:
+    buyerId: string
+    npcProfileRef: string
+    offerPrice: TBD
+  note: Acquisto NPC via Economy Pipeline
+
+populationScaling:
+  status: PROPOSTA_TECNICA
+  rule: Domanda NPC scala con economia/popolazione simulata
+  values: TBD
+
+events:
+  items:
+    - NpcTenantAssigned
+    - NpcTenantVacated
+    - NpcPurchaseOffer
+    - NpcPurchaseCompleted

@@ -1,0 +1,123 @@
+# =============================================================================
+# CONTEXTUAL VISUALS MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: ogni visual ha una funzione — NON decorativo quando puo spiegare
+# Semantic visual: eventType -> visualAssetId — NON URL hardcoded
+# V1: proposta architetturale — NO image generation, NO upload runtime, NO CDN
+# Integra con visual_main_v1, sound_design_v1, content_system_v1 — NON li modifica
+# =============================================================================
+
+catalogId: contextual_visuals_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  visual: visual_main_v1
+  newspaper: newspaper_v1
+  frontend: frontend_ui_v1
+  contentSystem: content_system_v1
+  soundDesign: sound_design_v1
+  notification: notification_main_v1
+  event: event_main_v1
+  profile: profile_main_v1
+  marketplace: marketplace_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  contracts: contracts_v1
+
+principles:
+  - ogni visual ha una funzione
+  - visualAssetId — NO URL hardcoded — Visual System source of truth
+  - semantic visual — eventType not file path
+  - visual hierarchy — specific event -> entity -> category -> generic -> placeholder
+  - visual + sound same event family
+  - popup HIGH/CRITICAL support image, illustration, scene, character
+  - fallback — NEVER broken image or empty space
+
+includes:
+  principles: principles.yaml
+  contextualVisuals: contextual_visuals.yaml
+  popupVisuals: popup_visuals.yaml
+  eventVisuals: event_visuals.yaml
+  assetTypes: asset_types.yaml
+  assetMetadata: asset_metadata.yaml
+  assetTaxonomy: asset_taxonomy.yaml
+  assetTags: asset_tags.yaml
+  assetRelationships: asset_relationships.yaml
+  eventMapping: event_mapping.yaml
+  semanticVisual: semantic_visual.yaml
+  visualManifest: visual_manifest.yaml
+  variants: variants.yaml
+  fallbacks: fallbacks.yaml
+  popupLayouts: popup_layouts.yaml
+  popupPriority: popup_priority.yaml
+  responsive: responsive.yaml
+  focalPoints: focal_points.yaml
+  cropping: cropping.yaml
+  thumbnails: thumbnails.yaml
+  cards: cards.yaml
+  hero: hero.yaml
+  itemVisuals: item_visuals.yaml
+  propertyVisuals: property_visuals.yaml
+  vehicleVisuals: vehicle_visuals.yaml
+  characterVisuals: character_visuals.yaml
+  avatar: avatar.yaml
+  showcase: showcase.yaml
+  dynamicShowcase: dynamic_showcase.yaml
+  newspaperVisuals: newspaper_visuals.yaml
+  newsVisuals: news_visuals.yaml
+  economyVisuals: economy_visuals.yaml
+  crimeVisuals: crime_visuals.yaml
+  politicalVisuals: political_visuals.yaml
+  socialVisuals: social_visuals.yaml
+  progressionVisuals: progression_visuals.yaml
+  municipalityVisuals: municipality_visuals.yaml
+  workVisuals: work_visuals.yaml
+  marketplaceVisuals: marketplace_visuals.yaml
+  rankingVisuals: ranking_visuals.yaml
+  contentIntegration: content_integration.yaml
+  soundIntegration: sound_integration.yaml
+  animation: animation.yaml
+  accessibility: accessibility.yaml
+  privacy: privacy.yaml
+  moderation: moderation.yaml
+  localization: localization.yaml
+  rights: rights.yaml
+  licensing: licensing.yaml
+  lifecycle: lifecycle.yaml
+  versioning: versioning.yaml
+  historicalContent: historical_content.yaml
+  snapshots: snapshots.yaml
+  performance: performance.yaml
+  preload: preload.yaml
+  lazyLoad: lazy_load.yaml
+  compression: compression.yaml
+  formats: formats.yaml
+  storage: storage.yaml
+  cdn: cdn.yaml
+  adminPicker: admin_picker.yaml
+  adminPreview: admin_preview.yaml
+  adminMapping: admin_mapping.yaml
+  adminSearch: admin_search.yaml
+  adminTags: admin_tags.yaml
+  generation: generation.yaml
+  aiVisuals: ai_visuals.yaml
+  approval: approval.yaml
+  analytics: analytics.yaml
+  testing: testing.yaml
+  qa: qa.yaml
+  governance: governance.yaml
+  placeholders: placeholders.yaml
+
+responsibilitySplit:
+  visualSystem: visualAssetId, asset metadata, source of truth
+  contextualVisuals: event mapping, popup pairing, hierarchy, fallbacks
+  domainSystems: semantic domain events — NOT decide image file
+  contentSystem: visualAssetId in content — NOT URL
+  soundDesign: soundCueId paired with visual family
+  adminContentStudio: visual picker, preview
+
+alignsWith:
+  note: |
+    Estende visual_main_v1 con contextual popup art e event asset mapping.
+    NON modifica pack approvati. NON implementa runtime.

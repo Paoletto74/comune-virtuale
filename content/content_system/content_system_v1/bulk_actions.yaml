@@ -1,0 +1,16 @@
+# =============================================================================
+# BULK ACTIONS — duplicate, archive, schedule, unpublish
+# =============================================================================
+
+BulkActions:
+  actions:
+    items:
+      - duplicate
+      - archive
+      - schedule
+      - unpublish
+  dangerous: require confirmation
+
+events:
+  items:
+    - BulkActionExecuted

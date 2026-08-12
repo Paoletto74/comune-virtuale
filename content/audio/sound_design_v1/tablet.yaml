@@ -1,0 +1,11 @@
+# =============================================================================
+# TABLET — coherent with mobile behavior
+# =============================================================================
+
+TabletAudio:
+  rule: comportamento coerente con mobile
+  ref: mobile.yaml
+
+events:
+  items:
+    - TabletAudioInitialized

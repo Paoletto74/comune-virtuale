@@ -1,0 +1,95 @@
+# =============================================================================
+# CONDITIONS — disponibilità, requisiti opzioni, modificatori
+# =============================================================================
+
+ConditionGroup:
+  schema:
+    conditionId: string
+    operator: AND | OR | NOT
+    clauses: []
+
+ConditionClause:
+  schema:
+    field: string
+    operator: eq | ne | gt | gte | lt | lte | in | exists
+    value: TBD
+    source: citizen | economy | work | property | mobility | progression | context
+
+availabilityConditions:
+  examples:
+    items:
+      - conditionId: happiness_low
+        clauses:
+          items:
+            - field: happiness
+              operator: lt
+              value: TBD
+              source: citizen
+      - conditionId: has_job
+        clauses:
+          items:
+            - field: currentJob
+              operator: exists
+              source: work
+      - conditionId: owns_property
+        clauses:
+          items:
+            - field: propertyCount
+              operator: gt
+              value: 0
+              source: property
+      - conditionId: cash_above_threshold
+        clauses:
+          items:
+            - field: cash
+              operator: gt
+              value: TBD
+              source: economy
+      - conditionId: criminal_track_min
+        clauses:
+          items:
+            - field: criminalTrack
+              operator: gte
+              value: TBD
+              source: progression
+
+historyConditions:
+  status: PROPOSTA_TECNICA
+  fields:
+    items:
+      - previousTaskId
+      - previousEventId
+      - causalChainId
+  example: |
+    Task A "Accetti prestito" → Task B "Creditore chiede saldo"
+    Task A "Rubi auto" → Task B "Polizia trova traccia"
+
+taskAvailability:
+  modes:
+    items:
+      - immediate
+      - time_window
+      - until_expiration
+      - once_only
+      - repeatable_with_cooldown
+      - conditional
+      - random_from_pool
+  cooldown: TBD
+  expiration: TBD
+
+antiGrind:
+  integration: progression_balance_v1
+  mechanisms:
+    items:
+      - cooldown
+      - diminishing_returns
+      - cap
+      - conditional_unlock
+  values: TBD
+
+modifierConditions:
+  status: PROPOSTA_TECNICA
+  rule: |
+    Effetti modificati da condizioni senza hardcoding.
+    Es. legge X: povero -2 felicità, ricco -10, proprietario -15.
+  exampleRef: effects.yaml#conditionalModifiers

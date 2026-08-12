@@ -1,0 +1,83 @@
+# =============================================================================
+# NOTIFICATION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: Notification System NON decide cosa succede nel mondo
+# Raccoglie eventi → informazioni comprensibili per il giocatore
+# NON modifica: tutti i moduli già approvati (solo consuma eventi)
+# Valori numerici: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: notification_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  economy: economy_main_v1
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  work: work_main_v1
+  property: property_main_v1
+  mobility: mobility_main_v1
+  task: task_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  eventSystem: prompt_4_action_pipeline
+  timeSystem: shared_time_service
+
+principles:
+  - WORLD EVENT ≠ NOTIFICATION — separazione netta
+  - Feed PERSONALI + GLOBALI — non duplicati
+  - Notification NON esegue azioni — ActionRef al sistema competente
+  - Personalizzazione per destinatario — stesso evento, notifiche diverse
+  - Privacy — no info private nel Global Feed
+  - Content-first templates — NO hardcode testi nel motore
+  - Client non autoritativo — audit + idempotenza
+  - NO AI / LLM / API esterne
+
+includes:
+  types: types.yaml
+  categories: categories.yaml
+  templates: templates.yaml
+  priorities: priorities.yaml
+  severity: severity.yaml
+  audience: audience.yaml
+  grouping: grouping.yaml
+  retention: retention.yaml
+  actions: actions.yaml
+  offline: offline.yaml
+  visibility: visibility.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  notification_core: [types, categories, templates]
+  delivery_module: [audience, priorities, severity]
+  lifecycle_module: [retention, grouping, offline]
+  action_module: [actions]
+
+responsibilitySplit:
+  notificationSystemDecides:
+    items:
+      - whether_event_generates_notification
+      - recipients
+      - personalization
+      - priority
+      - severity
+      - grouping
+      - retention
+      - visibility
+  otherSystemsDecide:
+    economy: economic_facts
+    work: employment_facts
+    property: property_facts
+    mobility: mobility_facts
+    criminal: criminal_facts
+    political: political_facts
+    business: business_facts
+    family: family_facts
+    progression: level_facts
+    task: task_outcome
+    time: timestamps
+    eventSystem: world_events

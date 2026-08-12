@@ -1,0 +1,19 @@
+# =============================================================================
+# THEMES — light, dark, system
+# =============================================================================
+
+Themes:
+  status: TBD
+  options:
+    items:
+      - light
+      - dark
+      - system
+
+rule: NON inventare palette definitiva — ref ui_main_v1
+
+ref: ui_main_v1, design_tokens.yaml
+
+events:
+  items:
+    - ThemeChanged

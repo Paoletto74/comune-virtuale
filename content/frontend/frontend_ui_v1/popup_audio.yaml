@@ -1,0 +1,22 @@
+# =============================================================================
+# POPUP AUDIO — sound settings, autoplay restrictions
+# =============================================================================
+
+PopupAudio:
+  DECISIONE APPROVATA: popup importanti possono avere suono
+  settings:
+    items:
+      - audio_enabled
+      - audio_disabled
+      - volume
+
+autoplay:
+  rule: |
+    NON forzare audio senza user consent/interazione quando browser lo impedisce.
+    Se audio disabilitato: popup completamente comprensibile senza suono.
+
+ref: sound.yaml
+
+events:
+  items:
+    - PopupSoundPlayed

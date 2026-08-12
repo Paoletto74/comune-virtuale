@@ -1,0 +1,63 @@
+# =============================================================================
+# MERCATO — LAVORO + MARKETPLACE
+# =============================================================================
+
+MarketSection:
+  DECISIONE APPROVATA: due aree principali
+  areas:
+    items:
+      - lavoro
+      - marketplace
+
+lavoro:
+  status: PROPOSTA TECNICA — Work System autorevole
+  mayShow:
+    items:
+      - available_jobs
+      - requirements
+      - salary
+      - schedule
+      - employer
+      - position
+      - application
+      - application_status
+
+marketplace:
+  status: PROPOSTA TECNICA — Marketplace autorevole
+  mayShow:
+    items:
+      - items
+      - properties
+      - vehicles
+      - goods
+      - rentals
+      - sales
+      - purchases
+  listingCard:
+    items:
+      - image
+      - name
+      - price
+      - sale_or_rent
+      - condition
+      - status
+  visualRule: Visual System fornisce immagini card
+
+marketplaceFilters:
+  status: PROPOSTA TECNICA — filtri futuri, NON tutti definiti V1
+  futureFilters:
+    items:
+      - category
+      - price
+      - sale
+      - rent
+      - condition
+      - rarity
+      - location
+      - other_criteria
+
+events:
+  items:
+    - MarketSectionViewed
+    - JobListingOpened
+    - MarketplaceListingOpened

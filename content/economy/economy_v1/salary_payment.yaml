@@ -1,0 +1,15 @@
+# =============================================================================
+# SALARY PAYMENT — economy_v1
+# =============================================================================
+
+---
+SalaryPayment:
+  flow:
+  - verify employment
+  - calculate
+  - create transaction
+  - credit account
+  - notification
+  payday: time_v1 boundary
+  failureNoFunds: TBD - no auto creation without classification
+  status: DECISIONE APPROVATA

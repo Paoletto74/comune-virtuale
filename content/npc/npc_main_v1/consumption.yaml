@@ -1,0 +1,50 @@
+# =============================================================================
+# CONSUMPTION — individuale e aggregata
+# =============================================================================
+
+ConsumptionDefinition:
+  schema:
+    definitionId: string
+    category: food | goods | services | housing | transport | other
+    segmentRef: string | null
+    frequency: daily | weekly | monthly
+    quantityRef: TBD
+    priceSensitivity: TBD
+
+NpcConsumption:
+  DECISIONE APPROVATA: NPC consumano cibo, beni, servizi
+  influences:
+    items:
+      - demand
+      - prices
+      - companies
+      - economy
+  owner: Marketplace/Economy gestiscono transazioni
+
+aggregateConsumption:
+  DECISIONE APPROVATA: |
+    NON 10.000 transazioni individuali se non necessario.
+    Generare aggregate consumption events.
+  example: Ogni giorno parte popolazione acquista cibo → PopulationConsumptionEvent
+
+PopulationConsumptionEvent:
+  schema:
+    eventType: PopulationConsumptionEvent
+    populationSegment: string
+    quantity: TBD
+    averagePrice: TBD
+    demand: TBD
+    category: string
+  consumer: event_main_v1 → economy_main_v1
+
+InflationResponse:
+  status: formule TBD — economy_balance
+  example: |
+    prezzi ↑ → consumi ↓ → risparmio ↑ → domanda cambia
+  rule: NPC System fornisce comportamento — Economy autorevole su prezzi
+
+events:
+  items:
+    - NpcConsumptionRecorded
+    - PopulationConsumptionEvent
+    - AggregateDemandUpdated

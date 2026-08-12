@@ -1,0 +1,16 @@
+# =============================================================================
+# WORK INTEGRATION — jobs, employment, NPC job
+# =============================================================================
+
+WorkIntegration:
+  owner: Work System — ref work_main_v1
+  applies:
+    items:
+      - business_jobs
+      - business_employees
+      - npc_job
+      - player_hired
+
+events:
+  items:
+    - WorkCityLifeIntegrated

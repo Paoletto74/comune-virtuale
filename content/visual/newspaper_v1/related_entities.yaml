@@ -1,0 +1,26 @@
+# =============================================================================
+# RELATED ENTITIES — article linking with privacy
+# =============================================================================
+
+RelatedEntities:
+  mayLink:
+    items:
+      - Citizen
+      - Property
+      - Job
+      - Business
+      - Municipality
+      - Event
+  entityLinking:
+    example: "Nuovo Sindaco links to public Mayor profile"
+  privacy:
+    rule: privacy rules sempre applicate - ref profile_main_v1/visibility.yaml
+
+gameplayToArticle:
+  rule: evento importante to notification plus optional article candidate - NON auto-publish
+
+ref: event_main_v1, gazzetta runtime
+
+events:
+  items:
+    - EntityLinkResolved

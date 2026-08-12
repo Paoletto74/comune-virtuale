@@ -1,0 +1,90 @@
+# =============================================================================
+# POLITICAL TRACK
+# =============================================================================
+# Collegato a progression_main_v1 trackId: political (defaultVisibility: PUBLIC)
+# Distinto da mainLevel, criminalTrack, professionalTrack, entrepreneurialTrack
+# =============================================================================
+
+PoliticalTrack:
+  schema:
+    citizenId: string
+    trackId: political
+    politicalLevel: number
+    politicalExperience: TBD
+    politicalInfluence: TBD
+    civicParticipation: TBD
+    milestoneIds: []
+    activeRoleId: string | null
+
+  DECISIONE APPROVATA: |
+    politicalTrack ≠ activePoliticalRole.
+    politicalLevel = 8, activeRole = none — possibile.
+    politicalLevel = 8, activeRole = mayor — possibile.
+    Ruolo ottenuto via Political System, NON Progression System.
+
+progressionInputs:
+  items:
+    - politicalExperience
+    - civicParticipation
+    - politicalInfluence
+    - milestones
+    - role_performance
+    - campaign_results
+    - legislative_activity
+  formula: TBD
+
+politicalExperience:
+  schema:
+    value: TBD
+  gainSources:
+    items:
+      - political_tasks
+      - civic_participation
+      - elections
+      - decisions
+      - milestones
+  formula: TBD
+
+politicalInfluence:
+  schema:
+    value: TBD
+  DECISIONE APPROVATA: |
+    Influenza ≠ denaro automaticamente.
+    Ricco può avere poca influenza; non ricco molta influenza.
+  influences:
+    items:
+      - civicParticipation
+      - reputation
+      - role
+      - results
+      - activities
+      - relationships
+      - progression_context
+  formula: TBD
+
+civicParticipation:
+  schema:
+    value: TBD
+  gainSources:
+    items:
+      - voting
+      - civic_activities
+      - public_decisions
+      - political_tasks
+      - events
+  affects: eligibility, campaign, influence
+  formula: TBD
+
+integration:
+  progression_main_v1:
+    trackId: political
+    defaultVisibility: PUBLIC
+  progression_balance_v1:
+    populationRef: population_context.yaml
+
+events:
+  items:
+    - PoliticalLevelChanged
+    - PoliticalExperienceGained
+    - PoliticalInfluenceChanged
+    - CivicParticipationChanged

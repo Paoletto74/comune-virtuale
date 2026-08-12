@@ -1,0 +1,18 @@
+# =============================================================================
+# FIXTURES — versioned test fixtures
+# =============================================================================
+
+Fixtures:
+  status: PROPOSTA TECNICA
+  purpose: stable examples for contract testing
+  categories:
+    items:
+      - commands
+      - queries
+      - events
+      - read_models
+      - errors
+
+events:
+  items:
+    - FixtureLoaded

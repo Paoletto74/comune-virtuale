@@ -1,0 +1,61 @@
+# =============================================================================
+# BANKRUPTCY — bancarotta aziendale vs personale
+# =============================================================================
+
+CompanyBankruptcy:
+  schema:
+    bankruptcyId: string
+    companyId: string
+    status: warning | proceedings | liquidation | closed | recovered
+    triggeredAt: timestamp
+    resolvedAt: timestamp | null
+
+  DECISIONE APPROVATA: |
+    COMPANY BANKRUPTCY ≠ PERSONAL BANKRUPTCY automatica.
+    Proprietario coinvolto se: debiti personali, garanzie prestiti, altre regole.
+
+triggers:
+  items:
+    - sustained_losses
+    - insolvency
+    - debt_exceeds_assets
+    - cash_depleted
+    - loan_default_company
+  values: TBD
+
+consequences:
+  items:
+    - value_loss
+    - debt
+    - layoffs
+    - closure
+    - forced_sale
+    - company_bankruptcy_status
+  NOT:
+    items:
+      - automatic_personal_bankruptcy
+      - owner_game_over
+
+personalInvolvement:
+  conditions:
+    items:
+      - personal_debt
+      - loan_guarantee
+      - future_rules
+  ref: economy_main_v1/bankruptcy.yaml
+
+recovery:
+  company: TBD
+  owner: economy recovery enabled — no game over
+
+noGuaranteedProfit:
+  DECISIONE APPROVATA: |
+    Possibili risultati: profitto, break-even, perdita, crescita, crisi, fallimento.
+    NON: azienda → denaro infinito.
+
+events:
+  items:
+    - CompanyBankruptcyWarning
+    - CompanyBankruptcyDeclared
+    - CompanyLiquidated
+    - CompanyClosed

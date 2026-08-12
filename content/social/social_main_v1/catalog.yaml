@@ -1,0 +1,98 @@
+# =============================================================================
+# PLAYER COMMUNICATION & SOCIAL INTERACTION MAIN CATALOG v1
+# =============================================================================
+# DECISIONE APPROVATA: NO free chat V1 — solo preset, azioni, richieste, reazioni
+# Gestisce: messaggi preimpostati, interazioni sociali, relazioni, privacy, limiti
+# NON modifica: tutti i moduli già approvati
+# Valori numerici/formule: TBD — NO AI/LLM runtime
+# =============================================================================
+
+catalogId: social_main_v1
+version: "1.0.0"
+schemaVersion: 1
+
+linkedSystems:
+  progressionMain: progression_main_v1
+  progressionBalance: progression_balance_v1
+  economy: economy_main_v1
+  banking: banking_main_v1
+  marketplace: marketplace_main_v1
+  work: work_main_v1
+  criminal: criminal_main_v1
+  political: political_main_v1
+  business: business_main_v1
+  family: family_main_v1
+  notification: notification_main_v1
+  eventSystem: event_main_v1
+  npc: npc_main_v1
+  timeSystem: time_main_v1
+  task: task_main_v1
+
+principles:
+  - NO free chat — nessun testo libero visibile ad altri giocatori V1
+  - Content-first — tutti i messaggi da PresetMessageDefinition
+  - NO free text database — solo riferimenti a definizioni catalogo
+  - Communication registra e presenta — NON decide conseguenze di mondo
+  - Effects/Event/Progression decidono sympathy, reputation, stat changes
+  - Event System autorevole su conseguenze ritardate
+  - Humor ironico configurabile via contenuto
+  - Privacy — interazioni private non pubbliche automaticamente
+  - Server authoritative — client non invia testo arbitrario
+  - Content-first + Admin Content Studio compatible
+  - NO AI conversazionale / LLM / API esterne
+
+includes:
+  messageCategories: message_categories.yaml
+  presetMessages: preset_messages.yaml
+  socialActions: social_actions.yaml
+  reactions: reactions.yaml
+  relationships: relationships.yaml
+  trust: trust.yaml
+  sympathy: sympathy.yaml
+  reputation: reputation.yaml
+  rankings: rankings.yaml
+  cooldowns: cooldowns.yaml
+  privacy: privacy.yaml
+  moderation: moderation.yaml
+  npcSocial: npc_social.yaml
+  events: events.yaml
+  notifications: notifications.yaml
+  integrations: integrations.yaml
+  placeholders: placeholders.yaml
+
+moduleOwnership:
+  communication_module: [presetMessages, messageCategories, reactions]
+  interaction_module: [socialActions, cooldowns, moderation]
+  relationship_module: [relationships, trust, sympathy, reputation]
+  governance_module: [privacy, rankings, placeholders]
+
+responsibilitySplit:
+  socialDecides:
+    items:
+      - preset_messages
+      - social_interactions
+      - relationship_representation
+      - interaction_history
+      - communication_permissions
+      - social_limits
+      - communication_privacy
+      - social_action_availability
+  bankingDecides: [money_transfer, gifts, loans]
+  marketplaceDecides: trades
+  economyDecides: economic_effects
+  criminalDecides: criminal_consequences
+  politicalDecides: political_consequences
+  npcDecides: npc_behavior
+  eventDecides: delayed_consequences
+  effectsDecide: stat_changes
+  timeDecides: cooldowns_durations_retention
+  notificationDecides: delivery_presentation
+  profileDecides: public_visibility
+  progressionDecides: level_title_effects
+  familyDecides: family_relationships
+
+alignsWith:
+  note: |
+    Complementa family_main_v1 (relazioni familiari), npc_main_v1 (NPC social),
+    progression_main_v1 (sympathy, popularity, reputation visibility).
+    NON modifica pack approvati.

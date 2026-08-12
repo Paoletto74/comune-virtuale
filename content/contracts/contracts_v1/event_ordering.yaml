@@ -1,0 +1,24 @@
+# =============================================================================
+# EVENT ORDERING — aggregate version sequencing
+# =============================================================================
+
+EventOrdering:
+  whenImportant: aggregateId + aggregateVersion
+  example:
+    sequence:
+      items:
+        - ItemListed.v1
+        - ItemPurchased.v2
+        - ItemSold.v3
+
+eventualConsistency:
+  acceptableFor:
+    items: [ranking_update, analytics, some_notifications]
+
+strongConsistency:
+  requiredFor:
+    items: [money, ownership, critical_permissions]
+
+events:
+  items:
+    - EventOrderViolationDetected

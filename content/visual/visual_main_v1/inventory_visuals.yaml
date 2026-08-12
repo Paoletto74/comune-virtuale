@@ -1,0 +1,27 @@
+# =============================================================================
+# INVENTORY VISUALS — thumbnail condiviso con Marketplace
+# =============================================================================
+
+InventoryVisual:
+  schema:
+    itemRef: string
+    visualAssetId: string
+    variant: thumbnail
+
+inventoryRowLayout:
+  status: PROPOSTA TECNICA
+  elements:
+    items:
+      - thumbnail
+      - item_name
+      - quantity
+      - condition
+
+rule: |
+  Inventory fornisce item, quantity, condition.
+  Visual System restituisce thumbnail.
+  Visual Asset condiviso con Marketplace.
+
+events:
+  items:
+    - InventoryVisualResolved

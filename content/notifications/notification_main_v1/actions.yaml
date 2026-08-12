@@ -1,0 +1,67 @@
+# =============================================================================
+# ACTIONABLE NOTIFICATIONS — riferimenti azione
+# =============================================================================
+
+ActionNotification:
+  schema:
+    notificationId: string
+    actionId: string
+    targetSystem: string
+    targetEntityId: string
+    expiresAt: "timestamp | null"
+    payloadRef: string
+    actionType: accept | reject | view | custom
+
+  DECISIONE APPROVATA: |
+    Notification System NON esegue l'azione.
+    Invia ActionRef al sistema competente.
+
+ActionRef:
+  schema:
+    actionId: string
+    targetSystem: string
+    targetEntityId: string
+    expiresAt: "timestamp | null"
+    payloadRef: string
+
+actionExamples:
+  status: demo_pattern
+  items:
+    - example: loan_proposal
+      actions:
+        items:
+          - ACCEPT
+          - REJECT
+      targetSystem: economy_main_v1
+    - example: job_application
+      actions:
+        items:
+          - ACCEPT
+          - REJECT
+      targetSystem: work_main_v1
+    - example: property_offer
+      actions:
+        items:
+          - VIEW
+          - ACCEPT
+          - REJECT
+      targetSystem: property_main_v1
+
+executionFlow:
+  flow: |
+    User taps action in UI
+    → Client sends intent (actionId)
+    → Target System validates (not expired, authorized)
+    → Target System executes
+    → Notification marked resolved
+  rule: Notification NON implementa logica business
+
+expiredActions:
+  rule: Client NON può eseguire action scadute — server rejects
+
+events:
+  items:
+    - ActionNotificationCreated
+    - ActionTaken
+    - ActionExpired
+    - ActionRejected

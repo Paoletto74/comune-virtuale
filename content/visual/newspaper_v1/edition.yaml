@@ -1,0 +1,26 @@
+# =============================================================================
+# EDITION — date, city, edition type
+# =============================================================================
+
+EditionSystem:
+  fields:
+    items:
+      - data
+      - ora
+      - citta
+      - edizione
+  examples:
+    items:
+      - "EDIZIONE SERALE"
+      - "Comune X"
+      - "14 MAGGIO 2026"
+  timeDisplay:
+    DECISIONE APPROVATA: |
+      Usare game date/game time — NON device timestamp come fonte autorevole.
+  sourceOfTruth: Time System
+
+ref: time_main_v1, frontend_ui_v1/formatting.yaml
+
+events:
+  items:
+    - EditionHeaderRendered

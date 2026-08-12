@@ -1,0 +1,114 @@
+# =============================================================================
+# PLACEHOLDERS — tutti TBD
+# =============================================================================
+
+placeholders:
+  MESSAGE_DAILY_LIMIT: TBD
+  INTERACTION_DAILY_LIMIT: TBD
+  REQUEST_DAILY_LIMIT: TBD
+  SOCIAL_ACTION_DAILY_LIMIT: TBD
+
+  COMPLIMENT_COOLDOWN: TBD
+  INSULT_COOLDOWN: TBD
+  GREETING_COOLDOWN: TBD
+  DEFAULT_MESSAGE_COOLDOWN: TBD
+
+  RELATIONSHIP_SCORE_MIN: TBD
+  RELATIONSHIP_SCORE_MAX: TBD
+  RELATIONSHIP_SCORE_FORMULA: TBD
+
+  TRUST_MIN: TBD
+  TRUST_MAX: TBD
+  TRUST_FORMULA: TBD
+
+  SYMPATHY_CONTRIBUTION_FORMULA: TBD
+  REPUTATION_CONTRIBUTION_FORMULA: TBD
+  SOCIAL_SCORE_FORMULA: TBD
+
+  RANKING_MOST_SYMPATHETIC_FORMULA: TBD
+  RANKING_MOST_INFLUENTIAL_FORMULA: TBD
+  RANKING_MOST_POPULAR_FORMULA: TBD
+  RANKING_MOST_RELIABLE_FORMULA: TBD
+  RANKING_MOST_HATED_FORMULA: TBD
+
+  MESSAGE_HISTORY_RETENTION_DAYS: TBD
+  INTERACTION_HISTORY_RETENTION_DAYS: TBD
+
+  BLOCK_RULES_DEFINITIVE: TBD
+  MUTE_RULES_DEFINITIVE: TBD
+
+  RATE_LIMIT_MESSAGES_PER_MINUTE: TBD
+  RATE_LIMIT_INTERACTIONS_PER_MINUTE: TBD
+
+  dependsOnSystems:
+    items:
+      - progression_main_v1
+      - progression_balance_v1
+      - banking_main_v1
+      - marketplace_main_v1
+      - work_main_v1
+      - criminal_main_v1
+      - political_main_v1
+      - family_main_v1
+      - notification_main_v1
+      - event_main_v1
+      - npc_main_v1
+      - time_main_v1
+      - task_main_v1
+
+  futurePack:
+    note: social_balance_v1 — formule sympathy/trust/ranking, limiti numerici — DA DEFINIRE
+
+  contentPackNote: |
+    social_main_v1 — comunicazione controllata senza free chat.
+    Pack approvati NON modificati.
+
+  security:
+    DECISIONE APPROVATA: client NON può
+    clientCannot:
+      items:
+        - send_arbitrary_text
+        - modify_messageDefinition
+        - falsify_sender
+        - falsify_recipient
+        - modify_social_score
+        - modify_relationship
+        - bypass_cooldown
+        - generate_unauthorized_interactions
+
+  audit:
+    DECISIONE APPROVATA:
+    fields:
+      items:
+        - interactionId
+        - actorId
+        - targetId
+        - messageDefinitionId
+        - actionType
+        - timestamp
+        - worldTime
+        - source
+        - outcome
+
+  idempotency:
+    DECISIONE APPROVATA: proteggere contro
+    threats:
+      items:
+        - double_send
+        - double_reward
+        - double_relationship_change
+        - replay
+        - race_conditions
+
+  offline:
+    DECISIONE APPROVATA: |
+      Durante offline: interazioni, regali, prestiti, preset messages, conseguenze sociali.
+      Al login: catch-up → events → notifications.
+
+  performance:
+    status: PROPOSTA TECNICA
+    uses:
+      items:
+        - event_driven
+        - aggregate_social_statistics
+        - batching

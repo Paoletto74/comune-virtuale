@@ -1,0 +1,13 @@
+# =============================================================================
+# GENDER — sex/gender field per Profile System policy
+# =============================================================================
+
+Gender:
+  rule: campo secondo policy Profile System
+  binary: NON assumere che debba essere binario
+  values: DA DEFINIRE / TBD
+  ref: profile_main_v1
+
+events:
+  items:
+    - GenderSelected

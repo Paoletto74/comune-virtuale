@@ -1,0 +1,41 @@
+# =============================================================================
+# GLOBAL RANKINGS — usuraio, benefattore
+# =============================================================================
+
+GlobalRankings:
+  status: PROPOSTA TECNICA — dati aggregati, policy pubbliche
+  rule: NON esporre singole transazioni automaticamente
+  categories:
+    items:
+      - richest
+      - poorest
+      - highest_liquidity
+      - highest_debt
+      - top_benefactor
+      - top_lender
+      - usurer_ironic
+
+Usurer:
+  status: PROPOSTA TECNICA — classifica ironica
+  basedOn:
+    items:
+      - loan_count
+      - interest_rates
+      - volume_lent
+      - return_from_loans
+  rule: NON accusa legale automatica
+  formula: TBD
+
+Benefactor:
+  status: PROPOSTA TECNICA
+  basedOn:
+    items:
+      - gift_value
+      - negative_interest_loans
+      - economic_help
+      - configured_behaviors
+  formula: TBD
+
+events:
+  items:
+    - RankingUpdated

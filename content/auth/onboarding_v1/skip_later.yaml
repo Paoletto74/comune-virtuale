@@ -1,0 +1,17 @@
+# =============================================================================
+# SKIP LATER — optional fields
+# =============================================================================
+
+SkipLater:
+  optionalFields: SKIP
+  later: "Lo faccio dopo."
+  applies:
+    items:
+      - birthday
+      - fun_facts
+      - avatar_customization
+      - guided_tour
+
+events:
+  items:
+    - OnboardingStepSkipped

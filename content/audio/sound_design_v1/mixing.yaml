@@ -1,0 +1,19 @@
+# =============================================================================
+# MIXING — master, SFX, notification, popup mixes
+# =============================================================================
+
+Mixing:
+  mixes:
+    items:
+      - master_mix
+      - SFX_mix
+      - notification_mix
+      - popup_mix
+  future:
+    items:
+      - ambient_mix
+      - music_mix
+
+events:
+  items:
+    - AudioMixApplied
