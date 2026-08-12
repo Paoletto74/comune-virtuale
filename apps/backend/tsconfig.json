@@ -5,8 +5,22 @@
     "rootDir": "./src",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "paths": {}
+    "paths": {
+      "@comune-virtuale/shared": [
+        "packages/shared/dist/index.d.ts"
+      ],
+      "@comune-virtuale/shared/*": [
+        "packages/shared/dist/*"
+      ]
+    },
+    "baseUrl": "../.."
   },
-  "include": ["src/**/*"],
-  "references": [{ "path": "../../packages/shared" }]
+  "include": [
+    "src/**/*"
+  ],
+  "references": [
+    {
+      "path": "../../packages/shared"
+    }
+  ]
 }
